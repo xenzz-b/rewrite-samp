@@ -11,7 +11,7 @@ new STREAMER_TAG_OBJECT:TDMMaps;
 
 public OnFilterScriptInit() 
 {
-	//Nexston Roleplay
+	//Vertex Roleplay
 	TDMMaps = CreateDynamicObject(18981, 53.135257, 2465.459228, -13.232971, 0.000000, 90.000000, 0.000000, -1, 7, -1, 200.00, 200.00); 
 	SetDynamicObjectMaterial(TDMMaps, 0, 14789, "ab_sfgymmain", "gun_ceiling2_128", 0x00000000);
 	TDMMaps = CreateDynamicObject(18981, 78.125198, 2465.459228, -13.232971, 0.000000, 90.000000, 0.000000, -1, 7, -1, 200.00, 200.00); 
@@ -2846,7 +2846,7 @@ public OnFilterScriptInit()
 	TDMMaps = CreateDynamicObject(2789, -1072.526367, 413.896209, 16.025890, 0.000000, 0.000000, 315.000000, 24, 0 , -1, 200.00, 200.00); 
 	SetDynamicObjectMaterialText(TDMMaps, 0, "CRAZY-SEA", 90, "Arial", 50, 1, 0xFF000000, 0x00000000, 1);
 	TDMMaps = CreateDynamicObject(2789, -1072.494262, 413.864440, 15.105880, 0.000000, 0.000000, 315.000000, 24, 0 , -1, 200.00, 200.00); 
-	SetDynamicObjectMaterialText(TDMMaps, 0, "MAPPINGAN INI MILIK Nexston", 90, "Arial", 20, 1, 0xFF000000, 0x00000000, 1);
+	SetDynamicObjectMaterialText(TDMMaps, 0, "MAPPINGAN INI MILIK Vertex", 90, "Arial", 20, 1, 0xFF000000, 0x00000000, 1);
 	TDMMaps = CreateDynamicObject(2789, -1072.494262, 413.864440, 14.425874, 0.000000, 0.000000, 315.000000, 24, 0 , -1, 200.00, 200.00); 
 	SetDynamicObjectMaterialText(TDMMaps, 0, "ADA YG MIRIP = NYOLONG", 90, "Arial", 20, 1, 0xFF000000, 0x00000000, 1);
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////

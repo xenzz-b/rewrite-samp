@@ -236,7 +236,7 @@ Vehicle_ShowBagasi(playerid, vehid)
     if(count == 0) 
 	{
         SwitchVehicleBoot(PlayerVehicle[vehid][pVehPhysic], false);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, sprintf("Bagasi Kendaraan "YELLOW"%s "Nexston"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, sprintf("Bagasi Kendaraan "YELLOW"%s "Vertex"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
         "Isi bagasi kendaraan ini kosong!", "Tutup", "");
     } 
 	else 
@@ -1323,11 +1323,11 @@ public LoadPlayerFactVeh(playerid)
 						SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][5], 0, "EMT", 140, "Arial", 55, 1, -282565, 0, 1);
 						AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][5], PlayerFactionVehicle[playerid][FACTION_LSFD], 1.290, -2.910, 0.950, 900.000, 1260.000, 360.000);
 						FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6] = CreateDynamicObject(18667,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
-						SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6], 0, "Kota Nexston", 140, "Arial", 31, 1, -282565, 0, 1);
+						SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6], 0, "Kota Vertex", 140, "Arial", 31, 1, -282565, 0, 1);
 						AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6], PlayerFactionVehicle[playerid][FACTION_LSFD], -1.289, -2.900, 0.750, 0.000, 0.000, 0.000);
 						FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][7] = CreateDynamicObject(18667,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
 						SetDynamicObjectMaterial(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][7], 0, 19267, "mapmarkers", "red-2", 0);
-						SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][7], 0, "Kota Nexston", 140, "Arial", 31, 1, -282565, 0, 1);
+						SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][7], 0, "Kota Vertex", 140, "Arial", 31, 1, -282565, 0, 1);
 						AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][7], PlayerFactionVehicle[playerid][FACTION_LSFD], 1.291, -2.900, 0.770, 0.000, 0.000, 540.000);
 						FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][8] = CreateDynamicObject(2643,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
 						SetDynamicObjectMaterial(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][8], 0, 19655, "mattubes", "greendirt1", 0);
@@ -1336,7 +1336,7 @@ public LoadPlayerFactVeh(playerid)
 						SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][9], 0, "TECHNICIAN", 140, "Arial", 25, 1, -282565, 0, 1);
 						AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][9], PlayerFactionVehicle[playerid][FACTION_LSFD], 0.019, -1.940, 1.710, 360.000, 90.000, 90.000);
 						FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][10] = CreateDynamicObject(18667,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
-						SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][10], 0, "Nexston", 140, "Arial", 75, 1, -16751616, 0, 1);
+						SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][10], 0, "Vertex", 140, "Arial", 75, 1, -16751616, 0, 1);
 						AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][10], PlayerFactionVehicle[playerid][FACTION_LSFD], 0.009, -2.451, 1.720, 0.000, 90.000, 90.000);
 						FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][11] = CreateDynamicObject(11701,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
 						AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][11], PlayerFactionVehicle[playerid][FACTION_LSFD], 0.001, 0.890, 1.231, 0.000, 0.000, 0.000);
@@ -1353,18 +1353,18 @@ public LoadPlayerFactVeh(playerid)
 						AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][2], PlayerFactionVehicle[playerid][FACTION_LSFD], -0.280, -3.168, 0.140, 0.000, 0.000, 450.000);
 						FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][3] = CreateDynamicObject(18667,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
 						SetDynamicObjectMaterial(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][3], 0, 19267, "mapmarkers", "red-2", 0);
-						SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][3], 0, "Kota Nexston", 140, "Arial", 31, 1, -282565, 0, 1);
+						SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][3], 0, "Kota Vertex", 140, "Arial", 31, 1, -282565, 0, 1);
 						AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][3], PlayerFactionVehicle[playerid][FACTION_LSFD], -0.300, -3.169, 0.000, 0.000, 0.000, 90.000);
 						FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][4] = CreateDynamicObject(18667,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
 						SetDynamicObjectMaterial(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][4], 0, 19267, "mapmarkers", "red-2", 0);
-						SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][4], 0, "Kota Nexston", 140, "Arial", 31, 1, -282565, 0, 1);
+						SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][4], 0, "Kota Vertex", 140, "Arial", 31, 1, -282565, 0, 1);
 						AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][4], PlayerFactionVehicle[playerid][FACTION_LSFD], -1.201, -0.318, -0.210, 0.000, 0.000, 0.000);
 						FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][5] = CreateDynamicObject(18667,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
 						SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][5], 0, "EMT", 140, "Arial", 155, 1, -282565, 0, 1);
 						AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][5], PlayerFactionVehicle[playerid][FACTION_LSFD], 1.200, -0.216, 0.050, 0.000, 0.000, 180.000);
 						FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6] = CreateDynamicObject(18667,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
 						SetDynamicObjectMaterial(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6], 0, 19267, "mapmarkers", "red-2", 0);
-						SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6], 0, "Kota Nexston", 140, "Arial", 31, 1, -282565, 0, 1);
+						SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6], 0, "Kota Vertex", 140, "Arial", 31, 1, -282565, 0, 1);
 						AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6], PlayerFactionVehicle[playerid][FACTION_LSFD], 1.199, -0.228, -0.210, 0.000, 0.000, 180.000);
 					}
 				}

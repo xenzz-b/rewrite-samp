@@ -157,12 +157,12 @@ Show_SriMersingRankManage(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "SriMersingSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "SriMersingSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
     }
     return 1;
 }
@@ -221,12 +221,12 @@ stock ShowSriMersingKick(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "SriMersingKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "SriMersingKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", "Faction ini tidak memiliki anggota!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", "Faction ini tidak memiliki anggota!", "Tutup", "");
     }
     return 1;
 }
@@ -272,7 +272,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 
         if(count > 0) 
 		{
-            Dialog_Show(playerid, "FactionPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+            Dialog_Show(playerid, "FactionPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
             frmxt, "Pilih", "Batal");
 		}
     }
@@ -308,12 +308,12 @@ Dialog:SriMersingVault(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Lemari Sri Mersing", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Lemari Sri Mersing", 
                 "Anda tidak memiliki barang yang dapat disimpan!", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "SriMersingDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Lemari Sri Mersing", str, "Pilih", "Batal");
+                Dialog_Show(playerid, "SriMersingDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Lemari Sri Mersing", str, "Pilih", "Batal");
             }
         }
         case 1: //withdraw
@@ -367,7 +367,7 @@ Dialog:SriMersingDeposit(playerid, response, listitem, inputtext[])
 	}
     new shstr[528];
     format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Mohon masukkan jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][listitem]][invItem], InventoryData[playerid][PlayerListitem[playerid][listitem]][invQuantity]);
-    Dialog_Show(playerid, "SriMersingIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Sri Mersing", 
+    Dialog_Show(playerid, "SriMersingIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Sri Mersing", 
     shstr, "Input", "Batal");
     return 1;
 }
@@ -392,7 +392,7 @@ Dialog:SriMersingIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nTidak dapat dikosongkan!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "SriMersingIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Sri Mersing", 
+        Dialog_Show(playerid, "SriMersingIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Sri Mersing", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -401,7 +401,7 @@ Dialog:SriMersingIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nMohon diisi hanya angka!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "SriMersingIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Sri Mersing", 
+        Dialog_Show(playerid, "SriMersingIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Sri Mersing", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -410,7 +410,7 @@ Dialog:SriMersingIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nJumlah tidak valid!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "SriMersingIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Sri Mersing", 
+        Dialog_Show(playerid, "SriMersingIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Sri Mersing", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -507,7 +507,7 @@ Dialog:SriMersingWithdraw(playerid, response, listitem, inputtext[])
         AccountData[playerid][pTempValue] = listitem;
         new shstr[528];
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][listitem]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][listitem]][factionBrankasQuant]);
-        Dialog_Show(playerid, "SriMersingOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Sri Mersing", 
+        Dialog_Show(playerid, "SriMersingOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Sri Mersing", 
         shstr, "Input", "Batal");
     }
     return 1;
@@ -534,7 +534,7 @@ Dialog:SriMersingOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Tidak dapat dikosongkan!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "SriMersingOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Sri Mersing", 
+        Dialog_Show(playerid, "SriMersingOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Sri Mersing", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -543,7 +543,7 @@ Dialog:SriMersingOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon diisi hanya angka!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "SriMersingOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Sri Mersing", 
+        Dialog_Show(playerid, "SriMersingOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Sri Mersing", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -552,7 +552,7 @@ Dialog:SriMersingOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Jumlah tidak valid!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "SriMersingOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Sri Mersing", 
+        Dialog_Show(playerid, "SriMersingOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Sri Mersing", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -658,7 +658,7 @@ Dialog:SriMersingLocker(playerid, response, listitem, inputtext[])
         }
         case 1: //baju SriMersing
         {
-            Dialog_Show(playerid, "SriMersingUniform", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Sri Mersing Uniform", 
+            Dialog_Show(playerid, "SriMersingUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Sri Mersing Uniform", 
             "Sri Mersing 1\n\
             "GRAY"Sri Mersing 2", "Pilih", "Batal");
         }
@@ -705,10 +705,10 @@ Dialog:SriMersingBosDesk(playerid, response, listitem, inputtext[])
             if(count == 0)
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Undang Faction", "Tidak ada pemain terdekat!", "Tutup", "");
+                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Undang Faction", "Tidak ada pemain terdekat!", "Tutup", "");
             }
 
-            Dialog_Show(playerid, "SriMersingInviteConfirm", DIALOG_STYLE_TABLIST, ""Nexston"Nexston Roleplay "WHITE"- Undang Faction", frmxt, "Pilih", "Batal");
+            Dialog_Show(playerid, "SriMersingInviteConfirm", DIALOG_STYLE_TABLIST, ""Vertex"Vertex Roleplay "WHITE"- Undang Faction", frmxt, "Pilih", "Batal");
         }
         case 1: //kelola jabatan
         {
@@ -775,12 +775,12 @@ Dialog:SriMersingBosDesk(playerid, response, listitem, inputtext[])
                     strcat(string, "\n");
                 }
 
-                Dialog_Show(playerid, "SriMersingSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
+                Dialog_Show(playerid, "SriMersingSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
             }
             else
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
             }
         }
         case 2: //kick
@@ -793,16 +793,16 @@ Dialog:SriMersingBosDesk(playerid, response, listitem, inputtext[])
             new rtx[158];
             format(rtx, sizeof(rtx), "Saldo Sri Mersing saat ini ialah:\n\
             "DARKGREEN"$%s", FormatMoney(SriMersingMoneyVault));
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Sri Mersing Balance", rtx, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Sri Mersing Balance", rtx, "Tutup", "");
         }
         case 4: //deposit saldo
         {
-            Dialog_Show(playerid, "SriMersingDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Sri Mersing Deposit", 
+            Dialog_Show(playerid, "SriMersingDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Sri Mersing Deposit", 
             "Mohon masukkan berapa jumlah deposit:", "Input", "Batal");
         }
         case 5: //tarik saldo
         {
-            Dialog_Show(playerid, "SriMersingWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Sri Mersing Withdraw", 
+            Dialog_Show(playerid, "SriMersingWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Sri Mersing Withdraw", 
             "Mohon masukkan berapa jumlah withdraw:", "Input", "Batal");
         }
     }
@@ -831,7 +831,7 @@ Dialog:SMSetRankConfirm(playerid, response, listitem, inputtext[])
     if(AccountData[playerid][pFaction] != FACTION_SRIMERSING) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Sri Mersing Resto!");
     if(AccountData[playerid][pFactionRank] < 6) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimal rank faction adalah Supervisor untuk akses ini!");
 
-    if(isnull(inputtext)) return Dialog_Show(playerid, "SMSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "SMSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Tidak dapat dikosongkan!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. Magang\n\
@@ -845,7 +845,7 @@ Dialog:SMSetRankConfirm(playerid, response, listitem, inputtext[])
     9. Chief Officer\n\
     10. Chief Executive", "Set", "Batal");
     
-    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "SMSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "SMSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Masukkan hanya angka!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. Magang\n\
@@ -859,7 +859,7 @@ Dialog:SMSetRankConfirm(playerid, response, listitem, inputtext[])
     9. Chief Officer\n\
     10. Chief Executive", "Set", "Batal");
 
-    if(strval(inputtext) < 1 || strval(inputtext) > 10) return Dialog_Show(playerid, "SMSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(strval(inputtext) < 1 || strval(inputtext) > 10) return Dialog_Show(playerid, "SMSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Tidak dapat diisi dibawah 1 atau lebih tinggi dari jabatan anda!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. Magang\n\
@@ -898,16 +898,16 @@ Dialog:SriMersingDepositCash(playerid, response, listitem, inputtext[])
     
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "SriMersingDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Sri Mersing Deposit",
+        return Dialog_Show(playerid, "SriMersingDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Sri Mersing Deposit",
         "Error: Tidak dapat dikosongkan!\n\
         Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "SriMersingDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Sri Mersing Deposit",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "SriMersingDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Sri Mersing Deposit",
         "Error: Masukkan hanya angka!\n\
         Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "SriMersingDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Sri Mersing Deposit",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "SriMersingDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Sri Mersing Deposit",
     "Error: Invalid amount, you can't deposit less than $1!\n\
     Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
 
@@ -931,16 +931,16 @@ Dialog:SriMersingWithdrawCash(playerid, response, listitem, inputtext[])
 
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "SriMersingWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Sri Mersing Withdraw",
+        return Dialog_Show(playerid, "SriMersingWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Sri Mersing Withdraw",
         "Error: Tidak dapat dikosongkan!\n\
        Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "SriMersingWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Sri Mersing Withdraw",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "SriMersingWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Sri Mersing Withdraw",
         "Error: Masukkan hanya angka!\n\
        Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "SriMersingWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Sri Mersing Withdraw",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "SriMersingWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Sri Mersing Withdraw",
     "Error: Jumlah tidak valid, anda tidak dapat withdraw kurang dari $1!\n\
    Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
 
@@ -968,7 +968,7 @@ Dialog:SriMersingGarage(playerid, response, listitem, inputtext[])
         {
             if(PlayerFactionVehicle[playerid][FACTION_SRIMERSING] != INVALID_VEHICLE_ID) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda telah mengeluarkan kendaraan, simpan terlebih dahulu!");
 
-            Dialog_Show(playerid, "SriMersingGarageTakeout", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Keluarkan Kendaraan", 
+            Dialog_Show(playerid, "SriMersingGarageTakeout", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Keluarkan Kendaraan", 
             "Hotdog\n\
             "GRAY"Pizzaboy", "Pilih", "Batal");
         }
@@ -1088,12 +1088,12 @@ Dialog:SriMersingPanel(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
                 "This person has no invoices.", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
                 xjjs, "Tutup", "");
             }
             NearestSingle[playerid] = INVALID_PLAYER_ID;
@@ -1106,7 +1106,7 @@ Dialog:SriMersingPanel(playerid, response, listitem, inputtext[])
     		    ApplyAnimation(playerid, "INT_SHOP","shop_loop", 4.1, true, false, false, true, 0, true);
             }
 
-            Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Invoice", 
+            Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Invoice", 
             "Mohon masukkan nama dari invoice ini:", "Input", "Batal");
         }
         case 2: //Seret
@@ -1220,7 +1220,7 @@ Dialog:SriMersingSetRank(playerid, response, listitem, inputtext[])
             cache_get_value_name_int(0, "Char_FactionRank", AccountData[playerid][pTempSQLFactRank]);
             if(AccountData[playerid][pID] == AccountData[playerid][pTempSQLFactMemberID]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak dapat menetapkan rank anda sendiri!");
             if(AccountData[playerid][pTempSQLFactRank] >= AccountData[playerid][pFactionRank]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak dapat menetapkan rank rekan yang sejajar/lebih tinggi dari anda!");
-            Dialog_Show(playerid, "SMSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+            Dialog_Show(playerid, "SMSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
             "Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
             1. Magang\n\
             2. Junior\n\
@@ -1318,7 +1318,7 @@ Dialog:SriMersingKickMember(playerid, response, listitem, inputtext[])
             Name: %s\n\
             Rank: %s\n\
             Last Online: %s", fckname, PARVRank[fckrank], fcklastlogin);
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", kckstr, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", kckstr, "Tutup", "");
         }
     }
     return 1;

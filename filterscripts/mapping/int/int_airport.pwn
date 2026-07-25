@@ -208,7 +208,7 @@ CreateAirportLSInt()
     SetDynamicObjectMaterial(arrtxt, 0, 2423, "cj_ff_counters", "CJ_Laminate1", 0x00000000);
     arrtxt = CreateDynamicObject(8324, 1772.738891, -2517.475097, 26.256921, -0.000007, 0.000000, -89.399986, 60, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(arrtxt, 0, 19480, "signsurf", "sign", 0x00000000);
-    SetDynamicObjectMaterialText(arrtxt, 1, "Nexston INTERNATIONAL AIRPORT", 120, "Calibri", 20, 1, 0xFF333333, 0x00000000, 1);
+    SetDynamicObjectMaterialText(arrtxt, 1, "Vertex INTERNATIONAL AIRPORT", 120, "Calibri", 20, 1, 0xFF333333, 0x00000000, 1);
     arrtxt = CreateDynamicObject(1297, 1767.983642, -2525.215087, 31.286954, 0.000000, 171.999984, -179.999938, 60, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(arrtxt, 0, 19480, "signsurf", "sign", 0x00000000);
     arrtxt = CreateDynamicObject(18766, 1745.960815, -2534.542968, 16.426906, 0.000004, 90.000007, 44.999988, 60, 0, -1, 200.00, 200.00); 
@@ -1412,7 +1412,7 @@ CreateAirportLSInt()
     arrtxt = CreateDynamicObject(19861, 1737.078857, -2514.944335, 18.796915, 0.000022, 0.000000, 89.999931, 60, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(arrtxt, 0, "International Airport", 130, "Segoe UI", 55, 1, 0xFFBBBBBB, 0x00000000, 1);
     arrtxt = CreateDynamicObject(19861, 1737.078857, -2514.944335, 18.126909, 0.000022, 0.000000, 89.999931, 60, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(arrtxt, 0, "Nexston", 130, "Segoe UI", 125, 1, 0xFFBBBBBB, 0x00000000, 1);
+    SetDynamicObjectMaterialText(arrtxt, 0, "Vertex", 130, "Segoe UI", 125, 1, 0xFFBBBBBB, 0x00000000, 1);
     arrtxt = CreateDynamicObject(19373, 1737.007324, -2509.244628, 21.346916, -0.000007, 0.000052, 0.000022, 60, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(arrtxt, 0, 16640, "a51", "scratchedmetal", 0xFF555555);
     arrtxt = CreateDynamicObject(19128, 1737.099365, -2509.826660, 20.546913, 89.999992, 182.939514, -92.939422, 60, 0, -1, 200.00, 200.00); 

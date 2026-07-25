@@ -8,7 +8,7 @@ CreateOlympusExt()
     OLYMPUSXT = CreateDynamicObject(2789, 1541.463745, -2154.218261, 85.071319, -0.000007, 0.000014, 0.000007, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(OLYMPUSXT, 0, "DEWA", 90, "Arial", 60, 1, 0xFFFFFFFF, 0x00000000, 1);
     OLYMPUSXT = CreateDynamicObject(2789, 1546.273803, -2154.218261, 85.071319, -0.000007, 0.000014, 0.000007, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(OLYMPUSXT, 0, "Nexston", 90, "Arial", 60, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(OLYMPUSXT, 0, "Vertex", 90, "Arial", 60, 1, 0xFFFFFFFF, 0x00000000, 1);
     OLYMPUSXT = CreateDynamicObject(19377, 1561.900756, -2148.502929, 80.649627, 0.000000, 0.000022, -0.000068, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(OLYMPUSXT, 0, 16338, "dam_genroom", "dam_genwin", 0x00000000);
     OLYMPUSXT = CreateDynamicObject(19377, 1561.900756, -2138.871582, 80.649627, 0.000000, 0.000022, -0.000068, 0, 0, -1, 200.00, 200.00); 

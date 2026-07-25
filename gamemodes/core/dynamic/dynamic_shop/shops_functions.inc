@@ -178,7 +178,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                     {
                         case 1: //minimarket
                         {
-                            Dialog_Show(playerid, "ShopCatalog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Nexston"Nexston Roleplay "WHITE"- 24/7 Shop.%d", sid), 
+                            Dialog_Show(playerid, "ShopCatalog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Vertex"Vertex Roleplay "WHITE"- 24/7 Shop.%d", sid), 
                             "Nama Item\tHarga\n\
                             Nasi Uduk\t$150\n\
                             "GRAY"Air Mineral\t"GRAY"$150\n\
@@ -205,7 +205,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                         }
                         case 3: //electronic
                         {
-                            Dialog_Show(playerid, "ElectronicCatalog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Nexston"Nexston Roleplay "WHITE"- 24/7 Shop.%d", sid), 
+                            Dialog_Show(playerid, "ElectronicCatalog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Vertex"Vertex Roleplay "WHITE"- 24/7 Shop.%d", sid), 
                             "Nama Item\tHarga\n\
                             Iphone 16 Pro(Smartphone)\t$1,500\n\
                             "GRAY"Radio\t"GRAY"$500\n\
@@ -217,7 +217,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                         {
                             if(AccountData[playerid][pFirearmLicTime] == 0) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki Carry Concealed Weapon License!");
                             
-                            Dialog_Show(playerid, "AmmunationCatalog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Ammunation", 
+                            Dialog_Show(playerid, "AmmunationCatalog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Ammunation", 
                             "Nama Item\tPeluru\tHarga\n\
                             Katana\t-\t$10,000\n\
                             "GRAY"Silenced Pistol\t"GRAY"250\t$15,000", "Beli", "Batal");

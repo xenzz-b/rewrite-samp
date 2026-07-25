@@ -2,7 +2,7 @@ YCMD:twhelp(playerid, params[], help)
 {
     if(!AccountData[playerid][pWitch]) return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- The Witch", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- The Witch", 
     "Rich\tDescription\n\
     /count\tGet server statistics\n\
     "GRAY"/a\t"GRAY"Access staff chat\n\

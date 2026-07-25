@@ -178,7 +178,7 @@ YCMD:ahelp(playerid, params[], help)
     if (AccountData[playerid][pAdminDuty] == false)
         return PermissionErrorDuty(playerid);
 
-    Dialog_Show(playerid, "AdminHelp", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Admin Help",
+    Dialog_Show(playerid, "AdminHelp", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Admin Help",
     ""GRAY"Founder\nCo Founder\n"GRAY"Management\nAdmin IV\n"GRAY"Admin III\nAdmin II\n"GRAY"Admin I\nHelper\n"GRAY"Vlounter\nAdmin Girl\n"GRAY"Handle Badside\nHandle Goodside",
     "Pilih", "Batal");
     return 1;
@@ -231,9 +231,9 @@ YCMD:takeoutveh(playerid, params[], help)
         }
     }
     if (found)
-        Dialog_Show(playerid, "AdmTakeoutVeh", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Keluarkan Kendaraan", msg2, "Pilih", "Tutup");
+        Dialog_Show(playerid, "AdmTakeoutVeh", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Keluarkan Kendaraan", msg2, "Pilih", "Tutup");
     else
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Keluarkan Kendaraan", "Tidak ada kendaraan milik pemain tersebut yang dapat dikeluarkan!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Keluarkan Kendaraan", "Tidak ada kendaraan milik pemain tersebut yang dapat dikeluarkan!", "Tutup", "");
 
     AccountData[playerid][pTempValue] = otherid;
     return 1;
@@ -953,11 +953,11 @@ YCMD:jaillist(playerid, params[], help)
     }
     if (count > 0)
     {
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Jail Player", line3, "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Jail Player", line3, "Tutup", "");
     }
     else
     {
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Jail Player", "No players currently jailed!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Jail Player", "No players currently jailed!", "Tutup", "");
     }
 
     return 1;
@@ -1143,24 +1143,24 @@ public Spefunction(playerid, otherid)
 		if (GetPlayerState(otherid) == PLAYER_STATE_DRIVER)
 	    {
             format(str, sizeof(str), "%s (%d)", ReturnName(otherid), otherid);
-            PlayerTextDrawSetString(playerid, SpecNSRP[playerid][1], str);
+            PlayerTextDrawSetString(playerid, SpecVRP[playerid][1], str);
 
             format(str, sizeof(str), "%.1f - %.1f", health, armour);
-            PlayerTextDrawSetString(playerid, SpecNSRP[playerid][2], str);
+            PlayerTextDrawSetString(playerid, SpecVRP[playerid][2], str);
             for(new i = 0; i < 11; i++)
-                PlayerTextDrawShow(playerid, SpecNSRP[playerid][i]);
+                PlayerTextDrawShow(playerid, SpecVRP[playerid][i]);
 
 			SendAdm(playerid, "You are spectating %s(%i) who is currently driving %s(%d).", AccountData[otherid][pName], otherid, GetVehicleModelName(vID), GetPlayerVehicleID(otherid));
 		}
 		else
 		{
             format(str, sizeof(str), "%s (%d)", ReturnName(otherid), otherid);
-            PlayerTextDrawSetString(playerid, SpecNSRP[playerid][1], str);
+            PlayerTextDrawSetString(playerid, SpecVRP[playerid][1], str);
 
             format(str, sizeof(str), "%.1f - %.1f", health, armour);
-            PlayerTextDrawSetString(playerid, SpecNSRP[playerid][2], str);
+            PlayerTextDrawSetString(playerid, SpecVRP[playerid][2], str);
             for(new i = 0; i < 11; i++)
-                PlayerTextDrawShow(playerid, SpecNSRP[playerid][i]);
+                PlayerTextDrawShow(playerid, SpecVRP[playerid][i]);
 
 		    SendAdm(playerid, "You are spectating %s(%i) who is a passenger in %s(%d).", AccountData[otherid][pName], otherid, GetVehicleModelName(vID), GetPlayerVehicleID(otherid));
 		}
@@ -1169,12 +1169,12 @@ public Spefunction(playerid, otherid)
 	{
         PlayerSpectatePlayer(playerid, otherid);
         format(str, sizeof(str), "%s (%d)", ReturnName(otherid), otherid);
-        PlayerTextDrawSetString(playerid, SpecNSRP[playerid][1], str);
+        PlayerTextDrawSetString(playerid, SpecVRP[playerid][1], str);
 
         format(str, sizeof(str), "%.1f - %.1f", health, armour);
-        PlayerTextDrawSetString(playerid, SpecNSRP[playerid][2], str);
+        PlayerTextDrawSetString(playerid, SpecVRP[playerid][2], str);
         for(new i = 0; i < 11; i++)
-            PlayerTextDrawShow(playerid, SpecNSRP[playerid][i]);
+            PlayerTextDrawShow(playerid, SpecVRP[playerid][i]);
 	}
     AccountData[playerid][pSpec] = otherid;
     SendStaffMessage(Y_LIGHTRED, "AdmCmd: %s is spectating %s (%d).", AccountData[playerid][pAdminname], AccountData[otherid][pName], otherid);
@@ -1200,7 +1200,7 @@ YCMD:spec(playerid, params[], help)
 		AccountData[playerid][pSpec] = INVALID_PLAYER_ID;
 
         for(new i = 0; i < 11; i++)
-            PlayerTextDrawHide(playerid, SpecNSRP[playerid][i]);
+            PlayerTextDrawHide(playerid, SpecVRP[playerid][i]);
 
 		ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah keluar dari mode spectator.");
         return 1;
@@ -1247,26 +1247,26 @@ YCMD:spec(playerid, params[], help)
 		if (GetPlayerState(otherid) == PLAYER_STATE_DRIVER)
 	    {
             format(str, sizeof(str), "%s (%d)", ReturnName(otherid), otherid);
-            PlayerTextDrawSetString(playerid, SpecNSRP[playerid][1], str);
+            PlayerTextDrawSetString(playerid, SpecVRP[playerid][1], str);
 
             format(str, sizeof(str), "%.1f - %.1f", health, armour);
-            PlayerTextDrawSetString(playerid, SpecNSRP[playerid][2], str);
+            PlayerTextDrawSetString(playerid, SpecVRP[playerid][2], str);
 
             for(new i = 0; i < 11; i++)
-                PlayerTextDrawShow(playerid, SpecNSRP[playerid][i]);
+                PlayerTextDrawShow(playerid, SpecVRP[playerid][i]);
 
 			SendAdm(playerid, "You are spectating %s(%i) who is currently driving %s(%d).", AccountData[otherid][pName], otherid, GetVehicleModelName(vID), GetPlayerVehicleID(otherid));
 		}
 		else
 		{
             format(str, sizeof(str), "%s (%d)", ReturnName(otherid), otherid);
-            PlayerTextDrawSetString(playerid, SpecNSRP[playerid][1], str);
+            PlayerTextDrawSetString(playerid, SpecVRP[playerid][1], str);
 
             format(str, sizeof(str), "%.1f - %.1f", health, armour);
-            PlayerTextDrawSetString(playerid, SpecNSRP[playerid][2], str);
+            PlayerTextDrawSetString(playerid, SpecVRP[playerid][2], str);
 
             for(new i = 0; i < 11; i++)
-                PlayerTextDrawShow(playerid, SpecNSRP[playerid][i]);
+                PlayerTextDrawShow(playerid, SpecVRP[playerid][i]);
 
 		    SendAdm(playerid, "You are spectating %s(%i) who is a passenger in %s(%d).", AccountData[otherid][pName], otherid, GetVehicleModelName(vID), GetPlayerVehicleID(otherid));
 		}
@@ -1275,13 +1275,13 @@ YCMD:spec(playerid, params[], help)
 	{
         PlayerSpectatePlayer(playerid, otherid);
         format(str, sizeof(str), "%s (%d)", ReturnName(otherid), otherid);
-        PlayerTextDrawSetString(playerid, SpecNSRP[playerid][1], str);
+        PlayerTextDrawSetString(playerid, SpecVRP[playerid][1], str);
 
         format(str, sizeof(str), "%.1f - %.1f", health, armour);
-        PlayerTextDrawSetString(playerid, SpecNSRP[playerid][2], str);
+        PlayerTextDrawSetString(playerid, SpecVRP[playerid][2], str);
 
         for(new i = 0; i < 11; i++)
-            PlayerTextDrawShow(playerid, SpecNSRP[playerid][i]);
+            PlayerTextDrawShow(playerid, SpecVRP[playerid][i]);
 	}
     AccountData[playerid][pSpec] = otherid;
     SendStaffMessage(Y_LIGHTRED, "AdmCmd: %s is spectating %s (%d).", AccountData[playerid][pAdminname], AccountData[otherid][pName], otherid);
@@ -1903,7 +1903,7 @@ YCMD:warn(playerid, params[], help)
 	if(AccountData[otherid][pWarn] >= MAX_PWARNS)
 	{
 		static query[522];
-		mysql_format(g_SQL, query, sizeof(query), "UPDATE `player_ucp` SET `Blocked`=1, `Block_Duration`=0, `Block_Reason`='20 Warns', `Block_AdminName`='Nexston AntiCheat', `Block_IssuedDate`=CURRENT_TIMESTAMP() WHERE `UCP`='%e'", AccountData[otherid][pUCP]);
+		mysql_format(g_SQL, query, sizeof(query), "UPDATE `player_ucp` SET `Blocked`=1, `Block_Duration`=0, `Block_Reason`='20 Warns', `Block_AdminName`='Vertex AntiCheat', `Block_IssuedDate`=CURRENT_TIMESTAMP() WHERE `UCP`='%e'", AccountData[otherid][pUCP]);
 		mysql_pquery(g_SQL, query);
 		return KickEx(otherid);
 	}
@@ -2034,9 +2034,9 @@ YCMD:avehlist(playerid, params[], help)
 		}
 	}
 	if(found)
-		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Vehicle Ownership", msg2, "Tutup", "");
+		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Vehicle Ownership", msg2, "Tutup", "");
 	else
-		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Vehicle Ownership", "You do not own any vehicles!", "Tutup", "");
+		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Vehicle Ownership", "You do not own any vehicles!", "Tutup", "");
 	
 	return 1;
 }
@@ -2157,11 +2157,11 @@ YCMD:fixes(playerid, params[], help)
 
     if (count > 0)
     {
-        Dialog_Show(playerid, "FixesRequests", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Fix Request", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "FixesRequests", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Fix Request", string, "Pilih", "Batal");
     }
     else
     {
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Fix Request", "No active fix requests!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Fix Request", "No active fix requests!", "Tutup", "");
     }
     return 1;
 }

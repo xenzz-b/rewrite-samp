@@ -110,7 +110,7 @@ hook OnPlayerClickTextDraw(playerid, Text:clickedid)
     {
         if(PlayerVoiceData[playerid][pHasRadio])
         {
-            Dialog_Show(playerid, "SetRadioFreq", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Radio Fx", 
+            Dialog_Show(playerid, "SetRadioFreq", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Radio Fx", 
             "Masukkan frekuensi radio yang ingin ditetapkan pada kolom di bawah ini\n\
             (Frekuensi harus berada di antara 0 - 9999)\n\
             Catatan: Masukkan frekuensi 0 untuk memutuskan saluran frekuensi/netral", "Set", "Batal");
@@ -149,14 +149,14 @@ Dialog:BroadcastMenu(playerid, response, listitem, inputtext[])
                         }
                     }
                     
-                    SendClientMessageToAllEx(X11_SLATEBLUE2, "Pewarta Nexston: %s has completed the live broadcast, thank you.", AccountData[playerid][pName]);
+                    SendClientMessageToAllEx(X11_SLATEBLUE2, "Pewarta Vertex: %s has completed the live broadcast, thank you.", AccountData[playerid][pName]);
                 }
                 case false:
                 {
                     ToggleInfo[playerid][TogBroadcast] = true;
                     PlayerVoiceData[playerid][pBroadcast] = true;
                     CallRemoteFunction("UpdatePlayerBroadcast", "id", playerid, 1);
-                    SendClientMessageToAllEx(X11_SLATEBLUE2, "Pewarta Nexston: %s has started the live broadcast, enjoy listening.", AccountData[playerid][pName]);
+                    SendClientMessageToAllEx(X11_SLATEBLUE2, "Pewarta Vertex: %s has started the live broadcast, enjoy listening.", AccountData[playerid][pName]);
                 }
             }
         }
@@ -189,7 +189,7 @@ Dialog:SetRadioFreq(playerid, response, listitem, inputtext[])
 
     if(dfreq < 0 || dfreq > 9999)
     {
-        Dialog_Show(playerid, "SetRadioFreq", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Radio Fx", 
+        Dialog_Show(playerid, "SetRadioFreq", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Radio Fx", 
         "Masukkan frekuensi radio yang ingin ditetapkan pada kolom di bawah ini\n\
         (Frekuensi harus berada di antara 0 - 9999)\n\
         Catatan: Masukkan frekuensi 0 untuk memutuskan saluran frekuensi/netral", "Set", "Batal");

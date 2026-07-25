@@ -74,7 +74,7 @@ YCMD:asks(playerid, params[], help)
     if(counting == 0)
         ShowTDN(playerid, NOTIFICATION_ERROR, "Tidak ada pertanyaan yang sedang aktif!");
     else
-        Dialog_Show(playerid, "QueueAsks", DIALOG_STYLE_TABLIST_HEADERS,""Nexston"Nexston Roleplay "WHITE"- Daftar Asks",lstr,"Cek","Tutup");
+        Dialog_Show(playerid, "QueueAsks", DIALOG_STYLE_TABLIST_HEADERS,""Vertex"Vertex Roleplay "WHITE"- Daftar Asks",lstr,"Cek","Tutup");
     return 1;
 }
 

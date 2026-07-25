@@ -79,7 +79,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                 {
                     AccountData[playerid][pTempValue2] = x;
                     ShowTollTD(playerid);
-                    SelectTextDraw(playerid, Y_Nexston);
+                    SelectTextDraw(playerid, Y_Vertex);
                 }
             }
         }
@@ -97,7 +97,7 @@ YCMD:paytoll(playerid, params[], help)
             {
                 AccountData[playerid][pTempValue2] = x;
                 ShowTollTD(playerid);
-                SelectTextDraw(playerid, Y_Nexston);
+                SelectTextDraw(playerid, Y_Vertex);
             }
         }
     }

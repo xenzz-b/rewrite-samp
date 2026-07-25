@@ -1,6 +1,6 @@
 #include <YSI_Coding\y_hooks>
 
-new PlayerText: GachaNSRP[MAX_PLAYERS][32];
+new PlayerText: GachaVRP[MAX_PLAYERS][32];
 
 enum e_GachaItem
 {
@@ -71,15 +71,15 @@ YCMD:gacha(playerid, params[], help)
 	HideRadioVoiceInfoTD(playerid);
     for(new i = 0; i < 32; i++)
     {
-        PlayerTextDrawShow(playerid, GachaNSRP[playerid][i]);
+        PlayerTextDrawShow(playerid, GachaVRP[playerid][i]);
     }
-    PlayerTextDrawSetPreviewModel(playerid, GachaNSRP[playerid][21], 411);
+    PlayerTextDrawSetPreviewModel(playerid, GachaVRP[playerid][21], 411);
 
     new ticketCount = Inventory_Count(playerid, "Ticket Gacha");
     new ticketText[64];
     format(ticketText, sizeof(ticketText), "Ticket Gacha: %dx", ticketCount);
-    PlayerTextDrawSetString(playerid, GachaNSRP[playerid][20], ticketText);
-    PlayerTextDrawShow(playerid, GachaNSRP[playerid][20]);
+    PlayerTextDrawSetString(playerid, GachaVRP[playerid][20], ticketText);
+    PlayerTextDrawShow(playerid, GachaVRP[playerid][20]);
     SelectTextDraw(playerid, 0xFF0000FF);
     
     return 1;
@@ -100,7 +100,7 @@ public Gacha_Spin(playerid)
         ShowTDN(playerid, NOTIFICATION_ERROR, "You don't have enough Gacha Ticket!");
         for(new i = 0; i < 32; i++)
         {
-            PlayerTextDrawHide(playerid, GachaNSRP[playerid][i]);
+            PlayerTextDrawHide(playerid, GachaVRP[playerid][i]);
         }
         CancelSelectTextDraw(playerid);
         return 0;
@@ -111,8 +111,8 @@ public Gacha_Spin(playerid)
     new ticketCount = Inventory_Count(playerid, "Ticket Gacha");
     new ticketText[64];
     format(ticketText, sizeof(ticketText), "Ticket Gacha: %dx", ticketCount);
-    PlayerTextDrawSetString(playerid, GachaNSRP[playerid][20], ticketText);
-    PlayerTextDrawShow(playerid, GachaNSRP[playerid][20]);
+    PlayerTextDrawSetString(playerid, GachaVRP[playerid][20], ticketText);
+    PlayerTextDrawShow(playerid, GachaVRP[playerid][20]);
 
     PlayerGachaData[playerid][pGachaSpinning] = true;
     PlayerGachaData[playerid][pGachaSpinCount] = 0;
@@ -148,15 +148,15 @@ public Gacha_SpinAnimation(playerid)
     }
     PlayerGachaData[playerid][pGachaLastIndex] = randomIndex;
     
-    PlayerTextDrawSetPreviewModel(playerid, GachaNSRP[playerid][21], g_GachaItems[randomIndex][gPreviewModel]);
-    PlayerTextDrawShow(playerid, GachaNSRP[playerid][21]);
+    PlayerTextDrawSetPreviewModel(playerid, GachaVRP[playerid][21], g_GachaItems[randomIndex][gPreviewModel]);
+    PlayerTextDrawShow(playerid, GachaVRP[playerid][21]);
 
     new tempText[32];
     new dotCount = (PlayerGachaData[playerid][pGachaSpinCount] % 3) + 1;
     format(tempText, sizeof(tempText), "Spinning%.*s", dotCount, "...");
-    PlayerTextDrawSetString(playerid, GachaNSRP[playerid][19], tempText);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][19], 0xFFFFFFFF);
-    PlayerTextDrawShow(playerid, GachaNSRP[playerid][19]);
+    PlayerTextDrawSetString(playerid, GachaVRP[playerid][19], tempText);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][19], 0xFFFFFFFF);
+    PlayerTextDrawShow(playerid, GachaVRP[playerid][19]);
 
     new totalFrames = 45; 
     new slowDownStart = 30;
@@ -198,8 +198,8 @@ public Gacha_SpinAnimation(playerid)
         }
         if(slowdownProgress == 0)
         {
-            PlayerTextDrawSetString(playerid, GachaNSRP[playerid][19], "Slowing down...");
-            PlayerTextDrawShow(playerid, GachaNSRP[playerid][19]);
+            PlayerTextDrawSetString(playerid, GachaVRP[playerid][19], "Slowing down...");
+            PlayerTextDrawShow(playerid, GachaVRP[playerid][19]);
         }
     }
     
@@ -268,12 +268,12 @@ public Gacha_GiveReward(playerid, itemIndex)
         default: color = 0xFFFFFFFF;
     }
 
-    PlayerTextDrawSetPreviewModel(playerid, GachaNSRP[playerid][21], g_GachaItems[itemIndex][gPreviewModel]);
-    PlayerTextDrawShow(playerid, GachaNSRP[playerid][21]);
+    PlayerTextDrawSetPreviewModel(playerid, GachaVRP[playerid][21], g_GachaItems[itemIndex][gPreviewModel]);
+    PlayerTextDrawShow(playerid, GachaVRP[playerid][21]);
 
-    PlayerTextDrawSetString(playerid, GachaNSRP[playerid][19], itemName);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][19], color);
-    PlayerTextDrawShow(playerid, GachaNSRP[playerid][19]);
+    PlayerTextDrawSetString(playerid, GachaVRP[playerid][19], itemName);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][19], color);
+    PlayerTextDrawShow(playerid, GachaVRP[playerid][19]);
     
     switch(itemType)
     {
@@ -400,16 +400,16 @@ public Gacha_GiveReward(playerid, itemIndex)
 
 hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
 {
-    if(playertextid == GachaNSRP[playerid][5])
+    if(playertextid == GachaVRP[playerid][5])
     {
         Gacha_Spin(playerid);
         return 0;
     }
-    if(playertextid == GachaNSRP[playerid][16])
+    if(playertextid == GachaVRP[playerid][16])
     {
         for(new i = 0; i < 32; i++)
         {
-            PlayerTextDrawHide(playerid, GachaNSRP[playerid][i]);
+            PlayerTextDrawHide(playerid, GachaVRP[playerid][i]);
         }
         ShowServerNameTD(playerid);
 		//ShowStatsTD(playerid);
@@ -434,330 +434,330 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
 
 CreateUiGacha(playerid)
 {
-    GachaNSRP[playerid][0] = CreatePlayerTextDraw(playerid, 157.000, 116.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][0], 323.000, 256.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][0], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][0], -7601921);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][0], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][0], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][0], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][0], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][0], 1);
+    GachaVRP[playerid][0] = CreatePlayerTextDraw(playerid, 157.000, 116.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][0], 323.000, 256.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][0], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][0], -7601921);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][0], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][0], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][0], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][0], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][0], 1);
 
-    GachaNSRP[playerid][1] = CreatePlayerTextDraw(playerid, 162.000, 121.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][1], 313.000, 245.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][1], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][1], -12254977);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][1], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][1], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][1], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][1], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][1], 1);
+    GachaVRP[playerid][1] = CreatePlayerTextDraw(playerid, 162.000, 121.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][1], 313.000, 245.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][1], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][1], -12254977);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][1], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][1], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][1], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][1], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][1], 1);
 
-    GachaNSRP[playerid][2] = CreatePlayerTextDraw(playerid, 157.000, 141.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][2], 323.000, 2.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][2], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][2], -7601921);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][2], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][2], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][2], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][2], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][2], 1);
+    GachaVRP[playerid][2] = CreatePlayerTextDraw(playerid, 157.000, 141.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][2], 323.000, 2.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][2], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][2], -7601921);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][2], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][2], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][2], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][2], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][2], 1);
 
-    GachaNSRP[playerid][3] = CreatePlayerTextDraw(playerid, 157.000, 284.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][3], 323.000, 2.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][3], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][3], -7601921);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][3], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][3], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][3], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][3], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][3], 1);
+    GachaVRP[playerid][3] = CreatePlayerTextDraw(playerid, 157.000, 284.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][3], 323.000, 2.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][3], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][3], -7601921);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][3], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][3], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][3], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][3], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][3], 1);
 
-    GachaNSRP[playerid][4] = CreatePlayerTextDraw(playerid, 287.000, 147.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][4], 64.000, 14.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][4], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][4], -759919361);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][4], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][4], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][4], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][4], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][4], 1);
+    GachaVRP[playerid][4] = CreatePlayerTextDraw(playerid, 287.000, 147.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][4], 64.000, 14.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][4], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][4], -759919361);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][4], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][4], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][4], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][4], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][4], 1);
 
-    GachaNSRP[playerid][5] = CreatePlayerTextDraw(playerid, 287.000, 265.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][5], 64.000, 14.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][5], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][5], -759919361);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][5], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][5], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][5], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][5], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][5], 1);
-    PlayerTextDrawSetSelectable(playerid, GachaNSRP[playerid][5], 1);
+    GachaVRP[playerid][5] = CreatePlayerTextDraw(playerid, 287.000, 265.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][5], 64.000, 14.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][5], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][5], -759919361);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][5], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][5], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][5], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][5], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][5], 1);
+    PlayerTextDrawSetSelectable(playerid, GachaVRP[playerid][5], 1);
 
-    GachaNSRP[playerid][6] = CreatePlayerTextDraw(playerid, 180.000, 293.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][6], 50.000, 20.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][6], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][6], -759919361);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][6], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][6], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][6], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][6], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][6], 1);
+    GachaVRP[playerid][6] = CreatePlayerTextDraw(playerid, 180.000, 293.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][6], 50.000, 20.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][6], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][6], -759919361);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][6], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][6], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][6], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][6], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][6], 1);
 
-    GachaNSRP[playerid][7] = CreatePlayerTextDraw(playerid, 236.000, 293.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][7], 50.000, 20.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][7], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][7], -759919361);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][7], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][7], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][7], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][7], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][7], 1);
+    GachaVRP[playerid][7] = CreatePlayerTextDraw(playerid, 236.000, 293.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][7], 50.000, 20.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][7], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][7], -759919361);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][7], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][7], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][7], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][7], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][7], 1);
 
-    GachaNSRP[playerid][8] = CreatePlayerTextDraw(playerid, 292.000, 293.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][8], 50.000, 20.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][8], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][8], -759919361);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][8], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][8], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][8], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][8], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][8], 1);
+    GachaVRP[playerid][8] = CreatePlayerTextDraw(playerid, 292.000, 293.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][8], 50.000, 20.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][8], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][8], -759919361);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][8], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][8], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][8], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][8], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][8], 1);
 
-    GachaNSRP[playerid][9] = CreatePlayerTextDraw(playerid, 348.000, 293.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][9], 50.000, 20.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][9], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][9], -759919361);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][9], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][9], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][9], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][9], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][9], 1);
+    GachaVRP[playerid][9] = CreatePlayerTextDraw(playerid, 348.000, 293.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][9], 50.000, 20.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][9], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][9], -759919361);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][9], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][9], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][9], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][9], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][9], 1);
 
-    GachaNSRP[playerid][10] = CreatePlayerTextDraw(playerid, 404.000, 293.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][10], 50.000, 20.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][10], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][10], -759919361);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][10], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][10], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][10], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][10], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][10], 1);
+    GachaVRP[playerid][10] = CreatePlayerTextDraw(playerid, 404.000, 293.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][10], 50.000, 20.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][10], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][10], -759919361);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][10], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][10], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][10], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][10], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][10], 1);
 
-    GachaNSRP[playerid][11] = CreatePlayerTextDraw(playerid, 404.000, 327.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][11], 50.000, 20.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][11], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][11], -759919361);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][11], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][11], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][11], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][11], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][11], 1);
+    GachaVRP[playerid][11] = CreatePlayerTextDraw(playerid, 404.000, 327.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][11], 50.000, 20.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][11], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][11], -759919361);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][11], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][11], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][11], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][11], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][11], 1);
 
-    GachaNSRP[playerid][12] = CreatePlayerTextDraw(playerid, 348.000, 327.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][12], 50.000, 20.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][12], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][12], -759919361);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][12], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][12], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][12], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][12], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][12], 1);
+    GachaVRP[playerid][12] = CreatePlayerTextDraw(playerid, 348.000, 327.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][12], 50.000, 20.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][12], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][12], -759919361);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][12], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][12], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][12], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][12], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][12], 1);
 
-    GachaNSRP[playerid][13] = CreatePlayerTextDraw(playerid, 292.000, 327.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][13], 50.000, 20.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][13], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][13], -759919361);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][13], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][13], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][13], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][13], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][13], 1);
+    GachaVRP[playerid][13] = CreatePlayerTextDraw(playerid, 292.000, 327.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][13], 50.000, 20.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][13], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][13], -759919361);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][13], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][13], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][13], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][13], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][13], 1);
 
-    GachaNSRP[playerid][14] = CreatePlayerTextDraw(playerid, 236.000, 327.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][14], 50.000, 20.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][14], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][14], -759919361);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][14], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][14], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][14], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][14], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][14], 1);
+    GachaVRP[playerid][14] = CreatePlayerTextDraw(playerid, 236.000, 327.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][14], 50.000, 20.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][14], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][14], -759919361);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][14], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][14], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][14], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][14], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][14], 1);
 
-    GachaNSRP[playerid][15] = CreatePlayerTextDraw(playerid, 180.000, 327.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][15], 50.000, 20.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][15], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][15], -759919361);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][15], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][15], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][15], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][15], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][15], 1);
+    GachaVRP[playerid][15] = CreatePlayerTextDraw(playerid, 180.000, 327.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][15], 50.000, 20.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][15], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][15], -759919361);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][15], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][15], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][15], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][15], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][15], 1);
 
-    GachaNSRP[playerid][16] = CreatePlayerTextDraw(playerid, 459.000, 124.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][16], 14.000, 14.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][16], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][16], -759919361);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][16], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][16], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][16], 255);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][16], 4);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][16], 1);
-    PlayerTextDrawSetSelectable(playerid, GachaNSRP[playerid][16], 1);
+    GachaVRP[playerid][16] = CreatePlayerTextDraw(playerid, 459.000, 124.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][16], 14.000, 14.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][16], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][16], -759919361);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][16], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][16], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][16], 255);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][16], 4);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][16], 1);
+    PlayerTextDrawSetSelectable(playerid, GachaVRP[playerid][16], 1);
 
-    GachaNSRP[playerid][17] = CreatePlayerTextDraw(playerid, 463.000, 123.000, "X");
-    PlayerTextDrawLetterSize(playerid, GachaNSRP[playerid][17], 0.300, 1.500);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][17], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][17], -1);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][17], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][17], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][17], 150);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][17], 1);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][17], 1);
+    GachaVRP[playerid][17] = CreatePlayerTextDraw(playerid, 463.000, 123.000, "X");
+    PlayerTextDrawLetterSize(playerid, GachaVRP[playerid][17], 0.300, 1.500);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][17], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][17], -1);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][17], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][17], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][17], 150);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][17], 1);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][17], 1);
 
-    GachaNSRP[playerid][18] = CreatePlayerTextDraw(playerid, 322.000, 125.000, "NEXSTON GACHA");
-    PlayerTextDrawLetterSize(playerid, GachaNSRP[playerid][18], 0.219, 1.299);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][18], 2);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][18], -1);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][18], 1);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][18], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][18], 150);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][18], 1);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][18], 1);
+    GachaVRP[playerid][18] = CreatePlayerTextDraw(playerid, 322.000, 125.000, "VERTEX GACHA");
+    PlayerTextDrawLetterSize(playerid, GachaVRP[playerid][18], 0.219, 1.299);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][18], 2);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][18], -1);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][18], 1);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][18], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][18], 150);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][18], 1);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][18], 1);
 
-    GachaNSRP[playerid][19] = CreatePlayerTextDraw(playerid, 320.000, 147.000, "Patriot");
-    PlayerTextDrawLetterSize(playerid, GachaNSRP[playerid][19], 0.200, 1.199);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][19], 2);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][19], -1962934017);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][19], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][19], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][19], 150);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][19], 1);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][19], 1);
+    GachaVRP[playerid][19] = CreatePlayerTextDraw(playerid, 320.000, 147.000, "Patriot");
+    PlayerTextDrawLetterSize(playerid, GachaVRP[playerid][19], 0.200, 1.199);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][19], 2);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][19], -1962934017);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][19], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][19], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][19], 150);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][19], 1);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][19], 1);
 
-    GachaNSRP[playerid][20] = CreatePlayerTextDraw(playerid, 320.000, 266.000, "Ticket Gacha: 1x");
-    PlayerTextDrawLetterSize(playerid, GachaNSRP[playerid][20], 0.170, 1.098);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][20], 2);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][20], -1);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][20], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][20], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][20], 150);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][20], 1);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][20], 1);
+    GachaVRP[playerid][20] = CreatePlayerTextDraw(playerid, 320.000, 266.000, "Ticket Gacha: 1x");
+    PlayerTextDrawLetterSize(playerid, GachaVRP[playerid][20], 0.170, 1.098);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][20], 2);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][20], -1);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][20], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][20], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][20], 150);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][20], 1);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][20], 1);
 
-    GachaNSRP[playerid][21] = CreatePlayerTextDraw(playerid, 245.000, 144.000, "_");
-    PlayerTextDrawTextSize(playerid, GachaNSRP[playerid][21], 139.000, 144.000);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][21], 1);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][21], -1);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][21], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][21], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][21], 0);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][21], 5);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][21], 0);
-    PlayerTextDrawSetPreviewModel(playerid, GachaNSRP[playerid][21], 470);
-    PlayerTextDrawSetPreviewRot(playerid, GachaNSRP[playerid][21], 0.000, 0.000, 22.000, 1.000);
-    PlayerTextDrawSetPreviewVehCol(playerid, GachaNSRP[playerid][21], 0, 0);
+    GachaVRP[playerid][21] = CreatePlayerTextDraw(playerid, 245.000, 144.000, "_");
+    PlayerTextDrawTextSize(playerid, GachaVRP[playerid][21], 139.000, 144.000);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][21], 1);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][21], -1);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][21], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][21], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][21], 0);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][21], 5);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][21], 0);
+    PlayerTextDrawSetPreviewModel(playerid, GachaVRP[playerid][21], 470);
+    PlayerTextDrawSetPreviewRot(playerid, GachaVRP[playerid][21], 0.000, 0.000, 22.000, 1.000);
+    PlayerTextDrawSetPreviewVehCol(playerid, GachaVRP[playerid][21], 0, 0);
 
-    GachaNSRP[playerid][22] = CreatePlayerTextDraw(playerid, 205.000, 296.000, "Infernus");
-    PlayerTextDrawLetterSize(playerid, GachaNSRP[playerid][22], 0.210, 1.299);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][22], 2);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][22], -1);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][22], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][22], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][22], 150);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][22], 1);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][22], 1);
+    GachaVRP[playerid][22] = CreatePlayerTextDraw(playerid, 205.000, 296.000, "Infernus");
+    PlayerTextDrawLetterSize(playerid, GachaVRP[playerid][22], 0.210, 1.299);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][22], 2);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][22], -1);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][22], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][22], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][22], 150);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][22], 1);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][22], 1);
 
-    GachaNSRP[playerid][23] = CreatePlayerTextDraw(playerid, 261.000, 297.000, "Vip 1 7 Day");
-    PlayerTextDrawLetterSize(playerid, GachaNSRP[playerid][23], 0.180, 1.199);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][23], 2);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][23], -1);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][23], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][23], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][23], 150);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][23], 1);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][23], 1);
+    GachaVRP[playerid][23] = CreatePlayerTextDraw(playerid, 261.000, 297.000, "Vip 1 7 Day");
+    PlayerTextDrawLetterSize(playerid, GachaVRP[playerid][23], 0.180, 1.199);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][23], 2);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][23], -1);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][23], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][23], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][23], 150);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][23], 1);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][23], 1);
 
-    GachaNSRP[playerid][24] = CreatePlayerTextDraw(playerid, 317.000, 297.000, "Nrg");
-    PlayerTextDrawLetterSize(playerid, GachaNSRP[playerid][24], 0.180, 1.199);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][24], 2);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][24], -1);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][24], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][24], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][24], 150);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][24], 1);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][24], 1);
+    GachaVRP[playerid][24] = CreatePlayerTextDraw(playerid, 317.000, 297.000, "Nrg");
+    PlayerTextDrawLetterSize(playerid, GachaVRP[playerid][24], 0.180, 1.199);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][24], 2);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][24], -1);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][24], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][24], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][24], 150);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][24], 1);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][24], 1);
 
-    GachaNSRP[playerid][25] = CreatePlayerTextDraw(playerid, 374.000, 297.000, "Uang Random");
-    PlayerTextDrawLetterSize(playerid, GachaNSRP[playerid][25], 0.170, 1.199);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][25], 2);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][25], -1);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][25], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][25], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][25], 150);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][25], 1);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][25], 1);
+    GachaVRP[playerid][25] = CreatePlayerTextDraw(playerid, 374.000, 297.000, "Uang Random");
+    PlayerTextDrawLetterSize(playerid, GachaVRP[playerid][25], 0.170, 1.199);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][25], 2);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][25], -1);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][25], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][25], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][25], 150);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][25], 1);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][25], 1);
 
-    GachaNSRP[playerid][26] = CreatePlayerTextDraw(playerid, 430.000, 297.000, "Kayu 5x");
-    PlayerTextDrawLetterSize(playerid, GachaNSRP[playerid][26], 0.170, 1.199);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][26], 2);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][26], -1);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][26], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][26], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][26], 150);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][26], 1);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][26], 1);
+    GachaVRP[playerid][26] = CreatePlayerTextDraw(playerid, 430.000, 297.000, "Kayu 5x");
+    PlayerTextDrawLetterSize(playerid, GachaVRP[playerid][26], 0.170, 1.199);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][26], 2);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][26], -1);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][26], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][26], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][26], 150);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][26], 1);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][26], 1);
 
-    GachaNSRP[playerid][27] = CreatePlayerTextDraw(playerid, 205.000, 331.000, "Bullet");
-    PlayerTextDrawLetterSize(playerid, GachaNSRP[playerid][27], 0.170, 1.199);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][27], 2);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][27], -1);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][27], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][27], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][27], 150);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][27], 1);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][27], 1);
+    GachaVRP[playerid][27] = CreatePlayerTextDraw(playerid, 205.000, 331.000, "Bullet");
+    PlayerTextDrawLetterSize(playerid, GachaVRP[playerid][27], 0.170, 1.199);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][27], 2);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][27], -1);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][27], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][27], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][27], 150);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][27], 1);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][27], 1);
 
-    GachaNSRP[playerid][28] = CreatePlayerTextDraw(playerid, 262.000, 331.000, "VIP 1 14 Day");
-    PlayerTextDrawLetterSize(playerid, GachaNSRP[playerid][28], 0.170, 1.199);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][28], 2);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][28], -1);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][28], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][28], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][28], 150);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][28], 1);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][28], 1);
+    GachaVRP[playerid][28] = CreatePlayerTextDraw(playerid, 262.000, 331.000, "VIP 1 14 Day");
+    PlayerTextDrawLetterSize(playerid, GachaVRP[playerid][28], 0.170, 1.199);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][28], 2);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][28], -1);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][28], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][28], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][28], 150);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][28], 1);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][28], 1);
 
-    GachaNSRP[playerid][29] = CreatePlayerTextDraw(playerid, 317.000, 331.000, "Turismo");
-    PlayerTextDrawLetterSize(playerid, GachaNSRP[playerid][29], 0.170, 1.199);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][29], 2);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][29], -1);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][29], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][29], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][29], 150);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][29], 1);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][29], 1);
+    GachaVRP[playerid][29] = CreatePlayerTextDraw(playerid, 317.000, 331.000, "Turismo");
+    PlayerTextDrawLetterSize(playerid, GachaVRP[playerid][29], 0.170, 1.199);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][29], 2);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][29], -1);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][29], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][29], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][29], 150);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][29], 1);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][29], 1);
 
-    GachaNSRP[playerid][30] = CreatePlayerTextDraw(playerid, 373.000, 331.000, "Ticket Gachax");
-    PlayerTextDrawLetterSize(playerid, GachaNSRP[playerid][30], 0.170, 1.199);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][30], 2);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][30], -1);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][30], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][30], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][30], 150);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][30], 1);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][30], 1);
+    GachaVRP[playerid][30] = CreatePlayerTextDraw(playerid, 373.000, 331.000, "Ticket Gachax");
+    PlayerTextDrawLetterSize(playerid, GachaVRP[playerid][30], 0.170, 1.199);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][30], 2);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][30], -1);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][30], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][30], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][30], 150);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][30], 1);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][30], 1);
 
-    GachaNSRP[playerid][31] = CreatePlayerTextDraw(playerid, 430.000, 331.000, "Batu 5x");
-    PlayerTextDrawLetterSize(playerid, GachaNSRP[playerid][31], 0.170, 1.199);
-    PlayerTextDrawAlignment(playerid, GachaNSRP[playerid][31], 2);
-    PlayerTextDrawColor(playerid, GachaNSRP[playerid][31], -1);
-    PlayerTextDrawSetShadow(playerid, GachaNSRP[playerid][31], 0);
-    PlayerTextDrawSetOutline(playerid, GachaNSRP[playerid][31], 0);
-    PlayerTextDrawBackgroundColor(playerid, GachaNSRP[playerid][31], 150);
-    PlayerTextDrawFont(playerid, GachaNSRP[playerid][31], 1);
-    PlayerTextDrawSetProportional(playerid, GachaNSRP[playerid][31], 1);
+    GachaVRP[playerid][31] = CreatePlayerTextDraw(playerid, 430.000, 331.000, "Batu 5x");
+    PlayerTextDrawLetterSize(playerid, GachaVRP[playerid][31], 0.170, 1.199);
+    PlayerTextDrawAlignment(playerid, GachaVRP[playerid][31], 2);
+    PlayerTextDrawColor(playerid, GachaVRP[playerid][31], -1);
+    PlayerTextDrawSetShadow(playerid, GachaVRP[playerid][31], 0);
+    PlayerTextDrawSetOutline(playerid, GachaVRP[playerid][31], 0);
+    PlayerTextDrawBackgroundColor(playerid, GachaVRP[playerid][31], 150);
+    PlayerTextDrawFont(playerid, GachaVRP[playerid][31], 1);
+    PlayerTextDrawSetProportional(playerid, GachaVRP[playerid][31], 1);
 
 }
 

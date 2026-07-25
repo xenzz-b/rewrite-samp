@@ -263,7 +263,7 @@ YCMD:listjdm(playerid, params[], help)
     if(count == 0)
         strcat(string, "Belum ada JDM yang terdaftar!");
     
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Daftar JDM Kota", string, "Tutup", "");
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Daftar JDM Kota", string, "Tutup", "");
     return 1;
 }
 

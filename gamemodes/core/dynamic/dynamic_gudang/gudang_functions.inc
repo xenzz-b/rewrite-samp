@@ -305,7 +305,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                 }
                 AccountData[playerid][pInGudang] = gdgid;
                 AccountData[playerid][pMenuShowed] = true;
-                Dialog_Show(playerid, "GudangItemVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Gudang", 
+                Dialog_Show(playerid, "GudangItemVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Gudang", 
                 "Simpan Barang\n"GRAY"Ambil Barang", "Pilih", "Batal");
             }
             else
@@ -343,7 +343,7 @@ Dialog:GudangRental(playerid, response, listitem, inputtext[])
             if(AccountData[playerid][pHasGudangID] == -1)
                 return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda belum menyewa sebuah gudang!");
 
-            Dialog_Show(playerid, "GudangUnrental", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Gudang",
+            Dialog_Show(playerid, "GudangUnrental", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Gudang",
             "Apakah anda yakin untuk berhenti menyewa gudang?", "Ya", "Tidak");
         }
     }
@@ -393,12 +393,12 @@ Dialog:GudangItemVault(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Gudang", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Gudang", 
                 "You have nothing to store!", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "GudangItemVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Gudang", str, "Pilih", "Batal");
+                Dialog_Show(playerid, "GudangItemVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Gudang", str, "Pilih", "Batal");
             }
 
             /*
@@ -417,11 +417,11 @@ Dialog:GudangItemVault(playerid, response, listitem, inputtext[])
                     cache_get_value_name_int(x, "invent_Quantity", amounts);
                     format(str, sizeof(str), "%s%s\t%d\t-\n", str, itemname, amounts);
                 }
-                Dialog_Show(playerid, "GudangItemVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Gudang", str, "Pilih", "Batal");
+                Dialog_Show(playerid, "GudangItemVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Gudang", str, "Pilih", "Batal");
             }
             else
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Gudang", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Gudang", 
                 "Anda tidak memiliki barang yang dapat disimpan!", "Tutup", "");
             }
             */
@@ -479,7 +479,7 @@ Dialog:GudangItemVaultDeposit(playerid, response, listitem, inputtext[])
     
     new shstr[528];
     format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Mohon masukkan jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][listitem]][invItem], InventoryData[playerid][PlayerListitem[playerid][listitem]][invQuantity]);
-    Dialog_Show(playerid, "GudangItemVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Gudang", 
+    Dialog_Show(playerid, "GudangItemVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Gudang", 
     shstr, "Input", "Batal");
     return 1;
 }
@@ -506,7 +506,7 @@ Dialog:GudangItemVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Error: Tidak dapat dikosongkan!\nPlease enter the quantity you want to store:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "GudangItemVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Gudang", 
+        Dialog_Show(playerid, "GudangItemVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Gudang", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -515,7 +515,7 @@ Dialog:GudangItemVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Error: Please enter only numbers!\nPlease enter the quantity you want to store:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "GudangItemVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Gudang", 
+        Dialog_Show(playerid, "GudangItemVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Gudang", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -524,7 +524,7 @@ Dialog:GudangItemVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Error: Jumlah tidak valid!\nPlease enter the quantity you want to store:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "GudangItemVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Gudang", 
+        Dialog_Show(playerid, "GudangItemVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Gudang", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -622,7 +622,7 @@ Dialog:GudangItemVaultWithdraw(playerid, response, listitem, inputtext[])
 
         new shstr[528];
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon masukkan berapa jumlah yang ingin diambil:", GudangBrankas[playerid][PlayerListitem[playerid][listitem]][gudangBrankasTemp], GudangBrankas[playerid][PlayerListitem[playerid][listitem]][gudangBrankasQuant]);
-        Dialog_Show(playerid, "GudangItemVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Gudang", 
+        Dialog_Show(playerid, "GudangItemVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Gudang", 
         shstr, "Input", "Batal");
     }
 
@@ -651,7 +651,7 @@ Dialog:GudangItemVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Error: Tidak dapat dikosongkan!\nPlease enter the quantity you want to retrieve:", GudangBrankas[playerid][PlayerListitem[playerid][id]][gudangBrankasTemp], GudangBrankas[playerid][PlayerListitem[playerid][id]][gudangBrankasQuant]);
-        Dialog_Show(playerid, "GudangItemVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Gudang", 
+        Dialog_Show(playerid, "GudangItemVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Gudang", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -660,7 +660,7 @@ Dialog:GudangItemVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Error: Please enter only numbers!\nPlease enter the quantity you want to retrieve:", GudangBrankas[playerid][PlayerListitem[playerid][id]][gudangBrankasTemp], GudangBrankas[playerid][PlayerListitem[playerid][id]][gudangBrankasQuant]);
-        Dialog_Show(playerid, "GudangItemVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Gudang", 
+        Dialog_Show(playerid, "GudangItemVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Gudang", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -669,7 +669,7 @@ Dialog:GudangItemVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Error: Jumlah tidak valid!\nPlease enter the quantity you want to retrieve:", GudangBrankas[playerid][PlayerListitem[playerid][id]][gudangBrankasTemp], GudangBrankas[playerid][PlayerListitem[playerid][id]][gudangBrankasQuant]);
-        Dialog_Show(playerid, "GudangItemVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Gudang", 
+        Dialog_Show(playerid, "GudangItemVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Gudang", 
         shstr, "Input", "Batal");
         return 1;
     }

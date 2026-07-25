@@ -324,7 +324,7 @@ public LoadCharacterData(playerid)
 
 			SendClientMessage(playerid, -1, "Pembuatan karakter sebelumnya belum sempurna, harap lakukan hingga selesai.");
 
-			Dialog_Show(playerid, "NewCharAge", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Birthday", "Please insert the birthday with following format hh/bb/tttt cth: (25/08/2001)", "Input", "");
+			Dialog_Show(playerid, "NewCharAge", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Birthday", "Please insert the birthday with following format hh/bb/tttt cth: (25/08/2001)", "Input", "");
 		}
 		else
 		{
@@ -359,7 +359,7 @@ public LoadCharacterData(playerid)
 	}
 	else
 	{
-		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Problem", 
+		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Problem", 
 		"Karkater anda tidak dapat kami temukan, database error!", "Tutup", "");
 		KickEx(playerid);
 	}

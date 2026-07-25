@@ -48,7 +48,7 @@ CreateAxonTimeTD()
     TextDrawSetProportional(AxonTD[1], 1);
     TextDrawSetSelectable(AxonTD[1], 0);
 
-    AxonTD[2] = TextDrawCreate(459.000000, 28.000000, "Kepolisian Nexston");
+    AxonTD[2] = TextDrawCreate(459.000000, 28.000000, "Kepolisian Vertex");
     TextDrawFont(AxonTD[2], 1);
     TextDrawLetterSize(AxonTD[2], 0.150000, 0.750000);
     TextDrawTextSize(AxonTD[2], 483.000000, 17.000000);

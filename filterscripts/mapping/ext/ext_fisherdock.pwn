@@ -32,9 +32,9 @@ CreateFisherDockExt()
     // fishdocktxt = CreateDynamicObject(19481, 2890.615722, -330.098114, 9.442078, 0.000000, 0.000000, 180.000000, 0, 0, -1, 200.00, 200.00); 
     // SetDynamicObjectMaterialText(fishdocktxt, 0, "FISH DEPOT", 120, "Arial", 25, 1, 0xFFFFFFFF, 0x00000000, 1);
     // fishdocktxt = CreateDynamicObject(19481, 2903.846679, -287.757934, 6.372077, 0.000000, 0.000000, 450.000000, 0, 0, -1, 200.00, 200.00); 
-    // SetDynamicObjectMaterialText(fishdocktxt, 0, "Nexston FISHER", 120, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
+    // SetDynamicObjectMaterialText(fishdocktxt, 0, "Vertex FISHER", 120, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     // fishdocktxt = CreateDynamicObject(19481, 2903.846679, -344.508239, 6.372077, 0.000000, 0.000000, 630.000000, 0, 0, -1, 200.00, 200.00); 
-    // SetDynamicObjectMaterialText(fishdocktxt, 0, "Nexston FISHER", 120, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
+    // SetDynamicObjectMaterialText(fishdocktxt, 0, "Vertex FISHER", 120, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     // fishdocktxt = CreateDynamicObject(19481, 2918.147460, -330.088134, 9.442078, -0.000007, 0.000000, 0.000007, 0, 0, -1, 200.00, 200.00); 
     // SetDynamicObjectMaterialText(fishdocktxt, 0, "FISH DEPOT", 120, "Arial", 25, 1, 0xFFFFFFFF, 0x00000000, 1);
     // fishdocktxt = CreateDynamicObject(19481, 2918.147460, -301.887695, 9.442078, -0.000007, 0.000000, 0.000007, 0, 0, -1, 200.00, 200.00); 

@@ -144,7 +144,7 @@ task AntiCheatVehSlap[1000]()
                                         AccountData[i][g_CarstealIcon][x] = STREAMER_TAG_MAP_ICON: INVALID_STREAMER_ID;
                                 }
 
-                                ShowFivemNotify(i, "Nexston Roleplay~n~CAR STEAL", "Kendaraan carsteal telah hancur, misi dinyatakan gagal!", "hud:radar_qmark", 25);
+                                ShowFivemNotify(i, "Vertex Roleplay~n~CAR STEAL", "Kendaraan carsteal telah hancur, misi dinyatakan gagal!", "hud:radar_qmark", 25);
                             }
                         }
                     }

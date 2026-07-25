@@ -771,7 +771,7 @@ ShowATMTD(playerid)
     PlayerTextDrawShow(playerid, ATMPTD[playerid][2]);
     PlayerTextDrawShow(playerid, ATMPTD[playerid][3]);
 
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
     return 1;
 }
 

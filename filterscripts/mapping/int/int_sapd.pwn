@@ -117,7 +117,7 @@ CreateSapdInt()
     sapdint = CreateDynamicObject(19866, 1849.355346, 121.081115, 1337.175170, 0.000000, 0.000000, 0.000000, 55, 10, -1, 300.00, 300.00); 
     SetDynamicObjectMaterial(sapdint, 0, 14581, "ab_mafiasuitea", "barbersmir1", 0x00000000);
     sapdint = CreateDynamicObject(19482, 1849.745849, 116.227256, 1335.375366, 0.000000, 0.000000, 0.000000, 55, 10, -1, 300.00, 300.00); 
-    SetDynamicObjectMaterialText(sapdint, 0, "{ffffff}KEPOLISIAN Nexston", 130, "Palatino Linotype", 50, 1, 0x00000000, 0x00000000, 1);
+    SetDynamicObjectMaterialText(sapdint, 0, "{ffffff}KEPOLISIAN Vertex", 130, "Palatino Linotype", 50, 1, 0x00000000, 0x00000000, 1);
     sapdint = CreateDynamicObject(19377, 1873.675903, 116.023284, 1340.764282, 0.000000, 90.000015, 0.000000, 55, 10, -1, 300.00, 300.00); 
     SetDynamicObjectMaterial(sapdint, 0, 3979, "civic01_lan", "sl_flagstone1", 0x00000000);
     sapdint = CreateDynamicObject(19377, 1873.675903, 106.413291, 1340.764282, 0.000000, 90.000015, 0.000000, 55, 10, -1, 300.00, 300.00); 

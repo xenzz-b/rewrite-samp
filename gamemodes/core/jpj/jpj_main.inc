@@ -94,7 +94,7 @@ stock FinishJPJDriveTest(playerid, bool:passed)
             GetLicName(JPJTemp[playerid][jpjLicType]));
 
         Dialog_Show(playerid, "JPJSuccess", DIALOG_STYLE_MSGBOX,
-            "{00BFFF}Nexston Roleplay {FFFFFF}- SIM Berhasil Diterbitkan",
+            "{00BFFF}Vertex Roleplay {FFFFFF}- SIM Berhasil Diterbitkan",
             str, "Tutup", "");
     }
     else
@@ -243,7 +243,7 @@ stock ShowJPJApplicantList(playerid)
         return ShowTDN(playerid, NOTIFICATION_INFO, "Tidak ada pemohon yang sedang dalam proses ujian.");
 
     Dialog_Show(playerid, "JPJApplicantList", DIALOG_STYLE_MSGBOX,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Daftar Pemohon",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Daftar Pemohon",
         str, "Tutup", "");
 }
 
@@ -267,7 +267,7 @@ stock ShowJPJPassApplicant(playerid)
         return ShowTDN(playerid, NOTIFICATION_INFO, "Tidak ada pemohon yang sedang ujian mengemudi.");
 
     Dialog_Show(playerid, "JPJPassApplicant", DIALOG_STYLE_LIST,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Luluskan Pemohon",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Luluskan Pemohon",
         str, "Lihat Detail & Luluskan", "Batal");
 }
 
@@ -313,7 +313,7 @@ stock ShowJPJDriveDetail(playerid, targetid)
 
     format(str, sizeof(str), "%s{FFFFFF}Pilih tindakan:", str);
 
-    Dialog_Show(playerid, "JPJDriveDetail", DIALOG_STYLE_LIST,"{00BFFF}Nexston Roleplay {FFFFFF}- Detail Ujian Mengemudi",str,"Luluskan\nGagalkan (Input Alasan)", "Batal");
+    Dialog_Show(playerid, "JPJDriveDetail", DIALOG_STYLE_LIST,"{00BFFF}Vertex Roleplay {FFFFFF}- Detail Ujian Mengemudi",str,"Luluskan\nGagalkan (Input Alasan)", "Batal");
 }
 
 Dialog:JPJDriveDetail(playerid, response, listitem, inputtext[])
@@ -336,7 +336,7 @@ Dialog:JPJDriveDetail(playerid, response, listitem, inputtext[])
         case 1: // gagalkan, input alasan
         {
             Dialog_Show(playerid, "JPJFailReasonDrive", DIALOG_STYLE_INPUT,
-                "{00BFFF}Nexston Roleplay {FFFFFF}- Alasan Gagal Mengemudi",
+                "{00BFFF}Vertex Roleplay {FFFFFF}- Alasan Gagal Mengemudi",
                 "{FFFFFF}Masukkan alasan kamu menggagalkan ujian mengemudi pemohon ini:",
                 "Konfirmasi", "Batal");
         }
@@ -354,7 +354,7 @@ Dialog:JPJFailReasonDrive(playerid, response, listitem, inputtext[])
 
     if(!strlen(inputtext))
         return Dialog_Show(playerid, "JPJFailReasonDrive", DIALOG_STYLE_INPUT,
-            "{00BFFF}Nexston Roleplay {FFFFFF}- Alasan Gagal Mengemudi",
+            "{00BFFF}Vertex Roleplay {FFFFFF}- Alasan Gagal Mengemudi",
             "{FF0000}Alasan tidak boleh kosong!\n{FFFFFF}Masukkan alasan kamu menggagalkan pemohon ini:",
             "Konfirmasi", "Batal");
 
@@ -366,7 +366,7 @@ Dialog:JPJFailReasonDrive(playerid, response, listitem, inputtext[])
         Biaya tidak dikembalikan. Silakan daftar ulang.", inputtext);
 
     Dialog_Show(targetid, "JPJFailNotif", DIALOG_STYLE_MSGBOX,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Hasil Ujian Mengemudi",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Hasil Ujian Mengemudi",
         str, "Tutup", "");
 
     if(JPJDriveCPID[targetid] != 0)
@@ -403,7 +403,7 @@ stock ShowJPJFailApplicant(playerid)
         return ShowTDN(playerid, NOTIFICATION_INFO, "Tidak ada pemohon yang sedang ujian mengemudi.");
 
     Dialog_Show(playerid, "JPJFailApplicant", DIALOG_STYLE_LIST,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Gagalkan Pemohon",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Gagalkan Pemohon",
         str, "Pilih & Input Alasan", "Batal");
 }
 
@@ -421,7 +421,7 @@ Dialog:JPJFailApplicant(playerid, response, listitem, inputtext[])
             {
                 JPJStaffTargetID[playerid] = i;
                 Dialog_Show(playerid, "JPJFailReasonDrive", DIALOG_STYLE_INPUT,
-                    "{00BFFF}Nexston Roleplay {FFFFFF}- Alasan Gagal Mengemudi",
+                    "{00BFFF}Vertex Roleplay {FFFFFF}- Alasan Gagal Mengemudi",
                     "{FFFFFF}Masukkan alasan kamu menggagalkan ujian mengemudi pemohon ini:",
                     "Konfirmasi", "Batal");
                 return 1;

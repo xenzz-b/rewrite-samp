@@ -24,7 +24,7 @@ YCMD:modshop(playerid, params[], help)
     {
         format(string, sizeof(string), "%s"GREEN"+ Beli baru\t"GREEN"$5,000", string);
     }
-    Dialog_Show(playerid, "ModshopCatalog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Modshop", 
+    Dialog_Show(playerid, "ModshopCatalog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Modshop", 
     string, "Pilih", "Batal");
     return 1;
 }

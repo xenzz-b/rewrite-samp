@@ -130,7 +130,7 @@ YCMD:blackjack(playerid, params[], help)
     TogglePlayerControllable(playerid, false);
 
     PlayerPlayNearbySound(playerid, 5810);
-    Dialog_Show(playerid, "BlackjackBet", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Your Bets", "Welcome to your table, please place your bets:", "Place", "Batal");
+    Dialog_Show(playerid, "BlackjackBet", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Your Bets", "Welcome to your table, please place your bets:", "Place", "Batal");
     return 1;
 }
 

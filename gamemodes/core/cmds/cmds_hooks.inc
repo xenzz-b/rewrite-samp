@@ -317,7 +317,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
     {
         if(!AccountData[playerid][pKnockdown])
         {
-			Dialog_Show(playerid, "DMVCatalog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Department of Motor Vehicles", "Service\tRegulation\n\
+			Dialog_Show(playerid, "DMVCatalog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Department of Motor Vehicles", "Service\tRegulation\n\
             Apply Driving License\t-\n\
             "GRAY"General Vehicle License [GVL-1] Renewal\t"GRAY"$135.00\n\
             Large Vehicle License [GVL-2] Renewal\t$275.00\n\
@@ -347,7 +347,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 		if(!AccountData[playerid][pKnockdown])
 		{
 			if(!AccountData[playerid][pHasKTP]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki Kartu Tanda Penduduk/sudah expired!");
-			Dialog_Show(playerid, "GudangRental", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Penyewaan Gudang", 
+			Dialog_Show(playerid, "GudangRental", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Penyewaan Gudang", 
 			"Katalog/Nama Gudang\tHarga Penyewaan\n\
 			Mulai sewa gudang\t"GREEN"$20,000\n\
 			"GRAY"Berhenti sewa gudang\t"GRAY"-", "Pilih", "Batal");
@@ -360,7 +360,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 			if(!AccountData[playerid][pHasKTP]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki Kartu Tanda Penduduk/sudah expired!");
 
 			ShowJobCenterTD(playerid);
-			SelectTextDraw(playerid, Y_Nexston);
+			SelectTextDraw(playerid, Y_Vertex);
 		}
 	}
 	else if(newkeys & KEY_YES && GetPlayerState(playerid) == PLAYER_STATE_ONFOOT && IsPlayerInRangeOfPoint(playerid, 2.0, 2478.1804,48.2690,1069.6959))
@@ -370,10 +370,10 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 			if(!AccountData[playerid][pHasKTP]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki Kartu Tanda Penduduk/sudah expired!");
 
 			static string[555];
-			format(string, sizeof(string), ""WHITE"Selamat datang di Balai Kota Pemerintah Kota Nexston!\n\
+			format(string, sizeof(string), ""WHITE"Selamat datang di Balai Kota Pemerintah Kota Vertex!\n\
 			Anda saat ini sudah memiliki total slip gaji senilai "GREEN"$%s\n\
 			"YELLOW"( Apakah anda ingin mencairkannya sekarang? )", FormatMoney(AccountData[playerid][pSlipSalary]));
-			Dialog_Show(playerid, "MySlipSalary", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Slip Gaji", string, "Yes", "No");
+			Dialog_Show(playerid, "MySlipSalary", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Slip Gaji", string, "Yes", "No");
 		}
 	}
 	else if(newkeys & KEY_YES && GetPlayerState(playerid) == PLAYER_STATE_ONFOOT && IsPlayerInRangeOfPoint(playerid, 2.0, 2487.0767,43.3927,1069.6959))
@@ -416,7 +416,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 				}
 				else format(string,sizeof(string), "%s%d\t%s\t%s\t"GREEN"$1,500\n", string, listed+1, GetVehicleModelName(PlayerVehicle[vid][pVehModelID]), PlayerVehicle[vid][pVehPlate]);
 			}
-			Dialog_Show(playerid, "VehicleInsurance", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Asuransi", string, "Pilih", "Batal");
+			Dialog_Show(playerid, "VehicleInsurance", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Asuransi", string, "Pilih", "Batal");
 		}
 
 		if(AccountData[playerid][pHoldFlashlight])
@@ -466,7 +466,7 @@ Dialog:PlayerHelp(playerid, response, listitem, inputtext[])
 	{
 		case 0: //perintah dasar
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Perintah Dasar", 
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Perintah Dasar", 
 			"Daftar Perintah\tKeterangan\n\
 			/cc\tuntuk membersihkan chatlog di layar\n\
 			"GRAY"/togchatanim\t"GRAY"untuk toggle animasi ketika berbicara\n\
@@ -479,7 +479,7 @@ Dialog:PlayerHelp(playerid, response, listitem, inputtext[])
 			/stopsong\tmatikan musik yang sedang terdengar\n\
 			"GRAY"/elist\t"GRAY"lihat daftar nama animasi\n\
 			/flist\tlihat jumlah anggota faction on duty\n\
-			"GRAY"/fams\t"GRAY"melihat badside official Nexston\n\
+			"GRAY"/fams\t"GRAY"melihat badside official Vertex\n\
 			/hidektd\tsembunyikan textdraw KTP\n\
 			"GRAY"/report\t"GRAY"lapor sesuatu kepada admin lapangan\n\
 			/pay\tberi uang\n\
@@ -497,7 +497,7 @@ Dialog:PlayerHelp(playerid, response, listitem, inputtext[])
 		}
 		case 1: //perintah kendaraan
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Perintah Kendaraan", 
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Perintah Kendaraan", 
 			"Daftar Perintah\tKeterangan\n\
 			/en\tuntuk hidupkan/matikan mesin\n\
 			"GRAY"/myv\t"GRAY"lihat list kendaraan yang dimiliki\n\
@@ -507,7 +507,7 @@ Dialog:PlayerHelp(playerid, response, listitem, inputtext[])
 		}
 		case 2: //perintah roleplay
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Perintah Roleplay", 
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Perintah Roleplay", 
 			"Daftar Perintah\tKeterangan\n\
 			/ado\tmenerangkan situasi dengan label teks\n\
 			"GRAY"/me\t"GRAY"menerangkan aktivitas rp dengan memunculkannya di atas kepala\n\
@@ -518,7 +518,7 @@ Dialog:PlayerHelp(playerid, response, listitem, inputtext[])
 		}
 		case 3: //petunjuk dasar
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Petunjuk Dasar", 
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Petunjuk Dasar", 
 			"Daftar Perintah\tKeterangan\n\
 			/sv\tuntuk mengganti mode suara\n\
 			"GRAY"/e (nama animasi)\t"GRAY"untuk memainkan animasi\n\
@@ -526,8 +526,8 @@ Dialog:PlayerHelp(playerid, response, listitem, inputtext[])
 		}
 		case 4: //petunjuk lapar haus
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Petunjuk Lapar Haus", 
-			""WHITE"Dikarenakan Nexston merupakan server dengan mode Roleplay, tentu saja karakter anda\n\
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Petunjuk Lapar Haus", 
+			""WHITE"Dikarenakan Vertex merupakan server dengan mode Roleplay, tentu saja karakter anda\n\
 			dapat merasakan lapar dan haus hingga stress.\n\
 			Bagaimana cara membedakannya dan menemukannya di layar monitor anda?\n\n\
 			Secara umum ketiganya terletak di bawah layar kiri monitor anda,\n\
@@ -543,9 +543,9 @@ Dialog:PlayerHelp(playerid, response, listitem, inputtext[])
 		}
 		case 5: //racing system
 		{
-			//Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Perintah Racing", 
+			//Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Perintah Racing", 
 			//"Fitur ini dinonaktifkan sementara.", "Tutup", "");
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Perintah Racing", 
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Perintah Racing", 
 			"Daftar Perintah\tKeterangan\n\
 			/race create\tuntuk membuat balapan\n\
 			/race reset\tmenghapus balapan yang sedang dibuat\n\
@@ -555,7 +555,7 @@ Dialog:PlayerHelp(playerid, response, listitem, inputtext[])
 		}
 		case 6: //hotkeys
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Hotkeys", 
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Hotkeys", 
 			"Daftar Perintah\tKeterangan\n\
 			Tombol P\tuntuk membuka smartphone\n\
 			"GRAY"Tombol I\t"GRAY"untuk membuka tas/inventory\n\
@@ -1016,7 +1016,7 @@ Show_BadsideOnMember(playerid)
 		strcat(string, ""GREEN">> Selanjutnya\n");
 	}
 
-	Dialog_Show(playerid, "FamonDialogList", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Nexston"Nexston Roleplay "WHITE"- Badside Online Member "GREEN"(%d)", count),
+	Dialog_Show(playerid, "FamonDialogList", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Vertex"Vertex Roleplay "WHITE"- Badside Online Member "GREEN"(%d)", count),
 	string, "Tutup", "");
 	return 1;
 }
@@ -1079,7 +1079,7 @@ Show_FactionOnMember(playerid)
 		strcat(string, ""GREEN">> Selanjutnya\n");
 	}
 
-	Dialog_Show(playerid, "FonDialogList", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Nexston"Nexston Roleplay "WHITE"- Faction Online Member "GREEN"(%d)", count),
+	Dialog_Show(playerid, "FonDialogList", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Vertex"Vertex Roleplay "WHITE"- Faction Online Member "GREEN"(%d)", count),
 	string, "Tutup", "");
 	return 1;
 }

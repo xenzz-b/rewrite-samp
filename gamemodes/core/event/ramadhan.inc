@@ -544,7 +544,7 @@ hook OnGameModeInit()
     SetDynamicObjectMaterial(RamadhanObj, 1, 19480, "signsurf", "sign", 0x00000000);
     SetDynamicObjectMaterial(RamadhanObj, 2, 19480, "signsurf", "sign", 0x00000000);
     SetDynamicObjectMaterial(RamadhanObj, 3, 19480, "signsurf", "sign", 0x00000000);
-    SetDynamicObjectMaterialText(RamadhanObj, 0, "Nexston BERKAH", 140, "Arial Black", 30, 1, 0xFFBBBBBB, 0x00000000, 1);
+    SetDynamicObjectMaterialText(RamadhanObj, 0, "Vertex BERKAH", 140, "Arial Black", 30, 1, 0xFFBBBBBB, 0x00000000, 1);
     RamadhanObj = CreateDynamicObject(19832, 766.209472, -1405.405639, 14.091089, 90.000000, 630.000000, 0.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(RamadhanObj, 0, 18646, "matcolours", "red-4", 0x00000000);
     RamadhanObj = CreateDynamicObject(18762, 721.662719, -1396.989990, 14.767108, 0.000855, 0.400956, -90.001190, 0, 0, -1, 200.00, 200.00); 
@@ -683,7 +683,7 @@ hook OnGameModeInit()
     SetDynamicObjectMaterial(RamadhanObj, 1, 19480, "signsurf", "sign", 0x00000000);
     SetDynamicObjectMaterial(RamadhanObj, 2, 19480, "signsurf", "sign", 0x00000000);
     SetDynamicObjectMaterial(RamadhanObj, 3, 19480, "signsurf", "sign", 0x00000000);
-    SetDynamicObjectMaterialText(RamadhanObj, 0, "PEMDa Nexston", 140, "Verdana", 60, 1, 0xFFB0AB4D, 0x00000000, 1);
+    SetDynamicObjectMaterialText(RamadhanObj, 0, "PEMDa Vertex", 140, "Verdana", 60, 1, 0xFFB0AB4D, 0x00000000, 1);
     RamadhanObj = CreateDynamicObject(19373, 766.081909, -1405.010986, 14.172443, -0.400943, 0.000821, 179.997772, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(RamadhanObj, 0, 19480, "signsurf", "sign", 0x00000000);
     SetDynamicObjectMaterial(RamadhanObj, 1, 19480, "signsurf", "sign", 0x00000000);
@@ -725,7 +725,7 @@ hook OnGameModeInit()
     SetDynamicObjectMaterial(RamadhanObj, 1, 19480, "signsurf", "sign", 0x00000000);
     SetDynamicObjectMaterial(RamadhanObj, 2, 19480, "signsurf", "sign", 0x00000000);
     SetDynamicObjectMaterial(RamadhanObj, 3, 19480, "signsurf", "sign", 0x00000000);
-    SetDynamicObjectMaterialText(RamadhanObj, 0, "PEMDa Nexston", 140, "Verdana", 60, 1, 0xFFB0AB4D, 0x00000000, 1);
+    SetDynamicObjectMaterialText(RamadhanObj, 0, "PEMDa Vertex", 140, "Verdana", 60, 1, 0xFFB0AB4D, 0x00000000, 1);
     RamadhanObj = CreateDynamicObject(3038, 713.992919, -1396.440551, 19.258914, -0.000846, -0.400965, -172.401687, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(RamadhanObj, 0, 14548, "ab_cargo_int", "cargo_gir2", 0x00000000);
     RamadhanObj = CreateDynamicObject(3038, 715.082519, -1404.608032, 19.258789, -0.000846, -0.400965, -172.401687, 0, 0, -1, 200.00, 200.00); 
@@ -761,7 +761,7 @@ hook OnGameModeInit()
     SetDynamicObjectMaterial(RamadhanObj, 1, 19480, "signsurf", "sign", 0x00000000);
     SetDynamicObjectMaterial(RamadhanObj, 2, 19480, "signsurf", "sign", 0x00000000);
     SetDynamicObjectMaterial(RamadhanObj, 3, 19480, "signsurf", "sign", 0x00000000);
-    SetDynamicObjectMaterialText(RamadhanObj, 0, "Nexston BERKAH", 140, "Arial Black", 30, 1, 0xFFBBBBBB, 0x00000000, 1);
+    SetDynamicObjectMaterialText(RamadhanObj, 0, "Vertex BERKAH", 140, "Arial Black", 30, 1, 0xFFBBBBBB, 0x00000000, 1);
     RamadhanObj = CreateDynamicObject(19832, 766.209472, -1395.385131, 14.091089, 89.999992, 720.000000, -89.999969, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(RamadhanObj, 0, 18646, "matcolours", "red-4", 0x00000000);
     RamadhanObj = CreateDynamicObject(19832, 766.209472, -1395.765258, 14.091089, 89.999992, 720.000000, -89.999969, 0, 0, -1, 200.00, 200.00); 
@@ -916,7 +916,7 @@ hook OnGameModeInit()
     SetDynamicObjectMaterial(RamadhanObj, 0, 1273, "icons3", "greengrad32", 0x00000000);
     RamadhanObj = CreateDynamicObject(4735, 1353.787719, -1713.017700, 27.346210, 0.000000, -0.000014, -179.599899, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(RamadhanObj, 0, 1273, "icons3", "greengrad32", 0x00000000);
-    SetDynamicObjectMaterialText(RamadhanObj, 0, "PEMERINTAh Nexston", 120, "Arial", 25, 1, 0xFFFFFF00, 0x00000000, 1);
+    SetDynamicObjectMaterialText(RamadhanObj, 0, "PEMERINTAh Vertex", 120, "Arial", 25, 1, 0xFFFFFF00, 0x00000000, 1);
     RamadhanObj = CreateDynamicObject(4735, 1353.787719, -1713.017700, 26.336217, 0.000000, -0.000014, -179.599899, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(RamadhanObj, 0, 1273, "icons3", "greengrad32", 0x00000000);
     SetDynamicObjectMaterialText(RamadhanObj, 0, "MENGUCAPKAN", 120, "Arial", 25, 1, 0xFFFFFF00, 0x00000000, 1);
@@ -934,7 +934,7 @@ hook OnGameModeInit()
     SetDynamicObjectMaterial(RamadhanObj, 0, 1273, "icons3", "greengrad32", 0x00000000);
     RamadhanObj = CreateDynamicObject(4735, 1030.849365, -2074.449218, 23.496204, -0.000082, -0.000061, -99.199424, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(RamadhanObj, 0, 1273, "icons3", "greengrad32", 0x00000000);
-    SetDynamicObjectMaterialText(RamadhanObj, 0, "PEMERINTAh Nexston", 120, "Arial", 25, 1, 0xFFFFFF00, 0x00000000, 1);
+    SetDynamicObjectMaterialText(RamadhanObj, 0, "PEMERINTAh Vertex", 120, "Arial", 25, 1, 0xFFFFFF00, 0x00000000, 1);
     RamadhanObj = CreateDynamicObject(4735, 1030.849365, -2074.449218, 22.486211, -0.000082, -0.000061, -99.199424, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(RamadhanObj, 0, 1273, "icons3", "greengrad32", 0x00000000);
     SetDynamicObjectMaterialText(RamadhanObj, 0, "MENGUCAPKAN", 120, "Arial", 25, 1, 0xFFFFFF00, 0x00000000, 1);
@@ -953,7 +953,7 @@ hook OnGameModeInit()
     SetDynamicObjectMaterial(RamadhanObj, 0, 1273, "icons3", "greengrad32", 0x00000000);
     RamadhanObj = CreateDynamicObject(4735, 1022.801025, -2234.903808, 23.496206, -0.000047, -0.000062, 105.700401, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(RamadhanObj, 0, 1273, "icons3", "greengrad32", 0x00000000);
-    SetDynamicObjectMaterialText(RamadhanObj, 0, "PEMERINTAh Nexston", 120, "Arial", 25, 1, 0xFFFFFF00, 0x00000000, 1);
+    SetDynamicObjectMaterialText(RamadhanObj, 0, "PEMERINTAh Vertex", 120, "Arial", 25, 1, 0xFFFFFF00, 0x00000000, 1);
     RamadhanObj = CreateDynamicObject(4735, 1022.801025, -2234.903808, 22.486213, -0.000047, -0.000062, 105.700401, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(RamadhanObj, 0, 1273, "icons3", "greengrad32", 0x00000000);
     SetDynamicObjectMaterialText(RamadhanObj, 0, "MENGUCAPKAN", 120, "Arial", 25, 1, 0xFFFFFF00, 0x00000000, 1);

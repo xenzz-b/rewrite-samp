@@ -44,8 +44,8 @@ static UpdateCctvPitchBar(playerid)
 {
     new Float:percent = (CctvPitch[playerid] - CCTV_PITCH_MIN) / (CCTV_PITCH_MAX - CCTV_PITCH_MIN);
     new Float:barHeight = -(percent * 83.0);
-    PlayerTextDrawTextSize(playerid, CctvNSRP[playerid][24], 2.0, barHeight);
-    PlayerTextDrawShow(playerid, CctvNSRP[playerid][24]);
+    PlayerTextDrawTextSize(playerid, CctvVRP[playerid][24], 2.0, barHeight);
+    PlayerTextDrawShow(playerid, CctvVRP[playerid][24]);
 }
 static ApplyCctvCamera(playerid)
 {
@@ -71,11 +71,11 @@ static UpdateCctvUI(playerid)
 {
     new idx = CctvIndex[playerid];
 
-    PlayerTextDrawSetString(playerid, CctvNSRP[playerid][18], CctvRoomName[idx]);
+    PlayerTextDrawSetString(playerid, CctvVRP[playerid][18], CctvRoomName[idx]);
 
     new szCoord[64];
     format(szCoord, sizeof(szCoord), "X: %.2f Y: %.2f Z: %.2f", CctvPos[idx][0], CctvPos[idx][1], CctvPos[idx][2]);
-    PlayerTextDrawSetString(playerid, CctvNSRP[playerid][7], szCoord);
+    PlayerTextDrawSetString(playerid, CctvVRP[playerid][7], szCoord);
 
     UpdateCctvPitchBar(playerid);
     ApplyCctvCamera(playerid);
@@ -151,7 +151,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
     if(!InCctv[playerid])
         return 1;
 
-    if(playertextid == CctvNSRP[playerid][38])
+    if(playertextid == CctvVRP[playerid][38])
     {
         CctvIndex[playerid] = 0;
         CctvPitch[playerid] = 0.0;
@@ -163,7 +163,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
         SetTimerEx("CctvExit", 100, false, "i", playerid);
         return 1;
     }
-    if(playertextid == CctvNSRP[playerid][14])
+    if(playertextid == CctvVRP[playerid][14])
     {
         CctvIndex[playerid] = (CctvIndex[playerid] - 1 + MAX_CCTV_ROOMS) % MAX_CCTV_ROOMS;
         SetPlayerPos(playerid, CctvPos[CctvIndex[playerid]][0], CctvPos[CctvIndex[playerid]][1], CctvPos[CctvIndex[playerid]][2]);
@@ -172,7 +172,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
         FadeIn(playerid);
         return 1;
     }
-    if(playertextid == CctvNSRP[playerid][15])
+    if(playertextid == CctvVRP[playerid][15])
     {
         CctvIndex[playerid] = (CctvIndex[playerid] + 1) % MAX_CCTV_ROOMS;
         SetPlayerPos(playerid, CctvPos[CctvIndex[playerid]][0], CctvPos[CctvIndex[playerid]][1], CctvPos[CctvIndex[playerid]][2]);
@@ -181,7 +181,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
         FadeIn(playerid);
         return 1;
     }
-    if(playertextid == CctvNSRP[playerid][21])
+    if(playertextid == CctvVRP[playerid][21])
     {
         if(CctvPitch[playerid] < CCTV_PITCH_MAX)
         {
@@ -191,7 +191,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
         }
         return 1;
     }
-    if(playertextid == CctvNSRP[playerid][22])
+    if(playertextid == CctvVRP[playerid][22])
     {
         if(CctvPitch[playerid] > CCTV_PITCH_MIN)
         {

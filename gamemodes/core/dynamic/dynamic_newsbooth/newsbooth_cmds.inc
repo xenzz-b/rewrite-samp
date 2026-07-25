@@ -113,7 +113,7 @@ YCMD:read(playerid, params[], help)
     ShowItemBox(playerid, "Cash", "Removed $25x", 1212, 4);
 
     SendRPMeAboveHead(playerid, "Membayar dan mengambil untuk dibaca koran.");
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
     ShowKoranTD(playerid);
 
     SendClientMessage(playerid, Y_SERVER, "(Server) "WHITE"Gunakan "CMDEA"'/cursor' "WHITE"jika mouse hilang dari layar/textdraw tidak bisa ditekan!");

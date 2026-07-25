@@ -263,7 +263,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 			pDrugSellChosen[playerid] = random(sizeof(g_DrugsSellActorPos));
 			pDrugSellActor[playerid] = CreateDynamicActor(randskin, g_DrugsSellActorPos[pDrugSellChosen[playerid]][0], g_DrugsSellActorPos[pDrugSellChosen[playerid]][1], g_DrugsSellActorPos[pDrugSellChosen[playerid]][2], g_DrugsSellActorPos[pDrugSellChosen[playerid]][3], 1, 100.0, 0, 0, -1, 300.00, -1, 0);
 			pDrugSellIcon[playerid] = CreateDynamicMapIcon(g_DrugsSellActorPos[pDrugSellChosen[playerid]][0], g_DrugsSellActorPos[pDrugSellChosen[playerid]][1], g_DrugsSellActorPos[pDrugSellChosen[playerid]][2], 23, -1, 0, 0, playerid, 155.55, MAPICON_LOCAL, -1, 0);
-			pDrugSellLabel[playerid] = CreateDynamic3DTextLabel("[Y] "WHITE"Jual", Y_Nexston, g_DrugsSellActorPos[pDrugSellChosen[playerid]][0], g_DrugsSellActorPos[pDrugSellChosen[playerid]][1], g_DrugsSellActorPos[pDrugSellChosen[playerid]][2]+0.85, 30.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, 0, 0, playerid, 30.00, -1, 0);
+			pDrugSellLabel[playerid] = CreateDynamic3DTextLabel("[Y] "WHITE"Jual", Y_Vertex, g_DrugsSellActorPos[pDrugSellChosen[playerid]][0], g_DrugsSellActorPos[pDrugSellChosen[playerid]][1], g_DrugsSellActorPos[pDrugSellChosen[playerid]][2]+0.85, 30.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, 0, 0, playerid, 30.00, -1, 0);
 
 			ShowTDN(playerid, NOTIFICATION_WARNING, "Mohon tanda checkpoint di map!");
 

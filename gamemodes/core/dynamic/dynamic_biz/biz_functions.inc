@@ -68,7 +68,7 @@ ShowAllBizListGPS(playerid)
     }
     
     SetPVarInt(playerid, "GPSListType", 1);
-    Dialog_Show(playerid, "GPSBizList", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- GPS - Business Kota", biz_string, "Pilih", "Kembali");
+    Dialog_Show(playerid, "GPSBizList", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- GPS - Business Kota", biz_string, "Pilih", "Kembali");
     return 1;
 }
 
@@ -1005,71 +1005,71 @@ Dialog:BizMenu(playerid, response, listitem, inputtext[])
                 {
                     case 0: // Nama Biz
                     {
-                        Dialog_Show(playerid, "BizMenuName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Nama Biz", "Mohon masukkan nama untuk biz milikmu:", 
+                        Dialog_Show(playerid, "BizMenuName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Nama Biz", "Mohon masukkan nama untuk biz milikmu:", 
                         "Set", "Batal");
                     }
                     case 1: // Profit
                     {
-                        Dialog_Show(playerid, "BizMenuProfit", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Profit Biz", "Mohon masukkan berapa jumlah yang ingin ditarik:", "Tarik", "Batal");
+                        Dialog_Show(playerid, "BizMenuProfit", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Profit Biz", "Mohon masukkan berapa jumlah yang ingin ditarik:", "Tarik", "Batal");
                     }
                     case 2: // Biaya Masuk
                     {
-                        Dialog_Show(playerid, "BizMenuEnterance", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Biaya Masuk", "Mohon masukkan berapa biaya masuk ke biz milikmu:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuEnterance", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Biaya Masuk", "Mohon masukkan berapa biaya masuk ke biz milikmu:", "Set", "Batal");
                     }
                     case 3: // Harga Nasi Uduk
                     {
                         AccountData[playerid][pTempValue] = 0;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Nasi Uduk:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Nasi Uduk:", "Set", "Batal");
                     }
                     case 4: // Harga Air Mineral
                     {
                         AccountData[playerid][pTempValue] = 1;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Air Mineral:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Air Mineral:", "Set", "Batal");
                     }
                     case 5: // Harga Skateboard
                     {
                         AccountData[playerid][pTempValue] = 2;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Skateboard:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Skateboard:", "Set", "Batal");
                     }
                     case 6: // Harga Udud
                     {
                         AccountData[playerid][pTempValue] = 3;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Udud:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Udud:", "Set", "Batal");
                     }
                     case 7: // Harga Obeng
                     {
                         AccountData[playerid][pTempValue] = 4;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Obeng:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Obeng:", "Set", "Batal");
                     }
                     case 8: // Harga Pilox
                     {
                         AccountData[playerid][pTempValue] = 5;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Pilox:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Pilox:", "Set", "Batal");
                     }
                     case 9: // Harga Senter
                     {
                         AccountData[playerid][pTempValue] = 6;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Senter:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Senter:", "Set", "Batal");
                     }
                     case 10: // Harga Pancingan
                     {
                         AccountData[playerid][pTempValue] = 7;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Pancingan:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Pancingan:", "Set", "Batal");
                     }
                     case 11: // Harga Umpan
                     {
                         AccountData[playerid][pTempValue] = 8;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Umpan:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Umpan:", "Set", "Batal");
                     }
                     case 12: // Harga Ember
                     {
                         AccountData[playerid][pTempValue] = 9;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Ember:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Ember:", "Set", "Batal");
                     }
                     case 13: // Harga Toolkit
                     {
                         AccountData[playerid][pTempValue] = 10;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Toolkit:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Toolkit:", "Set", "Batal");
                     }
                     case 14: // Status Buka/Tutup
                     {
@@ -1097,41 +1097,41 @@ Dialog:BizMenu(playerid, response, listitem, inputtext[])
                 {
                     case 0: // Nama Biz
                     {
-                        Dialog_Show(playerid, "BizMenuName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Nama Biz", "Mohon masukkan nama untuk biz milikmu:", 
+                        Dialog_Show(playerid, "BizMenuName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Nama Biz", "Mohon masukkan nama untuk biz milikmu:", 
                         "Set", "Batal");
                     }
                     case 1: // Profit
                     {
-                        Dialog_Show(playerid, "BizMenuProfit", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Profit Biz", "Mohon masukkan berapa jumlah yang ingin ditarik:", "Tarik", "Batal");
+                        Dialog_Show(playerid, "BizMenuProfit", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Profit Biz", "Mohon masukkan berapa jumlah yang ingin ditarik:", "Tarik", "Batal");
                     }
                     case 2: // Biaya Masuk
                     {
-                        Dialog_Show(playerid, "BizMenuEnterance", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Biaya Masuk", "Mohon masukkan berapa biaya masuk ke biz milikmu:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuEnterance", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Biaya Masuk", "Mohon masukkan berapa biaya masuk ke biz milikmu:", "Set", "Batal");
                     }
                     case 3: // Harga Pakaian
                     {
                         AccountData[playerid][pTempValue] = 0;
-                        Dialog_Show(playerid, "BizMenuClothesPrice", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk semua pakaian:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuClothesPrice", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk semua pakaian:", "Set", "Batal");
                     }
                     case 4: // Harga Topi/Helm
                     {
                         AccountData[playerid][pTempValue] = 1;
-                        Dialog_Show(playerid, "BizMenuClothesPrice", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk semua topi/helm:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuClothesPrice", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk semua topi/helm:", "Set", "Batal");
                     }
                     case 5: // Harga Kacamata
                     {
                         AccountData[playerid][pTempValue] = 2;
-                        Dialog_Show(playerid, "BizMenuClothesPrice", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk semua kacamata:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuClothesPrice", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk semua kacamata:", "Set", "Batal");
                     }
                     case 6: // Harga Aksesoris
                     {
                         AccountData[playerid][pTempValue] = 3;
-                        Dialog_Show(playerid, "BizMenuClothesPrice", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk semua aksesoris:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuClothesPrice", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk semua aksesoris:", "Set", "Batal");
                     }
                     case 7: // Harga Tas/Koper
                     {
                         AccountData[playerid][pTempValue] = 4;
-                        Dialog_Show(playerid, "BizMenuClothesPrice", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk semua tas/koper:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuClothesPrice", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk semua tas/koper:", "Set", "Batal");
                     }
                     case 8: // Status Buka/Tutup
                     {
@@ -1159,46 +1159,46 @@ Dialog:BizMenu(playerid, response, listitem, inputtext[])
                 {
                     case 0: // Nama Biz
                     {
-                        Dialog_Show(playerid, "BizMenuName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Nama Biz", "Mohon masukkan nama untuk biz milikmu:", 
+                        Dialog_Show(playerid, "BizMenuName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Nama Biz", "Mohon masukkan nama untuk biz milikmu:", 
                         "Set", "Batal");
                     }
                     case 1: // Profit
                     {
-                        Dialog_Show(playerid, "BizMenuProfit", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Profit Biz", "Mohon masukkan berapa jumlah yang ingin ditarik:", "Tarik", "Batal");
+                        Dialog_Show(playerid, "BizMenuProfit", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Profit Biz", "Mohon masukkan berapa jumlah yang ingin ditarik:", "Tarik", "Batal");
                     }
                     case 2: // Biaya Masuk
                     {
-                        Dialog_Show(playerid, "BizMenuEnterance", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Biaya Masuk", "Mohon masukkan berapa biaya masuk ke biz milikmu:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuEnterance", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Biaya Masuk", "Mohon masukkan berapa biaya masuk ke biz milikmu:", "Set", "Batal");
                     }
                     case 3: // Harga Smartphone
                     {
                         AccountData[playerid][pTempValue] = 0;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Smartphone:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Smartphone:", "Set", "Batal");
                     }
                     case 4: // Harga Radio
                     {
                         AccountData[playerid][pTempValue] = 1;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Radio:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Radio:", "Set", "Batal");
                     }
                     case 5: // Harga Earphone
                     {
                         AccountData[playerid][pTempValue] = 2;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Earphone:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Earphone:", "Set", "Batal");
                     }
                     case 6: // Harga Boombox
                     {
                         AccountData[playerid][pTempValue] = 3;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Boombox:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Boombox:", "Set", "Batal");
                     }
                     case 7: // Harga Vape
                     {
                         AccountData[playerid][pTempValue] = 4;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Vape:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Vape:", "Set", "Batal");
                     }
                     case 8: // Harga Race Tablet
                     {
                         AccountData[playerid][pTempValue] = 5;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Race Tablet:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Race Tablet:", "Set", "Batal");
                     }
                     case 9: // Status Buka/Tutup
                     {
@@ -1227,61 +1227,61 @@ Dialog:BizMenu(playerid, response, listitem, inputtext[])
                 {
                     case 0: // Nama Biz
                     {
-                        Dialog_Show(playerid, "BizMenuName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Nama Biz", "Mohon masukkan nama untuk biz milikmu:", 
+                        Dialog_Show(playerid, "BizMenuName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Nama Biz", "Mohon masukkan nama untuk biz milikmu:", 
                         "Set", "Batal");
                     }
                     case 1: // Profit
                     {
-                        Dialog_Show(playerid, "BizMenuProfit", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Profit Biz", "Mohon masukkan berapa jumlah yang ingin ditarik:", "Tarik", "Batal");
+                        Dialog_Show(playerid, "BizMenuProfit", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Profit Biz", "Mohon masukkan berapa jumlah yang ingin ditarik:", "Tarik", "Batal");
                     }
                     case 2: // Biaya Masuk
                     {
-                        Dialog_Show(playerid, "BizMenuEnterance", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Biaya Masuk", "Mohon masukkan berapa biaya masuk ke biz milikmu:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuEnterance", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Biaya Masuk", "Mohon masukkan berapa biaya masuk ke biz milikmu:", "Set", "Batal");
                     }
                     case 3: // Harga Baseball Bat
                     {
                         AccountData[playerid][pTempValue] = 0;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Baseball Bat:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Baseball Bat:", "Set", "Batal");
                     }
                     case 4: // Harga Knife
                     {
                         AccountData[playerid][pTempValue] = 1;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Knife:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Knife:", "Set", "Batal");
                     }
                     case 5: // Harga Golf Stick
                     {
                         AccountData[playerid][pTempValue] = 2;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Golf Stick:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Golf Stick:", "Set", "Batal");
                     }
                     case 6: // Harga Pool Cue
                     {
                         AccountData[playerid][pTempValue] = 3;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Pool Cue:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Pool Cue:", "Set", "Batal");
                     }
                     case 7: // Harga Hunting Rifle
                     {
                         AccountData[playerid][pTempValue] = 4;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Hunting Rifle:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Hunting Rifle:", "Set", "Batal");
                     }
                     case 8: // Harga Hunting Ammo
                     {
                         AccountData[playerid][pTempValue] = 5;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Hunting Ammo:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Hunting Ammo:", "Set", "Batal");
                     }
                     case 9: // Harga Katana
                     {
                         AccountData[playerid][pTempValue] = 6;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Katana:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Katana:", "Set", "Batal");
                     }
                     case 10: // Harga Cangkul
                     {
                         AccountData[playerid][pTempValue] = 7;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Cangkul:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Cangkul:", "Set", "Batal");
                     }
                     case 11: // Harga Silenced Pistol
                     {
                         AccountData[playerid][pTempValue] = 8;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Silenced Pistol:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Silenced Pistol:", "Set", "Batal");
                     }
                     case 12: // Status Buka/Tutup
                     {
@@ -1309,50 +1309,50 @@ Dialog:BizMenu(playerid, response, listitem, inputtext[])
                 {
                     case 0: // Nama Biz
                     {
-                        Dialog_Show(playerid, "BizMenuName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Nama Biz", "Mohon masukkan nama untuk biz milikmu:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Nama Biz", "Mohon masukkan nama untuk biz milikmu:", "Set", "Batal");
                     }
                     case 1: // Profit
                     {
-                        Dialog_Show(playerid, "BizMenuProfit", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Profit Biz", "Mohon masukkan berapa jumlah yang ingin ditarik:", "Tarik", "Batal");
+                        Dialog_Show(playerid, "BizMenuProfit", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Profit Biz", "Mohon masukkan berapa jumlah yang ingin ditarik:", "Tarik", "Batal");
                     }
                     case 2: // Biaya Masuk
                     {
-                        Dialog_Show(playerid, "BizMenuEnterance", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Biaya Masuk", "Mohon masukkan berapa biaya masuk ke biz milikmu:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuEnterance", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Biaya Masuk", "Mohon masukkan berapa biaya masuk ke biz milikmu:", "Set", "Batal");
                     }
                     case 3: // Harga Whiskey Premium
                     {
                         AccountData[playerid][pTempValue] = 0;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Whiskey Premium:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Whiskey Premium:", "Set", "Batal");
                     }
                     case 4: // Harga Vodka Special
                     {
                         AccountData[playerid][pTempValue] = 1;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Vodka Special:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Vodka Special:", "Set", "Batal");
                     }
                     case 5: // Harga Rum Gold
                     {
                         AccountData[playerid][pTempValue] = 2;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Rum Gold:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Rum Gold:", "Set", "Batal");
                     }
                     case 6: // Harga Tequila Shot
                     {
                         AccountData[playerid][pTempValue] = 3;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Tequila Shot:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Tequila Shot:", "Set", "Batal");
                     }
                     case 7: // Harga Champagne Deluxe
                     {
                         AccountData[playerid][pTempValue] = 4;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Champagne Deluxe:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Champagne Deluxe:", "Set", "Batal");
                     }
                     case 8: // Harga Beer Classic
                     {
                         AccountData[playerid][pTempValue] = 5;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Beer Classic:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Beer Classic:", "Set", "Batal");
                     }
                     case 9: // Harga Red Wine Exclusive
                     {
                         AccountData[playerid][pTempValue] = 6;
-                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Red Wine Exclusive:", "Set", "Batal");
+                        Dialog_Show(playerid, "BizMenuProduct", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Produk", "Mohon masukkan harga untuk Red Wine Exclusive:", "Set", "Batal");
                     }
                     case 10: // Status Buka/Tutup
                     {
@@ -1387,23 +1387,23 @@ Dialog:BizMenuFuel(playerid, response, listitem, inputtext[])
     {
         case 0: // Nama Biz
         {
-            Dialog_Show(playerid, "BizMenuNameFuel", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Nama Biz", "Mohon masukkan nama untuk bisnis milikmu:", "Set", "Batal");
+            Dialog_Show(playerid, "BizMenuNameFuel", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Nama Biz", "Mohon masukkan nama untuk bisnis milikmu:", "Set", "Batal");
         }
         case 1: // Withdraw Kas
         {
-            Dialog_Show(playerid, "BizMenuWithdrawFuel", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Profit Biz", sprintf("Kas bisnis kamu: %s\n\nMasukkan jumlah yang ingin ditarik:", FormatMoney(BizData[bizid][bizMoney])), "Tarik", "Batal");
+            Dialog_Show(playerid, "BizMenuWithdrawFuel", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Profit Biz", sprintf("Kas bisnis kamu: %s\n\nMasukkan jumlah yang ingin ditarik:", FormatMoney(BizData[bizid][bizMoney])), "Tarik", "Batal");
         }
         case 2: // Deposit Kas
         {
-            Dialog_Show(playerid, "BizMenuDeposit", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Deposit Kas", sprintf("Uang kamu: %s\n\nMasukkan jumlah yang ingin di deposit:", FormatMoney(AccountData[playerid][pMoney])), "Deposit", "Batal");
+            Dialog_Show(playerid, "BizMenuDeposit", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Deposit Kas", sprintf("Uang kamu: %s\n\nMasukkan jumlah yang ingin di deposit:", FormatMoney(AccountData[playerid][pMoney])), "Deposit", "Batal");
         }
         case 3: // Harga BBM
         {
-            Dialog_Show(playerid, "BizMenuFuelPrice", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga BBM", sprintf("Harga saat ini: %s/liter\n\nMasukkan harga baru (1-1000):", FormatMoney(BizData[bizid][bizFuelPrice])), "Set", "Batal");
+            Dialog_Show(playerid, "BizMenuFuelPrice", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga BBM", sprintf("Harga saat ini: %s/liter\n\nMasukkan harga baru (1-1000):", FormatMoney(BizData[bizid][bizFuelPrice])), "Set", "Batal");
         }
         case 4: // Harga Jerigen
         {
-            Dialog_Show(playerid, "BizMenuJerigenPrice", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Harga Jerigen", sprintf("Harga saat ini: %s\n\nMasukkan harga baru (1-100000):", FormatMoney(BizData[bizid][bizJerigenPrice])), "Set", "Batal");
+            Dialog_Show(playerid, "BizMenuJerigenPrice", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Harga Jerigen", sprintf("Harga saat ini: %s\n\nMasukkan harga baru (1-100000):", FormatMoney(BizData[bizid][bizJerigenPrice])), "Set", "Batal");
         }
         case 5: // Status Buka/Tutup
         {
@@ -1697,67 +1697,67 @@ Dialog:BizRestock(playerid, response, listitem, inputtext[])
                     {
                         AccountData[playerid][pTempValue] = 0;
                         AccountData[playerid][pTempValue2] = 0; // 0 = regular stock
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 1: // Air Mineral
                     {
                         AccountData[playerid][pTempValue] = 1;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 2: // Skateboard
                     {
                         AccountData[playerid][pTempValue] = 2;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 3: // Udud
                     {
                         AccountData[playerid][pTempValue] = 3;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 4: // Obeng
                     {
                         AccountData[playerid][pTempValue] = 4;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 5: // Pilox
                     {
                         AccountData[playerid][pTempValue] = 5;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 6: // Senter
                     {
                         AccountData[playerid][pTempValue] = 6;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 7: // Pancingan
                     {
                         AccountData[playerid][pTempValue] = 7;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 8: // Umpan
                     {
                         AccountData[playerid][pTempValue] = 8;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 9: // Ember
                     {
                         AccountData[playerid][pTempValue] = 9;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 10: // Toolkit
                     {
                         AccountData[playerid][pTempValue] = 10;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                 }
             }
@@ -1771,31 +1771,31 @@ Dialog:BizRestock(playerid, response, listitem, inputtext[])
                     case 0: // Pakaian
                     {
                         AccountData[playerid][pTempValue] = 0;
-                        Dialog_Show(playerid, "BizRestockClothesConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", 
+                        Dialog_Show(playerid, "BizRestockClothesConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", 
                             ""WHITE"Masukkan jumlah stok untuk semua pakaian\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 1: // Topi/Helm
                     {
                         AccountData[playerid][pTempValue] = 1;
-                        Dialog_Show(playerid, "BizRestockClothesConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", 
+                        Dialog_Show(playerid, "BizRestockClothesConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", 
                             ""WHITE"Masukkan jumlah stok untuk semua topi/helm\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 2: // Kacamata
                     {
                         AccountData[playerid][pTempValue] = 2;
-                        Dialog_Show(playerid, "BizRestockClothesConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", 
+                        Dialog_Show(playerid, "BizRestockClothesConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", 
                             ""WHITE"Masukkan jumlah stok untuk semua kacamata\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 3: // Aksesoris
                     {
                         AccountData[playerid][pTempValue] = 3;
-                        Dialog_Show(playerid, "BizRestockClothesConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", 
+                        Dialog_Show(playerid, "BizRestockClothesConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", 
                             ""WHITE"Masukkan jumlah stok untuk semua aksesoris\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 4: // Tas/Koper
                     {
                         AccountData[playerid][pTempValue] = 4;
-                        Dialog_Show(playerid, "BizRestockClothesConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", 
+                        Dialog_Show(playerid, "BizRestockClothesConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", 
                             ""WHITE"Masukkan jumlah stok untuk semua tas/koper\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                 }
@@ -1811,37 +1811,37 @@ Dialog:BizRestock(playerid, response, listitem, inputtext[])
                     {
                         AccountData[playerid][pTempValue] = 0;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 1: // Radio
                     {
                         AccountData[playerid][pTempValue] = 1;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 2: // Earphone
                     {
                         AccountData[playerid][pTempValue] = 2;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 3: // Boombox
                     {
                         AccountData[playerid][pTempValue] = 3;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 4: // Vape
                     {
                         AccountData[playerid][pTempValue] = 4;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 5: // Race Tablet
                     {
                         AccountData[playerid][pTempValue] = 5;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                 }
             }
@@ -1856,55 +1856,55 @@ Dialog:BizRestock(playerid, response, listitem, inputtext[])
                     {
                         AccountData[playerid][pTempValue] = 0;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 1: // Knife
                     {
                         AccountData[playerid][pTempValue] = 1;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 2: // Golf Stick
                     {
                         AccountData[playerid][pTempValue] = 2;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 3: // Pool Cue
                     {
                         AccountData[playerid][pTempValue] = 3;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 4: // Hunting Rifle
                     {
                         AccountData[playerid][pTempValue] = 4;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 5: // Hunting Ammo
                     {
                         AccountData[playerid][pTempValue] = 5;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 6: // Katana
                     {
                         AccountData[playerid][pTempValue] = 6;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 7: // Cangkul
                     {
                         AccountData[playerid][pTempValue] = 7;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 8: // Silenced Pistol
                     {
                         AccountData[playerid][pTempValue] = 8;
                         AccountData[playerid][pTempValue2] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", ""WHITE"Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                 }
             }
@@ -1917,37 +1917,37 @@ Dialog:BizRestock(playerid, response, listitem, inputtext[])
                     case 0: // Whiskey Premium
                     {
                         AccountData[playerid][pTempValue] = 0;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", "Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", "Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 1: // Vodka Special
                     {
                         AccountData[playerid][pTempValue] = 1;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", "Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", "Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 2: // Rum Gold
                     {
                         AccountData[playerid][pTempValue] = 2;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", "Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", "Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 3: // Tequila Shot
                     {
                         AccountData[playerid][pTempValue] = 3;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", "Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", "Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 4: // Champagne Deluxe
                     {
                         AccountData[playerid][pTempValue] = 4;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", "Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", "Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 5: // Beer Classic
                     {
                         AccountData[playerid][pTempValue] = 5;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", "Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", "Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                     case 6: // Red Wine Exclusive
                     {
                         AccountData[playerid][pTempValue] = 6;
-                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Restock Product", "Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
+                        Dialog_Show(playerid, "BizRestockConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Restock Product", "Masukkan jumlah stok yang ingin dibeli\nHarga: "SEAGREEN"$15.00/stok:", "Restock", "Batal");
                     }
                 }
             }
@@ -2134,7 +2134,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                             FormatMoney(BizData[bizid][bizProdPrice][8]),  // Umpan
                             FormatMoney(BizData[bizid][bizProdPrice][9]),  // Ember
                             FormatMoney(BizData[bizid][bizProdPrice][10])); // Toolkit
-                            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Minimarket", haji, "Buy", "Batal");
+                            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Minimarket", haji, "Buy", "Batal");
                         }
                         case 2: // clothes
                         {
@@ -2156,7 +2156,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                             FormatMoney(BizData[bizid][bizProdPrice][3]),  // Boombox
                             FormatMoney(BizData[bizid][bizProdPrice][4]),  // Vape
                             FormatMoney(BizData[bizid][bizProdPrice][5])); // Race Tablet
-                            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Electronic Shop", haji, "Buy", "Batal");
+                            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Electronic Shop", haji, "Buy", "Batal");
                         }
                         case 4: // ammunations - 9 items (senjata + cangkul)
                         {
@@ -2183,7 +2183,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                             FormatMoney(BizData[bizid][bizProdPrice][6]),  // Katana
                             FormatMoney(BizData[bizid][bizProdPrice][7]),  // Cangkul
                             FormatMoney(BizData[bizid][bizProdPrice][8])); // Silenced Pistol
-                            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Ammunation", haji, "Buy", "Batal");
+                            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Ammunation", haji, "Buy", "Batal");
                         }
                         case 5: // Bar - 7 items (minuman alkohol)
                         {
@@ -2203,7 +2203,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                             FormatMoney(BizData[bizid][bizProdPrice][4]),
                             FormatMoney(BizData[bizid][bizProdPrice][5]),
                             FormatMoney(BizData[bizid][bizProdPrice][6]));
-                            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Bar", haji, "Buy", "Batal");
+                            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Bar", haji, "Buy", "Batal");
                         }
                     }
                     return 1;

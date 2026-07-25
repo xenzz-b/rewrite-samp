@@ -901,10 +901,10 @@ CreateHospitalInt()
     SetDynamicObjectMaterialText(HSPTLINT, 0, "HOSPITAL", 130, "Impact", 100, 0, 0xFFFFFFFF, 0x00000000, 1);
     HSPTLINT = CreateDynamicObject(19482, 1388.351196, -16.067974, 1001.964416, 0.000029, 0.000000, 89.999908, 90, 15, -1, 250.00, 250.00); 
     SetDynamicObjectMaterial(HSPTLINT, 0, 10101, "2notherbuildsfe", "Bow_Abpave_Gen", 0x00000000);
-    SetDynamicObjectMaterialText(HSPTLINT, 0, "Nexston", 130, "Century Gothic", 40, 0, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(HSPTLINT, 0, "Vertex", 130, "Century Gothic", 40, 0, 0xFFFFFFFF, 0x00000000, 1);
     HSPTLINT = CreateDynamicObject(19482, 1388.341186, -16.069976, 1001.954406, 0.000029, 0.000000, 89.999908, 90, 15, -1, 250.00, 250.00); 
     SetDynamicObjectMaterial(HSPTLINT, 0, 10101, "2notherbuildsfe", "Bow_Abpave_Gen", 0x00000000);
-    SetDynamicObjectMaterialText(HSPTLINT, 0, "Nexston", 130, "Century Gothic", 40, 0, 0xFF000000, 0x00000000, 1);
+    SetDynamicObjectMaterialText(HSPTLINT, 0, "Vertex", 130, "Century Gothic", 40, 0, 0xFF000000, 0x00000000, 1);
     HSPTLINT = CreateDynamicObject(19482, 1387.781005, -16.069976, 1001.391967, 0.000029, 0.000000, 89.999908, 90, 15, -1, 250.00, 250.00); 
     SetDynamicObjectMaterial(HSPTLINT, 0, 10101, "2notherbuildsfe", "Bow_Abpave_Gen", 0x00000000);
     SetDynamicObjectMaterialText(HSPTLINT, 0, "HOSPITAL", 130, "Impact", 100, 0, 0xFF000000, 0x00000000, 1);
@@ -1443,7 +1443,7 @@ CreateHospitalInt()
     HSPTLINT = CreateDynamicObject(2789, 1372.399291, -1.159057, 1001.366638, 0.000014, 0.000000, 89.999954, 90, 15, -1, 250.00, 250.00); 
     SetDynamicObjectMaterialText(HSPTLINT, 0, "HOSPITAL", 130, "Century Gothic", 100, 0, 0xFFFF0000, 0x00000000, 1);
     HSPTLINT = CreateDynamicObject(2789, 1372.399291, -1.269055, 1002.006591, 0.000014, 0.000000, 89.999954, 90, 15, -1, 250.00, 250.00); 
-    SetDynamicObjectMaterialText(HSPTLINT, 0, "Nexston", 130, "Century Gothic", 50, 0, 0xFFFF0000, 0x00000000, 1);
+    SetDynamicObjectMaterialText(HSPTLINT, 0, "Vertex", 130, "Century Gothic", 50, 0, 0xFFFF0000, 0x00000000, 1);
     HSPTLINT = CreateDynamicObject(630, 1373.010375, -4.747786, 1000.916503, -0.000003, 0.000006, -36.499992, 90, 15, -1, 250.00, 250.00); 
     SetDynamicObjectMaterial(HSPTLINT, 0, -1, "none", "none", 0xFFFFFFFF);
     HSPTLINT = CreateDynamicObject(630, 1381.213989, -4.734600, 1000.916503, 0.000004, 0.000003, 51.200000, 90, 15, -1, 250.00, 250.00); 

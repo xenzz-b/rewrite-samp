@@ -160,7 +160,7 @@ CreatejhsdaawtExt()
     jhsdaawttxt = CreateDynamicObject(18763, 35.589988, -2647.556640, 46.108573, 89.999992, 90.000015, -89.999961, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(jhsdaawttxt, 0, 1426, "break_scaffold", "CJ_BLUE_WOOD", 0x00000000);
     jhsdaawttxt = CreateDynamicObject(19482, 27.449766, -2651.451660, 47.152103, 0.000000, -0.000014, 179.999908, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(jhsdaawttxt, 0, " NexstonMart", 130, "Arial", 101, 1, 0xFFFD9AFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(jhsdaawttxt, 0, " VertexMart", 130, "Arial", 101, 1, 0xFFFD9AFF, 0x00000000, 1);
     jhsdaawttxt = CreateDynamicObject(19482, 27.449766, -2654.859375, 47.562099, 0.000000, -0.000029, 179.999816, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(jhsdaawttxt, 0, " I", 140, "Arial", 130, 1, 0xFFFADC00, 0x00000000, 1);
     jhsdaawttxt = CreateDynamicObject(19482, 27.449766, -2654.859375, 46.572090, 0.000000, -0.000029, 179.999816, 0, 0, -1, 200.00, 200.00); 
@@ -178,7 +178,7 @@ CreatejhsdaawtExt()
     jhsdaawttxt = CreateDynamicObject(19482, 27.449766, -2652.800292, 46.202091, 89.999992, -90.000030, -90.000015, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(jhsdaawttxt, 0, " I", 110, "Arial", 199, 1, 0xFF18850D, 0x00000000, 1);
     jhsdaawttxt = CreateDynamicObject(19482, 27.439765, -2651.451660, 47.152103, 0.000000, -0.000014, 179.999908, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(jhsdaawttxt, 0, " NexstonMart", 130, "Arial", 98, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(jhsdaawttxt, 0, " VertexMart", 130, "Arial", 98, 1, 0xFFFFFFFF, 0x00000000, 1);
     jhsdaawttxt = CreateDynamicObject(19482, 27.439765, -2651.651855, 46.482112, 0.000000, -0.000014, 179.999908, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(jhsdaawttxt, 0, " neighborhood market", 140, "Arial", 40, 1, 0xFFFFFFFF, 0x00000000, 1);
     jhsdaawttxt = CreateDynamicObject(2443, 33.207511, -2640.434814, 39.953392, 0.000000, 0.000000, 0.000000, 0, 0, -1, 200.00, 200.00); 
@@ -443,7 +443,7 @@ CreatejhsdaawtExt()
     jhsdaawttxt = CreateDynamicObject(18763, -2191.859375, -2247.608398, 36.178611, 89.999992, 143.034713, -91.533828, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(jhsdaawttxt, 0, 1426, "break_scaffold", "CJ_BLUE_WOOD", 0x00000000);
     jhsdaawttxt = CreateDynamicObject(19482, -2193.878173, -2256.404052, 37.222141, -0.000043, 0.000223, -128.500030, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(jhsdaawttxt, 0, " NexstonMart", 130, "Arial", 101, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(jhsdaawttxt, 0, " VertexMart", 130, "Arial", 101, 1, 0xFFFFFFFF, 0x00000000, 1);
     jhsdaawttxt = CreateDynamicObject(19482, -2191.211181, -2258.525390, 37.632137, -0.000043, 0.000209, -128.500091, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(jhsdaawttxt, 0, " I", 140, "Arial", 130, 1, 0xFFFADC00, 0x00000000, 1);
     jhsdaawttxt = CreateDynamicObject(19482, -2191.211181, -2258.525390, 36.642127, -0.000043, 0.000209, -128.500091, 0, 0, -1, 200.00, 200.00); 
@@ -461,7 +461,7 @@ CreatejhsdaawtExt()
     jhsdaawttxt = CreateDynamicObject(19482, -2192.822753, -2257.243408, 36.272129, 89.999992, -36.965442, -91.533828, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(jhsdaawttxt, 0, " I", 110, "Arial", 199, 1, 0xFF18850D, 0x00000000, 1);
     jhsdaawttxt = CreateDynamicObject(19482, -2193.884277, -2256.412109, 37.222141, -0.000043, 0.000223, -128.500030, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(jhsdaawttxt, 0, " NexstonMart", 130, "Arial", 98, 1, 0xFFE24BE5, 0x00000000, 1);
+    SetDynamicObjectMaterialText(jhsdaawttxt, 0, " VertexMart", 130, "Arial", 98, 1, 0xFFE24BE5, 0x00000000, 1);
     jhsdaawttxt = CreateDynamicObject(19482, -2193.727539, -2256.536376, 36.552150, -0.000043, 0.000223, -128.500030, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(jhsdaawttxt, 0, " neighborhood market", 140, "Arial", 40, 1, 0xFFFFFFFF, 0x00000000, 1);
     jhsdaawttxt = CreateDynamicObject(2443, -2198.916015, -2245.039794, 30.023429, 0.000043, -0.000238, 51.498298, 0, 0, -1, 200.00, 200.00); 
@@ -635,7 +635,7 @@ CreatejhsdaawtExt()
     jhsdaawttxt = CreateDynamicObject(18763, 2434.155029, -1773.030395, 19.108560, 89.999992, 873.086791, -63.084896, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(jhsdaawttxt, 0, 18646, "matcolours", "grey-10-percent", 0x00000000);
     jhsdaawttxt = CreateDynamicObject(19482, 2438.050537, -1781.170532, 20.152086, -0.000231, -0.000165, -89.999496, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(jhsdaawttxt, 0, " NexstonMart", 130, "Arial", 101, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(jhsdaawttxt, 0, " VertexMart", 130, "Arial", 101, 1, 0xFFFFFFFF, 0x00000000, 1);
     jhsdaawttxt = CreateDynamicObject(19482, 2441.458251, -1781.170776, 20.562089, -0.000231, -0.000179, -89.999603, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(jhsdaawttxt, 0, " I", 140, "Arial", 130, 1, 0xFFFADC00, 0x00000000, 1);
     jhsdaawttxt = CreateDynamicObject(19482, 2441.458251, -1781.170776, 19.572076, -0.000231, -0.000179, -89.999603, 0, 0, -1, 200.00, 200.00); 
@@ -653,7 +653,7 @@ CreatejhsdaawtExt()
     jhsdaawttxt = CreateDynamicObject(19482, 2439.399169, -1781.171020, 19.202074, 89.999992, 693.086608, -63.084896, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(jhsdaawttxt, 0, " I", 110, "Arial", 199, 1, 0xFF18850D, 0x00000000, 1);
     jhsdaawttxt = CreateDynamicObject(19482, 2438.050781, -1781.181030, 20.152086, -0.000231, -0.000165, -89.999496, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(jhsdaawttxt, 0, " NexstonMart", 130, "Arial", 98, 1, 0xFFFF0000, 0x00000000, 1);
+    SetDynamicObjectMaterialText(jhsdaawttxt, 0, " VertexMart", 130, "Arial", 98, 1, 0xFFFF0000, 0x00000000, 1);
     jhsdaawttxt = CreateDynamicObject(19482, 2438.250732, -1781.180297, 19.482103, -0.000231, -0.000165, -89.999496, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(jhsdaawttxt, 0, " neighborhood market", 140, "Arial", 40, 1, 0xFFFFFFFF, 0x00000000, 1);
     jhsdaawttxt = CreateDynamicObject(18981, 2436.242187, -1782.933471, 12.054224, 0.000000, 90.000000, 0.000000, 0, 0, -1, 200.00, 200.00); 

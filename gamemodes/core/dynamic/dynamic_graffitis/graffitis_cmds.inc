@@ -35,7 +35,7 @@ YCMD:edittag(playerid, params[], help)
     if(!PlayerHasItem(playerid, "Pilox")) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki pilox!");
     AccountData[playerid][pTempValue] = tgid;
 
-    Dialog_Show(playerid, "GraffitiEdit", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Graffiti", 
+    Dialog_Show(playerid, "GraffitiEdit", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Graffiti", 
     "Mohon masukkan tulisan graffiti yang ingin dibuat:\n\
     (n) = text akan berada di bawah/baris baru.\n\
     (r) = warna text merah.\n\

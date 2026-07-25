@@ -60,7 +60,7 @@ CreateRadioVoiceTD()
     TextDrawSetProportional(RadioVoiceTD[3], true);
     TextDrawSetSelectable(RadioVoiceTD[3], false);
 
-    RadioVoiceTD[4] = TextDrawCreate(447.000000, 381.000000, "Nexstonlkie");
+    RadioVoiceTD[4] = TextDrawCreate(447.000000, 381.000000, "Vertexlkie");
     TextDrawFont(RadioVoiceTD[4], true);
     TextDrawLetterSize(RadioVoiceTD[4], 0.162499, 0.949999);
     TextDrawTextSize(RadioVoiceTD[4], 499.500000, 17.000000);
@@ -247,7 +247,7 @@ ShowRadioVoiceTD(playerid)
         TextDrawShowForPlayer(playerid, RadioVoiceTD[x]);
     }
     PlayerTextDrawShow(playerid, RadioVoiceFreqTD[playerid]);
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
 }
 
 HideRadioVoiceTD(playerid)

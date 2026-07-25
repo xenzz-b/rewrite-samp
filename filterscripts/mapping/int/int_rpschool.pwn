@@ -336,7 +336,7 @@ CreateRPSchoolInt()
     xcsalcaawd = CreateDynamicObject(640, 1025.250854, 2448.059570, 302.090057, 0.000000, 0.000000, 270.000000, 256, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(xcsalcaawd, 1, 4992, "airportdetail", "bevflower1", 0x00000000);
     xcsalcaawd = CreateDynamicObject(19480, 1036.885131, 2419.898925, 311.321655, -0.000015, 0.000000, 90.000045, 256, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(xcsalcaawd, 0, "Nexston MENYATUKAN BANGSA", 120, "Arial", 25, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(xcsalcaawd, 0, "Vertex MENYATUKAN BANGSA", 120, "Arial", 25, 1, 0xFFFFFFFF, 0x00000000, 1);
     xcsalcaawd = CreateDynamicObject(19480, 1035.744628, 2447.578857, 301.011474, -0.000022, 0.000000, -89.999931, 256, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(xcsalcaawd, 0, "ING MADYA MANGUN KARSA", 120, "Arial", 18, 1, 0xFFFFFFFF, 0x00000000, 1);
     xcsalcaawd = CreateDynamicObject(19480, 1044.653808, 2447.578857, 301.021453, -0.000022, 0.000000, -89.999931, 256, 0, -1, 200.00, 200.00); 
@@ -346,7 +346,7 @@ CreateRPSchoolInt()
     xcsalcaawd = CreateDynamicObject(19480, 1025.665039, 2447.578857, 301.011474, -0.000022, 0.000000, -89.999931, 256, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(xcsalcaawd, 0, "ING NGARSA SUNG TULADHA", 120, "Arial", 18, 1, 0xFFFFFFFF, 0x00000000, 1);
     xcsalcaawd = CreateDynamicObject(19480, 1036.885131, 2419.898925, 308.781188, -0.000015, 0.000000, 90.000045, 256, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(xcsalcaawd, 0, "Nexston JUGA RUMAH KITA", 120, "Arial", 25, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(xcsalcaawd, 0, "Vertex JUGA RUMAH KITA", 120, "Arial", 25, 1, 0xFFFFFFFF, 0x00000000, 1);
     xcsalcaawd = CreateDynamicObject(19480, 1061.174560, 2436.250976, 311.131072, -0.000015, 0.000000, 540.000061, 256, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(xcsalcaawd, 0, "Ilmu yang bermanfaat harus dibagikan", 120, "Arial", 25, 1, 0xFFFFFFFF, 0x00000000, 1);
     xcsalcaawd = CreateDynamicObject(19480, 1061.174560, 2434.940429, 310.261077, -0.000015, 0.000000, 540.000061, 256, 0, -1, 200.00, 200.00); 

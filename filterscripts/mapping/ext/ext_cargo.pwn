@@ -25,7 +25,7 @@ CreateCargoExt()
     crgoxts = CreateDynamicObject(19479, -1728.783081, 85.713661, 3.711275, 0.000000, 0.000000, -42.000011, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(crgoxts, 0, "AREA", 90, "Calibri", 50, 1, 0xFFFFFFFF, 0x00000000, 1);
     crgoxts = CreateDynamicObject(19479, -1712.109985, 27.426631, 8.031277, 0.000000, 0.000000, 134.999847, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(crgoxts, 0, "Nexston LOGISTICS", 90, "Calibri", 35, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(crgoxts, 0, "Vertex LOGISTICS", 90, "Calibri", 35, 1, 0xFFFFFFFF, 0x00000000, 1);
     crgoxts = CreateDynamicObject(19479, -1694.723022, -1.343530, 3.711275, 0.000000, 0.000000, -44.099990, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(crgoxts, 0, "DILARANG", 90, "Calibri", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     crgoxts = CreateDynamicObject(19479, -1689.465087, 3.989132, 3.711275, 0.000000, 0.000000, -44.899978, 0, 0, -1, 200.00, 200.00); 

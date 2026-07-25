@@ -41,7 +41,7 @@ YCMD:sm(playerid, params[], help)
 	(Iter_Count(LSPDDuty) >= 4 && Iter_Count(LSFDDuty) >= 2) ? (""GREEN"Boleh") : (""ORANGE"Mendung"),
 	(Iter_Count(LSPDDuty) >= 4 && Iter_Count(LSFDDuty) >= 2) ? (""GREEN"Boleh") : (""ORANGE"Mendung"),
 	(Iter_Count(LSPDDuty) >= 5 && Iter_Count(LSFDDuty) >= 2) ? (""GREEN"Boleh") : (""ORANGE"Mendung"));
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Status Mendung", ereksi, "Tutup", "");
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Status Mendung", ereksi, "Tutup", "");
 	return 1;
 }
 
@@ -92,7 +92,7 @@ YCMD:delay(playerid, params[], help)
 	AccountData[playerid][pTrashCollectorDelay]/60,
 	AccountData[playerid][pPizzaSidejobDelay]/60,
 	AccountData[playerid][pJobKargoBisnisTime]/60);
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Delay Times", string, "Tutup", "");
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Delay Times", string, "Tutup", "");
 	return 1;
 }
 
@@ -100,14 +100,14 @@ YCMD:delays(playerid, params[], help) = delay;
 
 YCMD:sv(playerid, params[], help)
 {
-	Dialog_Show(playerid, "VoiceModeSet", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Jarak Voice", 
+	Dialog_Show(playerid, "VoiceModeSet", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Jarak Voice", 
 	""RED"Teriak\n"WHITE"Normal\n"YELLOW"Bisik", "Pilih", "Batal");
 	return 1;
 }
 
 YCMD:svkey(playerid, params[], help)
 {
-	Dialog_Show(playerid, "VoiceKeySet", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Keybind Voice", 
+	Dialog_Show(playerid, "VoiceKeySet", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Keybind Voice", 
 	"Push to talk: Z Button\n\
 	"GRAY"Push to talk: M Button\n\
 	Push to talk: L Button\n\
@@ -130,7 +130,7 @@ YCMD:fixme(playerid, params[], help)
 		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda telah mengirim fix request, mohon tunggu!");
 	}
 	
-	Dialog_Show(playerid, "ApplyFixme", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Fix Me", 
+	Dialog_Show(playerid, "ApplyFixme", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Fix Me", 
 	"Keluhan\tKeterangan Masalah\n\
 	Bug Visu (WWID)\tApabila anda tidak melihat objek/player apapun (berada di alam baka).\n\
 	"GRAY"Karakter Stuck\t"GRAY"Apabila anda stuck (tertimpa) objek/kendaraan sehingga tidak bisa gerak.\n\
@@ -228,9 +228,9 @@ YCMD:admins(playerid, params[], help)
             }
         }
     }
-    if(count == 0) return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Online Administrators", "No administrators are currently online!", "Tutup", "");
+    if(count == 0) return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Online Administrators", "No administrators are currently online!", "Tutup", "");
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Online Administrators", string, "Tutup", "");
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Online Administrators", string, "Tutup", "");
     return 1;
 }
 YCMD:stats(playerid, params[], help)
@@ -274,19 +274,19 @@ YCMD:qa(playerid, params[], help)
 
 YCMD:cursor(playerid, params[], help)
 {
-	SelectTextDraw(playerid, Y_Nexston);
+	SelectTextDraw(playerid, Y_Vertex);
 	return 1;
 }
 
 YCMD:help(playerid, params[], help)
 {
 	Dialog_Show(playerid, "PlayerHelp", DIALOG_STYLE_TABLIST_HEADERS, 
-	""Nexston"Nexston Roleplay "WHITE"- Bantuan", 
+	""Vertex"Vertex Roleplay "WHITE"- Bantuan", 
 	"Jenis Bantuan\tKeterangan\n\
 	Perintah Dasar\tBerisi beberapa CMD dasar untuk player\n\
 	"GRAY"Perintah Kendaraan\t"GRAY"Berisi beberapa CMD seputar kendaraan\n\
 	Perintah Roleplay\tBerisi beberapa CMD untuk roleplay\n\
-	"GRAY"Petunjuk Dasar\t"GRAY"Berisi beberapa petunjuk dasar Nexston\n\
+	"GRAY"Petunjuk Dasar\t"GRAY"Berisi beberapa petunjuk dasar Vertex\n\
 	Petunjuk Lapar Haus\tBerisi beberapa petunjuk tentang kebutuhan karakter\n\
 	"GRAY"Perintah Racing\t"GRAY"Berisi beberapa CMD untuk sistem balapan\n\
 	Hotkeys (Shortcut Key)\tBeberapa tombol hanya tersedia untuk player PC", "Pilih", "Batal");
@@ -295,7 +295,7 @@ YCMD:help(playerid, params[], help)
 
 YCMD:setrender(playerid, params[], help)
 {
-    Dialog_Show(playerid, "SetMapRender", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Render Settings", "Type\tRadius\nSoft\t100.00\n"GRAY"Medium\t"GRAY"200.00\nHard\t300.00 (default)", "Set", "Batal");
+    Dialog_Show(playerid, "SetMapRender", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Render Settings", "Type\tRadius\nSoft\t100.00\n"GRAY"Medium\t"GRAY"200.00\nHard\t300.00 (default)", "Set", "Batal");
     return 1;
 }
 
@@ -530,18 +530,18 @@ YCMD:flist(playerid, params[], help)
 	// }
 
 	format(string, sizeof(string), "#\tFaction\tDuty/Online\n\
-	1.\tKepolisian Daerah Nexston\t%s/%d\n\
-	"GRAY"2.\t"GRAY"Paramedis Kota Nexston\t"GRAY"%s/%d\n\
+	1.\tKepolisian Daerah Vertex\t%s/%d\n\
+	"GRAY"2.\t"GRAY"Paramedis Kota Vertex\t"GRAY"%s/%d\n\
 	3.\tPring Sewu Beach Club\t%s/%d\n\
-	"GRAY"4.\t"GRAY"Pemerintah Daerah Nexston\t"GRAY"%s/%d\n\
+	"GRAY"4.\t"GRAY"Pemerintah Daerah Vertex\t"GRAY"%s/%d\n\
 	5.\tBennys Automotive\t%s/%d\n\
 	"GRAY"6.\t"GRAY"Uber\t"GRAY"%s/%d\n\
 	7.\tPinky Tiger Club\t%s/%d\n\
-	"GRAY"8.\t"GRAY"Pewarta Berita Kota Nexston\t"GRAY"%s/%d\n\
+	"GRAY"8.\t"GRAY"Pewarta Berita Kota Vertex\t"GRAY"%s/%d\n\
 	9.\tDriftKing Workshop\t%s/%d\n\
 	"GRAY"10.\t"GRAY"Jaya Abadi\t%s/%d\n\
 	11.\tSri Mersing Resto\t%s/%d", pol, FMemCount[0], ems, FMemCount[1], pdg, FMemCount[2], com, FMemCount[3], mek, FMemCount[4], uber, FMemCount[5], dinar, FMemCount[6], fox11, FMemCount[7], drftkng, FMemCount[8], jyabd, FMemCount[9], plrv, FMemCount[10]);
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- On Duty List", 
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- On Duty List", 
 	string, "Tutup", "");
 	return 1;
 }
@@ -719,9 +719,9 @@ YCMD:myv(playerid, params[], help)
         }
     }
     if(found)
-        Dialog_Show(playerid, "VehicleMenuMyv", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE" - Kepemilikan Kendaraan", string, "Cari", "Tutup");
+        Dialog_Show(playerid, "VehicleMenuMyv", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE" - Kepemilikan Kendaraan", string, "Cari", "Tutup");
     else
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE" - Kepemilikan Kendaraan", "Anda tidak memiliki kendaraan apapun!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE" - Kepemilikan Kendaraan", "Anda tidak memiliki kendaraan apapun!", "Tutup", "");
     return 1;
 }
 
@@ -763,9 +763,9 @@ YCMD:myv(playerid, params[], help)
         }
     }
     if(found)
-        Dialog_Show(playerid, "VehicleMenuMyv", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE" - Kepemilikan Kendaraan", string, "Cari", "Tutup");
+        Dialog_Show(playerid, "VehicleMenuMyv", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE" - Kepemilikan Kendaraan", string, "Cari", "Tutup");
     else
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE" - Kepemilikan Kendaraan", "Anda tidak memiliki kendaraan apapun!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE" - Kepemilikan Kendaraan", "Anda tidak memiliki kendaraan apapun!", "Tutup", "");
     return 1;
 }*/
 
@@ -776,7 +776,7 @@ YCMD:fhelp(playerid, params[], help)
 	{
 		case 1: // Polisi
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston "Nexston Roleplay " WHITE "- Polisi Command",
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex "Vertex Roleplay " WHITE "- Polisi Command",
 			"Perintah\tKeterangan\n\
 			"GRAY"/fmenu\t"GRAY"Untuk Membuka menu bosk desk\n\
 			/pagate\tUntuk membuka gerbang akademi kepolisian\n\
@@ -798,7 +798,7 @@ YCMD:fhelp(playerid, params[], help)
 		}
 		case 2: // ems
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston "Nexston Roleplay " WHITE "- Paramedis Command",
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex "Vertex Roleplay " WHITE "- Paramedis Command",
 			"Perintah\tKeterangan\n\
 			"GRAY"/fmenu\t"GRAY"Untuk Membuka menu bosk desk\n\
 			/emsheli\tUntuk mespawn heli ems di area tertentu\n\
@@ -810,7 +810,7 @@ YCMD:fhelp(playerid, params[], help)
 		}
 		case 3: //Pring Sewu
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Pring Sewu Command",
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Pring Sewu Command",
 			"Perintah\tKeterangan\n\
 			"GRAY"/fmenu\t"GRAY"Untuk Membuka menu bosk desk\n\
 			/psdj\tUntuk menyetel alat DJ di area Pring Sewu\n\
@@ -820,7 +820,7 @@ YCMD:fhelp(playerid, params[], help)
 		}
 		case 4: //pemerintah
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Pemerintah Command",
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Pemerintah Command",
 			"Perintah\tKeterangan\n\
 			/fmenu\tUntuk Membuka menu bosk desk\n\
 			"GREY"/makewedding\t"GREY"untuk menikahkan seseorang\n\
@@ -831,7 +831,7 @@ YCMD:fhelp(playerid, params[], help)
 		}
 		case 5: //bennys
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Bennys Command",
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Bennys Command",
 			"Perintah\tKeterangan\n\
 			"GRAY"/fmenu\t"GRAY"Untuk Membuka menu bosk desk\n\
 			/modif\tUntuk memodif kendaraan\n\
@@ -842,7 +842,7 @@ YCMD:fhelp(playerid, params[], help)
 		}
 		case 6: //uber
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Uber Command",
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Uber Command",
 			"Perintah\tKeterangan\n\
 			"GRAY"/fmenu\t"GRAY"Untuk Membuka menu bosk desk\n\
 			/ag\tUntuk menerima orderan pengantaran\n\
@@ -856,7 +856,7 @@ YCMD:fhelp(playerid, params[], help)
 		}
 		case 8: //pewarta
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Pewarta Command",
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Pewarta Command",
 			"Perintah\tKeterangan\n\
 			"GRAY"/fmenu\t"GRAY"Untuk Membuka menu bosk desk\n\
 			/spawnsanewsheli\tUntuk spawn heli di area tertentu\n\
@@ -873,7 +873,7 @@ YCMD:fhelp(playerid, params[], help)
 		}
 		case 10: //jaya abadi
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"-  Command",
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"-  Command",
 			"Perintah\tKeterangan\n\
 			"GRAY"/fmenu\t"GRAY"Untuk Membuka menu bosk desk\n\
 			/modif\tUntuk memodif kendaraan\n\
@@ -1503,7 +1503,7 @@ YCMD:toggle(playerid, params[], help)
 	(ToggleInfo[playerid][TogAdv]) ? (""DARKGREEN"Active") : (""DARKRED"Inactive"),
 	(ToggleInfo[playerid][TogAdmCmd]) ? (""DARKGREEN"Active") : (""DARKRED"Inactive"),
 	(ToggleInfo[playerid][TogBroadcast]) ? (""DARKGREEN"Listening") : (""DARKRED"Deafen"));
-    Dialog_Show(playerid, "ToggleSettings", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Toggle Settings", string, "Toggle", "Batal");
+    Dialog_Show(playerid, "ToggleSettings", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Toggle Settings", string, "Toggle", "Batal");
 	return 1;
 }
 
@@ -1566,12 +1566,12 @@ YCMD:fams(playerid, params[], help)
 	}
 	if(count == 0)
 	{
-		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Daftar Nama Badside/Family Resmi", 
+		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Daftar Nama Badside/Family Resmi", 
 		"Tidak ada data yang dapat ditampilkan!", "Tutup", "");
 		return 1;
 	}
 
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Daftar Nama Badside/Family Resmi", 
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Daftar Nama Badside/Family Resmi", 
 	string, "Tutup", "");
 	return 1;
 }
@@ -1606,11 +1606,11 @@ YCMD:mywarns(playerid, params[], help)
 
     if(count == 0)
     {
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Warning History", "Anda tidak memiliki riwayat peringatan apapun!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Warning History", "Anda tidak memiliki riwayat peringatan apapun!", "Tutup", "");
     }
     else
     {
-        Dialog_Show(playerid, "CheckMyWarns", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Warning History", string, "Pilih", "Tutup");
+        Dialog_Show(playerid, "CheckMyWarns", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Warning History", string, "Pilih", "Tutup");
     }
     return 1;
 }
@@ -1699,7 +1699,7 @@ YCMD:afk(playerid, params[], help)
 
 // 	AccountData[playerid][pRPQuizQuestion] ++;
 // 	PlayerListitem[playerid][AccountData[playerid][pRPQuizQuestion]] = rnadquiz;
-// 	Dialog_Show(playerid, "RPQuizTest", DIALOG_STYLE_INPUT, sprintf(""Nexston"Nexston Roleplay "WHITE"- RP Quiz: %d of 20 Questions", AccountData[playerid][pRPQuizQuestion]), 
+// 	Dialog_Show(playerid, "RPQuizTest", DIALOG_STYLE_INPUT, sprintf(""Vertex"Vertex Roleplay "WHITE"- RP Quiz: %d of 20 Questions", AccountData[playerid][pRPQuizQuestion]), 
 // 	g_RPQuizData[rnadquiz][RPQuiz_Question], "Input", "Batal");
 
 // 	Anticheat[playerid][acImmunity] = gettime() + 5;
@@ -1717,7 +1717,7 @@ YCMD:mylevel(playerid, params[], help)
 	format(string, sizeof(string), ""WHITE"Level karakter anda saat ini adalah "YELLOW"level %d\n\
 	"WHITE"Playtime karakter anda saat ini adalah: "YELLOW"%02d hours %02d minutes %02d seconds\n\
 	"WHITE"Untuk naik level berikutnya, dibutuhkan playtime: "CYAN"%02d hours", AccountData[playerid][pLevel], AccountData[playerid][pHours],AccountData[playerid][pMinutes],AccountData[playerid][pSeconds], pltm);
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Level Check", string, "Tutup", "");
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Level Check", string, "Tutup", "");
 	return 1;
 }
 
@@ -1726,7 +1726,7 @@ YCMD:pawn(playerid, params[], help)
 	if(!IsPlayerInRangeOfPoint(playerid, 3.0, 795.0921,1687.0704,5.2813))
 		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di pawn shop!");
 
-	Dialog_Show(playerid, "PawnShopCatalog", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Pawn Shop", 
+	Dialog_Show(playerid, "PawnShopCatalog", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Pawn Shop", 
 	"Alumunium\n\
 	"GRAY"Kaca\n\
 	Baja\n\
@@ -1777,7 +1777,7 @@ YCMD:cook(playerid, params[], help)
             if(AccountData[playerid][pActivityTime] != 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda sedang melakukan sesuatu, mohon tunggu progress bar selesai!");
 
             HideNotifBox(playerid);
-            Dialog_Show(playerid, "PringSewuCooking", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Pring Sewu Masak", 
+            Dialog_Show(playerid, "PringSewuCooking", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Pring Sewu Masak", 
             "Nama Makanan & Minuman\tBahan\t-\n\
             BBQ Delicy\tKentang Potong: 5x | Kubis Potong: 5x | Bawang Potong: 5x | Tomat Potong: 5x\tAir: 5x | Gula: 5x | Micin: 5x | Ayam Kemas: 5x\n\
 			"GRAY"Rice Combo\t"GRAY"Kentang Potong: 5x | Kubis Potong: 5x | Bawang Potong: 5x | Tomat Potong: 5x\t"GRAY"Air: 5x | Gula: 5x | Micin: 5x | Ayam Kemas: 5x", "Pilih", "Batal");
@@ -1790,7 +1790,7 @@ YCMD:cook(playerid, params[], help)
             if(AccountData[playerid][pActivityTime] != 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda sedang melakukan sesuatu, mohon tunggu progress bar selesai!");
 
             HideNotifBox(playerid);
-            Dialog_Show(playerid, "DinarbucksCooking", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Pinky Tiger Masak", 
+            Dialog_Show(playerid, "DinarbucksCooking", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Pinky Tiger Masak", 
             "Nama Makanan & Minuman\tBahan\t-\n\
             Buckshot Special\tKentang Potong: 5x | Kubis Potong: 5x | Bawang Potong: 5x | Tomat Potong: 5x\tAir: 5x | Gula: 5x | Micin: 5x | Ayam Kemas: 5x\n\
 			"GRAY"Frenchy Velty\t"GRAY"Kentang Potong: 5x | Kubis Potong: 5x | Bawang Potong: 5x | Tomat Potong: 5x\t"GRAY"Air: 5x | Gula: 5x | Micin: 5x | Ayam Kemas: 5x", "Pilih", "Batal");
@@ -1803,7 +1803,7 @@ YCMD:cook(playerid, params[], help)
             if(AccountData[playerid][pActivityTime] != 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda sedang melakukan sesuatu, mohon tunggu progress bar selesai!");
 
             HideNotifBox(playerid);
-            Dialog_Show(playerid, "SriMersingCooking", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Sri Mersing Masak", 
+            Dialog_Show(playerid, "SriMersingCooking", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Sri Mersing Masak", 
             "Nama Makanan & Minuman\tBahan\t-\n\
             Minang Combo\tKentang Potong: 5x | Kubis Potong: 5x | Bawang Potong: 5x | Tomat Potong: 5x\tAir: 5x | Gula: 5x | Micin: 5x | Ayam Kemas: 5x\n\
 			"GRAY"Malaya Shine\t"GRAY"Kentang Potong: 5x | Kubis Potong: 5x | Bawang Potong: 5x | Tomat Potong: 5x\t"GRAY"Air: 5x | Gula: 5x | Micin: 5x | Ayam Kemas: 5x", "Pilih", "Batal");
@@ -1817,7 +1817,7 @@ YCMD:cook(playerid, params[], help)
         //     if(AccountData[playerid][pActivityTime] != 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda sedang melakukan sesuatu, mohon tunggu progress bar selesai!");
 
         //     HideNotifBox(playerid);
-        //     Dialog_Show(playerid, "BintangKejoraCooking", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Bintang Kejora Chicken Masak", 
+        //     Dialog_Show(playerid, "BintangKejoraCooking", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Chicken Masak", 
         //     "Nama Makanan & Minuman\tBahan\t-\n\
         //     Fresh Solar\tKentang Potong: 5x | Kubis Potong: 5x | Bawang Potong: 5x | Tomat Potong: 5x\tAir: 5x | Gula: 5x | Micin: 5x | Ayam Kemas: 5x\n\
 		// 	"GRAY"Softex Flash\t"GRAY"Kentang Potong: 5x | Kubis Potong: 5x | Bawang Potong: 5x | Tomat Potong: 5x\t"GRAY"Air: 5x | Gula: 5x | Micin: 5x | Ayam Kemas: 5x\n\
@@ -1843,7 +1843,7 @@ YCMD:slice(playerid, params[], help)
             if(AccountData[playerid][pActivityTime] != 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda sedang melakukan sesuatu, mohon tunggu progress bar selesai!");
 
             HideNotifBox(playerid);
-			Dialog_Show(playerid, "FactionRestoSlicing", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Pring Sewu Potong", 
+			Dialog_Show(playerid, "FactionRestoSlicing", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Pring Sewu Potong", 
 			"Apa yang ingin anda potong?\n\
             Kentang\n\
             Kubis\n\
@@ -1858,7 +1858,7 @@ YCMD:slice(playerid, params[], help)
             if(AccountData[playerid][pActivityTime] != 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda sedang melakukan sesuatu, mohon tunggu progress bar selesai!");
 
             HideNotifBox(playerid);
-            Dialog_Show(playerid, "FactionRestoSlicing", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Pinky Tiger Potong", 
+            Dialog_Show(playerid, "FactionRestoSlicing", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Pinky Tiger Potong", 
 			"Apa yang ingin anda potong?\n\
             Kentang\n\
             Kubis\n\
@@ -1873,7 +1873,7 @@ YCMD:slice(playerid, params[], help)
             if(AccountData[playerid][pActivityTime] != 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda sedang melakukan sesuatu, mohon tunggu progress bar selesai!");
 
             HideNotifBox(playerid);
-            Dialog_Show(playerid, "FactionRestoSlicing", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Sri Mersing Potong", 
+            Dialog_Show(playerid, "FactionRestoSlicing", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Sri Mersing Potong", 
 			"Apa yang ingin anda potong?\n\
             Kentang\n\
             Kubis\n\
@@ -1889,7 +1889,7 @@ YCMD:slice(playerid, params[], help)
         //     if(AccountData[playerid][pActivityTime] != 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda sedang melakukan sesuatu, mohon tunggu progress bar selesai!");
 
         //     HideNotifBox(playerid);
-        //     Dialog_Show(playerid, "FactionRestoSlicing", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Bintang Kejora Chicken Potong", 
+        //     Dialog_Show(playerid, "FactionRestoSlicing", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Chicken Potong", 
 		// 	"Apa yang ingin anda potong?\n\
         //     Kentang\n\
         //     Kubis\n\
@@ -2085,7 +2085,7 @@ YCMD:saveme(playerid, params[], help)
 		}
 	}
 
-	SendClientMessage(playerid, X11_YELLOW, "[Nexston Database] All your character data has been successfully saved!");
+	SendClientMessage(playerid, X11_YELLOW, "[Vertex Database] All your character data has been successfully saved!");
 	return 1;
 }
 
@@ -2148,7 +2148,7 @@ YCMD:time(playerid, params[], help)
 	static string[555];
 
 	format(string, sizeof(string), " \nWaktu saat ini menunjukkan %s\n", GetAdvTime());
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Server Time", string, "Tutup", "");
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Server Time", string, "Tutup", "");
 	return 1;
 }
 
@@ -2194,7 +2194,7 @@ YCMD:addlabel(playerid, params[], help)
 {
 	if(AccountData[playerid][pFaction] == FACTION_NONE) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari faction manapun!");
 
-	Dialog_Show(playerid, "MyFactionLabel", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay - "WHITE"Faction Label", 
+	Dialog_Show(playerid, "MyFactionLabel", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay - "WHITE"Faction Label", 
 	"Slot\tLabel\n\
 	#1\t%s\n\
 	#2\t%s\n\
@@ -2213,19 +2213,19 @@ Dialog:MyFactionLabel(playerid, response, listitem, inputtext[])
 		case 0:
 		{
 			AccountData[playerid][pTempValue] = 0;
-			Dialog_Show(playerid, "MyFactLabelEdit", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Label #1", 
+			Dialog_Show(playerid, "MyFactLabelEdit", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Label #1", 
 			"Edit Text Label\nEdit Label Position\nRemove Label", "Pilih", "Batal");
 		}
 		case 1:
 		{
 			AccountData[playerid][pTempValue] = 1;
-			Dialog_Show(playerid, "MyFactLabelEdit", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Label #2", 
+			Dialog_Show(playerid, "MyFactLabelEdit", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Label #2", 
 			"Edit Text Label\nEdit Label Position\nRemove Label", "Pilih", "Batal");
 		}
 		case 2:
 		{
 			AccountData[playerid][pTempValue] = 2;
-			Dialog_Show(playerid, "MyFactLabelEdit", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Label #3", 
+			Dialog_Show(playerid, "MyFactLabelEdit", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Label #3", 
 			"Edit Text Label\nEdit Label Position\nRemove Label", "Pilih", "Batal");
 		}
 	}
@@ -2243,7 +2243,7 @@ Dialog:MyFactLabelEdit(playerid, response, listitem, inputtext[])
 	{
 		case 0:
 		{
-			Dialog_Show(playerid, "FactLabelEditText", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Text Label", 
+			Dialog_Show(playerid, "FactLabelEditText", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Text Label", 
 			"Mohon masukkan tulisan label yang ingin dibuat:\n\
 			(n) = text akan berada di bawah/baris baru.\n\
 			(r) = warna text merah.\n\
@@ -2288,7 +2288,7 @@ Dialog:FactLabelEditText(playerid, response, listitem, inputtext[])
 
 	if(isnull(inputtext))
     {
-        Dialog_Show(playerid, "FactLabelEditText", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Text Label", 
+        Dialog_Show(playerid, "FactLabelEditText", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Text Label", 
         "Error: Tag tidak bisa diisi kosong!\n\
         Mohon masukkan tulisan label yang ingin dibuat:\n\
         (n) = text akan berada di bawah/baris baru.\n\
@@ -2304,7 +2304,7 @@ Dialog:FactLabelEditText(playerid, response, listitem, inputtext[])
 
     if(strlen(inputtext) < 4)
     {
-        Dialog_Show(playerid, "FactLabelEditText", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Text Label", 
+        Dialog_Show(playerid, "FactLabelEditText", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Text Label", 
         "Error: Tag terlalu singkat minimal 4 karakter!\n\
         Mohon masukkan tulisan label yang ingin dibuat:\n\
         (n) = text akan berada di bawah/baris baru.\n\
@@ -2320,7 +2320,7 @@ Dialog:FactLabelEditText(playerid, response, listitem, inputtext[])
 
     if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1) 
     {
-        Dialog_Show(playerid, "FactLabelEditText", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Text Label", 
+        Dialog_Show(playerid, "FactLabelEditText", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Text Label", 
         "Error: Tidak dapat memasukkan simbol/tanda persen!\n\
         Mohon masukkan tulisan label yang ingin dibuat:\n\
         (n) = text akan berada di bawah/baris baru.\n\
@@ -2385,7 +2385,7 @@ YCMD:fs(playerid, params[], help)
 	if(!IsPlayerInRangeOfPoint(playerid, 3.0, 767.2671,-22.9374,1000.5859) && GetPlayerVirtualWorld(playerid) != 2001 && GetPlayerInterior(playerid) != 6)
 		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di Cobra GYM");
 
-	Dialog_Show(playerid, "FightStyle", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Fighting Styles", "Normal (default)\nBoxing\nKungfu\nKneehead\nGrabkick\nElbow", "Pilih", "Batal");
+	Dialog_Show(playerid, "FightStyle", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Fighting Styles", "Normal (default)\nBoxing\nKungfu\nKneehead\nGrabkick\nElbow", "Pilih", "Batal");
 	return 1;
 }
 
@@ -2406,7 +2406,7 @@ YCMD:mprice(playerid, params[], help)
 		return 0;
 	
 	static frmtprice[2856];
-	format(frmtprice, sizeof(frmtprice), ""YELLOW"========== [Dinas Pekerjaan Kota Nexston] ==========\
+	format(frmtprice, sizeof(frmtprice), ""YELLOW"========== [Dinas Pekerjaan Kota Vertex] ==========\
 	\n\n"WHITE"------ [Hasil Pertambangan] ------\
 	\n"WHITE"~> Harga Tembaga: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
 	\n"WHITE"~> Harga Besi: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
@@ -2441,7 +2441,7 @@ YCMD:mprice(playerid, params[], help)
 	FormatMoney(OldSusuOlahPrice), FormatMoney(SusuOlahPrice),
 	FormatMoney(OldAyamKemasPrice), FormatMoney(AyamKemasPrice),
 	FormatMoney(OldSawitPrice), FormatMoney(SawitPrice));
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Harga Penjualan", frmtprice, "Tutup", "");
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Harga Penjualan", frmtprice, "Tutup", "");
 	return 1;
 }
 
@@ -2484,7 +2484,7 @@ YCMD:gps(playerid, params[], help)
 	if(AccountData[playerid][pKnockdown])
 		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak dapat melakukannya saat ini!");
 
-	Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- GPS", 
+	Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- GPS", 
     "Lokasi Umum\n\
     "GRAY"Lokasi Kerja\n\
     Lokasi Hobi\n\
@@ -2589,10 +2589,10 @@ TakeWeaponLooting(playerid, targetid)
     if(!found)
     {
         PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-        return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX,"Nexston Roleplay - Kepemilikan Senjata","Pemain tersebut tidak memiliki senjata apapun!", "Tutup", "");
+        return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX,"Vertex Roleplay - Kepemilikan Senjata","Pemain tersebut tidak memiliki senjata apapun!", "Tutup", "");
     }
 
-    Dialog_Show(playerid, "DialogTakeLooting", DIALOG_STYLE_TABLIST_HEADERS,"Nexston Roleplay - Ambil Senjata", frmtgun, "Ambil", "Tutup");
+    Dialog_Show(playerid, "DialogTakeLooting", DIALOG_STYLE_TABLIST_HEADERS,"Vertex Roleplay - Ambil Senjata", frmtgun, "Ambil", "Tutup");
     AccountData[playerid][pTempTarget] = targetid;
     return 1;
 }

@@ -6,7 +6,7 @@ public OnTwitterRegister(playerid, const userinput[])
     if(cache_num_rows() > 0)
     {
         Dialog_Show(playerid, "TwitterRegister", DIALOG_STYLE_INPUT, 
-        ""Nexston"Nexston Roleplay "WHITE"- Daftar Twitter", 
+        ""Vertex"Vertex Roleplay "WHITE"- Daftar Twitter", 
         "Mohon maaf, username tersebut sudah terdaftar!\n\
         Silakan masukkan username Twitter kamu, ini akan ditampilkan pada setiap tweet yang kamu buat:\n\
         Ingat: Username hanya dapat berupa huruf dan angka, tidak menggunakan simbol!", "Set", "Batal");
@@ -30,7 +30,7 @@ public OnTwitterUsernameSuccess(playerid, const usersuccs[])
     Silakan masukkan kata sandi untuk akun twitter kamu:\n\
     Ingat: Panjang kata sandi 7 - 32 karakter!\n\
     Tahap ini tidak dapat dibatalkan!", usersuccs);
-    Dialog_Show(playerid, "TwitterRegPassword", DIALOG_STYLE_PASSWORD, ""Nexston"Nexston Roleplay "WHITE"- Daftar Twitter", jjstr, "Set", "");
+    Dialog_Show(playerid, "TwitterRegPassword", DIALOG_STYLE_PASSWORD, ""Vertex"Vertex Roleplay "WHITE"- Daftar Twitter", jjstr, "Set", "");
     return 1;
 }
 
@@ -50,13 +50,13 @@ public OnTwitterLogin(playerid, const checkuser[])
         format(ljstr, sizeof(ljstr), "Hai, %s!\n\
         Silakan masukkan kata sandi akun Twitter kamu untuk masuk:", checkuser);
         Dialog_Show(playerid, "TwitterLoginPassword", DIALOG_STYLE_PASSWORD, 
-        ""Nexston"Nexston Roleplay "WHITE"- Login Twitter", ljstr, "Login", "Batal");
+        ""Vertex"Vertex Roleplay "WHITE"- Login Twitter", ljstr, "Login", "Batal");
         return 1;
     }
     else
     {
         Dialog_Show(playerid, "TwitterLogin", DIALOG_STYLE_INPUT, 
-        ""Nexston"Nexston Roleplay "WHITE"- Login Twitter", 
+        ""Vertex"Vertex Roleplay "WHITE"- Login Twitter", 
         "Mohon maaf kami tidak dapat menemukan akun Twitter kamu!\n\
         Silakan masukkan username Twitter kamu yang telah terdaftar:", "Input", "Batal");
     }
@@ -71,7 +71,7 @@ Dialog:TwitterRegister(playerid, response, listitem, inputtext[])
     if(isnull(inputtext))
     {
         Dialog_Show(playerid, "TwitterRegister", DIALOG_STYLE_INPUT, 
-        ""Nexston"Nexston Roleplay "WHITE"- Daftar Twitter", 
+        ""Vertex"Vertex Roleplay "WHITE"- Daftar Twitter", 
         "Username Tidak dapat dikosongkan!\n\
         Silakan masukkan username Twitter kamu, ini akan ditampilkan pada setiap tweet yang kamu buat:\n\
         Ingat: Username hanya dapat berupa huruf dan angka, tidak menggunakan simbol!\n\
@@ -82,7 +82,7 @@ Dialog:TwitterRegister(playerid, response, listitem, inputtext[])
     if(strlen(inputtext) < 7 || strlen(inputtext) > 24)
     {
         Dialog_Show(playerid, "TwitterRegister", DIALOG_STYLE_INPUT, 
-        ""Nexston"Nexston Roleplay "WHITE"- Daftar Twitter", 
+        ""Vertex"Vertex Roleplay "WHITE"- Daftar Twitter", 
         "Username Tidak dapat dikosongkan!\n\
         Silakan masukkan username Twitter kamu, ini akan ditampilkan pada setiap tweet yang kamu buat:\n\
         Ingat: Username hanya dapat berupa huruf dan angka, tidak menggunakan simbol!\n\
@@ -105,14 +105,14 @@ Dialog:TwitterRegPassword(playerid, response, listitem, inputtext[])
         Ingat: Panjang kata sandi 7 - 32 karakter!\n\
         Tahap ini tidak dapat dibatalkan!", TwitterData[playerid][TempUsername]);
         Dialog_Show(playerid, "TwitterRegPassword", DIALOG_STYLE_PASSWORD, 
-        ""Nexston"Nexston Roleplay "WHITE"- Daftar Twitter", sqlfstr, "Set", "");
+        ""Vertex"Vertex Roleplay "WHITE"- Daftar Twitter", sqlfstr, "Set", "");
         return 1;
     }
 
     if(isnull(inputtext))
     {
         Dialog_Show(playerid, "TwitterRegPassword", DIALOG_STYLE_PASSWORD, 
-        ""Nexston"Nexston Roleplay "WHITE"- Daftar Twitter", 
+        ""Vertex"Vertex Roleplay "WHITE"- Daftar Twitter", 
         "Kata sandi Tidak dapat dikosongkan!\n\
         Silakan masukkan kata sandi untuk akun twitter kamu:\n\
         Ingat: Panjang kata sandi 7 - 32 karakter!\n\
@@ -123,7 +123,7 @@ Dialog:TwitterRegPassword(playerid, response, listitem, inputtext[])
     if(strlen(inputtext) < 7 || strlen(inputtext) > 32)
     {
         Dialog_Show(playerid, "TwitterRegPassword", DIALOG_STYLE_PASSWORD, 
-        ""Nexston"Nexston Roleplay "WHITE"- Daftar Twitter", 
+        ""Vertex"Vertex Roleplay "WHITE"- Daftar Twitter", 
         "Panjang kata sandi kurang atau kelebihan!\n\
         Silakan masukkan kata sandi untuk akun twitter kamu:\n\
         Ingat: Panjang kata sandi 7 - 32 karakter!\n\
@@ -171,7 +171,7 @@ Dialog:TwitterLoginPassword(playerid, response, listitem, inputtext[])
         Kata sandi yang kamu masukkan salah!\n\
         Silakan masukkan kata sandi akun Twitter kamu untuk masuk:", TwitterData[playerid][TempUsername]);
         Dialog_Show(playerid, "TwitterLoginPassword", DIALOG_STYLE_PASSWORD, 
-        ""Nexston"Nexston Roleplay "WHITE"- Login Twitter", ljstr, "Login", "Batal");
+        ""Vertex"Vertex Roleplay "WHITE"- Login Twitter", ljstr, "Login", "Batal");
     }
     return 1;
 }
@@ -180,15 +180,15 @@ Dialog:TwitterTweeting(playerid, response, listitem, inputtext[])
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
 
     if(isnull(inputtext))
-        return Dialog_Show(playerid, "TwitterTweeting", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Twitter",
+        return Dialog_Show(playerid, "TwitterTweeting", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Twitter",
         "Tweet tidak boleh dikosongkan!\nSilahkan masukkan tweet yang ingin kamu buat:", "Tweet", "Batal");
 
     if(strlen(inputtext) > 128)
-        return Dialog_Show(playerid, "TwitterTweeting", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Twitter",
+        return Dialog_Show(playerid, "TwitterTweeting", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Twitter",
         "Tweet maksimal 128 karakter!\nSilahkan masukkan tweet yang ingin kamu buat:", "Tweet", "Batal");
 
     if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)
-        return Dialog_Show(playerid, "TwitterTweeting", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Twitter",
+        return Dialog_Show(playerid, "TwitterTweeting", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Twitter",
         "Tweet tidak boleh mengandung simbol % atau #!\nSilahkan masukkan tweet yang ingin kamu buat:", "Tweet", "Batal");
 
     strcopy(TwitterData[playerid][Tweet], inputtext);

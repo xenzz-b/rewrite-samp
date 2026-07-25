@@ -154,12 +154,12 @@ Show_PemerintahRankManage(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "PemerintahSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "PemerintahSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
     }
     return 1;
 }
@@ -221,12 +221,12 @@ stock ShowPemerintahKick(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "PemerintahKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "PemerintahKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", "Faction ini tidak memiliki anggota!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", "Faction ini tidak memiliki anggota!", "Tutup", "");
     }
     return 1;
 }
@@ -251,7 +251,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 
         if(count > 0) 
 		{
-            Dialog_Show(playerid, "FactionPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+            Dialog_Show(playerid, "FactionPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
             frmxt, "Pilih", "Batal");
 		}
     }
@@ -282,12 +282,12 @@ Dialog:PemerintahVault(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Lemari Pemerintah", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Lemari Pemerintah", 
                 "Anda tidak memiliki barang yang dapat disimpan!", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "PemerintahVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Lemari Pemerintah", str, "Pilih", "Batal");
+                Dialog_Show(playerid, "PemerintahVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Lemari Pemerintah", str, "Pilih", "Batal");
             }
         }
         case 1: //withdraw
@@ -342,7 +342,7 @@ Dialog:PemerintahVaultDeposit(playerid, response, listitem, inputtext[])
 	}
     new shstr[528];
     format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Mohon masukkan jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][listitem]][invItem], InventoryData[playerid][PlayerListitem[playerid][listitem]][invQuantity]);
-    Dialog_Show(playerid, "PemerintahVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari SAGOV", 
+    Dialog_Show(playerid, "PemerintahVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari SAGOV", 
     shstr, "Input", "Batal");
     return 1;
 }
@@ -367,7 +367,7 @@ Dialog:PemerintahVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nTidak dapat dikosongkan!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "PemerintahVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Pemerintah", 
+        Dialog_Show(playerid, "PemerintahVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Pemerintah", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -376,7 +376,7 @@ Dialog:PemerintahVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nMohon diisi hanya angka!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "PemerintahVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Pemerintah", 
+        Dialog_Show(playerid, "PemerintahVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Pemerintah", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -385,7 +385,7 @@ Dialog:PemerintahVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nJumlah tidak valid!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "PemerintahVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Pemerintah", 
+        Dialog_Show(playerid, "PemerintahVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Pemerintah", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -483,7 +483,7 @@ Dialog:PemerintahVaultWithdraw(playerid, response, listitem, inputtext[])
         AccountData[playerid][pTempValue] = listitem;
         new shstr[528];
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][listitem]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][listitem]][factionBrankasQuant]);
-        Dialog_Show(playerid, "PemerintahVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Pemerintah", 
+        Dialog_Show(playerid, "PemerintahVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Pemerintah", 
         shstr, "Input", "Batal");
     }
     return 1;
@@ -509,7 +509,7 @@ Dialog:PemerintahVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Tidak dapat dikosongkan!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "PemerintahVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Pemerintah", 
+        Dialog_Show(playerid, "PemerintahVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Pemerintah", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -518,7 +518,7 @@ Dialog:PemerintahVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon diisi hanya angka!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "PemerintahVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Pemerintah", 
+        Dialog_Show(playerid, "PemerintahVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Pemerintah", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -527,7 +527,7 @@ Dialog:PemerintahVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Jumlah tidak valid!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "PemerintahVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Pemerintah", 
+        Dialog_Show(playerid, "PemerintahVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Pemerintah", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -609,7 +609,7 @@ Dialog:PemerintahPanel(playerid, response, listitem, inputtext[])
         {
             if(!CheckPlayerLicense(targetid))
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Licenses Checking", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Licenses Checking", 
                 "Orang tersebut tidak memiliki lisensi.", "Tutup", "");
                 return 1;
             }
@@ -649,12 +649,12 @@ Dialog:PemerintahPanel(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
                 "This person has no invoices.", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
                 xjjs, "Tutup", "");
             }
             NearestSingle[playerid] = INVALID_PLAYER_ID;
@@ -694,12 +694,12 @@ Dialog:PemerintahPanel(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Geledah", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Geledah", 
                 "Pemain tersebut tidak memiliki item apapun!", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "FactionConsficating", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Geledah", str, "Pilih", "Batal");
+                Dialog_Show(playerid, "FactionConsficating", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Geledah", str, "Pilih", "Batal");
             }
         }
         case 6: //cek senjata
@@ -718,11 +718,11 @@ Dialog:PemerintahPanel(playerid, response, listitem, inputtext[])
             }
             if(count > 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Senjata", lstr,"Tutup","");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Senjata", lstr,"Tutup","");
             }
             else
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Senjata", "Pemain tersebut tidak memiliki senjata!","Tutup","");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Senjata", "Pemain tersebut tidak memiliki senjata!","Tutup","");
             }
         }
         case 7: //Seret
@@ -780,7 +780,7 @@ Dialog:PemerintahPanel(playerid, response, listitem, inputtext[])
     		    ApplyAnimation(playerid, "INT_SHOP","shop_loop", 4.1, true, false, false, true, 0, true);
             }
 
-            Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Invoice", 
+            Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Invoice", 
             "Mohon masukkan nama dari invoice ini:", "Input", "Batal");
         }
         case 11:
@@ -820,7 +820,7 @@ Dialog:PemerintahPanel(playerid, response, listitem, inputtext[])
 Dialog:PemerintahLocker(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Vertex!");
     switch(listitem)
     {
         case 0: //toggle duty
@@ -858,7 +858,7 @@ Dialog:PemerintahLocker(playerid, response, listitem, inputtext[])
             {
                 case 1: //male
                 {
-                    Dialog_Show(playerid, "PemerintahUniform", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Baju Pemerintah", 
+                    Dialog_Show(playerid, "PemerintahUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Baju Pemerintah", 
                     "Gubernur\n\
                     "GRAY"W. Gubernur\n\
                     Sekretaris\n\
@@ -870,7 +870,7 @@ Dialog:PemerintahLocker(playerid, response, listitem, inputtext[])
                 }
                 case 2: //female
                 {
-                    Dialog_Show(playerid, "PemerintahUniform", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Baju Pemerintah", 
+                    Dialog_Show(playerid, "PemerintahUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Baju Pemerintah", 
                     "Sekretaris\n\
                     "GRAY"Kepala Dinas\n\
                     Pegawai Senior\n\
@@ -899,7 +899,7 @@ Dialog:PemerintahLocker(playerid, response, listitem, inputtext[])
 Dialog:PemerintahUniform(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Vertex!");
 
     switch(listitem)
     {
@@ -922,7 +922,7 @@ Dialog:PemerintahUniform(playerid, response, listitem, inputtext[])
 Dialog:PemerintahBosdesk(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Vertex!");
     if(AccountData[playerid][pFactionRank] < 4) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimal rank Wakil Wali Kota untuk akses faction menu!");
 
     switch(listitem)
@@ -945,10 +945,10 @@ Dialog:PemerintahBosdesk(playerid, response, listitem, inputtext[])
             if(count == 0)
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Undang Faction", "Tidak ada pemain terdekat!", "Tutup", "");
+                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Undang Faction", "Tidak ada pemain terdekat!", "Tutup", "");
             }
 
-            Dialog_Show(playerid, "PemerintahInviteConfirm", DIALOG_STYLE_TABLIST, ""Nexston"Nexston Roleplay "WHITE"- Undang Faction", frmxt, "Pilih", "Batal");
+            Dialog_Show(playerid, "PemerintahInviteConfirm", DIALOG_STYLE_TABLIST, ""Vertex"Vertex Roleplay "WHITE"- Undang Faction", frmxt, "Pilih", "Batal");
         }
         case 1: //kelola jabatan
         {
@@ -1015,12 +1015,12 @@ Dialog:PemerintahBosdesk(playerid, response, listitem, inputtext[])
                     strcat(string, "\n");
                 }
 
-                Dialog_Show(playerid, "PemerintahSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
+                Dialog_Show(playerid, "PemerintahSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
             }
             else
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
             }
         }
         case 2: //kick
@@ -1031,18 +1031,18 @@ Dialog:PemerintahBosdesk(playerid, response, listitem, inputtext[])
         case 3: //saldo
         {
             new rtx[158];
-            format(rtx, sizeof(rtx), "Saldo Pemerintah Kota Nexston saat ini ialah:\n\
+            format(rtx, sizeof(rtx), "Saldo Pemerintah Kota Vertex saat ini ialah:\n\
             "DARKGREEN"$%s", FormatMoney(PemerMoneyVault));
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Pemerintah Balance", rtx, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Pemerintah Balance", rtx, "Tutup", "");
         }
         case 4: //deposit saldo
         {
-            Dialog_Show(playerid, "PemerintahDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pemerintah Deposit", 
+            Dialog_Show(playerid, "PemerintahDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pemerintah Deposit", 
             "Mohon masukkan berapa jumlah deposit:", "Input", "Batal");
         }
         case 5: //tarik saldo
         {
-            Dialog_Show(playerid, "PemerintahWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pemerintah Withdraw", 
+            Dialog_Show(playerid, "PemerintahWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pemerintah Withdraw", 
             "Mohon masukkan berapa jumlah withdraw:", "Input", "Batal");
         }
     }
@@ -1052,7 +1052,7 @@ Dialog:PemerintahBosdesk(playerid, response, listitem, inputtext[])
 Dialog:PemerintahInviteConfirm(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Vertex!");
     if(AccountData[playerid][pFactionRank] < 4) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimal rank Wakil Wali Kota untuk akses faction menu!");
 
     new targetid = NearestUser[playerid][listitem], icsr[128];
@@ -1069,10 +1069,10 @@ Dialog:PemerintahInviteConfirm(playerid, response, listitem, inputtext[])
 Dialog:PemerintahSetRankConfirm(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Vertex!");
     if(AccountData[playerid][pFactionRank] < 4) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimal rank Wakil Wali Kota untuk akses faction menu!");
 
-    if(isnull(inputtext)) return Dialog_Show(playerid, "PemerintahSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "PemerintahSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Tidak dapat dikosongkan!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. Honorer\n\
@@ -1083,7 +1083,7 @@ Dialog:PemerintahSetRankConfirm(playerid, response, listitem, inputtext[])
     6. W. Gubernur\n\
     7. Gubernur", "Set", "Batal");
     
-    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "PemerintahSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "PemerintahSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Masukkan hanya angka!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. Honorer\n\
@@ -1094,7 +1094,7 @@ Dialog:PemerintahSetRankConfirm(playerid, response, listitem, inputtext[])
     6. W. Gubernur\n\
     7. Gubernur", "Set", "Batal");
 
-    if(strval(inputtext) < 1 || strval(inputtext) > 7) return Dialog_Show(playerid, "PemerintahSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(strval(inputtext) < 1 || strval(inputtext) > 7) return Dialog_Show(playerid, "PemerintahSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Tidak dapat diisi dibawah 1 atau lebih tinggi dari jabatan anda!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. Honorer\n\
@@ -1125,21 +1125,21 @@ Dialog:PemerintahSetRankConfirm(playerid, response, listitem, inputtext[])
 Dialog:PemerintahDepositCash(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Vertex!");
     if(AccountData[playerid][pFactionRank] < 4) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimal rank Wakil Wali Kota untuk akses faction menu!");
     
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "PemerintahDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pemerintah Deposit",
+        return Dialog_Show(playerid, "PemerintahDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pemerintah Deposit",
         "Error: Tidak dapat dikosongkan!\n\
         Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "PemerintahDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pemerintah Deposit",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "PemerintahDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pemerintah Deposit",
         "Error: Masukkan hanya angka!\n\
         Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "PemerintahDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pemerintah Deposit",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "PemerintahDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pemerintah Deposit",
     "Error: Invalid amount, you can't deposit less than $1!\n\
     Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
 
@@ -1151,28 +1151,28 @@ Dialog:PemerintahDepositCash(playerid, response, listitem, inputtext[])
     static frmtmny[128];
     mysql_format(g_SQL, frmtmny, sizeof(frmtmny), "UPDATE `stuffs` SET `pemermoneyvault` = %d WHERE `id` = 0", PemerMoneyVault);
     mysql_pquery(g_SQL, frmtmny);
-    ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil deposit $%s untuk Pemerintah Nexston.", FormatMoney(strval(inputtext))));
+    ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil deposit $%s untuk Pemerintah Vertex.", FormatMoney(strval(inputtext))));
     return 1;
 }
 
 Dialog:PemerintahWithdrawCash(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Vertex!");
     if(AccountData[playerid][pFactionRank] < 4) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimal rank Wakil Wali Kota untuk akses faction menu!");
 
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "PemerintahWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pemerintah Withdraw",
+        return Dialog_Show(playerid, "PemerintahWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pemerintah Withdraw",
         "Error: Tidak dapat dikosongkan!\n\
        Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "PemerintahWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pemerintah Withdraw",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "PemerintahWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pemerintah Withdraw",
         "Error: Masukkan hanya angka!\n\
        Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "PemerintahWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pemerintah Withdraw",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "PemerintahWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pemerintah Withdraw",
     "Error: Jumlah tidak valid, anda tidak dapat withdraw kurang dari $1!\n\
    Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
 
@@ -1187,20 +1187,20 @@ Dialog:PemerintahWithdrawCash(playerid, response, listitem, inputtext[])
 
     AddFMoneyLog(AccountData[playerid][pName], AccountData[playerid][pUCP], strval(inputtext), "Pemerintah");
 
-    ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil withdraw $%s dari Pemerintah Nexston.", FormatMoney(strval(inputtext))));
+    ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil withdraw $%s dari Pemerintah Vertex.", FormatMoney(strval(inputtext))));
     return 1;
 }
 Dialog:PemerintahGarage(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Vertex!");
     switch(listitem)
     {
         case 0: //keluarkan kendaraan
         {
             if(PlayerFactionVehicle[playerid][FACTION_SAGOV] != INVALID_VEHICLE_ID) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda telah mengeluarkan kendaraan, simpan terlebih dahulu!");
 
-            Dialog_Show(playerid, "PemerintahGarageTakeout", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Keluarkan Kendaraan", 
+            Dialog_Show(playerid, "PemerintahGarageTakeout", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Keluarkan Kendaraan", 
             "Premier\n\
             "GRAY"Stafford\n\
             Stretch\n\
@@ -1235,7 +1235,7 @@ Dialog:PemerintahGarageTakeout(playerid, response, listitem, inputtext[])
     if(AccountData[playerid][pFaction] != FACTION_SAGOV) 
     {
         AccountData[playerid][pTempValue] = -1;
-        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Nexston!");
+        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Vertex!");
     }
     
     new garageid = GetPlayerNearestFGarage(playerid);
@@ -1345,7 +1345,7 @@ Dialog:ChangeNameOrigin(playerid, response, listitem, inputtext[])
 		{
 			format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
 		}
-		return Dialog_Show(playerid, "ChangeNameOrigin", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Origin", originstring, "Pilih", "");
+		return Dialog_Show(playerid, "ChangeNameOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Origin", originstring, "Pilih", "");
 	}
 
 	if(listitem == -1 || listitem > sizeof(_g_originName) - 1)
@@ -1401,7 +1401,7 @@ Dialog:PemerintahSetRank(playerid, response, listitem, inputtext[])
     else 
     {
         if(AccountData[playerid][pFaction] != FACTION_SAGOV) 
-            return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Nexston!");
+            return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Vertex!");
         if(AccountData[playerid][pFactionRank] < 4) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimal rank Wakil Wali Kota untuk akses faction menu!");
 
         mysql_query(g_SQL, sprintf("SELECT * FROM `player_characters` WHERE `pID` = '%d'", ListedMember[playerid][listitem]));
@@ -1412,7 +1412,7 @@ Dialog:PemerintahSetRank(playerid, response, listitem, inputtext[])
             cache_get_value_name_int(0, "Char_FactionRank", AccountData[playerid][pTempSQLFactRank]);
             if(AccountData[playerid][pID] == AccountData[playerid][pTempSQLFactMemberID]) return SEM(playerid, "Anda tidak dapat menetapkan rank anda sendiri!");
             if(AccountData[playerid][pTempSQLFactRank] >= AccountData[playerid][pFactionRank]) return SEM(playerid, "Anda tidak dapat menetapkan rank rekan yang sejajar/lebih tinggi dari anda!");
-            Dialog_Show(playerid, "PemerintahSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+            Dialog_Show(playerid, "PemerintahSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
             "Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
             1. Honorer\n\
             2. Staff Junior\n\
@@ -1447,7 +1447,7 @@ Dialog:PemerintahKickMember(playerid, response, listitem, inputtext[])
         new l_row_pid = ListedMember[playerid][listitem];
 
         if (AccountData[playerid][pFaction] != FACTION_SAGOV)
-            return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Nexston!");
+            return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Vertex!");
 
         if(AccountData[playerid][pFactionRank] < 4) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimal rank Wakil Wali Kota untuk akses faction menu!");
 
@@ -1489,7 +1489,7 @@ Dialog:PemerintahKickMember(playerid, response, listitem, inputtext[])
                     if(Iter_Contains(PemerDuty, i))
                         Iter_Remove(PemerDuty, i);
 
-                    ShowTDN(i, NOTIFICATION_WARNING, "Anda telah ditendang dari Pemerintah Kota Nexston!");
+                    ShowTDN(i, NOTIFICATION_WARNING, "Anda telah ditendang dari Pemerintah Kota Vertex!");
                     break;
                 }
             }
@@ -1503,7 +1503,7 @@ Dialog:PemerintahKickMember(playerid, response, listitem, inputtext[])
             Name: %s\n\
             Rank: %s\n\
             Last Online: %s", fckname, PemerintahRank[fckrank], fcklastlogin);
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", kckstr, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", kckstr, "Tutup", "");
         }
     }
     return 1;

@@ -395,7 +395,7 @@ Inventory_Show(playerid)
 
 	PlayerTextDrawShow(playerid, InventWeightTD[playerid][3]);
 
-	SelectTextDraw(playerid, Y_Nexston);
+	SelectTextDraw(playerid, Y_Vertex);
 	return 1;
 }
 

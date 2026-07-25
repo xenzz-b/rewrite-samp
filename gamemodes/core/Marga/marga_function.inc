@@ -282,12 +282,12 @@ Show_MargaRankManage(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "MargaSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank Marga", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "MargaSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank Marga", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank Marga", "Anda tidak memiliki member di Marga ini!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank Marga", "Anda tidak memiliki member di Marga ini!", "Tutup", "");
     }
     return 1;
 }
@@ -348,12 +348,12 @@ Show_MargaKick(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "MargaKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Kick Marga", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "MargaKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Kick Marga", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Marga", "Anda tidak memiliki member di Marga ini!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Marga", "Anda tidak memiliki member di Marga ini!", "Tutup", "");
     }
     return 1;
 }

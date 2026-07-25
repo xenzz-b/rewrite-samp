@@ -207,7 +207,7 @@ CreateSpawnInt()
     // SetDynamicObjectMaterial(LSAINTXT, 0, 2423, "cj_ff_counters", "CJ_Laminate1", 0x00000000);
     // LSAINTXT = CreateDynamicObject(8324, 1772.738891, -2517.475097, 26.256921, -0.000007, 0.000000, -89.399986, 60, 0, -1, 200.00, 200.00); 
     // SetDynamicObjectMaterial(LSAINTXT, 0, 19480, "signsurf", "sign", 0x00000000);
-    // SetDynamicObjectMaterialText(LSAINTXT, 1, "Nexston INTERNATIONAL AIRPORT", 120, "Calibri", 20, 1, 0xFF333333, 0x00000000, 1);
+    // SetDynamicObjectMaterialText(LSAINTXT, 1, "Vertex INTERNATIONAL AIRPORT", 120, "Calibri", 20, 1, 0xFF333333, 0x00000000, 1);
     // LSAINTXT = CreateDynamicObject(1297, 1767.983642, -2525.215087, 31.286954, 0.000000, 171.999984, -179.999938, 60, 0, -1, 200.00, 200.00); 
     // SetDynamicObjectMaterial(LSAINTXT, 0, 19480, "signsurf", "sign", 0x00000000);
     // LSAINTXT = CreateDynamicObject(18766, 1745.960815, -2534.542968, 16.426906, 0.000004, 90.000007, 44.999988, 60, 0, -1, 200.00, 200.00); 
@@ -1411,7 +1411,7 @@ CreateSpawnInt()
     // LSAINTXT = CreateDynamicObject(19861, 1737.078857, -2514.944335, 18.796915, 0.000022, 0.000000, 89.999931, 60, 0, -1, 200.00, 200.00); 
     // SetDynamicObjectMaterialText(LSAINTXT, 0, "International Airport", 130, "Segoe UI", 55, 1, 0xFFBBBBBB, 0x00000000, 1);
     // LSAINTXT = CreateDynamicObject(19861, 1737.078857, -2514.944335, 18.126909, 0.000022, 0.000000, 89.999931, 60, 0, -1, 200.00, 200.00); 
-    // SetDynamicObjectMaterialText(LSAINTXT, 0, "Nexston", 130, "Segoe UI", 125, 1, 0xFFBBBBBB, 0x00000000, 1);
+    // SetDynamicObjectMaterialText(LSAINTXT, 0, "Vertex", 130, "Segoe UI", 125, 1, 0xFFBBBBBB, 0x00000000, 1);
     // LSAINTXT = CreateDynamicObject(19373, 1737.007324, -2509.244628, 21.346916, -0.000007, 0.000052, 0.000022, 60, 0, -1, 200.00, 200.00); 
     // SetDynamicObjectMaterial(LSAINTXT, 0, 16640, "a51", "scratchedmetal", 0xFF555555);
     // LSAINTXT = CreateDynamicObject(19128, 1737.099365, -2509.826660, 20.546913, 89.999992, 182.939514, -92.939422, 60, 0, -1, 200.00, 200.00); 
@@ -3834,7 +3834,7 @@ CreateSpawnInt()
     LSAINTXT = CreateDynamicObject(19482, 2782.020507, -2388.092773, 44.724121, -0.000010, -0.000010, -135.000000, 91, 1, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(LSAINTXT, 0, "DI KOTA", 130, "Arial", 60, 1, 0xFFFFFFFF, 0x00000000, 1);
     LSAINTXT = CreateDynamicObject(19482, 2783.860839, -2389.933105, 44.724121, -0.000010, -0.000010, -135.000000, 91, 1, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(LSAINTXT, 0, "Nexston", 130, "Arial", 60, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(LSAINTXT, 0, "Vertex", 130, "Arial", 60, 1, 0xFFFFFFFF, 0x00000000, 1);
     LSAINTXT = CreateDynamicObject(1508, 2783.142333, -2388.902099, 37.871337, 0.000005, 0.000005, 44.999988, 91, 1, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(LSAINTXT, 0, 10023, "bigwhitesfe", "liftdoors_kb_256", 0x00000000);
     LSAINTXT = CreateDynamicObject(18766, 2782.650878, -2384.211425, 36.028808, 0.000005, 30.000005, 44.999988, 91, 1, -1, 200.00, 200.00); 
@@ -3938,7 +3938,7 @@ CreateSpawnInt()
     LSAINTXT = CreateDynamicObject(2626, 2772.501464, -2405.921875, 28.694458, 0.000000, -0.000007, 179.999954, 91, 1, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(LSAINTXT, 0, 19092, "pompoms", "wood-64x64", 0x00000000);
     LSAINTXT = CreateDynamicObject(19482, 2778.658691, -2402.793701, 32.413574, 0.000000, 0.000007, 0.000000, 91, 1, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(LSAINTXT, 0, "NexstonMART", 130, "Arial", 80, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(LSAINTXT, 0, "VertexMART", 130, "Arial", 80, 1, 0xFFFFFFFF, 0x00000000, 1);
     LSAINTXT = CreateDynamicObject(18762, 2778.141357, -2407.223144, 28.338256, 0.000000, 0.000029, 0.000000, 91, 1, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(LSAINTXT, 0, 19267, "mapmarkers", "red-2", 0x00000000);
     LSAINTXT = CreateDynamicObject(19482, 2777.587646, -2402.793701, 32.413574, 0.000000, -0.000007, 179.999954, 91, 1, -1, 200.00, 200.00); 
@@ -4026,9 +4026,9 @@ CreateSpawnInt()
     LSAINTXT = CreateDynamicObject(18766, 2808.396240, -2397.724853, 37.000244, 0.000000, 90.000007, 0.000000, 91, 1, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(LSAINTXT, 0, 10765, "airportgnd_sfse", "black64", 0x00000000);
     LSAINTXT = CreateDynamicObject(19482, 2798.124755, -2397.223632, 33.049194, 0.000007, -0.000021, 89.999855, 91, 1, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(LSAINTXT, 0, "Nexston CLOTHES", 130, "Arial", 50, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(LSAINTXT, 0, "Vertex CLOTHES", 130, "Arial", 50, 1, 0xFFFFFFFF, 0x00000000, 1);
     LSAINTXT = CreateDynamicObject(19482, 2808.378906, -2397.223632, 33.049194, 0.000007, -0.000021, 89.999855, 91, 1, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(LSAINTXT, 0, "Nexston ELECTRIC", 130, "Arial", 50, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(LSAINTXT, 0, "Vertex ELECTRIC", 130, "Arial", 50, 1, 0xFFFFFFFF, 0x00000000, 1);
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////

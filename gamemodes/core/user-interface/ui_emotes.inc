@@ -214,7 +214,7 @@ CreateEmotesTD()
     TextDrawFont(EmotesTD[19], 1);
     TextDrawSetProportional(EmotesTD[19], 1);
 
-    EmotesTD[20] = TextDrawCreate(557.000, 80.000, "Nexston Roleplay");
+    EmotesTD[20] = TextDrawCreate(557.000, 80.000, "Vertex Roleplay");
     TextDrawLetterSize(EmotesTD[20], 0.349, 1.499);
     TextDrawAlignment(EmotesTD[20], 2);
     TextDrawColor(EmotesTD[20], -1);

@@ -151,7 +151,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         format(hjes, sizeof(hjes), "Ini area pencucian uang!\n\
         Uang kotor anda: "RED"$%s\n\
         "YELLOW"(Mohon masukkan berapa jumlah):", FormatMoney(AccountData[playerid][pDirtyMoney]));
-        Dialog_Show(playerid, "MoneyWash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pencucian Uang", hjes, "Input", "Batal");
+        Dialog_Show(playerid, "MoneyWash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pencucian Uang", hjes, "Input", "Batal");
     }
     else if(newkeys & KEY_YES && GetPlayerState(playerid) == PLAYER_STATE_ONFOOT && AccountData[playerid][pSpawned] && AccountData[playerid][IsLoggedIn] && IsPlayerInRangeOfPoint(playerid, 3.5, 525.2551,-2335.3491,508.6938))
     {
@@ -176,7 +176,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         Inventory_Count(playerid, "Alumunium"), Inventory_Count(playerid, "Kaca"), Inventory_Count(playerid, "Baja"), Inventory_Count(playerid, "Karet"), Inventory_Count(playerid, "Plastik"), Inventory_Count(playerid, "Material"), Inventory_Count(playerid, "Kulit"),
         Inventory_Count(playerid, "Alumunium"), Inventory_Count(playerid, "Kaca"), Inventory_Count(playerid, "Baja"), Inventory_Count(playerid, "Karet"), Inventory_Count(playerid, "Plastik"), Inventory_Count(playerid, "Material"), Inventory_Count(playerid, "Kulit"),
         Inventory_Count(playerid, "Karet"), Inventory_Count(playerid, "Besi"), Inventory_Count(playerid, "Pakaian"), Inventory_Count(playerid, "Kulit"));
-        Dialog_Show(playerid, "CraftingWeapon", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Crafting Senjata", string, "Rakit", "Batal");
+        Dialog_Show(playerid, "CraftingWeapon", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Crafting Senjata", string, "Rakit", "Batal");
     }
     else if(newkeys & KEY_YES && GetPlayerState(playerid) == PLAYER_STATE_ONFOOT && AccountData[playerid][pSpawned] && AccountData[playerid][IsLoggedIn] && IsPlayerInRangeOfPoint(playerid, 3.5, -2671.4055,2311.7197,23.7979))
     {
@@ -194,7 +194,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         Inventory_Count(playerid, "Sabu"), Inventory_Count(playerid, "Kertas"), Inventory_Count(playerid, "Jerigen"),
         Inventory_Count(playerid, "Botol"), Inventory_Count(playerid, "Water"), Inventory_Count(playerid, "Gula"), Inventory_Count(playerid, "Micin"),
         Inventory_Count(playerid, "Botol"), Inventory_Count(playerid, "Water"), Inventory_Count(playerid, "Gula"), Inventory_Count(playerid, "Micin"));
-        Dialog_Show(playerid, "CraftingDrugs", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Crafting Senjata", string, "Rakit", "Batal");
+        Dialog_Show(playerid, "CraftingDrugs", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Crafting Senjata", string, "Rakit", "Batal");
     }
     return 1;
 }
@@ -612,7 +612,7 @@ Dialog:MegaMallCatalog(playerid, response, listitem, inputtext[])
             if(countingtotalweight > GetPlayerInventoryWeight(playerid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jumlah tidak valid, inventory anda penuh!");
 
             AccountData[playerid][pTempValue] = 1;
-            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Mega Mall", 
+            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Mega Mall", 
             "Anda akan membeli Kentang seharga "GREEN"$10/pcs\n\
             "YELLOW"(Mohon masukkan berapa jumlah yang ingin dibeli):", "Beli", "Batal");
         }
@@ -626,7 +626,7 @@ Dialog:MegaMallCatalog(playerid, response, listitem, inputtext[])
             if(countingtotalweight > GetPlayerInventoryWeight(playerid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jumlah tidak valid, inventory anda penuh!");
 
             AccountData[playerid][pTempValue] = 2;
-            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Mega Mall", 
+            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Mega Mall", 
             "Anda akan membeli Kubis seharga "GREEN"$10/pcs\n\
             "YELLOW"(Mohon masukkan berapa jumlah yang ingin dibeli):", "Beli", "Batal");
         }
@@ -640,7 +640,7 @@ Dialog:MegaMallCatalog(playerid, response, listitem, inputtext[])
             if(countingtotalweight > GetPlayerInventoryWeight(playerid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jumlah tidak valid, inventory anda penuh!");
 
             AccountData[playerid][pTempValue] = 3;
-            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Mega Mall", 
+            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Mega Mall", 
             "Anda akan membeli Bawang seharga "GREEN"$10/pcs\n\
             "YELLOW"(Mohon masukkan berapa jumlah yang ingin dibeli):", "Beli", "Batal");
         }
@@ -654,7 +654,7 @@ Dialog:MegaMallCatalog(playerid, response, listitem, inputtext[])
             if(countingtotalweight > GetPlayerInventoryWeight(playerid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jumlah tidak valid, inventory anda penuh!");
 
             AccountData[playerid][pTempValue] = 4;
-            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Mega Mall", 
+            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Mega Mall", 
             "Anda akan membeli Tomat seharga "GREEN"$10/pcs\n\
             "YELLOW"(Mohon masukkan berapa jumlah yang ingin dibeli):", "Beli", "Batal");
         }
@@ -668,7 +668,7 @@ Dialog:MegaMallCatalog(playerid, response, listitem, inputtext[])
             if(countingtotalweight > GetPlayerInventoryWeight(playerid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jumlah tidak valid, inventory anda penuh!");
             
             AccountData[playerid][pTempValue] = 5;
-            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Mega Mall", 
+            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Mega Mall", 
             "Anda akan membeli Air seharga "GREEN"$10/pcs\n\
             "YELLOW"(Mohon masukkan berapa jumlah yang ingin dibeli):", "Beli", "Batal");
         }
@@ -681,7 +681,7 @@ Dialog:MegaMallCatalog(playerid, response, listitem, inputtext[])
             if(countingtotalweight > GetPlayerInventoryWeight(playerid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jumlah tidak valid, inventory anda penuh!");
 
             AccountData[playerid][pTempValue] = 6;
-            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Mega Mall", 
+            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Mega Mall", 
             "Anda akan membeli Gula seharga "GREEN"$10/pcs\n\
             "YELLOW"(Mohon masukkan berapa jumlah yang ingin dibeli):", "Beli", "Batal");
         }
@@ -695,7 +695,7 @@ Dialog:MegaMallCatalog(playerid, response, listitem, inputtext[])
             if(countingtotalweight > GetPlayerInventoryWeight(playerid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jumlah tidak valid, inventory anda penuh!");
 
             AccountData[playerid][pTempValue] = 7;
-            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Mega Mall", 
+            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Mega Mall", 
             "Anda akan membeli Micin seharga "GREEN"$10/pcs\n\
             "YELLOW"(Mohon masukkan berapa jumlah yang ingin dibeli):", "Beli", "Batal");
         }
@@ -709,7 +709,7 @@ Dialog:MegaMallCatalog(playerid, response, listitem, inputtext[])
             if(countingtotalweight > GetPlayerInventoryWeight(playerid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jumlah tidak valid, inventory anda penuh!");
 
             AccountData[playerid][pTempValue] = 8;
-            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Mega Mall", 
+            Dialog_Show(playerid, "KitchStuffBuy", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Mega Mall", 
             "Anda akan membeli Kertas seharga "GREEN"$120/pcs\n\
             "YELLOW"(Mohon masukkan berapa jumlah yang ingin dibeli):", "Beli", "Batal");
         }
@@ -737,20 +737,20 @@ Dialog:MoneyWash(playerid, response, listitem, inputtext[])
 
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "MoneyWash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Money Laundry",
+        return Dialog_Show(playerid, "MoneyWash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Money Laundry",
         "Error: Tidak dapat dikosongkan!\n\
         This is money laundry area!\n\
         Your dirty money: "RED"$%s\n\
         "YELLOW"(Please insert how much to be washed):", "Input", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "MoneyWash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Money Laundry",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "MoneyWash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Money Laundry",
     "Error: Masukkan hanya angka!\n\
     This is money laundry area!\n\
     Your dirty money: "RED"$%s\n\
     "YELLOW"(Please insert how much to be washed):", "Input", "Batal");
 
-    if(strval(inputtext) < 100) return Dialog_Show(playerid, "MoneyWash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Money Laundry",
+    if(strval(inputtext) < 100) return Dialog_Show(playerid, "MoneyWash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Money Laundry",
     "Error: Invalid amount, you can't wash less than $100!\n\
     This is money laundry area!\n\
     Your dirty money: "RED"$%s\n\
@@ -976,7 +976,7 @@ Dialog:PawnShopCatalog(playerid, response, listitem, inputtext[])
         return 1;
     }
     AccountData[playerid][pTempValue] = listitem;
-    Dialog_Show(playerid, "PawnShopRedeem", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pawn Shop", "Mohon masukkan jumlah yang ingin ditukarkan:", 
+    Dialog_Show(playerid, "PawnShopRedeem", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pawn Shop", "Mohon masukkan jumlah yang ingin ditukarkan:", 
     "Redeem", "Batal");
     return 1;
 }
@@ -1090,7 +1090,7 @@ YCMD:megamall(playerid, params[], help)
 {
     if(!IsPlayerInRangeOfPoint(playerid, 3.0, 2479.1294,-1963.1271,16.7578) && !IsPlayerInRangeOfPoint(playerid, 3.0, -1881.4132,823.1917,35.1767)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di mega mall!");
     
-    Dialog_Show(playerid, "MegaMallCatalog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Mega Mall", 
+    Dialog_Show(playerid, "MegaMallCatalog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Mega Mall", 
     "Item\tPrice\n\
     "GRAY"Crowbar\t"GRAY"$800\n\
     Kunci T\t$600\n\

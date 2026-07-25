@@ -5,8 +5,8 @@ public CheckingWhitelistLogin(playerid)
 	rows = cache_num_rows();
 	if(!rows)
 	{
-		format(strba, sizeof(strba), ""WHITE"Mohon baca pesan ini sebelum melanjutkan, "RED"%s\n\n"WHITE"UCP yang anda gunakan saat ini belum terdaftar, segera ke discord untuk membuat akun UCP\nLink Discord: "YELLOW"discord.gg/nexston", AccountData[playerid][pUCP]);
-		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Tiket Theater", strba, "Quit", "");
+		format(strba, sizeof(strba), ""WHITE"Mohon baca pesan ini sebelum melanjutkan, "RED"%s\n\n"WHITE"UCP yang anda gunakan saat ini belum terdaftar, segera ke discord untuk membuat akun UCP\nLink Discord: "YELLOW"discord.gg/vertexroleplay", AccountData[playerid][pUCP]);
+		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Tiket Theater", strba, "Quit", "");
 
 		//CallLocalFunction("PlayerKickedNotWhitelistedLog", "i", playerid);
 		KickEx(playerid);
@@ -18,22 +18,22 @@ public CheckingWhitelistLogin(playerid)
 
 		if(tempverify[playerid] != -1)
 		{
-			format(strba, sizeof(strba), ""WHITE"Selamat datang di "Nexston"Nexston Roleplay\n"WHITE"UCP ini telah terdaftar namun belum melakukan verifikasi!\nNama UCP: "DARK_SEA_GREEN_2"%s\n"YELLOW"(Silakan masukkan kode verifikasi):", AccountData[playerid][pUCP]);
-			Dialog_Show(playerid, "VerificationLogin", DIALOG_STYLE_PASSWORD, ""Nexston"Nexston Roleplay "WHITE"- Verifikasi", strba, "Verify", "Batal");
+			format(strba, sizeof(strba), ""WHITE"Selamat datang di "Vertex"Vertex Roleplay\n"WHITE"UCP ini telah terdaftar namun belum melakukan verifikasi!\nNama UCP: "DARK_SEA_GREEN_2"%s\n"YELLOW"(Silakan masukkan kode verifikasi):", AccountData[playerid][pUCP]);
+			Dialog_Show(playerid, "VerificationLogin", DIALOG_STYLE_PASSWORD, ""Vertex"Vertex Roleplay "WHITE"- Verifikasi", strba, "Verify", "Batal");
 		}
 		else
 		{
 			if(temprecovery[playerid] != -1)
 			{
-				format(strba, sizeof(strba), "Selamat datang di "Nexston"Nexston Roleplay\nNama UCP: %s\n\
+				format(strba, sizeof(strba), "Selamat datang di "Vertex"Vertex Roleplay\nNama UCP: %s\n\
 				Anda telah meminta layanan lupa password.\nKami telah mengirimkan anda kode recovery melalui DM discord anda.\n"YELLOW"(Mohon masukkan kode tersebut di bawah ini):", AccountData[playerid][pUCP]);
-				Dialog_Show(playerid, "VerifPW", DIALOG_STYLE_PASSWORD, ""Nexston"Nexston Roleplay "WHITE"- Lupa Sandi", strba, "Input", "Batal");
+				Dialog_Show(playerid, "VerifPW", DIALOG_STYLE_PASSWORD, ""Vertex"Vertex Roleplay "WHITE"- Lupa Sandi", strba, "Input", "Batal");
 			}
 			else
 			{
-				ShowLoginNSRP(playerid, true);
-				PlayerTextDrawSetString(playerid, LoginNSRP[playerid][67], AccountData[playerid][pUCP]);
-				PlayerTextDrawSetString(playerid, LoginNSRP[playerid][68], "_");
+				ShowLoginVRP(playerid, true);
+				PlayerTextDrawSetString(playerid, LoginVRP[playerid][67], AccountData[playerid][pUCP]);
+				PlayerTextDrawSetString(playerid, LoginVRP[playerid][68], "_");
 			}
 		}
 	}
@@ -48,8 +48,8 @@ public CheckingWhitelistRegist(playerid)
 	
 	if(!rows)
 	{
-		format(strba, sizeof(strba), ""WHITE"Mohon baca pesan ini sebelum melanjutkan, "RED"%s\n\n"WHITE"UCP yang anda gunakan saat ini belum terdaftar, segera ke discord untuk membuat akun UCP\nLink Discord: "YELLOW"discord.gg/nexston", AccountData[playerid][pUCP]);
-		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Tiket Theater", strba, "Quit", "");
+		format(strba, sizeof(strba), ""WHITE"Mohon baca pesan ini sebelum melanjutkan, "RED"%s\n\n"WHITE"UCP yang anda gunakan saat ini belum terdaftar, segera ke discord untuk membuat akun UCP\nLink Discord: "YELLOW"discord.gg/vertexroleplay", AccountData[playerid][pUCP]);
+		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Tiket Theater", strba, "Quit", "");
 
 		//CallLocalFunction("PlayerKickedNotWhitelistedLog", "i", playerid);
 		KickEx(playerid);
@@ -60,12 +60,12 @@ public CheckingWhitelistRegist(playerid)
 
 		if(tempverify[playerid] != -1)
 		{
-			format(strba, sizeof(strba), ""WHITE"Selamat datang di "Nexston"Nexston Roleplay\n"WHITE"UCP ini belum terdaftar dan terverifikasi!\nNama UCP: "RED"%s\n"YELLOW"(Silakan masukkan kode verifikasi):", AccountData[playerid][pUCP]);
-			Dialog_Show(playerid, "Verification", DIALOG_STYLE_PASSWORD, ""Nexston"Nexston Roleplay "WHITE"- Tiket Theater", strba, "Verify", "Batal");
+			format(strba, sizeof(strba), ""WHITE"Selamat datang di "Vertex"Vertex Roleplay\n"WHITE"UCP ini belum terdaftar dan terverifikasi!\nNama UCP: "RED"%s\n"YELLOW"(Silakan masukkan kode verifikasi):", AccountData[playerid][pUCP]);
+			Dialog_Show(playerid, "Verification", DIALOG_STYLE_PASSWORD, ""Vertex"Vertex Roleplay "WHITE"- Tiket Theater", strba, "Verify", "Batal");
 		}
 		else
 		{
-			format(strba, sizeof(strba), ""WHITE"Selamat datang di "Nexston"Nexston Roleplay\n"WHITE"UCP ini belum terdaftar!\nNama UCP: "RED"%s\n"YELLOW"(Silakan masukkan kata sandi untuk mendaftar):", AccountData[playerid][pUCP]);
+			format(strba, sizeof(strba), ""WHITE"Selamat datang di "Vertex"Vertex Roleplay\n"WHITE"UCP ini belum terdaftar!\nNama UCP: "RED"%s\n"YELLOW"(Silakan masukkan kata sandi untuk mendaftar):", AccountData[playerid][pUCP]);
 			Dialog_Show(playerid, "Register", DIALOG_STYLE_PASSWORD, "UCP - Register", strba, "Input", "Quit");
 		}
 	}
@@ -114,7 +114,7 @@ public CheckPlayerUCP(playerid, race_check)
 				{
 					PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
 					new lstr[512];
-					format(lstr, sizeof(lstr), ""WHITE"UCP Anda diblokir dari Nexston!\n\n\
+					format(lstr, sizeof(lstr), ""WHITE"UCP Anda diblokir dari Vertex!\n\n\
 					Berdasarkan Informasi:\n\
 					"ORANGE"Nama UCP: "WHITE"%s\n\
 					"ORANGE"IP Address: "WHITE"%s\n\
@@ -122,19 +122,19 @@ public CheckPlayerUCP(playerid, race_check)
 					"ORANGE"Tanggal diblokir: "WHITE"%s\n\
 					"ORANGE"Reason: "WHITE"%s\n\
 					"ORANGE"Durasi Blokir: "WHITE"Permanent\n\n\
-					"YELLOW"INGAT: "WHITE"Jika anda ingin bermain lagi dan bertobat, masuk ke Discord: "YELLOW"discord.gg/nexston "WHITE"kemudian pilih channel #buka-blokir", 
+					"YELLOW"INGAT: "WHITE"Jika anda ingin bermain lagi dan bertobat, masuk ke Discord: "YELLOW"discord.gg/vertexroleplay "WHITE"kemudian pilih channel #buka-blokir", 
 					AccountData[playerid][pUCP], 
 					AccountData[playerid][pIP], 
 					ucpblockadminname, 
 					ucpissueddate,
 					ucpblockreason);
-					Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- UCP Blocked", lstr, "Quit", "");
+					Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- UCP Blocked", lstr, "Quit", "");
 				}
 				else
 				{
 					PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
 					new lstr[512];
-					format(lstr, sizeof(lstr), ""WHITE"UCP Anda diblokir dari Nexston!\n\n\
+					format(lstr, sizeof(lstr), ""WHITE"UCP Anda diblokir dari Vertex!\n\n\
 					Berdasarkan Informasi:\n\
 					"ORANGE"Nama UCP: "WHITE"%s\n\
 					"ORANGE"IP Address: "WHITE"%s\n\
@@ -142,14 +142,14 @@ public CheckPlayerUCP(playerid, race_check)
 					"ORANGE"Tanggal diblokir: "WHITE"%s\n\
 					"ORANGE"Reason: "WHITE"%s\n\
 					"ORANGE"Durasi Blokir: "WHITE"%s\n\n\
-					"YELLOW"INGAT: "WHITE"Jika anda ingin bermain lagi dan bertobat, masuk ke Discord: "YELLOW"discord.gg/nexston "WHITE"kemudian pilih channel #buka-blokir", 
+					"YELLOW"INGAT: "WHITE"Jika anda ingin bermain lagi dan bertobat, masuk ke Discord: "YELLOW"discord.gg/vertexroleplay "WHITE"kemudian pilih channel #buka-blokir", 
 					AccountData[playerid][pUCP], 
 					AccountData[playerid][pIP], 
 					ucpblockadminname, 
 					ucpissueddate,
 					ucpblockreason,
 					ReturnTimelapse(gettime(), ucpblockdur), ""DARKGREEN"Selesai");
-					Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- UCP Blocked", lstr, "Quit", "");
+					Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- UCP Blocked", lstr, "Quit", "");
 				}
 
 				//CallLocalFunction("PlayerKickedBlockedUCPLog", "i", playerid);
@@ -193,7 +193,7 @@ public CheckBan(playerid)
 			mysql_format(g_SQL, query, sizeof(query), "DELETE FROM `player_bans` WHERE `name` = '%e'", AccountData[playerid][pName]);
 			mysql_pquery(g_SQL, query);
 
-			SendAdm(playerid, "Selamat datang di Nexston, status ban sudah selesai sejak %s.", ReturnTimelapse(banTime_Int, gettime()));
+			SendAdm(playerid, "Selamat datang di Vertex, status ban sudah selesai sejak %s.", ReturnTimelapse(banTime_Int, gettime()));
 
 			mysql_format(g_SQL, cQuery, sizeof(cQuery), "SELECT * FROM `player_characters` WHERE `Char_Name` = '%e' LIMIT 1", AccountData[playerid][pName]);
 			mysql_pquery(g_SQL, cQuery, "LoadCharacterData", "i", playerid);
@@ -211,15 +211,15 @@ public CheckBan(playerid)
 			{
 				PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
 				new lstr[512];
-				format(lstr, sizeof(lstr), ""WHITE"Anda dibanned dari server!\n\nInformasi:\nNama: %s\nIP: %s\nAdmin: %s\nTanggal dibanned: %s\nReason: %s\nDurasi Banned: Permanent\n\nMerasa tidak bersalah terkena banned? Appeal di "YELLOW"discord.gg/nexston", BannedName, banIP, PlayerName, ReturnDate(banDate), Reason);
-				Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Banned", lstr, "Quit", "");
+				format(lstr, sizeof(lstr), ""WHITE"Anda dibanned dari server!\n\nInformasi:\nNama: %s\nIP: %s\nAdmin: %s\nTanggal dibanned: %s\nReason: %s\nDurasi Banned: Permanent\n\nMerasa tidak bersalah terkena banned? Appeal di "YELLOW"discord.gg/vertexroleplay", BannedName, banIP, PlayerName, ReturnDate(banDate), Reason);
+				Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Banned", lstr, "Quit", "");
 			}
 			else
 			{
 				PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
 				new lstr[512];
-				format(lstr, sizeof(lstr), ""WHITE"Anda dibanned dari server!\n\nInformasi:\nNama: %s\nIP: %s\nAdmin: %s\nTanggal dibanned: %s\nReason: %s\nDurasi Banned: %s\n\nMerasa tidak bersalah terkena banned? Appeal di "YELLOW"discord.gg/nexston", BannedName, banIP, PlayerName, ReturnDate(banDate), Reason, ReturnTimelapse(gettime(), banTime_Int));
-				Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Banned", lstr, "Quit", "");
+				format(lstr, sizeof(lstr), ""WHITE"Anda dibanned dari server!\n\nInformasi:\nNama: %s\nIP: %s\nAdmin: %s\nTanggal dibanned: %s\nReason: %s\nDurasi Banned: %s\n\nMerasa tidak bersalah terkena banned? Appeal di "YELLOW"discord.gg/vertexroleplay", BannedName, banIP, PlayerName, ReturnDate(banDate), Reason, ReturnTimelapse(gettime(), banTime_Int));
+				Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Banned", lstr, "Quit", "");
 			}
 			KickEx(playerid);
   		}
@@ -259,7 +259,7 @@ public OnPlayerPasswordChecked(playerid, bool:success)
 
         if(LoginAttempts[playerid] >= 3)
         {
-            ShowLoginNSRP(playerid, false);
+            ShowLoginVRP(playerid, false);
             LoginAttempts[playerid] = 0;
             Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, "UCP - Login","Anda telah salah memasukkan kata sandi 3 kali.\n\n"YELLOW"Anda telah ditendang dari server!", "Quit", "");
             return KickEx(playerid);
@@ -268,11 +268,11 @@ public OnPlayerPasswordChecked(playerid, bool:success)
         new strnotif[128];
         format(strnotif, sizeof(strnotif), "Password salah! Sisa kesempatan: %dx", 3 - LoginAttempts[playerid]);
         ShowTDN(playerid, NOTIFICATION_ERROR, strnotif);
-        PlayerTextDrawSetString(playerid, LoginNSRP[playerid][68], "_");
+        PlayerTextDrawSetString(playerid, LoginVRP[playerid][68], "_");
         return 1;
     }
 
-    ShowLoginNSRP(playerid, false);
+    ShowLoginVRP(playerid, false);
     LoginAttempts[playerid] = 0;
     TempPasswordLogin[playerid][0] = EOS;
 
@@ -325,7 +325,7 @@ public InsertPlayerName(playerid, name[])
 	new query[145];
 	if(cache_num_rows() > 0)
 	{
-        Dialog_Show(playerid, MakeNewChar, DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pembuatan Karakter", ""RED"ERROR: "WHITE"Nama sudah digunakan!\nMohon masukkan kembali\n\nCth: Udin_Ahmad, Jefri_Sianturi", "Input", "Kembali");
+        Dialog_Show(playerid, MakeNewChar, DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pembuatan Karakter", ""RED"ERROR: "WHITE"Nama sudah digunakan!\nMohon masukkan kembali\n\nCth: Udin_Ahmad, Jefri_Sianturi", "Input", "Kembali");
 	}
 	else
 	{
@@ -345,7 +345,7 @@ public InsertPlayerName(playerid, const name[])
 	new query[1024], PlayerIP[16];
 	if(cache_num_rows() > 0)
 	{
-        Dialog_Show(playerid, "MakeNewChar", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pembuatan Karakter", ""RED"Error: "WHITE"Nama sudah digunakan!\nMohon masukkan kembali\n\nCth: Udin_Ahmad, Jefri_Sianturi", "Input", "Kembali");
+        Dialog_Show(playerid, "MakeNewChar", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pembuatan Karakter", ""RED"Error: "WHITE"Nama sudah digunakan!\nMohon masukkan kembali\n\nCth: Udin_Ahmad, Jefri_Sianturi", "Input", "Kembali");
 	}
 	else
 	{
@@ -576,7 +576,7 @@ public OnPlayerRegister(playerid)
 
 	SavePlayerRegister(playerid);
 	
-	Dialog_Show(playerid, "NewCharAge", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Birthday", "Please insert the birthday with following format hh/bb/tttt cth: (25/08/2001)", "Input", "");
+	Dialog_Show(playerid, "NewCharAge", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Birthday", "Please insert the birthday with following format hh/bb/tttt cth: (25/08/2001)", "Input", "");
 
 	ShowItemBox(playerid, "Cash", sprintf("Received $%sx", FormatMoney(AccountData[playerid][pMoney])), 1212, 5);
 	

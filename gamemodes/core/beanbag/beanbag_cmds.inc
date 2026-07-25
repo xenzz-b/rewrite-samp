@@ -4,7 +4,7 @@ YCMD:beanbag(playerid, params[], help)
 	    return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus berjalan kaki!");
 
 	if (AccountData[playerid][pFaction] != FACTION_LSPD)
-		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan anggota Kepolisian Nexston!");
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan anggota Kepolisian Vertex!");
 
 	if(AccountData[playerid][pTaser]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Simpan dahulu taser anda!");
 

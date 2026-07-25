@@ -1,6 +1,6 @@
 YCMD:emsheli(playerid, params[], help)
 {
-    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
 
     if(!IsPlayerInRangeOfPoint(playerid, 3.0, 1780.3328,-1112.9495,38.1213)) return SEM(playerid, "You aren't at EMS Spawn Heli Point!");
 
@@ -8,7 +8,7 @@ YCMD:emsheli(playerid, params[], help)
     {
         DestroyVehicle(JobVehicle[playerid]);
 
-        ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengembalikan helikopter Maverick Paramedis Nexston.");
+        ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengembalikan helikopter Maverick Paramedis Vertex.");
     }
     else
     {
@@ -22,14 +22,14 @@ YCMD:emsheli(playerid, params[], help)
         SwitchVehicleEngine(JobVehicle[playerid], true);
         SwitchVehicleDoors(JobVehicle[playerid], false);
 
-        ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengeluarkan helikopter Maverick Paramedis Nexston.");
+        ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengeluarkan helikopter Maverick Paramedis Vertex.");
     }
     return 1;
 }
 
 YCMD:makebpjs(playerid, params[], help)
 {
-    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
 
     if(!IsPlayerInRangeOfPoint(playerid, 4.0, 1389.6158,-13.8017,1000.9217))
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus berada di tempat yang seharusnya!");
@@ -74,7 +74,7 @@ YCMD:makebpjs(playerid, params[], help)
 
 YCMD:makesks(playerid, params[], help)
 {
-    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
 
     if(!IsPlayerInRangeOfPoint(playerid, 4.0, 1389.6158,-13.8017,1000.9217))
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus berada di tempat yang seharusnya!");
@@ -116,7 +116,7 @@ YCMD:makesks(playerid, params[], help)
 
 YCMD:slist(playerid, params[], help)
 {
-    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
 
     index_pagination[playerid] = 0;
     ShowInjuredList(playerid);
@@ -178,7 +178,7 @@ Dialog:InjuredList(playerid, response, listitem, inputtext[])
 
 YCMD:makesp(playerid, params[], help)
 {
-    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
 
     if(!IsPlayerInRangeOfPoint(playerid, 4.0, 1389.6158,-13.8017,1000.9217))
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus berada di tempat yang seharusnya!");

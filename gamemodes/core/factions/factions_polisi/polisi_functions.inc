@@ -201,12 +201,12 @@ Show_LSPDRankManage(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "LSPDSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "LSPDSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
     }
     return 1;
 }
@@ -268,12 +268,12 @@ stock ShowLSPDKick(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "LSPDKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "LSPDKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", "Faction ini tidak memiliki anggota!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", "Faction ini tidak memiliki anggota!", "Tutup", "");
     }
     return 1;
 }
@@ -282,7 +282,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 {
     if(newkeys & KEY_YES && AccountData[playerid][pFaction] == FACTION_LSPD && GetPlayerState(playerid) == PLAYER_STATE_ONFOOT && IsPlayerInRangeOfPoint(playerid, 3.0, 612.7303,-600.1203,16.3259))
     {
-        Dialog_Show(playerid, "PolisiImpoundSearch", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Impound", 
+        Dialog_Show(playerid, "PolisiImpoundSearch", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Impound", 
         "Please insert the player ID:", "Pilih", "Batal");
     }
     else if(newkeys & KEY_CTRL_BACK && AccountData[playerid][pFaction] == FACTION_LSPD && GetPlayerState(playerid) == PLAYER_STATE_ONFOOT)
@@ -302,7 +302,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 
         if(count > 0) 
 		{
-            Dialog_Show(playerid, "FactionPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+            Dialog_Show(playerid, "FactionPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
             frmxt, "Pilih", "Batal");
 		}
     }
@@ -405,7 +405,7 @@ Dialog:TakeLicense(playerid, response, listitem, inputtext[])
 Dialog:PolisiLocker(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     switch(listitem)
     {
@@ -451,18 +451,18 @@ Dialog:PolisiLocker(playerid, response, listitem, inputtext[])
         {
             if(AccountData[playerid][pGender] == 1)
             {
-                Dialog_Show(playerid, "PolisiUniform", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- LSPD Uniform", 
+                Dialog_Show(playerid, "PolisiUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- LSPD Uniform", 
                 "LSPD #1\nLSPD #2\nLSPD #3\nLSPD #4\nLSPD #5\nLSPD #6\nLSPD #7\nLSPD #8\nLSPD #9", "Pilih", "Batal");
             }
             else
             {
-                Dialog_Show(playerid, "PolisiUniform", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- LSPD Uniform", 
+                Dialog_Show(playerid, "PolisiUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- LSPD Uniform", 
                 "LSPD #1\nLSPD #2\nLSPD #3\nLSPD #4", "Pilih", "Batal");
             }
         }
         case 2: //
         {
-            Dialog_Show(playerid, "PolisiPlainClothes", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Seragam Polisi", 
+            Dialog_Show(playerid, "PolisiPlainClothes", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Seragam Polisi", 
             "Please insert the skin ID that you want to use:", "Pilih", "Batal");
         }
         case 3: //get equipments
@@ -491,7 +491,7 @@ Dialog:PolisiLocker(playerid, response, listitem, inputtext[])
 Dialog:PolisiUniform(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     switch(listitem)
     {
@@ -555,7 +555,7 @@ Dialog:PolisiUniform(playerid, response, listitem, inputtext[])
 Dialog:PolisiPlainClothes(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
     if(isnull(inputtext)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak dapat mengosongkannya!");
     if(!IsNumericEx(inputtext)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Hanya ID Skin!");
     
@@ -570,7 +570,7 @@ Dialog:PolisiPlainClothes(playerid, response, listitem, inputtext[])
 Dialog:PolisiBosdesk(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
     if(AccountData[playerid][pFactionRank] < 10) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimum rank KOMPOL untuk akses menu faction!");
 
     switch(listitem)
@@ -593,10 +593,10 @@ Dialog:PolisiBosdesk(playerid, response, listitem, inputtext[])
             if(count == 0)
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Undang Faction", "Tidak ada pemain terdekat!", "Tutup", "");
+                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Undang Faction", "Tidak ada pemain terdekat!", "Tutup", "");
             }
 
-            Dialog_Show(playerid, "PolisiInviteConfirm", DIALOG_STYLE_TABLIST, ""Nexston"Nexston Roleplay "WHITE"- Undang Faction", frmxt, "Pilih", "Batal");
+            Dialog_Show(playerid, "PolisiInviteConfirm", DIALOG_STYLE_TABLIST, ""Vertex"Vertex Roleplay "WHITE"- Undang Faction", frmxt, "Pilih", "Batal");
         }
         case 1: //kelola jabatan
         {
@@ -663,12 +663,12 @@ Dialog:PolisiBosdesk(playerid, response, listitem, inputtext[])
                     strcat(string, "\n");
                 }
 
-                Dialog_Show(playerid, "LSPDSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
+                Dialog_Show(playerid, "LSPDSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
             }
             else
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
             }
         }
         case 2: //kick
@@ -679,18 +679,18 @@ Dialog:PolisiBosdesk(playerid, response, listitem, inputtext[])
         case 3: //saldo
         {
             new rtx[158];
-            format(rtx, sizeof(rtx), "Saldo Kepolisian Kota Nexston saat ini ialah:\n\
+            format(rtx, sizeof(rtx), "Saldo Kepolisian Kota Vertex saat ini ialah:\n\
             "DARKGREEN"$%s", FormatMoney(PolisiMoneyVault));
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kepolisian Balance", rtx, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kepolisian Balance", rtx, "Tutup", "");
         }
         case 4: //deposit saldo
         {
-            Dialog_Show(playerid, "PolisiDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Kepolisian Deposit", 
+            Dialog_Show(playerid, "PolisiDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Kepolisian Deposit", 
             "Mohon masukkan berapa jumlah deposit:", "Input", "Batal");
         }
         case 5: //tarik saldo
         {
-            Dialog_Show(playerid, "PolisiWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Kepolisian Withdraw", 
+            Dialog_Show(playerid, "PolisiWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Kepolisian Withdraw", 
             "Mohon masukkan berapa jumlah withdraw:", "Input", "Batal");
         }
     }
@@ -699,7 +699,7 @@ Dialog:PolisiBosdesk(playerid, response, listitem, inputtext[])
 Dialog:PolisiInviteConfirm(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
     if(AccountData[playerid][pFactionRank] < 10) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimum rank KOMPOL untuk akses menu faction!");
 
     new targetid = NearestUser[playerid][listitem], icsr[128];
@@ -717,10 +717,10 @@ Dialog:PolisiInviteConfirm(playerid, response, listitem, inputtext[])
 Dialog:PolisiSetRankConfirm(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
     if(AccountData[playerid][pFactionRank] < 10) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimum rank KOMPOL untuk akses menu faction!");
 
-    if(isnull(inputtext)) return Dialog_Show(playerid, "PolisiSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "PolisiSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Tidak dapat dikosongkan!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. BHARADA\n\
@@ -744,7 +744,7 @@ Dialog:PolisiSetRankConfirm(playerid, response, listitem, inputtext[])
     19. BRIGJEN\n\
     20. IRJEN", "Set", "Batal");
 
-    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "PolisiSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "PolisiSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Masukkan hanya angka!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. BHARADA\n\
@@ -768,7 +768,7 @@ Dialog:PolisiSetRankConfirm(playerid, response, listitem, inputtext[])
     19. BRIGJEN\n\
     20. IRJEN", "Set", "Batal");
 
-    if(strval(inputtext) < 1 || strval(inputtext) > 16) return Dialog_Show(playerid, "PolisiSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(strval(inputtext) < 1 || strval(inputtext) > 16) return Dialog_Show(playerid, "PolisiSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Tidak dapat diisi dibawah 1 atau lebih tinggi dari jabatan anda!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. BHARADA\n\
@@ -833,12 +833,12 @@ Dialog:PolisiVault(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Lemari Kepolisian", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Lemari Kepolisian", 
                 "Anda tidak memiliki barang yang dapat disimpan!", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "PolisiVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Lemari Kepolisian", str, "Pilih", "Batal");
+                Dialog_Show(playerid, "PolisiVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Lemari Kepolisian", str, "Pilih", "Batal");
             }
         }
         case 1: //withdraw
@@ -895,7 +895,7 @@ Dialog:PolisiVaultDeposit(playerid, response, listitem, inputtext[])
     
     new shstr[528];
     format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Mohon masukkan jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][listitem]][invItem], InventoryData[playerid][PlayerListitem[playerid][listitem]][invQuantity]);
-    Dialog_Show(playerid, "PolisiVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Kepolisian", 
+    Dialog_Show(playerid, "PolisiVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Kepolisian", 
     shstr, "Input", "Batal");
     return 1;
 }
@@ -920,7 +920,7 @@ Dialog:PolisiVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nTidak dapat dikosongkan!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "PolisiVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Kepolisian", 
+        Dialog_Show(playerid, "PolisiVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Kepolisian", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -929,7 +929,7 @@ Dialog:PolisiVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nMohon diisi hanya angka!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "PolisiVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Kepolisian", 
+        Dialog_Show(playerid, "PolisiVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Kepolisian", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -938,7 +938,7 @@ Dialog:PolisiVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nJumlah tidak valid!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "PolisiVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Kepolisian", 
+        Dialog_Show(playerid, "PolisiVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Kepolisian", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1036,7 +1036,7 @@ Dialog:PolisiVaultWithdraw(playerid, response, listitem, inputtext[])
         AccountData[playerid][pTempValue] = listitem;
         new shstr[528];
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][listitem]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][listitem]][factionBrankasQuant]);
-        Dialog_Show(playerid, "PolisiVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Kepolisian", 
+        Dialog_Show(playerid, "PolisiVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Kepolisian", 
         shstr, "Input", "Batal");
     }
     return 1;
@@ -1062,7 +1062,7 @@ Dialog:PolisiVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Tidak dapat dikosongkan!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "PolisiVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Kepolisian", 
+        Dialog_Show(playerid, "PolisiVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Kepolisian", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1071,7 +1071,7 @@ Dialog:PolisiVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon diisi hanya angka!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "PolisiVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Kepolisian", 
+        Dialog_Show(playerid, "PolisiVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Kepolisian", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1080,7 +1080,7 @@ Dialog:PolisiVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Jumlah tidak valid!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "PolisiVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Kepolisian", 
+        Dialog_Show(playerid, "PolisiVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Kepolisian", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1151,7 +1151,7 @@ Dialog:PolisiVaultOut(playerid, response, listitem, inputtext[])
 Dialog:PolisiArmoury(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     switch(listitem)
     {
@@ -1284,21 +1284,21 @@ Dialog:PolisiArmoury(playerid, response, listitem, inputtext[])
 Dialog:PolisiDepositCash(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
     if(AccountData[playerid][pFactionRank] < 10) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimum rank KOMPOL untuk akses menu faction!");
     
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "PolisiDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Kepolisian Deposit",
+        return Dialog_Show(playerid, "PolisiDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Kepolisian Deposit",
         "Error: Tidak dapat dikosongkan!\n\
         Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "PolisiDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Kepolisian Deposit",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "PolisiDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Kepolisian Deposit",
         "Error: Masukkan hanya angka!\n\
         Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "PolisiDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Kepolisian Deposit",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "PolisiDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Kepolisian Deposit",
     "Error: Invalid amount, you can't deposit less than $1!\n\
     Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
 
@@ -1310,28 +1310,28 @@ Dialog:PolisiDepositCash(playerid, response, listitem, inputtext[])
     static frmtmny[128];
     mysql_format(g_SQL, frmtmny, sizeof(frmtmny), "UPDATE `stuffs` SET `polisimoneyvault` = %d WHERE `id` = 0", PolisiMoneyVault);
     mysql_pquery(g_SQL, frmtmny);
-    ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil deposit $%s untuk Kepolisian Nexston.", FormatMoney(strval(inputtext))));
+    ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil deposit $%s untuk Kepolisian Vertex.", FormatMoney(strval(inputtext))));
     return 1;
 }
 
 Dialog:PolisiWithdrawCash(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
     if(AccountData[playerid][pFactionRank] < 10) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimum rank KOMPOL untuk akses menu faction!");
 
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "PolisiWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Kepolisian Withdraw",
+        return Dialog_Show(playerid, "PolisiWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Kepolisian Withdraw",
         "Error: Tidak dapat dikosongkan!\n\
        Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "PolisiWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Kepolisian Withdraw",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "PolisiWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Kepolisian Withdraw",
         "Error: Masukkan hanya angka!\n\
        Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "PolisiWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Kepolisian Withdraw",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "PolisiWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Kepolisian Withdraw",
     "Error: Jumlah tidak valid, anda tidak dapat withdraw kurang dari $1!\n\
    Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
 
@@ -1346,20 +1346,20 @@ Dialog:PolisiWithdrawCash(playerid, response, listitem, inputtext[])
 
     AddFMoneyLog(AccountData[playerid][pName], AccountData[playerid][pUCP], strval(inputtext), "Kepolisian");
 
-    ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil withdraw $%s dari Kepolisian Nexston.", FormatMoney(strval(inputtext))));
+    ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil withdraw $%s dari Kepolisian Vertex.", FormatMoney(strval(inputtext))));
     return 1;
 }
 Dialog:PolisiGarage(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
     switch(listitem)
     {
         case 0: //keluarkan kendaraan
         {
             if(PlayerFactionVehicle[playerid][FACTION_LSPD] != INVALID_VEHICLE_ID) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda telah mengeluarkan kendaraan, simpan terlebih dahulu!");
 
-            Dialog_Show(playerid, "PolisiGarageTakeoutveh", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Keluarkan Kendaraan", 
+            Dialog_Show(playerid, "PolisiGarageTakeoutveh", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Keluarkan Kendaraan", 
             "Cruiser LSPD\n\
             "GRAY"Cruiser SFPD\n\
             Cruiser LVPD\n\
@@ -1407,7 +1407,7 @@ Dialog:PolisiGarageTakeoutveh(playerid, response, listitem, inputtext[])
     if(AccountData[playerid][pFaction] != FACTION_LSPD) 
     {
         AccountData[playerid][pTempValue] = -1;
-        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
     }
 
     new garageid = GetPlayerNearestFGarage(playerid);
@@ -1868,7 +1868,7 @@ Dialog:PolisiPanel(playerid, response, listitem, inputtext[])
         {
             if(!CheckPlayerLicense(targetid))
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Licenses Checking", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Licenses Checking", 
                 "The player doesn't have a lisensi.", "Tutup", "");
                 return 1;
             }
@@ -1892,12 +1892,12 @@ Dialog:PolisiPanel(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
                 "This person has no invoices.", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
                 xjjs, "Tutup", "");
             }
             NearestSingle[playerid] = INVALID_PLAYER_ID;
@@ -1937,12 +1937,12 @@ Dialog:PolisiPanel(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Geledah", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Geledah", 
                 "Pemain tersebut tidak memiliki item apapun!", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "FactionConsficating", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Geledah", str, "Pilih", "Batal");
+                Dialog_Show(playerid, "FactionConsficating", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Geledah", str, "Pilih", "Batal");
             }
         }
         case 4: //Borgol
@@ -2016,12 +2016,12 @@ Dialog:PolisiPanel(playerid, response, listitem, inputtext[])
     		    ApplyAnimation(playerid, "INT_SHOP","shop_loop", 4.1, true, false, false, true, 0, true);
             }
 
-            Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Invoice", 
+            Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Invoice", 
             "Mohon masukkan nama dari invoice ini:", "Input", "Batal");
         }
         case 10: //penjarakan
         {
-            Dialog_Show(playerid, "PolisiArrest", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Penjarakan",
+            Dialog_Show(playerid, "PolisiArrest", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Penjarakan",
             "Masukkan jumlah menit yang ingin diberikan:", "Input", "Batal");
         }
         case 11: //ambil uang kotor
@@ -2031,7 +2031,7 @@ Dialog:PolisiPanel(playerid, response, listitem, inputtext[])
             new jhj[258];
             format(jhj, sizeof(jhj), "This player's dirty money "RED"$%s\n\
             "YELLOW"Do you want to take all of them?", FormatMoney(AccountData[targetid][pDirtyMoney]));
-            Dialog_Show(playerid, "ConsfDirt", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Dirty Money", jhj, "Yes", "Batal");
+            Dialog_Show(playerid, "ConsfDirt", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Dirty Money", jhj, "Yes", "Batal");
         }
         case 12: //cek senjata
         {
@@ -2049,11 +2049,11 @@ Dialog:PolisiPanel(playerid, response, listitem, inputtext[])
             }
             if(count > 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Senjata", lstr,"Tutup","");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Senjata", lstr,"Tutup","");
             }
             else
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Senjata", "The player doesn't have any weapon!","Tutup","");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Senjata", "The player doesn't have any weapon!","Tutup","");
             }
         }
         case 13: //sita senjata
@@ -2094,11 +2094,11 @@ Dialog:PolisiArrest(playerid, response, listitem, inputtext[])
     if(!IsPlayerConnected(targetid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak terkoneksi ke server!");
     if(!IsPlayerNearPlayer(playerid, targetid, 3.0)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak dekat dengan anda!");
 
-    if(isnull(inputtext)) return  Dialog_Show(playerid, "PolisiArrest", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Penjarakan",
+    if(isnull(inputtext)) return  Dialog_Show(playerid, "PolisiArrest", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Penjarakan",
     "Error: Tidak dapat dikosongkan!\n\
     Masukkan jumlah menit yang ingin diberikan:", "Input", "Batal");
 
-    if(!IsNumericEx(inputtext)) return  Dialog_Show(playerid, "PolisiArrest", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Penjarakan",
+    if(!IsNumericEx(inputtext)) return  Dialog_Show(playerid, "PolisiArrest", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Penjarakan",
     "Error: Masukkan hanya angka!\n\
     Masukkan jumlah menit yang ingin diberikan:", "Input", "Batal");
 
@@ -2120,7 +2120,7 @@ Dialog:PolisiPDMMenu(playerid, response, listitem, inputtext[])
 
             NearestVehicleID[playerid] = vehid;
             Dialog_Show(playerid, "PolisiPDMVeh", DIALOG_STYLE_LIST, 
-            ""Nexston"Nexston Roleplay "WHITE"- Interaksi Kendaraan", 
+            ""Vertex"Vertex Roleplay "WHITE"- Interaksi Kendaraan", 
             "Informasi Kendaraan\n\
             "GRAY"Membobol Kendaraan\n\
             Menyita Kendaraan ke Asuransi\n\
@@ -2128,7 +2128,7 @@ Dialog:PolisiPDMMenu(playerid, response, listitem, inputtext[])
         }
         case 1: //mengeluarkan objek
         {
-            Dialog_Show(playerid, "PolisiPDMObject", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Keluarkan Object", 
+            Dialog_Show(playerid, "PolisiPDMObject", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Keluarkan Object", 
             "Kerucut\n\
             "GRAY"Pembatas Jalan\n\
             Ranjau Kendaraan", "Pilih", "Batal");
@@ -2148,9 +2148,9 @@ Dialog:PolisiPDMMenu(playerid, response, listitem, inputtext[])
             if(!count) 
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- List Tahanan", "Tidak ada tahanan yang sedang dipenjara!", "Tutup", "");
+                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- List Tahanan", "Tidak ada tahanan yang sedang dipenjara!", "Tutup", "");
             }
-            Dialog_Show(playerid, "PolisiListPrison", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- List Tahanan", hhh, "Lepas", "Batal");
+            Dialog_Show(playerid, "PolisiListPrison", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- List Tahanan", hhh, "Lepas", "Batal");
         }
     }
     return 1;
@@ -2174,7 +2174,7 @@ Dialog:PolisiPDMVeh(playerid, response, listitem, inputtext[])
             Plat Kendaraan: %s\n\
             Status Kendaraan: %s\n\
             Nama Pemilik: %s", GetVehicleModelName(PlayerVehicle[pv][pVehModelID]), PlayerVehicle[pv][pVehPlate], (PlayerVehicle[pv][pVehRentTime] != 0) ? ("Rental") : ("Dimiliki"), GetVehicleOwnerName(pv));
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Info Kendaraan", 
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Info Kendaraan", 
             hjh, "Tutup", "");
 
             NearestVehicleID[playerid] = INVALID_VEHICLE_ID;
@@ -2211,7 +2211,7 @@ Dialog:PolisiPDMVeh(playerid, response, listitem, inputtext[])
             new pv = Vehicle_GetIterID(vehid);
             if(pv == -1) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jenis kendaraan tersebut bukanlah kendaraan pribadi!");
 
-            Dialog_Show(playerid, "PolisiPDMImpound", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Penyitaan Kendaraan", 
+            Dialog_Show(playerid, "PolisiPDMImpound", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Penyitaan Kendaraan", 
             "Harap masukkan sesuai format yang ada di bawah ini!\n\
             [Durasi sita (hari)] [Denda] [Alasan]", "Input", "Batal");
         }
@@ -2225,7 +2225,7 @@ Dialog:PolisiPDMImpound(playerid, response, listitem, inputtext[])
     if(!IsValidVehicle(vehid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Kendaraan tersebut tidak ada di dalam server!");
     if(!IsPlayerNearVehicle(playerid, vehid, 3.5)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Kendaraan tersebut tidak dekat dengan anda!");
     
-    if(isnull(inputtext)) return Dialog_Show(playerid, "PolisiPDMImpound", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Penyitaan Kendaraan", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "PolisiPDMImpound", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Penyitaan Kendaraan", 
     "Error: Tidak dapat dikosongkan!\n\
     Harap masukkan sesuai format yang ada di bawah ini!\n\
     [Durasi sita (hari)] [Denda] [Alasan]", "Input", "Batal");
@@ -2233,18 +2233,18 @@ Dialog:PolisiPDMImpound(playerid, response, listitem, inputtext[])
     new durasi, duration, denda, reason[128];
     if(sscanf(inputtext, "dds[128]", duration, denda, reason))
     {
-        return Dialog_Show(playerid, "PolisiPDMImpound", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Penyitaan Kendaraan", 
+        return Dialog_Show(playerid, "PolisiPDMImpound", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Penyitaan Kendaraan", 
         "Error: Format salah!\n\
         Harap masukkan sesuai format yang ada di bawah ini!\n\
         [Durasi sita (hari)] [Denda] [Alasan]", "Input", "Batal");
     }
 
-    if(duration < 1 || duration > 3) return Dialog_Show(playerid, "PolisiPDMImpound", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Penyitaan Kendaraan", 
+    if(duration < 1 || duration > 3) return Dialog_Show(playerid, "PolisiPDMImpound", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Penyitaan Kendaraan", 
     "Error: Durasi sita harus 1 - 3 hari saja!\n\
     Harap masukkan sesuai format yang ada di bawah ini!\n\
     [Durasi sita (hari)] [Denda] [Alasan]", "Input", "Batal");
 
-    if(denda < 1) return Dialog_Show(playerid, "PolisiPDMImpound", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Penyitaan Kendaraan", 
+    if(denda < 1) return Dialog_Show(playerid, "PolisiPDMImpound", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Penyitaan Kendaraan", 
     "Error: Denda tidak dapat kurang dari $1!\n\
     Harap masukkan sesuai format yang ada di bawah ini!\n\
     [Durasi sita (hari)] [Denda] [Alasan]", "Input", "Batal");
@@ -2355,7 +2355,7 @@ Dialog:PolisiListPrison(playerid, response, listitem, inputtext[])
     Temptargetid[playerid] = ListedUser[playerid][listitem];
     if(Temptargetid[playerid] == -1) return 1;
 
-    Dialog_Show(playerid, PolisiPrisonFree, DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- List Tahanan", 
+    Dialog_Show(playerid, PolisiPrisonFree, DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- List Tahanan", 
     sprintf("Are you sure you want to free %s?", GetPlayerRoleplayName(Temptargetid[playerid])), "Yes", "No");
     return 1;
 }
@@ -2379,19 +2379,19 @@ Dialog:PolisiPrisonFree(playerid, response, listitem, inputtext[])
 Dialog:PolisiImpoundSearch(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(isnull(inputtext)) return Dialog_Show(playerid, "PolisiImpoundSearch", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Impound", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "PolisiImpoundSearch", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Impound", 
     "Error: Tidak dapat dikosongkan!\n\
     Please insert the player ID:", "Pilih", "Batal");
-    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "PolisiImpoundSearch", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Impound", 
+    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "PolisiImpoundSearch", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Impound", 
     "Error: Masukkan hanya angka!\n\
     Please insert the player ID:", "Pilih", "Batal");
     
     new mstr[128], hjstr[512], modelid, impduration, impfee;
     AccountData[playerid][pTempSQLImpoundID] = strval(inputtext);
-    if(!IsPlayerConnected(AccountData[playerid][pTempSQLImpoundID])) return Dialog_Show(playerid, "PolisiImpoundSearch", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Impound", 
+    if(!IsPlayerConnected(AccountData[playerid][pTempSQLImpoundID])) return Dialog_Show(playerid, "PolisiImpoundSearch", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Impound", 
     "Error: The player is not connected to the server!\n\
     Please insert the player ID:", "Pilih", "Batal");
-    if(!IsPlayerNearPlayer(playerid, AccountData[playerid][pTempSQLImpoundID], 3.5)) return Dialog_Show(playerid, "PolisiImpoundSearch", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Impound", 
+    if(!IsPlayerNearPlayer(playerid, AccountData[playerid][pTempSQLImpoundID], 3.5)) return Dialog_Show(playerid, "PolisiImpoundSearch", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Impound", 
     "Error: Pemain tersebut tidak dekat dengan anda!\n\
     Please insert the player ID:", "Pilih", "Batal");
 
@@ -2408,12 +2408,12 @@ Dialog:PolisiImpoundSearch(playerid, response, listitem, inputtext[])
 
             format(hjstr, sizeof(hjstr), "%s%s\t%s\t$%s\n", hjstr, GetVehicleModelName(modelid), ReturnTimelapse(gettime(), impduration, "Sudah Waktunya"), FormatMoney(impfee));
         }
-        Dialog_Show(playerid, "PolisiImpoundSelect", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Impounded List", 
+        Dialog_Show(playerid, "PolisiImpoundSelect", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Impounded List", 
         hjstr, "Pilih", "Batal");
     }
     else
     {
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Impounded List", "Tidak ada kendaraan impound dari pemain tersebut!", 
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Impounded List", "Tidak ada kendaraan impound dari pemain tersebut!", 
         "Tutup", "");
     }
     return 1;
@@ -2440,7 +2440,7 @@ Dialog:PolisiImpoundSelect(playerid, response, listitem, inputtext[])
         Durasi: %s\n\
         Tagihan: $%s\n\
         Alasan: %s", GetVehicleModelName(modelid), ReturnTimelapse(gettime(), impduration, "Sudah Waktunya"), FormatMoney(impfee), impreason);
-        Dialog_Show(playerid, "PolisiImpoundConfirm", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Impounded List", 
+        Dialog_Show(playerid, "PolisiImpoundConfirm", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Impounded List", 
         jjj, "Lepas", "Batal");
     }
     return 1;
@@ -2485,7 +2485,7 @@ Dialog:PolisiImpoundConfirm(playerid, response, listitem, inputtext[])
 
 //     if(listitem != 2) return SendClientMessage(playerid, -1, "[Teori] Anda memilih jawaban yang salah, anda dinyatakan gagal ujian teori!");
 
-//     Dialog_Show(playerid, DIALOG_TEST_A2, DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Department of Motor Vehicles", 
+//     Dialog_Show(playerid, DIALOG_TEST_A2, DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Department of Motor Vehicles", 
 //     "Kompetensi mengemudi dapat diperoleh dengan cara?\n\
 //     A. Pendidikan dan pelatihan mengemudi.\n\
 //     "GRAY"B. Percobaan mengemudi.\n\
@@ -2499,7 +2499,7 @@ Dialog:PolisiImpoundConfirm(playerid, response, listitem, inputtext[])
 
 //     if(listitem != 3) return SendClientMessage(playerid, -1, "[Teori] Anda memilih jawaban yang salah, anda dinyatakan gagal ujian teori!");
 
-//     Dialog_Show(playerid, DIALOG_TEST_A3, DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Department of Motor Vehicles", 
+//     Dialog_Show(playerid, DIALOG_TEST_A3, DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Department of Motor Vehicles", 
 //     "Dalam keadaan tertentu, polisi dapat melakukan tindakan:\n\
 //     A. Memberhentikan arus lalu lintas.\n\
 //     "GRAY"B. Memerintahkan pemakai jalan untuk jalan terus & mempercepat arus.\n\
@@ -2513,7 +2513,7 @@ Dialog:PolisiImpoundConfirm(playerid, response, listitem, inputtext[])
 
 //     if(listitem != 3) return SendClientMessage(playerid, -1, "[Teori] Anda memilih jawaban yang salah, anda dinyatakan gagal ujian teori!");
 
-//     Dialog_Show(playerid, DIALOG_TEST_A4, DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Department of Motor Vehicles", 
+//     Dialog_Show(playerid, DIALOG_TEST_A4, DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Department of Motor Vehicles", 
 //     "Golongan rambu lalu lintas terdiri dari:\n\
 //     A. 2 golongan, rambu perintah & rambu larangan.\n\
 //     "GRAY"B. 3 golongan, rambu peringatan, larangan & perintah.\n\
@@ -2527,7 +2527,7 @@ Dialog:PolisiImpoundConfirm(playerid, response, listitem, inputtext[])
 
 //     if(listitem != 3) return SendClientMessage(playerid, -1, "[Teori] Anda memilih jawaban yang salah, anda dinyatakan gagal ujian teori!");
 
-//     Dialog_Show(playerid, DIALOG_TEST_A5, DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Department of Motor Vehicles", 
+//     Dialog_Show(playerid, DIALOG_TEST_A5, DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Department of Motor Vehicles", 
 //     "Alat pengukur kecepatan kendaraan, secara umum menunjukkan:\n\
 //     A. Kecepatan rata-rata kendaraan kita.\n\
 //     "GRAY"B. Kecepatan maksimal kendaraan kita.\n\
@@ -2541,7 +2541,7 @@ Dialog:PolisiImpoundConfirm(playerid, response, listitem, inputtext[])
 
 //     if(listitem != 2) return SendClientMessage(playerid, -1, "[Teori] Anda memilih jawaban yang salah, anda dinyatakan gagal ujian teori!");
 
-//     Dialog_Show(playerid, DIALOG_TEST_A6, DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Department of Motor Vehicles", 
+//     Dialog_Show(playerid, DIALOG_TEST_A6, DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Department of Motor Vehicles", 
 //     "Apakah fungsi dari tuas transmisi?\n\
 //     A. Menambah kecepatan.\n\
 //     "GRAY"B. Memperlambat kecepatan.\n\
@@ -2555,7 +2555,7 @@ Dialog:PolisiImpoundConfirm(playerid, response, listitem, inputtext[])
 
 //     if(listitem != 2) return SendClientMessage(playerid, -1, "[Teori] Anda memilih jawaban yang salah, anda dinyatakan gagal ujian teori!");
 
-//     Dialog_Show(playerid, DIALOG_TEST_A7, DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Department of Motor Vehicles", 
+//     Dialog_Show(playerid, DIALOG_TEST_A7, DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Department of Motor Vehicles", 
 //     "Mana yang bukan fungsi klakson?\n\
 //     A. Meminta kendaraan di depan untuk segera menyingkir.\n\
 //     "GRAY"B. Memberi tanda isyarat bahwa kita sedang melintas.\n\
@@ -2569,7 +2569,7 @@ Dialog:PolisiImpoundConfirm(playerid, response, listitem, inputtext[])
 
 //     if(listitem != 2) return SendClientMessage(playerid, -1, "[Teori] Anda memilih jawaban yang salah, anda dinyatakan gagal ujian teori!");
 
-//     Dialog_Show(playerid, DIALOG_TEST_A8, DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Department of Motor Vehicles", 
+//     Dialog_Show(playerid, DIALOG_TEST_A8, DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Department of Motor Vehicles", 
 //     "Manakah syarat yang harus dipenuhi untuk mendapatkan Driving License?\n\
 //     A. Usia.\n\
 //     "GRAY"B. Lulus tes teori dan praktek.\n\
@@ -2583,7 +2583,7 @@ Dialog:PolisiImpoundConfirm(playerid, response, listitem, inputtext[])
 
 //     if(listitem != 3) return SendClientMessage(playerid, -1, "[Teori] Anda memilih jawaban yang salah, anda dinyatakan gagal ujian teori!");
 
-//     Dialog_Show(playerid, DIALOG_TEST_A9, DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Department of Motor Vehicles", 
+//     Dialog_Show(playerid, DIALOG_TEST_A9, DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Department of Motor Vehicles", 
 //     "Untuk mendepatkan Driving License, calon pengemudi harus?\n\
 //     A. Memiliki kompetensi mengemudi.\n\
 //     "GRAY"B. Memiliki kendaraan bermotor.\n\
@@ -2597,7 +2597,7 @@ Dialog:PolisiImpoundConfirm(playerid, response, listitem, inputtext[])
 
 //     if(listitem != 0) return SendClientMessage(playerid, -1, "[Teori] Anda memilih jawaban yang salah, anda dinyatakan gagal ujian teori!");
 
-//     Dialog_Show(playerid, DIALOG_TEST_A10, DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Department of Motor Vehicles", 
+//     Dialog_Show(playerid, DIALOG_TEST_A10, DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Department of Motor Vehicles", 
 //     "Berapa batas maksimal seseorang untuk mengikuti tes mendapatkan Driving License?\n\
 //     A. 3 kali.\n\
 //     "GRAY"B. 1 kali.\n\
@@ -2631,24 +2631,24 @@ Dialog:MDC_Main(playerid, response, listitem, inputtext[])
             PlayerPlayNearbySound(playerid, MDC_SELECT);
 
             static string[512];
-            format(string, sizeof(string), "Kepolisian Nexston\n\
+            format(string, sizeof(string), "Kepolisian Vertex\n\
             Mobile Data Terminal (MDT)\n\
             ========================================\n\
             Welcome, %s %s!\n\n\
             Please insert the correct fullname:", GetRankName(playerid), GetPlayerRoleplayName(playerid));
-            Dialog_Show(playerid, "MDC_NameSearch", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- MDT Name Search", string, "Insert", "Kembali");
+            Dialog_Show(playerid, "MDC_NameSearch", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- MDT Name Search", string, "Insert", "Kembali");
         }
         case 1: //plate search
         {
             PlayerPlayNearbySound(playerid, MDC_SELECT);
 
             static string[512];
-            format(string, sizeof(string), "Kepolisian Nexston\n\
+            format(string, sizeof(string), "Kepolisian Vertex\n\
             Mobile Data Terminal (MDT)\n\
             ========================================\n\
             Welcome, %s %s!\n\n\
             Mohon masukkan plate kendaraan untuk diperiksa:", GetRankName(playerid), GetPlayerRoleplayName(playerid));
-            Dialog_Show(playerid, "MDC_PlateSearch", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- MDT Plate Search", string, "Insert", "Kembali");
+            Dialog_Show(playerid, "MDC_PlateSearch", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- MDT Plate Search", string, "Insert", "Kembali");
         }
         case 2: //all points bulletin
         {
@@ -2689,7 +2689,7 @@ Dialog:MDC_Roster(playerid, response, listitem, inputtext[])
     if(response == 0 || response == 1)
     {
         PlayerPlayNearbySound(playerid, MDC_ERROR);
-        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
+        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
     }
     return 1;
 }
@@ -2698,7 +2698,7 @@ Dialog:MDC_Broadcast(playerid, response, listitem, inputtext[])
     if(!response)
     {
         PlayerPlayNearbySound(playerid, MDC_ERROR);
-        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
+        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
         return 1;
     }
 
@@ -2759,7 +2759,7 @@ Dialog:MDC_NameSearch(playerid, response, listitem, inputtext[])
     if(!response)
     {
         PlayerPlayNearbySound(playerid, MDC_ERROR);
-        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
+        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
         return 1;
     }
 
@@ -2768,13 +2768,13 @@ Dialog:MDC_NameSearch(playerid, response, listitem, inputtext[])
         PlayerPlayNearbySound(playerid, MDC_ERROR);
 
         static string[512];
-        format(string, sizeof(string), "Kepolisian Nexston\n\
+        format(string, sizeof(string), "Kepolisian Vertex\n\
         Mobile Data Terminal (MDT)\n\
         ========================================\n\
         Hello, %s %s!\n\n\
         Error: Anda tidak dapat mengosongkan kolom pencarian tersebut!\n\
         Please insert the correct fullname:", GetRankName(playerid), GetPlayerRoleplayName(playerid));
-        Dialog_Show(playerid, "MDC_NameSearch", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- MDT Name Search", string, "Insert", "Kembali");
+        Dialog_Show(playerid, "MDC_NameSearch", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- MDT Name Search", string, "Insert", "Kembali");
         return 1;
     }
 
@@ -2792,7 +2792,7 @@ Dialog:MDC_PlateSearch(playerid, response, listitem, inputtext[])
     if(!response)
     {
         PlayerPlayNearbySound(playerid, MDC_ERROR);
-        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
+        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
         return 1;
     }
 
@@ -2801,13 +2801,13 @@ Dialog:MDC_PlateSearch(playerid, response, listitem, inputtext[])
         PlayerPlayNearbySound(playerid, MDC_ERROR);
 
         static string[512];
-        format(string, sizeof(string), "Kepolisian Nexston\n\
+        format(string, sizeof(string), "Kepolisian Vertex\n\
         Mobile Data Terminal (MDT)\n\
         ========================================\n\
         Hello, %s %s!\n\n\
         Error: Anda tidak dapat mengosongkan kolom pencarian tersebut!\n\
         Mohon masukkan plate kendaraan untuk diperiksa:", GetRankName(playerid), GetPlayerRoleplayName(playerid));
-        Dialog_Show(playerid, "MDC_PlateSearch", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- MDT Plate Search", string, "Insert", "Kembali");
+        Dialog_Show(playerid, "MDC_PlateSearch", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- MDT Plate Search", string, "Insert", "Kembali");
         return 1;
     }
 
@@ -2833,7 +2833,7 @@ Dialog:MDC_APBDetail(playerid, response, listitem, inputtext[])
     if(response == 0 || response == 1)
     {
         PlayerPlayNearbySound(playerid, MDC_ERROR);
-        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
+        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
     }
     return 1;
 }
@@ -2842,7 +2842,7 @@ Dialog:MDC_NameDashboard(playerid, response, listitem, inputtext[])
     if(!response)
     {
         PlayerPlayNearbySound(playerid, MDC_ERROR);
-        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
+        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
         return 1;
     }
 
@@ -3384,7 +3384,7 @@ Dialog:LSPDSetRank(playerid, response, listitem, inputtext[])
     else 
     {
         if(AccountData[playerid][pFaction] != FACTION_LSPD) 
-            return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan anggota Polisi Nexston!");
+            return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan anggota Polisi Vertex!");
         if(AccountData[playerid][pFactionRank] < 10) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimum rank KOMPOL untuk akses menu faction!");
 
         mysql_query(g_SQL, sprintf("SELECT * FROM `player_characters` WHERE `pID` = '%d'", ListedMember[playerid][listitem]));
@@ -3395,7 +3395,7 @@ Dialog:LSPDSetRank(playerid, response, listitem, inputtext[])
             cache_get_value_name_int(0, "Char_FactionRank", AccountData[playerid][pTempSQLFactRank]);
             if(AccountData[playerid][pID] == AccountData[playerid][pTempSQLFactMemberID]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak dapat menetapkan rank anda sendiri!");
             if(AccountData[playerid][pTempSQLFactRank] >= AccountData[playerid][pFactionRank]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak dapat menetapkan rank rekan yang sejajar/lebih tinggi dari anda!");
-            Dialog_Show(playerid, "PolisiSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+            Dialog_Show(playerid, "PolisiSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
             "Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
             1. BHARADA\n\
             2. BHARATU\n\
@@ -3679,7 +3679,7 @@ public MDCNameSearchResult(playerid)
     if(cache_num_rows() < 1)
     {
         PlayerPlayNearbySound(playerid, MDC_ERROR);
-        Dialog_Show(playerid, "MDC_NameSearch", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- MDT Name Search", "The name is not found!\nPlease insert the correct fullname:", "Insert", "Kembali");
+        Dialog_Show(playerid, "MDC_NameSearch", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- MDT Name Search", "The name is not found!\nPlease insert the correct fullname:", "Insert", "Kembali");
         return 1;
     }
     else
@@ -3721,7 +3721,7 @@ public MDCPlateSearchResult(playerid)
     if(cache_num_rows() < 1)
     {
         PlayerPlayNearbySound(playerid, MDC_ERROR);
-        Dialog_Show(playerid, "MDC_PlateSearch", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- MDT Plate Search", "The name is not found!\nPlease insert the correct fullname:", "Insert", "Kembali");
+        Dialog_Show(playerid, "MDC_PlateSearch", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- MDT Plate Search", "The name is not found!\nPlease insert the correct fullname:", "Insert", "Kembali");
         return 1;
     }
     else
@@ -3970,7 +3970,7 @@ Dialog:LSPDVIEWBRCAST(playerid, response, listitem, inputtext[])
     if (!response)
     {
         PlayerPlayNearbySound(playerid, MDC_ERROR);
-        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
+        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
         return 1;
     }
 
@@ -4103,7 +4103,7 @@ Dialog:LSPDMDCAPB(playerid, response, listitem, inputtext[])
     if (!response)
     {
         PlayerPlayNearbySound(playerid, MDC_ERROR);
-        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
+        Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Logout");
         return 1;
     }
 
@@ -4151,7 +4151,7 @@ Dialog:LSPDKickMember(playerid, response, listitem, inputtext[])
         new l_row_pid = ListedMember[playerid][listitem];
 
         if (AccountData[playerid][pFaction] != FACTION_LSPD)
-            return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+            return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
         if(AccountData[playerid][pFactionRank] < 10) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimum rank KOMPOL untuk akses menu faction!");
 
@@ -4193,12 +4193,12 @@ Dialog:LSPDKickMember(playerid, response, listitem, inputtext[])
                     if(Iter_Contains(LSPDDuty, i))
                         Iter_Remove(LSPDDuty, i);
 
-                    ShowTDN(i, NOTIFICATION_WARNING, "Anda telah ditendang dari Kepolisian Nexston!");
+                    ShowTDN(i, NOTIFICATION_WARNING, "Anda telah ditendang dari Kepolisian Vertex!");
                     break;
                 }
             }
 
-            InsertFactionLog("Kick", sprintf("%s %s - %s", AccountData[playerid][pName], AccountData[playerid][pUCP], fckname), "Kepolisian Nexston");
+            InsertFactionLog("Kick", sprintf("%s %s - %s", AccountData[playerid][pName], AccountData[playerid][pUCP], fckname), "Kepolisian Vertex");
 
             mysql_format(g_SQL, iscr, sizeof(iscr), "UPDATE `player_characters` SET `Char_Faction` = 0, `Char_FactionRank` = 0 WHERE `pID` = %d", l_row_pid);
             mysql_pquery(g_SQL, iscr);
@@ -4207,7 +4207,7 @@ Dialog:LSPDKickMember(playerid, response, listitem, inputtext[])
             Name: %s\n\
             Rank: %s\n\
             Last Online: %s", fckname, CopRank[fckrank], fcklastlogin);
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", kckstr, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", kckstr, "Tutup", "");
         }
     }
     return 1;

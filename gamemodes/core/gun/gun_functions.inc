@@ -888,8 +888,8 @@ YCMD:weapon(playerid, params[], help)
         if(GunEdit[playerid][index][Hidden])
             return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak bisa edit senjata yang disembunyikan!");
 
-        Dialog_Show(playerid, "GunEditTint", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Weapon Tint", 
-        "Default (Standard)\n"RED"Merah\n"BLUE"Biru\n"CYAN"Cyan\n"GREEN"Hijau\n"YELLOW"Kuning\n"GOLD"Emas\n"ORANGE"Orange\n"Nexston"Pink\n"MAGENTA"Magenta\n{2C2D2D}Hitam\n{808080}Abu-Abu", "Pilih", "Batal");
+        Dialog_Show(playerid, "GunEditTint", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Weapon Tint", 
+        "Default (Standard)\n"RED"Merah\n"BLUE"Biru\n"CYAN"Cyan\n"GREEN"Hijau\n"YELLOW"Kuning\n"GOLD"Emas\n"ORANGE"Orange\n"Vertex"Pink\n"MAGENTA"Magenta\n{2C2D2D}Hitam\n{808080}Abu-Abu", "Pilih", "Batal");
     
         EditingWeapon[playerid] = wpid[playerid];
     }
