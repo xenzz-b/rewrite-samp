@@ -2,6 +2,10 @@
 #include "core/anticheat/cbug"
 #include <YSI_Coding\y_hooks>
 
+// Dideklarasikan di core/systems/systems_natives.inc yang di-include SETELAH
+// file ini. Tanpa forward, compiler kena warning 208 (forcing reparse).
+forward Float:GetPlayerPacketLoss(playerid);
+
 #define MAX_ANTICHEAT_WARNINGS 3
 
 static const Float:modShopLocations[][] =
@@ -94,9 +98,9 @@ new Anticheat[MAX_PLAYERS][e_Anticheat];
 	  "ledger" (acLedgerHP / acLedgerArmour / vehLedgerHP).
 
 	  Aturannya sederhana dan mutlak:
-	     nilai_client  >  ledger + toleransi   =>  CHEAT (pasti)
-	     nilai_client  <= ledger               =>  SAH   (turun itu wajar,
-	                                                ledger ikut turun)
+		 nilai_client  >  ledger + toleransi   =>  CHEAT (pasti)
+		 nilai_client  <= ledger               =>  SAH   (turun itu wajar,
+													ledger ikut turun)
 
 	  Karena health/armour TIDAK PERNAH bisa naik sendiri di GTA:SA tanpa
 	  aksi server, kenaikan apa pun di luar grant = 100% cheat. Tidak ada
@@ -106,7 +110,7 @@ new Anticheat[MAX_PLAYERS][e_Anticheat];
 	  1. Naik 0->100 maupun 0->5 sama-sama kedetect (toleransi cuma 1.5 utk desync).
 	  2. Bandage / kevlar / medic / bengkel otomatis aman selama lewat grant.
 	  3. Cheater turunkan lagi ke semula (100->0) TIDAK di-kick ulang,
-	     karena ledger sudah disinkron & pelanggaran hanya dihitung sekali.
+		 karena ledger sudah disinkron & pelanggaran hanya dihitung sekali.
 	  4. Ledger hanya turun mengikuti damage, jadi tidak bisa "dinaikkan pelan-pelan".
 */
 
@@ -214,7 +218,7 @@ AC_Notify(playerid, const reason[], const detail[], bool:kicked)
 {
 	if(kicked)
 	{
-		SendStaffMessage(Y_RED, "[AntiCheat] "YELLOW"%s(%i) "RED"DITENDANG "YELLOW"%s "{DBD7D2}"| %s", GetName(playerid), playerid, reason, detail);
+		SendStaffMessage(Y_RED, "[AntiCheat] "YELLOW"%s(%i) "RED"DITENDANG "YELLOW"%s {DBD7D2}| %s", GetName(playerid), playerid, reason, detail);
 	}
 	else
 	{
@@ -504,15 +508,15 @@ OnPlayerAirbreak(playerid)
 {
 	if(AC_CanPunish(playerid))
     {
-	    AccountData[playerid][pACWarns]++;
+		AccountData[playerid][pACWarns]++;
 
-	    if(AccountData[playerid][pACWarns] >= MAX_ANTICHEAT_WARNINGS)
-	    {
-	        new acdetail[64];
-	        format(acdetail, sizeof(acdetail), "warn %d/%d", AccountData[playerid][pACWarns], MAX_ANTICHEAT_WARNINGS);
-	        if(!AC_Kick(playerid, "Airbreak", acdetail))
-	            AccountData[playerid][pACWarns] = 0;
-	        return 1;
+		if(AccountData[playerid][pACWarns] >= MAX_ANTICHEAT_WARNINGS)
+		{
+			new acdetail[64];
+			format(acdetail, sizeof(acdetail), "warn %d/%d", AccountData[playerid][pACWarns], MAX_ANTICHEAT_WARNINGS);
+			if(!AC_Kick(playerid, "Airbreak", acdetail))
+				AccountData[playerid][pACWarns] = 0;
+			return 1;
 		}
 
         SendStaffMessage(Y_RED, "[AntiCheat] "YELLOW"%s(%i) {DBD7D2}diduga menggunakan Airbreak.", GetName(playerid), playerid);
