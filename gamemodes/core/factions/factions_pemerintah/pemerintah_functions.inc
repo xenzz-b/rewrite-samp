@@ -685,11 +685,12 @@ Dialog:PemerintahPanel(playerid, response, listitem, inputtext[])
                         if (i % 2 == 0)
                         {
                             format(invrow, sizeof(invrow), ""WHITE"%s\t"WHITE"%d\n", InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
+                        }
+                        else
+                        {
+                            format(invrow, sizeof(invrow), ""GRAY"%s\t"GRAY"%d\n", InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
+                        }
                         strcat(str, invrow);
-                        }
-                        else {
-                            format(str, sizeof(str), "%s"GRAY"%s\t"GRAY"%d\n", str, InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
-                        }
                         PlayerListitem[playerid][count++] = index;
                     }
                 }
