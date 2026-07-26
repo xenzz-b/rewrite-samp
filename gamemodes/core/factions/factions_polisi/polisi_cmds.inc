@@ -408,37 +408,23 @@ YCMD:em(playerid, params[], help)
     if(!IsLSPDVehicle(GetPlayerVehicleID(playerid)))
 		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di dalam kendaraan kepolisian!");
 
-    new level;
-    if(sscanf(params, "d", level))
-        level = 0;
-
-    switch(level)
+    static const g_EmergencyMsg[][] =
     {
-        case 0, 1:
-        {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] DISINI KEPOLISIAN DALAM SITUASI DARURAT, MENYINGKIRLAH DARI JALAN!", GetPlayerRoleplayName(playerid));
-        }
-        case 2:
-        {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] MENYINGKIR DARI JALAN! SITUASI DARURAT, INI KEPOLISIAN!", GetPlayerRoleplayName(playerid));
-        }
-        case 3:
-        {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] SITUASI DARURAT KEPOLISIAN, MOHON MENYINGKIR DARI JALAN!", GetPlayerRoleplayName(playerid));
-        }
-        case 4:
-        {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] BERIKAN JALAN SEGERA, INI KEPOLISIAN SEDANG DALAM SITUASI DARURAT!", GetPlayerRoleplayName(playerid));
-        }
-        case 5:
-        {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] INI KEPOLISIAN, MENYINGKIR DAN BERIKAN JALAN UNTUK KAMI!", GetPlayerRoleplayName(playerid));
-        }
-        default:
-        {
-            return SUM(playerid, "/em (1-5)");
-        }
-    }
+        "DISINI KEPOLISIAN DALAM SITUASI DARURAT, MENYINGKIRLAH DARI JALAN!",
+        "MENYINGKIR DARI JALAN! SITUASI DARURAT, INI KEPOLISIAN!",
+        "SITUASI DARURAT KEPOLISIAN, MOHON MENYINGKIR DARI JALAN!",
+        "BERIKAN JALAN SEGERA, INI KEPOLISIAN SEDANG DALAM SITUASI DARURAT!",
+        "INI KEPOLISIAN, MENYINGKIR DAN BERIKAN JALAN UNTUK KAMI!"
+    };
+
+    if(pEmergencyMsgIndex[playerid] < 0 || pEmergencyMsgIndex[playerid] >= sizeof(g_EmergencyMsg))
+        pEmergencyMsgIndex[playerid] = 0;
+
+    SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] %s", GetPlayerRoleplayName(playerid), g_EmergencyMsg[pEmergencyMsgIndex[playerid]]);
+
+    if(++pEmergencyMsgIndex[playerid] >= sizeof(g_EmergencyMsg))
+        pEmergencyMsgIndex[playerid] = 0;
+
     return 1;
 }
 

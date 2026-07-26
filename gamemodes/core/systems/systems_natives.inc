@@ -647,6 +647,7 @@ ResetVariables(playerid)
 	AccountData[playerid][pBuckledOn] = false;
 	
 	pInSpecMode[playerid] = 0;
+	pEmergencyMsgIndex[playerid] = 0;
 	
 	pShortcutResultShown[playerid] = false;
 	pVoiceDistanceStatus[playerid] = 1;

@@ -11,6 +11,7 @@ new HouseMemberName[MAX_PLAYERS][3][MAX_PLAYER_NAME + 1];
 
 //spec object
 new pInSpecMode[MAX_PLAYERS];
+new pEmergencyMsgIndex[MAX_PLAYERS];
 
 new animPage[MAX_PLAYERS];
 new pCurWeap[MAX_PLAYERS];
