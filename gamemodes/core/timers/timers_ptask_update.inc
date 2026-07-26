@@ -581,10 +581,12 @@ task UpdateLockLights[256]()
 
 task UpdateSirenELM[160]()
 {
-    new panels, doors, lights, tires, Float:vHealth;
-    new sirenstate;
+    static panels, doors, lights, tires, Float:vHealth, sirenstate, factowner;
+
     foreach(new vid : Vehicle)
     {
+        factowner = GetVehicleFactionOwner(vid);
+
         if(!VehicleCore[vid][vIsBodyBroken])
         {
             GetVehicleDamageStatus(vid, panels, doors, lights, tires);
@@ -617,7 +619,7 @@ task UpdateSirenELM[160]()
                 }
             }
         }
-        if(IsLSPDVehicle(vid) || IsLSFDVehicle(vid))
+        if(factowner == FACTION_LSPD || factowner == FACTION_LSFD)
         {
             sirenstate = GetVehicleParamsSirenState(vid);
             if(sirenstate == 1)

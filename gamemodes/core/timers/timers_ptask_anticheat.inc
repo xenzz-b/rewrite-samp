@@ -414,27 +414,37 @@ ptask AntiCheatWeapon[1000](playerid)
 {
     if(AccountData[playerid][IsLoggedIn] && AccountData[playerid][pSpawned])
     {
-        if(IsPlayerInAnyVehicle(playerid))
+        /*  Kecepatan diukur horizontal saja dan diabaikan bila sedang
+            jatuh, supaya terjun dari ketinggian tidak dianggap speed hack.
+            Butuh 3 tick berturut-turut agar desync sesaat tidak menendang. */
+        static acSpeedHits[MAX_PLAYERS];
+        new acspeed = AC_GetHorizontalSpeed(playerid);
+
+        if(acspeed > 300 && !AC_IsFalling(playerid))
         {
-            if(!IsAPlane(GetPlayerVehicleID(playerid)))
+            if(!IsPlayerInAnyVehicle(playerid))
             {
-                if(GetPlayerSpeed(playerid) > 300)
+                if(++acSpeedHits[playerid] >= 3)
                 {
+                    acSpeedHits[playerid] = 0;
                     new acdetail[64];
-                    format(acdetail, sizeof(acdetail), "veh speed %d km/h", GetPlayerSpeed(playerid));
+                    format(acdetail, sizeof(acdetail), "onfoot speed %d km/h", acspeed);
+                    AC_Kick(playerid, "Player Speed Hack", acdetail);
+                }
+            }
+            else if(!IsAPlane(GetPlayerVehicleID(playerid)))
+            {
+                if(++acSpeedHits[playerid] >= 3)
+                {
+                    acSpeedHits[playerid] = 0;
+                    new acdetail[64];
+                    format(acdetail, sizeof(acdetail), "veh speed %d km/h", acspeed);
                     AC_Kick(playerid, "Vehicle Speed Hack", acdetail);
                 }
             }
+            else acSpeedHits[playerid] = 0;
         }
-        else
-        {
-            if(GetPlayerSpeed(playerid) > 300)
-            {
-                new acdetail[64];
-                format(acdetail, sizeof(acdetail), "onfoot speed %d km/h", GetPlayerSpeed(playerid));
-                AC_Kick(playerid, "Player Speed Hack", acdetail);
-            }
-        }
+        else acSpeedHits[playerid] = 0;
         
         if(GetPlayerWeapon(playerid) == 40)
         {

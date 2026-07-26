@@ -370,6 +370,33 @@ AC_RefreshDriverCache()
 }
 
 // Kendaraan tegak & stabil? Terbalik/miring = sedang terguling, bukan cheat.
+// Kecepatan horizontal saja. Sumbu Z diabaikan supaya jatuh bebas tidak
+// terhitung sebagai kecepatan tinggi.
+AC_GetHorizontalSpeed(playerid)
+{
+	new Float:vx, Float:vy, Float:vz;
+
+	if(IsPlayerInAnyVehicle(playerid))
+		GetVehicleVelocity(GetPlayerVehicleID(playerid), vx, vy, vz);
+	else
+		GetPlayerVelocity(playerid, vx, vy, vz);
+
+	return floatround(floatsqroot((vx * vx) + (vy * vy)) * 179.28625);
+}
+
+// Sedang jatuh/terjun bebas?
+AC_IsFalling(playerid)
+{
+	new Float:vx, Float:vy, Float:vz;
+
+	if(IsPlayerInAnyVehicle(playerid))
+		GetVehicleVelocity(GetPlayerVehicleID(playerid), vx, vy, vz);
+	else
+		GetPlayerVelocity(playerid, vx, vy, vz);
+
+	return (vz < -0.25) ? 1 : 0;
+}
+
 AC_IsVehicleUpright(vehicleid)
 {
 	new Float:qw, Float:qx, Float:qy, Float:qz;
@@ -480,11 +507,14 @@ hook OnPlayerConnect(playerid)
 
 hook OnPlayerDisconnect(playerid, reason)
 {
+	/*  Ledger TIDAK direset di sini. y_hooks menjalankan hook ini sebelum
+	    public OnPlayerDisconnect() yang memanggil UpdateAccountData().
+	    Kalau ledger dinolkan lebih dulu, nilai simpan ikut terpotong 0
+	    dan armour/health player hilang. Reset dilakukan di OnPlayerConnect. */
 	AC_LastUpdate[playerid]  = 0;
 	AC_ConnectTick[playerid] = 0;
 	AC_SpawnTick[playerid]   = 0;
 	AC_Kicked[playerid]      = false;
-	AC_ResetHealthLedger(playerid, 0.0, 0.0);
 	return 1;
 }
 

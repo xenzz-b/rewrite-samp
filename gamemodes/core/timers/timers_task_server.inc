@@ -34,6 +34,8 @@ new av_hours, av_minutes, av_seconds, av_days, av_months, av_years;
 
 task ServerTimeClock[1000]()
 {
+    RefreshFactionVehicleCache();
+
     if(GM[GInsuTime] > 0)
     {
         GM[GInsuTime]--;
