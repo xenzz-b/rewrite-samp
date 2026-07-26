@@ -1,0 +1,305 @@
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[07:27:56] language = ""  (string)
+[07:27:56] 
+[07:27:56] Server Plugins
+[07:27:56] --------------
+[07:27:56]  Loading plugin: crashdetect
+[07:27:56]   CrashDetect plugin 4.19.4
+[07:27:56]   Loaded.
+[07:27:56]  Loading plugin: sampvoice
+[07:27:56] [sv:dbg:network:init] : module initializing...
+[07:27:56] [dbg:raknet:init] : module initializing...
+[07:27:56] [dbg:raknet:init] : module initialized
+[07:27:56] [sv:dbg:network:init] : module initialized
+[07:27:56] [sv:dbg:main:Load] : creating 8 work threads...
+[07:27:56]  -------------------------------------------    
+[07:27:56]    ___                __   __    _              
+[07:27:56]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[07:27:56]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[07:27:56]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[07:27:56]                   |_|                           
+[07:27:56]  -------------------------------------------    
+[07:27:56]            SampVoice by MOR loaded              
+[07:27:56]         Compiled By SAMPINDO Community          
+[07:27:57]  -------------------------------------------    
+[07:27:57]   Loaded.
+[07:27:57]  Loading plugin: KeyListener
+[07:27:59] KeyListener v1.1.2 by MOR loaded
+[07:27:59]   Loaded.
+[07:27:59]  Loading plugin: SKY
+[07:27:59] 
+[07:27:59]  ===============================
+[07:27:59]    
+[07:27:59]    < SKY - 2.3.0 >
+[07:27:59]    
+[07:27:59]    (c) 2008 - Present | YSF Maintainers
+[07:27:59]    (c) 2015 | Oscar "Slice" Broman
+[07:27:59]    
+[07:27:59]    Server Version: 0.3.7 R2
+[07:27:59]    Operating System: Windows
+[07:27:59]    Built on: Jan 21 2025 at 03:38:30
+[07:27:59]    
+[07:27:59]  ===============================
+[07:27:59] 
+[07:27:59]   Loaded.
+[07:27:59]  Loading plugin: mysql
+[07:27:59]  >> plugin.mysql: R41-4 successfully loaded.
+[07:27:59]   Loaded.
+[07:27:59]  Loading plugin: requests
+[07:27:59]   Loaded.
+[07:27:59]  Loading plugin: streamer
+[07:27:59] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[07:27:59]   Loaded.
+[07:27:59]  Loading plugin: sscanf
+[07:27:59] 
+[07:27:59]  ===============================
+[07:27:59] 
+[07:28:00]       sscanf plugin loaded.     
+[07:28:00] 
+[07:28:00]          Version: 2.13.8
+[07:28:00] 
+[07:28:00]    (c) 2022 Alex "Y_Less" Cole  
+[07:28:00] 
+[07:28:00]  ===============================
+[07:28:00] 
+[07:28:00]   Loaded.
+[07:28:00]  Loading plugin: samp_bcrypt
+[07:28:00] [SampBcrypt] [info]: Version: 0.3.4
+[07:28:00]   Loaded.
+[07:28:00]  Loading plugin: textdraw-streamer
+[07:28:00] 
+[07:28:00]  ===============================
+[07:28:00]                                 
+[07:28:00]     Textdraw Streamer Yuklendi  
+[07:28:00]                                 
+[07:28:00]           Surum: v1.6.2            
+[07:28:00]                                 
+[07:28:00]     Developer: Burak (NexoR)    
+[07:28:00]                                 
+[07:28:00]  ===============================
+[07:28:00] 
+[07:28:00]   Loaded.
+[07:28:00]  Loading plugin: bscrashfix
+[07:28:00] 	BitStream Crash Fix plugin by iAmir/IS4 has been successfully loaded
+[07:28:00] 	==== https://github.com/AmyrAhmady/samp-bscrashfix
+[07:28:00]   Loaded.
+[07:28:00]  Loaded 11 plugins.
+
+[07:28:05] 
+[07:28:05] Filterscripts
+[07:28:05] ---------------
+[07:28:05]   Loading filterscript 'mapping.amx'...
+[07:28:05] [sv:dbg:main:AmxLoad] : net game pointer (value:022CA240) received
+[07:28:05] [sv:dbg:network:bind] : voice server running on port 12148
+[07:28:05]  
+[07:28:05]  
+[07:28:05]          ==============================================================
+[07:28:05]          |                                                            |
+[07:28:05]          |                                                            |
+[07:28:05]          |    YYYYYYY       YYYYYYY    SSSSSSSSSSSSSSS  IIIIIIIIII    |
+[07:28:05]          |    Y:::::Y       Y:::::Y  SS:::::::::::::::S I::::::::I    |
+[07:28:05]          |    Y:::::Y       Y:::::Y S:::::SSSSSS::::::S I::::::::I    |
+[07:28:05]          |    Y::::::Y     Y::::::Y S:::::S     SSSSSSS II::::::II    |
+[07:28:05]          |    YYY:::::Y   Y:::::YYY S:::::S               I::::I      |
+[07:28:05]          |       Y:::::Y Y:::::Y    S:::::S               I::::I      |
+[07:28:05]          |        Y:::::Y:::::Y      S::::SSSS            I::::I      |
+[07:28:05]          |         Y:::::::::Y        SS::::::SSSSS       I::::I      |
+[07:28:05]          |          Y:::::::Y           SSS::::::::SS     I::::I      |
+[07:28:05]          |           Y:::::Y               SSSSSS::::S    I::::I      |
+[07:28:05]          |           Y:::::Y                    S:::::S   I::::I      |
+[07:28:05]          |           Y:::::Y                    S:::::S   I::::I      |
+[07:28:05]          |           Y:::::Y        SSSSSSS     S:::::S II::::::II    |
+[07:28:05]          |        YYYY:::::YYYY     S::::::SSSSSS:::::S I::::::::I    |
+[07:28:05]          |        Y:::::::::::Y     S:::::::::::::::SS  I::::::::I    |
+[07:28:05]          |        YYYYYYYYYYYYY      SSSSSSSSSSSSSSS    IIIIIIIIII    |
+[07:28:05]          |                                                            |
+[07:28:05]          |                                                            |
+[07:28:05]          |                      (c) 2021 MPL v1.1                     |
+[07:28:05]          |            Alex "Y_Less" Cole and contributors.            |
+[07:28:05]          |                                                            |
+[07:28:05]          |                                                            |
+[07:28:05]          ==============================================================
+[07:28:05]  
+[07:28:05]  
+[07:28:05]  ========================================== 
+[07:28:05]  |                                        | 
+[07:28:05]  |   Generating code, this may take a     | 
+[07:28:05]  |  little bit of time.  Note that this   | 
+[07:28:05]  |  code generation works best with the   | 
+[07:28:05]  |     JIT plugin, which you are not      | 
+[07:28:05]  |     currently using.  Get it here:     | 
+[07:28:05]  |                                        | 
+[07:28:05]  |       https://git.io/jit-plugin        | 
+[07:28:05]  |                                        | 
+[07:28:05]  |             Please wait...             | 
+[07:28:05]  |                                        | 
+[07:28:05]  |             Done in 0ms!               | 
+[07:28:05]  |                                        | 
+[07:28:05]  ========================================== 
+[07:28:05]  |                                        | 
+[07:28:05]  | Server:      0.3.7-R2 (W)              | 
+[07:28:05]  | Started:     26 Jul 2026 - 07:28:05    | 
+[07:28:05]  |                                        | 
+[07:28:05]  | Compiler:    3.10.08 (Windows)         | 
+[07:28:05]  | Includes:    0.3DL                     | 
+[07:28:05]  | Codepage:    <none>                    | 
+[07:28:05]  | Built:       15 May 2026 - 08:27:19    | 
+[07:28:05]  |                                        | 
+[07:28:05]  | YSI:         v05.10.0006               | 
+[07:28:05]  | Master:      -1                        | 
+[07:28:05]  |                                        | 
+[07:28:05]  | JIT:         <none>                    | 
+[07:28:05]  | Crashdetect: <warning>                 | 
+[07:28:05]  |                                        | 
+[07:28:05]  |   Crashdetect has been found, but may  | 
+[07:28:05]  |   need updating.  Get the unofficial   | 
+[07:28:05]  |           fixed release from:          | 
+[07:28:05]  |                                        | 
+[07:28:05]  |           github.com/Y-Less/           | 
+[07:28:05]  |        samp-plugin-crashdetect/        | 
+[07:28:05]  |                                        | 
+[07:28:05]  |                                        | 
+[07:28:05]  ========================================== 
+[07:28:05]  
+[07:28:05]  
+[07:28:05]   Loading filterscript 'testvoice.amx'...
+[07:28:05] -------------------- [Santara Voice Chat System] --------------------
+===>> Berhasil dimuat dengan baik!
+===>> by: Shan (Muhammad Ikhsan)
+===>> dipersembahkan untuk Santara
+-------------------------------------------------------------------
+[07:28:05]   Loading filterscript 'hotkeys.amx'...
+[07:28:05] -------------------- [Santara Hotkeys System] --------------------
+===>> Berhasil dimuat dengan baik!
+===>> by: Shan (M Iksan)
+===>> dipersembahkan untuk Santara
+-------------------------------------------------------------------
+[07:28:05]   Loading filterscript 'Buttons.amx'...
+[07:28:05]   Loaded 4 filterscripts.
+
+[07:28:05]  
+[07:28:05]  
+[07:28:05]          ==============================================================
+[07:28:05]          |                                                            |
+[07:28:05]          |                                                            |
+[07:28:05]          |    YYYYYYY       YYYYYYY    SSSSSSSSSSSSSSS  IIIIIIIIII    |
+[07:28:05]          |    Y:::::Y       Y:::::Y  SS:::::::::::::::S I::::::::I    |
+[07:28:05]          |    Y:::::Y       Y:::::Y S:::::SSSSSS::::::S I::::::::I    |
+[07:28:05]          |    Y::::::Y     Y::::::Y S:::::S     SSSSSSS II::::::II    |
+[07:28:05]          |    YYY:::::Y   Y:::::YYY S:::::S               I::::I      |
+[07:28:05]          |       Y:::::Y Y:::::Y    S:::::S               I::::I      |
+[07:28:05]          |        Y:::::Y:::::Y      S::::SSSS            I::::I      |
+[07:28:05]          |         Y:::::::::Y        SS::::::SSSSS       I::::I      |
+[07:28:05]          |          Y:::::::Y           SSS::::::::SS     I::::I      |
+[07:28:05]          |           Y:::::Y               SSSSSS::::S    I::::I      |
+[07:28:05]          |           Y:::::Y                    S:::::S   I::::I      |
+[07:28:05]          |           Y:::::Y                    S:::::S   I::::I      |
+[07:28:05]          |           Y:::::Y        SSSSSSS     S:::::S II::::::II    |
+[07:28:05]          |        YYYY:::::YYYY     S::::::SSSSSS:::::S I::::::::I    |
+[07:28:05]          |        Y:::::::::::Y     S:::::::::::::::SS  I::::::::I    |
+[07:28:05]          |        YYYYYYYYYYYYY      SSSSSSSSSSSSSSS    IIIIIIIIII    |
+[07:28:05]          |                                                            |
+[07:28:05]          |                                                            |
+[07:28:05]          |                      (c) 2021 MPL v1.1                     |
+[07:28:05]          |            Alex "Y_Less" Cole and contributors.            |
+[07:28:05]          |                                                            |
+[07:28:05]          |                                                            |
+[07:28:05]          ==============================================================
+[07:28:05]  
+[07:28:05]  
+[07:28:05]  ========================================== 
+[07:28:05]  |                                        | 
+[07:28:05]  |   Generating code, this may take a     | 
+[07:28:05]  |  little bit of time.  Note that this   | 
+[07:28:05]  |  code generation works best with the   | 
+[07:28:05]  |     JIT plugin, which you are not      | 
+[07:28:05]  |     currently using.  Get it here:     | 
+[07:28:05]  |                                        | 
+[07:28:05]  |       https://git.io/jit-plugin        | 
+[07:28:05]  |                                        | 
+[07:28:05]  |             Please wait...             | 
+[07:28:06]  |                                        | 
+[07:28:06]  |             Done in 1102ms!            | 
+[07:28:06]  |                                        | 
+[07:28:06]  ========================================== 
+[07:28:06]   Filterscript '../scriptfiles/callbackfix.amx' loaded.
+[07:28:06] *** YSI Info: Script ID: 1
+[07:28:06] *** YSI Error: Commands must be in lower-case in your source code.
+[07:28:06]  |                                        | 
+[07:28:06]  | Server:      0.3.7-R2 (W)              | 
+[07:28:06]  | Started:     26 Jul 2026 - 07:28:05    | 
+[07:28:06]  |                                        | 
+[07:28:06]  | Compiler:    3.10.08 (Windows)         | 
+[07:28:06]  | Includes:    0.3DL                     | 
+[07:28:06]  | Codepage:    <none>                    | 
+[07:28:06]  | Built:       26 Jul 2026 - 07:27:39    | 
+[07:28:06]  |                                        | 
+[07:28:06]  | YSI:         v05.10.0006               | 
+[07:28:06]  | Master:      1                         | 
+[07:28:06]  |                                        | 
+[07:28:06]  | JIT:         <none>                    | 
+[07:28:06]  | Crashdetect: <warning>                 | 
+[07:28:06]  |                                        | 
+[07:28:06]  |   Crashdetect has been found, but may  | 
+[07:28:06]  |   need updating.  Get the unofficial   | 
+[07:28:06]  |           fixed release from:          | 
+[07:28:06]  |                                        | 
+[07:28:06]  |           github.com/Y-Less/           | 
+[07:28:06]  |        samp-plugin-crashdetect/        | 
+[07:28:06]  |                                        | 
+[07:28:06]  |                                        | 
+[07:28:06]  ========================================== 
+[07:28:06]  
+[07:28:06]  
+[07:28:06] [ADM] Info: Load EVF v3.3.3 for SA:MP 0.3 DL by Abyss Morgan
+[07:28:06] [MySQL] Koneksi ke database berhasil!
+[07:28:06] |----------------------------------|
+[07:28:06] | Vertex Roleplay | V:RP           |
+[07:28:06] | Developed by Claps               |
+[07:28:06] |----------------------------------|
+[07:28:06] Number of vehicle models: 4
+[07:28:09] [Dynamic Doors] Jumlah total Doors yang dimuat: 39.
+[07:28:09] [Dynamic Shops] Jumlah total Shops yang dimuat: 33.
+[07:28:09] [Dynamic Public Garages] Jumlah total Public Garages yang dimuat: 42.
+[07:28:09] [Dynamic Actors] Jumlah total Actors yang dimuat: 100.
+[07:28:09] [Dynamic ATM] Jumlah total ATM yang dimuat: 61.
+[07:28:09] [Dynamic Bank Point] Jumlah total bank point yang dimuat: 8.
+[07:28:09] [Dynamic Rumah] Jumlah total Rumah yang dimuat: 1.
+[07:28:09] [Dynamic Rusun] Total number of rusun loaded: 72.
+[07:28:09] [Dynamic Gudang] Total number of gudang loaded: 5.
+[07:28:09] [Dynamic Basement] Jumlah total basement yang dimuat: 1.
+[07:28:09] [Dynamic Buttons] Jumlah total buttons yang dimuat: 43.
+[07:28:09] [Dynamic Marga] Total number of loaded Marga: 1.
+[07:28:09] [Dynamic Locker] Jumlah total Locker yang dimuat: 16.
+[07:28:09] [Dynamic Armoury] Jumlah total Armoury yang dimuat: 3.
+[07:28:09] [Dynamic Faction Garage] Jumlah total Faction Garage yang dimuat: 14.
+[07:28:09] [Dynamic Blackjack] Jumlah total Blackjack Table yang dimuat: 17.
+[07:28:09] [Stuffs] Server Stuff berhasil dimuat...
+[07:28:09] [FISHSELL] Loaded 1 fish sell points.
+[07:28:09] [Sawit] Jumlah total pohon sawit yang dimuat: 3.
+[07:28:33] [connection] incoming connection: 10.19.254.107:64339 id: 0
+[07:28:33] [sv:dbg:network:connect] : connecting player (0) with address (10.19.254.107) ...
+[07:28:33] [sv:dbg:network:connect] : player (0) assigned key (32c0fc27)
+[07:28:33] [join] Chess has joined the server (0:10.19.254.107)
+[07:28:33] [sv:dbg:network:receive] : player (0) identified (port:57400)
+[07:28:42] [nick] Chess nick changed to Ronnie_Varquez
+[07:28:42] [Player Contacts] Jumlah total Contacts yang dimuat untuk Chess [DBID: 10]: 7.
+[07:28:42] [Player Weapons] Total number of weapons loaded for Chess [DBID: 10]: 1.
+[07:28:42] [Player Smartphone Loaded] Chess [DBID: 10]
+[07:28:42] [Player Inventory] Total number of inventory items loaded for Chess [DBID: 10]: 17.
+[07:28:42] [Player Vehicle] Jumlah total Vehicle yang dimuat untuk Chess [DBID: 10]: 3.
+[07:28:42] [Vehicle Keys] Loaded 0 keys for player Ronnie_Varquez
+[07:29:39] [i] Semua rusun telah digusur karena sudah 30 hari.
+[07:29:58] [sv:dbg:network:connect] : disconnecting player (0) ...
+[07:29:58] [part] Ronnie_Varquez has left the server (0:1)
