@@ -722,9 +722,9 @@ YCMD:givesalary(playerid, params[], help)
 	if(AccountData[playerid][pAdminDuty] == false)
 		return PermissionErrorDuty(playerid);
 
-	new otherid, amount;
-	if(sscanf(params, "uD(0)", otherid, amount))
-		return SUM(playerid, "/givesalary [ID/Name] [jumlah] (kosongkan jumlah untuk otomatis sesuai tipe)");
+	new otherid;
+	if(sscanf(params, "u", otherid))
+		return SUM(playerid, "/givesalary [ID/Name] (nominal otomatis: Faction, Job, atau Warga)");
 
 	if(!IsPlayerConnected(otherid))
 		return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak terkoneksi ke server!");
@@ -732,12 +732,8 @@ YCMD:givesalary(playerid, params[], help)
 	if(!AccountData[otherid][IsLoggedIn] || !AccountData[otherid][pSpawned])
 		return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut belum siap menerima gaji!");
 
-	// Tanpa nominal, besarannya mengikuti tipe penghasilan pemain.
-	if(amount <= 0)
-		amount = GetPlayerDutySalary(otherid);
-
-	if(amount > 1000000)
-		return ShowTDN(playerid, NOTIFICATION_ERROR, "Nominal gaji maksimal $1.000.000!");
+	// Nominal ditentukan sepenuhnya oleh tipe penghasilan pemain.
+	new amount = GetPlayerDutySalary(otherid);
 
 	static saltype[24];
 	switch(GetPlayerSalaryType(otherid))
