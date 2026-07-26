@@ -484,7 +484,7 @@ public LoadServerStuffs()
     cache_get_value_name_int(0, "driftkingmoneyvault", DriftKingMoneyVault);
     cache_get_value_name_int(0, "jayaabadimoneyvault", JayaAbadiMoneyVault);
     cache_get_value_name_int(0, "srimersingmoneyvault", SriMersingMoneyVault);
-    cache_get_value_name_int(0, "bintangkejoramoneyvault", BintangKejoraMoneyVault);
+
     
     printf("[Stuffs] Server Stuff berhasil dimuat...");
     return 1;
@@ -609,11 +609,7 @@ hook OnGameModeInit()
     CreateDynamicPickup(1314, 23, 612.2645,-1873.5389,10.8429, 0, 0, -1, 30.00, -1, 0);
     CreateDynamic3DTextLabel("[Pring Sewu Beach Club]\n"WHITE"Gunakan "YELLOW"'/psdj' "WHITE"untuk memainkan musik!", Y_Vertex, 612.2645,-1873.5389,10.8429+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, 0, 0, -1, 10.00, -1, 0);
     
-    // CreateDynamicPickup(1239, 23, 2370.5295,-1701.4884,14.7022, 0, 0, -1, 30.00, -1, 0);
-    // CreateDynamic3DTextLabel("[Bintang Kejora]\n"WHITE"Gunakan "YELLOW"'/cook' "WHITE"untuk masak!", Y_Vertex, 2370.5295,-1701.4884,14.7022+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, 0, 0, -1, 10.00, -1, 0);
 
-    // CreateDynamicPickup(1239, 23, 2370.6423,-1705.1929,14.7022, 0, 0, -1, 30.00, -1, 0);
-    // CreateDynamic3DTextLabel("[Bintang Kejora]\n"WHITE"Gunakan "YELLOW"'/slice' "WHITE"untuk memotong!", Y_Vertex, 2370.6423,-1705.1929,14.7022+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, 0, 0, -1, 10.00, -1, 0);
     
     CreateDynamicPickup(1239, 23, -2454.1924,2194.3889,6.3566, 0, 0, -1, 30.00, -1, 0);
     CreateDynamic3DTextLabel("[Loving Donuts Cooking Point]\n"WHITE"Gunakan "YELLOW"'/cook' "WHITE"untuk masak!", Y_Vertex, 381.2641,-184.5646,1000.6328+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, 44, 17, -1, 10.00, -1, 0);

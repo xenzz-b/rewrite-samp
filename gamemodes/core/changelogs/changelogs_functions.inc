@@ -5,10 +5,10 @@ Dialog:ChangeLogs(playerid, response, listitem, inputtext[])
         case 0:
         {
             Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Change Logs", 
-            ""GREEN"Add mapping Bintang Kejora cafe\n\
+            ""GREEN"Add mapping cafe\n\
             "GREEN"Add save database setiap 1 jam sekali\n\
             "GREEN"Add cmd /fmodif untuk semua faction bengek (sementara)\n\n\
-            "PINK"Chnage Texas Chiken to Bintang Kejora\n\
+            "PINK"Change Texas Chiken branding\n\
             "PINK"Change location kanpol Vertex\n\
             "PINK"Change mapping kanpol\n\
             "PINK"Change dialog gps\n\

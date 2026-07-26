@@ -416,8 +416,6 @@ YCMD:flist(playerid, params[], help)
 		{
 			FMemCount[10]++;
 		}
-		// if(AccountData[i][pFaction] == FACTION_BINTANGKEJORA)
-		// {
 		// 	FMemCount[11]++;
 		// }
 	}
@@ -520,14 +518,10 @@ YCMD:flist(playerid, params[], help)
 		format(plrv, sizeof(plrv), "%d", Iter_Count(SriMersingDuty));
 	}
 
-	// if(Iter_Count(BintangKejoraDuty) > 8)
-	// {
 	// 	format(txcr, sizeof(txcr), "8+");
 	// }
 	// else
 	// {
-	// 	format(txcr, sizeof(txcr), "%d", Iter_Count(BintangKejoraDuty));
-	// }
 
 	format(string, sizeof(string), "#\tFaction\tDuty/Online\n\
 	1.\tKepolisian Daerah Vertex\t%s/%d\n\
@@ -1073,18 +1067,14 @@ YCMD:fa(playerid, params[], help)
             	SendClientMessageToAll(0xcbe9f6FF, string);
 			}
         }
-		// case FACTION_BINTANGKEJORA:
-        // {
 		// 	if(strlen(params) > 64)
 		// 	{
-        //     	format(string, sizeof(string), "(Bintang Kejora Cafe - %s %s): "WHITE"> %.64s...", GetRankName(playerid), GetPlayerRoleplayName(playerid), params);
 		// 		SendClientMessageToAll(X11_YELLOW, string);
         //     	format(string, sizeof(string), "...%s <", params[64]);
 		// 		SendClientMessageToAll(X11_WHITE, string);
 		// 	}
 		// 	else
 		// 	{
-		// 		format(string, sizeof(string), "(Bintang Kejora Cafe - %s %s): "WHITE"> %s <", GetRankName(playerid), GetPlayerRoleplayName(playerid), params);
         //     	SendClientMessageToAll(X11_YELLOW, string);
 		// 	}
         // }
@@ -1821,8 +1811,6 @@ YCMD:cook(playerid, params[], help)
             Minang Combo\tKentang Potong: 5x | Kubis Potong: 5x | Bawang Potong: 5x | Tomat Potong: 5x\tAir: 5x | Gula: 5x | Micin: 5x | Ayam Kemas: 5x\n\
 			"GRAY"Malaya Shine\t"GRAY"Kentang Potong: 5x | Kubis Potong: 5x | Bawang Potong: 5x | Tomat Potong: 5x\t"GRAY"Air: 5x | Gula: 5x | Micin: 5x | Ayam Kemas: 5x", "Pilih", "Batal");
 		}
-		// case FACTION_BINTANGKEJORA:
-		// {
 		// 	if(!IsPlayerInRangeOfPoint(playerid, 3.0, 2370.5295,-1701.4884,14.7022))
         //         return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di spot masak!");
 
@@ -1830,7 +1818,6 @@ YCMD:cook(playerid, params[], help)
         //     if(AccountData[playerid][pActivityTime] != 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda sedang melakukan sesuatu, mohon tunggu progress bar selesai!");
 
         //     HideNotifBox(playerid);
-        //     Dialog_Show(playerid, "BintangKejoraCooking", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Chicken Masak", 
         //     "Nama Makanan & Minuman\tBahan\t-\n\
         //     Fresh Solar\tKentang Potong: 5x | Kubis Potong: 5x | Bawang Potong: 5x | Tomat Potong: 5x\tAir: 5x | Gula: 5x | Micin: 5x | Ayam Kemas: 5x\n\
 		// 	"GRAY"Softex Flash\t"GRAY"Kentang Potong: 5x | Kubis Potong: 5x | Bawang Potong: 5x | Tomat Potong: 5x\t"GRAY"Air: 5x | Gula: 5x | Micin: 5x | Ayam Kemas: 5x\n\
@@ -1893,8 +1880,6 @@ YCMD:slice(playerid, params[], help)
             Bawang\n\
             Tomat", "Pilih", "Batal");
         }
-        // case FACTION_BINTANGKEJORA:
-        // {
         //     if(!IsPlayerInRangeOfPoint(playerid, 3.0, 2370.6423,-1705.1929,14.7022))
         //         return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di spot pemotongan!");
 			
@@ -1902,7 +1887,6 @@ YCMD:slice(playerid, params[], help)
         //     if(AccountData[playerid][pActivityTime] != 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda sedang melakukan sesuatu, mohon tunggu progress bar selesai!");
 
         //     HideNotifBox(playerid);
-        //     Dialog_Show(playerid, "FactionRestoSlicing", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Chicken Potong", 
 		// 	"Apa yang ingin anda potong?\n\
         //     Kentang\n\
         //     Kubis\n\

@@ -3052,14 +3052,10 @@ public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 			}
 		}
 
-		// if(IsBintangKejoraVehicle(vehicleid))
-		// {
-		// 	if(AccountData[playerid][pFaction] != FACTION_BINTANGKEJORA)
 		// 	{
 		// 		new Float:slx, Float:sly, Float:slz;
 		// 		GetPlayerPos(playerid, slx, sly, slz);
 		// 		SetPlayerPos(playerid, slx, sly, slz + 3.5);
-		// 		ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Bintang Kejora!");
 		// 	}
 		// }
 	}
@@ -3514,14 +3510,10 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 			}
 		}
 
-		// if(IsBintangKejoraVehicle(SavingVehID[playerid]))
-		// {
-		// 	if(AccountData[playerid][pFaction] != FACTION_BINTANGKEJORA)
 		// 	{
 		// 		new Float:slx, Float:sly, Float:slz;
 		// 		GetPlayerPos(playerid, slx, sly, slz);
 		// 		SetPlayerPos(playerid, slx, sly, slz + 3.5);
-		// 		ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Bintang Kejora!");
 		// 		return 1;
 		// 	}
 		// }

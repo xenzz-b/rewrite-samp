@@ -687,8 +687,6 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                     Dialog_Show(playerid, "SriMersingLocker", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Locker Karens Dinner",
                         "On Duty/Off Duty\nGanti Seragam", "Pilih", "Batal");
 
-                // case FACTION_BINTANGKEJORA:
-                //     Dialog_Show(playerid, "BintangKejoraLocker", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Locker Karens Dinner",
                 //         "On Duty/Off Duty\nGanti Seragam\nBaton Satpam", "Pilih", "Batal");
             }
 
@@ -754,8 +752,6 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                     Dialog_Show(playerid, "SriMersingGarage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Garasi Karens Dinner",
                         "Keluarkan Kendaraan\nSimpan Kendaraan", "Pilih", "Batal");
 
-                // case FACTION_BINTANGKEJORA:
-                //     Dialog_Show(playerid, "BintangKejoraGarage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Garasi Karens Dinner",
                 //         "Keluarkan Kendaraan\nSimpan Kendaraan", "Pilih", "Batal");
             }
 
@@ -817,8 +813,6 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                     Dialog_Show(playerid, "SriMersingVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Karens Dinner",
                         "Simpan Barang\nAmbil Barang", "Pilih", "Kembali");
 
-                // case FACTION_BINTANGKEJORA:
-                //     Dialog_Show(playerid, "BintangKejoraVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Karens Dinner",
                 //         "Simpan Barang\nAmbil Barang", "Pilih", "Kembali");
             }
 

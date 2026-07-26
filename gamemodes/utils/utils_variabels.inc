@@ -284,7 +284,7 @@ enum
     FACTION_DRIFTKING, //9
     FACTION_JAYAABADI, //10
     FACTION_SRIMERSING, //11
-    FACTION_BINTANGKEJORA, //12
+    FACTION_BINTANGKEJORA, //12 - DEPRECATED: faction dihapus
     FACTION_FEDERAL, //13
     FACTION_JPJ
 };
@@ -303,7 +303,7 @@ stock const FacName[15][] =
     "DriftKing Workshop",
     "Jaya Abadi",
     "Sri Mersing Resto",
-    "Bintang Kejora",
+    "(Dihapus)",
     "Federal",
     "JPJ"
 };
@@ -904,7 +904,7 @@ new RusunExpired,
     DriftKingMoneyVault,
     JayaAbadiMoneyVault,
     SriMersingMoneyVault,
-    BintangKejoraMoneyVault;
+
     
 //--------- Pengecekan Jumlah On Duty Faction ------------//
 new Iterator:LSPDDuty<MAX_PLAYERS>;
@@ -918,7 +918,7 @@ new Iterator:Fox11Duty<MAX_PLAYERS>;
 new Iterator:DriftKingDuty<MAX_PLAYERS>;
 new Iterator:JayaAbadiDuty<MAX_PLAYERS>;
 new Iterator:SriMersingDuty<MAX_PLAYERS>;
-// new Iterator:BintangKejoraDuty<MAX_PLAYERS>;
+
 
 //TIMERS
 new pLoginTimer[MAX_PLAYERS] = {-1, ...};
@@ -967,7 +967,7 @@ new bool:pOpenPurpleSweetTimer[MAX_PLAYERS];
 new bool:pCookingTimer[MAX_PLAYERS];
 new bool:pDNRCookingTimer[MAX_PLAYERS];
 new bool:pSriMersingCookingTimer[MAX_PLAYERS];
-new bool:pBintangKejoraCookingTimer[MAX_PLAYERS];
+
 new bool:pEatingBarTimer[MAX_PLAYERS];
 new bool:pBreakingVehDoorTimer[MAX_PLAYERS];
 new bool:pImpoundingInsuTimer[MAX_PLAYERS];

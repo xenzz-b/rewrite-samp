@@ -1871,8 +1871,6 @@ RemoveJobIterator(playerid)
 	if(Iter_Contains(SriMersingDuty, playerid))
 		Iter_Remove(SriMersingDuty, playerid);
 	
-	// if(Iter_Contains(BintangKejoraDuty, playerid))
-	// 	Iter_Remove(BintangKejoraDuty, playerid);
 }
 
 AddJobIterator(playerid)
@@ -1925,10 +1923,6 @@ AddJobIterator(playerid)
 			{
 				Iter_Add(SriMersingDuty, playerid);
 			}
-			// case FACTION_BINTANGKEJORA:
-			// {
-			// 	Iter_Add(BintangKejoraDuty, playerid);
-			// }
 		}
 	}
 }
@@ -2977,8 +2971,6 @@ static const PARVRank[11][] =
 	"Chief Executive"
 };
 
-// static const BintangKejoraRank[11][] = 
-// {
 // 	"N/A",
 // 	"Magang",
 // 	"Satpam",
@@ -3046,10 +3038,6 @@ GetRankName(playerid)
         {
             format(rnnrt, sizeof(rnnrt), PARVRank[AccountData[playerid][pFactionRank]]);
         }
-		// case FACTION_BINTANGKEJORA: //BintangKejora
-        // {
-        //     format(rnnrt, sizeof(rnnrt), BintangKejoraRank[AccountData[playerid][pFactionRank]]);
-        // }
     }
     return rnnrt;
 }

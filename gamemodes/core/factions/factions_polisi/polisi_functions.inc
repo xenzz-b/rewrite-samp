@@ -3034,8 +3034,6 @@ Dialog:MDC_NameDashboard(playerid, response, listitem, inputtext[])
 	            "Chief Executive"
             };
 
-            // static const BintangKejoraRank[11][] = 
-            // {
             //     "N/A",
             //     "Magang",
             //     "Satpam",
@@ -3101,10 +3099,6 @@ Dialog:MDC_NameDashboard(playerid, response, listitem, inputtext[])
                 {
                     format(rnnrt, sizeof(rnnrt), PARVRank[MDC_Data[playerid][FactionRank]]);
                 }
-                // case FACTION_BINTANGKEJORA:
-                // {
-                //     format(rnnrt, sizeof(rnnrt), BintangKejoraRank[MDC_Data[playerid][FactionRank]]);
-                // }
             }
 
             static mdcnstr2[1777];

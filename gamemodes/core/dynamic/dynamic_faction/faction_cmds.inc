@@ -560,11 +560,8 @@ YCMD:fmenu(playerid, params[], help)
             Deposit Balance\n\
             Withdraw Balance", "Pilih", "Batal");
         }
-        // case FACTION_BINTANGKEJORA:
-        // {
         //     if(AccountData[playerid][pFactionRank] < 6) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jabatan minimum Supervisor untuk akses boss desk!");
 
-        //     Dialog_Show(playerid, "BintangKejoraBosDesk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Cafe", 
         //     "Invite\n\
         //     Manage Ranks\n\
         //     Kick\n\

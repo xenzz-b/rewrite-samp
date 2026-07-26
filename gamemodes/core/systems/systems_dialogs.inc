@@ -909,26 +909,10 @@ Dialog:SpawnSelection(playerid, response, listitem, inputtext[])
 					PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
 					GameTextForPlayer(playerid, "Memuat Objek...", 6500, 3);
 				}
-				case 12: //Bintang Kejora
+				case 12: //FACTION_BINTANGKEJORA - DEPRECATED: faction dihapus
 				{
-					AccountData[playerid][pInDoor] = -1;
-					AccountData[playerid][pInHouse] = -1;
-					AccountData[playerid][pInBiz] = -1;
-					AccountData[playerid][pInRusun] = -1;
-					AVC_PConnected[playerid] = true;
-
-					SetPlayerVirtualWorldEx(playerid, 0);
-					SetPlayerInteriorEx(playerid, 0);
-					AccountData[playerid][pPos][0] = 2687.5742;
-					AccountData[playerid][pPos][1] = 718.6926;
-					AccountData[playerid][pPos][2] = 10.6719;
-					AccountData[playerid][pPos][3] = 220.5421;
-					SetSpawnInfo(playerid, NO_TEAM, AccountData[playerid][pSkin], 2687.5742,718.6926,10.6719,220.5421, 0, 0, 0, 0, 0, 0);
-					TogglePlayerSpectating(playerid, false);
-					SetCameraBehindPlayer(playerid);
-					Anticheat[playerid][acImmunity] = gettime() + 5;
-					PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
-					GameTextForPlayer(playerid, "Memuat Objek...", 6500, 3);
+					ShowPlayerSpawnSelection(playerid);
+					ShowTDN(playerid, NOTIFICATION_ERROR, "Faction ini sudah dihapus!");
 				}
 			}
 		}
@@ -3933,16 +3917,7 @@ Dialog:FactionSelectPanel(playerid, response, listitem, inputtext[])
 					"GRAY"Invoice Manual\n\
 					Seret", "Pilih", "Batal");
 				}
-				// case FACTION_BINTANGKEJORA:
-				// {
-				// 	Dialog_Show(playerid, "BintangKejoraPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
-				// 	"Invoice Belum Terbayar\n\
-				// 	"GRAY"Invoice Manual\n\
-				// 	Seret\n\
-				// 	"GRAY"Borgol\n\
-				// 	Buka Borgol\n\
-				// 	"GRAY"Geledah", "Pilih", "Batal");
-				// }
+
 			}
 			for(new x; x < 100; x++)
 			{

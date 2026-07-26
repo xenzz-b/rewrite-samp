@@ -2634,7 +2634,7 @@ CreateHouseExt()
     housext = CreateDynamicObject(18766, -582.325073, 2546.829589, 54.603923, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
     SetDynamicObjectMaterial(housext, 0, 10101, "2notherbuildsfe", "ferry_build14", 0x00000000);
     housext = CreateDynamicObject(19482, -503.542938, 2592.810302, 58.366291, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
-    SetDynamicObjectMaterialText(housext, 0, "BINTANG KEJORA", 40, "Fixedsys", 15, 1, 0xFF000000, 0x00000000, 0);
+    SetDynamicObjectMaterialText(housext, 0, "(DIHAPUS)", 40, "Fixedsys", 15, 1, 0xFF000000, 0x00000000, 0);
     housext = CreateDynamicObject(18766, -529.357360, 2593.959960, 52.031097, 89.799934, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
     SetDynamicObjectMaterial(housext, 0, 10412, "hotel1", "carpet_red_256", 0x00000000);
     housext = CreateDynamicObject(19482, -503.542938, 2593.541015, 59.356250, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 

@@ -292,11 +292,7 @@ Dialog:InvoicePay(playerid, response, listitem, inputtext[])
             mysql_format(g_SQL, strgbg, sizeof(strgbg), "UPDATE `stuffs` SET `srimersingmoneyvault`=%d, `pemermoneyvault`=%d WHERE `id`=0", SriMersingMoneyVault, PemerMoneyVault);
             mysql_pquery(g_SQL, strgbg);
         }
-        // case FACTION_BINTANGKEJORA:
-        // {
-        //     BintangKejoraMoneyVault += floatround(forfaction);
         //     PemerMoneyVault += floatround(fortaxpemer);
-        //     mysql_format(g_SQL, strgbg, sizeof(strgbg), "UPDATE `stuffs` SET `bintangkejoramoneyvault`=%d, `pemermoneyvault`=%d WHERE `id`=0", BintangKejoraMoneyVault, PemerMoneyVault);
         //     mysql_pquery(g_SQL, strgbg);
         // }
     }

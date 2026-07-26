@@ -9,4 +9,3 @@
 #include "core/factions/factions_driftking/driftking_functions"
 #include "core/factions/factions_jayaabadi/jayaabadi_functions"
 #include "core/factions/factions_srimersing/srimersing"
-// #include "core/factions/factions_bintangkejora/bintangkejora"
