@@ -619,12 +619,15 @@ AC_HookSetPlayerArmour(playerid, Float:value)
 	return SetPlayerArmour(playerid, value);
 }
 
-AC_HookSetVehicleHealth(vehicleid, Float:value)
-{
-	AC_GrantVehHealth(vehicleid, value);
-	return SetVehicleHealth(vehicleid, value);
-}
-
 #define SetPlayerHealth  AC_HookSetPlayerHealth
 #define SetPlayerArmour  AC_HookSetPlayerArmour
-#define SetVehicleHealth AC_HookSetVehicleHealth
+
+/*  CATATAN: SetVehicleHealth TIDAK di-#define.
+    Ada include library yang sudah memakai nama itu sebagai macro, jadi
+    menimpanya memicu warning 201 sekaligus berisiko mematikan fungsi
+    library tersebut.
+
+    Untungnya memang tidak perlu: satu-satunya jalur resmi yang menaikkan
+    health kendaraan adalah SetValidVehicleHealth() di
+    core/vehicles/vehicles_functions.inc, dan di sana AC_GrantVehHealth()
+    sudah dipanggil eksplisit. Jadi cakupan anticheat tetap penuh.        */
