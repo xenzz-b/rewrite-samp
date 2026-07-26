@@ -1,8 +1,8 @@
 #include <YSI_Coding\y_hooks>
 new PlayerText: StaticVRP[MAX_PLAYERS][34];
-new OnlinePlayerAll;
+stock OnlinePlayerAll;
 
-CreatePStatsTD(playerid)
+stock CreatePStatsTD(playerid)
 {
     StaticVRP[playerid][0] = CreatePlayerTextDraw(playerid, 615.000, 132.000, "LD_BUM:blkdot");
     PlayerTextDrawTextSize(playerid, StaticVRP[playerid][0], 19.000, 20.000);
@@ -422,7 +422,7 @@ enum e_HUDCache {
     cache_Faction,
     cache_Online
 };
-new HUDCache[MAX_PLAYERS][e_HUDCache];
+stock HUDCache[MAX_PLAYERS][e_HUDCache];
 
 // stock InitPlayerHUD(playerid)
 // {

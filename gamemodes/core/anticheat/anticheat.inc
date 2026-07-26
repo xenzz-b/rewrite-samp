@@ -464,7 +464,7 @@ hook OnPlayerDisconnect(playerid, reason)
 
 hook OnPlayerSpawn(playerid)
 {
-		AC_SpawnTick[playerid]  = gettime();
+	AC_SpawnTick[playerid]  = gettime();
 	AC_LastUpdate[playerid] = GetTickCount();
 
 	AC_ResetHealthLedger(playerid, 0.0, 0.0);
