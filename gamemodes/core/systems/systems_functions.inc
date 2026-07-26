@@ -226,7 +226,7 @@ public OnPlayerNotLogin(playerid)
 
     KillTimer(pLoginTimer[playerid]);
     pLoginTimer[playerid] = -1;
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Login", "Anda telah ditendang karena kehabisan waktu untuk login.", "Quit", "");
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Login", "Anda telah ditendang karena kehabisan waktu untuk login.", "Quit", "");
 	KickEx(playerid);
     return 1;
 }

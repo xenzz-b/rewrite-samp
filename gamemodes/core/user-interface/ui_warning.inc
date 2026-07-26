@@ -132,7 +132,7 @@ CreateWarningPlayerTD(playerid)
 	PlayerTextDrawSetProportional(playerid, PlayerWarnTD[playerid][0], 1);
 	PlayerTextDrawSetSelectable(playerid, PlayerWarnTD[playerid][0], 0);
 
-	PlayerWarnTD[playerid][1] = CreatePlayerTextDraw(playerid, 352.000000, 236.000000, "Warned by: "Nexston"Nexston Roleplay "WHITE"- BangJamex");
+	PlayerWarnTD[playerid][1] = CreatePlayerTextDraw(playerid, 352.000000, 236.000000, "Warned by: "Vertex"Vertex Roleplay "WHITE"- BangJamex");
 	PlayerTextDrawFont(playerid, PlayerWarnTD[playerid][1], 1);
 	PlayerTextDrawLetterSize(playerid, PlayerWarnTD[playerid][1], 0.133333, 0.900000);
 	PlayerTextDrawTextSize(playerid, PlayerWarnTD[playerid][1], 387.500000, 86.500000);

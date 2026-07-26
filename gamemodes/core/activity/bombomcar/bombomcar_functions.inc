@@ -235,7 +235,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                 );
             }
 
-            Dialog_Show(playerid, "bombomCars", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Bombomcar", dialogStr, "Pilih", "Batal");
+            Dialog_Show(playerid, "bombomCars", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Bombomcar", dialogStr, "Pilih", "Batal");
         }
     }
     return 1;

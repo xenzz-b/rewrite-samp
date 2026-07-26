@@ -3632,7 +3632,7 @@ CreateJobExt()
     JOBXTSTA = CreateDynamicObject(2662, 623.705566, 840.086181, -38.084579, 0.000000, 0.000000, 180.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(JOBXTSTA, 0, "TAMBANG", 130, "Arial", 120, 0, 0xFFFFFFFF, 0x00000000, 0);
     JOBXTSTA = CreateDynamicObject(2662, 623.535400, 840.086181, -38.474563, 0.000000, 0.000000, 180.000000, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(JOBXTSTA, 0, "Nexston", 130, "Arial", 120, 0, 0xFFFFFFFF, 0x00000000, 0);
+    SetDynamicObjectMaterialText(JOBXTSTA, 0, "Vertex", 130, "Arial", 120, 0, 0xFFFFFFFF, 0x00000000, 0);
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -3966,9 +3966,9 @@ CreateJobExt()
     JOBXTSTA = CreateDynamicObject(19449, -2104.772705, -2429.722167, 34.068473, 0.000000, 0.000000, 51.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(JOBXTSTA, 0, 9625, "garage_sfw", "garage1b_sfw", 0x00000000);
     JOBXTSTA = CreateDynamicObject(19479, -2098.707275, -2435.065673, 34.392158, 0.000000, 0.000000, -128.599990, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(JOBXTSTA, 0, "PT. Unggas Nexston", 120, "Times New Roman", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(JOBXTSTA, 0, "PT. Unggas Vertex", 120, "Times New Roman", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     JOBXTSTA = CreateDynamicObject(19479, -2057.406738, -2435.689453, 35.072074, -0.000004, 0.000005, 51.399993, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(JOBXTSTA, 0, "PT. Unggas Nexston", 120, "Times New Roman", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(JOBXTSTA, 0, "PT. Unggas Vertex", 120, "Times New Roman", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -4249,7 +4249,7 @@ CreateJobExt()
     JOBXTSTA = CreateDynamicObject(19479, -1728.783081, 85.713661, 3.711275, 0.000000, 0.000000, -42.000011, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(JOBXTSTA, 0, "AREA", 90, "Calibri", 50, 1, 0xFFFFFFFF, 0x00000000, 1);
     JOBXTSTA = CreateDynamicObject(19479, -1712.109985, 27.426631, 8.031277, 0.000000, 0.000000, 134.999847, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(JOBXTSTA, 0, "Nexston LOGISTICS", 90, "Calibri", 35, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(JOBXTSTA, 0, "Vertex LOGISTICS", 90, "Calibri", 35, 1, 0xFFFFFFFF, 0x00000000, 1);
     JOBXTSTA = CreateDynamicObject(19479, -1694.723022, -1.343530, 3.711275, 0.000000, 0.000000, -44.099990, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(JOBXTSTA, 0, "DILARANG", 90, "Calibri", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     JOBXTSTA = CreateDynamicObject(19479, -1689.465087, 3.989132, 3.711275, 0.000000, 0.000000, -44.899978, 0, 0, -1, 200.00, 200.00); 
@@ -4524,7 +4524,7 @@ CreateJobExt()
     JOBXTSTA = CreateDynamicObject(18667, -1446.613281, -1522.697998, 107.566383, 0.000000, -0.000053, 179.999679, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(JOBXTSTA, 0, "KOTA", 100, "Arial", 60, 1, 0xFFFFFFFF, 0x00000000, 1);
     JOBXTSTA = CreateDynamicObject(18667, -1446.613281, -1521.117675, 107.566383, 0.000000, -0.000053, 179.999679, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(JOBXTSTA, 0, "Nexston", 100, "Arial", 60, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(JOBXTSTA, 0, "Vertex", 100, "Arial", 60, 1, 0xFFFFFFFF, 0x00000000, 1);
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -5131,7 +5131,7 @@ CreateJobExt()
     SetDynamicObjectMaterial(JOBXTSTA, 1, 14415, "carter_block_2", "mp_gs_woodpanel", 0x00000000);
     JOBXTSTA = CreateDynamicObject(19482, 2530.985351, 2018.045898, 16.321109, 0.000000, -0.000082, -178.499588, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(JOBXTSTA, 0, 10101, "2notherbuildsfe", "ferry_build14", 0x00000000);
-    SetDynamicObjectMaterialText(JOBXTSTA, 0, "PENJAHIT Nexston", 130, "Arial", 55, 1, 0xFF1C1C1C, 0x00000000, 1);
+    SetDynamicObjectMaterialText(JOBXTSTA, 0, "PENJAHIT Vertex", 130, "Arial", 55, 1, 0xFF1C1C1C, 0x00000000, 1);
     JOBXTSTA = CreateDynamicObject(630, 2532.046875, 2015.335449, 11.404109, -0.000011, 0.000110, -7.500043, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(JOBXTSTA, 0, 802, "gta_proc_bushland", "veg_bush3", 0xFFFFFFFF);
     SetDynamicObjectMaterial(JOBXTSTA, 1, 14415, "carter_block_2", "mp_gs_woodpanel", 0x00000000);

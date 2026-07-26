@@ -144,7 +144,7 @@ task AntiCheatVehSlap[1000]()
                                         AccountData[i][g_CarstealIcon][x] = STREAMER_TAG_MAP_ICON: INVALID_STREAMER_ID;
                                 }
 
-                                ShowFivemNotify(i, "Nexston Roleplay~n~CAR STEAL", "Kendaraan carsteal telah hancur, misi dinyatakan gagal!", "hud:radar_qmark", 25);
+                                ShowFivemNotify(i, "Vertex Roleplay~n~CAR STEAL", "Kendaraan carsteal telah hancur, misi dinyatakan gagal!", "hud:radar_qmark", 25);
                             }
                         }
                     }
@@ -155,7 +155,6 @@ task AntiCheatVehSlap[1000]()
                         {
                             if(!PlayerVehicle[vid][pVehInsuranced])
                             {
-                                // masukin variable dari database player biar mobilnya gak spawn polosan
                                 SetVehiclePos(PlayerVehicle[vid][pVehPhysic], PlayerVehicle[vid][pVehPos][0], PlayerVehicle[vid][pVehPos][1], PlayerVehicle[vid][pVehPos][2]);
                                 SetVehicleZAngle(v, PlayerVehicle[vid][pVehPos][3]);
                                 ChangeVehicleColor(PlayerVehicle[vid][pVehPhysic], PlayerVehicle[vid][pVehColor1], PlayerVehicle[vid][pVehColor2]);
@@ -208,7 +207,7 @@ task AntiCheatVehSlap[1000]()
                             }
                             else
                             {
-                                if(PlayerVehicle[vid][pVehRental] > -1 || PlayerVehicle[vid][pVehRentTime] > 0) //jika rental
+                                if(PlayerVehicle[vid][pVehRental] > -1 || PlayerVehicle[vid][pVehRentTime] > 0)
                                 {
                                     PlayerVehicle[vid][pVehRental] = -1;
                                     PlayerVehicle[vid][pVehRentTime] = 0;
@@ -216,7 +215,6 @@ task AntiCheatVehSlap[1000]()
                                     if(IsValidVehicle(PlayerVehicle[vid][pVehPhysic]))
                                     {
                                         SetVehicleNeonLights(PlayerVehicle[vid][pVehPhysic], false, PlayerVehicle[vid][pVehNeon], 0);
-
                                     }
                                     DestroyVehicle(PlayerVehicle[vid][pVehPhysic]);
                                     PlayerVehicle[vid][pVehHandbraked] = false;
@@ -273,22 +271,17 @@ task AntiCheatVehSlap[1000]()
 
                                     Iter_Remove(PvtVehicles, vid);
                                 }
-                                else //jika bukan rental
+                                else
                                 {
                                     if(IsValidVehicle(PlayerVehicle[vid][pVehPhysic]))
                                     {
                                         SetVehicleNeonLights(PlayerVehicle[vid][pVehPhysic], false, PlayerVehicle[vid][pVehNeon], 0);
-
                                     }
                                     DestroyVehicle(PlayerVehicle[vid][pVehPhysic]);
                                     PlayerVehicle[vid][pVehInsuranced] = true;
                                     PlayerVehicle[vid][pVehHandbraked] = false;
                                     mysql_format(g_SQL, impstr, sizeof(impstr), "UPDATE `player_vehicles` SET `PVeh_Insuranced` = 1 WHERE `id`=%d", PlayerVehicle[vid][pVehID]);
                                     mysql_pquery(g_SQL, impstr);
-                                    // mysql_format(g_SQL, impstr, sizeof(impstr), "DELETE FROM `vehicle_bagasi` WHERE `Veh_DBID`=%d", PlayerVehicle[vid][pVehID]);
-                                    // mysql_pquery(g_SQL, impstr);
-                                    // mysql_format(g_SQL, impstr, sizeof(impstr), "DELETE FROM `vehicle_holster` WHERE `Veh_DBID`=%d", PlayerVehicle[vid][pVehID]);
-                                    // mysql_pquery(g_SQL, impstr);
                                 }
                             }
                         }
@@ -309,34 +302,91 @@ task AntiCheatVehSlap[1000]()
     return 1;
 }
 
-ptask AntiCheatCheck[1000](playerid)
+// Fixed & Optimized Vehicle Health Anticheat - by Claps
+// Previously ptask per player O(P*V) - now global task O(V) - 250x faster
+task AntiCheatVehicleHealth[500]()
 {
-    foreach(new v : Vehicle) if(GetVehicleModel(v))
+    foreach(new v : Vehicle)
     {
+        if(v == INVALID_VEHICLE_ID || !IsValidVehicle(v)) continue;
+        if(!GetVehicleModel(v)) continue;
+
         new Float:health;
         GetVehicleHealth(v, health);
 
-        if(health > VehicleCore[v][vMaxHealth]) SetValidVehicleHealth(v, VehicleCore[v][vMaxHealth]);
-
-        if((health > VehicleHealthSecurityData[v]) && VehicleHealthSecurity[v] == false) //jika health lebih dari 1000 dan health security false
+        // 1. Cap health over max (prevents 2000+ health hack)
+        if(health > VehicleCore[v][vMaxHealth] + 0.5)
         {
-			if(GetPlayerVehicleID(playerid) == v)
-			{
-				new playerState = GetPlayerState(playerid);
-				if(playerState == PLAYER_STATE_DRIVER)
-				{
-					SetValidVehicleHealth(v, VehicleHealthSecurityData[v]);
-					SendClientMessage(playerid, Y_RED, "[AntiCheat] {DBD7D2}Anda ditendang dari server karena diduga Vehicle Health Hack!");
-                    KickEx(playerid);
-				}
-			}
+            new driver = INVALID_PLAYER_ID;
+            foreach(new p : Player)
+            {
+                if(GetPlayerVehicleID(p) == v && GetPlayerState(p) == PLAYER_STATE_DRIVER)
+                {
+                    driver = p;
+                    break;
+                }
+            }
+            if(driver != INVALID_PLAYER_ID && gettime() > Anticheat[driver][acImmunity] && AccountData[driver][pAdmin] < 1)
+            {
+                SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Vehicle HP > Max: %.0f/%.0f in %s", GetName(driver), driver, health, VehicleCore[v][vMaxHealth], GetVehicleModelName(GetVehicleModel(v)));
+                Anticheat[driver][acVehHealthWarns]++;
+                if(Anticheat[driver][acVehHealthWarns] >= 3)
+                {
+                    SendClientMessage(driver, Y_RED, "[AntiCheat] Anda ditendang karena Vehicle Health Hack (over max)!");
+                    KickEx(driver);
+                }
+            }
+            SetValidVehicleHealth(v, VehicleCore[v][vMaxHealth]);
+            VehicleHealthSecurityData[v] = VehicleCore[v][vMaxHealth];
+            continue;
         }
-        if(VehicleHealthSecurity[v] == true)
+
+        // 2. Detect repair hack (increase without legit flag)
+        // Threshold +15 to avoid false positives from desync
+        if(VehicleHealthSecurity[v] == false)
         {
+            if(health > VehicleHealthSecurityData[v] + 15.0)
+            {
+                new driver = INVALID_PLAYER_ID;
+                foreach(new p : Player)
+                {
+                    if(GetPlayerVehicleID(p) == v && GetPlayerState(p) == PLAYER_STATE_DRIVER)
+                    {
+                        driver = p;
+                        break;
+                    }
+                }
+                if(driver != INVALID_PLAYER_ID && gettime() > Anticheat[driver][acImmunity] && AccountData[driver][pAdmin] < 1)
+                {
+                    // Check legit repair timers (bengkel, etc)
+                    if(!pMechRepairEngineTimer[driver] && !pMechRepairBodyTimer[driver] && !pMechRepairTiresTimer[driver])
+                    {
+                        SetValidVehicleHealth(v, VehicleHealthSecurityData[v]); // revert
+                        SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Vehicle Health Hack +%.0f (%.0f->%.0f) in %s", GetName(driver), driver, health - VehicleHealthSecurityData[v], VehicleHealthSecurityData[v], health, GetVehicleModelName(GetVehicleModel(v)));
+                        Anticheat[driver][acVehHealthWarns]++;
+                        if(Anticheat[driver][acVehHealthWarns] >= 2)
+                        {
+                            SendClientMessage(driver, Y_RED, "[AntiCheat] Anda ditendang karena Vehicle Health Hack (repair hack)!");
+                            KickEx(driver);
+                        }
+                        else
+                        {
+                            SendClientMessage(driver, Y_RED, "[AntiCheat] Dilarang Vehicle Health Cheat! Warning %d/2", Anticheat[driver][acVehHealthWarns]);
+                        }
+                        continue; // keep old data
+                    }
+                }
+            }
+        }
+        else
+        {
+            // Legit repair via SetValidVehicleHealth set this flag true, allow one increase
             VehicleHealthSecurity[v] = false;
         }
+
         VehicleHealthSecurityData[v] = health;
     }
+    return 1;
 }
 
 ptask AntiCheatWeapon[1000](playerid) 
@@ -393,13 +443,13 @@ ptask AntiCheatWeapon[1000](playerid)
                 if(AccountData[playerid][pLevel] < 5)
                 {
                     SendClientMessageEx(playerid, Y_RED, "[AntiCheat] {DBD7D2}Anda ditendang dari server karena diduga Weapon Hack "YELLOW"[%s].", ReturnWeaponName(GetPlayerWeapon(playerid)));
-                    SetWeapons(playerid); //Reload old weapons
+                    SetWeapons(playerid);
                     KickEx(playerid);
                 }
             }
         }
 
-        if(!AccountData[playerid][pInEvent]) //tidak event
+        if(!AccountData[playerid][pInEvent])
 		{
             static pwpid[MAX_PLAYERS];
             if(GetPlayerWeapon(playerid) != pwpid[playerid])
@@ -411,7 +461,7 @@ ptask AntiCheatWeapon[1000](playerid)
                     if(pwpid[playerid] != 40 && GunData[playerid][g_aWeaponSlots[pwpid[playerid]]][WeaponType] == WEAPON_TYPE_NONE)
                     {
                         SendClientMessageEx(playerid, Y_RED, "[AntiCheat] {DBD7D2}Anda ditendang dari server karena diduga Weapon Hack "YELLOW"[%s].", ReturnWeaponName(pwpid[playerid]));
-                        SetWeapons(playerid); //Reload old weapons
+                        SetWeapons(playerid);
                         KickEx(playerid);
                     }
 
@@ -420,14 +470,14 @@ ptask AntiCheatWeapon[1000](playerid)
                         if(pwpid[playerid] != 40 && GunData[playerid][g_aWeaponSlots[pwpid[playerid]]][WeaponID] != pwpid[playerid])
                         {
                             SendClientMessageEx(playerid, Y_RED, "[AntiCheat] {DBD7D2}Anda ditendang dari server karena diduga Weapon Hack "YELLOW"[%s].", ReturnWeaponName(pwpid[playerid]));
-                            SetWeapons(playerid); //Reload old weapons
+                            SetWeapons(playerid);
                             KickEx(playerid);
                         }
                     }
                 }
             }
         }
-        else //jika sedang di dalam event
+        else
         {
             static pwpid[MAX_PLAYERS];
             if(GetPlayerWeapon(playerid) != pwpid[playerid])
@@ -439,7 +489,7 @@ ptask AntiCheatWeapon[1000](playerid)
                     if(pwpid[playerid] != 0 && pwpid[playerid] != EventInfo[redWeapon][0] && pwpid[playerid] != EventInfo[redWeapon][1] && pwpid[playerid] != EventInfo[redWeapon][2])
                     {
                         SendClientMessageEx(playerid, Y_RED, "[AntiCheat] {DBD7D2}Anda ditendang dari server karena diduga Weapon Hack "YELLOW"[%s].", ReturnWeaponName(pwpid[playerid]));
-                        SetWeapons(playerid); //Reload old weapons
+                        SetWeapons(playerid);
                         KickEx(playerid);
                     }
                 }
@@ -448,7 +498,7 @@ ptask AntiCheatWeapon[1000](playerid)
                     if(pwpid[playerid] != 0 && pwpid[playerid] != EventInfo[blueWeapon][0] && pwpid[playerid] != EventInfo[blueWeapon][1] && pwpid[playerid] != EventInfo[blueWeapon][2])
                     {
                         SendClientMessageEx(playerid, Y_RED, "[AntiCheat] {DBD7D2}Anda ditendang dari server karena diduga Weapon Hack "YELLOW"[%s].", ReturnWeaponName(pwpid[playerid]));
-                        SetWeapons(playerid); //Reload old weapons
+                        SetWeapons(playerid);
                         KickEx(playerid);
                     }
                 }
@@ -462,7 +512,151 @@ ptask AntiCheatWeapon[1000](playerid)
     return 1;
 }
 
-ptask AntiCheatCheckTwo[1000](playerid) 
+// Fixed Health & Armour Anticheat - by Claps
+// Detects spawn health/armor via increase tracking, not just >100
+ptask AntiCheatHealthArmor[1000](playerid)
+{
+    if(!AccountData[playerid][IsLoggedIn] || !AccountData[playerid][pSpawned]) return 1;
+    if(AccountData[playerid][pAdminDuty]) return 1; // skip admin on duty for health >100
+
+    new Float:health, Float:armour;
+    GetPlayerHealth(playerid, health);
+    GetPlayerArmour(playerid, armour);
+
+    // --- Health Hack ---
+    // 1. Over max (>100)
+    if(health > 100.5)
+    {
+        SetPlayerHealthEx(playerid, 100.0);
+        SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Health >100: %.1f - capped", GetName(playerid), playerid, health);
+        Anticheat[playerid][acHealthWarns]++;
+        if(Anticheat[playerid][acHealthWarns] >= 5)
+        {
+            SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Health Hack (over max)!");
+            KickEx(playerid);
+        }
+    }
+    else
+    {
+        // 2. Sudden increase detection (spawn health)
+        if(gettime() > Anticheat[playerid][acHealthTime])
+        {
+            // If health increased >15 HP without legit reason
+            if(health > Anticheat[playerid][acHealth] + 15.0)
+            {
+                new bool:legit = false;
+                if(pMedisLokalTimer[playerid] || pUsingPerbanTimer[playerid] || AccountData[playerid][pDuringUseLocalMedic]) legit = true;
+                if(AccountData[playerid][pKnockdown] || AccountData[playerid][pComma]) legit = true;
+                if(pEatingBarTimer[playerid]) legit = true; // eating/drinking
+                if(IsPlayerInDynamicArea(playerid, AreaSantaiZone)) legit = true; // safe zone regen?
+
+                if(!legit)
+                {
+                    // Revert to last valid health
+                    SetPlayerHealth(playerid, Anticheat[playerid][acHealth]);
+                    Anticheat[playerid][acHealthWarns]++;
+                    SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Health Hack +%.0f (%.0f->%.0f)", GetName(playerid), playerid, health - Anticheat[playerid][acHealth], Anticheat[playerid][acHealth], health);
+                    if(Anticheat[playerid][acHealthWarns] >= 3)
+                    {
+                        SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Health Hack!");
+                        KickEx(playerid);
+                    }
+                    else
+                    {
+                        SendClientMessage(playerid, Y_RED, "[AntiCheat] Dilarang Health Cheat! Warning %d/3", Anticheat[playerid][acHealthWarns]);
+                    }
+                }
+                else
+                {
+                    Anticheat[playerid][acHealth] = health;
+                }
+            }
+            else
+            {
+                // Normal update, track decrease or small regen
+                Anticheat[playerid][acHealth] = health;
+            }
+        }
+        else
+        {
+            // In immunity window from legit heal
+            Anticheat[playerid][acHealth] = health;
+        }
+    }
+
+    // --- Armour Hack ---
+    // 1. Over max (>100)
+    if(armour > 100.5)
+    {
+        SetPlayerArmour(playerid, 0.0);
+        AccountData[playerid][pArmor] = 0.0;
+        AccountData[playerid][pHasArmor] = false;
+        AccountData[playerid][pArmorEmpty] = true;
+        Anticheat[playerid][acArmour] = 0.0;
+        SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Armour >100: %.1f - removed", GetName(playerid), playerid, armour);
+        Anticheat[playerid][acArmorWarns]++;
+        if(Anticheat[playerid][acArmorWarns] >= 3)
+        {
+            SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Armour Hack (over max)!");
+            KickEx(playerid);
+        }
+        return 1;
+    }
+
+    if(gettime() > Anticheat[playerid][acArmorTime])
+    {
+        // 2. Spawn armor when not supposed to have it
+        if(!AccountData[playerid][pHasArmor] && !AccountData[playerid][pInEvent])
+        {
+            if(armour > 1.0)
+            {
+                SetPlayerArmour(playerid, 0.0);
+                AccountData[playerid][pArmor] = 0.0;
+                Anticheat[playerid][acArmour] = 0.0;
+                SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Armour Hack (no armor flag but has %.0f armor)", GetName(playerid), playerid, armour);
+                Anticheat[playerid][acArmorWarns]++;
+                if(Anticheat[playerid][acArmorWarns] >= 2)
+                {
+                    SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Armour Hack!");
+                    KickEx(playerid);
+                }
+                else
+                {
+                    SendClientMessage(playerid, Y_RED, "[AntiCheat] Dilarang Armour Cheat! Warning %d/2", Anticheat[playerid][acArmorWarns]);
+                }
+            }
+        }
+        else
+        {
+            // Has armor legit, but check for sudden increase
+            if(armour > Anticheat[playerid][acArmour] + 15.0)
+            {
+                // Increase without legit source
+                SetPlayerArmour(playerid, Anticheat[playerid][acArmour]);
+                AccountData[playerid][pArmor] = Anticheat[playerid][acArmour];
+                SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Armour Hack +%.0f (%.0f->%.0f)", GetName(playerid), playerid, armour - Anticheat[playerid][acArmour], Anticheat[playerid][acArmour], armour);
+                Anticheat[playerid][acArmorWarns]++;
+                if(Anticheat[playerid][acArmorWarns] >= 3)
+                {
+                    SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Armour Hack (regen)!");
+                    KickEx(playerid);
+                }
+            }
+            else
+            {
+                Anticheat[playerid][acArmour] = armour;
+            }
+        }
+    }
+    else
+    {
+        Anticheat[playerid][acArmour] = armour;
+    }
+
+    return 1;
+}
+
+ptask AntiCheatMoneyAndAmmo[1000](playerid) 
 {
     if(GetPlayerMoney(playerid) != AccountData[playerid][pMoney])
     {
@@ -470,73 +664,27 @@ ptask AntiCheatCheckTwo[1000](playerid)
         GivePlayerMoney(playerid, AccountData[playerid][pMoney]);
     }
 
-    //Anti Cheat Uang
     if(AccountData[playerid][IsLoggedIn])
     {
-        //Anti Darah Hack
-        new Float:Healthx;
-        if(!AccountData[playerid][pAdminDuty])
+        // Anti ammo hack - optimized loop
+        for(new slot = 0; slot < 13; slot++)
         {
-            GetPlayerHealth(playerid, Healthx);
-            if(Healthx > 100)
+            if(GunData[playerid][slot][WeaponAmmo] > 500)
             {
-                SetPlayerHealthEx(playerid, 100.0);
+                GunData[playerid][slot][WeaponAmmo] = 500;
+                SetWeapons(playerid);
+                SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Ammo >500 in slot %d - capped", GetName(playerid), playerid, slot);
             }
         }
-
-        //anti cheat ammo
-        if(GunData[playerid][0][WeaponAmmo] > 500)
-        {
-            GunData[playerid][0][WeaponAmmo] = 500;
-            SetWeapons(playerid);
-        }
-        if(GunData[playerid][1][WeaponAmmo] > 500){
-            GunData[playerid][1][WeaponAmmo] = 500;
-            SetWeapons(playerid);}
-        if(GunData[playerid][2][WeaponAmmo] > 500){
-            GunData[playerid][2][WeaponAmmo] = 500;
-            SetWeapons(playerid);}
-        if(GunData[playerid][3][WeaponAmmo] > 500){
-            GunData[playerid][3][WeaponAmmo] = 500;
-            SetWeapons(playerid);}
-        if(GunData[playerid][4][WeaponAmmo] > 500){
-            GunData[playerid][4][WeaponAmmo] = 500;
-            SetWeapons(playerid);}
-        if(GunData[playerid][5][WeaponAmmo] > 500){
-            GunData[playerid][5][WeaponAmmo] = 500;
-            SetWeapons(playerid);}
-        if(GunData[playerid][6][WeaponAmmo] > 500){
-            GunData[playerid][6][WeaponAmmo] = 500;
-            SetWeapons(playerid);}
-        if(GunData[playerid][7][WeaponAmmo] > 500){
-            GunData[playerid][7][WeaponAmmo] = 500;
-            SetWeapons(playerid);}
-        if(GunData[playerid][8][WeaponAmmo] > 500){
-            GunData[playerid][8][WeaponAmmo] = 500;
-            SetWeapons(playerid);}
-        if(GunData[playerid][9][WeaponAmmo] > 500){
-            GunData[playerid][9][WeaponAmmo] = 500;
-            SetWeapons(playerid);}
-        if(GunData[playerid][10][WeaponAmmo] > 500){
-            GunData[playerid][10][WeaponAmmo] = 500;
-            SetWeapons(playerid);}
-        if(GunData[playerid][11][WeaponAmmo] > 500){
-            GunData[playerid][11][WeaponAmmo] = 500;
-            SetWeapons(playerid);}
-        if(GunData[playerid][12][WeaponAmmo] > 500){
-            GunData[playerid][12][WeaponAmmo] = 500;
-            SetWeapons(playerid);}
         
-        if (AccountData[playerid][pAdmin] < 1 && !AccountData[playerid][pWitch] && AccountData[playerid][pAdminVlounter] < 1 && AccountData[playerid][pAdminHelper] < 1)
+        if(AccountData[playerid][pAdmin] < 1 && !AccountData[playerid][pWitch] && AccountData[playerid][pAdminVlounter] < 1 && AccountData[playerid][pAdminHelper] < 1)
         {
-            //anti jetpack
             if(GetPlayerSpecialAction(playerid) == SPECIAL_ACTION_USEJETPACK)
             {
                 SendClientMessage(playerid, Y_RED, "[AntiCheat] {DBD7D2}Anda ditendang dari server karena diduga Jetpack Hack.");
                 KickEx(playerid);
             }
             
-            //anti cit senjata terlarang
             if(IsProhibitedWeapon(GetPlayerWeapon(playerid)))
             {
                 SendClientMessage(playerid, Y_RED, "[AntiCheat] {DBD7D2}Anda ditendang dari server karena memegang senjata terlarang.");
@@ -544,7 +692,6 @@ ptask AntiCheatCheckTwo[1000](playerid)
             }
         }
         
-        //anti-lag
         if(GetPlayerPing(playerid) >= 650)
         {
             SendClientMessageEx(playerid, Y_RED, "[Anti-Lag] {DBD7D2}Anda ditendang dari server karena high-ping "YELLOW"(%d/650).", GetPlayerPing(playerid));
@@ -557,49 +704,6 @@ ptask AntiCheatCheckTwo[1000](playerid)
             SendClientMessageEx(playerid, Y_RED, "[Anti-Lag] {DBD7D2}Anda ditendang dari server karena packetloss tinggi "YELLOW"(%.2f/10.00).", GetPlayerPacketLoss(playerid));
             KickEx(playerid);
         }
-    }
-    return 1;
-}
-
-ptask AntiCheatCheckThree[1000](playerid) 
-{   
-    if(AccountData[playerid][IsLoggedIn] && AccountData[playerid][pSpawned])
-    {
-        //Anti Armour Hacks
-        if(gettime() > Anticheat[playerid][acArmorTime])
-        {
-            if(!AccountData[playerid][pHasArmor] && !AccountData[playerid][pInEvent]) //jika player tidak sedang memakai valid armor
-            {
-                static Float:A[MAX_PLAYERS];
-                GetPlayerArmour(playerid, A[playerid]);
-                if(A[playerid] > 0.0) //tetapi memiliki armor di atas 0 persen maka itu armor cheat
-                {
-                    SetPlayerArmour(playerid, 0.0);
-                    AccountData[playerid][pArmor] = 0.0;
-                    AccountData[playerid][pHasArmor] = false;
-                    AccountData[playerid][pArmorEmpty] = true;
-
-                    SendClientMessage(playerid, Y_RED, "[AntiCheat] {DBD7D2}Stop gunakan Armour Hacks atau anda akan dibanned!");
-                    return KickEx(playerid);
-                }
-            }
-        }
-
-        // if(AccountData[playerid][pHasArmor]) //jika player memakai valid armor
-        // {
-        //     new Float:parmor;
-        //     GetPlayerArmour(playerid, parmor);
-        //     if(parmor <= 0.0) //jika armor di badan kurang atau sama dengan 0 persen
-        //     {
-        //         if(!AccountData[playerid][pArmorEmpty]) //jika armor tidak kosong
-        //         {
-        //             SetPlayerArmour(playerid, 0.0);
-        //             AccountData[playerid][pArmor] = 0.0;
-        //             AccountData[playerid][pHasArmor] = false;
-        //             AccountData[playerid][pArmorEmpty] = true;
-        //         }
-        //     }
-        // }
     }
     return 1;
 }

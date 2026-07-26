@@ -239,12 +239,12 @@ Vault_Rebuild(lid)
         {
             case 1: //LSPD
             {
-                format(string, sizeof(string), "[Kepolisian Nexston]\n"GREEN"%s\n"WHITE"Gudang Penyimpanan Harta Kekayaan Fraksi\nTekan "YELLOW"'Y' "WHITE"untuk akses menu ini", VaultData[lid][Text]);
+                format(string, sizeof(string), "[Kepolisian Vertex]\n"GREEN"%s\n"WHITE"Gudang Penyimpanan Harta Kekayaan Fraksi\nTekan "YELLOW"'Y' "WHITE"untuk akses menu ini", VaultData[lid][Text]);
                 VaultData[lid][Label] = CreateDynamic3DTextLabel(string, 0x0096FFFF, VaultData[lid][Pos][0], VaultData[lid][Pos][1], VaultData[lid][Pos][2]+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, VaultData[lid][World], VaultData[lid][Interior], -1, 10.00, -1, 0);
             }
             case 2: //LSFD
             {
-                format(string, sizeof(string), "[Paramedis Nexston]\n"GREEN"%s\n"WHITE"Gudang Penyimpanan Harta Kekayaan Fraksi\nTekan "YELLOW"'Y' "WHITE"untuk akses menu ini", VaultData[lid][Text]);
+                format(string, sizeof(string), "[Paramedis Vertex]\n"GREEN"%s\n"WHITE"Gudang Penyimpanan Harta Kekayaan Fraksi\nTekan "YELLOW"'Y' "WHITE"untuk akses menu ini", VaultData[lid][Text]);
                 VaultData[lid][Label] = CreateDynamic3DTextLabel(string, 0xFF1A1AFF, VaultData[lid][Pos][0], VaultData[lid][Pos][1], VaultData[lid][Pos][2]+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, VaultData[lid][World], VaultData[lid][Interior], -1, 10.00, -1, 0);
             }
             case 3: //Pring Sewu
@@ -254,7 +254,7 @@ Vault_Rebuild(lid)
             }
             case 4: //SAGOV
             {
-                format(string, sizeof(string), "[Pemerintah Kota Nexston]\n"GREEN"%s\n"WHITE"Gudang Penyimpanan Harta Kekayaan Fraksi\nTekan "YELLOW"'Y' "WHITE"untuk akses menu ini", VaultData[lid][Text]);
+                format(string, sizeof(string), "[Pemerintah Kota Vertex]\n"GREEN"%s\n"WHITE"Gudang Penyimpanan Harta Kekayaan Fraksi\nTekan "YELLOW"'Y' "WHITE"untuk akses menu ini", VaultData[lid][Text]);
                 VaultData[lid][Label] = CreateDynamic3DTextLabel(string, 0x0096FFFF, VaultData[lid][Pos][0], VaultData[lid][Pos][1], VaultData[lid][Pos][2]+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, VaultData[lid][World], VaultData[lid][Interior], -1, 10.00, -1, 0);
             }
             case 5: //bennys
@@ -274,7 +274,7 @@ Vault_Rebuild(lid)
             }
             case 8: //Fox 11 LA
             {
-                format(string, sizeof(string), "[Pewarta Nexston]\n"GREEN"%s\n"WHITE"Gudang Penyimpanan Harta Kekayaan Fraksi\nTekan "YELLOW"'Y' "WHITE"untuk akses menu ini", VaultData[lid][Text]);
+                format(string, sizeof(string), "[Pewarta Vertex]\n"GREEN"%s\n"WHITE"Gudang Penyimpanan Harta Kekayaan Fraksi\nTekan "YELLOW"'Y' "WHITE"untuk akses menu ini", VaultData[lid][Text]);
                 VaultData[lid][Label] = CreateDynamic3DTextLabel(string, 0x075ebfFF, VaultData[lid][Pos][0], VaultData[lid][Pos][1], VaultData[lid][Pos][2]+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, VaultData[lid][World], VaultData[lid][Interior], -1, 10.00, -1, 0);
             }
             case 9: //bengkel
@@ -287,7 +287,7 @@ Vault_Rebuild(lid)
                 format(string, sizeof(string), "[Jaya Abadi]\n"GREEN"%s\n"WHITE"Gudang Penyimpanan Harta Kekayaan Fraksi\nTekan "YELLOW"'Y' "WHITE"untuk akses menu ini", VaultData[lid][Text]);
                 VaultData[lid][Label] = CreateDynamic3DTextLabel(string, 0xff7dcbFF, VaultData[lid][Pos][0], VaultData[lid][Pos][1], VaultData[lid][Pos][2]+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, VaultData[lid][World], VaultData[lid][Interior], -1, 10.00, -1, 0);
             }
-            case 11: //+Nexston
+            case 11: //+Vertex
             {
                 format(string, sizeof(string), "[Sri Mersing Resto]\n"GREEN"%s\n"WHITE"Gudang Penyimpanan Harta Kekayaan Fraksi\nTekan "YELLOW"'Y' "WHITE"untuk akses menu ini", VaultData[lid][Text]);
                 VaultData[lid][Label] = CreateDynamic3DTextLabel(string, 0xcbe9f6FF, VaultData[lid][Pos][0], VaultData[lid][Pos][1], VaultData[lid][Pos][2]+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, VaultData[lid][World], VaultData[lid][Interior], -1, 10.00, -1, 0);
@@ -319,12 +319,12 @@ FGarage_Rebuild(lid)
         {
             case 1: //LSPD
             {
-                format(string, sizeof(string), "[ "WHITE"(Garasi Fraksi): "YELLOW"Kepolisian Nexston "GREEN"]\n"WHITE"| %s |\nTekan "YELLOW"'Y'"WHITE" Untuk membuka menu garage faction", FactGarageData[lid][Text]);
+                format(string, sizeof(string), "[ "WHITE"(Garasi Fraksi): "YELLOW"Kepolisian Vertex "GREEN"]\n"WHITE"| %s |\nTekan "YELLOW"'Y'"WHITE" Untuk membuka menu garage faction", FactGarageData[lid][Text]);
                 FactGarageData[lid][Label] = CreateDynamic3DTextLabel(string, Y_GREEN, FactGarageData[lid][Pos][0], FactGarageData[lid][Pos][1], FactGarageData[lid][Pos][2]+0.45, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, FactGarageData[lid][World], FactGarageData[lid][Interior], -1, 10.00, -1, 0);
             }
             case 2: //LSFD
             {
-                format(string, sizeof(string), "[ "WHITE"(Garasi Fraksi): "YELLOW"Paramedis Nexston "GREEN"]\n"WHITE"| %s |\nTekan "YELLOW"'Y'"WHITE" Untuk membuka menu garage faction", FactGarageData[lid][Text]);
+                format(string, sizeof(string), "[ "WHITE"(Garasi Fraksi): "YELLOW"Paramedis Vertex "GREEN"]\n"WHITE"| %s |\nTekan "YELLOW"'Y'"WHITE" Untuk membuka menu garage faction", FactGarageData[lid][Text]);
                 FactGarageData[lid][Label] = CreateDynamic3DTextLabel(string, Y_GREEN, FactGarageData[lid][Pos][0], FactGarageData[lid][Pos][1], FactGarageData[lid][Pos][2]+0.45, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, FactGarageData[lid][World], FactGarageData[lid][Interior], -1, 10.00, -1, 0);
             }
             case 3: //Pring Sewu
@@ -334,7 +334,7 @@ FGarage_Rebuild(lid)
             }
             case 4: //SAGOV
             {
-                format(string, sizeof(string), "[ "WHITE"(Garasi Fraksi): "YELLOW"Pemerintah Daerah Nexston "GREEN"]\n"WHITE"| %s |\nTekan "YELLOW"'Y'"WHITE" Untuk membuka menu garage faction", FactGarageData[lid][Text]);
+                format(string, sizeof(string), "[ "WHITE"(Garasi Fraksi): "YELLOW"Pemerintah Daerah Vertex "GREEN"]\n"WHITE"| %s |\nTekan "YELLOW"'Y'"WHITE" Untuk membuka menu garage faction", FactGarageData[lid][Text]);
                 FactGarageData[lid][Label] = CreateDynamic3DTextLabel(string, Y_GREEN, FactGarageData[lid][Pos][0], FactGarageData[lid][Pos][1], FactGarageData[lid][Pos][2]+0.45, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, FactGarageData[lid][World], FactGarageData[lid][Interior], -1, 10.00, -1, 0);
             }
             case 5: //Bennys
@@ -344,7 +344,7 @@ FGarage_Rebuild(lid)
             }
             case 6: //Uber
             {
-                format(string, sizeof(string), "[ "WHITE"(Garasi Fraksi): "YELLOW"Uber Nexston "GREEN"]\n"WHITE"| %s |\nTekan "YELLOW"'Y'"WHITE" Untuk membuka menu garage faction", FactGarageData[lid][Text]);
+                format(string, sizeof(string), "[ "WHITE"(Garasi Fraksi): "YELLOW"Uber Vertex "GREEN"]\n"WHITE"| %s |\nTekan "YELLOW"'Y'"WHITE" Untuk membuka menu garage faction", FactGarageData[lid][Text]);
                 FactGarageData[lid][Label] = CreateDynamic3DTextLabel(string, Y_GREEN, FactGarageData[lid][Pos][0], FactGarageData[lid][Pos][1], FactGarageData[lid][Pos][2]+0.45, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, FactGarageData[lid][World], FactGarageData[lid][Interior], -1, 10.00, -1, 0);
             }
             case 7: //Dinarbucks
@@ -354,7 +354,7 @@ FGarage_Rebuild(lid)
             }
             case 8: //Fox 11 LA
             {
-                format(string, sizeof(string), "[ "WHITE"(Garasi Fraksi): "YELLOW"Pewarta Nexston "GREEN"]\n"WHITE"| %s |\nTekan "YELLOW"'Y'"WHITE" Untuk membuka menu garage faction", FactGarageData[lid][Text]);
+                format(string, sizeof(string), "[ "WHITE"(Garasi Fraksi): "YELLOW"Pewarta Vertex "GREEN"]\n"WHITE"| %s |\nTekan "YELLOW"'Y'"WHITE" Untuk membuka menu garage faction", FactGarageData[lid][Text]);
                 FactGarageData[lid][Label] = CreateDynamic3DTextLabel(string, Y_GREEN, FactGarageData[lid][Pos][0], FactGarageData[lid][Pos][1], FactGarageData[lid][Pos][2]+0.45, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, FactGarageData[lid][World], FactGarageData[lid][Interior], -1, 10.00, -1, 0);
             }
             case 9: //bengkel
@@ -367,7 +367,7 @@ FGarage_Rebuild(lid)
                 format(string, sizeof(string), "[ "WHITE"(Garasi Fraksi): "YELLOW"Jaya Abadi "GREEN"]\n"WHITE"| %s |\nTekan "YELLOW"'Y'"WHITE" Untuk membuka menu garage faction", FactGarageData[lid][Text]);
                 FactGarageData[lid][Label] = CreateDynamic3DTextLabel(string, Y_GREEN, FactGarageData[lid][Pos][0], FactGarageData[lid][Pos][1], FactGarageData[lid][Pos][2]+0.45, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, FactGarageData[lid][World], FactGarageData[lid][Interior], -1, 10.00, -1, 0);
             }
-            case 11: //+Nexston
+            case 11: //+Vertex
             {
                 format(string, sizeof(string), "[ "WHITE"(Garasi Fraksi): "YELLOW"Sri Mersing Resto "GREEN"]\n"WHITE"| %s |\nTekan "YELLOW"'Y'"WHITE" Untuk membuka menu garage faction", FactGarageData[lid][Text]);
                 FactGarageData[lid][Label] = CreateDynamic3DTextLabel(string, Y_GREEN, FactGarageData[lid][Pos][0], FactGarageData[lid][Pos][1], FactGarageData[lid][Pos][2]+0.45, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, FactGarageData[lid][World], FactGarageData[lid][Interior], -1, 10.00, -1, 0);
@@ -394,12 +394,12 @@ Locker_Rebuild(lid)
         {
             case 1: //LSPD
             {
-                format(string, sizeof(string), "[Kepolisian Nexston]\n"GREEN"%s\n"WHITE"Locker Fraksi\nTekan "YELLOW"'Y'"WHITE" untuk akses menu ini", LockerData[lid][Text]);
+                format(string, sizeof(string), "[Kepolisian Vertex]\n"GREEN"%s\n"WHITE"Locker Fraksi\nTekan "YELLOW"'Y'"WHITE" untuk akses menu ini", LockerData[lid][Text]);
                 LockerData[lid][Label] = CreateDynamic3DTextLabel(string, 0x0096FFFF, LockerData[lid][Pos][0], LockerData[lid][Pos][1], LockerData[lid][Pos][2]+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, LockerData[lid][World], LockerData[lid][Interior], -1, 10.00, -1, 0);
             }
             case 2: //LSFD
             {
-                format(string, sizeof(string), "[Paramedis Nexston]\n"GREEN"%s\n"WHITE"Locker Fraksi\nTekan "YELLOW"'Y'"WHITE" untuk akses menu ini", LockerData[lid][Text]);
+                format(string, sizeof(string), "[Paramedis Vertex]\n"GREEN"%s\n"WHITE"Locker Fraksi\nTekan "YELLOW"'Y'"WHITE" untuk akses menu ini", LockerData[lid][Text]);
                 LockerData[lid][Label] = CreateDynamic3DTextLabel(string, 0xFF1A1AFF, LockerData[lid][Pos][0], LockerData[lid][Pos][1], LockerData[lid][Pos][2]+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, LockerData[lid][World], LockerData[lid][Interior], -1, 10.00, -1, 0);
             }
             case 3: //Pring Sewu
@@ -409,7 +409,7 @@ Locker_Rebuild(lid)
             }
             case 4: //SAGOV
             {
-                format(string, sizeof(string), "[Pemerintah Kota Nexston]\n"GREEN"%s\n"WHITE"Locker Fraksi\nTekan "YELLOW"'Y'"WHITE" untuk akses menu ini", LockerData[lid][Text]);
+                format(string, sizeof(string), "[Pemerintah Kota Vertex]\n"GREEN"%s\n"WHITE"Locker Fraksi\nTekan "YELLOW"'Y'"WHITE" untuk akses menu ini", LockerData[lid][Text]);
                 LockerData[lid][Label] = CreateDynamic3DTextLabel(string, 0x0096FFFF, LockerData[lid][Pos][0], LockerData[lid][Pos][1], LockerData[lid][Pos][2]+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, LockerData[lid][World], LockerData[lid][Interior], -1, 10.00, -1, 0);
             }
             case 5: //bennys
@@ -429,7 +429,7 @@ Locker_Rebuild(lid)
             }
             case 8: //FOX 11 LA
             {
-                format(string, sizeof(string), "[Pewarta Nexston]\n"GREEN"%s\n"WHITE"Locker Fraksi\nTekan "YELLOW"'Y'"WHITE" untuk akses menu ini", LockerData[lid][Text]);
+                format(string, sizeof(string), "[Pewarta Vertex]\n"GREEN"%s\n"WHITE"Locker Fraksi\nTekan "YELLOW"'Y'"WHITE" untuk akses menu ini", LockerData[lid][Text]);
                 LockerData[lid][Label] = CreateDynamic3DTextLabel(string, 0x075ebfFF, LockerData[lid][Pos][0], LockerData[lid][Pos][1], LockerData[lid][Pos][2]+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, LockerData[lid][World], LockerData[lid][Interior], -1, 10.00, -1, 0);
             }
             case 9: //DriftKing
@@ -442,7 +442,7 @@ Locker_Rebuild(lid)
                 format(string, sizeof(string), "[Jaya Abadi]\n"GREEN"%s\n"WHITE"Locker Fraksi\nTekan "YELLOW"'Y'"WHITE" untuk akses menu ini", LockerData[lid][Text]);
                 LockerData[lid][Label] = CreateDynamic3DTextLabel(string, 0xff7dcbFF, LockerData[lid][Pos][0], LockerData[lid][Pos][1], LockerData[lid][Pos][2]+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, LockerData[lid][World], LockerData[lid][Interior], -1, 10.00, -1, 0);
             }
-            case 11: //+Nexston
+            case 11: //+Vertex
             {
                 format(string, sizeof(string), "[Sri Mersing Resto]\n"GREEN"%s\n"WHITE"Locker Fraksi\nTekan "YELLOW"'Y'"WHITE" untuk akses menu ini", LockerData[lid][Text]);
                 LockerData[lid][Label] = CreateDynamic3DTextLabel(string, 0xcbe9f6FF, LockerData[lid][Pos][0], LockerData[lid][Pos][1], LockerData[lid][Pos][2]+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, LockerData[lid][World], LockerData[lid][Interior], -1, 10.00, -1, 0);
@@ -496,7 +496,7 @@ Armoury_Rebuild(lid)
         ArmouryData[lid][Pickup] = CreateDynamicPickup(1242, 23, ArmouryData[lid][Pos][0], ArmouryData[lid][Pos][1], ArmouryData[lid][Pos][2], ArmouryData[lid][World], ArmouryData[lid][Interior], -1, 30.0, -1, 0);
         
         static string[268];
-        format(string, sizeof(string), "[Kepolisian Nexston]\n"GREEN"%s\n"WHITE"Gudang Perlengkapan & Persenjataan\nGunakan "YELLOW"'/armoury' "WHITE"untuk akses menu ini", ArmouryData[lid][Text]);
+        format(string, sizeof(string), "[Kepolisian Vertex]\n"GREEN"%s\n"WHITE"Gudang Perlengkapan & Persenjataan\nGunakan "YELLOW"'/armoury' "WHITE"untuk akses menu ini", ArmouryData[lid][Text]);
         ArmouryData[lid][Label] = CreateDynamic3DTextLabel(string, 0x0096FFFF, ArmouryData[lid][Pos][0], ArmouryData[lid][Pos][1], ArmouryData[lid][Pos][2]+0.65, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, ArmouryData[lid][World], ArmouryData[lid][Interior], -1, 10.00, -1, 0);
     }
     return 1;
@@ -644,51 +644,51 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
             switch (AccountData[playerid][pFaction])
             {
                 case FACTION_LSPD:
-                    Dialog_Show(playerid, "PolisiLocker", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Locker Kepolisian",
+                    Dialog_Show(playerid, "PolisiLocker", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Locker Kepolisian",
                         "On Duty/Off Duty\nGanti Seragam\nPlain Clothes Detective\nAmbil Perlengkapan\nSimpan Perlengkapan", "Pilih", "Batal");
 
                 case FACTION_LSFD:
-                    Dialog_Show(playerid, "ParamedisLocker", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Locker Paramedis",
+                    Dialog_Show(playerid, "ParamedisLocker", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Locker Paramedis",
                         "On Duty/Off Duty\nGanti Seragam", "Pilih", "Batal");
 
                 case FACTION_PRINGSEWU:
-                    Dialog_Show(playerid, "PringSewuLocker", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Locker Pring Sewu",
+                    Dialog_Show(playerid, "PringSewuLocker", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Locker Pring Sewu",
                         "On Duty/Off Duty\nGanti Seragam", "Pilih", "Batal");
 
                 case FACTION_SAGOV:
-                    Dialog_Show(playerid, "PemerintahLocker", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Locker Pemerintah",
+                    Dialog_Show(playerid, "PemerintahLocker", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Locker Pemerintah",
                         "On Duty/Off Duty\nGanti Seragam\nBaton Stick", "Pilih", "Batal");
 
                 case FACTION_BENNYS:
-                    Dialog_Show(playerid, "BennysLocker", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Locker Bennys",
+                    Dialog_Show(playerid, "BennysLocker", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Locker Bennys",
                         "On Duty/Off Duty\nGanti Seragam", "Pilih", "Batal");
 
                 case FACTION_UBER:
-                    Dialog_Show(playerid, "UberLocker", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Locker Uber",
+                    Dialog_Show(playerid, "UberLocker", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Locker Uber",
                         "On Duty/Off Duty\nGanti Seragam", "Pilih", "Batal");
 
                 case FACTION_DINARBUCKS:
-                    Dialog_Show(playerid, "DinarbucksLocker", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Locker Dinarbucks",
+                    Dialog_Show(playerid, "DinarbucksLocker", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Locker Dinarbucks",
                         "On Duty/Off Duty\nGanti Seragam", "Pilih", "Batal");
 
                 case FACTION_FOX11:
-                    Dialog_Show(playerid, "PewartaLocker", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Locker Wartawan",
+                    Dialog_Show(playerid, "PewartaLocker", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Locker Wartawan",
                         "On Duty/Off Duty\nGanti Seragam", "Pilih", "Batal");
 
                 case FACTION_DRIFTKING:
-                    Dialog_Show(playerid, "DriftKingLocker", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Locker DriftKing",
+                    Dialog_Show(playerid, "DriftKingLocker", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Locker DriftKing",
                         "On Duty/Off Duty\nGanti Seragam", "Pilih", "Batal");
 
                 case FACTION_JAYAABADI:
-                    Dialog_Show(playerid, "JayaAbadiLocker", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Locker Jaya Abadi",
+                    Dialog_Show(playerid, "JayaAbadiLocker", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Locker Jaya Abadi",
                         "On Duty/Off Duty\nGanti Seragam", "Pilih", "Batal");
 
                 case FACTION_SRIMERSING:
-                    Dialog_Show(playerid, "SriMersingLocker", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Locker Karens Dinner",
+                    Dialog_Show(playerid, "SriMersingLocker", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Locker Karens Dinner",
                         "On Duty/Off Duty\nGanti Seragam", "Pilih", "Batal");
 
                 // case FACTION_BINTANGKEJORA:
-                //     Dialog_Show(playerid, "BintangKejoraLocker", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Locker Karens Dinner",
+                //     Dialog_Show(playerid, "BintangKejoraLocker", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Locker Karens Dinner",
                 //         "On Duty/Off Duty\nGanti Seragam\nBaton Satpam", "Pilih", "Batal");
             }
 
@@ -707,51 +707,51 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
             switch (AccountData[playerid][pFaction])
             {
                 case FACTION_LSPD:
-                    Dialog_Show(playerid, "PolisiGarage", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Garasi Kepolisian",
+                    Dialog_Show(playerid, "PolisiGarage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Garasi Kepolisian",
                         "Keluarkan Kendaraan\nSimpan Kendaraan", "Pilih", "Batal");
 
                 case FACTION_LSFD:
-                    Dialog_Show(playerid, "ParamedisGarage", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Garasi Paramedis",
+                    Dialog_Show(playerid, "ParamedisGarage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Garasi Paramedis",
                         "Keluarkan Kendaraan\nSimpan Kendaraan", "Pilih", "Batal");
 
                 case FACTION_PRINGSEWU:
-                    Dialog_Show(playerid, "PringSewuGarage", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Garasi Koki Sunda",
+                    Dialog_Show(playerid, "PringSewuGarage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Garasi Koki Sunda",
                         "Keluarkan Kendaraan\nSimpan Kendaraan", "Pilih", "Batal");
 
                 case FACTION_SAGOV:
-                    Dialog_Show(playerid, "PemerintahGarage", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Garasi Pemerintah",
+                    Dialog_Show(playerid, "PemerintahGarage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Garasi Pemerintah",
                         "Keluarkan Kendaraan\nSimpan Kendaraan", "Pilih", "Batal");
 
                 case FACTION_BENNYS:
-                    Dialog_Show(playerid, "BennysGarage", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Garasi Bennys",
+                    Dialog_Show(playerid, "BennysGarage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Garasi Bennys",
                         "Keluarkan Kendaraan\nSimpan Kendaraan", "Pilih", "Batal");
 
                 case FACTION_UBER:
-                    Dialog_Show(playerid, "UberGarage", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Garasi Uber",
+                    Dialog_Show(playerid, "UberGarage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Garasi Uber",
                         "Keluarkan Kendaraan\nSimpan Kendaraan", "Pilih", "Batal");
 
                 case FACTION_DINARBUCKS:
-                    Dialog_Show(playerid, "DinarbucksGarage", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Garasi Dinarbucks",
+                    Dialog_Show(playerid, "DinarbucksGarage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Garasi Dinarbucks",
                         "Keluarkan Kendaraan\nSimpan Kendaraan", "Pilih", "Batal");
 
                 case FACTION_FOX11:
-                    Dialog_Show(playerid, "PewartaGarage", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Garasi Wartawan",
+                    Dialog_Show(playerid, "PewartaGarage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Garasi Wartawan",
                         "Keluarkan Kendaraan\nSimpan Kendaraan", "Pilih", "Batal");
 
                 case FACTION_DRIFTKING:
-                    Dialog_Show(playerid, "DriftKingGarage", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Garasi DriftKing",
+                    Dialog_Show(playerid, "DriftKingGarage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Garasi DriftKing",
                         "Keluarkan Kendaraan\nSimpan Kendaraan", "Pilih", "Batal");
 
                 case FACTION_JAYAABADI:
-                    Dialog_Show(playerid, "JayaAbadiGarage", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Garasi Jaya Abadi",
+                    Dialog_Show(playerid, "JayaAbadiGarage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Garasi Jaya Abadi",
                         "Keluarkan Kendaraan\nSimpan Kendaraan", "Pilih", "Batal");
 
                 case FACTION_SRIMERSING:
-                    Dialog_Show(playerid, "SriMersingGarage", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Garasi Karens Dinner",
+                    Dialog_Show(playerid, "SriMersingGarage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Garasi Karens Dinner",
                         "Keluarkan Kendaraan\nSimpan Kendaraan", "Pilih", "Batal");
 
                 // case FACTION_BINTANGKEJORA:
-                //     Dialog_Show(playerid, "BintangKejoraGarage", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Garasi Karens Dinner",
+                //     Dialog_Show(playerid, "BintangKejoraGarage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Garasi Karens Dinner",
                 //         "Keluarkan Kendaraan\nSimpan Kendaraan", "Pilih", "Batal");
             }
 
@@ -770,51 +770,51 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
             switch (AccountData[playerid][pFaction])
             {
                 case FACTION_LSPD:
-                    Dialog_Show(playerid, "PolisiVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Kepolisian",
+                    Dialog_Show(playerid, "PolisiVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Kepolisian",
                         "Simpan Barang\nAmbil Barang", "Pilih", "Kembali");
 
                 case FACTION_LSFD:
-                    Dialog_Show(playerid, "ParamedisVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Paramedis",
+                    Dialog_Show(playerid, "ParamedisVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Paramedis",
                         "Simpan Barang\nAmbil Barang", "Pilih", "Kembali");
 
                 case FACTION_PRINGSEWU:
-                    Dialog_Show(playerid, "PringSewuVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Pring Sewu",
+                    Dialog_Show(playerid, "PringSewuVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Pring Sewu",
                         "Simpan Barang\nAmbil Barang", "Pilih", "Kembali");
 
                 case FACTION_SAGOV:
-                    Dialog_Show(playerid, "PemerintahVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Pemerintah",
+                    Dialog_Show(playerid, "PemerintahVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Pemerintah",
                         "Simpan Barang\nAmbil Barang", "Pilih", "Kembali");
 
                 case FACTION_BENNYS:
-                    Dialog_Show(playerid, "BennysVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Bennys",
+                    Dialog_Show(playerid, "BennysVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Bennys",
                         "Simpan Barang\nAmbil Barang", "Pilih", "Kembali");
 
                 case FACTION_UBER:
-                    Dialog_Show(playerid, "UberVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Uber",
+                    Dialog_Show(playerid, "UberVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Uber",
                         "Simpan Barang\nAmbil Barang", "Pilih", "Kembali");
 
                 case FACTION_DINARBUCKS:
-                    Dialog_Show(playerid, "DinarbucksVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Dinarbucks",
+                    Dialog_Show(playerid, "DinarbucksVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Dinarbucks",
                         "Simpan Barang\nAmbil Barang", "Pilih", "Kembali");
 
                 case FACTION_FOX11:
-                    Dialog_Show(playerid, "PewartaVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Wartawan",
+                    Dialog_Show(playerid, "PewartaVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Wartawan",
                         "Simpan Barang\nAmbil Barang", "Pilih", "Kembali");
 
                 case FACTION_DRIFTKING:
-                    Dialog_Show(playerid, "DriftKingVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas DriftKing",
+                    Dialog_Show(playerid, "DriftKingVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas DriftKing",
                         "Simpan Barang\nAmbil Barang", "Pilih", "Kembali");
 
                 case FACTION_JAYAABADI:
-                    Dialog_Show(playerid, "JayaAbadiVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Jaya Abadi",
+                    Dialog_Show(playerid, "JayaAbadiVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Jaya Abadi",
                         "Simpan Barang\nAmbil Barang", "Pilih", "Kembali");
 
                 case FACTION_SRIMERSING:
-                    Dialog_Show(playerid, "SriMersingVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Karens Dinner",
+                    Dialog_Show(playerid, "SriMersingVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Karens Dinner",
                         "Simpan Barang\nAmbil Barang", "Pilih", "Kembali");
 
                 // case FACTION_BINTANGKEJORA:
-                //     Dialog_Show(playerid, "BintangKejoraVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Karens Dinner",
+                //     Dialog_Show(playerid, "BintangKejoraVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Karens Dinner",
                 //         "Simpan Barang\nAmbil Barang", "Pilih", "Kembali");
             }
 

@@ -307,7 +307,7 @@ YCMD:apoint(playerid, params[], help)
 		format(lstr,sizeof(lstr), "%d\t%s\t%s\t%d Admin Point\n", i, AccountData[i][pAdminname], GetAdminLevel(i), AccountData[i][pApoint]);
 		strcat(location,lstr,sizeof(location));
 	}
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Admin Point", location, "Tutup", "");
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Admin Point", location, "Tutup", "");
 	return 1;
 }
 

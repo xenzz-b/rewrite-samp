@@ -342,7 +342,7 @@ Dialog:ToysEdit(playerid, response, listitem, inputtext[])
         }
         case 1: //bone
         {
-            Dialog_Show(playerid, "ToysEditBone", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Edit Bone", 
+            Dialog_Show(playerid, "ToysEditBone", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Edit Bone", 
             "Spine\n"GRAY"Head\nLeft upper arm\n"GRAY"Right upper arm\nLeft hand\n"GRAY"Right hand\nLeft thigh\n"GRAY"Right tigh\nLeft foot\n"GRAY"Right foot\nRight calf\n"GRAY"Left calf\nLeft forearm\n"GRAY"Right forearm\nLeft clavicle\n"GRAY"Right clavicle\nNeck\n"GRAY"Jaw", 
             "Pilih", "Batal");
         }
@@ -350,67 +350,67 @@ Dialog:ToysEdit(playerid, response, listitem, inputtext[])
         {
             new mstr[128];
             format(mstr, sizeof(mstr), ""WHITE"Sumbu X (saat ini): %f\n"YELLOW"(Masukkan Sumbu X yang baru):", pToys[playerid][AccountData[playerid][pToySelected]][toy_x]);
-            Dialog_Show(playerid, "ToysEditX", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Sumbu X", mstr, "Set", "Batal");
+            Dialog_Show(playerid, "ToysEditX", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Sumbu X", mstr, "Set", "Batal");
         }
         case 3:
         {
             new mstr[128];
             format(mstr, sizeof(mstr), ""WHITE"Sumbu Y (saat ini): %f\n"YELLOW"(Masukkan Sumbu Y yang baru):", pToys[playerid][AccountData[playerid][pToySelected]][toy_y]);
-            Dialog_Show(playerid, "ToysEditY", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Sumbu Y", mstr, "Set", "Batal");
+            Dialog_Show(playerid, "ToysEditY", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Sumbu Y", mstr, "Set", "Batal");
         }
         case 4:
         {
             new mstr[128];
             format(mstr, sizeof(mstr), ""WHITE"Sumbu Z (saat ini): %f\n"YELLOW"(Masukkan Sumbu Z yang baru):", pToys[playerid][AccountData[playerid][pToySelected]][toy_z]);
-            Dialog_Show(playerid, "ToysEditZ", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Sumbu Z", mstr, "Set", "Batal");
+            Dialog_Show(playerid, "ToysEditZ", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Sumbu Z", mstr, "Set", "Batal");
         }
         case 5:
         {
             new mstr[128];
             format(mstr, sizeof(mstr), ""WHITE"Rotasi X (saat ini): %f\n"YELLOW"(Masukkan Rotasi X yang baru):", pToys[playerid][AccountData[playerid][pToySelected]][toy_rx]);
-            Dialog_Show(playerid, "ToysEditRX", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Rotasi X", mstr, "Set", "Batal");
+            Dialog_Show(playerid, "ToysEditRX", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Rotasi X", mstr, "Set", "Batal");
         }
         case 6:
         {
             new mstr[128];
             format(mstr, sizeof(mstr), ""WHITE"Rotasi Y (saat ini): %f\n"YELLOW"(Masukkan Rotasi Y yang baru):", pToys[playerid][AccountData[playerid][pToySelected]][toy_ry]);
-            Dialog_Show(playerid, "ToysEditRY", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Rotasi Y", mstr, "Set", "Batal");
+            Dialog_Show(playerid, "ToysEditRY", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Rotasi Y", mstr, "Set", "Batal");
         }
         case 7:
         {
             new mstr[128];
             format(mstr, sizeof(mstr), ""WHITE"Rotasi Z (saat ini): %f\n"YELLOW"(Masukkan Rotasi Z yang baru):", pToys[playerid][AccountData[playerid][pToySelected]][toy_rz]);
-            Dialog_Show(playerid, "ToysEditRZ", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Rotasi Z", mstr, "Set", "Batal");
+            Dialog_Show(playerid, "ToysEditRZ", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Rotasi Z", mstr, "Set", "Batal");
         }
         case 8:
         {
             new mstr[128];
             format(mstr, sizeof(mstr), ""WHITE"Skala X (saat ini): %f\n"YELLOW"(Masukkan Skala X yang baru):", pToys[playerid][AccountData[playerid][pToySelected]][toy_sx]);
-            Dialog_Show(playerid, "ToysEditSX", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Skala X", mstr, "Set", "Batal");
+            Dialog_Show(playerid, "ToysEditSX", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Skala X", mstr, "Set", "Batal");
         }
         case 9:
         {
             new mstr[128];
             format(mstr, sizeof(mstr), ""WHITE"Skala Y (saat ini): %f\n"YELLOW"(Masukkan Skala Y yang baru):", pToys[playerid][AccountData[playerid][pToySelected]][toy_sy]);
-            Dialog_Show(playerid, "ToysEditSY", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Skala Y", mstr, "Set", "Batal");
+            Dialog_Show(playerid, "ToysEditSY", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Skala Y", mstr, "Set", "Batal");
         }
         case 10:
         {
             new mstr[128];
             format(mstr, sizeof(mstr), ""WHITE"Skala Z (saat ini): %f\n"YELLOW"(Masukkan Skala Z yang baru):", pToys[playerid][AccountData[playerid][pToySelected]][toy_sz]);
-            Dialog_Show(playerid, "ToysEditSZ", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Skala Z", mstr, "Set", "Batal");
+            Dialog_Show(playerid, "ToysEditSZ", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Skala Z", mstr, "Set", "Batal");
         }
         case 11:
         {
             new mstr[128];
             format(mstr, sizeof(mstr), ""WHITE"Material Color 1 (saat ini): %08x\n"YELLOW"Masukkan Material Color 1 (Dalam format ARGB)\n"ORANGE"Contoh: 255 255 0 0 (Untuk warna merah)", pToys[playerid][AccountData[playerid][pToySelected]][matcolor1]);
-            Dialog_Show(playerid, "ToysEditC1", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Color 1", mstr, "Set", "Batal");
+            Dialog_Show(playerid, "ToysEditC1", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Color 1", mstr, "Set", "Batal");
         }
         case 12:
         {
             new mstr[128];
             format(mstr, sizeof(mstr), ""WHITE"Material Color 2 (saat ini): %08x\n"YELLOW"Masukkan Material Color 2 (Dalam format ARGB)\n"ORANGE"Contoh: 255 255 0 0 (Untuk warna merah)", pToys[playerid][AccountData[playerid][pToySelected]][matcolor2]);
-            Dialog_Show(playerid, "ToysEditC2", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Color 2", mstr, "Set", "Batal");
+            Dialog_Show(playerid, "ToysEditC2", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Color 2", mstr, "Set", "Batal");
         }
         case 13:
         {
@@ -559,19 +559,19 @@ Dialog:ToysEditX(playerid, response, listitem, inputtext[])
     {
         case 0:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
         }
         case 1:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
         }
         case 2:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
         }
         case 3:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
         }
     }
     return 1;
@@ -633,19 +633,19 @@ Dialog:ToysEditY(playerid, response, listitem, inputtext[])
     {
         case 0:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
         }
         case 1:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
         }
         case 2:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
         }
         case 3:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
         }
     }
     return 1;
@@ -707,19 +707,19 @@ Dialog:ToysEditZ(playerid, response, listitem, inputtext[])
     {
         case 0:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
         }
         case 1:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
         }
         case 2:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
         }
         case 3:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
         }
     }
     return 1;
@@ -781,19 +781,19 @@ Dialog:ToysEditRX(playerid, response, listitem, inputtext[])
     {
         case 0:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
         }
         case 1:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
         }
         case 2:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
         }
         case 3:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
         }
     }
     return 1;
@@ -855,19 +855,19 @@ Dialog:ToysEditRY(playerid, response, listitem, inputtext[])
     {
         case 0:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
         }
         case 1:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
         }
         case 2:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
         }
         case 3:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
         }
     }
     return 1;
@@ -929,19 +929,19 @@ Dialog:ToysEditRZ(playerid, response, listitem, inputtext[])
     {
         case 0:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
         }
         case 1:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
         }
         case 2:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
         }
         case 3:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
         }
     }
     return 1;
@@ -1003,19 +1003,19 @@ Dialog:ToysEditSX(playerid, response, listitem, inputtext[])
     {
         case 0:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
         }
         case 1:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
         }
         case 2:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
         }
         case 3:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
         }
     }
     return 1;
@@ -1077,19 +1077,19 @@ Dialog:ToysEditSY(playerid, response, listitem, inputtext[])
     {
         case 0:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
         }
         case 1:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
         }
         case 2:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
         }
         case 3:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
         }
     }
     return 1;
@@ -1151,19 +1151,19 @@ Dialog:ToysEditSZ(playerid, response, listitem, inputtext[])
     {
         case 0:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
         }
         case 1:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
         }
         case 2:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
         }
         case 3:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
         }
     }
     return 1;
@@ -1176,7 +1176,7 @@ Dialog:ToysEditC1(playerid, response, listitem, inputtext[])
     if(sscanf(inputtext, "p< >a<i>[4]", color))
     {
         format(mstr, sizeof(mstr), ""WHITE"Format warna salah!\nMaterial Color 1 (saat ini): %08x\n"YELLOW"Masukkan Material Color 1 (Dalam format ARGB)\n"ORANGE"Contoh: 255 255 0 0 (Untuk warna merah)", pToys[playerid][AccountData[playerid][pToySelected]][matcolor1]);
-        Dialog_Show(playerid, "ToysEditC1", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Color 1", mstr, "Set", "Batal");
+        Dialog_Show(playerid, "ToysEditC1", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Color 1", mstr, "Set", "Batal");
         return 1;
     }
 
@@ -1234,19 +1234,19 @@ Dialog:ToysEditC1(playerid, response, listitem, inputtext[])
     {
         case 0:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
         }
         case 1:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
         }
         case 2:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
         }
         case 3:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
         }
     }
     return 1;
@@ -1259,7 +1259,7 @@ Dialog:ToysEditC2(playerid, response, listitem, inputtext[])
     if(sscanf(inputtext, "p< >a<i>[4]", color))
     {
         format(mstr, sizeof(mstr), ""WHITE"Format warna salah!\nMaterial Color 2 (saat ini): %08x\n"YELLOW"Masukkan Material Color 2 (Dalam format ARGB)\n"ORANGE"Contoh: 255 255 0 0 (Untuk warna merah)", pToys[playerid][AccountData[playerid][pToySelected]][matcolor2]);
-        Dialog_Show(playerid, "ToysEditC2", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Color 2", mstr, "Set", "Batal");
+        Dialog_Show(playerid, "ToysEditC2", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Color 2", mstr, "Set", "Batal");
         return 1;
     }
 
@@ -1317,19 +1317,19 @@ Dialog:ToysEditC2(playerid, response, listitem, inputtext[])
     {
         case 0:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
         }
         case 1:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
         }
         case 2:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
         }
         case 3:
         {
-            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
+            Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
         }
     }
     return 1;

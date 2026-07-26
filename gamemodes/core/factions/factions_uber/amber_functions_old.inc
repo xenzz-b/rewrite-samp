@@ -109,7 +109,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         if(IsPlayerInDynamicArea(playerid, PlayerFactionAmberVars[playerid][AmberLockerArea]))
         {
             HideNotifBox(playerid);
-            Dialog_Show(playerid, DIALOG_LOCKER_AMBER, DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Seragam", 
+            Dialog_Show(playerid, DIALOG_LOCKER_AMBER, DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Seragam", 
             "Baju Warga\n\
             "GRAY"Baju Amber", "Pilih", "Batal");
         }
@@ -119,7 +119,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
             HideNotifBox(playerid);
             if(AccountData[playerid][pFactionRank] < 4) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimal rank Ast. Bos Amber untuk akses Bos Desk!");
 
-            Dialog_Show(playerid, DIALOG_BOSDESK_AMBER, DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Bos Desk", 
+            Dialog_Show(playerid, DIALOG_BOSDESK_AMBER, DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Bos Desk", 
             "Invite\n\
             "GRAY"Kelola Jabatan\n\
             Kick\n\
@@ -131,7 +131,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         if(IsPlayerInDynamicArea(playerid, PlayerFactionAmberVars[playerid][AmberGarageArea]))
         {
             HideNotifBox(playerid);
-            Dialog_Show(playerid, DIALOG_GARAGE_AMBER, DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Garasi Amber", 
+            Dialog_Show(playerid, DIALOG_GARAGE_AMBER, DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Garasi Amber", 
             "Keluarkan Kendaraan\n\
             "GRAY"Simpan Kendaraan\n\
             Beli Kendaraan\n\
@@ -150,7 +150,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 		}
 		if(count > 0) 
 		{
-            Dialog_Show(playerid, DIALOG_AMBER_PANEL, DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+            Dialog_Show(playerid, DIALOG_AMBER_PANEL, DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
             "Invoice Belum Terbayar\n\
             "GRAY"Invoice Manual", "Pilih", "Batal");
 		}
@@ -202,10 +202,10 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
                     if(count == 0)
                     {
                         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                        return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Undang Faction", "Tidak ada pemain terdekat!", "Tutup", "");
+                        return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Undang Faction", "Tidak ada pemain terdekat!", "Tutup", "");
                     }
 
-                    Dialog_Show(playerid, DIALOG_INVITE_CONFIRM_AMBER, DIALOG_STYLE_TABLIST, ""Nexston"Nexston Roleplay "WHITE"- Undang Faction", frmxt, "Pilih", "Batal");
+                    Dialog_Show(playerid, DIALOG_INVITE_CONFIRM_AMBER, DIALOG_STYLE_TABLIST, ""Vertex"Vertex Roleplay "WHITE"- Undang Faction", frmxt, "Pilih", "Batal");
                 }
                 case 1: //kelola jabatan
                 {
@@ -225,12 +225,12 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
                             
                             AddDialogListitem(playerid, "%s\t%s\t%s", fckname, AmberRank[fckrank], fcklastlogin);
                         }
-                        ShowPlayerDialogPages(playerid, "AmberSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Pilih", "Batal", 15, ""GREEN">> Lanjut", ""ORANGE"<< Kembali");
+                        ShowPlayerDialogPages(playerid, "AmberSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Pilih", "Batal", 15, ""GREEN">> Lanjut", ""ORANGE"<< Kembali");
                     }
                     else
                     {
                         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                        return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
+                        return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
                     }
                 }
                 case 2: //kick
@@ -251,12 +251,12 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
                             
                             AddDialogListitem(playerid, "%s\t%s\t%s", fckname, AmberRank[fckrank], fcklastlogin);
                         }
-                        ShowPlayerDialogPages(playerid, "AmberKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", "Pilih", "Batal", 15, ""GREEN">> Lanjut", ""ORANGE"<< Kembali");
+                        ShowPlayerDialogPages(playerid, "AmberKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", "Pilih", "Batal", 15, ""GREEN">> Lanjut", ""ORANGE"<< Kembali");
                     }
                     else
                     {
                         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                        return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", "Faction ini tidak memiliki anggota!", "Tutup", "");
+                        return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", "Faction ini tidak memiliki anggota!", "Tutup", "");
                     }
                 }
             }
@@ -283,7 +283,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
             if(AccountData[playerid][pFaction] != FACTION_AMBER) return SEM(playerid, "Anda bukan anggota Amber!");
             if(AccountData[playerid][pFactionRank] < 4) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimal rank Ast. Bos Amber untuk akses Bos Desk!");
 
-            if(isnull(inputtext)) return Dialog_Show(playerid, DIALOG_RANK_SET_AMBER, DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+            if(isnull(inputtext)) return Dialog_Show(playerid, DIALOG_RANK_SET_AMBER, DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
             "Error: Tidak dapat dikosongkan!\n\
             Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
             1. Magang\n\
@@ -292,7 +292,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
             4. Wakil Bos\n\
             5. Bos Amber", "Set", "Batal");
             
-            if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, DIALOG_RANK_SET_AMBER, DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+            if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, DIALOG_RANK_SET_AMBER, DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
             "Error: Masukkan hanya angka!\n\
             Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
             1. Magang\n\
@@ -301,7 +301,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
             4. Wakil Bos\n\
             5. Bos Amber", "Set", "Batal");
 
-            if(strval(inputtext) < 1 || strval(inputtext) > AccountData[playerid][pFactionRank]) return Dialog_Show(playerid, DIALOG_RANK_SET_AMBER, DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+            if(strval(inputtext) < 1 || strval(inputtext) > AccountData[playerid][pFactionRank]) return Dialog_Show(playerid, DIALOG_RANK_SET_AMBER, DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
             "Error: Tidak dapat diisi dibawah 1 atau lebih tinggi dari jabatan anda!\n\
             Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
             1. Magang\n\
@@ -348,7 +348,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
                         }
                         else format(lstr,sizeof(lstr), "%s%d\t%s\t%s\n", lstr, itt+1, GetVehicleModelName(PlayerVehicle[id][pVehModelID]), PlayerVehicle[id][pVehPlate]);
                     }
-                    Dialog_Show(playerid, DIALOG_GARAGE_AMBER_TAKEOUT, DIALOG_STYLE_TABLIST_HEADERS,""Nexston"Nexston Roleplay "WHITE"- Keluarkan Kendaraan", lstr, "Pilih","Batal");
+                    Dialog_Show(playerid, DIALOG_GARAGE_AMBER_TAKEOUT, DIALOG_STYLE_TABLIST_HEADERS,""Vertex"Vertex Roleplay "WHITE"- Keluarkan Kendaraan", lstr, "Pilih","Batal");
                 }
                 case 1: //simpan kendaraan
                 {
@@ -374,7 +374,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
                 }
                 case 2: //beli kendaraan
                 {
-                    Dialog_Show(playerid, DIALOG_GARAGE_AMBER_BUY, DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Beli Kendaraan", 
+                    Dialog_Show(playerid, DIALOG_GARAGE_AMBER_BUY, DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Beli Kendaraan", 
                     "Model\tHarga\n\
                     Moonbeam\t$5,000\n\
                     "GRAY"Wayfarer\t"GRAY"$1,500\n\
@@ -399,12 +399,12 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
                             format(list, sizeof(list), "%s%d\t%s\n", list, hkvid, GetVehicleModelName(hkvmod));
                         }
-                        Dialog_Show(playerid, DIALOG_GARAGE_AMBER_DELETE, DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Hapus Kendaraan", list, "Pilih", "Batal");
+                        Dialog_Show(playerid, DIALOG_GARAGE_AMBER_DELETE, DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Hapus Kendaraan", list, "Pilih", "Batal");
                     }
                     else
                     {
                         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                        return Dialog_Show(playerid, DIALOG_GARAGE_AMBER_DELETE, DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Hapus Kendaraan", "Anda tidak memiliki kendaraan dari Amber", "Tutup", "");
+                        return Dialog_Show(playerid, DIALOG_GARAGE_AMBER_DELETE, DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Hapus Kendaraan", "Anda tidak memiliki kendaraan dari Amber", "Tutup", "");
                     }
                 }
             }
@@ -494,7 +494,7 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
                 format(kckstr, sizeof(kckstr), "Anda berhasil menghapus kendaraan:\n\
                 Database ID: %d\n\
                 Model: %s", hapvid, GetVehicleModelName(hapmods));
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Hapus Kendaraan", kckstr, "Tutup", "");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Hapus Kendaraan", kckstr, "Tutup", "");
 
                 new pvid = GetFactionVehicleIDFromListitem(playerid, listitem, FACTION_AMBER);
 
@@ -536,19 +536,19 @@ hook OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 
                     if(count == 0)
                     {
-                        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+                        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
                         "This person has no invoices.", "Tutup", "");
                     }
                     else
                     {
-                        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+                        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
                         xjjs, "Tutup", "");
                     }
                     NearestSingle[playerid] = INVALID_PLAYER_ID;
                 }
                 case 1: //invoice manual
                 {
-                    Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Invoice", 
+                    Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Invoice", 
                     "Mohon masukkan nama dari invoice ini:", "Input", "Batal");
                 }
             }
@@ -571,7 +571,7 @@ DialogPages:AmberSetRank(playerid, response, listitem, inputtext[])
         cache_get_value_name_int(listitem, "Char_FactionRank", AccountData[playerid][pTempSQLFactRank]);
         if(AccountData[playerid][pID] == AccountData[playerid][pTempSQLFactMemberID]) return SEM(playerid, "Anda tidak dapat menetapkan rank anda sendiri!");
         if(AccountData[playerid][pTempSQLFactRank] >= AccountData[playerid][pFactionRank]) return SEM(playerid, "Anda tidak dapat menetapkan rank rekan yang sejajar/lebih tinggi dari anda!");
-        Dialog_Show(playerid, DIALOG_RANK_SET_AMBER, DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+        Dialog_Show(playerid, DIALOG_RANK_SET_AMBER, DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
         "Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
         1. Magang\n\
         2. Junior\n\
@@ -645,7 +645,7 @@ DialogPages:AmberKickMember(playerid, response, listitem, inputtext[])
         Name: %s\n\
         Rank: %s\n\
         Last Online: %s", fckname, AmberRank[fckrank], fcklastlogin);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", 
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", 
         kckstr, "Tutup", "");
     }
     return 1;

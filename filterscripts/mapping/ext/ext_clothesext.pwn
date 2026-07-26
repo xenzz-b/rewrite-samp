@@ -357,13 +357,13 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(19482, 660.052917, -619.515197, 17.573558, 0.000007, -179.999984, 179.699935, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "R", 130, "Arial", 170, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, 660.070983, -619.845703, 16.633571, 0.000024, 0.000015, 89.700012, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(19482, 671.340332, -612.236938, 21.573585, 0.000007, -179.999984, 179.699798, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "R", 130, "Arial", 170, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(19482, 671.342651, -611.604370, 21.443580, 0.000007, -179.999984, 179.699798, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "R", 130, "Arial", 170, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, 671.360717, -611.934875, 20.503593, 0.000048, 0.000015, 89.699943, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2247, 661.339843, -617.814453, 16.778558, 0.000000, 0.000000, 0.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 1, 10101, "2notherbuildsfe", "ferry_build14", 0x00000000);
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -997,7 +997,7 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(2642, 2108.695556, -1917.706420, 15.875590, 180.000000, 90.000000, 90.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 3, 10765, "airportgnd_sfse", "black64", 0x00000000);
     clothestextobj = CreateDynamicObject(2662, 2108.788330, -1918.863647, 15.889589, 0.000022, 360.000000, 89.999931, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston", 130, "Arial", 100, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex", 130, "Arial", 100, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, 2108.788330, -1917.623168, 15.889589, 0.000022, 360.000000, 89.999931, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "STYLE", 130, "Arial", 100, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2247, 2110.433349, -1917.741333, 14.854391, 0.000000, 0.000000, 0.000000, 0, 0, -1, 200.00, 200.00); 
@@ -1039,7 +1039,7 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(2662, 2120.338134, -1911.655029, 18.059595, 0.000014, 180.000000, 179.999908, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "S", 90, "Arial", 120, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, 2118.797363, -1911.745117, 18.019594, 0.000014, 360.000000, 179.999908, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston", 130, "Arial", 100, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex", 130, "Arial", 100, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(18066, 2118.850341, -1911.818481, 18.106885, 0.000000, 0.000007, 0.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 0, 10765, "airportgnd_sfse", "black64", 0x00000000);
     SetDynamicObjectMaterial(clothestextobj, 1, 10765, "airportgnd_sfse", "black64", 0x00000000);
@@ -1484,13 +1484,13 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(2662, 211.533843, -1440.589111, 15.559405, 0.000005, 180.000000, 48.499988, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "S", 90, "Arial", 130, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(19482, 211.370407, -1440.672241, 13.699547, 0.000002, 0.000005, -41.499946, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE\n\nNexston STYLE\n\nNexston STYLE\n\nNexston STYLE\n\nNexston STYLE", 130, "Arial", 20, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE\n\nVertex STYLE\n\nVertex STYLE\n\nVertex STYLE\n\nVertex STYLE", 130, "Arial", 20, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, 204.071334, -1432.911499, 14.739392, 0.000009, 180.000000, -41.500064, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "N", 90, "Arial", 130, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, 204.304199, -1433.116333, 14.669392, 0.000009, 180.000000, -41.500064, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "S", 90, "Arial", 130, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(19482, 206.066833, -1434.618408, 14.677506, -0.000005, 0.000002, -131.499954, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE", 130, "Arial", 45, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE", 130, "Arial", 45, 1, 0xFFFFFFFF, 0x00000000, 1);
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2020,7 +2020,7 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(19866, -2236.496093, -2274.842041, 35.706382, 0.000014, 180.000000, -128.400009, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 0, 10765, "airportgnd_sfse", "black64", 0x00000000);
     clothestextobj = CreateDynamicObject(19482, -2236.514648, -2274.697265, 35.686897, -0.000007, 0.000000, 51.600006, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE", 130, "Arial", 55, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE", 130, "Arial", 55, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2736, -2246.496582, -2283.475097, 32.816833, 0.000000, 0.000007, 141.600006, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 0, 18646, "matcolours", "grey-70-percent", 0x00000000);
     clothestextobj = CreateDynamicObject(19482, -2246.232177, -2283.607666, 33.076828, 0.000014, -179.999984, -128.400009, 0, 0, -1, 200.00, 200.00); 
@@ -2028,7 +2028,7 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(19482, -2246.728515, -2283.215576, 32.946823, 0.000014, -179.999984, -128.400009, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "S", 130, "Arial", 170, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, -2246.457275, -2283.405273, 32.006835, 0.000006, 0.000022, 141.600006, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(970, -2231.500976, -2266.289306, 31.090156, 0.000000, 0.000000, -38.399997, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 0, 14581, "ab_mafiasuitea", "barbersmir1", 0x00000000);
     SetDynamicObjectMaterial(clothestextobj, 1, 10765, "airportgnd_sfse", "black64", 0x00000000);
@@ -2575,7 +2575,7 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(19482, -1664.151855, 1331.951538, 9.234669, 0.000012, -179.999984, 44.099910, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "S", 130, "Arial", 170, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, -1664.395874, 1332.174926, 8.294684, -0.000009, 0.000019, -45.900028, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2247, -1665.379272, 1330.107177, 7.579657, 0.000004, 0.000012, 44.700038, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 1, 10101, "2notherbuildsfe", "ferry_build14", 0x00000000);
     clothestextobj = CreateDynamicObject(2736, -1671.193115, 1318.660766, 10.614698, -0.000003, 0.000036, 44.099964, 0, 0, -1, 200.00, 200.00); 
@@ -2585,13 +2585,13 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(19482, -1670.905517, 1318.856811, 10.744688, 0.000043, -179.999984, 134.099807, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "S", 130, "Arial", 170, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, -1671.128906, 1318.612792, 9.804701, 0.000000, 0.000050, 44.099964, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(19426, -1669.186889, 1320.785888, 10.632900, 89.999992, 199.376632, -64.676612, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 0, 10765, "airportgnd_sfse", "black64", 0x00000000);
     clothestextobj = CreateDynamicObject(19426, -1666.749023, 1323.198242, 10.632900, 89.999992, 199.376632, -64.676612, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 0, 10765, "airportgnd_sfse", "black64", 0x00000000);
     clothestextobj = CreateDynamicObject(19482, -1668.931030, 1320.767700, 10.644688, -0.000035, 0.000004, -45.900184, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston", 130, "Arial", 80, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex", 130, "Arial", 80, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(19482, -1666.647583, 1322.980834, 10.644688, -0.000035, 0.000004, -45.900184, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "STYLE", 130, "Arial", 80, 1, 0xFFFFFFFF, 0x00000000, 1);
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -3022,7 +3022,7 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(19482, -2389.434326, 131.420639, 37.074325, 0.000023, -179.999984, -0.300102, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "S", 130, "Arial", 170, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, -2389.452392, 131.750961, 36.134338, -0.000008, 0.000031, -90.299987, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2247, -2391.589599, 130.557601, 36.439323, -0.000007, -0.000000, -90.000015, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 1, 10101, "2notherbuildsfe", "ferry_build14", 0x00000000);
     clothestextobj = CreateDynamicObject(1897, -2402.560302, 131.344223, 37.579010, 89.999992, 424.471160, -64.471290, 0, 0, -1, 200.00, 200.00); 
@@ -3695,7 +3695,7 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(19482, 2324.256835, 985.111755, 12.333893, 0.000009, -179.999984, 0.099979, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "S", 130, "Arial", 170, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, 2324.236083, 985.442077, 11.393906, -0.000057, 0.000017, -89.899772, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2459, 2317.217285, 984.140502, 9.898909, 0.000000, 0.000014, 0.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 0, 10101, "2notherbuildsfe", "ferry_build14", 0x00000000);
     SetDynamicObjectMaterial(clothestextobj, 1, 17588, "lae2coast_alpha", "plainglass", 0x00000000);
@@ -3728,7 +3728,7 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(1817, 2306.398925, 990.651672, 14.570314, 0.000000, 180.000000, 90.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
     clothestextobj = CreateDynamicObject(19482, 2306.180908, 998.206481, 11.790316, -0.000007, 0.000000, -89.999977, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(19482, 2308.921386, 998.206481, 11.790316, -0.000007, 0.000000, -89.999977, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(18075, 2318.511230, 988.355834, 15.059909, 0.000007, 0.000000, 89.999977, 0, 0, -1, 200.00, 200.00); 
@@ -3797,7 +3797,7 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(19482, 2313.025634, 982.630432, 12.295310, 0.000037, -179.999984, 89.599784, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "S", 130, "Arial", 170, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, 2312.694824, 982.612854, 11.355321, 0.000011, 0.000046, -0.400083, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(19866, 2314.166503, 983.433593, 16.391883, 90.000000, 0.000000, 0.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
     clothestextobj = CreateDynamicObject(19866, 2314.166503, 983.433593, 11.521882, 90.000000, 0.000000, 0.000000, 0, 0, -1, 200.00, 200.00); 
@@ -4153,7 +4153,7 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(19482, 2001.540649, 2096.734130, 15.845302, 0.000007, -179.999984, 179.899856, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "S", 130, "Arial", 170, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, 2001.559936, 2096.403808, 14.905316, 0.000033, 0.000014, 89.899879, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(19866, 2000.780395, 2098.237792, 12.030311, 90.000000, 0.000000, 90.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
     clothestextobj = CreateDynamicObject(19866, 2000.780395, 2098.237792, 15.560317, 90.000000, 0.000000, 90.000000, 0, 0, -1, 200.00, 200.00); 
@@ -4316,7 +4316,7 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(19482, 1987.317993, 2092.441894, 12.225305, 0.000007, -179.999984, 179.899765, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "S", 130, "Arial", 170, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, 1987.337280, 2092.111572, 11.285319, 0.000048, 0.000014, 89.899833, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2643, 1993.395751, 2080.682861, 12.482460, 0.000000, -0.000014, 179.999908, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 0, 10765, "airportgnd_sfse", "black64", 0x00000000);
     clothestextobj = CreateDynamicObject(2662, 1993.526977, 2080.790527, 12.552225, 0.000000, 180.000000, 179.999862, 0, 0, -1, 200.00, 200.00); 
@@ -4324,7 +4324,7 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(2662, 1993.216918, 2080.789550, 12.482225, 0.000000, 180.000000, 179.999862, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "S", 90, "Arial", 130, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(19482, 1991.013305, 2080.703125, 12.496221, 0.000000, 0.000000, 90.000000, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE", 120, "Arial", 40, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE", 120, "Arial", 40, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2387, 1991.975585, 2094.564208, 9.837212, 0.000000, -0.000007, 179.999847, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 3, 10101, "2notherbuildsfe", "ferry_build14", 0x00000000);
     SetDynamicObjectMaterial(clothestextobj, 4, 10101, "2notherbuildsfe", "ferry_build14", 0x00000000);
@@ -4977,7 +4977,7 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(19482, -2477.723388, 2281.707763, 6.225083, 0.000007, -179.999984, -0.599944, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "S", 130, "Arial", 170, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, -2477.739746, 2282.038085, 5.285097, -0.000027, 0.000015, -90.599792, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2736, -2477.572265, 2274.522216, 11.345104, -0.000025, 0.000031, -0.599844, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 0, 7650, "vgnusedcar", "lightgreen2_32", 0x00000000);
     clothestextobj = CreateDynamicObject(19482, -2477.862548, 2274.464843, 11.605098, 0.000038, -179.999984, 89.399932, 0, 0, -1, 200.00, 200.00); 
@@ -4985,7 +4985,7 @@ CreateClothesExt()
     clothestextobj = CreateDynamicObject(19482, -2477.229980, 2274.459472, 11.475093, 0.000038, -179.999984, 89.399932, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(clothestextobj, 0, "S", 130, "Arial", 170, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(2662, -2477.560302, 2274.443115, 10.535106, -0.000019, 0.000046, -0.599844, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(clothestextobj, 0, "Nexston STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(clothestextobj, 0, "Vertex STYLE", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
     clothestextobj = CreateDynamicObject(19866, -2476.322265, 2275.236083, 10.501684, 89.999992, 89.999992, -90.499977, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(clothestextobj, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
     clothestextobj = CreateDynamicObject(19866, -2476.322265, 2275.236083, 6.301686, 89.999992, 89.999992, -90.499977, 0, 0, -1, 200.00, 200.00); 

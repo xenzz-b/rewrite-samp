@@ -37,7 +37,7 @@ YCMD:modif(playerid, params[], help)
         CountTiresCompoCost(carid),
         CountUpgradeEngineCompo(carid));
 
-        Dialog_Show(playerid, "MechanicMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Menu Mekanik", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "MechanicMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Menu Mekanik", string, "Pilih", "Batal");
         foundnearby++;
     }
     if(!foundnearby)
@@ -70,7 +70,7 @@ YCMD:fmodif(playerid, params[], help)
         format(string, sizeof(string), "Layanan\tKebutuhan\n\
         Perbaikan Kendaraan\t100 Komponen");
 
-        Dialog_Show(playerid, "MechanicMenuFaction", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Menu Mekanik", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "MechanicMenuFaction", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Menu Mekanik", string, "Pilih", "Batal");
     }
     return 1;
 }

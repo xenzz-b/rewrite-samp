@@ -176,7 +176,7 @@ CreateCarnavalExt()
     carnvalst = CreateDynamicObject(18667, 418.324768, -1912.693115, 11.613780, -0.000029, 0.000000, -89.999908, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(carnvalst, 0, "CARNAVAL", 100, "Arial", 55, 1, 0xFFFFFFFF, 0x00000000, 1);
     carnvalst = CreateDynamicObject(18667, 416.284790, -1912.693115, 11.613780, -0.000029, 0.000000, -89.999908, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(carnvalst, 0, "Nexston", 100, "Arial", 55, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(carnvalst, 0, "Vertex", 100, "Arial", 55, 1, 0xFFFFFFFF, 0x00000000, 1);
     carnvalst = CreateDynamicObject(18667, 416.494812, -1913.003295, 11.863778, -0.000014, 0.000000, 90.000045, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(carnvalst, 0, "DATANG", 100, "Arial", 55, 1, 0xFFFFFFFF, 0x00000000, 1);
     carnvalst = CreateDynamicObject(18667, 418.254821, -1913.003295, 11.863778, -0.000014, 0.000000, 90.000045, 0, 0, -1, 200.00, 200.00); 

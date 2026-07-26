@@ -359,17 +359,17 @@ YCMD:fcraft(playerid, params[], help)
     Inventory_Count(playerid, "Komponen"), Inventory_Count(playerid, "Tembaga"), Inventory_Count(playerid, "Besi"), Inventory_Count(playerid, "Linggis"), Inventory_Count(playerid, "Plastik"),
     Inventory_Count(playerid, "Komponen"), Inventory_Count(playerid, "Pilox"), Inventory_Count(playerid, "Botol"), Inventory_Count(playerid, "Emas"),
     Inventory_Count(playerid, "Komponen"), Inventory_Count(playerid, "Tembaga"), Inventory_Count(playerid, "Besi"), Inventory_Count(playerid, "Plastik"), Inventory_Count(playerid, "Minyak"));
-    Dialog_Show(playerid, "FactionCrafting", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Crafting Fraksi", string, "Pilih", "Batal");
+    Dialog_Show(playerid, "FactionCrafting", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Crafting Fraksi", string, "Pilih", "Batal");
     return 1;
 }
 
 YCMD:armoury(playerid, params[], help)
 {
-    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
     if(!AccountData[playerid][pOnDuty]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus on duty terlebih dahulu!");
     if(!IsPlayerNearArmoury(playerid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak dekat dengan armoury manapun!");
 
-    Dialog_Show(playerid, "PolisiArmoury", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Senjata", 
+    Dialog_Show(playerid, "PolisiArmoury", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Senjata", 
     "Restock Ammo\n\
     Refill Health & Regular Armour\n\
     Refill Health & Tactical Armour (SWAT)\n\
@@ -394,7 +394,7 @@ YCMD:fmenu(playerid, params[], help)
         {
             if(AccountData[playerid][pFactionRank] < 20) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimal rank PANGKASAT untuk akses Bos Desk!");
 
-            Dialog_Show(playerid, "PolisiBosdesk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Menu Kepolisian", 
+            Dialog_Show(playerid, "PolisiBosdesk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Menu Kepolisian", 
             "Invite\n\
             Manage Ranks\n\
             Kick\n\
@@ -406,7 +406,7 @@ YCMD:fmenu(playerid, params[], help)
         {
             if(AccountData[playerid][pFactionRank] < 6) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jabatan minimum Vice Director untuk akses faction menu!");
 
-            Dialog_Show(playerid, "ParamedisBosdesk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Menu Paramedis", 
+            Dialog_Show(playerid, "ParamedisBosdesk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Menu Paramedis", 
             "Invite\n\
             Manage Ranks\n\
             Kick\n\
@@ -418,7 +418,7 @@ YCMD:fmenu(playerid, params[], help)
         {
             if(AccountData[playerid][pFactionRank] < 5) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jabatan minimum Store Supervisor untuk akses boss desk!");
 
-            Dialog_Show(playerid, "PringSewuBosdesk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Menu Pring Sewu", 
+            Dialog_Show(playerid, "PringSewuBosdesk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Menu Pring Sewu", 
             "Invite\n\
             Manage Ranks\n\
             Kick\n\
@@ -430,7 +430,7 @@ YCMD:fmenu(playerid, params[], help)
         {
             if(AccountData[playerid][pFactionRank] < 5) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jabatan minimum Sekretaris untuk akses boss desk!");
 
-            Dialog_Show(playerid, "PemerintahBosdesk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Menu Pemerintah", 
+            Dialog_Show(playerid, "PemerintahBosdesk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Menu Pemerintah", 
             "Invite\n\
             Manage Ranks\n\
             Kick\n\
@@ -442,7 +442,7 @@ YCMD:fmenu(playerid, params[], help)
         {
             if(AccountData[playerid][pFactionRank] < 4) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jabatan minimum Vice Manager untuk akses boss desk!");
 
-            Dialog_Show(playerid, "BennysBosdesk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Menu Bennys", 
+            Dialog_Show(playerid, "BennysBosdesk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Menu Bennys", 
             "Invite\n\
             Manage Ranks\n\
             Kick\n\
@@ -454,7 +454,7 @@ YCMD:fmenu(playerid, params[], help)
         {
             if(AccountData[playerid][pFactionRank] < 4) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jabatan minimum Ast. Boss Uber untuk akses boss desk!");
 
-            Dialog_Show(playerid, "UberBosdesk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Menu Uber", 
+            Dialog_Show(playerid, "UberBosdesk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Menu Uber", 
             "Invite\n\
             Manage Ranks\n\
             Kick\n\
@@ -466,7 +466,7 @@ YCMD:fmenu(playerid, params[], help)
         {
             if(AccountData[playerid][pFactionRank] < 6) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jabatan minimum Supervisor untuk akses boss desk!");
 
-            Dialog_Show(playerid, "DinarbucksBosDesk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Menu Dinarbucks", 
+            Dialog_Show(playerid, "DinarbucksBosDesk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Menu Dinarbucks", 
             "Invite\n\
             Manage Ranks\n\
             Kick\n\
@@ -478,7 +478,7 @@ YCMD:fmenu(playerid, params[], help)
         {
             if(AccountData[playerid][pFactionRank] < 5) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jabatan minimum Chief Officer untuk akses boss desk!");
 
-            Dialog_Show(playerid, "PewartaBosdesk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Menu Wartawan", 
+            Dialog_Show(playerid, "PewartaBosdesk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Menu Wartawan", 
             "Invite\n\
             Manage Ranks\n\
             Kick\n\
@@ -490,7 +490,7 @@ YCMD:fmenu(playerid, params[], help)
         {
             if(AccountData[playerid][pFactionRank] < 4) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jabatan minimum Vice Manager untuk akses boss desk!");
 
-            Dialog_Show(playerid, "DriftKingBosdesk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Menu DriftKing", 
+            Dialog_Show(playerid, "DriftKingBosdesk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Menu DriftKing", 
             "Invite\n\
             Manage Ranks\n\
             Kick\n\
@@ -502,7 +502,7 @@ YCMD:fmenu(playerid, params[], help)
         {
             if(AccountData[playerid][pFactionRank] < 4) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jabatan minimum Vice Manager untuk akses boss desk!");
 
-            Dialog_Show(playerid, "JayaAbadiBosdesk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Menu Jaya Abadi", 
+            Dialog_Show(playerid, "JayaAbadiBosdesk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Menu Jaya Abadi", 
             "Invite\n\
             Manage Ranks\n\
             Kick\n\
@@ -514,7 +514,7 @@ YCMD:fmenu(playerid, params[], help)
         {
             if(AccountData[playerid][pFactionRank] < 6) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jabatan minimum Supervisor untuk akses boss desk!");
 
-            Dialog_Show(playerid, "SriMersingBosDesk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Menu Karens Dinner", 
+            Dialog_Show(playerid, "SriMersingBosDesk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Menu Karens Dinner", 
             "Invite\n\
             Manage Ranks\n\
             Kick\n\
@@ -526,7 +526,7 @@ YCMD:fmenu(playerid, params[], help)
         // {
         //     if(AccountData[playerid][pFactionRank] < 6) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jabatan minimum Supervisor untuk akses boss desk!");
 
-        //     Dialog_Show(playerid, "BintangKejoraBosDesk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Bintang Kejora Cafe", 
+        //     Dialog_Show(playerid, "BintangKejoraBosDesk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Cafe", 
         //     "Invite\n\
         //     Manage Ranks\n\
         //     Kick\n\

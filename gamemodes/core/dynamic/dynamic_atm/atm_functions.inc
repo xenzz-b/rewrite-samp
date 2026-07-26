@@ -92,7 +92,7 @@ ShowAllAtmListGPS(playerid)
     }
     
     SetPVarInt(playerid, "GPSListType", 2);
-    Dialog_Show(playerid, "GPSBizList", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- GPS - ATM Kota", atm_string, "Pilih", "Kembali");
+    Dialog_Show(playerid, "GPSBizList", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- GPS - ATM Kota", atm_string, "Pilih", "Kembali");
     return 1;
 }
 
@@ -335,16 +335,16 @@ Dialog:ATMDeposit(playerid, response, listitem, inputtext[])
 
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "ATMDeposit", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Deposit",
+        return Dialog_Show(playerid, "ATMDeposit", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Deposit",
         "Error: Tidak dapat dikosongkan!\n\
         Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
     }
 
-    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "ATMDeposit", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Deposit",
+    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "ATMDeposit", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Deposit",
         "Error: Masukkan hanya angka!\n\
         Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "ATMDeposit", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Deposit",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "ATMDeposit", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Deposit",
     "Error: Invalid amount, you can't deposit less than $1!\n\
     Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
 
@@ -368,16 +368,16 @@ Dialog:ATMWithdraw(playerid, response, listitem, inputtext[])
 
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "ATMWithdraw", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Withdraw",
+        return Dialog_Show(playerid, "ATMWithdraw", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Withdraw",
         "Error: Tidak dapat dikosongkan!\n\
        Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "ATMWithdraw", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Withdraw",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "ATMWithdraw", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Withdraw",
         "Error: Masukkan hanya angka!\n\
        Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "ATMWithdraw", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Withdraw",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "ATMWithdraw", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Withdraw",
     "Error: Jumlah tidak valid, anda tidak dapat withdraw kurang dari $1!\n\
    Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
 
@@ -406,11 +406,11 @@ Dialog:ATMTransfer(playerid, response, listitem, inputtext[])
 
     if (!AVC_PConnected[playerid]) return Kick(playerid);
 
-    if (isnull(inputtext)) return Dialog_Show(playerid, "ATMTransfer", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Transfer",
+    if (isnull(inputtext)) return Dialog_Show(playerid, "ATMTransfer", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Transfer",
         "Error: Tidak dapat dikosongkan!\n\
         Mohon masukkan nomor rekening bank tujuan:", "Set", "Batal");
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "ATMTransfer", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Transfer",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "ATMTransfer", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Transfer",
         "Error: Masukkan hanya angka!\n\
         Mohon masukkan nomor rekening bank tujuan:", "Set", "Batal");
 
@@ -425,14 +425,14 @@ Dialog:ATMTransfer(playerid, response, listitem, inputtext[])
             {
                 AccountData[playerid][pTempTransferID] = i;
 
-                Dialog_Show(playerid, "ATMTransferConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Transfer",
+                Dialog_Show(playerid, "ATMTransferConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Transfer",
                     "Mohon masukkan berapa jumlah yang ingin ditransfer:", "Transfer", "Batal");
                 return 1;
             }
         }
     }
 
-    Dialog_Show(playerid, "ATMTransfer", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Transfer",
+    Dialog_Show(playerid, "ATMTransfer", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Transfer",
         "Error: Pemilik rekening tersebut tidak terkoneksi ke server!\n\
         Mohon masukkan nomor rekening bank tujuan:", "Set", "Batal");
     return 1;
@@ -447,16 +447,16 @@ Dialog:ATMTransferConfirm(playerid, response, listitem, inputtext[])
     new money[32];
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "ATMTransferConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Transfer",
+        return Dialog_Show(playerid, "ATMTransferConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Transfer",
         "Error: Tidak dapat dikosongkan!\n\
         Mohon masukkan berapa jumlah yang ingin ditransfer:", "Transfer", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "ATMTransferConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Transfer",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "ATMTransferConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Transfer",
         "Error: Masukkan hanya angka!\n\
         Mohon masukkan berapa jumlah yang ingin ditransfer:", "Transfer", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "ATMTransferConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Transfer",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "ATMTransferConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Transfer",
     "Error: The amount is invalid, you cannot transfer less than $1!\n\
     Mohon masukkan berapa jumlah yang ingin ditransfer:", "Transfer", "Batal");
 

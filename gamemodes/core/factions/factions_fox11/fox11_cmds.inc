@@ -1,7 +1,7 @@
 YCMD:spawnsanewsheli(playerid, params[], help)
 {
     if(AccountData[playerid][pFaction] != FACTION_FOX11)
-		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pewarta Nexston!");
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pewarta Vertex!");
 
     if(!AccountData[playerid][pOnDuty]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus on duty!");
 
@@ -11,7 +11,7 @@ YCMD:spawnsanewsheli(playerid, params[], help)
     {
         DestroyVehicle(JobVehicle[playerid]);
 
-        ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengembalikan helikopter Pewarta Nexston.");
+        ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengembalikan helikopter Pewarta Vertex.");
     }
     else
     {
@@ -25,25 +25,25 @@ YCMD:spawnsanewsheli(playerid, params[], help)
         SwitchVehicleEngine(JobVehicle[playerid], true);
         SwitchVehicleDoors(JobVehicle[playerid], false);
 
-        ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengeluarkan helikopter Pewarta Nexston.");
+        ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengeluarkan helikopter Pewarta Vertex.");
     }
     return 1;
 }
 
 YCMD:broadcast(playerid, params[], help)
 {
-    if(AccountData[playerid][pFaction] != FACTION_FOX11) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pewarta Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_FOX11) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pewarta Vertex!");
     static string[144];
     format(string, sizeof(string), "Menu\tStatus\n\
     Start/End Broadcast\t%s\nToggle Broadcast Mic\t%s", (PlayerVoiceData[playerid][pBroadcast]) ? ("{00ff00}Started") : ("{FF0000}Not Started"), 
     (PlayerVoiceData[playerid][pIsCastMicOn]) ? ("{00ff00}Enabled") : ("{FF0000}Disabled"));
-    Dialog_Show(playerid, "BroadcastMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Broadcast Menu", string, "Pilih", "Batal");
+    Dialog_Show(playerid, "BroadcastMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Broadcast Menu", string, "Pilih", "Batal");
     return 1;
 }
 
 YCMD:invitebc(playerid, params[], help)
 {
-    if(AccountData[playerid][pFaction] != FACTION_FOX11) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pewarta Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_FOX11) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pewarta Vertex!");
 
     new otherid;
     if(sscanf(params, "d", otherid)) return SUM(playerid, "/invitebc [playerid]");
@@ -95,7 +95,7 @@ YCMD:leavebc(playerid, params[], help)
 
 YCMD:kickbc(playerid, params[], help)
 {
-    if(AccountData[playerid][pFaction] != FACTION_FOX11) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pewarta Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_FOX11) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pewarta Vertex!");
 
     new otherid;
     if(sscanf(params, "d", otherid)) return SUM(playerid, "/invitebc [playerid]");

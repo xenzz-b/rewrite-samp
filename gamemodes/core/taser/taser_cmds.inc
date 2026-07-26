@@ -4,7 +4,7 @@ YCMD:taser(playerid, params[], help)
 	    return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus berjalan kaki!");
 
 	if (AccountData[playerid][pFaction] != FACTION_LSPD && AccountData[playerid][pFaction] != FACTION_SAGOV)
-		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan anggota Kepolisian / Pemerintahan Nexston!");
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan anggota Kepolisian / Pemerintahan Vertex!");
 
 	if(AccountData[playerid][pUseBeanbag]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Simpan dahulu beanbag anda!");
 

@@ -3,7 +3,7 @@ YCMD:makektp(playerid, params[], help)
 	new otherid;
 	
 	if(AccountData[playerid][pFaction] != FACTION_SAGOV)
-		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan anggota Pemerintah Nexston!");
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan anggota Pemerintah Vertex!");
 
     if(!IsPlayerInRangeOfPoint(playerid, 4.0, 2485.9844,45.0931,1069.7136))
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di tempat seharusnya!");
@@ -25,7 +25,7 @@ YCMD:makewedding(playerid, params[], help)
 	new otherid, otherid2, string[144];
 	
 	if(AccountData[playerid][pFaction] != FACTION_SAGOV)
-		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan anggota Pemerintah Nexston!");
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan anggota Pemerintah Vertex!");
 
     if(!IsPlayerInRangeOfPoint(playerid, 4.0, 1575.2472, -1221.0585, 280.0398))
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di tempat seharusnya!");
@@ -65,7 +65,7 @@ YCMD:givelic(playerid, params[], help)
         if(!IsPlayerInRangeOfPoint(playerid, 3.0, 2485.9844,45.0931,1069.7136))
             return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus berada di tempat yang seharusnya!");
 
-        Dialog_Show(playerid, "GiveLic", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- "WHITE"Terbitkan Lisensi", 
+        Dialog_Show(playerid, "GiveLic", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- "WHITE"Terbitkan Lisensi", 
         "Surat Izin Berlayar\n\
         Surat Izin Helikopter\n\
         Surat Izin Pesawat", "Pilih", "Batal");
@@ -76,7 +76,7 @@ YCMD:givelic(playerid, params[], help)
             return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus berada di tempat yang seharusnya!");
         if(AccountData[playerid][pFactionRank] < 3) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimal rank 3 Senior untuk akses ini!");
 
-        Dialog_Show(playerid, "GiveLic2", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- "WHITE"Terbitkan Lisensi", 
+        Dialog_Show(playerid, "GiveLic2", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- "WHITE"Terbitkan Lisensi", 
         "SIM A\n\
 		SIM B\n\
 		SIM C\n\
@@ -90,7 +90,7 @@ YCMD:givelic(playerid, params[], help)
 
 YCMD:makeskwb(playerid, params[], help)
 {
-    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan anggota Pemerintah Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_SAGOV) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan anggota Pemerintah Vertex!");
 
     if(AccountData[playerid][pFactionRank] < 2) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimal rank Staff Junior untuk akses ini!");
     

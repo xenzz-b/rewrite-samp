@@ -65,7 +65,13 @@ enum e_Anticheat
     Float:acSpawn[3],
     acImmunity,
     acAirbreakTime,
-    acArmorTime
+    acArmorTime,
+    acHealthTime,
+    Float:acHealth,
+    Float:acArmour,
+    acHealthWarns,
+    acArmorWarns,
+    acVehHealthWarns
 };
 new Anticheat[MAX_PLAYERS][e_Anticheat];
 

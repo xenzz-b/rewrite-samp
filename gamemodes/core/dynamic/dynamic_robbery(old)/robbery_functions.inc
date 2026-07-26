@@ -223,7 +223,7 @@ ptask UpdatingRobberyAimTime[1000](playerid)
                                     RobberyData[robberyid][robberyAfraid] = true;
                                     RobberyData[robberyid][robberyTime] = 600;
 
-                                    ShowFivemNotify(playerid, "Nexston Roleplay~n~PERAMPOKAN WARUNG", "Telah terjadi perampokan warung di Mulholland Intersection.", "hud:radar_emmetGun", 25);
+                                    ShowFivemNotify(playerid, "Vertex Roleplay~n~PERAMPOKAN WARUNG", "Telah terjadi perampokan warung di Mulholland Intersection.", "hud:radar_emmetGun", 25);
                                 }
                             }
                         }

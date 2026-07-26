@@ -125,7 +125,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         %s\t$%s/hr\n\
         %s\t$%s/hr\n\
         "YELLOW"> Pilih ini untuk mengembalikan kendaraan rental.", GetVehicleModelName(RentalData[brid][Model][0]), FormatMoney(RentalData[brid][Cost][0]), GetVehicleModelName(RentalData[brid][Model][1]), FormatMoney(RentalData[brid][Cost][1]));
-        Dialog_Show(playerid, "RentalCatalog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Rental", 
+        Dialog_Show(playerid, "RentalCatalog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Rental", 
         brstr, "Pilih", "Batal");
     }
     return 1;

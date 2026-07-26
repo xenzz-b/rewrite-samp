@@ -1,6 +1,6 @@
 YCMD:changelogs(playerid, params[], help)
 {
-    Dialog_Show(playerid, "ChangeLogs", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Change Logs", 
+    Dialog_Show(playerid, "ChangeLogs", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Change Logs", 
     "Tanggal\tStatus\n\
     26/07/2025\t"GREEN"(NEW)\n\
     24/07/2025\t"GRAY"(OLD)\n\

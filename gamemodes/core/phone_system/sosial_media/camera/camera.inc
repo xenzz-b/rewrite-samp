@@ -19,7 +19,7 @@ static UpdateAngleText(playerid)
 {
     new szAngle[16];
     format(szAngle, sizeof(szAngle), "%d deg", floatround(CamAngle[playerid]));
-    PlayerTextDrawSetString(playerid, CameraNSRP[playerid][35], szAngle);
+    PlayerTextDrawSetString(playerid, CameraVRP[playerid][35], szAngle);
 }
 
 //------ update koordinat text ----------//
@@ -28,7 +28,7 @@ static UpdateCoordText(playerid)
     new Float:x, Float:y, Float:z, szCoord[64];
     GetPlayerPos(playerid, x, y, z);
     format(szCoord, sizeof(szCoord), "X: %.2f Y: %.2f Z: %.2f", x, y, z);
-    PlayerTextDrawSetString(playerid, CameraNSRP[playerid][7], szCoord);
+    PlayerTextDrawSetString(playerid, CameraVRP[playerid][7], szCoord);
 }
 
 //------ update bar zoom ----------//
@@ -36,8 +36,8 @@ static UpdateZoomBar(playerid)
 {
     new Float:percent = (CAM_ZOOM_MAX - CamZoom[playerid]) / (CAM_ZOOM_MAX - CAM_ZOOM_MIN);
     new Float:barHeight = -(percent * 83.0);
-    PlayerTextDrawTextSize(playerid, CameraNSRP[playerid][41], 2.0, barHeight);
-    PlayerTextDrawShow(playerid, CameraNSRP[playerid][41]); 
+    PlayerTextDrawTextSize(playerid, CameraVRP[playerid][41], 2.0, barHeight);
+    PlayerTextDrawShow(playerid, CameraVRP[playerid][41]); 
 }
 //------ apply posisi kamera ----------//
 static ApplyCamera(playerid)
@@ -122,7 +122,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
 {
     if(!CamActive[playerid]) return 0;
 
-    if(playertextid == CameraNSRP[playerid][30])
+    if(playertextid == CameraVRP[playerid][30])
     {
         CamAngle[playerid] -= float(CAM_ANGLE_STEP);
         if(CamAngle[playerid] < 0.0) CamAngle[playerid] += 360.0;
@@ -131,7 +131,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
         return 1;
     }
 
-    if(playertextid == CameraNSRP[playerid][31])
+    if(playertextid == CameraVRP[playerid][31])
     {
         CamAngle[playerid] += float(CAM_ANGLE_STEP);
         if(CamAngle[playerid] >= 360.0) CamAngle[playerid] -= 360.0;
@@ -140,7 +140,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
         return 1;
     }
 
-    if(playertextid == CameraNSRP[playerid][38])
+    if(playertextid == CameraVRP[playerid][38])
     {
         if(CamZoom[playerid] > CAM_ZOOM_MIN)
         {
@@ -152,7 +152,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
         return 1;
     }
 
-    if(playertextid == CameraNSRP[playerid][39])
+    if(playertextid == CameraVRP[playerid][39])
     {
         if(CamZoom[playerid] < CAM_ZOOM_MAX)
         {
@@ -164,17 +164,17 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
         return 1;
     }
 
-    if(playertextid == CameraNSRP[playerid][59])
+    if(playertextid == CameraVRP[playerid][59])
     {
         ShowCameraTD(playerid, false);
         SetTimerEx("CameraShowTextdrawBack", 5000, false, "i", playerid);
         return 1;
     }
 
-    if(playertextid == CameraNSRP[playerid][55])
+    if(playertextid == CameraVRP[playerid][55])
     {
         CloseCameraMode(playerid);
-        ShowPhoneNSRP(playerid);
+        ShowPhoneVRP(playerid);
         return 1;
     }
     return 0;

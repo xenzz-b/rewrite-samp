@@ -414,7 +414,7 @@ Dialog:GraffitiAdd(playerid, response, listitem, inputtext[])
 
     if(isnull(inputtext))
     {
-        Dialog_Show(playerid, "GraffitiAdd", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Graffiti", 
+        Dialog_Show(playerid, "GraffitiAdd", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Graffiti", 
         "Error: Tag tidak bisa diisi kosong!\n\
         Mohon masukkan tulisan graffiti yang ingin dibuat:\n\
         (n) = text akan berada di bawah/baris baru.\n\
@@ -430,7 +430,7 @@ Dialog:GraffitiAdd(playerid, response, listitem, inputtext[])
 
     if(strlen(inputtext) < 4 || strlen(inputtext) > 144)
     {
-        Dialog_Show(playerid, "GraffitiAdd", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Graffiti", 
+        Dialog_Show(playerid, "GraffitiAdd", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Graffiti", 
         "Error: Tag terlalu singkat minimal 4 karakter dan max 144 karakter!\n\
         Mohon masukkan tulisan graffiti yang ingin dibuat:\n\
         (n) = text akan berada di bawah/baris baru.\n\
@@ -446,7 +446,7 @@ Dialog:GraffitiAdd(playerid, response, listitem, inputtext[])
 
     if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1) 
     {
-        Dialog_Show(playerid, "GraffitiAdd", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Graffiti", 
+        Dialog_Show(playerid, "GraffitiAdd", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Graffiti", 
         "Error: Tidak dapat memasukkan simbol/tanda persen!\n\
         Mohon masukkan tulisan graffiti yang ingin dibuat:\n\
         (n) = text akan berada di bawah/baris baru.\n\
@@ -512,7 +512,7 @@ Dialog:GraffitiEdit(playerid, response, listitem, inputtext[])
 
     if(isnull(inputtext))
     {
-        Dialog_Show(playerid, "GraffitiEdit", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Graffiti", 
+        Dialog_Show(playerid, "GraffitiEdit", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Graffiti", 
         "Error: Tag tidak bisa diisi kosong!\n\
         Mohon masukkan tulisan graffiti yang ingin dibuat:\n\
         (n) = text akan berada di bawah/baris baru.\n\
@@ -528,7 +528,7 @@ Dialog:GraffitiEdit(playerid, response, listitem, inputtext[])
 
     if(strlen(inputtext) < 4 || strlen(inputtext) > 144)
     {
-        Dialog_Show(playerid, "GraffitiEdit", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Graffiti", 
+        Dialog_Show(playerid, "GraffitiEdit", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Graffiti", 
         "Error: Tag terlalu singkat minimal 4 karakter dan max 144 karakter!\n\
         Mohon masukkan tulisan graffiti yang ingin dibuat:\n\
         (n) = text akan berada di bawah/baris baru.\n\
@@ -544,7 +544,7 @@ Dialog:GraffitiEdit(playerid, response, listitem, inputtext[])
 
     if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1) 
     {
-        Dialog_Show(playerid, "GraffitiEdit", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Graffiti", 
+        Dialog_Show(playerid, "GraffitiEdit", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Graffiti", 
         "Error: You cannot input percent symbol!\n\
         Mohon masukkan tulisan graffiti yang ingin dibuat:\n\
         (n) = text akan berada di bawah/baris baru.\n\

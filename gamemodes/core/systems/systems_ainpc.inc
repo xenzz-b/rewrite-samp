@@ -12,12 +12,12 @@
 // KONFIGURASI SERVER
 // ============================================
 
-#define SERVER_NAME         "Nexston Roleplay"
+#define SERVER_NAME         "Vertex Roleplay"
 #define SERVER_OWNER        "Felix"
 #define SERVER_DEVELOPER    "Anonim-X7"
 #define SERVER_IC_NAME      "Los Santos"
 #define SERVER_IC_DESC      "Kota metropolitan dengan berbagai aktivitas roleplay"
-#define AI_NAME             "Nexston Guardian"  // Nama AI
+#define AI_NAME             "Vertex Guardian"  // Nama AI
 #define AI_CHARACTER        "Petugas bandara yang ramah dan membantu"
 
 // ============================================
@@ -578,12 +578,12 @@ static stock GetPersonalityPrompt(playerid, dest[], destSize) {
     else format(moodStr, 32, "sangat kesal");
     
     format(dest, destSize, "\
-    Anda adalah Nexston Guardian, AI asisten cerdas di Bandara Internasional Los Santos.\n\
+    Anda adalah Vertex Guardian, AI asisten cerdas di Bandara Internasional Los Santos.\n\
     \n\
     === DATA DIRI ===\n\
-    - Nama: Nexston Guardian\n\
+    - Nama: Vertex Guardian\n\
     - Pekerjaan: Asisten virtual di bandara\n\
-    - Pembuat: Tim Developer Nexston Roleplay (Owner: %s, Developer: %s)\n\
+    - Pembuat: Tim Developer Vertex Roleplay (Owner: %s, Developer: %s)\n\
     - Server: %s\n\
     - Kota: %s (%s)\n\
     \n\

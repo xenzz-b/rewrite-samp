@@ -217,7 +217,7 @@ YCMD:usetable(playerid, params[], help)
         Inventory_Count(playerid, "Botol"), Inventory_Count(playerid, "Water"), Inventory_Count(playerid, "Gula"), Inventory_Count(playerid, "Micin"),
         Inventory_Count(playerid, "Botol"), Inventory_Count(playerid, "Water"), Inventory_Count(playerid, "Gula"), Inventory_Count(playerid, "Micin"));
     }
-    Dialog_Show(playerid, "CraftingTable", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Craft Table", 
+    Dialog_Show(playerid, "CraftingTable", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Craft Table", 
     string, "Craft", "Batal");
     return 1;
 }

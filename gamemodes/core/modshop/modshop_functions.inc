@@ -517,7 +517,7 @@ hook OnPlayerClickTextDraw(playerid, Text:clickedid)
 			if(iteratorid == -1) return ShowTDN(playerid, NOTIFICATION_ERROR, "Ini bukan jenis kendaraan pribadi!");
 			MySQL_SaveVehicleToys(iteratorid, AccountData[playerid][EditingModshopSlotID]);
 
-			Dialog_Show(playerid, "ModshopAndroChoose", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Modshop Menu", "Ubah X\nUbah Y\nUbah Z\nUbah RX\nUbah RY\nUbah RZ", "Pilih", "Batal");
+			Dialog_Show(playerid, "ModshopAndroChoose", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Modshop Menu", "Ubah X\nUbah Y\nUbah Z\nUbah RX\nUbah RY\nUbah RZ", "Pilih", "Batal");
         }
     }
     else if(clickedid == EditVObjTD[5])
@@ -540,7 +540,7 @@ hook OnPlayerClickTextDraw(playerid, Text:clickedid)
     }
     else if(clickedid == EditVObjTD[6])
     {
-        Dialog_Show(playerid, "ModshopCatalogAndro", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Modshop Menu", "Set current float value\nNormal Value = 0.05\n\nEnter Float NudgeValue in here:", "Edit", "Batal");
+        Dialog_Show(playerid, "ModshopCatalogAndro", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Modshop Menu", "Set current float value\nNormal Value = 0.05\n\nEnter Float NudgeValue in here:", "Edit", "Batal");
     }
 	return 1;
 }
@@ -586,7 +586,7 @@ Dialog:ModshopCatalog(playerid, response, listitem, inputtext[])
 	else
 	{
 		AccountData[playerid][EditingModshopSlotID] = listitem;
-		Dialog_Show(playerid, "ModshopCatalogMenu", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Modshop Menu", "Edit Position\n"GRAY"Set Text\nSize Text\n"GRAY"Change Font\nChange Color\n"GRAY"Remove", "Pilih", "Batal");
+		Dialog_Show(playerid, "ModshopCatalogMenu", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Modshop Menu", "Edit Position\n"GRAY"Set Text\nSize Text\n"GRAY"Change Font\nChange Color\n"GRAY"Remove", "Pilih", "Batal");
 	}
 	return 1;
 }
@@ -624,7 +624,7 @@ Dialog:ModshopAndroChoose(playerid, response, listitem, inputtext[])
 	}
 
 	ShowModshopTD(playerid);
-	SelectTextDraw(playerid, Y_Nexston);
+	SelectTextDraw(playerid, Y_Vertex);
 	SendClientMessage(playerid, Y_SERVER, "(Server) "WHITE"Gunakan "CMDEA"'/cursor' "WHITE"jika mouse hilang dari layar/textdraw tidak bisa ditekan!");
 	return 1;
 }
@@ -647,7 +647,7 @@ Dialog:ModshopCatalogDevice(playerid, response, listitem, inputtext[])
 		}
 		case 1:
 		{
-			Dialog_Show(playerid, "ModshopAndroChoose", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Modshop Menu", "Ubah X\nUbah Y\nUbah Z\nUbah RX\nUbah RY\nUbah RZ", "Pilih", "Batal");
+			Dialog_Show(playerid, "ModshopAndroChoose", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Modshop Menu", "Ubah X\nUbah Y\nUbah Z\nUbah RX\nUbah RY\nUbah RZ", "Pilih", "Batal");
 		}
 	}
 	return 1;
@@ -681,20 +681,20 @@ Dialog:ModshopCatalogMenu(playerid, response, listitem, inputtext[])
 	{
 		case 0:
 		{
-			Dialog_Show(playerid, "ModshopCatalogDevice", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Modshop Text Size", "Pada perangkat apa anda bermain?\nPC / Laptop\nAndroganja","Pilih", "Batal");
+			Dialog_Show(playerid, "ModshopCatalogDevice", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Modshop Text Size", "Pada perangkat apa anda bermain?\nPC / Laptop\nAndroganja","Pilih", "Batal");
 		}
 		case 1:
 		{
 			if(vtData[iteratorid][slotid][vtoy_modelid] != 18667) return ShowTDN(playerid, NOTIFICATION_ERROR, "Objek ini bukan merupakan text");
 
-			Dialog_Show(playerid, "ModshopCatalogTxt", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Modshop Text", "Mohon masukkan text dengan panjang 1 s/d 32 karakter:", 
+			Dialog_Show(playerid, "ModshopCatalogTxt", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Modshop Text", "Mohon masukkan text dengan panjang 1 s/d 32 karakter:", 
 			"Input", "Batal");
 		}
 		case 2:
 		{
 			if(vtData[iteratorid][slotid][vtoy_modelid] != 18667) return ShowTDN(playerid, NOTIFICATION_ERROR, "Objek ini bukan merupakan text");
 
-			Dialog_Show(playerid, "ModshopCatalogSizeTxt", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Modshop Text Size", "Mohon masukkan ukuran font text (hanya angka):", 
+			Dialog_Show(playerid, "ModshopCatalogSizeTxt", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Modshop Text Size", "Mohon masukkan ukuran font text (hanya angka):", 
 			"Input", "Batal");
 		}
 		case 3:
@@ -706,11 +706,11 @@ Dialog:ModshopCatalogMenu(playerid, response, listitem, inputtext[])
 			{
 				format(string, sizeof(string), "%s%s\n", string, FontNames[x]);
 			}
-			Dialog_Show(playerid, "ModshopCatalogFont", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Modshop Font", string, "Pilih", "Batal");
+			Dialog_Show(playerid, "ModshopCatalogFont", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Modshop Font", string, "Pilih", "Batal");
 		}
 		case 4:
 		{
-			Dialog_Show(playerid, "ModshopCatalogColor", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Modshop Color", "Masukkan Color (Dalam format ARGB)\n"ORANGE"Contoh: 255 255 0 0 (Untuk warna merah)", "Input", "Batal");
+			Dialog_Show(playerid, "ModshopCatalogColor", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Modshop Color", "Masukkan Color (Dalam format ARGB)\n"ORANGE"Contoh: 255 255 0 0 (Untuk warna merah)", "Input", "Batal");
 		}
 		case 5:
 		{
@@ -759,7 +759,7 @@ Dialog:ModshopCatalogColor(playerid, response, listitem, inputtext[])
 	new color[4];
 	if(sscanf(inputtext, "p< >a<i>[4]", color))
 	{
-		Dialog_Show(playerid, "ModshopCatalogColor", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Edit Color 1", ""WHITE"Format warna salah!\n"YELLOW"Masukkan Color (Dalam format ARGB)\n"ORANGE"Contoh: 255 255 0 0 (Untuk warna merah)", "Set", "Batal");
+		Dialog_Show(playerid, "ModshopCatalogColor", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Edit Color 1", ""WHITE"Format warna salah!\n"YELLOW"Masukkan Color (Dalam format ARGB)\n"ORANGE"Contoh: 255 255 0 0 (Untuk warna merah)", "Set", "Batal");
 		return 1;
 	}
 
@@ -825,15 +825,15 @@ Dialog:ModshopCatalogTxt(playerid, response, listitem, inputtext[])
 
 	if(isnull(inputtext)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Tidak dapat dikosongkan!");
 
-	if(strfind(inputtext, "{", true) != -1) return Dialog_Show(playerid, "ModshopCatalogTxt", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+	if(strfind(inputtext, "{", true) != -1) return Dialog_Show(playerid, "ModshopCatalogTxt", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
 		"Error: Anda tidak dapat memasukkan simbol {\n\
 		Masukkan text yang ingin dibuat:", "Input", "Batal");
 
-	if(strfind(inputtext, "}", true) != -1) return Dialog_Show(playerid, "ModshopCatalogTxt", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+	if(strfind(inputtext, "}", true) != -1) return Dialog_Show(playerid, "ModshopCatalogTxt", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
 		"Error: Anda tidak dapat memasukkan simbol }\n\
 		Masukkan text yang ingin dibuat:", "Input", "Batal");
 
-	if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "ModshopCatalogTxt", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+	if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "ModshopCatalogTxt", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
 		"Error: Anda tidak dapat memasukkan simbol persen!\n\
 		Masukkan text yang ingin dibuat:", "Input", "Batal");
 

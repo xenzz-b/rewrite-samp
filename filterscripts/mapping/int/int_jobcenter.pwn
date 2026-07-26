@@ -748,7 +748,7 @@ CreateJobCenterInt()
     SetDynamicObjectMaterial(jbxtxc, 0, 14577, "casinovault01", "cof_wood1", 0x00000000);
     jbxtxc = CreateDynamicObject(19482, 2484.074218, 43.659759, 1074.125732, -0.000059, 0.000000, -89.999816, 99, 3, -1, 300.00, 300.00); 
     SetDynamicObjectMaterial(jbxtxc, 0, 10101, "2notherbuildsfe", "Bow_Abpave_Gen", 0x00000000);
-    SetDynamicObjectMaterialText(jbxtxc, 0, "{000000}Balai Kota Nexston", 130, "Century Gothic", 65, 1, 0x00000000, 0x00000000, 1);
+    SetDynamicObjectMaterialText(jbxtxc, 0, "{000000}Balai Kota Vertex", 130, "Century Gothic", 65, 1, 0x00000000, 0x00000000, 1);
     jbxtxc = CreateDynamicObject(19428, 2482.366455, 43.772308, 1074.239868, 89.999992, 180.000045, -89.999961, 99, 3, -1, 300.00, 300.00); 
     SetDynamicObjectMaterial(jbxtxc, 0, 18646, "matcolours", "grey-90-percent", 0x00000000);
     jbxtxc = CreateDynamicObject(19428, 2485.867187, 43.772308, 1074.239868, 89.999992, 180.000045, -89.999961, 99, 3, -1, 300.00, 300.00); 
@@ -761,7 +761,7 @@ CreateJobCenterInt()
     SetDynamicObjectMaterial(jbxtxc, 4, 3946, "bistro_plants", "starflower4", 0x00000000);
     jbxtxc = CreateDynamicObject(19482, 2484.124267, 43.649761, 1074.155761, -0.000059, 0.000000, -89.999816, 99, 3, -1, 300.00, 300.00); 
     SetDynamicObjectMaterial(jbxtxc, 0, 10101, "2notherbuildsfe", "Bow_Abpave_Gen", 0x00000000);
-    SetDynamicObjectMaterialText(jbxtxc, 0, "{FFFFFF}Balai Kota Nexston", 130, "Century Gothic", 65, 1, 0x00000000, 0x00000000, 1);
+    SetDynamicObjectMaterialText(jbxtxc, 0, "{FFFFFF}Balai Kota Vertex", 130, "Century Gothic", 65, 1, 0x00000000, 0x00000000, 1);
     jbxtxc = CreateDynamicObject(19482, 2493.061767, 63.436912, 1072.457397, 0.000000, 0.000000, 90.000000, 99, 3, -1, 300.00, 300.00); 
     SetDynamicObjectMaterial(jbxtxc, 0, 10101, "2notherbuildsfe", "Bow_Abpave_Gen", 0x00000000);
     SetDynamicObjectMaterialText(jbxtxc, 0, "{FFFFFF}Presiden & Wakil Presiden", 130, "Century Gothic", 45, 1, 0x00000000, 0x00000000, 1);

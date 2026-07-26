@@ -18,10 +18,10 @@ Operasi CMD: X11_WHEAT4
 [Shop]: X11_DARKCYAN
 */
 
-#define Nexston                   "{16a621}"
+#define Vertex                   "{16a621}"
 #define CMDEA                     "{00FFFF}"
 
-#define Y_Nexston                   0xFF4300FF
+#define Y_Vertex                   0xFF4300FF
 #define Y_SERVER                    0xFF4300FF
 
 #define Y_SNOW                      0xFFFAFAFF

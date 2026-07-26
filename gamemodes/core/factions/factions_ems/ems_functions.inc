@@ -155,12 +155,12 @@ Show_LSFDRankManage(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "LSFDSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "LSFDSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
     }
     return 1;
 }
@@ -219,12 +219,12 @@ stock ShowLSFDKick(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "LSFDKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "LSFDKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", "Faction ini tidak memiliki anggota!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", "Faction ini tidak memiliki anggota!", "Tutup", "");
     }
     return 1;
 }
@@ -287,7 +287,7 @@ stock ShowInjuredList(playerid)
         ShowTDN(playerid, NOTIFICATION_ERROR, "Tidak ada sinyal pingsan yang masuk!");
     } 
     else {
-        Dialog_Show(playerid, "InjuredList", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Sinyal Pingsan", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "InjuredList", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Sinyal Pingsan", string, "Pilih", "Batal");
     }
     return 1;
 }
@@ -312,7 +312,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 
         if(count > 0) 
 		{
-            Dialog_Show(playerid, "FactionPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+            Dialog_Show(playerid, "FactionPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
             frmxt, "Pilih", "Batal");
 		}
     }
@@ -348,12 +348,12 @@ Dialog:ParamedisVault(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Lemari LSFD", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Lemari LSFD", 
                 "Anda tidak memiliki barang yang dapat disimpan!", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "ParamedisVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Lemari LSFD", str, "Pilih", "Batal");
+                Dialog_Show(playerid, "ParamedisVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Lemari LSFD", str, "Pilih", "Batal");
             }
         }
         case 1: //withdraw
@@ -408,7 +408,7 @@ Dialog:ParamedisVaultDeposit(playerid, response, listitem, inputtext[])
     
     new shstr[528];
     format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Mohon masukkan jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][listitem]][invItem], InventoryData[playerid][PlayerListitem[playerid][listitem]][invQuantity]);
-    Dialog_Show(playerid, "ParamedisVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari LSFD", 
+    Dialog_Show(playerid, "ParamedisVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari LSFD", 
     shstr, "Input", "Batal");
     return 1;
 }
@@ -433,7 +433,7 @@ Dialog:ParamedisVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nTidak dapat dikosongkan!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "ParamedisVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari LSFD", 
+        Dialog_Show(playerid, "ParamedisVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari LSFD", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -442,7 +442,7 @@ Dialog:ParamedisVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nMohon diisi hanya angka!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "ParamedisVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari LSFD", 
+        Dialog_Show(playerid, "ParamedisVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari LSFD", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -451,7 +451,7 @@ Dialog:ParamedisVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nJumlah tidak valid!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "ParamedisVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari LSFD", 
+        Dialog_Show(playerid, "ParamedisVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari LSFD", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -550,7 +550,7 @@ Dialog:ParamedisVaultWithdraw(playerid, response, listitem, inputtext[])
         AccountData[playerid][pTempValue] = listitem;
         new shstr[528];
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][listitem]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][listitem]][factionBrankasQuant]);
-        Dialog_Show(playerid, "ParamedisVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari LSFD", 
+        Dialog_Show(playerid, "ParamedisVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari LSFD", 
         shstr, "Input", "Batal");
     }
     return 1;
@@ -576,7 +576,7 @@ Dialog:ParamedisVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Tidak dapat dikosongkan!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "ParamedisVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari LSFD", 
+        Dialog_Show(playerid, "ParamedisVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari LSFD", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -585,7 +585,7 @@ Dialog:ParamedisVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon diisi hanya angka!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "ParamedisVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari LSFD", 
+        Dialog_Show(playerid, "ParamedisVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari LSFD", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -594,7 +594,7 @@ Dialog:ParamedisVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Jumlah tidak valid!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "ParamedisVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari LSFD", 
+        Dialog_Show(playerid, "ParamedisVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari LSFD", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -666,7 +666,7 @@ Dialog:ParamedisVaultOut(playerid, response, listitem, inputtext[])
 Dialog:ParamedisLocker(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
     switch(listitem)
     {
         case 0: //toggle duty
@@ -701,7 +701,7 @@ Dialog:ParamedisLocker(playerid, response, listitem, inputtext[])
                 // SetDynamicObjectMaterialText(EMSClothing[playerid][0], 0, "EMT", 60, "Arial", 55, 1, 0xFFFFFF00, 0x00000000, 1);
 
                 // EMSClothing[playerid][1] = CreateDynamicObject(19777, 1354.158447, 1502.051269, 11.269291, 90.099983, 450.000000, 180.000000, -1, -1, -1, 200.00, 200.00); // buat dibaju
-                // SetDynamicObjectMaterialText(EMSClothing[playerid][1], 0, "Kota Nexston", 140, "Arial", 55, 1, 0xFFFFFF00, 0x00000000, 1);
+                // SetDynamicObjectMaterialText(EMSClothing[playerid][1], 0, "Kota Vertex", 140, "Arial", 55, 1, 0xFFFFFF00, 0x00000000, 1);
 
                 // AttachDynamicObjectToPlayer(EMSClothing[playerid][0], playerid, 0.206999, -0.113000, 0.004000, -89.599929, 174.099990, 92.299995);
                 // AttachDynamicObjectToPlayer(EMSClothing[playerid][1], playerid, 0.206999, -0.113000, -0.004000, -89.599929, 174.099990, 92.299995);
@@ -717,7 +717,7 @@ Dialog:ParamedisLocker(playerid, response, listitem, inputtext[])
         {
             if(AccountData[playerid][pGender] == 1)
             {
-                Dialog_Show(playerid, "ParamedisUniform", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- LSFD Uniform", 
+                Dialog_Show(playerid, "ParamedisUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- LSFD Uniform", 
                 "LSFD #1\n\
                 "GRAY"LSFD #2\n\
                 LSFD #3\n\
@@ -727,7 +727,7 @@ Dialog:ParamedisLocker(playerid, response, listitem, inputtext[])
             }
             else
             {
-                Dialog_Show(playerid, "ParamedisUniform", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- LSFD Uniform", 
+                Dialog_Show(playerid, "ParamedisUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- LSFD Uniform", 
                 "LSFD #1\n\
                 "GRAY"LSFD #2\n\
                 LSFD #3\n\
@@ -741,7 +741,7 @@ Dialog:ParamedisLocker(playerid, response, listitem, inputtext[])
 Dialog:ParamedisUniform(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
 
     //DestoryPlayerFactObject(playerid);
 
@@ -757,7 +757,7 @@ Dialog:ParamedisUniform(playerid, response, listitem, inputtext[])
             //     SetDynamicObjectMaterialText(EMSClothing[playerid][0], 0, "EMT", 60, "Arial", 55, 1, 0xFFFFFF00, 0x00000000, 1);
 
             //     EMSClothing[playerid][1] = CreateDynamicObject(19777, 1354.158447, 1502.051269, 11.269291, 90.099983, 450.000000, 180.000000, -1, -1, -1, 200.00, 200.00); // buat dibaju
-            //     SetDynamicObjectMaterialText(EMSClothing[playerid][1], 0, "Kota Nexston", 140, "Arial", 55, 1, 0xFFFFFF00, 0x00000000, 1);
+            //     SetDynamicObjectMaterialText(EMSClothing[playerid][1], 0, "Kota Vertex", 140, "Arial", 55, 1, 0xFFFFFF00, 0x00000000, 1);
 
             //     AttachDynamicObjectToPlayer(EMSClothing[playerid][0], playerid, 0.206999, -0.113000, 0.004000, -89.599929, 174.099990, 92.299995);
             //     AttachDynamicObjectToPlayer(EMSClothing[playerid][1], playerid, 0.206999, -0.113000, -0.004000, -89.599929, 174.099990, 92.299995);
@@ -775,7 +775,7 @@ Dialog:ParamedisUniform(playerid, response, listitem, inputtext[])
 Dialog:ParamedisBosdesk(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
     if(AccountData[playerid][pFactionRank] < 6) return SEM(playerid, "Minimum rank Fire Captain II untuk akses menu faction!");
 
     switch(listitem)
@@ -798,10 +798,10 @@ Dialog:ParamedisBosdesk(playerid, response, listitem, inputtext[])
             if(count == 0)
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Undang Faction", "Tidak ada pemain terdekat!", "Tutup", "");
+                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Undang Faction", "Tidak ada pemain terdekat!", "Tutup", "");
             }
 
-            Dialog_Show(playerid, "ParamedisInviteConfirm", DIALOG_STYLE_TABLIST, ""Nexston"Nexston Roleplay "WHITE"- Undang Faction", frmxt, "Pilih", "Batal");
+            Dialog_Show(playerid, "ParamedisInviteConfirm", DIALOG_STYLE_TABLIST, ""Vertex"Vertex Roleplay "WHITE"- Undang Faction", frmxt, "Pilih", "Batal");
         }
         case 1: //kelola jabatan
         {
@@ -868,12 +868,12 @@ Dialog:ParamedisBosdesk(playerid, response, listitem, inputtext[])
                     strcat(string, "\n");
                 }
 
-                Dialog_Show(playerid, "LSFDSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
+                Dialog_Show(playerid, "LSFDSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
             }
             else
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
             }
         }
         case 2: //kick
@@ -884,18 +884,18 @@ Dialog:ParamedisBosdesk(playerid, response, listitem, inputtext[])
         case 3: //saldo
         {
             new rtx[158];
-            format(rtx, sizeof(rtx), "Saldo EMS Kota Nexston saat ini ialah:\n\
+            format(rtx, sizeof(rtx), "Saldo EMS Kota Vertex saat ini ialah:\n\
             "DARKGREEN"$%s", FormatMoney(EMSMoneyVault));
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- EMS Balance", rtx, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- EMS Balance", rtx, "Tutup", "");
         }
         case 4: //deposit saldo
         {
-            Dialog_Show(playerid, "ParamedisDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- EMS Deposit", 
+            Dialog_Show(playerid, "ParamedisDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- EMS Deposit", 
             "Mohon masukkan berapa jumlah deposit:", "Input", "Batal");
         }
         case 5: //tarik saldo
         {
-            Dialog_Show(playerid, "ParamedisWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- EMS Withdraw", 
+            Dialog_Show(playerid, "ParamedisWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- EMS Withdraw", 
             "Mohon masukkan berapa jumlah withdraw:", "Input", "Batal");
         }
     }
@@ -904,7 +904,7 @@ Dialog:ParamedisBosdesk(playerid, response, listitem, inputtext[])
 Dialog:ParamedisInviteConfirm(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
     if(AccountData[playerid][pFactionRank] < 6) return SEM(playerid, "Minimum rank Fire Captain II untuk akses menu faction!");
 
     new targetid = NearestUser[playerid][listitem], icsr[128];
@@ -921,10 +921,10 @@ Dialog:ParamedisInviteConfirm(playerid, response, listitem, inputtext[])
 Dialog:ParamedisSetRankConfirm(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
     if(AccountData[playerid][pFactionRank] < 6) return SEM(playerid, "Minimum rank Fire Captain II untuk akses menu faction!");
 
-    if(isnull(inputtext)) return Dialog_Show(playerid, "ParamedisSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "ParamedisSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Tidak dapat dikosongkan!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. Training\n\
@@ -936,7 +936,7 @@ Dialog:ParamedisSetRankConfirm(playerid, response, listitem, inputtext[])
     7. SEKBEN\n\
     8. Direktur", "Set", "Batal");
     
-    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "ParamedisSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "ParamedisSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Masukkan hanya angka!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. Training\n\
@@ -948,7 +948,7 @@ Dialog:ParamedisSetRankConfirm(playerid, response, listitem, inputtext[])
     7. SEKBEN\n\
     8. Direktur", "Set", "Batal");
 
-    if(strval(inputtext) < 1 || strval(inputtext) > 8) return Dialog_Show(playerid, "ParamedisSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(strval(inputtext) < 1 || strval(inputtext) > 8) return Dialog_Show(playerid, "ParamedisSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Tidak dapat diisi dibawah 1 atau lebih tinggi dari jabatan anda!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. Training\n\
@@ -980,21 +980,21 @@ Dialog:ParamedisSetRankConfirm(playerid, response, listitem, inputtext[])
 Dialog:ParamedisDepositCash(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSFD) return SEM(playerid, "Anda bukan anggota Paramedis Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSFD) return SEM(playerid, "Anda bukan anggota Paramedis Vertex!");
     if(AccountData[playerid][pFactionRank] < 6) return SEM(playerid, "Minimum rank Fire Captain II untuk akses menu faction!");
  
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "ParamedisDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- EMS Deposit",
+        return Dialog_Show(playerid, "ParamedisDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- EMS Deposit",
         "Error: Tidak dapat dikosongkan!\n\
         Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "ParamedisDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- EMS Deposit",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "ParamedisDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- EMS Deposit",
         "Error: Masukkan hanya angka!\n\
         Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "ParamedisDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- EMS Deposit",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "ParamedisDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- EMS Deposit",
     "Error: Invalid amount, you can't deposit less than $1!\n\
     Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
 
@@ -1006,28 +1006,28 @@ Dialog:ParamedisDepositCash(playerid, response, listitem, inputtext[])
     static frmtmny[128];
     mysql_format(g_SQL, frmtmny, sizeof(frmtmny), "UPDATE `stuffs` SET `emsmoneyvault` = %d WHERE `id` = 0", EMSMoneyVault);
     mysql_pquery(g_SQL, frmtmny);
-    ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil deposit $%s untuk Paramedis Nexston.", FormatMoney(strval(inputtext))));
+    ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil deposit $%s untuk Paramedis Vertex.", FormatMoney(strval(inputtext))));
     return 1;
 }
 
 Dialog:ParamedisWithdrawCash(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSFD) return SEM(playerid, "Anda bukan anggota Paramedis Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSFD) return SEM(playerid, "Anda bukan anggota Paramedis Vertex!");
     if(AccountData[playerid][pFactionRank] < 6) return SEM(playerid, "Minimum rank Fire Captain II untuk akses menu faction!");
 
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "ParamedisWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- EMS Withdraw",
+        return Dialog_Show(playerid, "ParamedisWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- EMS Withdraw",
         "Error: Tidak dapat dikosongkan!\n\
        Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "ParamedisWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- EMS Withdraw",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "ParamedisWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- EMS Withdraw",
         "Error: Masukkan hanya angka!\n\
        Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "ParamedisWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- EMS Withdraw",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "ParamedisWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- EMS Withdraw",
     "Error: Jumlah tidak valid, anda tidak dapat withdraw kurang dari $1!\n\
    Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
 
@@ -1042,20 +1042,20 @@ Dialog:ParamedisWithdrawCash(playerid, response, listitem, inputtext[])
 
     AddFMoneyLog(AccountData[playerid][pName], AccountData[playerid][pUCP], strval(inputtext), "Paramedis");
 
-    ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil withdraw $%s dari Paramedis Nexston.", FormatMoney(strval(inputtext))));
+    ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil withdraw $%s dari Paramedis Vertex.", FormatMoney(strval(inputtext))));
     return 1;
 }
 Dialog:ParamedisGarage(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
     switch(listitem)
     {
         case 0: //keluarkan kendaraan
         {
             if(PlayerFactionVehicle[playerid][FACTION_LSFD] != INVALID_VEHICLE_ID) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda telah mengeluarkan kendaraan, simpan terlebih dahulu!");
 
-            Dialog_Show(playerid, "ParamedisGarageTakeout", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Keluarkan Kendaraan", 
+            Dialog_Show(playerid, "ParamedisGarageTakeout", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Keluarkan Kendaraan", 
             "Ambulance\n\
             "GRAY"Premier\n\
             FBI Rancher\n\
@@ -1089,7 +1089,7 @@ Dialog:ParamedisGarageTakeout(playerid, response, listitem, inputtext[])
     if(AccountData[playerid][pFaction] != FACTION_LSFD) 
     {
         AccountData[playerid][pTempValue] = -1;
-        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
     }
 
     new garageid = GetPlayerNearestFGarage(playerid);
@@ -1131,11 +1131,11 @@ Dialog:ParamedisGarageTakeout(playerid, response, listitem, inputtext[])
             SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][5], 0, "EMT", 140, "Arial", 55, 1, -282565, 0, 1);
             AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][5], PlayerFactionVehicle[playerid][FACTION_LSFD], 1.290, -2.910, 0.950, 900.000, 1260.000, 360.000);
             FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6] = CreateDynamicObject(18667,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
-            SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6], 0, "Kota Nexston", 140, "Arial", 31, 1, -282565, 0, 1);
+            SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6], 0, "Kota Vertex", 140, "Arial", 31, 1, -282565, 0, 1);
             AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6], PlayerFactionVehicle[playerid][FACTION_LSFD], -1.289, -2.900, 0.750, 0.000, 0.000, 0.000);
             FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][7] = CreateDynamicObject(18667,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
             SetDynamicObjectMaterial(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][7], 0, 19267, "mapmarkers", "red-2", 0);
-            SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][7], 0, "Kota Nexston", 140, "Arial", 31, 1, -282565, 0, 1);
+            SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][7], 0, "Kota Vertex", 140, "Arial", 31, 1, -282565, 0, 1);
             AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][7], PlayerFactionVehicle[playerid][FACTION_LSFD], 1.291, -2.900, 0.770, 0.000, 0.000, 540.000);
             FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][8] = CreateDynamicObject(2643,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
             SetDynamicObjectMaterial(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][8], 0, 19655, "mattubes", "greendirt1", 0);
@@ -1144,7 +1144,7 @@ Dialog:ParamedisGarageTakeout(playerid, response, listitem, inputtext[])
             SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][9], 0, "TECHNICIAN", 140, "Arial", 25, 1, -282565, 0, 1);
             AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][9], PlayerFactionVehicle[playerid][FACTION_LSFD], 0.019, -1.940, 1.710, 360.000, 90.000, 90.000);
             FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][10] = CreateDynamicObject(18667,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
-            SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][10], 0, "Nexston", 140, "Arial", 75, 1, -16751616, 0, 1);
+            SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][10], 0, "Vertex", 140, "Arial", 75, 1, -16751616, 0, 1);
             AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][10], PlayerFactionVehicle[playerid][FACTION_LSFD], 0.009, -2.451, 1.720, 0.000, 90.000, 90.000);
             FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][11] = CreateDynamicObject(11701,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
             AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][11], PlayerFactionVehicle[playerid][FACTION_LSFD], 0.001, 0.890, 1.231, 0.000, 0.000, 0.000);
@@ -1175,18 +1175,18 @@ Dialog:ParamedisGarageTakeout(playerid, response, listitem, inputtext[])
             AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][2], PlayerFactionVehicle[playerid][FACTION_LSFD], -0.280, -3.168, 0.140, 0.000, 0.000, 450.000);
             FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][3] = CreateDynamicObject(18667,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
             SetDynamicObjectMaterial(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][3], 0, 19267, "mapmarkers", "red-2", 0);
-            SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][3], 0, "Kota Nexston", 140, "Arial", 31, 1, -282565, 0, 1);
+            SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][3], 0, "Kota Vertex", 140, "Arial", 31, 1, -282565, 0, 1);
             AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][3], PlayerFactionVehicle[playerid][FACTION_LSFD], -0.300, -3.169, 0.000, 0.000, 0.000, 90.000);
             FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][4] = CreateDynamicObject(18667,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
             SetDynamicObjectMaterial(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][4], 0, 19267, "mapmarkers", "red-2", 0);
-            SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][4], 0, "Kota Nexston", 140, "Arial", 31, 1, -282565, 0, 1);
+            SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][4], 0, "Kota Vertex", 140, "Arial", 31, 1, -282565, 0, 1);
             AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][4], PlayerFactionVehicle[playerid][FACTION_LSFD], -1.201, -0.318, -0.210, 0.000, 0.000, 0.000);
             FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][5] = CreateDynamicObject(18667,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
             SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][5], 0, "EMT", 140, "Arial", 155, 1, -282565, 0, 1);
             AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][5], PlayerFactionVehicle[playerid][FACTION_LSFD], 1.200, -0.216, 0.050, 0.000, 0.000, 180.000);
             FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6] = CreateDynamicObject(18667,0.0,0.0,-1000.0,0.0,0.0,0.0,0,0,-1,300.0,300.0);
             SetDynamicObjectMaterial(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6], 0, 19267, "mapmarkers", "red-2", 0);
-            SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6], 0, "Kota Nexston", 140, "Arial", 31, 1, -282565, 0, 1);
+            SetDynamicObjectMaterialText(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6], 0, "Kota Vertex", 140, "Arial", 31, 1, -282565, 0, 1);
             AttachDynamicObjectToVehicle(FactionVehObject[PlayerFactionVehicle[playerid][FACTION_LSFD]][6], PlayerFactionVehicle[playerid][FACTION_LSFD], 1.199, -0.228, -0.210, 0.000, 0.000, 180.000);
         }
         case 3: //utility van
@@ -1245,7 +1245,7 @@ Dialog:ParamedisGarageTakeout(playerid, response, listitem, inputtext[])
 Dialog:ParamedisPanel(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSFD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
     new targetid = NearestSingle[playerid];
     if(!IsPlayerConnected(targetid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak terkoneksi ke server!");
     if(!IsPlayerNearPlayer(playerid, targetid, 3.0)) return SEM(playerid, "Pemain tersebut tidak dekat dengan anda!");
@@ -1332,12 +1332,12 @@ Dialog:ParamedisPanel(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
                 "This person has no invoices.", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
                 xjjs, "Tutup", "");
             }
             NearestSingle[playerid] = INVALID_PLAYER_ID;
@@ -1350,7 +1350,7 @@ Dialog:ParamedisPanel(playerid, response, listitem, inputtext[])
     		    ApplyAnimation(playerid, "INT_SHOP","shop_loop", 4.1, true, false, false, true, 0, true);
             }
 
-            Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Invoice", 
+            Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Invoice", 
             "Mohon masukkan nama dari invoice ini:", "Input", "Batal");
         }
         case 7: //periksa
@@ -1371,7 +1371,7 @@ Dialog:ParamedisPanel(playerid, response, listitem, inputtext[])
             "WHITE"Kesehatan: "RED"%.2f\n\
             "WHITE"Lapar: "YELLOW"%d\n\
             "WHITE"Haus: "YELLOW"%d", AccountData[targetid][pName], AccountData[targetid][pHealth], AccountData[targetid][pHunger], AccountData[targetid][pThirst]);
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Periksa", pentil, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Periksa", pentil, "Tutup", "");
             NearestSingle[playerid] = INVALID_PLAYER_ID;
         }
         case 8: //Detain
@@ -1444,7 +1444,7 @@ Dialog:LSFDSetRank(playerid, response, listitem, inputtext[])
     else 
     {
         if(AccountData[playerid][pFaction] != FACTION_LSFD) 
-            return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+            return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
         if(AccountData[playerid][pFactionRank] < 6) return SEM(playerid, "Minimum rank Fire Captain II untuk akses menu faction!");
 
         mysql_query(g_SQL, sprintf("SELECT * FROM `player_characters` WHERE `pID` = '%d'", ListedMember[playerid][listitem]));
@@ -1455,7 +1455,7 @@ Dialog:LSFDSetRank(playerid, response, listitem, inputtext[])
             cache_get_value_name_int(0, "Char_FactionRank", AccountData[playerid][pTempSQLFactRank]);
             if(AccountData[playerid][pID] == AccountData[playerid][pTempSQLFactMemberID]) return SEM(playerid, "Anda tidak dapat menetapkan rank anda sendiri!");
             if(AccountData[playerid][pTempSQLFactRank] >= AccountData[playerid][pFactionRank]) return SEM(playerid, "Anda tidak dapat menetapkan rank rekan yang sejajar/lebih tinggi dari anda!");
-            Dialog_Show(playerid, "ParamedisSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+            Dialog_Show(playerid, "ParamedisSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
             "Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
             1. Training\n\
             2. Perawat\n\
@@ -1491,7 +1491,7 @@ Dialog:LSFDKickMember(playerid, response, listitem, inputtext[])
         new l_row_pid = ListedMember[playerid][listitem];
 
         if (AccountData[playerid][pFaction] != FACTION_LSFD)
-            return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+            return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
 
         if(AccountData[playerid][pFactionRank] < 6) return SEM(playerid, "Minimum rank Fire Captain II untuk akses menu faction!");
 
@@ -1547,7 +1547,7 @@ Dialog:LSFDKickMember(playerid, response, listitem, inputtext[])
             Name: %s\n\
             Rank: %s\n\
             Last Online: %s", fckname, LSFDRank[fckrank], fcklastlogin);
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", kckstr, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", kckstr, "Tutup", "");
         }
     }
     return 1;

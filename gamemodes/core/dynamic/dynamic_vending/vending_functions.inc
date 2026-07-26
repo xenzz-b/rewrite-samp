@@ -153,14 +153,14 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                 
                 if(VendingData[id][venType] == 1)
                 {
-                    Dialog_Show(playerid, "VendingDrink", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Vending Menu", 
+                    Dialog_Show(playerid, "VendingDrink", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Vending Menu", 
                     "Name\tPrice\n\
                     Cola\t$10.50\n\
                     Sprunk\t$10.50", "Buy", "Batal");
                 }
                 else
                 {
-                    Dialog_Show(playerid, "VendingSnack", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Vending Menu", 
+                    Dialog_Show(playerid, "VendingSnack", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Vending Menu", 
                     "Name\tPrice\n\
                     Snack\t$10.50\n\
                     Cereal\t$10.50", "Buy", "Batal");

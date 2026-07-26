@@ -60,7 +60,7 @@ YCMD:cg(playerid, params[], help)
     }
     format(haha, sizeof(haha), "%s-   (Catatan) %s\n", haha, UberAppTemp[orderid][DestTemp]);
     format(haha, sizeof(haha), "%s-   (Pembayaran) Credits // Order ID: %d", haha, orderid);
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
     haha, "Tutup", "");
     return 1;
 }

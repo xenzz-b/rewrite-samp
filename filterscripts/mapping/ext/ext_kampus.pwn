@@ -17,7 +17,7 @@ CreateKampusExt()
     KMPUXEXTA = CreateDynamicObject(19483, 1803.954467, -1594.061279, 14.210432, -0.000011, 0.000009, -47.199981, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(KMPUXEXTA, 0, "UNIVERSITAS", 50, "Arial", 23, 1, 0xFFFFFFFF, 0x00000000, 1);
     KMPUXEXTA = CreateDynamicObject(19483, 1803.954467, -1594.061279, 13.730429, -0.000011, 0.000009, -47.199981, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(KMPUXEXTA, 0, "Nexston", 50, "Arial", 25, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(KMPUXEXTA, 0, "Vertex", 50, "Arial", 25, 1, 0xFFFFFFFF, 0x00000000, 1);
     KMPUXEXTA = CreateDynamicObject(19353, 1803.840454, -1594.026611, 14.676306, 0.000000, 0.000000, -47.500026, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(KMPUXEXTA, 0, 3878, "headstones_sfsx", "ws_wargrave", 0x00000000);
     KMPUXEXTA = CreateDynamicObject(1307, 1802.476440, -1592.546752, 25.754955, 0.000000, 180.000000, 40.199989, 0, 0, -1, 200.00, 200.00); 

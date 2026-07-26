@@ -20,7 +20,7 @@ YCMD:r(playerid, params[], help)
 
 YCMD:m(playerid, params[], help)
 {
-    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
     
     if(!PlayerVoiceData[playerid][pIsMegaOn])
     {
@@ -39,7 +39,7 @@ YCMD:m(playerid, params[], help)
 
 YCMD:tac(playerid, params[], help)
 {
-    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
     
     new choosefreq;
 

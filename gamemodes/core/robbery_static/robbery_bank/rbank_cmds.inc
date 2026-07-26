@@ -22,7 +22,7 @@ YCMD:robbank(playerid, params[], help)
     "RED"Hacking Bank on progress [%d/5]...\n\
     "WHITE"Please re-type this code:\n\n\
     "LIGHTYELLOW"%s", AccountData[playerid][pQBRobbery], GenerateRandomType(playerid));
-    Dialog_Show(playerid, "BankHacking", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Hacking Bank", 
+    Dialog_Show(playerid, "BankHacking", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Hacking Bank", 
     stta, "Input", "Batal");
     return 1;
 }

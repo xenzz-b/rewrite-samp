@@ -45,7 +45,7 @@ CreateBadgeTD()
 	TextDrawSetProportional(BadgeTD[2], 1);
 	TextDrawSetSelectable(BadgeTD[2], 0);
 
-	BadgeTD[3] = TextDrawCreate(477.000000, 278.000000, "Kepolisian Nexston");
+	BadgeTD[3] = TextDrawCreate(477.000000, 278.000000, "Kepolisian Vertex");
 	TextDrawFont(BadgeTD[3], 1);
 	TextDrawLetterSize(BadgeTD[3], 0.291666, 1.300000);
 	TextDrawTextSize(BadgeTD[3], 400.000000, 377.000000);

@@ -184,7 +184,7 @@ YCMD:konser(playerid, params[], help)
     if (AccountData[playerid][pAdminDuty] == false)
         return PermissionErrorDuty(playerid);
 
-	Dialog_Show(playerid, "KonserList", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Konser",
+	Dialog_Show(playerid, "KonserList", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Konser",
 	"Mulai Konser\nStop Konser\nSiti Nurbaya\nSeparuh Nafas\nSelir Hati\nSelimut Hati\nSedang Ingin Bercinta\nRoman Picisan\n\
 	Risalah Hati\nPupus\nPerempuan Paling Cantik\nPangeran Cinta\nMunajat Cinta\nMadu Tiga\nLaskar Cinta\nKirana\nKangen\nKamulah Surgaku\nKamulah Satu\n\
 	Elang\nDewi\nAngin\nAku Milikmu", "Pilih", "Batal");
@@ -929,7 +929,7 @@ YCMD:dynhelp(playerid, params[], help)
     if (AccountData[playerid][pAdminDuty] == false)
         return PermissionErrorDuty(playerid);
     
-    Dialog_Show(playerid, "AdminDynamicHelp", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dynamic Help", 
+    Dialog_Show(playerid, "AdminDynamicHelp", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dynamic Help", 
     "Dynamic Type\tDescription\n\
     Dynamic Actor\tContains commands related to dynamic actors\n\
     "GRAY"Dynamic Bike Rental\t"GRAY"Contains commands related to dynamic bicycle rentals\n\

@@ -45,7 +45,7 @@ task ServerTimeClock[1000]()
             GM[GInsuTime] = 0;
 
             for(new i = 0; i < 19; i++)
-                TextDrawHideForAll(InsuNSRP[i]);
+                TextDrawHideForAll(InsuVRP[i]);
 
             SendClientMessageToAll(Y_LIGHTRED, "AdmCmd: Asuransi keliling telah dilaksanakan, selamat beraktivitas kembali.");
 
@@ -161,12 +161,12 @@ task ServerTimeClock[1000]()
 
 ptask UpdatePhoneTime[1000](playerid)
 {
-    PlayerTextDrawSetString(playerid, PhoneNSRP[playerid][18], sprintf("%02d:%02d", av_hours, av_minutes));
-    PlayerTextDrawSetString(playerid, PhoneBankNSRP[playerid][66], sprintf("%02d:%02d", av_hours, av_minutes));
-    PlayerTextDrawSetString(playerid, UberNSRP[playerid][22], sprintf("%02d:%02d", av_hours, av_minutes));
-    PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][58], sprintf("%02d:%02d", av_hours, av_minutes));
-    PlayerTextDrawSetString(playerid, KontakNSRP[playerid][20], sprintf("%02d:%02d", av_hours, av_minutes));
-    PlayerTextDrawSetString(playerid, CameraNSRP[playerid][5], sprintf("%02d:%02d:%02d", av_hours, av_minutes, av_seconds));
+    PlayerTextDrawSetString(playerid, PhoneVRP[playerid][18], sprintf("%02d:%02d", av_hours, av_minutes));
+    PlayerTextDrawSetString(playerid, PhoneBankVRP[playerid][66], sprintf("%02d:%02d", av_hours, av_minutes));
+    PlayerTextDrawSetString(playerid, UberVRP[playerid][22], sprintf("%02d:%02d", av_hours, av_minutes));
+    PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][58], sprintf("%02d:%02d", av_hours, av_minutes));
+    PlayerTextDrawSetString(playerid, KontakVRP[playerid][20], sprintf("%02d:%02d", av_hours, av_minutes));
+    PlayerTextDrawSetString(playerid, CameraVRP[playerid][5], sprintf("%02d:%02d:%02d", av_hours, av_minutes, av_seconds));
     return 1;
 }
 
@@ -179,7 +179,7 @@ task UpdateDatabase[3600000]()
             UpdateAccountData(pid);
 		}
 	}
-	SendClientMessageToAll(Y_LIGHTRED, "BotCmd: Bot Nexston telah menyimpan database semua player online.");
+	SendClientMessageToAll(Y_LIGHTRED, "BotCmd: Bot Vertex telah menyimpan database semua player online.");
 	return 1;
 }
 
@@ -439,7 +439,7 @@ task ServerGMXMTUpdate[60000]()
             GM[MTTime] = 0;
 
             SendRconCommand("password 404");
-            SendRconCommand("hostname Nexston Roleplay | Under Maintenance");
+            SendRconCommand("hostname Vertex Roleplay | Under Maintenance");
 
             foreach(new i : Player) if(AccountData[i][pSpawned])
             {
@@ -520,7 +520,7 @@ ptask TaxCutting[60000](playerid)
         }
         static Float:GrandTotal;
         GrandTotal = RoundNegativeToPositive(RumusPajakTabungan[playerid]) + floatround(RumusPajakKendaraan[playerid]);
-        SendClientMessage(playerid, X11_YELLOW, "========== [Pemerintah Nexston] ==========");
+        SendClientMessage(playerid, X11_YELLOW, "========== [Pemerintah Vertex] ==========");
         SendClientMessageEx(playerid, -1, "-> Pajak Tabungan: "RED"$%s", FormatMoney(floatround(RumusPajakTabungan[playerid])));
         SendClientMessageEx(playerid, -1, "-> Pajak Kendaraan: "RED"$%s", FormatMoney(floatround(RumusPajakKendaraan[playerid])));
         SendClientMessageEx(playerid, -1, "-> Total Pajak: "RED"$%s", FormatMoney(floatround(GrandTotal)));
@@ -649,38 +649,38 @@ task updateHostname[5000]()
 		{
 			hostnamestep = 1;
 
-			SendRconCommand("hostname Nexston Roleplay | #KotaDamai");
+			SendRconCommand("hostname Vertex Roleplay | #KotaDamai");
 		}
 		case 1:
 		{
 			hostnamestep = 2;
 
-            SendRconCommand("hostname Nexston Roleplay | N:RP V0.1.5 S");
+            SendRconCommand("hostname Vertex Roleplay | V:RP V0.1.5 S");
 		}
 		case 2:
 		{
 			hostnamestep = 3;
 
-            SendRconCommand("hostname Nexston Roleplay | #RoadToGlory");
+            SendRconCommand("hostname Vertex Roleplay | #RoadToGlory");
 		}
 		case 3:
 		{
 			hostnamestep = 4;
 
-			format(gmtxt, sizeof(gmtxt), "hostname Nexston Roleplay | %d pemain online!", Iter_Count(Player));
+			format(gmtxt, sizeof(gmtxt), "hostname Vertex Roleplay | %d pemain online!", Iter_Count(Player));
 			SendRconCommand(gmtxt);
 		}
         case 4:
 		{
 			hostnamestep = 5;
 
-			SendRconCommand("hostname Nexston Roleplay");
+			SendRconCommand("hostname Vertex Roleplay");
 		}
         case 5:
 		{
 			hostnamestep = 0;
 
-			SendRconCommand("hostname Nexston Roleplay | S1");
+			SendRconCommand("hostname Vertex Roleplay | S1");
 		}
 	}
     return 1;

@@ -245,6 +245,6 @@ YCMD:itemlist(playerid, params[], help)
             format(string, sizeof(string), "%s%s\n", string, g_aInventoryItems[i][e_InventoryItem]);
         }
     }
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Items List", string, "Close", "");
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Items List", string, "Close", "");
 	return 1;
 }

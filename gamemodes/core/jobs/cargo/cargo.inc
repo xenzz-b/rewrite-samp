@@ -118,7 +118,7 @@ YCMD:misihauling(playerid, params[], help)
     if(count == 0)
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Tidak ada pom bensin yang membutuhkan restock saat ini!");
 
-    Dialog_Show(playerid, "HaulingMissionList", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Misi Hauling", liststr, "Pilih", "Batal");
+    Dialog_Show(playerid, "HaulingMissionList", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Misi Hauling", liststr, "Pilih", "Batal");
     return 1;
 }
 
@@ -195,7 +195,7 @@ ShowFuelRestockRequestDialog(playerid, bizid)
         return ShowTDN(playerid, NOTIFICATION_ERROR, sprintf("Sudah ada request restock aktif sebesar %d liter.", g_FuelRestockRequest[bizid]));
 
     SetPVarInt(playerid, "HaulingRequestBiz", bizid);
-    Dialog_Show(playerid, "HaulingRestockInput", DIALOG_STYLE_INPUT,""Nexston"Nexston Roleplay "WHITE"- Request Restock BBM",sprintf("Masukkan jumlah liter BBM yang ingin direstock (500 - 2000):\n"GRAY"Stok saat ini: %d liter\nHarga akan dipotong dari kas bisnis.", BizData[bizid][bizFuelStock]),"Request", "Batal");
+    Dialog_Show(playerid, "HaulingRestockInput", DIALOG_STYLE_INPUT,""Vertex"Vertex Roleplay "WHITE"- Request Restock BBM",sprintf("Masukkan jumlah liter BBM yang ingin direstock (500 - 2000):\n"GRAY"Stok saat ini: %d liter\nHarga akan dipotong dari kas bisnis.", BizData[bizid][bizFuelStock]),"Request", "Batal");
     return 1;
 }
 

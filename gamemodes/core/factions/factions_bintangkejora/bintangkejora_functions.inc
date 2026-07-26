@@ -157,12 +157,12 @@ Show_BintangKejoraRankManage(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "BintangKejoraChickenSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "BintangKejoraChickenSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
     }
     return 1;
 }
@@ -221,12 +221,12 @@ stock ShowBintangKejoraKick(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "BintangKejoraChickenKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "BintangKejoraChickenKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", "Faction ini tidak memiliki anggota!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", "Faction ini tidak memiliki anggota!", "Tutup", "");
     }
     return 1;
 }
@@ -272,7 +272,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 
         if(count > 0) 
 		{
-            Dialog_Show(playerid, "FactionPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+            Dialog_Show(playerid, "FactionPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
             frmxt, "Pilih", "Batal");
 		}
     }
@@ -308,12 +308,12 @@ Dialog:BintangKejoraVault(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bintang Kejora", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bintang Kejora", 
                 "Anda tidak memiliki barang yang dapat disimpan!", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "BintangKejoraDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bintang Kejora", str, "Pilih", "Batal");
+                Dialog_Show(playerid, "BintangKejoraDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bintang Kejora", str, "Pilih", "Batal");
             }
         }
         case 1: //withdraw
@@ -368,7 +368,7 @@ Dialog:BintangKejoraDeposit(playerid, response, listitem, inputtext[])
 	}
     new shstr[528];
     format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Mohon masukkan jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][listitem]][invItem], InventoryData[playerid][PlayerListitem[playerid][listitem]][invQuantity]);
-    Dialog_Show(playerid, "BintangKejoraIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bintang Kejora", 
+    Dialog_Show(playerid, "BintangKejoraIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bintang Kejora", 
     shstr, "Input", "Batal");
     return 1;
 }
@@ -393,7 +393,7 @@ Dialog:BintangKejoraIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nTidak dapat dikosongkan!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "BintangKejoraIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bintang Kejora", 
+        Dialog_Show(playerid, "BintangKejoraIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bintang Kejora", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -402,7 +402,7 @@ Dialog:BintangKejoraIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nMohon diisi hanya angka!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "BintangKejoraIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bintang Kejora", 
+        Dialog_Show(playerid, "BintangKejoraIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bintang Kejora", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -411,7 +411,7 @@ Dialog:BintangKejoraIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nJumlah tidak valid!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "BintangKejoraIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bintang Kejora", 
+        Dialog_Show(playerid, "BintangKejoraIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bintang Kejora", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -507,7 +507,7 @@ Dialog:BintangKejoraWithdraw(playerid, response, listitem, inputtext[])
         AccountData[playerid][pTempValue] = listitem;
         new shstr[528];
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][listitem]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][listitem]][factionBrankasQuant]);
-        Dialog_Show(playerid, "BintangKejoraOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bintang Kejora", 
+        Dialog_Show(playerid, "BintangKejoraOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bintang Kejora", 
         shstr, "Input", "Batal");
     }
     return 1;
@@ -533,7 +533,7 @@ Dialog:BintangKejoraOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Tidak dapat dikosongkan!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "BintangKejoraOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bintang Kejora", 
+        Dialog_Show(playerid, "BintangKejoraOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bintang Kejora", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -542,7 +542,7 @@ Dialog:BintangKejoraOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon diisi hanya angka!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "BintangKejoraOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bintang Kejora", 
+        Dialog_Show(playerid, "BintangKejoraOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bintang Kejora", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -551,7 +551,7 @@ Dialog:BintangKejoraOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Jumlah tidak valid!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "BintangKejoraOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bintang Kejora", 
+        Dialog_Show(playerid, "BintangKejoraOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bintang Kejora", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -658,7 +658,7 @@ Dialog:BintangKejoraLocker(playerid, response, listitem, inputtext[])
         {
             if(AccountData[playerid][pGender] == 1)
             {
-                Dialog_Show(playerid, "BintangKejoraUniform", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Bintang Kejora Uniform", 
+                Dialog_Show(playerid, "BintangKejoraUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Uniform", 
                 "Bintang Kejora 1\n\
                 "GRAY"Bintang Kejora 2\n\
                 Bintang Kejora 3\n\
@@ -669,7 +669,7 @@ Dialog:BintangKejoraLocker(playerid, response, listitem, inputtext[])
             }
             else if(AccountData[playerid][pGender] == 2)
             {
-                Dialog_Show(playerid, "BintangKejoraUniform", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Bintang Kejora Uniform", 
+                Dialog_Show(playerid, "BintangKejoraUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Uniform", 
                 "Bintang Kejora 1\n\
                 "GRAY"Bintang Kejora 2\n\
                 Bintang Kejora 3\n\
@@ -735,10 +735,10 @@ Dialog:BintangKejoraBosDesk(playerid, response, listitem, inputtext[])
             if(count == 0)
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Undang Faction", "Tidak ada pemain terdekat!", "Tutup", "");
+                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Undang Faction", "Tidak ada pemain terdekat!", "Tutup", "");
             }
 
-            Dialog_Show(playerid, "BintangInviteConfirm", DIALOG_STYLE_TABLIST, ""Nexston"Nexston Roleplay "WHITE"- Undang Faction", frmxt, "Pilih", "Batal");
+            Dialog_Show(playerid, "BintangInviteConfirm", DIALOG_STYLE_TABLIST, ""Vertex"Vertex Roleplay "WHITE"- Undang Faction", frmxt, "Pilih", "Batal");
         }
         case 1: //kelola jabatan
         {
@@ -805,12 +805,12 @@ Dialog:BintangKejoraBosDesk(playerid, response, listitem, inputtext[])
                     strcat(string, "\n");
                 }
 
-                Dialog_Show(playerid, "BintangKejoraSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
+                Dialog_Show(playerid, "BintangKejoraSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
             }
             else
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
             }
         }
         case 2: //kick
@@ -823,16 +823,16 @@ Dialog:BintangKejoraBosDesk(playerid, response, listitem, inputtext[])
             new rtx[158];
             format(rtx, sizeof(rtx), "Saldo Bintang Kejora saat ini ialah:\n\
             "DARKGREEN"$%s", FormatMoney(BintangKejoraMoneyVault));
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Bintang Kejora Balance", rtx, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Balance", rtx, "Tutup", "");
         }
         case 4: //deposit saldo
         {
-            Dialog_Show(playerid, "BintangKejoraDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bintang Kejora Deposit", 
+            Dialog_Show(playerid, "BintangKejoraDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Deposit", 
             "Mohon masukkan berapa jumlah deposit:", "Input", "Batal");
         }
         case 5: //tarik saldo
         {
-            Dialog_Show(playerid, "BintangWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bintang Kejora Withdraw", 
+            Dialog_Show(playerid, "BintangWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Withdraw", 
             "Mohon masukkan berapa jumlah withdraw:", "Input", "Batal");
         }
     }
@@ -861,7 +861,7 @@ Dialog:BintangSetRankConfirm(playerid, response, listitem, inputtext[])
     if(AccountData[playerid][pFaction] != FACTION_BINTANGKEJORA) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Bintang Kejora!");
     if(AccountData[playerid][pFactionRank] < 6) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimal rank faction adalah Supervisor untuk akses ini!");
 
-    if(isnull(inputtext)) return Dialog_Show(playerid, "BintangSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "BintangSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Tidak dapat dikosongkan!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. Magang\n\
@@ -875,7 +875,7 @@ Dialog:BintangSetRankConfirm(playerid, response, listitem, inputtext[])
     9. Chief Officer\n\
     10. Chief Executive", "Set", "Batal");
     
-    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BintangSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BintangSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Masukkan hanya angka!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. Magang\n\
@@ -889,7 +889,7 @@ Dialog:BintangSetRankConfirm(playerid, response, listitem, inputtext[])
     9. Chief Officer\n\
     10. Chief Executive", "Set", "Batal");
 
-    if(strval(inputtext) < 1 || strval(inputtext) > 10) return Dialog_Show(playerid, "BintangSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(strval(inputtext) < 1 || strval(inputtext) > 10) return Dialog_Show(playerid, "BintangSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Tidak dapat diisi dibawah 1 atau lebih tinggi dari jabatan anda!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. Magang\n\
@@ -928,16 +928,16 @@ Dialog:BintangKejoraDepositCash(playerid, response, listitem, inputtext[])
     
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "BintangKejoraDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bintang Kejora Deposit",
+        return Dialog_Show(playerid, "BintangKejoraDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Deposit",
         "Error: Tidak dapat dikosongkan!\n\
         Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BintangKejoraDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bintang Kejora Deposit",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BintangKejoraDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Deposit",
         "Error: Masukkan hanya angka!\n\
         Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BintangKejoraDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bintang Kejora Deposit",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BintangKejoraDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Deposit",
     "Error: Invalid amount, you can't deposit less than $1!\n\
     Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
 
@@ -961,16 +961,16 @@ Dialog:BintangWithdrawCash(playerid, response, listitem, inputtext[])
 
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "BintangWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bintang Kejora Withdraw",
+        return Dialog_Show(playerid, "BintangWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Withdraw",
         "Error: Tidak dapat dikosongkan!\n\
         Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
     }         
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BintangWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bintang Kejora Withdraw",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BintangWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Withdraw",
         "Error: Masukkan hanya angka!\n\
        Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BintangWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bintang Kejora Withdraw",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BintangWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Withdraw",
         "Error: Jumlah tidak valid, anda tidak dapat withdraw kurang dari $1!\n\
         Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
 
@@ -998,7 +998,7 @@ Dialog:BintangKejoraGarage(playerid, response, listitem, inputtext[])
         {
             if(PlayerFactionVehicle[playerid][FACTION_BINTANGKEJORA] != INVALID_VEHICLE_ID) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda telah mengeluarkan kendaraan, simpan terlebih dahulu!");
 
-            Dialog_Show(playerid, "BintangGarageTakeout", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Keluarkan Kendaraan", 
+            Dialog_Show(playerid, "BintangGarageTakeout", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Keluarkan Kendaraan", 
             "PCJ-600\n\
             "GRAY"Premier\n\
             Pizzaboy\n\
@@ -1130,12 +1130,12 @@ Dialog:BintangKejoraPanel(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
                 "This person has no invoices.", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
                 xjjs, "Tutup", "");
             }
             NearestSingle[playerid] = INVALID_PLAYER_ID;
@@ -1148,7 +1148,7 @@ Dialog:BintangKejoraPanel(playerid, response, listitem, inputtext[])
     		    ApplyAnimation(playerid, "INT_SHOP","shop_loop", 4.1, true, false, false, true, 0, true);
             }
 
-            Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Invoice", 
+            Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Invoice", 
             "Mohon masukkan nama dari invoice ini:", "Input", "Batal");
         }
         case 2: //Seret
@@ -1225,12 +1225,12 @@ Dialog:BintangKejoraPanel(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Geledah", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Geledah", 
                 "Pemain tersebut tidak memiliki item apapun!", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Geledah", str, "Tutup", "");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Geledah", str, "Tutup", "");
             }
         }
     }
@@ -1332,7 +1332,7 @@ Dialog:BintangKejoraSetRank(playerid, response, listitem, inputtext[])
             cache_get_value_name_int(0, "Char_FactionRank", AccountData[playerid][pTempSQLFactRank]);
             if(AccountData[playerid][pID] == AccountData[playerid][pTempSQLFactMemberID]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak dapat menetapkan rank anda sendiri!");
             if(AccountData[playerid][pTempSQLFactRank] >= AccountData[playerid][pFactionRank]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak dapat menetapkan rank rekan yang sejajar/lebih tinggi dari anda!");
-            Dialog_Show(playerid, "BintangSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+            Dialog_Show(playerid, "BintangSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
             "Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
             1. Magang\n\
             2. Satpam\n\
@@ -1430,7 +1430,7 @@ Dialog:BintangKejoraKickMember(playerid, response, listitem, inputtext[])
             Name: %s\n\
             Rank: %s\n\
             Last Online: %s", fckname, BintangKejoraRank[fckrank], fcklastlogin);
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", kckstr, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", kckstr, "Tutup", "");
         }
     }
     return 1;

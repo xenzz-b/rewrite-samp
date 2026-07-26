@@ -145,7 +145,7 @@ YCMD:checknetwork(playerid, params[], help)
 		;
 
 		GetNetworkStats(stats, sizeof(stats));
-		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Network Stats", stats, "Close", "");
+		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Network Stats", stats, "Close", "");
 	}
 	return 1;
 }
@@ -901,7 +901,13 @@ ResetVariables(playerid)
 	//pBangunanWorked[playerid] = false;
 
 	Anticheat[playerid][acArmorTime] = 0;
+	Anticheat[playerid][acHealthTime] = 0;
 	Anticheat[playerid][acImmunity] = 0;
+	Anticheat[playerid][acHealth] = 100.0;
+	Anticheat[playerid][acArmour] = 0.0;
+	Anticheat[playerid][acHealthWarns] = 0;
+	Anticheat[playerid][acArmorWarns] = 0;
+	Anticheat[playerid][acVehHealthWarns] = 0;
 	
 	AccountData[playerid][pACWarns] = 0;
 	AccountData[playerid][pHasArmor] = false;
@@ -1249,7 +1255,7 @@ ResetVariables(playerid)
 			AccountData[i][pSpec] = INVALID_PLAYER_ID;
 
 			for(new x = 0; x < 11; x++)
-				PlayerTextDrawHide(i, SpecNSRP[i][x]);
+				PlayerTextDrawHide(i, SpecVRP[i][x]);
 			ShowTDN(i, NOTIFICATION_INFO, "Anda telah keluar dari mode spectator, Pemain tersebut disconnect.");
 		}
 	}
@@ -1720,7 +1726,7 @@ ShowCharacterList(playerid)
 	if(count < MAX_CHARS)
 		format(sgstr, sizeof(sgstr), "%s"GREEN"+ New Character", sgstr);
 
-	Dialog_Show(playerid, "CharacterList", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Character List", sgstr, "Pilih", "Quit");
+	Dialog_Show(playerid, "CharacterList", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Character List", sgstr, "Pilih", "Quit");
 	CancelSelectTextDraw(playerid);
 	return 1;
 }
@@ -1939,7 +1945,7 @@ ResetPlayerMoneyEx(playerid)
 	return ResetPlayerMoney(playerid);
 }
 
-//Anti Health and Armour Hack
+//Anti Health and Armour Hack - Fixed & Optimized by Claps
 SetPlayerHealthEx(playerid, Float:heal)
 {
 	new sphex[128];
@@ -1947,13 +1953,16 @@ SetPlayerHealthEx(playerid, Float:heal)
 	{
 		AccountData[playerid][pHealth] = heal;
 		SetPlayerHealth(playerid, heal);
-		
+		// Set AC immunity to prevent false positives for legit heals
+		Anticheat[playerid][acHealth] = heal;
+		Anticheat[playerid][acHealthTime] = gettime() + 3;
 	}
 	else
 	{
 		AccountData[playerid][pHealth] = 10.00;
 		SetPlayerHealth(playerid, 0.0);
-
+		Anticheat[playerid][acHealth] = 10.00;
+		Anticheat[playerid][acHealthTime] = gettime() + 3;
 	}
 	mysql_format(g_SQL, sphex, sizeof(sphex), "UPDATE `player_characters` SET `Char_Health` = '%.2f' WHERE `pID` = %d", AccountData[playerid][pHealth], AccountData[playerid][pID]);
 	mysql_pquery(g_SQL, sphex);
@@ -1963,7 +1972,8 @@ SetPlayerHealthEx(playerid, Float:heal)
 SetPlayerArmourEx(playerid, Float:armor)
 {
     new spaex[128];
-	Anticheat[playerid][acArmorTime] = gettime() + 11;
+	Anticheat[playerid][acArmorTime] = gettime() + 3; // reduced from 11 to 3 for faster detection, optimized by Claps
+	Anticheat[playerid][acArmour] = armor;
 	AccountData[playerid][pHasArmor] = true;
 	SetPlayerArmour(playerid, armor);
 	AccountData[playerid][pArmor] = armor;
@@ -3032,7 +3042,7 @@ GetRankName(playerid)
         {
             format(rnnrt, sizeof(rnnrt), JayaAbadiRank[AccountData[playerid][pFactionRank]]);
         }
-		case FACTION_SRIMERSING: //+Nexston
+		case FACTION_SRIMERSING: //+Vertex
         {
             format(rnnrt, sizeof(rnnrt), PARVRank[AccountData[playerid][pFactionRank]]);
         }
@@ -4324,7 +4334,7 @@ ShowPlayerStats(playerid, targetid)
 	AccountData[targetid][pRegisterDate],
 	UCPRegisterDate[targetid]);
 
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s(%d) - (%s)", AccountData[targetid][pName], targetid, AccountData[targetid][pUCP]), spstr, "Tutup", "");
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s(%d) - (%s)", AccountData[targetid][pName], targetid, AccountData[targetid][pUCP]), spstr, "Tutup", "");
 }
 //---------------------------------//
 GetBodyPartName(partid) 
@@ -4797,9 +4807,9 @@ ConvertFloatColor(Float:value, defcolor)
 
 ShowPlayerSpawnSelection(playerid)
 {
-	Dialog_Show(playerid, "SpawnSelection", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Select Spawn", 
+	Dialog_Show(playerid, "SpawnSelection", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Select Spawn", 
 	"Titik spawn\tDetail\tLokasi\n\
-	Bandara Nexston\tAnda akan spawn di bandara\tLos Santos (LS)\n\
+	Bandara Vertex\tAnda akan spawn di bandara\tLos Santos (LS)\n\
 	"GRAY"Apartment\t"GRAY"Anda spawn di dalam apartment yang anda sewa\t"GRAY"-\n\
 	House\tAnda spawn di dalam rumah yang anda miliki\t-\n\
 	"GRAY"Faction Headquarter (HQ)\t"GRAY"Anda spawn di depan bangunan faction\t"GRAY"-\n\
@@ -5334,7 +5344,7 @@ Dialog:GPSBizList(playerid, response, listitem, inputtext[])
 {
     if(!response)
     {
-        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- GPS", 
+        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- GPS", 
         "Lokasi Umum\n\
         "GRAY"Lokasi Kerja\n\
         Lokasi Hobi\n\

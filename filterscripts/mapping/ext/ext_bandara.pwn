@@ -9,9 +9,9 @@ CreateBandaraExt()
     bndrdwadawx = CreateDynamicObject(18766, 1666.751342, -2263.200195, 10.234614, 0.000000, 46.199977, 180.000000, 0, 0, -1, 300.00, 300.00); 
     SetDynamicObjectMaterial(bndrdwadawx, 0, 18646, "matcolours", "grey-90-percent", 0x00000000);
     bndrdwadawx = CreateDynamicObject(19482, 1668.427734, -2262.683349, 13.287011, 0.000014, 0.000000, 89.999954, 0, 0, -1, 300.00, 300.00); 
-    SetDynamicObjectMaterialText(bndrdwadawx, 0, "{ffffff}KOTA Nexston", 130, "Arial", 58, 1, 0x00000000, 0x00000000, 1);
+    SetDynamicObjectMaterialText(bndrdwadawx, 0, "{ffffff}KOTA Vertex", 130, "Arial", 58, 1, 0x00000000, 0x00000000, 1);
     bndrdwadawx = CreateDynamicObject(19482, 1668.367675, -2262.693359, 13.287011, 0.000014, 0.000000, 89.999954, 0, 0, -1, 300.00, 300.00); 
-    SetDynamicObjectMaterialText(bndrdwadawx, 0, "{000000}KOTA Nexston", 130, "Arial", 58, 1, 0x00000000, 0x00000000, 1);
+    SetDynamicObjectMaterialText(bndrdwadawx, 0, "{000000}KOTA Vertex", 130, "Arial", 58, 1, 0x00000000, 0x00000000, 1);
     bndrdwadawx = CreateDynamicObject(19482, 1668.534179, -2262.697753, 14.982899, 0.000022, 0.000000, 89.999931, 0, 0, -1, 300.00, 300.00); 
     SetDynamicObjectMaterialText(bndrdwadawx, 0, "{F45B26}N", 130, "Arial", 80, 0, 0x00000000, 0x00000000, 1);
     bndrdwadawx = CreateDynamicObject(19482, 1668.203857, -2262.697753, 14.852899, 0.000022, 0.000000, 89.999931, 0, 0, -1, 300.00, 300.00); 

@@ -11,7 +11,7 @@ RemoveBurgershotBuilding(playerid)
     RemoveBuildingForPlayer(playerid, 1280, 630.234, -1846.770, 4.835, 0.250);
     RemoveBuildingForPlayer(playerid, 647, 632.835, -1838.579, 6.218, 0.250);
 
-    //+Nexston
+    //+Vertex
     RemoveBuildingForPlayer(playerid, 16143, -324.148, 1302.229, 52.664, 0.250);
     RemoveBuildingForPlayer(playerid, 16751, -324.148, 1302.229, 52.664, 0.250);
     RemoveBuildingForPlayer(playerid, 16144, -324.148, 1302.229, 52.664, 0.250);
@@ -863,7 +863,7 @@ CreateBurgershotExt()
     brgstxt = CreateDynamicObject(19482, 604.825927, -1870.723266, 9.276047, 0.000022, 0.000000, 89.999885, -1, -1, -1, 300.00, 300.00); 
     SetDynamicObjectMaterialText(brgstxt, 0, "{c7a07a}RESTO", 130, "Arial", 20, 1, 0x00000000, 0x00000000, 1);
     brgstxt = CreateDynamicObject(19482, 604.825927, -1870.723266, 8.206045, 0.000022, 0.000000, 89.999885, -1, -1, -1, 300.00, 300.00); 
-    SetDynamicObjectMaterialText(brgstxt, 0, "{c7a07a}Nexston", 130, "Arial", 20, 1, 0x00000000, 0x00000000, 1);
+    SetDynamicObjectMaterialText(brgstxt, 0, "{c7a07a}Vertex", 130, "Arial", 20, 1, 0x00000000, 0x00000000, 1);
     brgstxt = CreateDynamicObject(2639, 618.180664, -1872.055786, 5.831978, -0.000022, 0.000000, -89.999969, -1, -1, -1, 300.00, 300.00); 
     SetDynamicObjectMaterial(brgstxt, 0, 18065, "ab_sfammumain", "plywood_gym", 0x00000000);
     SetDynamicObjectMaterial(brgstxt, 1, 14407, "carter_block", "zebra_skin", 0x00000000);
@@ -2805,7 +2805,7 @@ CreateBurgershotExt()
     brgstxt = CreateDynamicObject(3035, 640.026855, -1888.878906, 5.703985, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00); 
     brgstxt = CreateDynamicObject(3035, 586.178588, -1888.995971, 5.734025, 0.000000, 0.000000, 0.000000, -1, -1, -1, 300.00, 300.00);
 
-    //+arivena
+    //+Claps
     brgstxt = CreateDynamicObject(18981, -300.771087, 1304.141357, 40.861827, 0.000022, 0.000000, 89.999931, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(brgstxt, 0, 18646, "matcolours", "grey-80-percent", 0x00000000);
     brgstxt = CreateDynamicObject(18766, -288.770385, 1298.647827, 50.860992, 0.000022, 0.000000, 89.999931, 0, 0, -1, 200.00, 200.00); 
@@ -4574,7 +4574,7 @@ CreateBurgershotExt()
     brgstxt = CreateDynamicObject(19482, -316.024719, 1303.644042, 55.572914, 0.000007, 0.000000, 89.999977, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(brgstxt, 0, "SRI MERSING", 130, "Arial", 70, 1, 0xFFFFFFFF, 0x00000000, 1);
     brgstxt = CreateDynamicObject(19482, -316.004821, 1303.644042, 54.972938, 0.000007, 0.000000, 89.999977, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(brgstxt, 0, "MASAKAN MELAYU - NUNexston", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(brgstxt, 0, "MASAKAN MELAYU - NUVertex", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     brgstxt = CreateDynamicObject(1716, -315.254608, 1299.243408, 54.310489, 0.000045, -0.000007, 179.999710, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(brgstxt, 0, 5150, "wiresetc_las2", "ganggraf01_LA_m", 0xFFFFFFFF);
     SetDynamicObjectMaterial(brgstxt, 1, -1, "none", "none", 0xFF303030);

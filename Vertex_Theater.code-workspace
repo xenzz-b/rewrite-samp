@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {},
+	"extensions": {
+		"recommendations": [
+			"maddouri.pawn-language"
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": []
+	},
+	"credit": "Vertex Roleplay by Claps",
+	"server": {
+		"name": "Vertex Roleplay",
+		"gamemode": "V:RP V0.1.5",
+		"developer": "Claps"
+	}
+}

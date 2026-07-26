@@ -88,7 +88,7 @@ HandleKalkulatorInput(playerid, PlayerText:playertextid)
 
     for (new i = 27; i <= 36; i++)
     {
-        if (playertextid == KalkulatorNSRP[playerid][i])
+        if (playertextid == KalkulatorVRP[playerid][i])
         {
             new digit = i - 27;
 
@@ -102,8 +102,8 @@ HandleKalkulatorInput(playerid, PlayerText:playertextid)
 
     
                 FormatRibuan(displayBesar, sizeof(displayBesar), CalcInput[playerid]);
-                PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][56], displayBesar);
-                PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][57], "");
+                PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][56], displayBesar);
+                PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][57], "");
             }
             else
             {
@@ -114,32 +114,32 @@ HandleKalkulatorInput(playerid, PlayerText:playertextid)
                 strcopy(CalcNum2[playerid], text, sizeof(CalcNum2[]));
 
                 FormatRibuan(displayBesar, sizeof(displayBesar), CalcNum2[playerid]);
-                PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][56], displayBesar);
+                PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][56], displayBesar);
 
                 new opChar = GetOperatorChar(playerid);
                 new num1Formatted[32];
                 FormatRibuan(num1Formatted, sizeof(num1Formatted), CalcInput[playerid]);
                 format(displayKecil, sizeof(displayKecil), "%s %c", num1Formatted, opChar);
-                PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][57], displayKecil);
+                PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][57], displayKecil);
             }
 
-            PlayerTextDrawShow(playerid, KalkulatorNSRP[playerid][56]);
-            PlayerTextDrawShow(playerid, KalkulatorNSRP[playerid][57]);
+            PlayerTextDrawShow(playerid, KalkulatorVRP[playerid][56]);
+            PlayerTextDrawShow(playerid, KalkulatorVRP[playerid][57]);
             return;
         }
     }
-    if (playertextid == KalkulatorNSRP[playerid][18])
+    if (playertextid == KalkulatorVRP[playerid][18])
     {
         CalcInput[playerid][0] = '\0';
         CalcNum2[playerid][0] = '\0';
         CalcHasOperator[playerid] = false;
-        PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][56], "0");
-        PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][57], "");
-        PlayerTextDrawShow(playerid, KalkulatorNSRP[playerid][56]);
-        PlayerTextDrawShow(playerid, KalkulatorNSRP[playerid][57]);
+        PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][56], "0");
+        PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][57], "");
+        PlayerTextDrawShow(playerid, KalkulatorVRP[playerid][56]);
+        PlayerTextDrawShow(playerid, KalkulatorVRP[playerid][57]);
         return;
     }
-    if (playertextid == KalkulatorNSRP[playerid][19])
+    if (playertextid == KalkulatorVRP[playerid][19])
     {
         if (CalcHasOperator[playerid])
         {
@@ -149,14 +149,14 @@ HandleKalkulatorInput(playerid, PlayerText:playertextid)
                 CalcNum2[playerid][len - 1] = EOS;
                 if (strlen(CalcNum2[playerid]) == 0)
                 {
-                    PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][56], "0");
+                    PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][56], "0");
                 }
                 else
                 {
                     FormatRibuan(displayBesar, sizeof(displayBesar), CalcNum2[playerid]);
-                    PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][56], displayBesar);
+                    PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][56], displayBesar);
                 }
-                PlayerTextDrawShow(playerid, KalkulatorNSRP[playerid][56]);
+                PlayerTextDrawShow(playerid, KalkulatorVRP[playerid][56]);
             }
         }
         else
@@ -166,23 +166,23 @@ HandleKalkulatorInput(playerid, PlayerText:playertextid)
             {
                 CalcInput[playerid][len - 1] = EOS;
                 if (strlen(CalcInput[playerid]) == 0)
-                    PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][56], "0");
+                    PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][56], "0");
                 else
                 {
                     FormatRibuan(displayBesar, sizeof(displayBesar), CalcInput[playerid]);
-                    PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][56], displayBesar);
+                    PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][56], displayBesar);
                 }
-                PlayerTextDrawShow(playerid, KalkulatorNSRP[playerid][56]);
+                PlayerTextDrawShow(playerid, KalkulatorVRP[playerid][56]);
             }
         }
         return;
     }
     new operatorIndex = -1;
     new operatorChar = 0;
-    if(playertextid == KalkulatorNSRP[playerid][20]) { operatorIndex = 20; operatorChar = '/'; }
-    else if (playertextid == KalkulatorNSRP[playerid][21]) { operatorIndex = 21; operatorChar = '*'; }
-    else if (playertextid == KalkulatorNSRP[playerid][22]) { operatorIndex = 22; operatorChar = '-'; }
-    else if (playertextid == KalkulatorNSRP[playerid][23]) { operatorIndex = 23; operatorChar = '+'; }
+    if(playertextid == KalkulatorVRP[playerid][20]) { operatorIndex = 20; operatorChar = '/'; }
+    else if (playertextid == KalkulatorVRP[playerid][21]) { operatorIndex = 21; operatorChar = '*'; }
+    else if (playertextid == KalkulatorVRP[playerid][22]) { operatorIndex = 22; operatorChar = '-'; }
+    else if (playertextid == KalkulatorVRP[playerid][23]) { operatorIndex = 23; operatorChar = '+'; }
 
     if (operatorIndex != -1)
     {
@@ -212,15 +212,15 @@ HandleKalkulatorInput(playerid, PlayerText:playertextid)
         strcopy(num1Only, CalcInput[playerid], baseLen); 
         FormatRibuan(displayBesar, sizeof(displayBesar), num1Only);
         format(displayKecil, sizeof(displayKecil), "%s %c", displayBesar, operatorChar);
-        PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][57], displayKecil);
-        PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][56], "0");
-        PlayerTextDrawShow(playerid, KalkulatorNSRP[playerid][56]);
-        PlayerTextDrawShow(playerid, KalkulatorNSRP[playerid][57]);
+        PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][57], displayKecil);
+        PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][56], "0");
+        PlayerTextDrawShow(playerid, KalkulatorVRP[playerid][56]);
+        PlayerTextDrawShow(playerid, KalkulatorVRP[playerid][57]);
         return;
     }
 
     // --- TOMBOL = ---
-    if (playertextid == KalkulatorNSRP[playerid][24])
+    if (playertextid == KalkulatorVRP[playerid][24])
     {
         if (CalcInput[playerid][0] == '\0') return;
         if (!CalcHasOperator[playerid]) return;
@@ -239,12 +239,12 @@ HandleKalkulatorInput(playerid, PlayerText:playertextid)
         FormatRibuan(num1F, sizeof(num1F), num1Only);
         FormatRibuan(num2F, sizeof(num2F), CalcNum2[playerid]);
         format(displayKecil, sizeof(displayKecil), "%s %c %s =", num1F, opChar, num2F);
-        PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][57], displayKecil);
-        PlayerTextDrawShow(playerid, KalkulatorNSRP[playerid][57]);
+        PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][57], displayKecil);
+        PlayerTextDrawShow(playerid, KalkulatorVRP[playerid][57]);
 
         FormatHasil(displayBesar, sizeof(displayBesar), result);
-        PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][56], displayBesar);
-        PlayerTextDrawShow(playerid, KalkulatorNSRP[playerid][56]);
+        PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][56], displayBesar);
+        PlayerTextDrawShow(playerid, KalkulatorVRP[playerid][56]);
 
         CalcInput[playerid][0] = '\0';
         CalcNum2[playerid][0] = '\0';
@@ -258,14 +258,14 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
     if(KalkulatorOpen[playerid])
         HandleKalkulatorInput(playerid, playertextid);
     
-    if(playertextid == KalkulatorNSRP[playerid][15]) //close
+    if(playertextid == KalkulatorVRP[playerid][15]) //close
     {
         CalcInput[playerid][0] = '\0';
         CalcNum2[playerid][0] = '\0';
         CalcHasOperator[playerid] = false;
         KalkulatorOpen[playerid] = false;
         ShowKalkulatorTD(playerid, false);
-        ShowPhoneNSRP(playerid);
+        ShowPhoneVRP(playerid);
     }
     return 1;
 }

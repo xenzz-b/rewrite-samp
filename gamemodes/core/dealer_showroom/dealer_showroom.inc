@@ -13,7 +13,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
             {
                 AccountData[playerid][pTempValue2] = -1;
 
-                Dialog_Show(playerid, "CardealerCatalog", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Cardealer", 
+                Dialog_Show(playerid, "CardealerCatalog", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Cardealer", 
                 "Light Truck & Vans\n\
                 "GRAY"Heavy Truck\n\
                 SUV & Wagon\n\
@@ -42,7 +42,7 @@ Dialog:CardealerCatalog(playerid, response, listitem, inputtext[])
             TogglePlayerControllable(playerid, false);
 
             ShowCarDealerTD(playerid);
-            SelectTextDraw(playerid, Y_Nexston);
+            SelectTextDraw(playerid, Y_Vertex);
             
             SetPlayerVirtualWorld(playerid, playerid+1);
 
@@ -74,7 +74,7 @@ Dialog:CardealerCatalog(playerid, response, listitem, inputtext[])
             TogglePlayerControllable(playerid, false);
 
             ShowCarDealerTD(playerid);
-            SelectTextDraw(playerid, Y_Nexston);
+            SelectTextDraw(playerid, Y_Vertex);
             
             SetPlayerVirtualWorld(playerid, playerid+1);
 
@@ -106,7 +106,7 @@ Dialog:CardealerCatalog(playerid, response, listitem, inputtext[])
             TogglePlayerControllable(playerid, false);
 
             ShowCarDealerTD(playerid);
-            SelectTextDraw(playerid, Y_Nexston);
+            SelectTextDraw(playerid, Y_Vertex);
             
             SetPlayerVirtualWorld(playerid, playerid+1);
 
@@ -138,7 +138,7 @@ Dialog:CardealerCatalog(playerid, response, listitem, inputtext[])
             TogglePlayerControllable(playerid, false);
 
             ShowCarDealerTD(playerid);
-            SelectTextDraw(playerid, Y_Nexston);
+            SelectTextDraw(playerid, Y_Vertex);
             
             SetPlayerVirtualWorld(playerid, playerid+1);
 
@@ -170,7 +170,7 @@ Dialog:CardealerCatalog(playerid, response, listitem, inputtext[])
             TogglePlayerControllable(playerid, false);
 
             ShowCarDealerTD(playerid);
-            SelectTextDraw(playerid, Y_Nexston);
+            SelectTextDraw(playerid, Y_Vertex);
             
             SetPlayerVirtualWorld(playerid, playerid+1);
 
@@ -202,7 +202,7 @@ Dialog:CardealerCatalog(playerid, response, listitem, inputtext[])
             TogglePlayerControllable(playerid, false);
 
             ShowCarDealerTD(playerid);
-            SelectTextDraw(playerid, Y_Nexston);
+            SelectTextDraw(playerid, Y_Vertex);
             
             SetPlayerVirtualWorld(playerid, playerid+1);
 
@@ -234,7 +234,7 @@ Dialog:CardealerCatalog(playerid, response, listitem, inputtext[])
             TogglePlayerControllable(playerid, false);
 
             ShowCarDealerTD(playerid);
-            SelectTextDraw(playerid, Y_Nexston);
+            SelectTextDraw(playerid, Y_Vertex);
             
             SetPlayerVirtualWorld(playerid, playerid+1);
 
@@ -260,7 +260,7 @@ Dialog:CardealerCatalog(playerid, response, listitem, inputtext[])
         }
         case 7: //jual kendaraan
         {
-            Dialog_Show(playerid, "VehicleSelling", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Jual Kendaraan", 
+            Dialog_Show(playerid, "VehicleSelling", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Jual Kendaraan", 
             "Mohon masukkan VID kendaraan yang ingin dijual:\n\
             Catatan: Gunakan '/myv' untuk melihat VID", "Jual", "Batal");
         }

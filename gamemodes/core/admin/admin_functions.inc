@@ -213,7 +213,7 @@ public OWarnPlayer(adminid, const NameToWarn[], const warningReason[])
 		if(warn+1 >= MAX_PWARNS)
 		{
 			static query[522];
-			mysql_format(g_SQL, query, sizeof(query), "UPDATE `player_ucp` SET `Blocked`=1, `Block_Duration`=0, `Block_Reason`='20 Warns', `Block_AdminName`='Nexston AntiCheat', `Block_IssuedDate`=CURRENT_TIMESTAMP() WHERE `UCP`='%e'", ucp);
+			mysql_format(g_SQL, query, sizeof(query), "UPDATE `player_ucp` SET `Blocked`=1, `Block_Duration`=0, `Block_Reason`='20 Warns', `Block_AdminName`='Vertex AntiCheat', `Block_IssuedDate`=CURRENT_TIMESTAMP() WHERE `UCP`='%e'", ucp);
 			mysql_pquery(g_SQL, query);
 		}
 	}
@@ -728,7 +728,7 @@ BanPlayerMSG(playerid, adminid, const reason[], bool:serverBan = false)
 	SendClientMessage(playerid, X11_WHITE, string);
 	format(string, sizeof(string), "The time is %02d:%02d (%02d/%02d/%d)", hours, minutes, months, days, years);
 	SendClientMessage(playerid, X11_WHITE, string);
-	SendClientMessage(playerid, X11_WHITE, "Go to discord.gg/nexston to request an Unban-Req, include this screenshot.");
+	SendClientMessage(playerid, X11_WHITE, "Go to discord.gg/vertexroleplay to request an Unban-Req, include this screenshot.");
 	GameTextForPlayer(playerid, "~r~~h~Holiday Has Arrived!", 5000, 5);
 }
 
@@ -857,7 +857,7 @@ public SetName(playerid, const nname[])
 		{
 			format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
 		}
-		Dialog_Show(playerid, "AdmSetNameOrigin", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Negara Kelahiran", originstring, "Pilih", "");
+		Dialog_Show(playerid, "AdmSetNameOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Negara Kelahiran", originstring, "Pilih", "");
 	}
 	else
 	{
@@ -933,7 +933,7 @@ public ChangeName(playerid, const nname[])
 		{
 			format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
 		}
-		Dialog_Show(playerid, "ChangeNameOrigin", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Negara Kelahiran", originstring, "Pilih", "");
+		Dialog_Show(playerid, "ChangeNameOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Negara Kelahiran", originstring, "Pilih", "");
 	}
 	else
 	{
@@ -2369,7 +2369,7 @@ public LoadStats(playerid, const PlayersName[])
 		Char_LastLogin,
 		Char_RegisterDate);
 
-		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s - (%s)", Char_UCP, Char_Name), spstr, "Tutup", "");
+		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s - (%s)", Char_UCP, Char_Name), spstr, "Tutup", "");
 	}
 	return true;
 }
@@ -2411,7 +2411,7 @@ public CheckingUCP(playerid, const PlayersName[])
         Register_Date,
         Last_Login);
 
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s(UID: %d)", UCP, oucpID), spstr, "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s(UID: %d)", UCP, oucpID), spstr, "Tutup", "");
     }
     return true;
 }
@@ -2477,7 +2477,7 @@ public CheckingCharList(playerid, const PlayersName[])
                 charregdate,
                 charlastlog);
             }
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s(UID: %d)", PlayersName, ucppid), list, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s(UID: %d)", PlayersName, ucppid), list, "Tutup", "");
         }
         else
         {
@@ -2485,7 +2485,7 @@ public CheckingCharList(playerid, const PlayersName[])
             
             format(list, sizeof(list), "Character ID | Name (IP Address)\tLevel (Admin)\tRegistration Date\tLast Login\n");
             format(list, sizeof(list), "%sThe UCP account does not have any characters!", list);
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s(UID: %d)", PlayersName, ucppid), list, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s(UID: %d)", PlayersName, ucppid), list, "Tutup", "");
         }
     }
     return 1;
@@ -2496,7 +2496,7 @@ ShowALV4Help(playerid)
     if(AccountData[playerid][pAdmin] < 4)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Admin IV", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Admin IV", 
     "Admin IV\tDescription\n\
     /areviveall\tRevive all players\n\
     "GRAY"/sethpall\t"GRAY"Set health for all players\n\
@@ -2519,7 +2519,7 @@ ShowALV3Help(playerid)
     if(AccountData[playerid][pAdmin] < 3)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Admin III", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Admin III", 
     "Admin III\tDescription\n\
     /playsong\tPlay music for everyone\n\
     "GRAY"/playnearsong\t"GRAY"Play music for nearby players\n\
@@ -2547,7 +2547,7 @@ ShowALV2Help(playerid)
     if(AccountData[playerid][pAdmin] < 2)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Admin II", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Admin II", 
     "Admin II\tDescription\n\
     /veh\tSpawn admin vehicles\n\
     "GRAY"/togooc\t"GRAY"Toggle on/off global OOC chat\n\
@@ -2571,7 +2571,7 @@ ShowVlounterHelp(playerid)
 	if(AccountData[playerid][pAdminHelper] < 1 && AccountData[playerid][pAdmin] < 6) 
 		return PermissionError(playerid);
 	
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Vlounter", 
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Vlounter", 
     "Admin I\tDescription\n\
 	/spec\tToggle spectator mode\n\
 	"GRAY"/aduty\t"GRAY"Toggle on/off admin duty\n\
@@ -2591,7 +2591,7 @@ ShowHelperHelp(playerid)
 	if(AccountData[playerid][pAdminHelper] < 1 && AccountData[playerid][pAdmin] < 6) 
 		return PermissionError(playerid);
 
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Vlounter", 
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Vlounter", 
     "Admin I\tDescription\n\
 	/spec\tToggle spectator mode\n\
 	"GRAY"/aduty\t"GRAY"Toggle on/off admin duty\n\
@@ -2611,7 +2611,7 @@ ShowALV1Help(playerid)
     if(AccountData[playerid][pAdmin] < 1)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Admin I", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Admin I", 
     "Admin I\tDescription\n\
 	/count\tServer statistics\n\
 	"GRAY"/near\t"GRAY"View nearest player's ID\n\
@@ -2674,7 +2674,7 @@ ShowAGRLHelp(playerid)
     if(AccountData[playerid][pAdminGirl] < 1 && AccountData[playerid][pAdmin] < 1)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Admin Girl", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Admin Girl", 
     "Admin Girl\tDescription\n\
 	/setbenefitgirl\tTo set benefit girl", "Tutup", "");
     return 1;
@@ -2685,7 +2685,7 @@ ShowManagementHelp(playerid)
     if(AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Management", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Management", 
     "Management\tDescription\n\
 	/setweather\tSet in-game weather\n\
 	"GRAY"/settime\t"GRAY"Set in-game time\n\
@@ -2706,7 +2706,7 @@ ShowCoFounderHelp(playerid)
     if(AccountData[playerid][pAdmin] < 6)
         return PermissionError(playerid);
 
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Co Owner", 
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Co Owner", 
     "Co Founder\tDescription\n\
 	"GRAY"/gethereall\t"GRAY"Teleport everyone to your position\n\
 	/setlevel\tSet level\n\
@@ -2734,7 +2734,7 @@ ShowFounderHelp(playerid)
     if(AccountData[playerid][pAdmin] < 7)
         return PermissionError(playerid);
 
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Founder", 
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Founder", 
     "Founder\tDescription\n\
 	/kickall\tTo kick all players in the city\n\
 	"GRAY"/setmoney\t"GRAY"To set player money\n\
@@ -2763,7 +2763,7 @@ ShowHandleBadside(playerid)
     if(AccountData[playerid][pHandleBadside] < 1 && AccountData[playerid][pAdmin] < 7)
         return PermissionError(playerid);
 
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Handle Badside", 
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Handle Badside", 
     "Handle Badside\tDescription\n\
 	/setfamily\tMemberikan status family kepada player\n\
 	"GRAY"/kickfamily\tMenendang player dari sebuah family\n\
@@ -2780,7 +2780,7 @@ ShowHandleGoodside(playerid)
     if(AccountData[playerid][pHandleGoodside] < 1 && AccountData[playerid][pAdmin] < 7)
         return PermissionError(playerid);
 
-	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Handle Goodside", 
+	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Handle Goodside", 
     "Handle Goodside\tDescription\n\
 	/setfaction\tMemberikan status faction terbatas seperti, Pemerintah, Polisi, Medic, Sanews, dan Benys dengan akses rank 1-3\n\
 	/setbenefitgoodside\tMemberikan benefit goodside kepada players", "Tutup", "");
@@ -2792,7 +2792,7 @@ ShowDynActorHelp(playerid)
     if(AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dynamic Actor", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dynamic Actor", 
     "Dynamic Actor Commands\tDescription\n\
     /addactor\tAdd a dynamic actor\n\
     "GRAY"/editactor\t"GRAY"Edit a dynamic actor\n\
@@ -2814,7 +2814,7 @@ ShowDynBikeRentalHelp(playerid)
     if(AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dynamic Bike Rental", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dynamic Bike Rental", 
     "Dynamic Bike Rental Commands\tDescription\n\
     /addbikerent\tAdd a dynamic bike rental\n\
     "GRAY"/editbikerent\t"GRAY"Edit a dynamic bike rental\n\
@@ -2833,7 +2833,7 @@ ShowDynDoorHelp(playerid)
     if(AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dynamic Door", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dynamic Door", 
     "Dynamic Door Commands\tDescription\n\
     /adddoor\tAdd a dynamic door\n\
     "GRAY"/gotodoor\t"GRAY"Teleport to the location of a dynamic door\n\
@@ -2860,7 +2860,7 @@ ShowDynFivemLabelHelp(playerid)
     if(AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dynamic FiveM Label", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dynamic FiveM Label", 
     "Dynamic FiveM Label Commands\tDescription\n\
     /addflabel\tAdd a dynamic FiveM label\n\
     "GRAY"/editflabel\t"GRAY"Edit a dynamic FiveM label\n\
@@ -2881,7 +2881,7 @@ ShowDynGarageHelp(playerid)
     if(AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dynamic Garage", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dynamic Garage", 
     "Dynamic Garage Commands\tDescription\n\
     /addgarkot\tAdd a dynamic garage\n\
     "GRAY"/editgarkot\t"GRAY"Edit a dynamic garage\n\
@@ -2900,7 +2900,7 @@ ShowDynGarbageHelp(playerid)
     if(AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dynamic Garbage", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dynamic Garbage", 
     "Dynamic Garbage Commands\tDescription\n\
     /addgarbage\tAdd a dynamic garbage\n\
     "GRAY"/removegarbage\t"GRAY"Remove a dynamic garbage\n\
@@ -2920,7 +2920,7 @@ ShowDynIconHelp(playerid)
     if(AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dynamic Icon", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dynamic Icon", 
     "Dynamic Icon Commands\tDescription\n\
     /addicon\tAdd a dynamic icon\n\
     "GRAY"/editicon\t"GRAY"Edit a dynamic icon\n\
@@ -2938,7 +2938,7 @@ ShowDynKanabisHelp(playerid)
     if(AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dynamic Kanabis", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dynamic Kanabis", 
     "Dynamic Kanabis Commands\tDescription\n\
     /addkanabis\tAdd a dynamic kanabis\n\
     "GRAY"/removekanabis\t"GRAY"Remove a dynamic kanabis\n\
@@ -2957,7 +2957,7 @@ ShowDynKanabisHelp(playerid)
 	if(AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dynamic Robbery", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dynamic Robbery", 
     "Perintah Dynamic Robbery\tKeterangan\n\
 	/addrobbery\ttambahkan dynamic robbery\n\
 	/editrobbery\tedit dynamic robbery\n\
@@ -2975,7 +2975,7 @@ ShowDynRobberyHelp(playerid)
 	if(AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dynamic Robbery", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dynamic Robbery", 
     "Dynamic Robbery Commands\tDescription\n\
 	/addrobbery\tAdd a dynamic robbery\n\
 	"GRAY"/editrobbery\t"GRAY"Edit a dynamic robbery\n\
@@ -2994,7 +2994,7 @@ ShowDynShopHelp(playerid)
 	if(AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dynamic Shop", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dynamic Shop", 
     "Dynamic Shop Commands\tDescription\n\
 	/addshop\tAdd a dynamic shop\n\
 	"GRAY"/editshop\t"GRAY"Edit a dynamic shop\n\
@@ -3012,7 +3012,7 @@ ShowDynButtonHelp(playerid)
 	if(AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dynamic Button", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dynamic Button", 
     "Dynamic Button Commands\tDescription\n\
 	/addbutton\tAdd a dynamic button\n\
 	"GRAY"/editbutton\t"GRAY"Edit a dynamic button\n\
@@ -3034,7 +3034,7 @@ ShowDynRusunHelp(playerid)
 	if(AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dynamic Rusun", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dynamic Rusun", 
     "Dynamic Rusun Commands\tDescription\n\
 	/addrusun\tAdd a dynamic Rusun (apartment)\n\
 	"GRAY"/editrusun\t"GRAY"Edit a dynamic Rusun\n\
@@ -3053,7 +3053,7 @@ ShowDynGudangHelp(playerid)
 	if(AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
 
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dynamic Gudang", 
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dynamic Gudang", 
     "Dynamic Gudang Commands\tDescription\n\
 	/addgudang\tAdd a dynamic Gudang (warehouse)\n\
 	"GRAY"/editgudang\t"GRAY"Edit a dynamic Gudang\n\
@@ -3227,7 +3227,7 @@ Dialog:AdmSetNameOrigin(playerid, response, listitem, inputtext[])
 		{
 			format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
 		}
-		return Dialog_Show(playerid, "AdmSetNameOrigin", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Negara Kelahiran", originstring, "Pilih", "");
+		return Dialog_Show(playerid, "AdmSetNameOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Negara Kelahiran", originstring, "Pilih", "");
 	}
 
 	if(listitem == -1 || listitem > sizeof(_g_originName) - 1)
@@ -3237,7 +3237,7 @@ Dialog:AdmSetNameOrigin(playerid, response, listitem, inputtext[])
 		{
 			format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
 		}
-		return Dialog_Show(playerid, "AdmSetNameOrigin", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Negara Kelahiran", originstring, "Pilih", "");
+		return Dialog_Show(playerid, "AdmSetNameOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Negara Kelahiran", originstring, "Pilih", "");
 	}
 
 	if (!IsPlayerConnected(AccountData[playerid][pTempSQLFactMemberID])) return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak terkoneksi ke server!");

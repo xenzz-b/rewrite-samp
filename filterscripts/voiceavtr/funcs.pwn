@@ -3,7 +3,7 @@
 #define WHITE	"{ffffff}"
 #define RED		"{ff0000}"
 #define YELLOW	"{ffff00}"
-#define	Nexston	"{ff0000}"
+#define	Vertex	"{ff0000}"
 #define	CYAN	"{00FFFF}"
 
 enum e_player_voice_stuff

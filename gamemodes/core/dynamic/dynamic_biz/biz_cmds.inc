@@ -36,7 +36,7 @@ YCMD:buy(playerid, params[], help)
             FormatMoney(BizData[bizid][bizProdPrice][8]),  // Umpan
             FormatMoney(BizData[bizid][bizProdPrice][9]),  // Ember
             FormatMoney(BizData[bizid][bizProdPrice][10])); // Toolkit
-            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Minimarket", haji, "Buy", "Batal");
+            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Minimarket", haji, "Buy", "Batal");
         }
         case 2: // clothes
         {
@@ -58,7 +58,7 @@ YCMD:buy(playerid, params[], help)
             FormatMoney(BizData[bizid][bizProdPrice][3]),  // Boombox
             FormatMoney(BizData[bizid][bizProdPrice][4]),  // Vape
             FormatMoney(BizData[bizid][bizProdPrice][5])); // Race Tablet
-            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Electronic Shop", haji, "Buy", "Batal");
+            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Electronic Shop", haji, "Buy", "Batal");
         }
         case 4: // ammunations - semua senjata + cangkul
         {
@@ -84,7 +84,7 @@ YCMD:buy(playerid, params[], help)
             FormatMoney(BizData[bizid][bizProdPrice][6]),  // Katana
             FormatMoney(BizData[bizid][bizProdPrice][7]),  // Cangkul (Hoe)
             FormatMoney(BizData[bizid][bizProdPrice][8])); // Silenced Pistol
-            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Ammunation", haji, "Buy", "Batal");
+            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Ammunation", haji, "Buy", "Batal");
         }
         case 5: // Bar - 7 items (minuman alkohol)
         {
@@ -104,7 +104,7 @@ YCMD:buy(playerid, params[], help)
             FormatMoney(BizData[bizid][bizProdPrice][4]),
             FormatMoney(BizData[bizid][bizProdPrice][5]),
             FormatMoney(BizData[bizid][bizProdPrice][6]));
-            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Bar", haji, "Buy", "Batal");
+            Dialog_Show(playerid, "BizBuyProduct", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Bar", haji, "Buy", "Batal");
         }
     }
     return 1;
@@ -135,7 +135,7 @@ YCMD:bizmenu(playerid, params[], help)
             (BizData[fuelid][bizLocked]) ? (""RED"Tutup") : (""GREEN"Buka"),
             (g_FuelRestockRequest[fuelid] > 0) ? (""YELLOW"Aktif") : (""GRAY"Tidak Ada"));
         
-        Dialog_Show(playerid, "BizMenuFuel", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Biz Menu (Pom Bensin)", erex, "Pilih", "Batal");
+        Dialog_Show(playerid, "BizMenuFuel", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Biz Menu (Pom Bensin)", erex, "Pilih", "Batal");
         return 1;
     }
     
@@ -184,7 +184,7 @@ YCMD:bizmenu(playerid, params[], help)
             FormatMoney(BizData[bizid][bizProdPrice][9]),  // Ember
             FormatMoney(BizData[bizid][bizProdPrice][10]), // Toolkit
             (BizData[bizid][bizLocked]) ? (""RED"Closed") : (""GREEN"Open"));
-            Dialog_Show(playerid, "BizMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Biz Menu", erex, "Pilih", "Batal");
+            Dialog_Show(playerid, "BizMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Biz Menu", erex, "Pilih", "Batal");
         }
         case 2: // clothes - 5 kategori
         {
@@ -207,7 +207,7 @@ YCMD:bizmenu(playerid, params[], help)
             FormatMoney(BizData[bizid][bizClothesPrice][3]), // Aksesoris
             FormatMoney(BizData[bizid][bizClothesPrice][4]), // Tas/Koper
             (BizData[bizid][bizLocked]) ? (""RED"Closed") : (""GREEN"Open"));
-            Dialog_Show(playerid, "BizMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Biz Menu", erex, "Pilih", "Batal");
+            Dialog_Show(playerid, "BizMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Biz Menu", erex, "Pilih", "Batal");
         }
         case 3: // electronic - 5 items
         {
@@ -232,7 +232,7 @@ YCMD:bizmenu(playerid, params[], help)
             FormatMoney(BizData[bizid][bizProdPrice][4]),  // Vape
             FormatMoney(BizData[bizid][bizProdPrice][5]), //race tablet
             (BizData[bizid][bizLocked]) ? (""RED"Closed") : (""GREEN"Open"));
-            Dialog_Show(playerid, "BizMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Biz Menu", erex, "Pilih", "Batal");
+            Dialog_Show(playerid, "BizMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Biz Menu", erex, "Pilih", "Batal");
         }
         case 4: // ammunations - 9 items
         {
@@ -263,7 +263,7 @@ YCMD:bizmenu(playerid, params[], help)
             FormatMoney(BizData[bizid][bizProdPrice][7]),  // Cangkul (Hoe)
             FormatMoney(BizData[bizid][bizProdPrice][8]),  // Silenced Pistol
             (BizData[bizid][bizLocked]) ? (""RED"Closed") : (""GREEN"Open"));
-            Dialog_Show(playerid, "BizMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Biz Menu", erex, "Pilih", "Batal");
+            Dialog_Show(playerid, "BizMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Biz Menu", erex, "Pilih", "Batal");
         }
         case 5: // Bar - 7 items
         {
@@ -290,7 +290,7 @@ YCMD:bizmenu(playerid, params[], help)
             FormatMoney(BizData[bizid][bizProdPrice][5]),
             FormatMoney(BizData[bizid][bizProdPrice][6]),
             (BizData[bizid][bizLocked]) ? (""RED"Closed") : (""GREEN"Open"));
-            Dialog_Show(playerid, "BizMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Biz Menu", erex, "Pilih", "Batal");
+            Dialog_Show(playerid, "BizMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Biz Menu", erex, "Pilih", "Batal");
         }
     }
     return 1;
@@ -332,7 +332,7 @@ YCMD:restockbiz(playerid, params[], help)
             BizData[bizid][bizProdStock][8],  // Umpan
             BizData[bizid][bizProdStock][9],  // Ember
             BizData[bizid][bizProdStock][10]); // Toolkit
-            Dialog_Show(playerid, "BizRestock", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Biz Restock", erex, "Pilih", "Batal");
+            Dialog_Show(playerid, "BizRestock", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Biz Restock", erex, "Pilih", "Batal");
         }
         case 2: // clothes
         {
@@ -353,7 +353,7 @@ YCMD:restockbiz(playerid, params[], help)
             BizData[bizid][bizProdStock][3],  // Boombox
             BizData[bizid][bizProdStock][4],  // Vape
             BizData[bizid][bizProdStock][5]); // Race Tablet
-            Dialog_Show(playerid, "BizRestock", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Biz Restock", erex, "Pilih", "Batal");
+            Dialog_Show(playerid, "BizRestock", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Biz Restock", erex, "Pilih", "Batal");
         }
         case 4: // ammunations - 9 items
         {
@@ -376,7 +376,7 @@ YCMD:restockbiz(playerid, params[], help)
             BizData[bizid][bizProdStock][6],  // Katana
             BizData[bizid][bizProdStock][7],  // Cangkul (Hoe)
             BizData[bizid][bizProdStock][8]); // Silenced Pistol
-            Dialog_Show(playerid, "BizRestock", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Biz Restock", erex, "Pilih", "Batal");
+            Dialog_Show(playerid, "BizRestock", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Biz Restock", erex, "Pilih", "Batal");
         }
         case 5: // Bar - 7 items
         {
@@ -395,7 +395,7 @@ YCMD:restockbiz(playerid, params[], help)
             BizData[bizid][bizProdStock][4],
             BizData[bizid][bizProdStock][5],
             BizData[bizid][bizProdStock][6]);
-            Dialog_Show(playerid, "BizRestock", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Biz Restock", erex, "Pilih", "Batal");
+            Dialog_Show(playerid, "BizRestock", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Biz Restock", erex, "Pilih", "Batal");
         }
     }
     return 1;
@@ -902,7 +902,7 @@ YCMD:bizhelp(playerid, params[], help)
     \n"YELLOW"Tips:\n\
     "WHITE"- Gunakan "GREEN"/gotobiz "WHITE"untuk teleport ke bisnis (Admin)\n\
     - Gunakan "GREEN"/editbiz "WHITE"untuk mengedit bisnis (Admin)");
-    Dialog_Show(playerid, "BizHelp", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Bantuan Bisnis", string, "Tutup", "");
+    Dialog_Show(playerid, "BizHelp", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Bantuan Bisnis", string, "Tutup", "");
     return 1;
 }
 

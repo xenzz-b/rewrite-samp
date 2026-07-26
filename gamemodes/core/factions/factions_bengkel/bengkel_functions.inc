@@ -492,12 +492,12 @@ stock ShowBennysKick(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "BennysKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "BennysKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", "Faction ini tidak memiliki anggota!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", "Faction ini tidak memiliki anggota!", "Tutup", "");
     }
     return 1;
 }
@@ -567,12 +567,12 @@ Show_BennysRankManage(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "BennysSetRankPage", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "BennysSetRankPage", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
     }
     return 1;
 }
@@ -597,7 +597,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 
         if(count > 0)
 		{
-            Dialog_Show(playerid, "FactionPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+            Dialog_Show(playerid, "FactionPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
 			frmxt, "Pilih", "Batal");
 		}
     }
@@ -632,12 +632,12 @@ Dialog:BennysVault(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bennys", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bennys", 
                 "Anda tidak memiliki barang yang dapat disimpan!", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "BennysVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bennys", str, "Pilih", "Batal");
+                Dialog_Show(playerid, "BennysVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bennys", str, "Pilih", "Batal");
             }
         }
         case 1: //withdraw
@@ -692,7 +692,7 @@ Dialog:BennysVaultDeposit(playerid, response, listitem, inputtext[])
 	}
     new shstr[528];
     format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Mohon masukkan jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][listitem]][invItem], InventoryData[playerid][PlayerListitem[playerid][listitem]][invQuantity]);
-    Dialog_Show(playerid, "BennysVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bennys", 
+    Dialog_Show(playerid, "BennysVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bennys", 
     shstr, "Input", "Batal");
     return 1;
 }
@@ -717,7 +717,7 @@ Dialog:BennysVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nTidak dapat dikosongkan!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "BennysVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bennys", 
+        Dialog_Show(playerid, "BennysVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bennys", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -726,7 +726,7 @@ Dialog:BennysVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nMohon diisi hanya angka!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "BennysVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bennys", 
+        Dialog_Show(playerid, "BennysVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bennys", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -735,7 +735,7 @@ Dialog:BennysVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), "Anda akan menyimpan item:\nNama: %s\nJumlah di tas: %d\nJumlah tidak valid!\nMohon masukkan berapa jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "BennysVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bennys", 
+        Dialog_Show(playerid, "BennysVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bennys", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -833,7 +833,7 @@ Dialog:BennysVaultWithdraw(playerid, response, listitem, inputtext[])
         AccountData[playerid][pTempValue] = listitem;
         new shstr[528];
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][listitem]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][listitem]][factionBrankasQuant]);
-        Dialog_Show(playerid, "BennysVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bennys", 
+        Dialog_Show(playerid, "BennysVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bennys", 
         shstr, "Input", "Batal");
     }
     return 1;
@@ -858,7 +858,7 @@ Dialog:BennysVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Tidak dapat dikosongkan!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "BennysVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bennys", 
+        Dialog_Show(playerid, "BennysVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bennys", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -867,7 +867,7 @@ Dialog:BennysVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon diisi hanya angka!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "BennysVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bennys", 
+        Dialog_Show(playerid, "BennysVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bennys", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -876,7 +876,7 @@ Dialog:BennysVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Jumlah tidak valid!\nMohon masukkan berapa jumlah yang ingin diambil:", FactionBrankas[PlayerListitem[playerid][id]][factionBrankasTemp], FactionBrankas[PlayerListitem[playerid][id]][factionBrankasQuant]);
-        Dialog_Show(playerid, "BennysVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Bennys", 
+        Dialog_Show(playerid, "BennysVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Bennys", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -962,14 +962,14 @@ Dialog:BennysLocker(playerid, response, listitem, inputtext[])
             {
                 case 1: //male
                 {
-                    Dialog_Show(playerid, "BennysUniform", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Baju Bennys", 
+                    Dialog_Show(playerid, "BennysUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Baju Bennys", 
                     "Bennys 1\n\
                     "GRAY"Bennys 2\n\
                     Bennys 3", "Pilih", "Batal");
                 }
                 case 2: //female
                 {
-                    Dialog_Show(playerid, "BennysUniform", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Baju Bennys", 
+                    Dialog_Show(playerid, "BennysUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Baju Bennys", 
                     "Bennys 1\n\
                     "GRAY"Bennys 2", "Pilih", "Batal");
                 }
@@ -1019,10 +1019,10 @@ Dialog:BennysBosdesk(playerid, response, listitem, inputtext[])
             if(count == 0)
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Undang Faction", "Tidak ada pemain terdekat!", "Tutup", "");
+                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Undang Faction", "Tidak ada pemain terdekat!", "Tutup", "");
             }
 
-            Dialog_Show(playerid, "BennysIhnviteConfirm", DIALOG_STYLE_TABLIST, ""Nexston"Nexston Roleplay "WHITE"- Undang Faction", frmxt, "Pilih", "Batal");
+            Dialog_Show(playerid, "BennysIhnviteConfirm", DIALOG_STYLE_TABLIST, ""Vertex"Vertex Roleplay "WHITE"- Undang Faction", frmxt, "Pilih", "Batal");
         }
         case 1:
         {
@@ -1089,12 +1089,12 @@ Dialog:BennysBosdesk(playerid, response, listitem, inputtext[])
                     strcat(string, "\n");
                 }
 
-                Dialog_Show(playerid, "BennysSetRankPage", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
+                Dialog_Show(playerid, "BennysSetRankPage", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
             }
             else
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Faction ini tidak memiliki anggota!", "Tutup", "");
             }
         }
         case 2: //kick
@@ -1107,16 +1107,16 @@ Dialog:BennysBosdesk(playerid, response, listitem, inputtext[])
             new rtx[158];
             format(rtx, sizeof(rtx), "Saldo Bennys Automotive saat ini ialah:\n\
             "DARKGREEN"$%s", FormatMoney(BennysMoneyVault));
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Bennys Balance", rtx, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Bennys Balance", rtx, "Tutup", "");
         }
         case 4: //deposit saldo
         {
-            Dialog_Show(playerid, "BennysDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bennys Deposit", 
+            Dialog_Show(playerid, "BennysDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bennys Deposit", 
             "Mohon masukkan berapa jumlah deposit:", "Input", "Batal");
         }
         case 5: //tarik saldo
         {
-            Dialog_Show(playerid, "BennysWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bennys Withdraw", 
+            Dialog_Show(playerid, "BennysWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bennys Withdraw", 
             "Mohon masukkan berapa jumlah withdraw:", "Input", "Batal");
         }
     }
@@ -1145,7 +1145,7 @@ Dialog:BennysSetRankConfirm(playerid, response, listitem, inputtext[])
     if(AccountData[playerid][pFaction] != FACTION_BENNYS) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Bennys Automotive!");
     if(AccountData[playerid][pFactionRank] < 4) return ShowTDN(playerid, NOTIFICATION_ERROR, "Minimal rank Wakil Manager untuk akses faction menu!");
 
-    if(isnull(inputtext)) return Dialog_Show(playerid, "BennysSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "BennysSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Tidak dapat dikosongkan!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. PKL\n\
@@ -1155,7 +1155,7 @@ Dialog:BennysSetRankConfirm(playerid, response, listitem, inputtext[])
     5. Manager\n\
     6. Boss Bennys", "Set", "Batal");
     
-    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BennysSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BennysSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Masukkan hanya angka!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. PKL\n\
@@ -1165,7 +1165,7 @@ Dialog:BennysSetRankConfirm(playerid, response, listitem, inputtext[])
     5. Manager\n\
     6. Boss Bennys", "Set", "Batal");
 
-    if(strval(inputtext) < 1 || strval(inputtext) > 6) return Dialog_Show(playerid, "BennysSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+    if(strval(inputtext) < 1 || strval(inputtext) > 6) return Dialog_Show(playerid, "BennysSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
     "Error: Tidak dapat diisi dibawah 1 atau lebih tinggi dari jabatan anda!\n\
     Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
     1. PKL\n\
@@ -1200,16 +1200,16 @@ Dialog:BennysDepositCash(playerid, response, listitem, inputtext[])
     
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "BennysDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bennys Deposit",
+        return Dialog_Show(playerid, "BennysDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bennys Deposit",
         "Error: Tidak dapat dikosongkan!\n\
         Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BennysDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bennys Deposit",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BennysDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bennys Deposit",
         "Error: Masukkan hanya angka!\n\
         Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BennysDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bennys Deposit",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BennysDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bennys Deposit",
     "Error: Invalid amount, you can't deposit less than $1!\n\
     Mohon masukkan berapa jumlah deposit:", "Deposit", "Batal");
 
@@ -1233,16 +1233,16 @@ Dialog:BennysWithdrawCash(playerid, response, listitem, inputtext[])
 
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "BennysWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bennys Withdraw",
+        return Dialog_Show(playerid, "BennysWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bennys Withdraw",
         "Error: Tidak dapat dikosongkan!\n\
        Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BennysWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bennys Withdraw",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BennysWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bennys Withdraw",
         "Error: Masukkan hanya angka!\n\
        Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BennysWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bennys Withdraw",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BennysWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bennys Withdraw",
     "Error: Jumlah tidak valid, anda tidak dapat withdraw kurang dari $1!\n\
    Mohon masukkan jumlah yang ingin ditarik:", "Withdraw", "Batal");
 
@@ -1270,7 +1270,7 @@ Dialog:BennysGarage(playerid, response, listitem, inputtext[])
         {
             if(PlayerFactionVehicle[playerid][FACTION_BENNYS] != INVALID_VEHICLE_ID) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda telah mengeluarkan kendaraan, simpan terlebih dahulu!");
 
-            Dialog_Show(playerid, "BennysGarageTakeout", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Keluarkan Kendaraan", 
+            Dialog_Show(playerid, "BennysGarageTakeout", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Keluarkan Kendaraan", 
             "Tow Truck\n\
             "GRAY"Yosemite", "Pilih", "Batal");
         }
@@ -1392,12 +1392,12 @@ Dialog:BennysPanel(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
                 "This person has no invoices.", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
                 xjjs, "Tutup", "");
             }
             NearestSingle[playerid] = INVALID_PLAYER_ID;
@@ -1410,7 +1410,7 @@ Dialog:BennysPanel(playerid, response, listitem, inputtext[])
     		    ApplyAnimation(playerid, "INT_SHOP","shop_loop", 4.1, true, false, false, true, 0, true);
             }
 
-            Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Invoice", 
+            Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Invoice", 
             "Mohon masukkan nama dari invoice ini:", "Input", "Batal");
         }
         case 2: //Seret
@@ -1633,7 +1633,7 @@ Dialog:BennysSetRankPage(playerid, response, listitem, inputtext[])
             cache_get_value_name_int(0, "Char_FactionRank", AccountData[playerid][pTempSQLFactRank]);
             if(AccountData[playerid][pID] == AccountData[playerid][pTempSQLFactMemberID]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak dapat menetapkan rank anda sendiri!");
             if(AccountData[playerid][pTempSQLFactRank] >= AccountData[playerid][pFactionRank]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak dapat menetapkan rank rekan yang sejajar/lebih tinggi dari anda!");
-            Dialog_Show(playerid, "BennysSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+            Dialog_Show(playerid, "BennysSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
             "Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
             1. PKL\n\
             2. Amatir\n\
@@ -1727,7 +1727,7 @@ Dialog:BennysKickMember(playerid, response, listitem, inputtext[])
             Name: %s\n\
             Rank: %s\n\
             Last Online: %s", fckname, BennysRank[fckrank], fcklastlogin);
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Faction", kckstr, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Faction", kckstr, "Tutup", "");
         }
     }
     return 1;

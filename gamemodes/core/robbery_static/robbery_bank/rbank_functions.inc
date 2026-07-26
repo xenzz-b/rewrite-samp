@@ -25,7 +25,7 @@ Dialog:BankHacking(playerid, response, listitem, inputtext[])
         "RED"Hacking Bank on progress [%d/5]...\n\
         "WHITE"Please re-type this code:\n\n\
         "LIGHTYELLOW"%s", AccountData[playerid][pQBRobbery], GenerateRandomType(playerid));
-        Dialog_Show(playerid, "BankHacking", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Hacking Bank", 
+        Dialog_Show(playerid, "BankHacking", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Hacking Bank", 
         stta, "Input", "Batal");
         return 1;
     }
@@ -47,7 +47,7 @@ Dialog:BankHacking(playerid, response, listitem, inputtext[])
         "RED"Hacking Bank on progress [%d/5]...\n\
         "WHITE"Please re-type this code:\n\n\
         "LIGHTYELLOW"%s", AccountData[playerid][pQBRobbery], GenerateRandomType(playerid));
-        Dialog_Show(playerid, "BankHacking", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Hacking Bank", 
+        Dialog_Show(playerid, "BankHacking", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Hacking Bank", 
         stta, "Input", "Batal");
         return 1;
     }
@@ -80,7 +80,7 @@ Dialog:BankHacking(playerid, response, listitem, inputtext[])
     "RED"Hacking Bank on progress [%d/5]...\n\
     "WHITE"Please re-type this code:\n\n\
     "LIGHTYELLOW"%s", AccountData[playerid][pQBRobbery], GenerateRandomType(playerid));
-    Dialog_Show(playerid, "BankHacking", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Hacking Bank", 
+    Dialog_Show(playerid, "BankHacking", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Hacking Bank", 
     stta, "Input", "Batal");
     return 1;
 }
@@ -167,7 +167,7 @@ ptask BankRobCountUpdate[1000](playerid)
 
             UpdateDynamic3DTextLabelText(BankRobStatusLabel, Y_WHITE, "Pacific Standard Public Deposit Bank\n"YELLOW"/robbank\n\n"WHITE"Status: "RED"Unready");
 
-            ShowFivemNotify(playerid, "Nexston Roleplay~n~PERAMPOKAN BANK", "Bank Pacific berhasil dihack, ambil semua barang di brankas!", "hud:radar_cash", 25);
+            ShowFivemNotify(playerid, "Vertex Roleplay~n~PERAMPOKAN BANK", "Bank Pacific berhasil dihack, ambil semua barang di brankas!", "hud:radar_cash", 25);
 
             if(DestroyDynamicObject(BankVault))
                 BankVault = STREAMER_TAG_OBJECT: INVALID_STREAMER_ID;

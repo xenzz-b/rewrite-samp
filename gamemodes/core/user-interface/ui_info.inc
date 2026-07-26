@@ -3,10 +3,10 @@ new
 	Text:GlobalFooterTD,
  	PlayerText:pNotifBoxTD[MAX_PLAYERS],
 	PlayerText:FooterTD[MAX_PLAYERS],
-	PlayerText:SpecNSRP[MAX_PLAYERS][11],
+	PlayerText:SpecVRP[MAX_PLAYERS][11],
 	PlayerText:pJobMixTD[MAX_PLAYERS][10],
 	PlayerText:pAnnounceTD[MAX_PLAYERS],
-	Text:InsuNSRP[19],
+	Text:InsuVRP[19],
 	Text:JobCenterTD[69],
 	Text:AnnounceTD[19],
 	Text:JobMixTD[11],
@@ -129,195 +129,195 @@ CreateInfoTextdraw()
 	TextDrawSetProportional(GlobalFooterTD, true);
 	TextDrawSetSelectable(GlobalFooterTD, false);
 
-	InsuNSRP[0] = TextDrawCreate(247.000, 64.000, "LD_SPAC:white");
-    TextDrawTextSize(InsuNSRP[0], 140.000, 54.000);
-    TextDrawAlignment(InsuNSRP[0], 1);
-    TextDrawColor(InsuNSRP[0], -1);
-    TextDrawSetShadow(InsuNSRP[0], 0);
-    TextDrawSetOutline(InsuNSRP[0], 0);
-    TextDrawBackgroundColor(InsuNSRP[0], 255);
-    TextDrawFont(InsuNSRP[0], 4);
-    TextDrawSetProportional(InsuNSRP[0], 1);
+	InsuVRP[0] = TextDrawCreate(247.000, 64.000, "LD_SPAC:white");
+    TextDrawTextSize(InsuVRP[0], 140.000, 54.000);
+    TextDrawAlignment(InsuVRP[0], 1);
+    TextDrawColor(InsuVRP[0], -1);
+    TextDrawSetShadow(InsuVRP[0], 0);
+    TextDrawSetOutline(InsuVRP[0], 0);
+    TextDrawBackgroundColor(InsuVRP[0], 255);
+    TextDrawFont(InsuVRP[0], 4);
+    TextDrawSetProportional(InsuVRP[0], 1);
 
-    InsuNSRP[1] = TextDrawCreate(244.000, 56.000, "LD_BEAT:chit");
-    TextDrawTextSize(InsuNSRP[1], 19.000, 20.000);
-    TextDrawAlignment(InsuNSRP[1], 1);
-    TextDrawColor(InsuNSRP[1], -1);
-    TextDrawSetShadow(InsuNSRP[1], 0);
-    TextDrawSetOutline(InsuNSRP[1], 0);
-    TextDrawBackgroundColor(InsuNSRP[1], 255);
-    TextDrawFont(InsuNSRP[1], 4);
-    TextDrawSetProportional(InsuNSRP[1], 1);
+    InsuVRP[1] = TextDrawCreate(244.000, 56.000, "LD_BEAT:chit");
+    TextDrawTextSize(InsuVRP[1], 19.000, 20.000);
+    TextDrawAlignment(InsuVRP[1], 1);
+    TextDrawColor(InsuVRP[1], -1);
+    TextDrawSetShadow(InsuVRP[1], 0);
+    TextDrawSetOutline(InsuVRP[1], 0);
+    TextDrawBackgroundColor(InsuVRP[1], 255);
+    TextDrawFont(InsuVRP[1], 4);
+    TextDrawSetProportional(InsuVRP[1], 1);
 
-    InsuNSRP[2] = TextDrawCreate(371.000, 56.000, "LD_BEAT:chit");
-    TextDrawTextSize(InsuNSRP[2], 19.500, 20.000);
-    TextDrawAlignment(InsuNSRP[2], 1);
-    TextDrawColor(InsuNSRP[2], -1);
-    TextDrawSetShadow(InsuNSRP[2], 0);
-    TextDrawSetOutline(InsuNSRP[2], 0);
-    TextDrawBackgroundColor(InsuNSRP[2], 255);
-    TextDrawFont(InsuNSRP[2], 4);
-    TextDrawSetProportional(InsuNSRP[2], 1);
+    InsuVRP[2] = TextDrawCreate(371.000, 56.000, "LD_BEAT:chit");
+    TextDrawTextSize(InsuVRP[2], 19.500, 20.000);
+    TextDrawAlignment(InsuVRP[2], 1);
+    TextDrawColor(InsuVRP[2], -1);
+    TextDrawSetShadow(InsuVRP[2], 0);
+    TextDrawSetOutline(InsuVRP[2], 0);
+    TextDrawBackgroundColor(InsuVRP[2], 255);
+    TextDrawFont(InsuVRP[2], 4);
+    TextDrawSetProportional(InsuVRP[2], 1);
 
-    InsuNSRP[3] = TextDrawCreate(371.000, 107.000, "LD_BEAT:chit");
-    TextDrawTextSize(InsuNSRP[3], 19.500, 20.000);
-    TextDrawAlignment(InsuNSRP[3], 1);
-    TextDrawColor(InsuNSRP[3], -1);
-    TextDrawSetShadow(InsuNSRP[3], 0);
-    TextDrawSetOutline(InsuNSRP[3], 0);
-    TextDrawBackgroundColor(InsuNSRP[3], 255);
-    TextDrawFont(InsuNSRP[3], 4);
-    TextDrawSetProportional(InsuNSRP[3], 1);
+    InsuVRP[3] = TextDrawCreate(371.000, 107.000, "LD_BEAT:chit");
+    TextDrawTextSize(InsuVRP[3], 19.500, 20.000);
+    TextDrawAlignment(InsuVRP[3], 1);
+    TextDrawColor(InsuVRP[3], -1);
+    TextDrawSetShadow(InsuVRP[3], 0);
+    TextDrawSetOutline(InsuVRP[3], 0);
+    TextDrawBackgroundColor(InsuVRP[3], 255);
+    TextDrawFont(InsuVRP[3], 4);
+    TextDrawSetProportional(InsuVRP[3], 1);
 
-    InsuNSRP[4] = TextDrawCreate(244.000, 107.000, "LD_BEAT:chit");
-    TextDrawTextSize(InsuNSRP[4], 19.000, 20.000);
-    TextDrawAlignment(InsuNSRP[4], 1);
-    TextDrawColor(InsuNSRP[4], -1);
-    TextDrawSetShadow(InsuNSRP[4], 0);
-    TextDrawSetOutline(InsuNSRP[4], 0);
-    TextDrawBackgroundColor(InsuNSRP[4], 255);
-    TextDrawFont(InsuNSRP[4], 4);
-    TextDrawSetProportional(InsuNSRP[4], 1);
+    InsuVRP[4] = TextDrawCreate(244.000, 107.000, "LD_BEAT:chit");
+    TextDrawTextSize(InsuVRP[4], 19.000, 20.000);
+    TextDrawAlignment(InsuVRP[4], 1);
+    TextDrawColor(InsuVRP[4], -1);
+    TextDrawSetShadow(InsuVRP[4], 0);
+    TextDrawSetOutline(InsuVRP[4], 0);
+    TextDrawBackgroundColor(InsuVRP[4], 255);
+    TextDrawFont(InsuVRP[4], 4);
+    TextDrawSetProportional(InsuVRP[4], 1);
 
-    InsuNSRP[5] = TextDrawCreate(254.000, 59.000, "LD_SPAC:white");
-    TextDrawTextSize(InsuNSRP[5], 126.000, 65.000);
-    TextDrawAlignment(InsuNSRP[5], 1);
-    TextDrawColor(InsuNSRP[5], -1);
-    TextDrawSetShadow(InsuNSRP[5], 0);
-    TextDrawSetOutline(InsuNSRP[5], 0);
-    TextDrawBackgroundColor(InsuNSRP[5], 255);
-    TextDrawFont(InsuNSRP[5], 4);
-    TextDrawSetProportional(InsuNSRP[5], 1);
+    InsuVRP[5] = TextDrawCreate(254.000, 59.000, "LD_SPAC:white");
+    TextDrawTextSize(InsuVRP[5], 126.000, 65.000);
+    TextDrawAlignment(InsuVRP[5], 1);
+    TextDrawColor(InsuVRP[5], -1);
+    TextDrawSetShadow(InsuVRP[5], 0);
+    TextDrawSetOutline(InsuVRP[5], 0);
+    TextDrawBackgroundColor(InsuVRP[5], 255);
+    TextDrawFont(InsuVRP[5], 4);
+    TextDrawSetProportional(InsuVRP[5], 1);
 
-    InsuNSRP[6] = TextDrawCreate(246.000, 58.000, "LD_BEAT:chit");
-    TextDrawTextSize(InsuNSRP[6], 19.000, 20.000);
-    TextDrawAlignment(InsuNSRP[6], 1);
-    TextDrawColor(InsuNSRP[6], -12254977);
-    TextDrawSetShadow(InsuNSRP[6], 0);
-    TextDrawSetOutline(InsuNSRP[6], 0);
-    TextDrawBackgroundColor(InsuNSRP[6], 255);
-    TextDrawFont(InsuNSRP[6], 4);
-    TextDrawSetProportional(InsuNSRP[6], 1);
+    InsuVRP[6] = TextDrawCreate(246.000, 58.000, "LD_BEAT:chit");
+    TextDrawTextSize(InsuVRP[6], 19.000, 20.000);
+    TextDrawAlignment(InsuVRP[6], 1);
+    TextDrawColor(InsuVRP[6], -12254977);
+    TextDrawSetShadow(InsuVRP[6], 0);
+    TextDrawSetOutline(InsuVRP[6], 0);
+    TextDrawBackgroundColor(InsuVRP[6], 255);
+    TextDrawFont(InsuVRP[6], 4);
+    TextDrawSetProportional(InsuVRP[6], 1);
 
-    InsuNSRP[7] = TextDrawCreate(369.000, 58.000, "LD_BEAT:chit");
-    TextDrawTextSize(InsuNSRP[7], 19.000, 20.000);
-    TextDrawAlignment(InsuNSRP[7], 1);
-    TextDrawColor(InsuNSRP[7], -10878721);
-    TextDrawSetShadow(InsuNSRP[7], 0);
-    TextDrawSetOutline(InsuNSRP[7], 0);
-    TextDrawBackgroundColor(InsuNSRP[7], 255);
-    TextDrawFont(InsuNSRP[7], 4);
-    TextDrawSetProportional(InsuNSRP[7], 1);
+    InsuVRP[7] = TextDrawCreate(369.000, 58.000, "LD_BEAT:chit");
+    TextDrawTextSize(InsuVRP[7], 19.000, 20.000);
+    TextDrawAlignment(InsuVRP[7], 1);
+    TextDrawColor(InsuVRP[7], -10878721);
+    TextDrawSetShadow(InsuVRP[7], 0);
+    TextDrawSetOutline(InsuVRP[7], 0);
+    TextDrawBackgroundColor(InsuVRP[7], 255);
+    TextDrawFont(InsuVRP[7], 4);
+    TextDrawSetProportional(InsuVRP[7], 1);
 
-    InsuNSRP[8] = TextDrawCreate(369.000, 105.000, "LD_BEAT:chit");
-    TextDrawTextSize(InsuNSRP[8], 19.000, 20.000);
-    TextDrawAlignment(InsuNSRP[8], 1);
-    TextDrawColor(InsuNSRP[8], -10878721);
-    TextDrawSetShadow(InsuNSRP[8], 0);
-    TextDrawSetOutline(InsuNSRP[8], 0);
-    TextDrawBackgroundColor(InsuNSRP[8], 255);
-    TextDrawFont(InsuNSRP[8], 4);
-    TextDrawSetProportional(InsuNSRP[8], 1);
+    InsuVRP[8] = TextDrawCreate(369.000, 105.000, "LD_BEAT:chit");
+    TextDrawTextSize(InsuVRP[8], 19.000, 20.000);
+    TextDrawAlignment(InsuVRP[8], 1);
+    TextDrawColor(InsuVRP[8], -10878721);
+    TextDrawSetShadow(InsuVRP[8], 0);
+    TextDrawSetOutline(InsuVRP[8], 0);
+    TextDrawBackgroundColor(InsuVRP[8], 255);
+    TextDrawFont(InsuVRP[8], 4);
+    TextDrawSetProportional(InsuVRP[8], 1);
 
-    InsuNSRP[9] = TextDrawCreate(246.000, 105.000, "LD_BEAT:chit");
-    TextDrawTextSize(InsuNSRP[9], 19.000, 20.000);
-    TextDrawAlignment(InsuNSRP[9], 1);
-    TextDrawColor(InsuNSRP[9], -10878721);
-    TextDrawSetShadow(InsuNSRP[9], 0);
-    TextDrawSetOutline(InsuNSRP[9], 0);
-    TextDrawBackgroundColor(InsuNSRP[9], 255);
-    TextDrawFont(InsuNSRP[9], 4);
-    TextDrawSetProportional(InsuNSRP[9], 1);
+    InsuVRP[9] = TextDrawCreate(246.000, 105.000, "LD_BEAT:chit");
+    TextDrawTextSize(InsuVRP[9], 19.000, 20.000);
+    TextDrawAlignment(InsuVRP[9], 1);
+    TextDrawColor(InsuVRP[9], -10878721);
+    TextDrawSetShadow(InsuVRP[9], 0);
+    TextDrawSetOutline(InsuVRP[9], 0);
+    TextDrawBackgroundColor(InsuVRP[9], 255);
+    TextDrawFont(InsuVRP[9], 4);
+    TextDrawSetProportional(InsuVRP[9], 1);
 
-    InsuNSRP[10] = TextDrawCreate(249.000, 67.000, "LD_SPAC:white");
-    TextDrawTextSize(InsuNSRP[10], 136.000, 48.000);
-    TextDrawAlignment(InsuNSRP[10], 1);
-    TextDrawColor(InsuNSRP[10], -12254977);
-    TextDrawSetShadow(InsuNSRP[10], 0);
-    TextDrawSetOutline(InsuNSRP[10], 0);
-    TextDrawBackgroundColor(InsuNSRP[10], 255);
-    TextDrawFont(InsuNSRP[10], 4);
-    TextDrawSetProportional(InsuNSRP[10], 1);
+    InsuVRP[10] = TextDrawCreate(249.000, 67.000, "LD_SPAC:white");
+    TextDrawTextSize(InsuVRP[10], 136.000, 48.000);
+    TextDrawAlignment(InsuVRP[10], 1);
+    TextDrawColor(InsuVRP[10], -12254977);
+    TextDrawSetShadow(InsuVRP[10], 0);
+    TextDrawSetOutline(InsuVRP[10], 0);
+    TextDrawBackgroundColor(InsuVRP[10], 255);
+    TextDrawFont(InsuVRP[10], 4);
+    TextDrawSetProportional(InsuVRP[10], 1);
 
-    InsuNSRP[11] = TextDrawCreate(256.000, 61.000, "LD_SPAC:white");
-    TextDrawTextSize(InsuNSRP[11], 122.000, 60.500);
-    TextDrawAlignment(InsuNSRP[11], 1);
-    TextDrawColor(InsuNSRP[11], -12254977);
-    TextDrawSetShadow(InsuNSRP[11], 0);
-    TextDrawSetOutline(InsuNSRP[11], 0);
-    TextDrawBackgroundColor(InsuNSRP[11], 255);
-    TextDrawFont(InsuNSRP[11], 4);
-    TextDrawSetProportional(InsuNSRP[11], 1);
+    InsuVRP[11] = TextDrawCreate(256.000, 61.000, "LD_SPAC:white");
+    TextDrawTextSize(InsuVRP[11], 122.000, 60.500);
+    TextDrawAlignment(InsuVRP[11], 1);
+    TextDrawColor(InsuVRP[11], -12254977);
+    TextDrawSetShadow(InsuVRP[11], 0);
+    TextDrawSetOutline(InsuVRP[11], 0);
+    TextDrawBackgroundColor(InsuVRP[11], 255);
+    TextDrawFont(InsuVRP[11], 4);
+    TextDrawSetProportional(InsuVRP[11], 1);
 
-    InsuNSRP[12] = TextDrawCreate(282.000, 64.000, "[INSURANCE KELILING]");
-    TextDrawLetterSize(InsuNSRP[12], 0.200, 1.199);
-    TextDrawAlignment(InsuNSRP[12], 1);
-    TextDrawColor(InsuNSRP[12], -1);
-    TextDrawSetShadow(InsuNSRP[12], 0);
-    TextDrawSetOutline(InsuNSRP[12], 0);
-    TextDrawBackgroundColor(InsuNSRP[12], 150);
-    TextDrawFont(InsuNSRP[12], 1);
-    TextDrawSetProportional(InsuNSRP[12], 1);
+    InsuVRP[12] = TextDrawCreate(282.000, 64.000, "[INSURANCE KELILING]");
+    TextDrawLetterSize(InsuVRP[12], 0.200, 1.199);
+    TextDrawAlignment(InsuVRP[12], 1);
+    TextDrawColor(InsuVRP[12], -1);
+    TextDrawSetShadow(InsuVRP[12], 0);
+    TextDrawSetOutline(InsuVRP[12], 0);
+    TextDrawBackgroundColor(InsuVRP[12], 150);
+    TextDrawFont(InsuVRP[12], 1);
+    TextDrawSetProportional(InsuVRP[12], 1);
 
-    InsuNSRP[13] = TextDrawCreate(317.000, 107.000, "12 menit 12 detik");
-    TextDrawLetterSize(InsuNSRP[13], 0.140, 1.199);
-    TextDrawAlignment(InsuNSRP[13], 2);
-    TextDrawColor(InsuNSRP[13], -2147483393);
-    TextDrawSetShadow(InsuNSRP[13], 0);
-    TextDrawSetOutline(InsuNSRP[13], 0);
-    TextDrawBackgroundColor(InsuNSRP[13], 150);
-    TextDrawFont(InsuNSRP[13], 1);
-    TextDrawSetProportional(InsuNSRP[13], 1);
+    InsuVRP[13] = TextDrawCreate(317.000, 107.000, "12 menit 12 detik");
+    TextDrawLetterSize(InsuVRP[13], 0.140, 1.199);
+    TextDrawAlignment(InsuVRP[13], 2);
+    TextDrawColor(InsuVRP[13], -2147483393);
+    TextDrawSetShadow(InsuVRP[13], 0);
+    TextDrawSetOutline(InsuVRP[13], 0);
+    TextDrawBackgroundColor(InsuVRP[13], 150);
+    TextDrawFont(InsuVRP[13], 1);
+    TextDrawSetProportional(InsuVRP[13], 1);
 
-    InsuNSRP[14] = TextDrawCreate(317.000, 86.000, "Kendaraan yang tidak ditempati akan diproses oleh sistem");
-    TextDrawLetterSize(InsuNSRP[14], 0.129, 1.099);
-    TextDrawAlignment(InsuNSRP[14], 2);
-    TextDrawColor(InsuNSRP[14], -1);
-    TextDrawSetShadow(InsuNSRP[14], 0);
-    TextDrawSetOutline(InsuNSRP[14], 0);
-    TextDrawBackgroundColor(InsuNSRP[14], 150);
-    TextDrawFont(InsuNSRP[14], 1);
-    TextDrawSetProportional(InsuNSRP[14], 1);
+    InsuVRP[14] = TextDrawCreate(317.000, 86.000, "Kendaraan yang tidak ditempati akan diproses oleh sistem");
+    TextDrawLetterSize(InsuVRP[14], 0.129, 1.099);
+    TextDrawAlignment(InsuVRP[14], 2);
+    TextDrawColor(InsuVRP[14], -1);
+    TextDrawSetShadow(InsuVRP[14], 0);
+    TextDrawSetOutline(InsuVRP[14], 0);
+    TextDrawBackgroundColor(InsuVRP[14], 150);
+    TextDrawFont(InsuVRP[14], 1);
+    TextDrawSetProportional(InsuVRP[14], 1);
 
-    InsuNSRP[15] = TextDrawCreate(317.000, 95.000, "Segera naik ke kendaraan Anda sebelum waktu habis.");
-    TextDrawLetterSize(InsuNSRP[15], 0.129, 1.099);
-    TextDrawAlignment(InsuNSRP[15], 2);
-    TextDrawColor(InsuNSRP[15], -1);
-    TextDrawSetShadow(InsuNSRP[15], 0);
-    TextDrawSetOutline(InsuNSRP[15], 0);
-    TextDrawBackgroundColor(InsuNSRP[15], 150);
-    TextDrawFont(InsuNSRP[15], 1);
-    TextDrawSetProportional(InsuNSRP[15], 1);
+    InsuVRP[15] = TextDrawCreate(317.000, 95.000, "Segera naik ke kendaraan Anda sebelum waktu habis.");
+    TextDrawLetterSize(InsuVRP[15], 0.129, 1.099);
+    TextDrawAlignment(InsuVRP[15], 2);
+    TextDrawColor(InsuVRP[15], -1);
+    TextDrawSetShadow(InsuVRP[15], 0);
+    TextDrawSetOutline(InsuVRP[15], 0);
+    TextDrawBackgroundColor(InsuVRP[15], 150);
+    TextDrawFont(InsuVRP[15], 1);
+    TextDrawSetProportional(InsuVRP[15], 1);
 
-    InsuNSRP[16] = TextDrawCreate(317.000, 77.000, "Layanan asuransi keliling telah dimulai");
-    TextDrawLetterSize(InsuNSRP[16], 0.129, 1.099);
-    TextDrawAlignment(InsuNSRP[16], 2);
-    TextDrawColor(InsuNSRP[16], -1);
-    TextDrawSetShadow(InsuNSRP[16], 0);
-    TextDrawSetOutline(InsuNSRP[16], 0);
-    TextDrawBackgroundColor(InsuNSRP[16], 150);
-    TextDrawFont(InsuNSRP[16], 1);
-    TextDrawSetProportional(InsuNSRP[16], 1);
+    InsuVRP[16] = TextDrawCreate(317.000, 77.000, "Layanan asuransi keliling telah dimulai");
+    TextDrawLetterSize(InsuVRP[16], 0.129, 1.099);
+    TextDrawAlignment(InsuVRP[16], 2);
+    TextDrawColor(InsuVRP[16], -1);
+    TextDrawSetShadow(InsuVRP[16], 0);
+    TextDrawSetOutline(InsuVRP[16], 0);
+    TextDrawBackgroundColor(InsuVRP[16], 150);
+    TextDrawFont(InsuVRP[16], 1);
+    TextDrawSetProportional(InsuVRP[16], 1);
 
-    InsuNSRP[17] = TextDrawCreate(254.000, 62.000, "HUD:radar_impound");
-    TextDrawTextSize(InsuNSRP[17], 12.000, 14.000);
-    TextDrawAlignment(InsuNSRP[17], 1);
-    TextDrawColor(InsuNSRP[17], -12254977);
-    TextDrawSetShadow(InsuNSRP[17], 0);
-    TextDrawSetOutline(InsuNSRP[17], 0);
-    TextDrawBackgroundColor(InsuNSRP[17], 255);
-    TextDrawFont(InsuNSRP[17], 4);
-    TextDrawSetProportional(InsuNSRP[17], 1);
+    InsuVRP[17] = TextDrawCreate(254.000, 62.000, "HUD:radar_impound");
+    TextDrawTextSize(InsuVRP[17], 12.000, 14.000);
+    TextDrawAlignment(InsuVRP[17], 1);
+    TextDrawColor(InsuVRP[17], -12254977);
+    TextDrawSetShadow(InsuVRP[17], 0);
+    TextDrawSetOutline(InsuVRP[17], 0);
+    TextDrawBackgroundColor(InsuVRP[17], 255);
+    TextDrawFont(InsuVRP[17], 4);
+    TextDrawSetProportional(InsuVRP[17], 1);
 
-    InsuNSRP[18] = TextDrawCreate(381.000, 62.000, "HUD:radar_impound");
-    TextDrawTextSize(InsuNSRP[18], -13.000, 14.000);
-    TextDrawAlignment(InsuNSRP[18], 1);
-    TextDrawColor(InsuNSRP[18], -12254977);
-    TextDrawSetShadow(InsuNSRP[18], 0);
-    TextDrawSetOutline(InsuNSRP[18], 0);
-    TextDrawBackgroundColor(InsuNSRP[18], 255);
-    TextDrawFont(InsuNSRP[18], 4);
-    TextDrawSetProportional(InsuNSRP[18], 1);
+    InsuVRP[18] = TextDrawCreate(381.000, 62.000, "HUD:radar_impound");
+    TextDrawTextSize(InsuVRP[18], -13.000, 14.000);
+    TextDrawAlignment(InsuVRP[18], 1);
+    TextDrawColor(InsuVRP[18], -12254977);
+    TextDrawSetShadow(InsuVRP[18], 0);
+    TextDrawSetOutline(InsuVRP[18], 0);
+    TextDrawBackgroundColor(InsuVRP[18], 255);
+    TextDrawFont(InsuVRP[18], 4);
+    TextDrawSetProportional(InsuVRP[18], 1);
 }
 
 CreateAnnounceTD()
@@ -542,117 +542,117 @@ CreateInfoTextDrawPlayer(playerid)
 	PlayerTextDrawSetProportional(playerid, pNotifBoxTD[playerid], true);
 	PlayerTextDrawSetSelectable(playerid, pNotifBoxTD[playerid], false);
 
-	SpecNSRP[playerid][0] = CreatePlayerTextDraw(playerid, 250.000, 364.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, SpecNSRP[playerid][0], 139.500, 47.298);
-    PlayerTextDrawAlignment(playerid, SpecNSRP[playerid][0], 1);
-    PlayerTextDrawColor(playerid, SpecNSRP[playerid][0], 471602431);
-    PlayerTextDrawSetShadow(playerid, SpecNSRP[playerid][0], 0);
-    PlayerTextDrawSetOutline(playerid, SpecNSRP[playerid][0], 0);
-    PlayerTextDrawBackgroundColor(playerid, SpecNSRP[playerid][0], 255);
-    PlayerTextDrawFont(playerid, SpecNSRP[playerid][0], 4);
-    PlayerTextDrawSetProportional(playerid, SpecNSRP[playerid][0], 1);
+	SpecVRP[playerid][0] = CreatePlayerTextDraw(playerid, 250.000, 364.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, SpecVRP[playerid][0], 139.500, 47.298);
+    PlayerTextDrawAlignment(playerid, SpecVRP[playerid][0], 1);
+    PlayerTextDrawColor(playerid, SpecVRP[playerid][0], 471602431);
+    PlayerTextDrawSetShadow(playerid, SpecVRP[playerid][0], 0);
+    PlayerTextDrawSetOutline(playerid, SpecVRP[playerid][0], 0);
+    PlayerTextDrawBackgroundColor(playerid, SpecVRP[playerid][0], 255);
+    PlayerTextDrawFont(playerid, SpecVRP[playerid][0], 4);
+    PlayerTextDrawSetProportional(playerid, SpecVRP[playerid][0], 1);
 
-    SpecNSRP[playerid][1] = CreatePlayerTextDraw(playerid, 320.000, 373.000, "Raiden Sinaga (1)");
-    PlayerTextDrawLetterSize(playerid, SpecNSRP[playerid][1], 0.270, 1.399);
-    PlayerTextDrawAlignment(playerid, SpecNSRP[playerid][1], 2);
-    PlayerTextDrawColor(playerid, SpecNSRP[playerid][1], -1);
-    PlayerTextDrawSetShadow(playerid, SpecNSRP[playerid][1], 0);
-    PlayerTextDrawSetOutline(playerid, SpecNSRP[playerid][1], 0);
-    PlayerTextDrawBackgroundColor(playerid, SpecNSRP[playerid][1], 150);
-    PlayerTextDrawFont(playerid, SpecNSRP[playerid][1], 1);
-    PlayerTextDrawSetProportional(playerid, SpecNSRP[playerid][1], 1);
+    SpecVRP[playerid][1] = CreatePlayerTextDraw(playerid, 320.000, 373.000, "Raiden Sinaga (1)");
+    PlayerTextDrawLetterSize(playerid, SpecVRP[playerid][1], 0.270, 1.399);
+    PlayerTextDrawAlignment(playerid, SpecVRP[playerid][1], 2);
+    PlayerTextDrawColor(playerid, SpecVRP[playerid][1], -1);
+    PlayerTextDrawSetShadow(playerid, SpecVRP[playerid][1], 0);
+    PlayerTextDrawSetOutline(playerid, SpecVRP[playerid][1], 0);
+    PlayerTextDrawBackgroundColor(playerid, SpecVRP[playerid][1], 150);
+    PlayerTextDrawFont(playerid, SpecVRP[playerid][1], 1);
+    PlayerTextDrawSetProportional(playerid, SpecVRP[playerid][1], 1);
 
-    SpecNSRP[playerid][2] = CreatePlayerTextDraw(playerid, 320.000, 386.000, "Health : 100 - Armour : 100");
-    PlayerTextDrawLetterSize(playerid, SpecNSRP[playerid][2], 0.200, 1.399);
-    PlayerTextDrawAlignment(playerid, SpecNSRP[playerid][2], 2);
-    PlayerTextDrawColor(playerid, SpecNSRP[playerid][2], -1);
-    PlayerTextDrawSetShadow(playerid, SpecNSRP[playerid][2], 0);
-    PlayerTextDrawSetOutline(playerid, SpecNSRP[playerid][2], 0);
-    PlayerTextDrawBackgroundColor(playerid, SpecNSRP[playerid][2], 150);
-    PlayerTextDrawFont(playerid, SpecNSRP[playerid][2], 1);
-    PlayerTextDrawSetProportional(playerid, SpecNSRP[playerid][2], 1);
+    SpecVRP[playerid][2] = CreatePlayerTextDraw(playerid, 320.000, 386.000, "Health : 100 - Armour : 100");
+    PlayerTextDrawLetterSize(playerid, SpecVRP[playerid][2], 0.200, 1.399);
+    PlayerTextDrawAlignment(playerid, SpecVRP[playerid][2], 2);
+    PlayerTextDrawColor(playerid, SpecVRP[playerid][2], -1);
+    PlayerTextDrawSetShadow(playerid, SpecVRP[playerid][2], 0);
+    PlayerTextDrawSetOutline(playerid, SpecVRP[playerid][2], 0);
+    PlayerTextDrawBackgroundColor(playerid, SpecVRP[playerid][2], 150);
+    PlayerTextDrawFont(playerid, SpecVRP[playerid][2], 1);
+    PlayerTextDrawSetProportional(playerid, SpecVRP[playerid][2], 1);
 
-    SpecNSRP[playerid][3] = CreatePlayerTextDraw(playerid, 254.000, 408.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, SpecNSRP[playerid][3], 129.000, 3.799);
-    PlayerTextDrawAlignment(playerid, SpecNSRP[playerid][3], 1);
-    PlayerTextDrawColor(playerid, SpecNSRP[playerid][3], -12254977);
-    PlayerTextDrawSetShadow(playerid, SpecNSRP[playerid][3], 0);
-    PlayerTextDrawSetOutline(playerid, SpecNSRP[playerid][3], 0);
-    PlayerTextDrawBackgroundColor(playerid, SpecNSRP[playerid][3], 255);
-    PlayerTextDrawFont(playerid, SpecNSRP[playerid][3], 4);
-    PlayerTextDrawSetProportional(playerid, SpecNSRP[playerid][3], 1);
+    SpecVRP[playerid][3] = CreatePlayerTextDraw(playerid, 254.000, 408.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, SpecVRP[playerid][3], 129.000, 3.799);
+    PlayerTextDrawAlignment(playerid, SpecVRP[playerid][3], 1);
+    PlayerTextDrawColor(playerid, SpecVRP[playerid][3], -12254977);
+    PlayerTextDrawSetShadow(playerid, SpecVRP[playerid][3], 0);
+    PlayerTextDrawSetOutline(playerid, SpecVRP[playerid][3], 0);
+    PlayerTextDrawBackgroundColor(playerid, SpecVRP[playerid][3], 255);
+    PlayerTextDrawFont(playerid, SpecVRP[playerid][3], 4);
+    PlayerTextDrawSetProportional(playerid, SpecVRP[playerid][3], 1);
 
-    SpecNSRP[playerid][4] = CreatePlayerTextDraw(playerid, 383.000, 364.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, SpecNSRP[playerid][4], 28.000, 47.798);
-    PlayerTextDrawAlignment(playerid, SpecNSRP[playerid][4], 1);
-    PlayerTextDrawColor(playerid, SpecNSRP[playerid][4], 471602431);
-    PlayerTextDrawSetShadow(playerid, SpecNSRP[playerid][4], 0);
-    PlayerTextDrawSetOutline(playerid, SpecNSRP[playerid][4], 0);
-    PlayerTextDrawBackgroundColor(playerid, SpecNSRP[playerid][4], 255);
-    PlayerTextDrawFont(playerid, SpecNSRP[playerid][4], 4);
-    PlayerTextDrawSetProportional(playerid, SpecNSRP[playerid][4], 1);
-    PlayerTextDrawSetSelectable(playerid, SpecNSRP[playerid][4], 1);
+    SpecVRP[playerid][4] = CreatePlayerTextDraw(playerid, 383.000, 364.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, SpecVRP[playerid][4], 28.000, 47.798);
+    PlayerTextDrawAlignment(playerid, SpecVRP[playerid][4], 1);
+    PlayerTextDrawColor(playerid, SpecVRP[playerid][4], 471602431);
+    PlayerTextDrawSetShadow(playerid, SpecVRP[playerid][4], 0);
+    PlayerTextDrawSetOutline(playerid, SpecVRP[playerid][4], 0);
+    PlayerTextDrawBackgroundColor(playerid, SpecVRP[playerid][4], 255);
+    PlayerTextDrawFont(playerid, SpecVRP[playerid][4], 4);
+    PlayerTextDrawSetProportional(playerid, SpecVRP[playerid][4], 1);
+    PlayerTextDrawSetSelectable(playerid, SpecVRP[playerid][4], 1);
 
-    SpecNSRP[playerid][5] = CreatePlayerTextDraw(playerid, 227.000, 364.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, SpecNSRP[playerid][5], 28.000, 47.798);
-    PlayerTextDrawAlignment(playerid, SpecNSRP[playerid][5], 1);
-    PlayerTextDrawColor(playerid, SpecNSRP[playerid][5], 471602431);
-    PlayerTextDrawSetShadow(playerid, SpecNSRP[playerid][5], 0);
-    PlayerTextDrawSetOutline(playerid, SpecNSRP[playerid][5], 0);
-    PlayerTextDrawBackgroundColor(playerid, SpecNSRP[playerid][5], 255);
-    PlayerTextDrawFont(playerid, SpecNSRP[playerid][5], 4);
-    PlayerTextDrawSetProportional(playerid, SpecNSRP[playerid][5], 1);
-    PlayerTextDrawSetSelectable(playerid, SpecNSRP[playerid][5], 1);
+    SpecVRP[playerid][5] = CreatePlayerTextDraw(playerid, 227.000, 364.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, SpecVRP[playerid][5], 28.000, 47.798);
+    PlayerTextDrawAlignment(playerid, SpecVRP[playerid][5], 1);
+    PlayerTextDrawColor(playerid, SpecVRP[playerid][5], 471602431);
+    PlayerTextDrawSetShadow(playerid, SpecVRP[playerid][5], 0);
+    PlayerTextDrawSetOutline(playerid, SpecVRP[playerid][5], 0);
+    PlayerTextDrawBackgroundColor(playerid, SpecVRP[playerid][5], 255);
+    PlayerTextDrawFont(playerid, SpecVRP[playerid][5], 4);
+    PlayerTextDrawSetProportional(playerid, SpecVRP[playerid][5], 1);
+    PlayerTextDrawSetSelectable(playerid, SpecVRP[playerid][5], 1);
 
-    SpecNSRP[playerid][6] = CreatePlayerTextDraw(playerid, 224.000, 364.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, SpecNSRP[playerid][6], 3.000, 47.798);
-    PlayerTextDrawAlignment(playerid, SpecNSRP[playerid][6], 1);
-    PlayerTextDrawColor(playerid, SpecNSRP[playerid][6], -12254977);
-    PlayerTextDrawSetShadow(playerid, SpecNSRP[playerid][6], 0);
-    PlayerTextDrawSetOutline(playerid, SpecNSRP[playerid][6], 0);
-    PlayerTextDrawBackgroundColor(playerid, SpecNSRP[playerid][6], 255);
-    PlayerTextDrawFont(playerid, SpecNSRP[playerid][6], 4);
-    PlayerTextDrawSetProportional(playerid, SpecNSRP[playerid][6], 1);
+    SpecVRP[playerid][6] = CreatePlayerTextDraw(playerid, 224.000, 364.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, SpecVRP[playerid][6], 3.000, 47.798);
+    PlayerTextDrawAlignment(playerid, SpecVRP[playerid][6], 1);
+    PlayerTextDrawColor(playerid, SpecVRP[playerid][6], -12254977);
+    PlayerTextDrawSetShadow(playerid, SpecVRP[playerid][6], 0);
+    PlayerTextDrawSetOutline(playerid, SpecVRP[playerid][6], 0);
+    PlayerTextDrawBackgroundColor(playerid, SpecVRP[playerid][6], 255);
+    PlayerTextDrawFont(playerid, SpecVRP[playerid][6], 4);
+    PlayerTextDrawSetProportional(playerid, SpecVRP[playerid][6], 1);
 
-    SpecNSRP[playerid][7] = CreatePlayerTextDraw(playerid, 255.000, 364.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, SpecNSRP[playerid][7], 128.000, 3.799);
-    PlayerTextDrawAlignment(playerid, SpecNSRP[playerid][7], 1);
-    PlayerTextDrawColor(playerid, SpecNSRP[playerid][7], -12254977);
-    PlayerTextDrawSetShadow(playerid, SpecNSRP[playerid][7], 0);
-    PlayerTextDrawSetOutline(playerid, SpecNSRP[playerid][7], 0);
-    PlayerTextDrawBackgroundColor(playerid, SpecNSRP[playerid][7], 255);
-    PlayerTextDrawFont(playerid, SpecNSRP[playerid][7], 4);
-    PlayerTextDrawSetProportional(playerid, SpecNSRP[playerid][7], 1);
+    SpecVRP[playerid][7] = CreatePlayerTextDraw(playerid, 255.000, 364.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, SpecVRP[playerid][7], 128.000, 3.799);
+    PlayerTextDrawAlignment(playerid, SpecVRP[playerid][7], 1);
+    PlayerTextDrawColor(playerid, SpecVRP[playerid][7], -12254977);
+    PlayerTextDrawSetShadow(playerid, SpecVRP[playerid][7], 0);
+    PlayerTextDrawSetOutline(playerid, SpecVRP[playerid][7], 0);
+    PlayerTextDrawBackgroundColor(playerid, SpecVRP[playerid][7], 255);
+    PlayerTextDrawFont(playerid, SpecVRP[playerid][7], 4);
+    PlayerTextDrawSetProportional(playerid, SpecVRP[playerid][7], 1);
 
-    SpecNSRP[playerid][8] = CreatePlayerTextDraw(playerid, 411.000, 364.000, "LD_SPAC:white");
-    PlayerTextDrawTextSize(playerid, SpecNSRP[playerid][8], 3.000, 47.798);
-    PlayerTextDrawAlignment(playerid, SpecNSRP[playerid][8], 1);
-    PlayerTextDrawColor(playerid, SpecNSRP[playerid][8], -12254977);
-    PlayerTextDrawSetShadow(playerid, SpecNSRP[playerid][8], 0);
-    PlayerTextDrawSetOutline(playerid, SpecNSRP[playerid][8], 0);
-    PlayerTextDrawBackgroundColor(playerid, SpecNSRP[playerid][8], 255);
-    PlayerTextDrawFont(playerid, SpecNSRP[playerid][8], 4);
-    PlayerTextDrawSetProportional(playerid, SpecNSRP[playerid][8], 1);
+    SpecVRP[playerid][8] = CreatePlayerTextDraw(playerid, 411.000, 364.000, "LD_SPAC:white");
+    PlayerTextDrawTextSize(playerid, SpecVRP[playerid][8], 3.000, 47.798);
+    PlayerTextDrawAlignment(playerid, SpecVRP[playerid][8], 1);
+    PlayerTextDrawColor(playerid, SpecVRP[playerid][8], -12254977);
+    PlayerTextDrawSetShadow(playerid, SpecVRP[playerid][8], 0);
+    PlayerTextDrawSetOutline(playerid, SpecVRP[playerid][8], 0);
+    PlayerTextDrawBackgroundColor(playerid, SpecVRP[playerid][8], 255);
+    PlayerTextDrawFont(playerid, SpecVRP[playerid][8], 4);
+    PlayerTextDrawSetProportional(playerid, SpecVRP[playerid][8], 1);
 
-    SpecNSRP[playerid][9] = CreatePlayerTextDraw(playerid, 240.000, 380.000, "<");
-    PlayerTextDrawLetterSize(playerid, SpecNSRP[playerid][9], 0.270, 1.399);
-    PlayerTextDrawAlignment(playerid, SpecNSRP[playerid][9], 2);
-    PlayerTextDrawColor(playerid, SpecNSRP[playerid][9], -1);
-    PlayerTextDrawSetShadow(playerid, SpecNSRP[playerid][9], 0);
-    PlayerTextDrawSetOutline(playerid, SpecNSRP[playerid][9], 0);
-    PlayerTextDrawBackgroundColor(playerid, SpecNSRP[playerid][9], 150);
-    PlayerTextDrawFont(playerid, SpecNSRP[playerid][9], 1);
-    PlayerTextDrawSetProportional(playerid, SpecNSRP[playerid][9], 1);
+    SpecVRP[playerid][9] = CreatePlayerTextDraw(playerid, 240.000, 380.000, "<");
+    PlayerTextDrawLetterSize(playerid, SpecVRP[playerid][9], 0.270, 1.399);
+    PlayerTextDrawAlignment(playerid, SpecVRP[playerid][9], 2);
+    PlayerTextDrawColor(playerid, SpecVRP[playerid][9], -1);
+    PlayerTextDrawSetShadow(playerid, SpecVRP[playerid][9], 0);
+    PlayerTextDrawSetOutline(playerid, SpecVRP[playerid][9], 0);
+    PlayerTextDrawBackgroundColor(playerid, SpecVRP[playerid][9], 150);
+    PlayerTextDrawFont(playerid, SpecVRP[playerid][9], 1);
+    PlayerTextDrawSetProportional(playerid, SpecVRP[playerid][9], 1);
 
-    SpecNSRP[playerid][10] = CreatePlayerTextDraw(playerid, 399.000, 380.000, ">");
-    PlayerTextDrawLetterSize(playerid, SpecNSRP[playerid][10], 0.270, 1.399);
-    PlayerTextDrawAlignment(playerid, SpecNSRP[playerid][10], 2);
-    PlayerTextDrawColor(playerid, SpecNSRP[playerid][10], -1);
-    PlayerTextDrawSetShadow(playerid, SpecNSRP[playerid][10], 0);
-    PlayerTextDrawSetOutline(playerid, SpecNSRP[playerid][10], 0);
-    PlayerTextDrawBackgroundColor(playerid, SpecNSRP[playerid][10], 150);
-    PlayerTextDrawFont(playerid, SpecNSRP[playerid][10], 1);
-    PlayerTextDrawSetProportional(playerid, SpecNSRP[playerid][10], 1);
+    SpecVRP[playerid][10] = CreatePlayerTextDraw(playerid, 399.000, 380.000, ">");
+    PlayerTextDrawLetterSize(playerid, SpecVRP[playerid][10], 0.270, 1.399);
+    PlayerTextDrawAlignment(playerid, SpecVRP[playerid][10], 2);
+    PlayerTextDrawColor(playerid, SpecVRP[playerid][10], -1);
+    PlayerTextDrawSetShadow(playerid, SpecVRP[playerid][10], 0);
+    PlayerTextDrawSetOutline(playerid, SpecVRP[playerid][10], 0);
+    PlayerTextDrawBackgroundColor(playerid, SpecVRP[playerid][10], 150);
+    PlayerTextDrawFont(playerid, SpecVRP[playerid][10], 1);
+    PlayerTextDrawSetProportional(playerid, SpecVRP[playerid][10], 1);
 }
 
 CreateFooterTD(playerid)
@@ -793,7 +793,7 @@ CreateJobCenterTD()
     TextDrawFont(JobCenterTD[11], 4);
     TextDrawSetProportional(JobCenterTD[11], 1);
 
-    JobCenterTD[12] = TextDrawCreate(428.000, 110.500, "DISNAKER Nexston");
+    JobCenterTD[12] = TextDrawCreate(428.000, 110.500, "DISNAKER Vertex");
     TextDrawLetterSize(JobCenterTD[12], 0.187, 0.999);
     TextDrawAlignment(JobCenterTD[12], 2);
     TextDrawColor(JobCenterTD[12], -1);
@@ -1698,10 +1698,10 @@ CreatePlayerJMixTD(playerid)
 
 ShowAsuransiTD(const textual[])
 {
-	TextDrawSetString(InsuNSRP[13], textual);
+	TextDrawSetString(InsuVRP[13], textual);
 
 	for(new i = 0; i < 19; i++)
-		TextDrawShowForAll(InsuNSRP[i]);
+		TextDrawShowForAll(InsuVRP[i]);
 }
 
 ShowAnnounceTD(playerid, const descr[])

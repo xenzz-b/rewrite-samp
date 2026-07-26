@@ -209,7 +209,7 @@ ShowClothesTD(playerid)
     {
         TextDrawShowForPlayer(playerid, ClothesTD[x]);
     }
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
 }
 
 HideClothesTD(playerid)

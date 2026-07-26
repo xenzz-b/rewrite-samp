@@ -8,7 +8,7 @@ hook OnGameModeInit()
     avtpss = CreateDynamicObject(1444, 2454.260253, 109.597709, 26.287469, 0.000000, 0.000000, 90.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(avtpss, 0, 10810, "ap_build4e", "redwhite_stripe", 0x00000000);
     avtpss = CreateDynamicObject(1444, 2454.260253, 116.877662, 26.287469, 0.000000, 0.000000, 90.000000, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(avtpss, 0, "TPS 1\nKota Nexston", 100, "Arial", 35, 1, 0xFFFFFFFF, 0xFF000000, 1);
+    SetDynamicObjectMaterialText(avtpss, 0, "TPS 1\nKota Vertex", 100, "Arial", 35, 1, 0xFFFFFFFF, 0xFF000000, 1);
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -173,7 +173,7 @@ public LoadVoters()
                 }
             }
         }
-        SendClientMessageToAll(Y_Nexston, "========== [QUICK COUNT PILKADA KOTA Nexston #1] ==========");
+        SendClientMessageToAll(Y_Vertex, "========== [QUICK COUNT PILKADA KOTA Vertex #1] ==========");
         SendClientMessageToAllEx(-1, "> %s - %s <", VoteFor[0][0], VoteFor[0][3]);
         SendClientMessageToAllEx(-1, "> %s & %s", VoteFor[0][1], VoteFor[0][2]);
         SendClientMessageToAllEx(-1, "> Suara: %d", numb1);
@@ -181,7 +181,7 @@ public LoadVoters()
         SendClientMessageToAllEx(-1, "> %s - %s <", VoteFor[1][0], VoteFor[1][3]);
         SendClientMessageToAllEx(-1, "> %s & %s", VoteFor[1][1], VoteFor[1][2]);
         SendClientMessageToAllEx(-1, "> Suara: %d", numb2);
-        SendClientMessageToAll(Y_Nexston, "========== [AYO DATANG KE TPS PALOMINO!] ==========");
+        SendClientMessageToAll(Y_Vertex, "========== [AYO DATANG KE TPS PALOMINO!] ==========");
     }
     return 1;
 }
@@ -216,7 +216,7 @@ YCMD:vote(playerid, params[], help)
     format(slls, sizeof(slls), "No. Urut\tCagub\tCawagub\tPartai\n%s\t%s\t%s\t%s\n%s\t%s\t%s\t%s", 
     VoteFor[0][0], VoteFor[0][1], VoteFor[0][2], VoteFor[0][3],
     VoteFor[1][0], VoteFor[1][1], VoteFor[1][2], VoteFor[1][3]);
-    Dialog_Show(playerid, "PilkadaVoting", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Bilik TPS", slls, "Pilih", "Batal");
+    Dialog_Show(playerid, "PilkadaVoting", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Bilik TPS", slls, "Pilih", "Batal");
     return 1;
 }
 

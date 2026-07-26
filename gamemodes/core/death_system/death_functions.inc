@@ -406,7 +406,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 {
     if(newkeys & KEY_YES && AccountData[playerid][pKnockdown] && AccountData[playerid][pKnockdownTime] > 0 && !OJailData[playerid][jailed] && AccountData[playerid][IsLoggedIn])
     {
-        Dialog_Show(playerid, "PlayerComma", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Konfirmasi Koma", 
+        Dialog_Show(playerid, "PlayerComma", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Konfirmasi Koma", 
         ""WHITE"Anda akan koma, perlu diketahui bahwa yang terjadi setelah anda koma:\n\
         "YELLOW"- Semua senjata akan hilang.\n\
         - Semua barang di inventory akan hilang.\n\
