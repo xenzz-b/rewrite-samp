@@ -251,13 +251,13 @@ YCMD:addfgarage(playerid, params[], help)
     FactGarageData[lid][GaragePos][1] = FactGarageData[lid][Pos][1];
     FactGarageData[lid][GaragePos][2] = FactGarageData[lid][Pos][2];
 
-    // Titik spawn kendaraan digeser 4 meter ke arah hadap admin supaya
-    // kendaraan tidak muncul menimpa titik pintu garasi. Atur ulang
-    // dengan /editfgarage [id] spawn.
-    GetPlayerFacingAngle(playerid, FactGarageData[lid][GarageSpawnPos][3]);
-    FactGarageData[lid][GarageSpawnPos][0] = FactGarageData[lid][Pos][0] + (4.0 * floatsin(-FactGarageData[lid][GarageSpawnPos][3], degrees));
-    FactGarageData[lid][GarageSpawnPos][1] = FactGarageData[lid][Pos][1] + (4.0 * floatcos(-FactGarageData[lid][GarageSpawnPos][3], degrees));
-    FactGarageData[lid][GarageSpawnPos][2] = FactGarageData[lid][Pos][2];
+    // Titik spawn kendaraan sengaja dikosongkan, sama seperti /addgarkot.
+    // Admin wajib mengaturnya dengan /editfgarage [id] spawnpos supaya
+    // kendaraan tidak muncul menimpa titik pintu garasi.
+    FactGarageData[lid][GarageSpawnPos][0] = 0.0;
+    FactGarageData[lid][GarageSpawnPos][1] = 0.0;
+    FactGarageData[lid][GarageSpawnPos][2] = 0.0;
+    FactGarageData[lid][GarageSpawnPos][3] = 0.0;
 
     FactGarageData[lid][World] = GetPlayerVirtualWorld(playerid);
     FactGarageData[lid][Interior] = GetPlayerInterior(playerid);
@@ -277,37 +277,30 @@ YCMD:addfgarage(playerid, params[], help)
 
 YCMD:editfgarage(playerid, params[], help)
 {
-    if(AccountData[playerid][pAdmin] < 6) return PermissionError(playerid);
+    static
+        lid,
+        type[24],
+        string[128];
+
+    if(AccountData[playerid][pAdmin] < 6)
+        return PermissionError(playerid);
     if(AccountData[playerid][pAdminDuty] == false) return PermissionErrorDuty(playerid);
 
-    new lid, type[24], value[64];
-    if(sscanf(params, "ds[24]S()[64]", lid, type, value))
-        return SUM(playerid, "/editfgarage [id] [1. Spawn 2. Position Garage 3. Name Garage 4. Remove] (misal /editfgarage 3 Kepolisian)");
+    if(sscanf(params, "ds[24]S()[128]", lid, type, string)) return SUM(playerid, "/editfgarage [id] [name] ~n~spawnpos, position, name");
 
-    if(!Iter_Contains(FGarages, lid))
-        return ShowTDN(playerid, NOTIFICATION_ERROR, "Faction garage ID tersebut tidak valid!");
+    if(!Iter_Contains(FGarages, lid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "ID Faction Garage tersebut tidak valid!");
 
-    static string[512];
+    static query[512];
 
-    if(!strcmp(type, "spawn", true))
+    if(!strcmp(type, "spawnpos", true))
     {
-        if(IsPlayerInAnyVehicle(playerid))
-        {
-            new vid = GetPlayerVehicleID(playerid);
-            GetVehiclePos(vid, FactGarageData[lid][GarageSpawnPos][0], FactGarageData[lid][GarageSpawnPos][1], FactGarageData[lid][GarageSpawnPos][2]);
-            GetVehicleZAngle(vid, FactGarageData[lid][GarageSpawnPos][3]);
-        }
-        else
-        {
-            GetPlayerPos(playerid, FactGarageData[lid][GarageSpawnPos][0], FactGarageData[lid][GarageSpawnPos][1], FactGarageData[lid][GarageSpawnPos][2]);
-            GetPlayerFacingAngle(playerid, FactGarageData[lid][GarageSpawnPos][3]);
-        }
+        GetPlayerPos(playerid, FactGarageData[lid][GarageSpawnPos][0], FactGarageData[lid][GarageSpawnPos][1], FactGarageData[lid][GarageSpawnPos][2]);
+        GetPlayerFacingAngle(playerid, FactGarageData[lid][GarageSpawnPos][3]);
 
-        mysql_format(g_SQL, string, sizeof(string), "UPDATE `faction_garages` SET `gposspawnx` = '%f', `gposspawny` = '%f', `gposspawnz` = '%f', `gposspawna` = '%f' WHERE `id` = %d", FactGarageData[lid][GarageSpawnPos][0], FactGarageData[lid][GarageSpawnPos][1], FactGarageData[lid][GarageSpawnPos][2], FactGarageData[lid][GarageSpawnPos][3], lid);
-        mysql_pquery(g_SQL, string);
+        mysql_format(g_SQL, query, sizeof(query), "UPDATE `faction_garages` SET `gposspawnx` = '%f', `gposspawny` = '%f', `gposspawnz` = '%f', `gposspawna` = '%f' WHERE `id` = %d", FactGarageData[lid][GarageSpawnPos][0], FactGarageData[lid][GarageSpawnPos][1], FactGarageData[lid][GarageSpawnPos][2], FactGarageData[lid][GarageSpawnPos][3], lid);
+        mysql_pquery(g_SQL, query);
 
-        ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Titik spawn kendaraan garasi ID %d telah diperbarui!", lid));
-        SendStaffMessage(Y_LIGHTRED, "AdmCmd: %s modified the vehicle spawn of faction garage ID: %d.", AccountData[playerid][pAdminname], lid);
+        SendStaffMessage(Y_LIGHTRED, "AdmCmd: %s set the spawn position for Faction Garage ID: %d.", AccountData[playerid][pAdminname], lid);
     }
     else if(!strcmp(type, "position", true))
     {
@@ -320,69 +313,28 @@ YCMD:editfgarage(playerid, params[], help)
         FactGarageData[lid][World] = GetPlayerVirtualWorld(playerid);
         FactGarageData[lid][Interior] = GetPlayerInterior(playerid);
 
-        mysql_format(g_SQL, string, sizeof(string), "UPDATE `faction_garages` SET `posx` = '%f', `posy` = '%f', `posz` = '%f', `gposx` = '%f', `gposy` = '%f', `gposz` = '%f', `world` = %d, `interior` = %d WHERE `id` = %d", FactGarageData[lid][Pos][0], FactGarageData[lid][Pos][1], FactGarageData[lid][Pos][2], FactGarageData[lid][GaragePos][0], FactGarageData[lid][GaragePos][1], FactGarageData[lid][GaragePos][2], FactGarageData[lid][World], FactGarageData[lid][Interior], lid);
-        mysql_pquery(g_SQL, string);
+        mysql_format(g_SQL, query, sizeof(query), "UPDATE `faction_garages` SET `posx` = '%f', `posy` = '%f', `posz` = '%f', `gposx` = '%f', `gposy` = '%f', `gposz` = '%f', `world` = %d, `interior` = %d WHERE `id` = %d", FactGarageData[lid][Pos][0], FactGarageData[lid][Pos][1], FactGarageData[lid][Pos][2], FactGarageData[lid][GaragePos][0], FactGarageData[lid][GaragePos][1], FactGarageData[lid][GaragePos][2], FactGarageData[lid][World], FactGarageData[lid][Interior], lid);
+        mysql_pquery(g_SQL, query);
 
         FGarage_Rebuild(lid);
 
-        ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Posisi titik garasi ID %d telah diperbarui!", lid));
-        SendStaffMessage(Y_LIGHTRED, "AdmCmd: %s moved faction garage ID: %d.", AccountData[playerid][pAdminname], lid);
+        SendStaffMessage(Y_LIGHTRED, "AdmCmd: %s set the position for Faction Garage ID: %d.", AccountData[playerid][pAdminname], lid);
     }
     else if(!strcmp(type, "name", true))
     {
-        if(isnull(value))
-            return SUM(playerid, "/editfgarage [id] name [nama baru]");
+        new name[64];
 
-        if(strlen(value) > 63)
-            return ShowTDN(playerid, NOTIFICATION_ERROR, "Nama garasi maksimal 63 karakter!");
+        if(sscanf(string, "s[64]", name))
+            return SUM(playerid, "/editfgarage [id] [name] [new name]");
 
-        strcopy(FactGarageData[lid][Text], value);
+        strcopy(FactGarageData[lid][Text], name);
 
-        mysql_format(g_SQL, string, sizeof(string), "UPDATE `faction_garages` SET `name` = '%e' WHERE `id` = %d", FactGarageData[lid][Text], lid);
-        mysql_pquery(g_SQL, string);
+        mysql_format(g_SQL, query, sizeof(query), "UPDATE `faction_garages` SET `name` = '%e' WHERE `id` = %d", FactGarageData[lid][Text], lid);
+        mysql_pquery(g_SQL, query);
 
         FGarage_Rebuild(lid);
 
-        ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Nama garasi ID %d diubah menjadi %s!", lid, FactGarageData[lid][Text]));
-        SendStaffMessage(Y_LIGHTRED, "AdmCmd: %s renamed faction garage ID: %d to %s.", AccountData[playerid][pAdminname], lid, FactGarageData[lid][Text]);
-    }
-    else if(!strcmp(type, "remove", true))
-    {
-        FactGarageData[lid][Pos][0] = 0.0;
-        FactGarageData[lid][Pos][1] = 0.0;
-        FactGarageData[lid][Pos][2] = 0.0;
-        FactGarageData[lid][GaragePos][0] = 0.0;
-        FactGarageData[lid][GaragePos][1] = 0.0;
-        FactGarageData[lid][GaragePos][2] = 0.0;
-        FactGarageData[lid][GarageSpawnPos][0] = 0.0;
-        FactGarageData[lid][GarageSpawnPos][1] = 0.0;
-        FactGarageData[lid][GarageSpawnPos][2] = 0.0;
-        FactGarageData[lid][GarageSpawnPos][3] = 0.0;
-        FactGarageData[lid][World] = 0;
-        FactGarageData[lid][Interior] = 0;
-        FactGarageData[lid][Type] = 0;
-        FactGarageData[lid][Text][0] = EOS;
-
-        if(DestroyDynamicPickup(FactGarageData[lid][Pickup]))
-            FactGarageData[lid][Pickup] = STREAMER_TAG_PICKUP: INVALID_STREAMER_ID;
-
-        if(DestroyDynamic3DTextLabel(FactGarageData[lid][Label]))
-            FactGarageData[lid][Label] = STREAMER_TAG_3D_TEXT_LABEL: INVALID_STREAMER_ID;
-
-        if(DestroyDynamicObject(FactGarageData[lid][Object]))
-            FactGarageData[lid][Object] = STREAMER_TAG_OBJECT: INVALID_STREAMER_ID;
-
-        mysql_format(g_SQL, string, sizeof(string), "DELETE FROM `faction_garages` WHERE `id` = %d", lid);
-        mysql_pquery(g_SQL, string);
-
-        Iter_Remove(FGarages, lid);
-
-        ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Garasi faction ID %d telah dihapus!", lid));
-        SendStaffMessage(Y_LIGHTRED, "AdmCmd: %s removed faction garage ID: %d.", AccountData[playerid][pAdminname], lid);
-    }
-    else
-    {
-        return SUM(playerid, "/editfgarage [id] [1. Spawn 2. Position Garage 3. Name Garage 4. Remove] (misal /editfgarage 3 Kepolisian)");
+        SendStaffMessage(Y_LIGHTRED, "AdmCmd: %s set the name of Faction Garage ID: %d to %s.", AccountData[playerid][pAdminname], lid, name);
     }
     return 1;
 }
