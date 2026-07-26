@@ -908,6 +908,7 @@ ResetVariables(playerid)
 	Anticheat[playerid][acHealthWarns] = 0;
 	Anticheat[playerid][acArmorWarns] = 0;
 	Anticheat[playerid][acVehHealthWarns] = 0;
+	AC_ResetHealthLedger(playerid, 0.0, 0.0); // reset ledger anticheat v3
 	
 	AccountData[playerid][pACWarns] = 0;
 	AccountData[playerid][pHasArmor] = false;
@@ -1952,17 +1953,15 @@ SetPlayerHealthEx(playerid, Float:heal)
 	if(heal > 0.0)
 	{
 		AccountData[playerid][pHealth] = heal;
+		// Catat ke ledger anticheat SEBELUM set, supaya tidak ada celah race.
+		AC_GrantHealth(playerid, heal);
 		SetPlayerHealth(playerid, heal);
-		// Set AC immunity to prevent false positives for legit heals
-		Anticheat[playerid][acHealth] = heal;
-		Anticheat[playerid][acHealthTime] = gettime() + 3;
 	}
 	else
 	{
 		AccountData[playerid][pHealth] = 10.00;
+		AC_GrantHealth(playerid, 10.00);
 		SetPlayerHealth(playerid, 0.0);
-		Anticheat[playerid][acHealth] = 10.00;
-		Anticheat[playerid][acHealthTime] = gettime() + 3;
 	}
 	mysql_format(g_SQL, sphex, sizeof(sphex), "UPDATE `player_characters` SET `Char_Health` = '%.2f' WHERE `pID` = %d", AccountData[playerid][pHealth], AccountData[playerid][pID]);
 	mysql_pquery(g_SQL, sphex);
@@ -1972,9 +1971,9 @@ SetPlayerHealthEx(playerid, Float:heal)
 SetPlayerArmourEx(playerid, Float:armor)
 {
     new spaex[128];
-	Anticheat[playerid][acArmorTime] = gettime() + 3; // reduced from 11 to 3 for faster detection, optimized by Claps
-	Anticheat[playerid][acArmour] = armor;
-	AccountData[playerid][pHasArmor] = true;
+	// Catat ke ledger anticheat SEBELUM set (kevlar/vest resmi).
+	AC_GrantArmour(playerid, armor);
+	AccountData[playerid][pHasArmor] = (armor > 0.0);
 	SetPlayerArmour(playerid, armor);
 	AccountData[playerid][pArmor] = armor;
 	AccountData[playerid][pArmorEmpty] = false;

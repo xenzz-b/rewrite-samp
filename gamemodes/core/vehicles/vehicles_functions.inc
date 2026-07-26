@@ -418,6 +418,8 @@ SetValidVehicleHealth(vehicleid, Float:health)
 {
 	VehicleHealthSecurity[vehicleid] = true;
 	VehicleCore[vehicleid][vCoreHealth] = health;
+	// Catat ke ledger anticheat: repair ini SAH (bengkel/admin/respawn).
+	AC_GrantVehHealth(vehicleid, health);
 	SetVehicleHealth(vehicleid, VehicleCore[vehicleid][vCoreHealth]);
 	return 1;
 }

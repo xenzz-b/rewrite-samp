@@ -303,96 +303,91 @@ task AntiCheatVehSlap[1000]()
     return 1;
 }
 
-// Fixed & Optimized Vehicle Health Anticheat - by Claps
-// Previously ptask per player O(P*V) - now global task O(V) - 250x faster
-task AntiCheatVehicleHealth[500]()
+// =====================================================================
+//  VEHICLE HEALTH ANTICHEAT v3 - LEDGER BASED (by Claps)
+// =====================================================================
+//  Global task O(V), bukan per-player O(P*V).
+//  Sama seperti health player: veh health tidak bisa naik tanpa repair
+//  resmi. Naik di atas ledger tanpa grant = cheat.
+//  Bengkel/admin/modshop aman karena lewat SetValidVehicleHealth()
+//  yang otomatis memanggil AC_GrantVehHealth().
+// =====================================================================
+task AntiCheatVehicleHealth[700]()
 {
+    new Float:health, Float:maxhp, driver, acdetail[96];
+
     foreach(new v : Vehicle)
     {
         if(v == INVALID_VEHICLE_ID || !IsValidVehicle(v)) continue;
         if(!GetVehicleModel(v)) continue;
+        if(!GetVehicleHealth(v, health)) continue;
 
-        new Float:health;
-        GetVehicleHealth(v, health);
+        maxhp = VehicleCore[v][vMaxHealth];
+        if(maxhp <= 0.0) maxhp = 1000.0;
 
-        // 1. Cap health over max (prevents 2000+ health hack)
-        if(health > VehicleCore[v][vMaxHealth] + 0.5)
+        // Grant window (baru direpair resmi) -> sinkron saja
+        if(gettime() <= AC_GrantVehTime[v])
         {
-            new driver = INVALID_PLAYER_ID;
-            foreach(new p : Player)
-            {
-                if(GetPlayerVehicleID(p) == v && GetPlayerState(p) == PLAYER_STATE_DRIVER)
-                {
-                    driver = p;
-                    break;
-                }
-            }
-            if(driver != INVALID_PLAYER_ID && gettime() > Anticheat[driver][acImmunity] && AccountData[driver][pAdmin] < 1)
-            {
-                SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Vehicle HP > Max: %.0f/%.0f in %s", GetName(driver), driver, health, VehicleCore[v][vMaxHealth], GetVehicleModelName(GetVehicleModel(v)));
-                Anticheat[driver][acVehHealthWarns]++;
-                if(Anticheat[driver][acVehHealthWarns] >= 3)
-                {
-                    new acdetail[96];
-                    format(acdetail, sizeof(acdetail), "veh hp %.0f/%.0f (warn 3/3)", health, VehicleCore[v][vMaxHealth]);
-                    if(!AC_Kick(driver, "Vehicle Health Hack", acdetail))
-                        Anticheat[driver][acVehHealthWarns] = 0; // guard menolak: reset, jangan gantung
-                }
-            }
-            SetValidVehicleHealth(v, VehicleCore[v][vMaxHealth]);
-            VehicleHealthSecurityData[v] = VehicleCore[v][vMaxHealth];
+            if(health > AC_LedgerVehHP[v]) AC_LedgerVehHP[v] = health;
             continue;
         }
 
-        // 2. Detect repair hack (increase without legit flag)
-        // Threshold +15 to avoid false positives from desync
-        if(VehicleHealthSecurity[v] == false)
+        // Turun atau sama = wajar (kena tabrak/tembak). Ledger ikut turun.
+        if(health <= AC_LedgerVehHP[v] + AC_VEH_TOLERANCE && health <= maxhp + AC_VEH_TOLERANCE)
         {
-            if(health > VehicleHealthSecurityData[v] + 15.0)
-            {
-                new driver = INVALID_PLAYER_ID;
-                foreach(new p : Player)
-                {
-                    if(GetPlayerVehicleID(p) == v && GetPlayerState(p) == PLAYER_STATE_DRIVER)
-                    {
-                        driver = p;
-                        break;
-                    }
-                }
-                if(driver != INVALID_PLAYER_ID && gettime() > Anticheat[driver][acImmunity] && AccountData[driver][pAdmin] < 1)
-                {
-                    // Check legit repair timers (bengkel, etc)
-                    if(!pMechRepairEngineTimer[driver] && !pMechRepairBodyTimer[driver] && !pMechRepairTiresTimer[driver])
-                    {
-                        SetValidVehicleHealth(v, VehicleHealthSecurityData[v]); // revert
-                        SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Vehicle Health Hack +%.0f (%.0f->%.0f) in %s", GetName(driver), driver, health - VehicleHealthSecurityData[v], VehicleHealthSecurityData[v], health, GetVehicleModelName(GetVehicleModel(v)));
-                        Anticheat[driver][acVehHealthWarns]++;
-                        if(Anticheat[driver][acVehHealthWarns] >= 2)
-                        {
-                            new acdetail[96];
-                            format(acdetail, sizeof(acdetail), "repair hack +%.0f", health - VehicleHealthSecurityData[v]);
-                            if(!AC_Kick(driver, "Vehicle Health Hack", acdetail))
-                                Anticheat[driver][acVehHealthWarns] = 0;
-                        }
-                        else
-                        {
-                            SendClientMessage(driver, Y_RED, "[AntiCheat] Dilarang Vehicle Health Cheat! Warning %d/2", Anticheat[driver][acVehHealthWarns]);
-                        }
-                        continue; // keep old data
-                    }
-                }
-            }
-        }
-        else
-        {
-            // Legit repair via SetValidVehicleHealth set this flag true, allow one increase
-            VehicleHealthSecurity[v] = false;
+            AC_LedgerVehHP[v] = health;
+            AC_VehFlagged[v]  = false;
+            VehicleHealthSecurityData[v] = health;
+            continue;
         }
 
-        VehicleHealthSecurityData[v] = health;
+        // --- kenaikan tidak sah ---
+        driver = INVALID_PLAYER_ID;
+        foreach(new p : Player)
+        {
+            if(GetPlayerVehicleID(p) == v && GetPlayerState(p) == PLAYER_STATE_DRIVER)
+            {
+                driver = p;
+                break;
+            }
+        }
+
+        // Repair resmi sedang berjalan (bengkel/modshop) -> akui
+        if(driver != INVALID_PLAYER_ID && AC_HasLegitRepairSource(driver))
+        {
+            AC_LedgerVehHP[v] = (health > maxhp) ? (maxhp) : (health);
+            VehicleHealthSecurityData[v] = AC_LedgerVehHP[v];
+            continue;
+        }
+
+        new Float:before = health, Float:revert = AC_LedgerVehHP[v];
+        if(revert > maxhp) revert = maxhp;
+        if(revert < 250.0) revert = 250.0; // jangan bikin meledak karena desync
+
+        // koreksi paksa
+        AC_RawSetVehHP(v, revert);
+        VehicleCore[v][vCoreHealth]  = revert;
+        VehicleHealthSecurityData[v] = revert;
+        AC_LedgerVehHP[v]            = revert;
+
+        if(!AC_VehFlagged[v])
+        {
+            AC_VehFlagged[v] = true;
+
+            if(driver != INVALID_PLAYER_ID)
+            {
+                format(acdetail, sizeof(acdetail), "VehHP %.0f -> %.0f (%s)", revert, before, GetVehicleModelName(GetVehicleModel(v)));
+                AC_Kick(driver, "Vehicle Health Hack", acdetail);
+            }
+            else
+            {
+                printf("[AntiCheat] Vehicle %d health hack tanpa driver: %.0f -> %.0f (dikoreksi)", v, revert, before);
+            }
+        }
     }
     return 1;
 }
+
 
 ptask AntiCheatWeapon[1000](playerid) 
 {
@@ -427,7 +422,7 @@ ptask AntiCheatWeapon[1000](playerid)
 		    mysql_pquery(g_SQL, string);
 
             SetWeapons(playerid);
-            AC_LogDetect(playerid, "Crasher", "weaponid 40 (account blocked)", true);
+            AC_Notify(playerid, "Crasher", "weaponid 40 (akun diblokir)", true);
             AC_Kicked[playerid] = true;
             KickEx(playerid, 1555);
         }
@@ -523,168 +518,159 @@ ptask AntiCheatWeapon[1000](playerid)
     return 1;
 }
 
-// Fixed Health & Armour Anticheat - by Claps
-// Detects spawn health/armor via increase tracking, not just >100
-ptask AntiCheatHealthArmor[1000](playerid)
+// =====================================================================
+//  HEALTH & ARMOUR ANTICHEAT v3 - LEDGER BASED (by Claps)
+// =====================================================================
+//  Prinsip: health/armour TIDAK PERNAH naik sendiri tanpa aksi server.
+//  Jadi setiap kenaikan di atas ledger = cheat, seberapa kecil pun.
+//    - value <= ledger        -> sah, ledger ikut turun (damage/kurangi)
+//    - value >  ledger + tol  -> cheat: koreksi paksa + kick
+//  Player yang mengembalikan nilai ke semula tidak di-kick dua kali
+//  karena flag di-clear begitu nilainya sudah patuh lagi.
+// =====================================================================
+ptask AntiCheatHealthArmor[700](playerid)
 {
-    if(!AccountData[playerid][IsLoggedIn] || !AccountData[playerid][pSpawned]) return 1;
-    if(AccountData[playerid][pAdminDuty]) return 1; // skip admin on duty for health >100
+    if(!AccountData[playerid][IsLoggedIn] || !AccountData[playerid][pSpawned])
+        return 1;
 
     new Float:health, Float:armour;
     GetPlayerHealth(playerid, health);
     GetPlayerArmour(playerid, armour);
 
-    // Anti false positive: saat grace spawn/connect, immunity, atau player desync/lag,
-    // nilai HP/armour belum bisa dipercaya -> hanya sinkronkan baseline, jangan hukum.
+    // Saat grace/immunity/lag: jangan hukum, cuma sinkronkan ledger.
     if(!AC_CanPunish(playerid))
     {
-        Anticheat[playerid][acHealth] = health;
-        Anticheat[playerid][acArmour] = armour;
+        if(health > AC_LedgerHP[playerid])     AC_LedgerHP[playerid]     = health;
+        if(armour > AC_LedgerArmour[playerid]) AC_LedgerArmour[playerid] = armour;
         return 1;
     }
 
-    // --- Health Hack ---
-    // 1. Over max (>100)
-    if(health > 100.5)
+    // Batas maksimum sah. Beberapa mode resmi memang melebihi 100
+    // (event set HP 105 / armour 254), jadi ikut ledger, bukan angka mati.
+    new Float:maxhp = 100.0;
+    if(AccountData[playerid][pAdminDuty]) maxhp = 100000.0;
+    else if(AccountData[playerid][pInEvent]) maxhp = 255.0;
+    if(AC_LedgerHP[playerid] > maxhp) maxhp = AC_LedgerHP[playerid];
+
+    new Float:maxap = (AccountData[playerid][pInEvent]) ? (255.0) : (100.0);
+    if(AC_LedgerArmour[playerid] > maxap) maxap = AC_LedgerArmour[playerid];
+
+    new acdetail[96];
+
+    // ---------------- HEALTH ----------------
+    if(health > AC_LedgerHP[playerid] + AC_HP_TOLERANCE)
     {
-        SetPlayerHealthEx(playerid, 100.0);
-        SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Health >100: %.1f - capped", GetName(playerid), playerid, health);
-        Anticheat[playerid][acHealthWarns]++;
-        if(Anticheat[playerid][acHealthWarns] >= 5)
+        // Kenaikan tak sah. Cek dulu apakah ada sumber heal resmi yang aktif.
+        if(AC_HasLegitHealSource(playerid))
         {
-            new acdetail[64];
-            format(acdetail, sizeof(acdetail), "hp %.1f > 100 (warn 5/5)", health);
-            if(!AC_Kick(playerid, "Health Hack", acdetail))
-                Anticheat[playerid][acHealthWarns] = 0;
+            // Heal resmi (bandage/medic/makan) - akui sebagai grant baru.
+            AC_LedgerHP[playerid] = (health > maxhp) ? (maxhp) : (health);
+        }
+        else
+        {
+            new Float:before = health, Float:revert = AC_LedgerHP[playerid];
+
+            if(revert > maxhp) revert = maxhp;
+            if(revert < 1.0)   revert = 1.0;   // jangan bunuh player karena desync
+
+            // koreksi paksa ke nilai sah
+            AC_RawSetHealth(playerid, revert);
+            AccountData[playerid][pHealth] = revert;
+            Anticheat[playerid][acHealth]  = revert;
+
+            if(!AC_HPFlagged[playerid])
+            {
+                AC_HPFlagged[playerid] = true;
+                format(acdetail, sizeof(acdetail), "HP %.1f -> %.1f (ledger %.1f)", revert, before, AC_LedgerHP[playerid]);
+                AC_Kick(playerid, "Health Hack", acdetail);
+            }
         }
     }
     else
     {
-        // 2. Sudden increase detection (spawn health)
-        if(gettime() > Anticheat[playerid][acHealthTime])
-        {
-            // If health increased >15 HP without legit reason
-            if(health > Anticheat[playerid][acHealth] + 15.0)
-            {
-                new bool:legit = false;
-                if(pMedisLokalTimer[playerid] || pUsingPerbanTimer[playerid] || AccountData[playerid][pDuringUseLocalMedic]) legit = true;
-                if(AccountData[playerid][pKnockdown] || AccountData[playerid][pComma]) legit = true;
-                if(pEatingBarTimer[playerid]) legit = true; // eating/drinking
-                if(IsPlayerInDynamicArea(playerid, AreaSantaiZone)) legit = true; // safe zone regen?
+        // Nilai patuh: ledger mengikuti turun, flag dibersihkan.
+        AC_LedgerHP[playerid]  = health;
+        AC_HPFlagged[playerid] = false;
+    }
 
-                if(!legit)
-                {
-                    // Revert to last valid health
-                    SetPlayerHealth(playerid, Anticheat[playerid][acHealth]);
-                    Anticheat[playerid][acHealthWarns]++;
-                    SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Health Hack +%.0f (%.0f->%.0f)", GetName(playerid), playerid, health - Anticheat[playerid][acHealth], Anticheat[playerid][acHealth], health);
-                    if(Anticheat[playerid][acHealthWarns] >= 3)
-                    {
-                        new acdetail[64];
-                        format(acdetail, sizeof(acdetail), "hp +%.0f (warn 3/3)", health - Anticheat[playerid][acHealth]);
-                        if(!AC_Kick(playerid, "Health Hack", acdetail))
-                            Anticheat[playerid][acHealthWarns] = 0;
-                    }
-                    else
-                    {
-                        SendClientMessage(playerid, Y_RED, "[AntiCheat] Dilarang Health Cheat! Warning %d/3", Anticheat[playerid][acHealthWarns]);
-                    }
-                }
-                else
-                {
-                    Anticheat[playerid][acHealth] = health;
-                }
-            }
-            else
-            {
-                // Normal update, track decrease or small regen
-                Anticheat[playerid][acHealth] = health;
-            }
-        }
-        else
+    // Hard cap: health di atas batas maksimum
+    if(health > maxhp + AC_HP_TOLERANCE)
+    {
+        AC_RawSetHealth(playerid, maxhp);
+        AccountData[playerid][pHealth] = maxhp;
+        AC_LedgerHP[playerid] = maxhp;
+
+        if(!AC_HPFlagged[playerid])
         {
-            // In immunity window from legit heal
-            Anticheat[playerid][acHealth] = health;
+            AC_HPFlagged[playerid] = true;
+            format(acdetail, sizeof(acdetail), "HP %.1f melebihi batas %.0f", health, maxhp);
+            AC_Kick(playerid, "Health Hack", acdetail);
         }
     }
 
-    // --- Armour Hack ---
-    // 1. Over max (>100)
-    if(armour > 100.5)
+    // ---------------- ARMOUR ----------------
+    if(armour > AC_LedgerArmour[playerid] + AC_ARMOUR_TOLERANCE)
     {
-        SetPlayerArmour(playerid, 0.0);
-        AccountData[playerid][pArmor] = 0.0;
-        AccountData[playerid][pHasArmor] = false;
+        // Kevlar resmi selalu lewat AC_GrantArmour(), jadi window grant = sah.
+        if(gettime() <= AC_GrantArmourTime[playerid])
+        {
+            AC_LedgerArmour[playerid] = (armour > maxap) ? (maxap) : (armour);
+        }
+        else
+        {
+            new Float:before = armour, Float:revert = AC_LedgerArmour[playerid];
+
+            if(revert > maxap) revert = maxap;
+            if(revert < 0.0)   revert = 0.0;
+
+            // koreksi paksa ke nilai sah (0 kalau memang tidak punya kevlar)
+            AC_RawSetArmour(playerid, revert);
+            AccountData[playerid][pArmor]      = revert;
+            AccountData[playerid][pHasArmor]   = (revert > 0.0);
+            AccountData[playerid][pArmorEmpty] = (revert <= 0.0);
+            Anticheat[playerid][acArmour]      = revert;
+
+            if(!AC_ArmourFlagged[playerid])
+            {
+                AC_ArmourFlagged[playerid] = true;
+                format(acdetail, sizeof(acdetail), "AP %.1f -> %.1f (ledger %.1f)", revert, before, AC_LedgerArmour[playerid]);
+                AC_Kick(playerid, "Armour Hack", acdetail);
+            }
+        }
+    }
+    else
+    {
+        AC_LedgerArmour[playerid]  = armour;
+        AC_ArmourFlagged[playerid] = false;
+
+        // sinkron flag kepemilikan armor
+        if(armour <= 0.0 && AccountData[playerid][pHasArmor])
+        {
+            AccountData[playerid][pHasArmor]   = false;
+            AccountData[playerid][pArmorEmpty] = true;
+            AccountData[playerid][pArmor]      = 0.0;
+        }
+    }
+
+    // Hard cap armour
+    if(armour > maxap + AC_ARMOUR_TOLERANCE)
+    {
+        AC_RawSetArmour(playerid, 0.0);
+        AccountData[playerid][pArmor]      = 0.0;
+        AccountData[playerid][pHasArmor]   = false;
         AccountData[playerid][pArmorEmpty] = true;
-        Anticheat[playerid][acArmour] = 0.0;
-        SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Armour >100: %.1f - removed", GetName(playerid), playerid, armour);
-        Anticheat[playerid][acArmorWarns]++;
-        if(Anticheat[playerid][acArmorWarns] >= 3)
-        {
-            new acdetail[64];
-            format(acdetail, sizeof(acdetail), "armour %.1f > 100 (warn 3/3)", armour);
-            if(!AC_Kick(playerid, "Armour Hack", acdetail))
-                Anticheat[playerid][acArmorWarns] = 0;
-        }
-        return 1;
-    }
+        AC_LedgerArmour[playerid]          = 0.0;
 
-    if(gettime() > Anticheat[playerid][acArmorTime])
-    {
-        // 2. Spawn armor when not supposed to have it
-        if(!AccountData[playerid][pHasArmor] && !AccountData[playerid][pInEvent])
+        if(!AC_ArmourFlagged[playerid])
         {
-            if(armour > 1.0)
-            {
-                SetPlayerArmour(playerid, 0.0);
-                AccountData[playerid][pArmor] = 0.0;
-                Anticheat[playerid][acArmour] = 0.0;
-                SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Armour Hack (no armor flag but has %.0f armor)", GetName(playerid), playerid, armour);
-                Anticheat[playerid][acArmorWarns]++;
-                if(Anticheat[playerid][acArmorWarns] >= 2)
-                {
-                    new acdetail[64];
-                    format(acdetail, sizeof(acdetail), "armour %.0f tanpa flag (warn 2/2)", armour);
-                    if(!AC_Kick(playerid, "Armour Hack", acdetail))
-                        Anticheat[playerid][acArmorWarns] = 0;
-                }
-                else
-                {
-                    SendClientMessage(playerid, Y_RED, "[AntiCheat] Dilarang Armour Cheat! Warning %d/2", Anticheat[playerid][acArmorWarns]);
-                }
-            }
-        }
-        else
-        {
-            // Has armor legit, but check for sudden increase
-            if(armour > Anticheat[playerid][acArmour] + 15.0)
-            {
-                // Increase without legit source
-                SetPlayerArmour(playerid, Anticheat[playerid][acArmour]);
-                AccountData[playerid][pArmor] = Anticheat[playerid][acArmour];
-                SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Armour Hack +%.0f (%.0f->%.0f)", GetName(playerid), playerid, armour - Anticheat[playerid][acArmour], Anticheat[playerid][acArmour], armour);
-                Anticheat[playerid][acArmorWarns]++;
-                if(Anticheat[playerid][acArmorWarns] >= 3)
-                {
-                    new acdetail[64];
-                    format(acdetail, sizeof(acdetail), "armour regen +%.0f (warn 3/3)", armour - Anticheat[playerid][acArmour]);
-                    if(!AC_Kick(playerid, "Armour Hack", acdetail))
-                        Anticheat[playerid][acArmorWarns] = 0;
-                }
-            }
-            else
-            {
-                Anticheat[playerid][acArmour] = armour;
-            }
+            AC_ArmourFlagged[playerid] = true;
+            format(acdetail, sizeof(acdetail), "AP %.1f melebihi batas %.0f", armour, maxap);
+            AC_Kick(playerid, "Armour Hack", acdetail);
         }
     }
-    else
-    {
-        Anticheat[playerid][acArmour] = armour;
-    }
-
     return 1;
 }
+
 
 ptask AntiCheatMoneyAndAmmo[1000](playerid) 
 {
