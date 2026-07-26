@@ -114,15 +114,19 @@ new Anticheat[MAX_PLAYERS][e_Anticheat];
 	  4. Ledger hanya turun mengikuti damage, jadi tidak bisa "dinaikkan pelan-pelan".
 */
 
-#define AC_SPAWN_GRACE_TIME     (8)     // detik sejak spawn sebelum deteksi aktif
-#define AC_CONNECT_GRACE_TIME   (12)    // detik sejak connect sebelum deteksi aktif
+// --- Ambang deteksi (v4: diperketat) ---
+#define AC_SPAWN_GRACE_TIME     (5)     // detik sejak spawn sebelum deteksi aktif
+#define AC_CONNECT_GRACE_TIME   (8)     // detik sejak connect sebelum deteksi aktif
 #define AC_PAUSE_THRESHOLD      (3000)  // ms tanpa OnPlayerUpdate = paused/lag
 
-#define AC_HP_TOLERANCE         (1.50)  // toleransi desync health  (HP)
-#define AC_ARMOUR_TOLERANCE     (1.50)  // toleransi desync armour  (AP)
-#define AC_VEH_TOLERANCE        (20.0)  // toleransi desync vehicle health
+/*  Toleransi diperketat. Health & armour di GTA:SA tidak pernah naik
+    sendiri, jadi 0.6 sudah cukup untuk menyerap pembulatan float dari
+    client tanpa memberi ruang cheat.                                    */
+#define AC_HP_TOLERANCE         (0.60)  // toleransi desync health  (HP)
+#define AC_ARMOUR_TOLERANCE     (0.60)  // toleransi desync armour  (AP)
+#define AC_VEH_TOLERANCE        (8.0)   // toleransi desync vehicle health
 
-#define AC_GRANT_WINDOW         (3)     // detik jendela sah setelah grant
+#define AC_GRANT_WINDOW         (2)     // detik jendela sah setelah grant
 
 new
 	AC_LastUpdate[MAX_PLAYERS],
@@ -251,12 +255,62 @@ stock AC_Warn(playerid, const reason[], const detail[] = "-")
     - hanya sekali per sesi (anti double kick / spam timer)
     - selalu memberi tahu staff + console
     Return 1 kalau benar-benar dikick, 0 kalau diabaikan oleh guard. */
+/*  Kembalikan health/armour ke nilai ledger (kondisi sah terakhir) dan
+    kunci supaya tidak bisa dinaikkan lagi sebelum kick benar-benar terjadi.
+
+    Ini WAJIB dipanggil saat kick: KickEx() menunda pemutusan ~1 detik,
+    dan pada jeda itu UpdateAccountData() bisa menyimpan nilai hasil hack
+    ke database kalau tidak dikembalikan lebih dulu.                      */
+AC_RevertPlayerState(playerid)
+{
+	new Float:hp = AC_LedgerHP[playerid], Float:ap = AC_LedgerArmour[playerid];
+
+	if(hp < 1.0)   hp = 1.0;      // jangan membunuh player
+	if(ap < 0.0)   ap = 0.0;
+
+	AC_RawSetHealth(playerid, hp);
+	AC_RawSetArmour(playerid, ap);
+
+	AccountData[playerid][pHealth]     = hp;
+	AccountData[playerid][pArmor]      = ap;
+	AccountData[playerid][pHasArmor]   = (ap > 0.0);
+	AccountData[playerid][pArmorEmpty] = (ap <= 0.0);
+
+	Anticheat[playerid][acHealth] = hp;
+	Anticheat[playerid][acArmour] = ap;
+	return 1;
+}
+
+// Kembalikan health kendaraan ke nilai sah terakhir
+AC_RevertVehicleState(vehicleid)
+{
+	if(!(0 <= vehicleid < MAX_VEHICLES))
+		return 0;
+
+	new Float:vhp = AC_LedgerVehHP[vehicleid];
+	new Float:vmax = VehicleCore[vehicleid][vMaxHealth];
+
+	if(vmax <= 0.0) vmax = 1000.0;
+	if(vhp > vmax)  vhp = vmax;
+	if(vhp < 250.0) vhp = 250.0;   // jangan bikin meledak
+
+	AC_RawSetVehHP(vehicleid, vhp);
+	VehicleCore[vehicleid][vCoreHealth]  = vhp;
+	VehicleHealthSecurityData[vehicleid] = vhp;
+	AC_LedgerVehHP[vehicleid]            = vhp;
+	return 1;
+}
+
 AC_Kick(playerid, const reason[], const detail[] = "-")
 {
 	if(!AC_CanPunish(playerid))
 		return 0;
 
 	AC_Kicked[playerid] = true;
+
+	// Kembalikan ke kondisi sah SEBELUM kick, supaya nilai hasil hack
+	// tidak sempat tersimpan ke database saat player disconnect.
+	AC_RevertPlayerState(playerid);
 
 	AC_Notify(playerid, reason, detail, true);
 	SendClientMessageEx(playerid, Y_RED, "[AntiCheat] {DBD7D2}Anda ditendang dari server karena diduga "YELLOW"%s{DBD7D2}.", reason);
@@ -339,6 +393,50 @@ stock AC_GrantVehHealth(vehicleid, Float:value)
 
 	VehicleHealthSecurityData[vehicleid] = value;
 	return 1;
+}
+
+/*  Cari driver sebuah kendaraan - O(1).
+
+    OPTIMASI: versi lama memakai foreach(Player) BERSARANG di dalam
+    foreach(Vehicle), jadi O(P*V). Dengan 100 player dan 2000 kendaraan
+    itu 200.000 iterasi setiap 700ms.
+
+    Sekarang cache diisi sekali per tick dari sisi player saja - O(P) -
+    lalu lookup jadi O(1). Pemakaian "stamp" menghindari kebutuhan
+    mengosongkan seluruh array tiap tick: entri dianggap sah hanya bila
+    stamp-nya sama dengan tick saat ini.                                 */
+new AC_DrvPlayer[MAX_VEHICLES],
+    AC_DrvStamp[MAX_VEHICLES],
+    AC_DrvTick;
+
+AC_RefreshDriverCache()
+{
+	AC_DrvTick++;
+
+	foreach(new p : Player)
+	{
+		if(GetPlayerState(p) != PLAYER_STATE_DRIVER)
+			continue;
+
+		new vid = GetPlayerVehicleID(p);
+		if(vid < 1 || vid >= MAX_VEHICLES)
+			continue;
+
+		AC_DrvPlayer[vid] = p;
+		AC_DrvStamp[vid]  = AC_DrvTick;
+	}
+	return 1;
+}
+
+AC_GetVehicleDriverAC(vehicleid)
+{
+	if(!(0 <= vehicleid < MAX_VEHICLES))
+		return INVALID_PLAYER_ID;
+
+	if(AC_DrvStamp[vehicleid] != AC_DrvTick)
+		return INVALID_PLAYER_ID;   // tidak terisi pada tick ini = tanpa driver
+
+	return AC_DrvPlayer[vehicleid];
 }
 
 // Reset penuh (spawn, respawn, disconnect)

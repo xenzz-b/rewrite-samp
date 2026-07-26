@@ -304,23 +304,52 @@ task AntiCheatVehSlap[1000]()
 }
 
 // =====================================================================
-//  VEHICLE HEALTH ANTICHEAT v3 - LEDGER BASED (by Claps)
+//  VEHICLE HEALTH ANTICHEAT v4 - LEDGER BASED (by Claps)
 // =====================================================================
 //  Global task O(V), bukan per-player O(P*V).
-//  Sama seperti health player: veh health tidak bisa naik tanpa repair
-//  resmi. Naik di atas ledger tanpa grant = cheat.
-//  Bengkel/admin/modshop aman karena lewat SetValidVehicleHealth()
-//  yang otomatis memanggil AC_GrantVehHealth().
+//
+//  ATURAN PENTING: hanya kendaraan yang SEDANG DIKEMUDIKAN player yang
+//  diperiksa. Kendaraan yang di-spawn/di-respawn server (parkir kosong,
+//  showroom, job vehicle, admin veh) TIDAK diperiksa sama sekali -
+//  health-nya diatur server dan sering berubah saat streaming/respawn,
+//  jadi memeriksanya cuma menghasilkan false positive.
+//
+//  Tanpa driver = tidak ada yang bisa nge-hack, jadi cukup sinkronkan
+//  ledger dan lanjut.
 // =====================================================================
 task AntiCheatVehicleHealth[700]()
 {
-    new Float:health, Float:maxhp, driver, acdetail[96];
+    static Float:health, Float:maxhp, driver, acdetail[96];
+
+    // Isi cache driver sekali per tick: O(P), bukan O(P*V).
+    AC_RefreshDriverCache();
 
     foreach(new v : Vehicle)
     {
         if(v == INVALID_VEHICLE_ID || !IsValidVehicle(v)) continue;
-        if(!GetVehicleModel(v)) continue;
         if(!GetVehicleHealth(v, health)) continue;
+
+        // --- Cari driver lebih dulu (murah: langsung dari state player) ---
+        driver = AC_GetVehicleDriverAC(v);
+
+        /*  Kendaraan tanpa driver = di-spawn / diparkir / dikelola server.
+            Jangan pernah dideteksi. Cukup ikuti nilainya sebagai ledger
+            supaya saat ada yang masuk, baseline-nya sudah benar.         */
+        if(driver == INVALID_PLAYER_ID)
+        {
+            AC_LedgerVehHP[v]            = health;
+            VehicleHealthSecurityData[v] = health;
+            AC_VehFlagged[v]             = false;
+            continue;
+        }
+
+        // Driver kebal (admin on duty) -> ikuti saja
+        if(AC_IsExempt(driver))
+        {
+            AC_LedgerVehHP[v]            = health;
+            VehicleHealthSecurityData[v] = health;
+            continue;
+        }
 
         maxhp = VehicleCore[v][vMaxHealth];
         if(maxhp <= 0.0) maxhp = 1000.0;
@@ -328,61 +357,38 @@ task AntiCheatVehicleHealth[700]()
         // Grant window (baru direpair resmi) -> sinkron saja
         if(gettime() <= AC_GrantVehTime[v])
         {
-            if(health > AC_LedgerVehHP[v]) AC_LedgerVehHP[v] = health;
+            AC_LedgerVehHP[v]            = health;
+            VehicleHealthSecurityData[v] = health;
             continue;
         }
 
         // Turun atau sama = wajar (kena tabrak/tembak). Ledger ikut turun.
         if(health <= AC_LedgerVehHP[v] + AC_VEH_TOLERANCE && health <= maxhp + AC_VEH_TOLERANCE)
         {
-            AC_LedgerVehHP[v] = health;
-            AC_VehFlagged[v]  = false;
+            AC_LedgerVehHP[v]            = health;
+            AC_VehFlagged[v]             = false;
             VehicleHealthSecurityData[v] = health;
             continue;
         }
 
-        // --- kenaikan tidak sah ---
-        driver = INVALID_PLAYER_ID;
-        foreach(new p : Player)
-        {
-            if(GetPlayerVehicleID(p) == v && GetPlayerState(p) == PLAYER_STATE_DRIVER)
-            {
-                driver = p;
-                break;
-            }
-        }
-
-        // Repair resmi sedang berjalan (bengkel/modshop) -> akui
-        if(driver != INVALID_PLAYER_ID && AC_HasLegitRepairSource(driver))
+        // Repair resmi sedang berjalan (bengkel/modshop) -> akui, tapi tetap dibatasi max
+        if(AC_HasLegitRepairSource(driver))
         {
             AC_LedgerVehHP[v] = (health > maxhp) ? (maxhp) : (health);
             VehicleHealthSecurityData[v] = AC_LedgerVehHP[v];
             continue;
         }
 
-        new Float:before = health, Float:revert = AC_LedgerVehHP[v];
-        if(revert > maxhp) revert = maxhp;
-        if(revert < 250.0) revert = 250.0; // jangan bikin meledak karena desync
+        // --- kenaikan tidak sah: koreksi + kick ---
+        new Float:before = health;
 
-        // koreksi paksa
-        AC_RawSetVehHP(v, revert);
-        VehicleCore[v][vCoreHealth]  = revert;
-        VehicleHealthSecurityData[v] = revert;
-        AC_LedgerVehHP[v]            = revert;
+        AC_RevertVehicleState(v);
 
         if(!AC_VehFlagged[v])
         {
             AC_VehFlagged[v] = true;
-
-            if(driver != INVALID_PLAYER_ID)
-            {
-                format(acdetail, sizeof(acdetail), "VehHP %.0f -> %.0f (%s)", revert, before, GetVehicleModelName(GetVehicleModel(v)));
-                AC_Kick(driver, "Vehicle Health Hack", acdetail);
-            }
-            else
-            {
-                printf("[AntiCheat] Vehicle %d health hack tanpa driver: %.0f -> %.0f (dikoreksi)", v, revert, before);
-            }
+            format(acdetail, sizeof(acdetail), "VehHP %.0f -> %.0f (%s)", AC_LedgerVehHP[v], before, GetVehicleModelName(GetVehicleModel(v)));
+            AC_Kick(driver, "Vehicle Health Hack", acdetail);
         }
     }
     return 1;
@@ -519,82 +525,88 @@ ptask AntiCheatWeapon[1000](playerid)
 }
 
 // =====================================================================
-//  HEALTH & ARMOUR ANTICHEAT v3 - LEDGER BASED (by Claps)
+//  HEALTH & ARMOUR ANTICHEAT v4 - LEDGER BASED (by Claps)
 // =====================================================================
 //  Prinsip: health/armour TIDAK PERNAH naik sendiri tanpa aksi server.
-//  Jadi setiap kenaikan di atas ledger = cheat, seberapa kecil pun.
-//    - value <= ledger        -> sah, ledger ikut turun (damage/kurangi)
-//    - value >  ledger + tol  -> cheat: koreksi paksa + kick
-//  Player yang mengembalikan nilai ke semula tidak di-kick dua kali
-//  karena flag di-clear begitu nilainya sudah patuh lagi.
+//  Setiap kenaikan di atas ledger = cheat, seberapa kecil pun.
+//
+//  v4 memperketat:
+//   - toleransi 1.5 -> 0.6
+//   - nilai SELALU dikoreksi tiap tick selama masih melanggar, bukan
+//     hanya sekali saat pertama ketahuan (dulu cheater yang sudah
+//     di-flag bisa terus memakai nilai hack sampai kick benar-benar
+//     terjadi)
+//   - hard cap armour mengembalikan ke ledger, bukan memaksa 0
+//     (dulu kevlar sah ikut hangus)
+//   - kick memanggil AC_RevertPlayerState() supaya nilai hasil hack
+//     tidak sempat tersimpan ke database
 // =====================================================================
 ptask AntiCheatHealthArmor[700](playerid)
 {
     if(!AccountData[playerid][IsLoggedIn] || !AccountData[playerid][pSpawned])
         return 1;
 
-    new Float:health, Float:armour;
+    static Float:health, Float:armour, Float:maxhp, Float:maxap, acdetail[96];
+
     GetPlayerHealth(playerid, health);
     GetPlayerArmour(playerid, armour);
 
-    /*  Saat grace/immunity/lag: JANGAN hukum, dan JANGAN pula menaikkan
-        ledger mengikuti nilai client.
-
-        Menaikkan ledger di sini adalah celah fatal: cheater tinggal
-        menyalakan armour hack pada detik-detik grace setelah spawn,
-        nilainya akan terekam sebagai baseline "sah", dan selamanya
-        lolos deteksi.
-
-        Ledger hanya boleh naik lewat grant resmi (wrapper). Yang boleh
-        dilakukan di sini cuma menurunkan ledger bila nilai client sudah
-        di bawahnya (mis. kena damage saat lag).                        */
+    /*  Saat grace/immunity/lag: JANGAN hukum, dan JANGAN menaikkan ledger
+        mengikuti nilai client. Menaikkan di sini adalah celah: cheater
+        tinggal aktif saat grace lalu nilainya jadi baseline "sah".
+        Yang boleh hanya menurunkan ledger.                              */
     if(!AC_CanPunish(playerid))
     {
+        /*  Kekecualian: player yang SUDAH dijadwalkan kick tetap harus
+            dikoreksi terus sampai benar-benar terputus (KickEx menunda
+            ~1 detik). Kalau tidak, nilai hack masih aktif di detik-detik
+            terakhir dan bisa tersimpan ke database.                      */
+        if(AC_Kicked[playerid] && !AC_IsExempt(playerid))
+            AC_RevertPlayerState(playerid);
+
         if(health < AC_LedgerHP[playerid])     AC_LedgerHP[playerid]     = health;
         if(armour < AC_LedgerArmour[playerid]) AC_LedgerArmour[playerid] = armour;
         return 1;
     }
 
-    // Batas maksimum sah. Beberapa mode resmi memang melebihi 100
-    // (event set HP 105 / armour 254), jadi ikut ledger, bukan angka mati.
-    new Float:maxhp = 100.0;
-    if(AccountData[playerid][pAdminDuty]) maxhp = 100000.0;
-    else if(AccountData[playerid][pInEvent]) maxhp = 255.0;
+    // Batas maksimum sah (event resmi memang bisa >100).
+    maxhp = 100.0;
+    if(AccountData[playerid][pInEvent]) maxhp = 255.0;
     if(AC_LedgerHP[playerid] > maxhp) maxhp = AC_LedgerHP[playerid];
 
-    new Float:maxap = (AccountData[playerid][pInEvent]) ? (255.0) : (100.0);
+    maxap = (AccountData[playerid][pInEvent]) ? (255.0) : (100.0);
     if(AC_LedgerArmour[playerid] > maxap) maxap = AC_LedgerArmour[playerid];
 
-    new acdetail[96];
-
     // ---------------- HEALTH ----------------
-    if(health > AC_LedgerHP[playerid] + AC_HP_TOLERANCE)
+    if(health > maxhp + AC_HP_TOLERANCE)
     {
-        /*  Kenaikan tak sah. Cek dulu apakah ada sumber heal resmi.
+        // Melebihi batas mutlak: selalu koreksi, kick sekali.
+        AC_RawSetHealth(playerid, maxhp);
+        AccountData[playerid][pHealth] = maxhp;
+        Anticheat[playerid][acHealth]  = maxhp;
+        AC_LedgerHP[playerid]          = maxhp;
 
-            Penting: kenaikan tetap DIBATASI maxhp. Tanpa batas ini,
-            cheater cukup memicu satu kondisi heal resmi (mis. knockdown)
-            lalu set HP berapa pun dan semuanya dianggap sah.            */
+        if(!AC_HPFlagged[playerid])
+        {
+            AC_HPFlagged[playerid] = true;
+            format(acdetail, sizeof(acdetail), "HP %.1f melebihi batas %.0f", health, maxhp);
+            AC_Kick(playerid, "Health Hack", acdetail);
+        }
+    }
+    else if(health > AC_LedgerHP[playerid] + AC_HP_TOLERANCE)
+    {
         if(AC_HasLegitHealSource(playerid))
         {
-            AC_LedgerHP[playerid] = (health > maxhp) ? (maxhp) : (health);
-
-            // Tetap tegakkan batas atas walau sumber heal resmi aktif.
-            if(health > maxhp + AC_HP_TOLERANCE)
-            {
-                AC_RawSetHealth(playerid, maxhp);
-                AccountData[playerid][pHealth] = maxhp;
-                AC_LedgerHP[playerid] = maxhp;
-            }
+            // Heal resmi (bandage/medic/makan/knockdown) - akui, tetap dibatasi.
+            AC_LedgerHP[playerid] = health;
         }
         else
         {
             new Float:before = health, Float:revert = AC_LedgerHP[playerid];
-
             if(revert > maxhp) revert = maxhp;
             if(revert < 1.0)   revert = 1.0;   // jangan bunuh player karena desync
 
-            // koreksi paksa ke nilai sah
+            // Koreksi SETIAP tick selama masih melanggar.
             AC_RawSetHealth(playerid, revert);
             AccountData[playerid][pHealth] = revert;
             Anticheat[playerid][acHealth]  = revert;
@@ -609,42 +621,47 @@ ptask AntiCheatHealthArmor[700](playerid)
     }
     else
     {
-        // Nilai patuh: ledger mengikuti turun, flag dibersihkan.
+        // Patuh: ledger ikut turun, flag dibersihkan.
         AC_LedgerHP[playerid]  = health;
         AC_HPFlagged[playerid] = false;
     }
 
-    // Hard cap: health di atas batas maksimum
-    if(health > maxhp + AC_HP_TOLERANCE)
+    // ---------------- ARMOUR ----------------
+    if(armour > maxap + AC_ARMOUR_TOLERANCE)
     {
-        AC_RawSetHealth(playerid, maxhp);
-        AccountData[playerid][pHealth] = maxhp;
-        AC_LedgerHP[playerid] = maxhp;
+        /*  Melebihi batas mutlak. Kembalikan ke ledger (bukan 0) supaya
+            kevlar yang sah tidak ikut hangus.                            */
+        new Float:cap = AC_LedgerArmour[playerid];
+        if(cap > maxap) cap = maxap;
+        if(cap < 0.0)   cap = 0.0;
 
-        if(!AC_HPFlagged[playerid])
+        AC_RawSetArmour(playerid, cap);
+        AccountData[playerid][pArmor]      = cap;
+        AccountData[playerid][pHasArmor]   = (cap > 0.0);
+        AccountData[playerid][pArmorEmpty] = (cap <= 0.0);
+        Anticheat[playerid][acArmour]      = cap;
+        AC_LedgerArmour[playerid]          = cap;
+
+        if(!AC_ArmourFlagged[playerid])
         {
-            AC_HPFlagged[playerid] = true;
-            format(acdetail, sizeof(acdetail), "HP %.1f melebihi batas %.0f", health, maxhp);
-            AC_Kick(playerid, "Health Hack", acdetail);
+            AC_ArmourFlagged[playerid] = true;
+            format(acdetail, sizeof(acdetail), "AP %.1f melebihi batas %.0f", armour, maxap);
+            AC_Kick(playerid, "Armour Hack", acdetail);
         }
     }
-
-    // ---------------- ARMOUR ----------------
-    if(armour > AC_LedgerArmour[playerid] + AC_ARMOUR_TOLERANCE)
+    else if(armour > AC_LedgerArmour[playerid] + AC_ARMOUR_TOLERANCE)
     {
-        // Kevlar resmi selalu lewat AC_GrantArmour(), jadi window grant = sah.
+        // Kevlar resmi selalu lewat wrapper/grant, jadi window grant = sah.
         if(gettime() <= AC_GrantArmourTime[playerid])
         {
-            AC_LedgerArmour[playerid] = (armour > maxap) ? (maxap) : (armour);
+            AC_LedgerArmour[playerid] = armour;
         }
         else
         {
             new Float:before = armour, Float:revert = AC_LedgerArmour[playerid];
-
             if(revert > maxap) revert = maxap;
             if(revert < 0.0)   revert = 0.0;
 
-            // koreksi paksa ke nilai sah (0 kalau memang tidak punya kevlar)
             AC_RawSetArmour(playerid, revert);
             AccountData[playerid][pArmor]      = revert;
             AccountData[playerid][pHasArmor]   = (revert > 0.0);
@@ -664,29 +681,11 @@ ptask AntiCheatHealthArmor[700](playerid)
         AC_LedgerArmour[playerid]  = armour;
         AC_ArmourFlagged[playerid] = false;
 
-        // sinkron flag kepemilikan armor
         if(armour <= 0.0 && AccountData[playerid][pHasArmor])
         {
             AccountData[playerid][pHasArmor]   = false;
             AccountData[playerid][pArmorEmpty] = true;
             AccountData[playerid][pArmor]      = 0.0;
-        }
-    }
-
-    // Hard cap armour
-    if(armour > maxap + AC_ARMOUR_TOLERANCE)
-    {
-        AC_RawSetArmour(playerid, 0.0);
-        AccountData[playerid][pArmor]      = 0.0;
-        AccountData[playerid][pHasArmor]   = false;
-        AccountData[playerid][pArmorEmpty] = true;
-        AC_LedgerArmour[playerid]          = 0.0;
-
-        if(!AC_ArmourFlagged[playerid])
-        {
-            AC_ArmourFlagged[playerid] = true;
-            format(acdetail, sizeof(acdetail), "AP %.1f melebihi batas %.0f", armour, maxap);
-            AC_Kick(playerid, "Armour Hack", acdetail);
         }
     }
     return 1;
