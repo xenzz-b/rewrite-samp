@@ -2577,7 +2577,8 @@ TakeWeaponLooting(playerid, targetid)
     {
         GetPlayerWeaponData(targetid, slot, weaponid, ammo);
 
-        if(weaponid > 0)
+        // Senjata faction/admin tidak boleh berpindah tangan lewat looting.
+        if(weaponid > 0 && GunData[targetid][g_aWeaponSlots[weaponid]][WeaponType] == WEAPON_TYPE_PLAYER)
         {
             LootWeapons[playerid][slot] = weaponid;
             LootAmmo[playerid][slot] = GunData[targetid][g_aWeaponSlots[weaponid]][WeaponAmmo]; 
@@ -2626,6 +2627,14 @@ Dialog:DialogTakeLooting(playerid, response, listitem, inputtext[])
 
     if(weaponid > 0)
     {
+        // Penjagaan ulang: status senjata bisa berubah antara dialog dibuka
+        // dan pilihan dikonfirmasi.
+        if(GunData[targetid][g_aWeaponSlots[weaponid]][WeaponType] != WEAPON_TYPE_PLAYER)
+        {
+            AccountData[playerid][pTempTarget] = -1;
+            return ShowTDN(playerid, NOTIFICATION_ERROR, "Senjata tersebut milik faction dan tidak dapat diambil!");
+        }
+
         GivePlayerWeaponEx(playerid, weaponid, ammo, WEAPON_TYPE_PLAYER);
 
 		GunData[targetid][g_aWeaponSlots[weaponid]][WeaponAmmo] = 0;

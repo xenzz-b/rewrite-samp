@@ -35,7 +35,9 @@ CreatePaycheckLabels()
 
 GetPlayerSalaryType(playerid)
 {
-	if(AccountData[playerid][pFaction] != FACTION_NONE)
+	// Tipe faction hanya berlaku saat benar-benar bertugas. Anggota yang
+	// sedang off duty diperlakukan sesuai pekerjaannya, atau sebagai warga.
+	if(AccountData[playerid][pFaction] != FACTION_NONE && AccountData[playerid][pOnDuty])
 		return SALARYTYPE_FACTION;
 
 	if(AccountData[playerid][pJob] != JOB_NONE)

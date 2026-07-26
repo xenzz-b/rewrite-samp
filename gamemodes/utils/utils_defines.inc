@@ -43,6 +43,11 @@
 #define SALARY_MAX          8000    // batas atas per periode
 #define SALARY_JOB          1800    // gaji pekerja (punya job, tanpa faction)
 #define SALARY_CITIZEN      1000    // tunjangan warga biasa
+
+// --- Perlengkapan kepolisian ---
+#define LSPD_ARMOUR_NORMAL  150.0   // armor polisi biasa
+#define LSPD_ARMOUR_SWAT    200.0   // armor taktis (SWAT)
+#define LSPD_RANK_HEAVYGUN  13      // pangkat minimal utk MP5 ke atas (IPDA)
 #define PAYCHECK_COOLDOWN   3600    // detik jeda antar pencairan
 
 #define MAX_FACTIONS 13

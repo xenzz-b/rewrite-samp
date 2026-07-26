@@ -8819,14 +8819,15 @@ ptask UpdateLevelTimer[1000](playerid)
         if(AccountData[playerid][pPaycheckTime] > 0)
             AccountData[playerid][pPaycheckTime]--;
 
-        /*  Gaji faction. Hanya berjalan saat anggota faction sedang on duty
-            dan tidak AFK, sehingga tidak ada penghasilan pasif bagi yang
-            hanya diam di server. Setiap SALARY_DUTY_PERIOD detik bertugas,
-            satu slip gaji terbit dan dapat dicairkan lewat /paycheck.
+        /*  Slip gaji terbit setiap SALARY_DUTY_PERIOD detik selama pemain
+            aktif (tidak AFK), lalu dicairkan lewat /paycheck.
 
-            Besaran, sumber, dan alasan slip mengikuti tipe penghasilan
-            pemain supaya konsisten dengan /givesalary.                     */
-        if(AccountData[playerid][pFaction] != FACTION_NONE && AccountData[playerid][pOnDuty] && !AccountData[playerid][pIsAFK])
+            Tipe penghasilan dievaluasi TEPAT saat slip terbit, bukan saat
+            penghitungan dimulai. Jadi anggota faction yang off duty di
+            menit terakhir akan menerima slip bertipe warga, sesuai status
+            terakhirnya. Besaran, sumber, dan alasan mengikuti tipe itu
+            sehingga konsisten dengan /givesalary.                          */
+        if(!AccountData[playerid][pIsAFK])
         {
             if(++AccountData[playerid][pFactionDutySec] >= SALARY_DUTY_PERIOD)
             {

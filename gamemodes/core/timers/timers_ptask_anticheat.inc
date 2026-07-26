@@ -574,7 +574,12 @@ ptask AntiCheatHealthArmor[700](playerid)
     if(AccountData[playerid][pInEvent]) maxhp = 255.0;
     if(AC_LedgerHP[playerid] > maxhp) maxhp = AC_LedgerHP[playerid];
 
-    maxap = (AccountData[playerid][pInEvent]) ? (255.0) : (100.0);
+    /*  Batas armour. Kepolisian memakai rompi 150 AP dan rompi taktis
+        200 AP, jadi batasnya dinaikkan khusus untuk mereka agar tidak
+        terdeteksi sebagai armour hack.                                  */
+    maxap = 100.0;
+    if(AccountData[playerid][pInEvent]) maxap = 255.0;
+    else if(AccountData[playerid][pFaction] == FACTION_LSPD) maxap = LSPD_ARMOUR_SWAT;
     if(AC_LedgerArmour[playerid] > maxap) maxap = AC_LedgerArmour[playerid];
 
     // ---------------- HEALTH ----------------

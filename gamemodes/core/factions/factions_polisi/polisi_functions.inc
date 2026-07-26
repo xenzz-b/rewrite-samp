@@ -1162,6 +1162,17 @@ Dialog:PolisiArmoury(playerid, response, listitem, inputtext[])
             if(AccountData[playerid][pLevel] < 5)
                 return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda dapat memegang senjata jika sudah mencapai level 5 karakter!");
 
+            // Senjata berat hanya boleh direstock oleh petinggi, sejalan
+            // dengan pembatasan saat pengambilan.
+            switch(GetPlayerWeaponEx(playerid))
+            {
+                case 27, 29, 31, 34:
+                {
+                    if(AccountData[playerid][pFactionRank] < LSPD_RANK_HEAVYGUN)
+                        return ShowTDN(playerid, NOTIFICATION_ERROR, "Hanya petinggi (IPDA ke atas) yang dapat restock senjata ini!");
+                }
+            }
+
             if(GetPlayerWeaponEx(playerid) == 24)
             {
                 ResetWeapon(playerid, 24);
@@ -1206,14 +1217,14 @@ Dialog:PolisiArmoury(playerid, response, listitem, inputtext[])
         case 1: //refill health & armour
         {
             SetPlayerHealthEx(playerid, 100.0);
-            SetPlayerArmourEx(playerid, 150.0);
-            ShowTDN(playerid, NOTIFICATION_INFO, "Darah dan armor anda sudah diperbarui.");
+            SetPlayerArmourEx(playerid, LSPD_ARMOUR_NORMAL);
+            ShowTDN(playerid, NOTIFICATION_INFO, sprintf("Darah dan armor anda sudah diperbarui (%.0f AP).", LSPD_ARMOUR_NORMAL));
         }
         case 2: //tactical body armour
         {
             SetPlayerHealthEx(playerid, 100.0);
-            SetPlayerArmourEx(playerid, 150.0);
-            ShowTDN(playerid, NOTIFICATION_INFO, "Darah dan armor taktis anda sudah diperbarui.");
+            SetPlayerArmourEx(playerid, LSPD_ARMOUR_SWAT);
+            ShowTDN(playerid, NOTIFICATION_INFO, sprintf("Darah dan armor taktis anda sudah diperbarui (%.0f AP).", LSPD_ARMOUR_SWAT));
         }
         case 3: //clear weapon & armour
         {
@@ -1249,6 +1260,9 @@ Dialog:PolisiArmoury(playerid, response, listitem, inputtext[])
             if(AccountData[playerid][pLevel] < 5)
                 return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda dapat memegang senjata jika sudah mencapai level 5 karakter!");
 
+            if(AccountData[playerid][pFactionRank] < LSPD_RANK_HEAVYGUN)
+                return ShowTDN(playerid, NOTIFICATION_ERROR, "Hanya petinggi (IPDA ke atas) yang dapat mengambil senjata ini!");
+
             GivePlayerWeaponEx(playerid, 29, 650, WEAPON_TYPE_FACTION);
             ShowItemBox(playerid, "MP5", "Received 1x", 353, 5);
             ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengambil MP5");
@@ -1257,6 +1271,9 @@ Dialog:PolisiArmoury(playerid, response, listitem, inputtext[])
         {
             if(AccountData[playerid][pLevel] < 5)
                 return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda dapat memegang senjata jika sudah mencapai level 5 karakter!");
+
+            if(AccountData[playerid][pFactionRank] < LSPD_RANK_HEAVYGUN)
+                return ShowTDN(playerid, NOTIFICATION_ERROR, "Hanya petinggi (IPDA ke atas) yang dapat mengambil senjata ini!");
 
             GivePlayerWeaponEx(playerid, 31, 650, WEAPON_TYPE_FACTION);
             ShowItemBox(playerid, "M4", "Received 1x", 356, 5);
@@ -1267,6 +1284,9 @@ Dialog:PolisiArmoury(playerid, response, listitem, inputtext[])
             if(AccountData[playerid][pLevel] < 5)
                 return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda dapat memegang senjata jika sudah mencapai level 5 karakter!");
 
+            if(AccountData[playerid][pFactionRank] < LSPD_RANK_HEAVYGUN)
+                return ShowTDN(playerid, NOTIFICATION_ERROR, "Hanya petinggi (IPDA ke atas) yang dapat mengambil senjata ini!");
+
             GivePlayerWeaponEx(playerid, 27, 400, WEAPON_TYPE_FACTION);
             ShowItemBox(playerid, "Combat Shotgun", "Received 1x", 351, 5);
             ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengambil Combat Shotgun");
@@ -1276,6 +1296,9 @@ Dialog:PolisiArmoury(playerid, response, listitem, inputtext[])
             if(AccountData[playerid][pLevel] < 5)
                 return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda dapat memegang senjata jika sudah mencapai level 5 karakter!");
                 
+            if(AccountData[playerid][pFactionRank] < LSPD_RANK_HEAVYGUN)
+                return ShowTDN(playerid, NOTIFICATION_ERROR, "Hanya petinggi (IPDA ke atas) yang dapat mengambil senjata ini!");
+
             GivePlayerWeaponEx(playerid, 34, 400, WEAPON_TYPE_FACTION);
             ShowItemBox(playerid, "Sniper Rifle", "Received 1x", 358, 5);
             ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengambil Sniper Rifle");
