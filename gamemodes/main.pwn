@@ -8223,23 +8223,6 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 			}
 		}
     }
-	else if(newkeys & KEY_YES)
-	{
-		if(IsPlayerInRangeOfPoint(playerid, 3.0, 1674.0328,-2245.7637,13.5639)) 
-		{
-			if(!AccountData[playerid][IsLoggedIn] || !AccountData[playerid][pSpawned]) return 1;
-
-			if(AccountData[playerid][pStarterPack] != 0) 
-				return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda sudah mengambil starterpack sebelumnya!");
-
-			Dialog_Show(playerid, "StarterPackMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Starter Pack", 
-				"Nama Pack\tIsi Pack\n\
-				"WHITE"Pack 1 (Faggio)\t"WHITE"Motor Faggio, 20x Makan Minum, 1x Smartphone, 3x Ticket Gacha\n\
-				"GRAY"Pack 2 (Sanchez)\t"GRAY"Motor Sanchez, 15x Makan Minum, 1x Smartphone, 2x Ticket Gacha\n\
-				Pack 3 (Bobcat)\tMobil Bobcat, 10x Makan Minum, 1x Smartphone, 1x Ticket Gacha", 
-				"Pilih", "Batal");
-		}
-	}
 	else if(newkeys & KEY_NO && !AccountData[playerid][pKnockdown])
 	{
 		if(!AccountData[playerid][IsLoggedIn] || !AccountData[playerid][pSpawned]) return 1;

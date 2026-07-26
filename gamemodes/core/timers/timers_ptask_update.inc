@@ -4025,7 +4025,7 @@ ptask UpdateTimeOtherFunc[1000](playerid)
             return 0;
         }
 
-        if(AccountData[playerid][pActivityTime] >= 26)
+        if(AccountData[playerid][pActivityTime] >= SP_CLAIM_DURATION)
         {
             ClearAnimations(playerid, true);
             StopLoopingAnim(playerid);
@@ -4036,25 +4036,19 @@ ptask UpdateTimeOtherFunc[1000](playerid)
             pKompensasiTimer[playerid] = false;
             HideProgressBar(playerid);
 
-            Inventory_Add(playerid, "Chicken BBQ", 2355, 20);
-            Inventory_Add(playerid, "Coconut Water", 19564, 20);
-
-            ShowTDN(playerid, NOTIFICATION_SUCCESS, "Anda berhasil klaim starterpack, 20x Chicken BBQ & Coconut Water.");
-
-            static jjja[128];
-            mysql_format(g_SQL, jjja, sizeof(jjja), "UPDATE `player_ucp` SET `claimedSP` = '1' WHERE `UCP` = '%e'", AccountData[playerid][pUCP]);
-		    mysql_pquery(g_SQL, jjja);
+            GivePlayerStarterPack(playerid);
         }
         else
         {
             AccountData[playerid][pActivityTime] ++;
 
             static Float:progressvalue;
-            progressvalue = AccountData[playerid][pActivityTime] * 102.0/26;
+            progressvalue = AccountData[playerid][pActivityTime] * 102.0/SP_CLAIM_DURATION;
             PlayerTextDrawTextSize(playerid, ProgressBar[playerid][0], progressvalue, 20.0);
             PlayerTextDrawShow(playerid, ProgressBar[playerid][0]);
         }
     }
+
 
     if(pOpenShotDeluxeTimer[playerid])
     {

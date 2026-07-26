@@ -298,6 +298,35 @@ public HidePlayerFooter(playerid)
 	return PlayerTextDrawHide(playerid, FooterTD[playerid]);
 }
 
+GivePlayerStarterPack(playerid)
+{
+	if(AccountData[playerid][pStarterPack] != 0)
+		return 0;
+
+	AccountData[playerid][pStarterPack] = 1;
+
+	GivePlayerMoneyEx(playerid, SP_REWARD_MONEY);
+
+	Inventory_Add(playerid, "Chicken BBQ", 2355, SP_REWARD_FOOD);
+	Inventory_Add(playerid, "Coconut Water", 19564, SP_REWARD_DRINK);
+
+	static spq[144];
+	mysql_format(g_SQL, spq, sizeof(spq), "SELECT * FROM `player_phones` WHERE `phoneOwner`=%d", AccountData[playerid][pID]);
+	mysql_pquery(g_SQL, spq, "OnPlayerBuySmartphone", "i", playerid);
+
+	Vehicle_CreateSP(playerid, SP_REWARD_VEHICLE, 1679.6031, -2253.7173, 13.3805, 89.5632, RandomEx(1, 100), RandomEx(1, 100), GetPlayerVirtualWorld(playerid), GetPlayerInterior(playerid));
+
+	mysql_format(g_SQL, spq, sizeof(spq), "UPDATE `player_characters` SET `Char_ClaimSP` = 1 WHERE `pID` = %d", AccountData[playerid][pID]);
+	mysql_pquery(g_SQL, spq);
+
+	ShowItemBox(playerid, "Chicken BBQ", sprintf("Received %dx", SP_REWARD_FOOD), 2355, 5);
+	ShowItemBox(playerid, "Coconut Water", sprintf("Received %dx", SP_REWARD_DRINK), 19564, 6);
+	ShowItemBox(playerid, "Smartphone", "Received 1x", 19942, 7);
+
+	ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Starterpack diterima! $%s, %dx Chicken BBQ, %dx Coconut Water, 1x Smartphone, dan 1 unit Bobcat.", FormatMoney(SP_REWARD_MONEY), SP_REWARD_FOOD, SP_REWARD_DRINK));
+	return 1;
+}
+
 forward CheckClaimedSP(playerid);
 public CheckClaimedSP(playerid)
 {

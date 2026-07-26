@@ -9011,27 +9011,24 @@ Dialog:StarterPackMenu(playerid, response, listitem, inputtext[])
     if(AccountData[playerid][pStarterPack] != 0)
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda sudah mengambil starterpack sebelumnya!");
 
+    if(pKompensasiTimer[playerid])
+        return ShowTDN(playerid, NOTIFICATION_ERROR, "Mohon tunggu, anda sedang dalam proses klaim starterpack!");
+
+    if(AccountData[playerid][pActivityTime] != 0)
+        return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda sedang melakukan sesuatu, mohon tunggu progress bar selesai!");
+
     if(GetTotalWeightFloat(playerid) >= GetPlayerInventoryWeight(playerid))
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Inventory anda sudah penuh!");
 
-    AccountData[playerid][pStarterPack] = 1;
+    ApplyAnimation(playerid, "SWEET", "Sweet_injuredloop", 4.0, true, false, false, true, 0, true);
 
-    GivePlayerMoneyEx(playerid, SP_REWARD_MONEY);
+    pKompensasiTimer[playerid] = true;
+    AccountData[playerid][pActivityTime] = 1;
 
-    Inventory_Add(playerid, "Chicken BBQ", 2355, SP_REWARD_FOOD);
-    Inventory_Add(playerid, "Coconut Water", 19564, SP_REWARD_DRINK);
+    PlayerTextDrawSetString(playerid, ProgressBar[playerid][1], "SEMBAHYANG");
+    ShowProgressBar(playerid);
 
-    static spquery[128];
-    mysql_format(g_SQL, spquery, sizeof(spquery), "SELECT * FROM `player_phones` WHERE `phoneOwner`=%d", AccountData[playerid][pID]);
-    mysql_pquery(g_SQL, spquery, "OnPlayerBuySmartphone", "i", playerid);
-
-    Vehicle_CreateSP(playerid, SP_REWARD_VEHICLE, 1679.6031, -2253.7173, 13.3805, 89.5632, RandomEx(1, 100), RandomEx(1, 100), GetPlayerVirtualWorld(playerid), GetPlayerInterior(playerid));
-
-    ShowItemBox(playerid, "Chicken BBQ", sprintf("Received %dx", SP_REWARD_FOOD), 2355, 5);
-    ShowItemBox(playerid, "Coconut Water", sprintf("Received %dx", SP_REWARD_DRINK), 19564, 6);
-    ShowItemBox(playerid, "Smartphone", "Received 1x", 19942, 7);
-
-    ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Starterpack diterima! $%s, %dx Chicken BBQ, %dx Coconut Water, 1x Smartphone, dan 1 unit Bobcat.", FormatMoney(SP_REWARD_MONEY), SP_REWARD_FOOD, SP_REWARD_DRINK));
+    ShowTDN(playerid, NOTIFICATION_INFO, "Anda sedang bersembahyang, mohon tunggu...");
     return 1;
 }
 

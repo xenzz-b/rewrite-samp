@@ -34,6 +34,7 @@
 #define SP_REWARD_FOOD      10
 #define SP_REWARD_DRINK     10
 #define SP_REWARD_VEHICLE   422     // Bobcat
+#define SP_CLAIM_DURATION   20      // detik animasi sembahyang
 
 #define MAX_FACTIONS 13
 #define MAX_FACTIONS_ITEMS 500
