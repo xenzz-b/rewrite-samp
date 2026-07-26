@@ -909,7 +909,7 @@ Dialog:SpawnSelection(playerid, response, listitem, inputtext[])
 					PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
 					GameTextForPlayer(playerid, "Memuat Objek...", 6500, 3);
 				}
-				case 12: //FACTION_BINTANGKEJORA - DEPRECATED: faction dihapus
+				case 12: //FACTION_BINTANGKEJORA
 				{
 					ShowPlayerSpawnSelection(playerid);
 					ShowTDN(playerid, NOTIFICATION_ERROR, "Faction ini sudah dihapus!");
