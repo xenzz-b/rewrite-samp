@@ -427,7 +427,7 @@ ptask UpdateWargaBaruTime[1000](playerid)
         {
             AccountData[playerid][pWBTime]--;
 
-            new string[32];
+            static string[32];
             format(string, sizeof(string), "%d", AccountData[playerid][pWBTime] / 60);
             PlayerTextDrawSetString(playerid, PWARGABARU[playerid], string);
         }

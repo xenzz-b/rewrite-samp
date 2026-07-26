@@ -6,7 +6,7 @@ hook OnPlayerUpdate(playerid)
     {
         if(GetPlayerWeapon(playerid) != 0)
         {
-            new acdetail[64];
+            static acdetail[64];
             format(acdetail, sizeof(acdetail), "pre-spawn weapon: %s", ReturnWeaponName(GetPlayerWeapon(playerid)));
             AC_KickRaw(playerid, "Weapon Hack", acdetail);
             return 0;
@@ -428,7 +428,7 @@ ptask AntiCheatWeapon[1000](playerid)
                 if(++acSpeedHits[playerid] >= 3)
                 {
                     acSpeedHits[playerid] = 0;
-                    new acdetail[64];
+                    static acdetail[64];
                     format(acdetail, sizeof(acdetail), "onfoot speed %d km/h", acspeed);
                     AC_Kick(playerid, "Player Speed Hack", acdetail);
                 }
@@ -438,7 +438,7 @@ ptask AntiCheatWeapon[1000](playerid)
                 if(++acSpeedHits[playerid] >= 3)
                 {
                     acSpeedHits[playerid] = 0;
-                    new acdetail[64];
+                    static acdetail[64];
                     format(acdetail, sizeof(acdetail), "veh speed %d km/h", acspeed);
                     AC_Kick(playerid, "Vehicle Speed Hack", acdetail);
                 }
@@ -463,7 +463,7 @@ ptask AntiCheatWeapon[1000](playerid)
         {
             if(GetPlayerState(playerid) != PLAYER_STATE_DRIVER && GetPlayerState(playerid) != PLAYER_STATE_PASSENGER)
             {
-                new acdetail[64];
+                static acdetail[64];
                 format(acdetail, sizeof(acdetail), "state %d in veh %d", GetPlayerState(playerid), GetPlayerVehicleID(playerid));
                 AC_Kick(playerid, "Vehicle Troll", acdetail);
             }
@@ -475,7 +475,7 @@ ptask AntiCheatWeapon[1000](playerid)
             {
                 if(AccountData[playerid][pLevel] < 5)
                 {
-                    new acdetail[64];
+                    static acdetail[64];
                     format(acdetail, sizeof(acdetail), "firearm %s on level %d", ReturnWeaponName(GetPlayerWeapon(playerid)), AccountData[playerid][pLevel]);
                     SetWeapons(playerid);
                     AC_Kick(playerid, "Weapon Hack", acdetail);
@@ -494,7 +494,7 @@ ptask AntiCheatWeapon[1000](playerid)
                 {
                     if(pwpid[playerid] != 40 && GunData[playerid][g_aWeaponSlots[pwpid[playerid]]][WeaponType] == WEAPON_TYPE_NONE)
                     {
-                        new acdetail[64];
+                        static acdetail[64];
                         format(acdetail, sizeof(acdetail), "invalid weapon %s", ReturnWeaponName(pwpid[playerid]));
                         SetWeapons(playerid);
                         AC_Kick(playerid, "Weapon Hack", acdetail);
@@ -504,7 +504,7 @@ ptask AntiCheatWeapon[1000](playerid)
                     {
                         if(pwpid[playerid] != 40 && GunData[playerid][g_aWeaponSlots[pwpid[playerid]]][WeaponID] != pwpid[playerid])
                         {
-                            new acdetail[64];
+                            static acdetail[64];
                             format(acdetail, sizeof(acdetail), "slot mismatch %s", ReturnWeaponName(pwpid[playerid]));
                             SetWeapons(playerid);
                             AC_Kick(playerid, "Weapon Hack", acdetail);
@@ -524,7 +524,7 @@ ptask AntiCheatWeapon[1000](playerid)
                 {
                     if(pwpid[playerid] != 0 && pwpid[playerid] != EventInfo[redWeapon][0] && pwpid[playerid] != EventInfo[redWeapon][1] && pwpid[playerid] != EventInfo[redWeapon][2])
                     {
-                        new acdetail[64];
+                        static acdetail[64];
                         format(acdetail, sizeof(acdetail), "invalid weapon %s", ReturnWeaponName(pwpid[playerid]));
                         SetWeapons(playerid);
                         AC_Kick(playerid, "Weapon Hack", acdetail);
@@ -534,7 +534,7 @@ ptask AntiCheatWeapon[1000](playerid)
                 {
                     if(pwpid[playerid] != 0 && pwpid[playerid] != EventInfo[blueWeapon][0] && pwpid[playerid] != EventInfo[blueWeapon][1] && pwpid[playerid] != EventInfo[blueWeapon][2])
                     {
-                        new acdetail[64];
+                        static acdetail[64];
                         format(acdetail, sizeof(acdetail), "invalid weapon %s", ReturnWeaponName(pwpid[playerid]));
                         SetWeapons(playerid);
                         AC_Kick(playerid, "Weapon Hack", acdetail);
@@ -717,7 +717,7 @@ ptask AntiCheatMoneyAndAmmo[1000](playerid)
 
         if(IsProhibitedWeapon(GetPlayerWeapon(playerid)))
         {
-            new acdetail[64];
+            static acdetail[64];
             format(acdetail, sizeof(acdetail), "prohibited weapon %s", ReturnWeaponName(GetPlayerWeapon(playerid)));
             AC_Kick(playerid, "Senjata Terlarang", acdetail);
         }
@@ -780,7 +780,7 @@ ptask AntiFlyHack[1000](playerid)
 
                 if((z > 20.0) && (0.9 <= floatsqroot((vx * vx) + (vy * vy) + (vz * vz)) <= 1.9))
                 {
-                    new acdetail[64];
+                    static acdetail[64];
                     format(acdetail, sizeof(acdetail), "anim %d z %.1f", GetPlayerAnimationIndex(playerid), z);
                     AC_Kick(playerid, "Flyhack", acdetail);
                 }
@@ -804,7 +804,7 @@ ptask AntiFlyHack[1000](playerid)
             {
                 case 123, 1128:
                 {
-                    new acdetail[48];
+                    static acdetail[48];
                     format(acdetail, sizeof(acdetail), "anim %d", GetPlayerAnimationIndex(playerid));
                     AC_Kick(playerid, "Slapper", acdetail);
                 }
@@ -844,7 +844,7 @@ ptask UpateAntiFConn[1000](playerid)
     {
         if(GetPlayerWeapon(playerid) != 0)
         {
-            new acdetail[64];
+            static acdetail[64];
             format(acdetail, sizeof(acdetail), "pre-spawn weapon: %s", ReturnWeaponName(GetPlayerWeapon(playerid)));
             AC_KickRaw(playerid, "Weapon Hack", acdetail);
             return 1;
