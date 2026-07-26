@@ -537,11 +537,21 @@ ptask AntiCheatHealthArmor[700](playerid)
     GetPlayerHealth(playerid, health);
     GetPlayerArmour(playerid, armour);
 
-    // Saat grace/immunity/lag: jangan hukum, cuma sinkronkan ledger.
+    /*  Saat grace/immunity/lag: JANGAN hukum, dan JANGAN pula menaikkan
+        ledger mengikuti nilai client.
+
+        Menaikkan ledger di sini adalah celah fatal: cheater tinggal
+        menyalakan armour hack pada detik-detik grace setelah spawn,
+        nilainya akan terekam sebagai baseline "sah", dan selamanya
+        lolos deteksi.
+
+        Ledger hanya boleh naik lewat grant resmi (wrapper). Yang boleh
+        dilakukan di sini cuma menurunkan ledger bila nilai client sudah
+        di bawahnya (mis. kena damage saat lag).                        */
     if(!AC_CanPunish(playerid))
     {
-        if(health > AC_LedgerHP[playerid])     AC_LedgerHP[playerid]     = health;
-        if(armour > AC_LedgerArmour[playerid]) AC_LedgerArmour[playerid] = armour;
+        if(health < AC_LedgerHP[playerid])     AC_LedgerHP[playerid]     = health;
+        if(armour < AC_LedgerArmour[playerid]) AC_LedgerArmour[playerid] = armour;
         return 1;
     }
 
@@ -560,11 +570,22 @@ ptask AntiCheatHealthArmor[700](playerid)
     // ---------------- HEALTH ----------------
     if(health > AC_LedgerHP[playerid] + AC_HP_TOLERANCE)
     {
-        // Kenaikan tak sah. Cek dulu apakah ada sumber heal resmi yang aktif.
+        /*  Kenaikan tak sah. Cek dulu apakah ada sumber heal resmi.
+
+            Penting: kenaikan tetap DIBATASI maxhp. Tanpa batas ini,
+            cheater cukup memicu satu kondisi heal resmi (mis. knockdown)
+            lalu set HP berapa pun dan semuanya dianggap sah.            */
         if(AC_HasLegitHealSource(playerid))
         {
-            // Heal resmi (bandage/medic/makan) - akui sebagai grant baru.
             AC_LedgerHP[playerid] = (health > maxhp) ? (maxhp) : (health);
+
+            // Tetap tegakkan batas atas walau sumber heal resmi aktif.
+            if(health > maxhp + AC_HP_TOLERANCE)
+            {
+                AC_RawSetHealth(playerid, maxhp);
+                AccountData[playerid][pHealth] = maxhp;
+                AC_LedgerHP[playerid] = maxhp;
+            }
         }
         else
         {

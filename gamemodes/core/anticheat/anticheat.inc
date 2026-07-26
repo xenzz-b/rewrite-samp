@@ -290,8 +290,9 @@ AC_GrantHealth(playerid, Float:value)
 	if(!(0 <= playerid < MAX_PLAYERS))
 		return 0;
 
-	if(value > AC_LedgerHP[playerid])
-		AC_LedgerHP[playerid] = value;
+	// SET, bukan MAX. Ledger harus mengikuti nilai resmi terakhir,
+	// termasuk saat turun, supaya tidak menyisakan celah kenaikan.
+	AC_LedgerHP[playerid] = value;
 
 	AC_GrantHPTime[playerid] = gettime() + AC_GRANT_WINDOW;
 	AC_HPFlagged[playerid]   = false;
@@ -307,8 +308,7 @@ AC_GrantArmour(playerid, Float:value)
 	if(!(0 <= playerid < MAX_PLAYERS))
 		return 0;
 
-	if(value > AC_LedgerArmour[playerid])
-		AC_LedgerArmour[playerid] = value;
+	AC_LedgerArmour[playerid] = value;
 
 	AC_GrantArmourTime[playerid] = gettime() + AC_GRANT_WINDOW;
 	AC_ArmourFlagged[playerid]   = false;
@@ -324,8 +324,7 @@ stock AC_GrantVehHealth(vehicleid, Float:value)
 	if(!(0 <= vehicleid < MAX_VEHICLES))
 		return 0;
 
-	if(value > AC_LedgerVehHP[vehicleid])
-		AC_LedgerVehHP[vehicleid] = value;
+	AC_LedgerVehHP[vehicleid] = value;
 
 	AC_GrantVehTime[vehicleid] = gettime() + AC_GRANT_WINDOW;
 	AC_VehFlagged[vehicleid]   = false;
@@ -425,15 +424,20 @@ hook OnPlayerDisconnect(playerid, reason)
 
 hook OnPlayerSpawn(playerid)
 {
-	new Float:hp, Float:ap;
-	GetPlayerHealth(playerid, hp);
-	GetPlayerArmour(playerid, ap);
+	/*  CATATAN URUTAN (penting):
+	    y_hooks menjalankan hook ini SEBELUM public OnPlayerSpawn() di
+	    main.pwn. Di sanalah health/armour tersimpan baru dipasang
+	    (SetPlayerArmour(pArmor) dsb) dan otomatis tercatat ke ledger
+	    lewat wrapper.
 
+	    Karena itu di sini ledger di-NOL-kan saja, jangan membaca nilai
+	    client. Membaca nilai client di titik ini justru berbahaya:
+	    cheater yang set armour sebelum spawn selesai akan terbaca
+	    sebagai baseline "sah".                                          */
 	AC_SpawnTick[playerid]  = gettime();
 	AC_LastUpdate[playerid] = GetTickCount();
 
-	// baseline awal = kondisi resmi saat spawn
-	AC_ResetHealthLedger(playerid, hp, ap);
+	AC_ResetHealthLedger(playerid, 0.0, 0.0);
 
 	if(Anticheat[playerid][acImmunity] < gettime() + AC_SPAWN_GRACE_TIME)
 		Anticheat[playerid][acImmunity] = gettime() + AC_SPAWN_GRACE_TIME;
@@ -588,14 +592,18 @@ ptask CheckingACTeleport[1000](playerid)
 //  AUTO-GRANT WRAPPER  (by Claps)
 // =====================================================================
 //  Di gamemode ini ada puluhan pemanggilan SetPlayerHealth() /
-//  SetPlayerArmour() / SetVehicleHealth() langsung (bandage, makan,
-//  event, faction, medic, dsb). Kalau tidak dicatat ke ledger, semuanya
-//  akan dianggap cheat oleh detektor v3.
+//  SetPlayerArmour() langsung (bandage, makan, event, faction, medic,
+//  damage, spawn, dsb). Semua itu SAH dan harus tercatat di ledger.
 //
 //  Daripada mengedit ~54 tempat satu per satu (rawan kelewat), semua
-//  panggilan itu dialihkan otomatis ke wrapper di bawah lewat #define.
+//  panggilan dialihkan otomatis ke wrapper di bawah lewat #define.
 //  Logikanya: apa pun yang di-set OLEH SCRIPT SERVER adalah sah.
 //  Cheat client tidak melewati jalur ini, jadi tetap tertangkap.
+//
+//  PENTING - ledger di-SET (bukan di-MAX) di sini.
+//  Kalau server menurunkan nilai (kena damage, armour habis, spawn
+//  ulang), ledger WAJIB ikut turun. Kalau tidak, cheater bisa naik
+//  bebas sampai batas ledger lama tanpa terdeteksi.
 //
 //  Definisi fungsi ada SEBELUM #define, jadi isinya tetap memanggil
 //  native asli (tidak rekursif).
@@ -609,13 +617,26 @@ stock AC_RawSetVehHP(vehicleid, Float:value)  return SetVehicleHealth(vehicleid,
 
 AC_HookSetPlayerHealth(playerid, Float:value)
 {
-	AC_GrantHealth(playerid, value);
+	if(0 <= playerid < MAX_PLAYERS)
+	{
+		// SET, bukan MAX: turun pun ledger ikut turun.
+		AC_LedgerHP[playerid]     = value;
+		AC_GrantHPTime[playerid]  = gettime() + AC_GRANT_WINDOW;
+		AC_HPFlagged[playerid]    = false;
+		Anticheat[playerid][acHealth] = value;
+	}
 	return SetPlayerHealth(playerid, value);
 }
 
 AC_HookSetPlayerArmour(playerid, Float:value)
 {
-	AC_GrantArmour(playerid, value);
+	if(0 <= playerid < MAX_PLAYERS)
+	{
+		AC_LedgerArmour[playerid]    = value;
+		AC_GrantArmourTime[playerid] = gettime() + AC_GRANT_WINDOW;
+		AC_ArmourFlagged[playerid]   = false;
+		Anticheat[playerid][acArmour] = value;
+	}
 	return SetPlayerArmour(playerid, value);
 }
 
