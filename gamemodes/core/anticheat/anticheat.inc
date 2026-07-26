@@ -92,8 +92,10 @@ new Anticheat[MAX_PLAYERS][e_Anticheat];
 #define AC_HP_TOLERANCE         (0.60)  // toleransi desync health  (HP)
 #define AC_ARMOUR_TOLERANCE     (0.60)  // toleransi desync armour  (AP)
 #define AC_VEH_TOLERANCE        (8.0)   // toleransi desync vehicle health
-#define AC_VEH_DROP_LIMIT       (250.0) // penurunan health kendaraan max per tick
-#define AC_VEH_DEATH_HP         (300.0) // di bawah ini kendaraan memang sekarat
+#define AC_VEH_DROP_LIMIT       (400.0) // penurunan health saat kendaraan diam
+#define AC_VEH_DEATH_HP         (450.0) // di bawah ini kendaraan memang sekarat
+#define AC_VEH_MOVING_KMH       (12)    // di atas ini dianggap bergerak/tabrakan
+#define AC_VEH_CRASH_GRACE      (3)     // detik toleransi setelah sempat bergerak
 
 #define AC_GRANT_WINDOW         (2)     // detik jendela sah setelah grant
 
@@ -113,6 +115,7 @@ new
 
 	// --- ledger kendaraan ---
 	Float:AC_LedgerVehHP[MAX_VEHICLES],
+	AC_VehMoveTick[MAX_VEHICLES],
 	AC_GrantVehTime[MAX_VEHICLES],
 	bool:AC_VehFlagged[MAX_VEHICLES];
 
@@ -334,6 +337,7 @@ stock AC_GrantVehHealth(vehicleid, Float:value)
 
 	AC_GrantVehTime[vehicleid] = gettime() + AC_GRANT_WINDOW;
 	AC_VehFlagged[vehicleid]   = false;
+	AC_VehMoveTick[vehicleid]  = gettime();
 
 	VehicleHealthSecurityData[vehicleid] = value;
 	return 1;
@@ -396,6 +400,7 @@ stock AC_ResetVehLedger(vehicleid, Float:hp)
 	AC_LedgerVehHP[vehicleid]  = hp;
 	AC_GrantVehTime[vehicleid] = gettime() + AC_GRANT_WINDOW;
 	AC_VehFlagged[vehicleid]   = false;
+	AC_VehMoveTick[vehicleid]  = gettime();
 	VehicleHealthSecurityData[vehicleid] = hp;
 	return 1;
 }
@@ -525,6 +530,7 @@ hook OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 		AC_LedgerVehHP[vehicleid] = vhp;
 
 	VehicleHealthSecurityData[vehicleid] = AC_LedgerVehHP[vehicleid];
+	AC_VehMoveTick[vehicleid] = gettime();
 	return 1;
 }
 
