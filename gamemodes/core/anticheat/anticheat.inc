@@ -92,10 +92,11 @@ new Anticheat[MAX_PLAYERS][e_Anticheat];
 #define AC_HP_TOLERANCE         (0.60)  // toleransi desync health  (HP)
 #define AC_ARMOUR_TOLERANCE     (0.60)  // toleransi desync armour  (AP)
 #define AC_VEH_TOLERANCE        (8.0)   // toleransi desync vehicle health
-#define AC_VEH_DROP_LIMIT       (400.0) // penurunan health saat kendaraan diam
-#define AC_VEH_DEATH_HP         (450.0) // di bawah ini kendaraan memang sekarat
-#define AC_VEH_MOVING_KMH       (12)    // di atas ini dianggap bergerak/tabrakan
-#define AC_VEH_CRASH_GRACE      (3)     // detik toleransi setelah sempat bergerak
+#define AC_VEH_DROP_LIMIT       (600.0) // penurunan health saat kendaraan parkir
+#define AC_VEH_DEATH_HP         (700.0) // di bawah ini kendaraan memang sekarat
+#define AC_VEH_MOVING_KMH       (6)     // di atas ini dianggap masih bergerak
+#define AC_VEH_CRASH_GRACE      (12)    // detik parkir stabil sebelum deteksi aktif
+#define AC_VEH_DRIVER_GRACE     (8)     // detik toleransi setelah ganti driver
 
 #define AC_GRANT_WINDOW         (2)     // detik jendela sah setelah grant
 
@@ -116,6 +117,8 @@ new
 	// --- ledger kendaraan ---
 	Float:AC_LedgerVehHP[MAX_VEHICLES],
 	AC_VehMoveTick[MAX_VEHICLES],
+	AC_VehDriverTick[MAX_VEHICLES],
+	AC_VehLastDriver[MAX_VEHICLES] = { INVALID_PLAYER_ID, ... },
 	AC_GrantVehTime[MAX_VEHICLES],
 	bool:AC_VehFlagged[MAX_VEHICLES];
 
@@ -363,6 +366,24 @@ AC_RefreshDriverCache()
 		AC_DrvPlayer[vid] = p;
 		AC_DrvStamp[vid]  = AC_DrvTick;
 	}
+	return 1;
+}
+
+// Kendaraan tegak & stabil? Terbalik/miring = sedang terguling, bukan cheat.
+AC_IsVehicleUpright(vehicleid)
+{
+	new Float:qw, Float:qx, Float:qy, Float:qz;
+	GetVehicleRotationQuat(vehicleid, qw, qx, qy, qz);
+
+	new Float:roll  = atan2(2.0 * ((qy * qz) + (qw * qx)), (qw * qw) - (qx * qx) - (qy * qy) + (qz * qz));
+	new Float:pitch = asin(2.0 * ((qx * qz) - (qw * qy)));
+
+	if(roll > 40.0 || roll < -40.0)
+		return 0;
+
+	if(pitch > 40.0 || pitch < -40.0)
+		return 0;
+
 	return 1;
 }
 

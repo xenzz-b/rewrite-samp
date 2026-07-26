@@ -316,6 +316,18 @@ task AntiCheatVehicleHealth[700]()
 
         driver = AC_GetVehicleDriverAC(v);
 
+        // Ganti driver (car jacking) -> ledger milik sesi lama, sinkron ulang.
+        if(driver != AC_VehLastDriver[v])
+        {
+            AC_VehLastDriver[v]  = driver;
+            AC_VehDriverTick[v]  = gettime();
+            AC_VehMoveTick[v]    = gettime();
+            AC_LedgerVehHP[v]    = health;
+            AC_VehFlagged[v]     = false;
+            VehicleHealthSecurityData[v] = health;
+            continue;
+        }
+
         // Kendaraan tanpa driver dikelola server, jangan pernah dideteksi.
         if(driver == INVALID_PLAYER_ID)
         {
@@ -364,16 +376,18 @@ task AntiCheatVehicleHealth[700]()
             continue;
         }
 
-        /*  Penurunan health hanya dicurigai bila kendaraan praktis DIAM.
-            Tabrakan kecepatan tinggi, jatuh, atau tabrak beruntun bisa
-            menghapus 300-500 HP dalam satu tick dan itu wajar.           */
-        if(GetVehicleSpeedKMH(v) > AC_VEH_MOVING_KMH)
+        /*  Penurunan health hanya dicurigai bila kendaraan benar-benar
+            PARKIR STABIL. Aktivitas normal (tabrakan, terbalik, jatuh,
+            car jacking) selalu melibatkan gerakan atau posisi miring,
+            dan semuanya dikecualikan di sini.                            */
+        if(GetVehicleSpeedKMH(v) > AC_VEH_MOVING_KMH || !AC_IsVehicleUpright(v))
         {
             AC_VehMoveTick[v] = gettime();
         }
         else if(AC_LedgerVehHP[v] - health > AC_VEH_DROP_LIMIT
              && AC_LedgerVehHP[v] > AC_VEH_DEATH_HP
              && gettime() - AC_VehMoveTick[v] > AC_VEH_CRASH_GRACE
+             && gettime() - AC_VehDriverTick[v] > AC_VEH_DRIVER_GRACE
              && !VehicleCore[v][vIsDeath])
         {
             before = health;
@@ -382,7 +396,7 @@ task AntiCheatVehicleHealth[700]()
             if(!AC_VehFlagged[v])
             {
                 AC_VehFlagged[v] = true;
-                format(acdetail, sizeof(acdetail), "VehHP terjun %.0f -> %.0f saat diam (%s)", AC_LedgerVehHP[v], before, GetVehicleModelName(GetVehicleModel(v)));
+                format(acdetail, sizeof(acdetail), "VehHP terjun %.0f -> %.0f saat parkir (%s)", AC_LedgerVehHP[v], before, GetVehicleModelName(GetVehicleModel(v)));
                 AC_Kick(driver, "Vehicle Damage Hack", acdetail);
             }
             continue;
