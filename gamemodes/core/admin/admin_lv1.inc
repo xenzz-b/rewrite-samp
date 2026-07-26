@@ -197,6 +197,7 @@ YCMD:takeoutveh(playerid, params[], help)
     if(!AccountData[otherid][pSpawned]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut belum spawn!");
 
     new bool:found = false, msg2[1618];
+    static vrow[256];
     format(msg2, sizeof(msg2), "Model [Database ID]\tPlate\t/ Status\n");
     foreach (new i : PvtVehicles)
     {
@@ -206,12 +207,14 @@ YCMD:takeoutveh(playerid, params[], help)
             {
                 if (PlayerVehicle[i][pVehRentTime] != 0) // If it's a rental vehicle with a plate
                 {
-                    format(msg2, sizeof(msg2), "%s%s [%d]\t%s\t/ %s\n", msg2, GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], GetMyVehicleStatus(i));
+                    format(vrow, sizeof(vrow), "%s [%d]\t%s\t/ %s\n", GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], GetMyVehicleStatus(i));
+                    strcat(msg2, vrow);
                     found = true;
                 }
                 else // If it's not a rental but has a plate
                 {
-                    format(msg2, sizeof(msg2), "%s%s [%d]\t%s\t/ Dimiliki / %s\n", msg2, GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], GetMyVehicleStatus(i));
+                    format(vrow, sizeof(vrow), "%s [%d]\t%s\t/ Dimiliki / %s\n", GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], GetMyVehicleStatus(i));
+                    strcat(msg2, vrow);
                     found = true;
                 }
             }
@@ -219,12 +222,14 @@ YCMD:takeoutveh(playerid, params[], help)
             {
                 if (PlayerVehicle[i][pVehRentTime] != 0) // If it's a rental vehicle with no plate
                 {
-                    format(msg2, sizeof(msg2), "%s%s [%d]\tNo Plate\t/ %s\n", msg2, GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], GetMyVehicleStatus(i));
+                    format(vrow, sizeof(vrow), "%s [%d]\tNo Plate\t/ %s\n", GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], GetMyVehicleStatus(i));
+                    strcat(msg2, vrow);
                     found = true;
                 }
                 else // If it's not a rental and has no plate
                 {
-                    format(msg2, sizeof(msg2), "%s%s [%d]\tNo Plate\t/ Dimiliki / %s\n", msg2, GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], GetMyVehicleStatus(i));
+                    format(vrow, sizeof(vrow), "%s [%d]\tNo Plate\t/ Dimiliki / %s\n", GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], GetMyVehicleStatus(i));
+                    strcat(msg2, vrow);
                     found = true;
                 }
             }
@@ -2002,6 +2007,7 @@ YCMD:avehlist(playerid, params[], help)
 	if(otherid == INVALID_PLAYER_ID || !IsPlayerConnected(otherid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak terkoneksi di server!");
 
 	new bool:found = false, msg2[1618];
+	static vrow[256];
 	format(msg2, sizeof(msg2), "VID\tModel [Database ID]\tPlate\t/ Rental / Status\n");
 	foreach(new i : PvtVehicles)
 	{
@@ -2011,12 +2017,14 @@ YCMD:avehlist(playerid, params[], help)
 			{
 				if(PlayerVehicle[i][pVehRentTime] != 0) // If it's a rental and has a plate
 				{
-					format(msg2, sizeof(msg2), "%s%s\t%s [%d]\t%s\t/ %s / %s\n", msg2,  (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], ReturnTimelapse(gettime(), PlayerVehicle[i][pVehRentTime], ""YELLOW"Rental Expired"WHITE""), GetMyVehicleStatus(i));
+					format(vrow, sizeof(vrow), "%s\t%s [%d]\t%s\t/ %s / %s\n", (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], ReturnTimelapse(gettime(), PlayerVehicle[i][pVehRentTime], ""YELLOW"Rental Expired"WHITE""), GetMyVehicleStatus(i));
+					strcat(msg2, vrow);
 					found = true;
 				}
 				else // If it's not a rental but has a plate
 				{
-					format(msg2, sizeof(msg2), "%s%s\t%s [%d]\t%s\t/ Dimiliki / %s\n", msg2, (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], GetMyVehicleStatus(i));
+					format(vrow, sizeof(vrow), "%s\t%s [%d]\t%s\t/ Dimiliki / %s\n", (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], GetMyVehicleStatus(i));
+					strcat(msg2, vrow);
 					found = true;
 				}
 			}
@@ -2024,12 +2032,14 @@ YCMD:avehlist(playerid, params[], help)
 			{
 				if(PlayerVehicle[i][pVehRentTime] != 0) // If it's a rental but doesn't have a plate
 				{
-					format(msg2, sizeof(msg2), "%s%s\t%s [%d]\tTidak Ada Plat\t/ %s / %s\n", msg2, (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], ReturnTimelapse(gettime(), PlayerVehicle[i][pVehRentTime], ""YELLOW"Rental Expired"WHITE""), GetMyVehicleStatus(i));
+					format(vrow, sizeof(vrow), "%s\t%s [%d]\tTidak Ada Plat\t/ %s / %s\n", (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], ReturnTimelapse(gettime(), PlayerVehicle[i][pVehRentTime], ""YELLOW"Rental Expired"WHITE""), GetMyVehicleStatus(i));
+					strcat(msg2, vrow);
 					found = true;
 				}
 				else // If it's not a rental and doesn't have a plate
 				{
-					format(msg2, sizeof(msg2), "%s%s\t%s [%d]\tTidak Ada Plat\t/ Dimiliki / %s\n", msg2, (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], GetMyVehicleStatus(i));
+					format(vrow, sizeof(vrow), "%s\t%s [%d]\tTidak Ada Plat\t/ Dimiliki / %s\n", (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], GetMyVehicleStatus(i));
+					strcat(msg2, vrow);
 					found = true;
 				}
 			}

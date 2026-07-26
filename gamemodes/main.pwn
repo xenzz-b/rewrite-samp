@@ -8642,7 +8642,7 @@ public OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY
             return 0;
         }
 
-		if(!AccountData[playerid][pInEvent] && (AccountData[playerid][pFaction] != FACTION_LSPD || AccountData[playerid][pFaction] != FACTION_SAGOV))
+		if(!AccountData[playerid][pInEvent] && AccountData[playerid][pFaction] != FACTION_LSPD && AccountData[playerid][pFaction] != FACTION_SAGOV)
 		{
 			static Float:shotX, Float:shotY, Float:shotZ, string[144];
 			GetPlayerPos(playerid, shotX, shotY, shotZ);
@@ -8650,10 +8650,11 @@ public OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY
 			format(string, sizeof(string), "RADIO: "WHITE"Terjadi penembakan di daerah %s!", GetLocation(shotX, shotY, shotZ));
 			if(gettime() > DelayShotNotif[playerid])
 			{
+				DelayShotNotif[playerid] = gettime() + 10;
+
 				foreach(new i : LSPDDuty)
 				{
 					SendClientMessage(i, 0xFFD39BFF, string);
-					DelayShotNotif[playerid] = gettime() + 10;
 				}
 			}
 		}

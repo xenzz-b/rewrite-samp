@@ -268,6 +268,7 @@ Dialog:PewartaVault(playerid, response, listitem, inputtext[])
         case 0: //deposit
         {
             new str[1218], count;
+            static invrow[64];
             format(str, sizeof(str), "Nama Item\tJumlah\n");
             for(new index; index < MAX_INVENTORY; index++)
             {
@@ -275,7 +276,8 @@ Dialog:PewartaVault(playerid, response, listitem, inputtext[])
                 {
                     for(new i; i < sizeof(g_aInventoryItems); i ++) if (!strcmp(g_aInventoryItems[i][e_InventoryItem], InventoryData[playerid][index][invItem], true))
                     {
-                        format(str, sizeof(str), "%s%s\t%d\n", str, InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                        format(invrow, sizeof(invrow), "%s\t%d\n", InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                        strcat(str, invrow);
                         PlayerListitem[playerid][count++] = index;
                     }
                 }

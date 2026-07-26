@@ -4816,7 +4816,7 @@ ShowPlayerSpawnSelection(playerid)
 	return 1;
 }
 
-GetPlayerSpeed(playerid)
+stock GetPlayerSpeed(playerid)
 {
 	new Float:ST[4];
 	if(IsPlayerInAnyVehicle(playerid))
