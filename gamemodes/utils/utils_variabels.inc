@@ -289,6 +289,25 @@ enum
     FACTION_JPJ
 };
 
+stock const FacName[15][] =
+{
+    "Warga",
+    "Kepolisian",
+    "Paramedis",
+    "Pring Sewu Beach Club",
+    "Pemerintah",
+    "Bennys Automotive",
+    "Uber",
+    "Loving Donuts",
+    "Pewarta",
+    "DriftKing Workshop",
+    "Jaya Abadi",
+    "Sri Mersing Resto",
+    "Bintang Kejora",
+    "Federal",
+    "JPJ"
+};
+
 enum
 {
     SIDEJOB_NONE,

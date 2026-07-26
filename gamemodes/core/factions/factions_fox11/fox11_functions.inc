@@ -237,10 +237,10 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 		{
 			if (i % 2 == 0) {
-                format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
             }
             else {
-                format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
             }
 			NearestUser[playerid][count++] = i;
 		}
@@ -637,16 +637,16 @@ Dialog:PewartaLocker(playerid, response, listitem, inputtext[])
             if(AccountData[playerid][pGender] == 1)
             {
                 Dialog_Show(playerid, "PewartaUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Pewarta Uniform", 
-                "PEWARTA #1\n\
-                "GRAY"PEWARTA #2\n\
-                PEWARTA #3\n\
-                "GRAY"PEWARTA #4\n\
-                PEWARTA #5", "Pilih", "Batal");
+                "Seragam Reporter Lapangan\n\
+                "GRAY"Seragam Juru Kamera\n\
+                Seragam Presenter Studio\n\
+                "GRAY"Seragam Jurnalis Investigasi\n\
+                Seragam Kru Produksi", "Pilih", "Batal");
             }
             else
             {
                 Dialog_Show(playerid, "PewartaUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Pewarta Uniform", 
-                "UBER #1", "Pilih", "Batal");
+                "Seragam Reporter Lapangan", "Pilih", "Batal");
             }
         }
     }
@@ -683,10 +683,10 @@ Dialog:PewartaBosdesk(playerid, response, listitem, inputtext[])
             foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 1.5)) 
             {
                 if (i % 2 == 0) {
-                    format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 else {
-                    format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 NearestUser[playerid][count++] = i;
             }
@@ -1076,7 +1076,7 @@ Dialog:PewartaPanel(playerid, response, listitem, inputtext[])
             {
                 if(InvoiceData[targetid][id][invoiceExists] && InvoiceData[targetid][id][invoiceOwner] == AccountData[targetid][pID]) 
                 {
-                    format(xjjs, sizeof(xjjs), "%s"WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", xjjs, id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost]));
+                    strcat(xjjs, sprintf(""WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost])), sizeof(xjjs));
                     count++;
                 }
             }

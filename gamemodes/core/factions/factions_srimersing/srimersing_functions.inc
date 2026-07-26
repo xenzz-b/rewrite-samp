@@ -262,10 +262,10 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 		{
 			if (i % 2 == 0) {
-                format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
             }
             else {
-                format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
             }
 			NearestUser[playerid][count++] = i;
 		}
@@ -661,8 +661,8 @@ Dialog:SriMersingLocker(playerid, response, listitem, inputtext[])
         case 1: //baju SriMersing
         {
             Dialog_Show(playerid, "SriMersingUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Sri Mersing Uniform", 
-            "Sri Mersing 1\n\
-            "GRAY"Sri Mersing 2", "Pilih", "Batal");
+            "Seragam Pramusaji\n\
+            "GRAY"Seragam Juru Masak", "Pilih", "Batal");
         }
     }
     return 1;
@@ -696,10 +696,10 @@ Dialog:SriMersingBosDesk(playerid, response, listitem, inputtext[])
             foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 1.5)) 
             {
                 if (i % 2 == 0) {
-                    format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 else {
-                    format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 NearestUser[playerid][count++] = i;
             }
@@ -1083,7 +1083,7 @@ Dialog:SriMersingPanel(playerid, response, listitem, inputtext[])
             {
                 if(InvoiceData[targetid][id][invoiceExists] && InvoiceData[targetid][id][invoiceOwner] == AccountData[targetid][pID]) 
                 {
-                    format(xjjs, sizeof(xjjs), "%s"WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", xjjs, id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost]));
+                    strcat(xjjs, sprintf(""WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost])), sizeof(xjjs));
                     count++;
                 }
             }

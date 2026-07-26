@@ -222,7 +222,7 @@ YCMD:ainv(playerid, params[], help)
 		{
 			cache_get_value_name(x, "invent_Item", itemname);
 			cache_get_value_name_int(x, "invent_Quantity", amounts);
-			format(str, sizeof(str), "%s%s\t%d\n", str, itemname, amounts);
+			strcat(str, sprintf("%s\t%d\n", itemname, amounts), sizeof(str));
 		}
 		Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, sprintf("%s (%d)'s Inventory", AccountData[targetid][pName], targetid), str, "Tutup", "");
 	}

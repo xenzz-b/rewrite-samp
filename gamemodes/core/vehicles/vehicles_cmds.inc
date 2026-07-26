@@ -215,7 +215,7 @@ YCMD:keylist(playerid, params[], help)
                         strcat(expireText, "Expired");
                 }
 
-                format(dialogString, sizeof(dialogString), "%s%s\t%s\n", dialogString, VehicleKeys[p][i][vKeyHolderName], expireText);
+                strcat(dialogString, sprintf("%s\t%s\n", VehicleKeys[p][i][vKeyHolderName], expireText), sizeof(dialogString));
                 keyCount++;
                 break;
             }

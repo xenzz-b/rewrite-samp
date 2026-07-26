@@ -20,6 +20,7 @@ enum e_housestuff
     Float:hVaultPos[3],
     Float:hGaragePos[4],
     hMusicURL[128],
+    hLapor,
 
     //not save
     STREAMER_TAG_3D_TEXT_LABEL:hLabel,
@@ -57,9 +58,9 @@ new HouseHolster[MAX_HOUSES][e_HouseHolster][5];
 House_Save(hid)
 {
     new lxa[1024];
-    mysql_format(g_SQL, lxa, sizeof(lxa), "UPDATE `houses` SET `OwnerID` = %d, `OwnerName` = '%e', `Price` = '%d', `X` = '%f', `Y` = '%f', `Z` = '%f', `A` = '%f', `IX` = '%f', `IY` = '%f', `IZ` = '%f', `IA` = '%f', `BX` = '%f', `BY` = '%f', `BZ` = '%f', `GX` = '%f', `GY` = '%f', `GZ` = '%f', `GA` = '%f', `Type` = %d, `World` = %d, `Interior` = %d, `IntWorld` = %d, `IntInterior` = %d, `MusicURL` = '%e' WHERE `ID` = %d",
+    mysql_format(g_SQL, lxa, sizeof(lxa), "UPDATE `houses` SET `OwnerID` = %d, `OwnerName` = '%e', `Price` = '%d', `X` = '%f', `Y` = '%f', `Z` = '%f', `A` = '%f', `IX` = '%f', `IY` = '%f', `IZ` = '%f', `IA` = '%f', `BX` = '%f', `BY` = '%f', `BZ` = '%f', `GX` = '%f', `GY` = '%f', `GZ` = '%f', `GA` = '%f', `Type` = %d, `World` = %d, `Interior` = %d, `IntWorld` = %d, `IntInterior` = %d, `MusicURL` = '%e', `Lapor` = %d WHERE `ID` = %d",
     HouseData[hid][hOwnerID], HouseData[hid][hOwnerName], HouseData[hid][hPrice], HouseData[hid][hPos][0], HouseData[hid][hPos][1], HouseData[hid][hPos][2], HouseData[hid][hPos][3], HouseData[hid][hIntPos][0], HouseData[hid][hIntPos][1], HouseData[hid][hIntPos][2], HouseData[hid][hIntPos][3], 
-    HouseData[hid][hVaultPos][0], HouseData[hid][hVaultPos][1], HouseData[hid][hVaultPos][2], HouseData[hid][hGaragePos][0], HouseData[hid][hGaragePos][1], HouseData[hid][hGaragePos][2], HouseData[hid][hGaragePos][3], HouseData[hid][hType], HouseData[hid][hWorld], HouseData[hid][hInterior], HouseData[hid][hIntWorld], HouseData[hid][hIntInterior], HouseData[hid][hMusicURL], hid);
+    HouseData[hid][hVaultPos][0], HouseData[hid][hVaultPos][1], HouseData[hid][hVaultPos][2], HouseData[hid][hGaragePos][0], HouseData[hid][hGaragePos][1], HouseData[hid][hGaragePos][2], HouseData[hid][hGaragePos][3], HouseData[hid][hType], HouseData[hid][hWorld], HouseData[hid][hInterior], HouseData[hid][hIntWorld], HouseData[hid][hIntInterior], HouseData[hid][hMusicURL], HouseData[hid][hLapor], hid);
     mysql_pquery(g_SQL, lxa);
     return 1;
 }
@@ -198,15 +199,12 @@ HouseGarage_Nearest(playerid)
 
 Player_ReturnHouseID(playerid)
 {
-    new rid = -1;
     foreach(new hid : Houses)
     {
         if(HouseData[hid][hOwnerID] == AccountData[playerid][pID] || AccountData[playerid][pHouseSharedID] == hid)
-        {
-            rid = hid;
-        }
+            return hid;
     }
-    return rid;
+    return -1;
 }
 
 Player_NearHouse(playerid, hid)
@@ -215,10 +213,10 @@ Player_NearHouse(playerid, hid)
     foreach(new i : Player) if(i != playerid) if(IsPlayerInRangeOfPoint(i, 1.5, HouseData[hid][hPos][0], HouseData[hid][hPos][1], HouseData[hid][hPos][2])) 
     {
         if (i % 2 == 0) {
-            format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+            strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
         }
         else {
-            format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+            strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
         }
         NearestUser[playerid][counting++] = i;
     }
@@ -312,7 +310,7 @@ public Player_HouseSavedClothes(playerid)
         for(new i; i < rows; i++)
         {
             cache_get_value_name(i, "Name", ClothesName);
-            format(sjjr, sizeof(sjjr), "%s%s\n", sjjr, ClothesName);
+            strcat(sjjr, sprintf("%s\n", ClothesName), sizeof(sjjr));
         }
         Dialog_Show(playerid, "HouseClothes", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Pakaian", 
         sjjr, "Pilih", "Kembali");
@@ -451,11 +449,12 @@ ShowHouseSharedList(playerid)
 
 	for (new i; i < 3; i ++) if(!isnull(HouseMemberName[playerid][i]))
 	{
-	    format(sgstr, sizeof(sgstr), "%s%s\n", sgstr, HouseMemberName[playerid][i]);
+		strcat(sgstr, HouseMemberName[playerid][i], sizeof(sgstr));
+		strcat(sgstr, "\n", sizeof(sgstr));
 		count++;
 	}
 	if(count < 3)
-		format(sgstr, sizeof(sgstr), "%s"GREEN"+ Berikan Kunci", sgstr);
+		strcat(sgstr, ""GREEN"+ Berikan Kunci", sizeof(sgstr));
 
 	Dialog_Show(playerid, "HouseGiveKey", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Pemegang Kunci", sgstr, "Pilih", "Kembali");
 	return 1;
@@ -551,6 +550,13 @@ public LoadHouses()
             cache_get_value_name_int(i, "IntWorld", HouseData[hid][hIntWorld]);
             cache_get_value_name_int(i, "IntInterior", HouseData[hid][hIntInterior]);
             cache_get_value_name(i, "MusicURL", HouseData[hid][hMusicURL]);
+            cache_get_value_name_int(i, "Lapor", HouseData[hid][hLapor]);
+
+            if(HouseData[hid][hOwnerID] != 0 && HouseData[hid][hLapor] <= 0)
+            {
+                HouseData[hid][hLapor] = gettime();
+                House_Save(hid);
+            }
 
             House_Rebuild(hid);
             Iter_Add(Houses, hid);
@@ -650,6 +656,12 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                     if(AccountData[playerid][pActivityTime] != 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda sedang melakukan sesuatu, mohon tunggu progress bar selesai!");
                     
                     AccountData[playerid][pInHouse] = hid;
+
+                    if(HouseData[hid][hOwnerID] == AccountData[playerid][pID] && gettime() - HouseData[hid][hLapor] >= 86400)
+                    {
+                        HouseData[hid][hLapor] = gettime();
+                        House_Save(hid);
+                    }
 
                     if(!isnull(HouseData[hid][hMusicURL]))
                         PlayAudioStreamForPlayer(playerid, HouseData[hid][hMusicURL]);
@@ -964,12 +976,12 @@ Dialog:HouseHolster(playerid, response, listitem, inputtext[])
             {
                 if(HouseHolster[AccountData[playerid][pInHouse]][hHolsterTaken][id]) 
                 {
-                    format(xjjs, sizeof(xjjs), "%s%d\t%s\t%d\n", xjjs, id + 1, ReturnWeaponName(HouseHolster[AccountData[playerid][pInHouse]][hHolsterWeaponID][id]), HouseHolster[AccountData[playerid][pInHouse]][hHolsterWeaponAmmo][id]);
+                    strcat(xjjs, sprintf("%d\t%s\t%d\n", id + 1, ReturnWeaponName(HouseHolster[AccountData[playerid][pInHouse]][hHolsterWeaponID][id]), HouseHolster[AccountData[playerid][pInHouse]][hHolsterWeaponAmmo][id]), sizeof(xjjs));
                     count++;
                 }
                 else
                 {
-                    format(xjjs, sizeof(xjjs), "%s"GREEN"%d\t"GREEN"Kosong\t"GREEN"0\n", xjjs, id + 1);
+                    strcat(xjjs, sprintf(""GREEN"%d\t"GREEN"Kosong\t"GREEN"0\n", id + 1), sizeof(xjjs));
                 }
             }
 
@@ -1631,21 +1643,11 @@ ShowAllAvailableHousesGPS(playerid)
             
             if(count % 2 == 0)
             {
-                format(house_string, sizeof(house_string), "%s"WHITE"Rumah %d\t"WHITE"%s\t"WHITE"$%s\t"YELLOW"%.0f m\n", 
-                    house_string, 
-                    hid + 1, 
-                    type_name,
-                    FormatMoney(HouseData[hid][hPrice]),
-                    distance);
+                strcat(house_string, sprintf(""WHITE"Rumah %d\t"WHITE"%s\t"WHITE"$%s\t"YELLOW"%.0f m\n", hid + 1, type_name, FormatMoney(HouseData[hid][hPrice]), distance), sizeof(house_string));
             }
             else
             {
-                format(house_string, sizeof(house_string), "%s"GRAY"Rumah %d\t"GRAY"%s\t"GRAY"$%s\t"YELLOW"%.0f m\n", 
-                    house_string, 
-                    hid + 1, 
-                    type_name,
-                    FormatMoney(HouseData[hid][hPrice]),
-                    distance);
+                strcat(house_string, sprintf(""GRAY"Rumah %d\t"GRAY"%s\t"GRAY"$%s\t"YELLOW"%.0f m\n", hid + 1, type_name, FormatMoney(HouseData[hid][hPrice]), distance), sizeof(house_string));
             }
             count++;
             

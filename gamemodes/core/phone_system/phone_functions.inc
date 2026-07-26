@@ -811,7 +811,7 @@ public OnWhatsappSent(playerid, targetid, contactselected, serverid, const textu
                         cache_get_value_name(i, "chatSender", issuer);
                         cache_get_value_name(i, "chatMessage", watext);
                         
-                        format(list, sizeof(list), "%s%s\t%s\t%s\n", list, date, issuer, watext);
+                        strcat(list, sprintf("%s\t%s\t%s\n", date, issuer, watext), sizeof(list));
                     }
                     new title[100];
                     format(title, sizeof(title), "WhatsApp Chat - %s", ContactData[targetid][cidt][contactName]);
@@ -822,7 +822,7 @@ public OnWhatsappSent(playerid, targetid, contactselected, serverid, const textu
                     new list[268], title[108];
                     
                     format(list, sizeof(list), "Tanggal\tPengirim\tPesan\n");
-                    format(list, sizeof(list), "%sMessages and calls are end-to-end encrypted.", list);
+                    strcat(list, "Messages and calls are end-to-end encrypted.", sizeof(list));
                     format(title, sizeof(title), "WhatsApp Chat - %s", ContactData[targetid][cidt][contactName]);
                     Dialog_Show(targetid, "WhatsappChatEmpty", DIALOG_STYLE_TABLIST_HEADERS, title, list, "Send", "Kembali");
                 }
@@ -855,7 +855,7 @@ public OnWhatsappSent(playerid, targetid, contactselected, serverid, const textu
             cache_get_value_name(i, "chatSender", issuer);
             cache_get_value_name(i, "chatMessage", watext);
             
-            format(list, sizeof(list), "%s%s\t%s\t%s\n", list, date, issuer, watext);
+            strcat(list, sprintf("%s\t%s\t%s\n", date, issuer, watext), sizeof(list));
         }
         new title[100];
         format(title, sizeof(title), "WhatsApp Chat - %s", ContactData[playerid][contactselected][contactName]);
@@ -866,7 +866,7 @@ public OnWhatsappSent(playerid, targetid, contactselected, serverid, const textu
         new list[268], title[108];
         
         format(list, sizeof(list), "Tanggal\tPengirim\tPesan\n");
-        format(list, sizeof(list), "%sMessages and calls are end-to-end encrypted.", list);
+        strcat(list, "Messages and calls are end-to-end encrypted.", sizeof(list));
         format(title, sizeof(title), "WhatsApp Chat - %s", ContactData[playerid][contactselected][contactName]);
         Dialog_Show(playerid, "WhatsappChatEmpty", DIALOG_STYLE_TABLIST_HEADERS, title, list, "Send", "Kembali");
     }
@@ -1213,7 +1213,7 @@ Dialog:ContactSelect(playerid, response, listitem, inputtext[])
                     cache_get_value_name(i, "chatSender", issuer);
                     cache_get_value_name(i, "chatMessage", watext);
                     
-                    format(list, sizeof(list), "%s%s\t%s\t%s\n", list, date, issuer, watext);
+                    strcat(list, sprintf("%s\t%s\t%s\n", date, issuer, watext), sizeof(list));
                 }
                 new title[100];
                 format(title, sizeof(title), "WhatsApp Chat - %s", ContactData[playerid][cid][contactName]);
@@ -1224,7 +1224,7 @@ Dialog:ContactSelect(playerid, response, listitem, inputtext[])
                 new list[268], title[108];
                 
                 format(list, sizeof(list), "Tanggal\tPengirim\tPesan\n");
-                format(list, sizeof(list), "%sMessages and calls are end-to-end encrypted.", list);
+                strcat(list, "Messages and calls are end-to-end encrypted.", sizeof(list));
                 format(title, sizeof(title), "WhatsApp Chat - %s", ContactData[playerid][cid][contactName]);
                 Dialog_Show(playerid, "WhatsappChatEmpty", DIALOG_STYLE_TABLIST_HEADERS, title, list, "Send", "Kembali");
             }
@@ -1819,7 +1819,7 @@ Dialog:Yellowpage(playerid, response, listitem, inputtext[])
             {
                 if(AdvertisementEnum[x][adSubmitted])
                 {
-                    format(primary_str, sizeof(primary_str), "%s%s\t%s\t%.24s...\n", primary_str, AdvertisementEnum[x][adIssuer], AdvertisementEnum[x][adNumb], AdvertisementEnum[x][adDetail]);
+                    strcat(primary_str, sprintf("%s\t%s\t%.24s...\n", AdvertisementEnum[x][adIssuer], AdvertisementEnum[x][adNumb], AdvertisementEnum[x][adDetail]), sizeof(primary_str));
                     PlayerListitem[playerid][counting++] = x;
                 }
             }
@@ -2175,9 +2175,9 @@ Dialog:GPSMenu(playerid, response, listitem, inputtext[])
             for(new x; x < sizeof(_g_GPS_Public); x++)
             {
                 if (x % 2 == 0) {
-                    format(minstry, sizeof(minstry), "%s"WHITE"%s\t"WHITE"%s\t"YELLOW"%.0f m\n", minstry, _g_GPS_Public[x][JobName], GetLocation(_g_GPS_Public[x][Pos][0],_g_GPS_Public[x][Pos][1],_g_GPS_Public[x][Pos][2]), GetPlayerDistanceFromPoint(playerid, _g_GPS_Public[x][Pos][0],_g_GPS_Public[x][Pos][1],_g_GPS_Public[x][Pos][2]));
+                    strcat(minstry, sprintf(""WHITE"%s\t"WHITE"%s\t"YELLOW"%.0f m\n", _g_GPS_Public[x][JobName], GetLocation(_g_GPS_Public[x][Pos][0],_g_GPS_Public[x][Pos][1],_g_GPS_Public[x][Pos][2]), GetPlayerDistanceFromPoint(playerid, _g_GPS_Public[x][Pos][0],_g_GPS_Public[x][Pos][1],_g_GPS_Public[x][Pos][2])), sizeof(minstry));
                 } else {
-                    format(minstry, sizeof(minstry), "%s"GRAY"%s\t"GRAY"%s\t"YELLOW"%.0f m\n", minstry, _g_GPS_Public[x][JobName], GetLocation(_g_GPS_Public[x][Pos][0],_g_GPS_Public[x][Pos][1],_g_GPS_Public[x][Pos][2]), GetPlayerDistanceFromPoint(playerid, _g_GPS_Public[x][Pos][0],_g_GPS_Public[x][Pos][1],_g_GPS_Public[x][Pos][2]));
+                    strcat(minstry, sprintf(""GRAY"%s\t"GRAY"%s\t"YELLOW"%.0f m\n", _g_GPS_Public[x][JobName], GetLocation(_g_GPS_Public[x][Pos][0],_g_GPS_Public[x][Pos][1],_g_GPS_Public[x][Pos][2]), GetPlayerDistanceFromPoint(playerid, _g_GPS_Public[x][Pos][0],_g_GPS_Public[x][Pos][1],_g_GPS_Public[x][Pos][2])), sizeof(minstry));
                 }
             }
             Dialog_Show(playerid, "GPSPublic", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- GPS", minstry, "Pilih", "Kembali");
@@ -2200,9 +2200,9 @@ Dialog:GPSMenu(playerid, response, listitem, inputtext[])
                     if(!Iter_Contains(Sawits, 0))
                     {
                         if(x % 2 == 0)
-                            format(minstry, sizeof(minstry), "%s"WHITE"%s\t"WHITE"%s\t"RED"Belum tersedia\t"YELLOW"-\n", minstry, jobName, jobDesc);
+                            strcat(minstry, sprintf(""WHITE"%s\t"WHITE"%s\t"RED"Belum tersedia\t"YELLOW"-\n", jobName, jobDesc), sizeof(minstry));
                         else
-                            format(minstry, sizeof(minstry), "%s"GRAY"%s\t"GRAY"%s\t"RED"Belum tersedia\t"YELLOW"-\n", minstry, jobName, jobDesc);
+                            strcat(minstry, sprintf(""GRAY"%s\t"GRAY"%s\t"RED"Belum tersedia\t"YELLOW"-\n", jobName, jobDesc), sizeof(minstry));
                         continue;
                     }
                     posX = SawitData[0][sawPos][0];
@@ -2211,9 +2211,9 @@ Dialog:GPSMenu(playerid, response, listitem, inputtext[])
                 }
 
                 if(x % 2 == 0)
-                    format(minstry, sizeof(minstry), "%s"WHITE"%s\t"WHITE"%s\t"WHITE"%s\t"YELLOW"%.0f m\n", minstry, jobName, jobDesc, GetLocation(posX, posY, posZ), GetPlayerDistanceFromPoint(playerid, posX, posY, posZ));
+                    strcat(minstry, sprintf(""WHITE"%s\t"WHITE"%s\t"WHITE"%s\t"YELLOW"%.0f m\n", jobName, jobDesc, GetLocation(posX, posY, posZ), GetPlayerDistanceFromPoint(playerid, posX, posY, posZ)), sizeof(minstry));
                 else
-                    format(minstry, sizeof(minstry), "%s"GRAY"%s\t"GRAY"%s\t"GRAY"%s\t"YELLOW"%.0f m\n", minstry, jobName, jobDesc, GetLocation(posX, posY, posZ), GetPlayerDistanceFromPoint(playerid, posX, posY, posZ));
+                    strcat(minstry, sprintf(""GRAY"%s\t"GRAY"%s\t"GRAY"%s\t"YELLOW"%.0f m\n", jobName, jobDesc, GetLocation(posX, posY, posZ), GetPlayerDistanceFromPoint(playerid, posX, posY, posZ)), sizeof(minstry));
             }
             Dialog_Show(playerid, "GPSJob", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- GPS", minstry, "Pilih", "Kembali");
         }
@@ -2238,9 +2238,9 @@ Dialog:GPSMenu(playerid, response, listitem, inputtext[])
             for(new x; x < sizeof(_g_GPS_Resto); x++)
             {
                 if (x % 2 == 0) {
-                    format(minstry, sizeof(minstry), "%s"WHITE"%s\t"WHITE"%s\t"YELLOW"%.0f m\n", minstry, _g_GPS_Resto[x][JobName], GetLocation(_g_GPS_Resto[x][Pos][0],_g_GPS_Resto[x][Pos][1],_g_GPS_Resto[x][Pos][2]), GetPlayerDistanceFromPoint(playerid, _g_GPS_Resto[x][Pos][0],_g_GPS_Resto[x][Pos][1],_g_GPS_Resto[x][Pos][2]));
+                    strcat(minstry, sprintf(""WHITE"%s\t"WHITE"%s\t"YELLOW"%.0f m\n", _g_GPS_Resto[x][JobName], GetLocation(_g_GPS_Resto[x][Pos][0],_g_GPS_Resto[x][Pos][1],_g_GPS_Resto[x][Pos][2]), GetPlayerDistanceFromPoint(playerid, _g_GPS_Resto[x][Pos][0],_g_GPS_Resto[x][Pos][1],_g_GPS_Resto[x][Pos][2])), sizeof(minstry));
                 } else {
-                    format(minstry, sizeof(minstry), "%s"GRAY"%s\t"GRAY"%s\t"YELLOW"%.0f m\n", minstry, _g_GPS_Resto[x][JobName], GetLocation(_g_GPS_Resto[x][Pos][0],_g_GPS_Resto[x][Pos][1],_g_GPS_Resto[x][Pos][2]), GetPlayerDistanceFromPoint(playerid, _g_GPS_Resto[x][Pos][0],_g_GPS_Resto[x][Pos][1],_g_GPS_Resto[x][Pos][2]));
+                    strcat(minstry, sprintf(""GRAY"%s\t"GRAY"%s\t"YELLOW"%.0f m\n", _g_GPS_Resto[x][JobName], GetLocation(_g_GPS_Resto[x][Pos][0],_g_GPS_Resto[x][Pos][1],_g_GPS_Resto[x][Pos][2]), GetPlayerDistanceFromPoint(playerid, _g_GPS_Resto[x][Pos][0],_g_GPS_Resto[x][Pos][1],_g_GPS_Resto[x][Pos][2])), sizeof(minstry));
                 }
             }
             Dialog_Show(playerid, "GPSResto", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- GPS", minstry, "Pilih", "Kembali");
@@ -2252,9 +2252,9 @@ Dialog:GPSMenu(playerid, response, listitem, inputtext[])
             for(new x; x < sizeof(_g_GPS_Bengkel); x++)
             {
                 if (x % 2 == 0) {
-                    format(minstry, sizeof(minstry), "%s"WHITE"%s\t"WHITE"%s\t"YELLOW"%.0f m\n", minstry, _g_GPS_Bengkel[x][JobName], GetLocation(_g_GPS_Bengkel[x][Pos][0],_g_GPS_Bengkel[x][Pos][1],_g_GPS_Bengkel[x][Pos][2]), GetPlayerDistanceFromPoint(playerid, _g_GPS_Bengkel[x][Pos][0],_g_GPS_Bengkel[x][Pos][1],_g_GPS_Bengkel[x][Pos][2]));
+                    strcat(minstry, sprintf(""WHITE"%s\t"WHITE"%s\t"YELLOW"%.0f m\n", _g_GPS_Bengkel[x][JobName], GetLocation(_g_GPS_Bengkel[x][Pos][0],_g_GPS_Bengkel[x][Pos][1],_g_GPS_Bengkel[x][Pos][2]), GetPlayerDistanceFromPoint(playerid, _g_GPS_Bengkel[x][Pos][0],_g_GPS_Bengkel[x][Pos][1],_g_GPS_Bengkel[x][Pos][2])), sizeof(minstry));
                 } else {
-                    format(minstry, sizeof(minstry), "%s"GRAY"%s\t"GRAY"%s\t"YELLOW"%.0f m\n", minstry, _g_GPS_Bengkel[x][JobName], GetLocation(_g_GPS_Bengkel[x][Pos][0],_g_GPS_Bengkel[x][Pos][1],_g_GPS_Bengkel[x][Pos][2]), GetPlayerDistanceFromPoint(playerid, _g_GPS_Bengkel[x][Pos][0],_g_GPS_Bengkel[x][Pos][1],_g_GPS_Bengkel[x][Pos][2]));
+                    strcat(minstry, sprintf(""GRAY"%s\t"GRAY"%s\t"YELLOW"%.0f m\n", _g_GPS_Bengkel[x][JobName], GetLocation(_g_GPS_Bengkel[x][Pos][0],_g_GPS_Bengkel[x][Pos][1],_g_GPS_Bengkel[x][Pos][2]), GetPlayerDistanceFromPoint(playerid, _g_GPS_Bengkel[x][Pos][0],_g_GPS_Bengkel[x][Pos][1],_g_GPS_Bengkel[x][Pos][2])), sizeof(minstry));
                 }
             }
             Dialog_Show(playerid, "GPSBengkel", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- GPS", minstry, "Pilih", "Kembali");
@@ -2895,10 +2895,10 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
 		foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 1.5)) 
 		{
 			if (i % 2 == 0) {
-                format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
             }
             else {
-                format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
             }
 			NearestUser[playerid][count++] = i;
 		}

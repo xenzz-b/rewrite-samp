@@ -53,13 +53,13 @@ YCMD:cg(playerid, params[], help)
     if(!IsPlayerConnected(orderid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak terkoneksi ke server!");
     if(UberAppTemp[orderid][ServiceAcceptedBy] != playerid) return SEM(playerid, "Anda belum menerima orderan dari pemain tersebut!");
     format(haha, sizeof(haha), "{c0c0c8}(Uber Eats) "WHITE"Rincian orderan dari %s\n", GetPlayerRoleplayName(orderid));
-    format(haha, sizeof(haha), "%s-   (Details) No. HP: %s // Lokasi: %s // Tagihan: $%s\n", haha, PlayerPhoneData[orderid][phoneNumber], GetLocation(UberAppTemp[orderid][PosTemp][0], UberAppTemp[orderid][PosTemp][1], UberAppTemp[orderid][PosTemp][2]), FormatMoney(UberAppTemp[orderid][CostTemp]));
+    strcat(haha, sprintf("-   (Details) No. HP: %s // Lokasi: %s // Tagihan: $%s\n", PlayerPhoneData[orderid][phoneNumber], GetLocation(UberAppTemp[orderid][PosTemp][0], UberAppTemp[orderid][PosTemp][1], UberAppTemp[orderid][PosTemp][2]), FormatMoney(UberAppTemp[orderid][CostTemp])), sizeof(haha));
     if(UberAppTemp[orderid][ShotDeluxeQuant] > 0)
     {
-        format(haha, sizeof(haha), "%s-   (Menus) BBQ delicy - %dx\n", haha, UberAppTemp[orderid][ShotDeluxeQuant]);
+        strcat(haha, sprintf("-   (Menus) BBQ delicy - %dx\n", UberAppTemp[orderid][ShotDeluxeQuant]), sizeof(haha));
     }
-    format(haha, sizeof(haha), "%s-   (Catatan) %s\n", haha, UberAppTemp[orderid][DestTemp]);
-    format(haha, sizeof(haha), "%s-   (Pembayaran) Credits // Order ID: %d", haha, orderid);
+    strcat(haha, sprintf("-   (Catatan) %s\n", UberAppTemp[orderid][DestTemp]), sizeof(haha));
+    strcat(haha, sprintf("-   (Pembayaran) Credits // Order ID: %d", orderid), sizeof(haha));
     Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
     haha, "Tutup", "");
     return 1;

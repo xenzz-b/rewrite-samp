@@ -1009,22 +1009,6 @@ public LoadStats(playerid, const PlayersName[])
 		
 		static spstr[1655];
 
-		static const FacName[12][] = 
-		{
-			"Warga",
-			"Kepolisian",
-			"Paramedis",
-			"Pring Sewu Beach Club",
-			"Pemerintah",
-			"Bennys Automotive",
-			"Uber",
-			"Pinky Tiger Club",
-			"Pewarta",
-			"DriftKing Workshop",
-			"Jaya Abadi",
-			"Sri Mersing Resto"
-		};
-
 		static const CopRank[21][] = 
 		{
 			"N/A",
@@ -2488,7 +2472,7 @@ public CheckingCharList(playerid, const PlayersName[])
             new list[525];
             
             format(list, sizeof(list), "Character ID | Name (IP Address)\tLevel (Admin)\tRegistration Date\tLast Login\n");
-            format(list, sizeof(list), "%sThe UCP account does not have any characters!", list);
+            strcat(list, "The UCP account does not have any characters!", sizeof(list));
             Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s(UID: %d)", PlayersName, ucppid), list, "Tutup", "");
         }
     }

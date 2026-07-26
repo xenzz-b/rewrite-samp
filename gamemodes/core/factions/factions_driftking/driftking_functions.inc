@@ -238,10 +238,10 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 		{
 			if (i % 2 == 0) {
-            format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+            strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
             }
             else {
-                format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
             }
 			NearestUser[playerid][count++] = i;
 		}
@@ -617,15 +617,15 @@ Dialog:DriftKingLocker(playerid, response, listitem, inputtext[])
                 case 1: //male
                 {
                     Dialog_Show(playerid, "DriftKingUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Baju DriftKing", 
-                    "DriftKing 1\n\
-                    "GRAY"DriftKing 2\n\
-                    DriftKing 3", "Pilih", "Batal");
+                    "Racing Suit Pembalap\n\
+                    "GRAY"Jaket Tim Drift\n\
+                    Wearpack Kru Pit", "Pilih", "Batal");
                 }
                 case 2: //female
                 {
                     Dialog_Show(playerid, "DriftKingUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Baju DriftKing", 
-                    "DriftKing 1\n\
-                    "GRAY"DriftKing 2", "Pilih", "Batal");
+                    "Racing Suit Pembalap\n\
+                    "GRAY"Jaket Tim Drift", "Pilih", "Batal");
                 }
             }
         }
@@ -664,10 +664,10 @@ Dialog:DriftKingBosdesk(playerid, response, listitem, inputtext[])
             foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 1.5)) 
             {
                 if (i % 2 == 0) {
-                    format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 else {
-                    format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 NearestUser[playerid][count++] = i;
             }
@@ -1046,7 +1046,7 @@ Dialog:DriftKingPanel(playerid, response, listitem, inputtext[])
             {
                 if(InvoiceData[targetid][id][invoiceExists] && InvoiceData[targetid][id][invoiceOwner] == AccountData[targetid][pID]) 
                 {
-                    format(xjjs, sizeof(xjjs), "%s"WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", xjjs, id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost]));
+                    strcat(xjjs, sprintf(""WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost])), sizeof(xjjs));
                     count++;
                 }
             }

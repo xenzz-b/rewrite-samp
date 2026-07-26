@@ -255,15 +255,15 @@ stock ShowJPJMyLicense(playerid)
         if(PlayerHasLicense(playerid, lt))
         {
             if(IsLicenseExpired(playerid, lt))
-                format(str, sizeof(str), "%s{FF0000}[KADALUARSA] {FFFFFF}SIM %s\n", str, licNames[i]);
+                strcat(str, sprintf("{FF0000}[KADALUARSA] {FFFFFF}SIM %s\n", licNames[i]), sizeof(str));
             else
             {
                 new days = GetLicDaysLeft(playerid, lt);
-                format(str, sizeof(str), "%s{00FF00}[AKTIF] {FFFFFF}SIM %s - Sisa {FFFF00}%d hari\n", str, licNames[i], days);
+                strcat(str, sprintf("{00FF00}[AKTIF] {FFFFFF}SIM %s - Sisa {FFFF00}%d hari\n", licNames[i], days), sizeof(str));
             }
         }
         else
-            format(str, sizeof(str), "%s{AAAAAA}[TIDAK ADA] {FFFFFF}SIM %s\n", str, licNames[i]);
+            strcat(str, sprintf("{AAAAAA}[TIDAK ADA] {FFFFFF}SIM %s\n", licNames[i]), sizeof(str));
     }
 
     Dialog_Show(playerid, "JPJMyLic", DIALOG_STYLE_MSGBOX,
@@ -286,7 +286,7 @@ stock ShowJPJRenewMenu(playerid)
         if(PlayerHasLicense(playerid, licTypes[i]) && IsLicenseExpired(playerid, licTypes[i]))
         {
             hasExpired = true;
-            format(str, sizeof(str), "%sSIM %s - ${FFFF00}%d\n{FFFFFF}", str, licNames[i], GetLicFee(licTypes[i]));
+            strcat(str, sprintf("SIM %s - ${FFFF00}%d\n{FFFFFF}", licNames[i], GetLicFee(licTypes[i])), sizeof(str));
         }
     }
 
@@ -428,10 +428,10 @@ stock ShowJPJTheoryDetail(playerid, targetid)
         else
             jawabanText = "Tidak dijawab";
 
-        format(str, sizeof(str), "%s%s Soal %d: %s\n", str, status, q + 1, jawabanText);
+        strcat(str, sprintf("%s Soal %d: %s\n", status, q + 1, jawabanText), sizeof(str));
     }
 
-    format(str, sizeof(str), "%s\n{FFFFFF}Pilih tindakan:", str);
+    strcat(str, "\n{FFFFFF}Pilih tindakan:", sizeof(str));
 
     Dialog_Show(playerid, "JPJTheoryDetail", DIALOG_STYLE_LIST,
         "{00BFFF}Vertex Roleplay {FFFFFF}- Detail Ujian Teori",

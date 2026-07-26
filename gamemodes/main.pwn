@@ -4326,10 +4326,10 @@ OnPlayerUseItem(playerid, const name[])
 		foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 3.2)) 
 		{
 			if (i % 2 == 0) {
-				format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
 			}
 			else {
-				format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
 			}
 			NearestUser[playerid][count++] = i;
 		}
@@ -6243,10 +6243,10 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 3.2)) 
 		{
 			if (i % 2 == 0) {
-				format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
 			}
 			else {
-				format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
 			}
 			NearestUser[playerid][count++] = i;
 		}
@@ -6908,7 +6908,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		{
 			if(InvoiceData[playerid][id][invoiceExists] && InvoiceData[playerid][id][invoiceOwner] == AccountData[playerid][pID]) 
 			{
-				format(xjjs, sizeof(xjjs), "%s"WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", xjjs, id + 1, InvoiceData[playerid][id][invoiceName], InvoiceData[playerid][id][invoiceIssuerName], FormatMoney(InvoiceData[playerid][id][invoiceCost]));
+				strcat(xjjs, sprintf(""WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", id + 1, InvoiceData[playerid][id][invoiceName], InvoiceData[playerid][id][invoiceIssuerName], FormatMoney(InvoiceData[playerid][id][invoiceCost])), sizeof(xjjs));
 				ListedInvoices[playerid][count++] = id;
 			}
 		}
@@ -7496,10 +7496,10 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
         foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 		{
 			if (i % 2 == 0) {
-            format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+            strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
             }
             else {
-                format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
             }
 			NearestUser[playerid][count++] = i;
 		}
@@ -7553,10 +7553,10 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
         foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 		{
 			if (i % 2 == 0) {
-            format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+            strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
             }
             else {
-                format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
             }
 			NearestUser[playerid][count++] = i;
 		}

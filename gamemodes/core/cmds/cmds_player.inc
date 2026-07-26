@@ -185,42 +185,42 @@ YCMD:admins(playerid, params[], help)
                 {
                     if(AccountData[i][pAdmin] > 0)
                     {
-                        format(string, sizeof(string), "%s"ORANGERED"%s\t"YELLOW"%s\t%s\t%d\n", string, GetAdminLevel(i), AccountData[i][pAdminname], (AccountData[i][pAdminDuty]) ? (""GREEN"Bertugas") : (""ORANGE"Roleplay"), AccountData[i][pApoint]);
+                        strcat(string, sprintf(""ORANGERED"%s\t"YELLOW"%s\t%s\t%d\n", GetAdminLevel(i), AccountData[i][pAdminname], (AccountData[i][pAdminDuty]) ? (""GREEN"Bertugas") : (""ORANGE"Roleplay"), AccountData[i][pApoint]), sizeof(string));
                     }
 
                     if(AccountData[i][pApprentice])
                     {
-                        format(string, sizeof(string), "%s"GREEN"Apprentice\t"YELLOW"%s\t-\n", string, AccountData[i][pAdminname]);
+                        strcat(string, sprintf(""GREEN"Apprentice\t"YELLOW"%s\t-\n", AccountData[i][pAdminname]), sizeof(string));
                     }
 
                     if(AccountData[i][pWitch])
                     {
-                        format(string, sizeof(string), "%s"AQUAMARINE"The Witch\t"YELLOW"%s\t%s\n", string, AccountData[i][pAdminname], (AccountData[i][pAdminDuty]) ? (""GREEN"Bertugas") : (""ORANGE"Roleplay"));
+                        strcat(string, sprintf(""AQUAMARINE"The Witch\t"YELLOW"%s\t%s\n", AccountData[i][pAdminname], (AccountData[i][pAdminDuty]) ? (""GREEN"Bertugas") : (""ORANGE"Roleplay")), sizeof(string));
                     }
 
                     if(AccountData[i][pAdminHelper] >= 1)
                     {
-                        format(string, sizeof(string), "%s"GREEN"Helper\t"YELLOW"%s\t%s\t-\n", string, AccountData[i][pAdminname], (AccountData[i][pAdminDuty]) ? (""GREEN"Bertugas") : (""ORANGE"Roleplay"));
+                        strcat(string, sprintf(""GREEN"Helper\t"YELLOW"%s\t%s\t-\n", AccountData[i][pAdminname], (AccountData[i][pAdminDuty]) ? (""GREEN"Bertugas") : (""ORANGE"Roleplay")), sizeof(string));
                     }
 
                     if(AccountData[i][pAdminVlounter] >= 1)
                     {
-                        format(string, sizeof(string), "%s"GREEN"Vlounter\t"YELLOW"%s\t%s\t-\n", string, AccountData[i][pAdminname], (AccountData[i][pAdminDuty]) ? (""GREEN"Bertugas") : (""ORANGE"Roleplay"));
+                        strcat(string, sprintf(""GREEN"Vlounter\t"YELLOW"%s\t%s\t-\n", AccountData[i][pAdminname], (AccountData[i][pAdminDuty]) ? (""GREEN"Bertugas") : (""ORANGE"Roleplay")), sizeof(string));
                     }
 
                     if(AccountData[i][pAdminGirl] >= 1)
                     {
-                        format(string, sizeof(string), "%s"PINK"Admin Girl\t"YELLOW"%s\t%s\t-\n", string, AccountData[i][pAdminname], (AccountData[i][pAdminDuty]) ? (""GREEN"Bertugas") : (""ORANGE"Roleplay"));
+                        strcat(string, sprintf(""PINK"Admin Girl\t"YELLOW"%s\t%s\t-\n", AccountData[i][pAdminname], (AccountData[i][pAdminDuty]) ? (""GREEN"Bertugas") : (""ORANGE"Roleplay")), sizeof(string));
                     }
 
                     if(AccountData[i][pHandleBadside] >= 1)
                     {
-                        format(string, sizeof(string), "%s"RED"Handle Badside\t"YELLOW"%s\t%s\t-\n", string, AccountData[i][pAdminname], (AccountData[i][pAdminDuty]) ? (""GREEN"Bertugas") : (""ORANGE"Roleplay"));
+                        strcat(string, sprintf(""RED"Handle Badside\t"YELLOW"%s\t%s\t-\n", AccountData[i][pAdminname], (AccountData[i][pAdminDuty]) ? (""GREEN"Bertugas") : (""ORANGE"Roleplay")), sizeof(string));
                     }
 
                     if(AccountData[i][pHandleGoodside] >= 1)
                     {
-                        format(string, sizeof(string), "%s"RED"Handle Goodside\t"YELLOW"%s\t%s\t-\n", string, AccountData[i][pAdminname], (AccountData[i][pAdminDuty]) ? (""GREEN"Bertugas") : (""ORANGE"Roleplay"));
+                        strcat(string, sprintf(""RED"Handle Goodside\t"YELLOW"%s\t%s\t-\n", AccountData[i][pAdminname], (AccountData[i][pAdminDuty]) ? (""GREEN"Bertugas") : (""ORANGE"Roleplay")), sizeof(string));
                     }
 
                     count++;

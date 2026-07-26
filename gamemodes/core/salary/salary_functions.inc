@@ -188,20 +188,20 @@ public PaycheckShowForPlayer(playerid)
 			totalpaycheck += money;
 		}
 		format(string, sizeof(string), ""WHITE"Previous Balance: "GREEN"$%s\n", FormatMoney(AccountData[playerid][pBankMoney]));
-		format(string, sizeof(string), "%s"WHITE"Paycheck: "GREEN"$%s\n", string, FormatMoney(totalpaycheck));
+		strcat(string, sprintf(""WHITE"Paycheck: "GREEN"$%s\n", FormatMoney(totalpaycheck)), sizeof(string));
 
 		if(totalpaycheck >= 36507)
 		{
 			zakat = floatround(totalpaycheck * 0.025);
-			format(string, sizeof(string), "%s"WHITE"Tax (2,5): "RED"$%s\n", string, FormatMoney(floatround(zakat)));
+			strcat(string, sprintf(""WHITE"Tax (2,5): "RED"$%s\n", FormatMoney(floatround(zakat))), sizeof(string));
 		}
 		else
 		{
-			format(string, sizeof(string), "%s"WHITE"No Tax Payment\n", string);
+			strcat(string, ""WHITE"No Tax Payment\n", sizeof(string));
 		}
 
 		newbalance = AccountData[playerid][pBankMoney] + totalpaycheck - floatround(zakat);
-		format(string, sizeof(string), "%s"WHITE"New Balance: "GREEN"$%s\n", string, FormatMoney(newbalance));
+		strcat(string, sprintf(""WHITE"New Balance: "GREEN"$%s\n", FormatMoney(newbalance)), sizeof(string));
 
 		SendClientMessageEx(playerid, Y_CYAN, "<=================< {FFFFFF}Paycheck #%04d {00FFFF}>=================>", AccountData[playerid][pPaycheckIndex]);
 		SendClientMessageEx(playerid, Y_CYAN, "=> {FFFFFF}Previous Balance: {00FF00}$%s", FormatMoney(AccountData[playerid][pBankMoney]));

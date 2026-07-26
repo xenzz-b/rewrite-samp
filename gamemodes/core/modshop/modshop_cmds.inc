@@ -16,13 +16,13 @@ YCMD:modshop(playerid, params[], help)
     {
         if(vtData[iterid][x][vtoy_modelid] != 0)
         {
-            format(string, sizeof(string), "%s"WHITE"Edit Toys Model: "YELLOW"%d\t"WHITE"Slot: "RED"%d\n", string, vtData[iterid][x][vtoy_modelid], x);
+            strcat(string, sprintf(""WHITE"Edit Toys Model: "YELLOW"%d\t"WHITE"Slot: "RED"%d\n", vtData[iterid][x][vtoy_modelid], x), sizeof(string));
             count++;
         }
     }
     if(count < 11)
     {
-        format(string, sizeof(string), "%s"GREEN"+ Beli baru\t"GREEN"$5,000", string);
+        strcat(string, ""GREEN"+ Beli baru\t"GREEN"$5,000", sizeof(string));
     }
     Dialog_Show(playerid, "ModshopCatalog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Modshop", 
     string, "Pilih", "Batal");

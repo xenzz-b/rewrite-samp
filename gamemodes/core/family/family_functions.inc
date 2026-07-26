@@ -650,11 +650,11 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 		{
 			if (i % 2 == 0) 
             {
-                format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
             }
             else 
             {
-                format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
             }
 			NearestUser[playerid][count++] = i;
 		}
@@ -868,7 +868,7 @@ Dialog:BadsidePanel(playerid, response, listitem, inputtext[])
                 if(weaponid > 0)
                 {
                     count++;
-                    format(lstr, sizeof(lstr), "%s"RED"%d\t"RED"%s\t"RED"%d\n", lstr, i, ReturnWeaponName(weaponid), ammo);
+                    strcat(lstr, sprintf(""RED"%d\t"RED"%s\t"RED"%d\n", i, ReturnWeaponName(weaponid), ammo), sizeof(lstr));
                 }
             }
             if(count > 0)
@@ -1402,7 +1402,7 @@ Dialog:BadsideHolster(playerid, response, listitem, inputtext[])
                 }
                 else
                 {
-                    format(dialogstr, sizeof(dialogstr), "%s"GREEN"%d\t"GREEN"Kosong\t"GREEN"0\n", dialogstr, slot + 1);
+                    strcat(dialogstr, sprintf(""GREEN"%d\t"GREEN"Kosong\t"GREEN"0\n", slot + 1), sizeof(dialogstr));
                 }
             }
 
@@ -1515,10 +1515,10 @@ Dialog:BadsideBosdesk(playerid, response, listitem, inputtext[])
             foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 1.5)) 
             {
                 if (i % 2 == 0) {
-                    format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 else {
-                    format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 NearestUser[playerid][count++] = i;
             }

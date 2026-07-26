@@ -302,10 +302,10 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 		{
 			if (i % 2 == 0) {
-                format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
             }
             else {
-                format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
             }
 			NearestUser[playerid][count++] = i;
 		}
@@ -720,21 +720,21 @@ Dialog:ParamedisLocker(playerid, response, listitem, inputtext[])
             if(AccountData[playerid][pGender] == 1)
             {
                 Dialog_Show(playerid, "ParamedisUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- LSFD Uniform", 
-                "LSFD #1\n\
-                "GRAY"LSFD #2\n\
-                LSFD #3\n\
-                "GRAY"LSFD #4\n\
-                LSFD #5\n\
-                "GRAY"LSFD #6", "Pilih", "Batal");
+                "Seragam Paramedis Lapangan\n\
+                "GRAY"Seragam Dokter Jaga\n\
+                Seragam Perawat\n\
+                "GRAY"Seragam Ambulans\n\
+                Seragam Pemadam Kebakaran\n\
+                "GRAY"Seragam Tim Penyelamat", "Pilih", "Batal");
             }
             else
             {
                 Dialog_Show(playerid, "ParamedisUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- LSFD Uniform", 
-                "LSFD #1\n\
-                "GRAY"LSFD #2\n\
-                LSFD #3\n\
-                "GRAY"LSFD #4\n\
-                LSFD #5", "Pilih", "Batal");
+                "Seragam Paramedis Lapangan\n\
+                "GRAY"Seragam Dokter Jaga\n\
+                Seragam Perawat\n\
+                "GRAY"Seragam Ambulans\n\
+                Seragam Pemadam Kebakaran", "Pilih", "Batal");
             }
         }
     }
@@ -789,10 +789,10 @@ Dialog:ParamedisBosdesk(playerid, response, listitem, inputtext[])
             foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 1.5)) 
             {
                 if (i % 2 == 0) {
-                    format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 else {
-                    format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 NearestUser[playerid][count++] = i;
             }
@@ -1327,7 +1327,7 @@ Dialog:ParamedisPanel(playerid, response, listitem, inputtext[])
             {
                 if(InvoiceData[targetid][id][invoiceExists] && InvoiceData[targetid][id][invoiceOwner] == AccountData[targetid][pID]) 
                 {
-                    format(xjjs, sizeof(xjjs), "%s"WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", xjjs, id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost]));
+                    strcat(xjjs, sprintf(""WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost])), sizeof(xjjs));
                     count++;
                 }
             }

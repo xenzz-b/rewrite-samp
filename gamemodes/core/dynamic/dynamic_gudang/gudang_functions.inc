@@ -418,7 +418,7 @@ Dialog:GudangItemVault(playerid, response, listitem, inputtext[])
                 {
                     cache_get_value_name(x, "invent_Item", itemname);
                     cache_get_value_name_int(x, "invent_Quantity", amounts);
-                    format(str, sizeof(str), "%s%s\t%d\t-\n", str, itemname, amounts);
+                    strcat(str, sprintf("%s\t%d\t-\n", itemname, amounts), sizeof(str));
                 }
                 Dialog_Show(playerid, "GudangItemVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Gudang", str, "Pilih", "Batal");
             }

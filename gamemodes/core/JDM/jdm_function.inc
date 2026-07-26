@@ -147,10 +147,10 @@ Show_JDMInfo(playerid)
 
     new info[1024];
     format(info, sizeof(info), "Nama JDM\t"YELLOW"%s\n", GetJDMName(jid));
-    format(info, sizeof(info), "%sKetua\t"YELLOW"%s\n", info, GetJDMLeaderName(jid));
-    format(info, sizeof(info), "%sPoin JDM\t"YELLOW"%d\n", info, JDMData[jid][jdmPoints]);
-    format(info, sizeof(info), "%sAnggota Online\t"YELLOW"%d\n", info, CountJDMOnline(jid));
-    format(info, sizeof(info), "%sRank Anda\t"YELLOW"%s\n", info, JDMRank[AccountData[playerid][pJDMRank]]);
+    strcat(info, sprintf("Ketua\t"YELLOW"%s\n", GetJDMLeaderName(jid)), sizeof(info));
+    strcat(info, sprintf("Poin JDM\t"YELLOW"%d\n", JDMData[jid][jdmPoints]), sizeof(info));
+    strcat(info, sprintf("Anggota Online\t"YELLOW"%d\n", CountJDMOnline(jid)), sizeof(info));
+    strcat(info, sprintf("Rank Anda\t"YELLOW"%s\n", JDMRank[AccountData[playerid][pJDMRank]]), sizeof(info));
 
     Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, "Informasi JDM", info, "Tutup", "");
     return 1;
@@ -691,11 +691,11 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         {
             if (i % 2 == 0) 
             {
-                format(str, sizeof(str), "%s"WHITE"Player ID - (%d)\n", str, i);
+                strcat(str, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(str));
             }
             else 
             {
-                format(str, sizeof(str), "%s"GRAY"Player ID - (%d)\n", str, i);
+                strcat(str, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(str));
             }
             NearestUser[playerid][count++] = i;
         }
@@ -842,10 +842,10 @@ Dialog:JDMBosDesk(playerid, response, listitem, inputtext[])
             foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 1.5)) 
             {
                 if (i % 2 == 0) {
-                    format(str, sizeof(str), "%s"WHITE"Player ID - (%d)\n", str, i);
+                    strcat(str, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(str));
                 }
                 else {
-                    format(str, sizeof(str), "%s"GRAY"Player ID - (%d)\n", str, i);
+                    strcat(str, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(str));
                 }
                 NearestUser[playerid][count++] = i;
             }
@@ -1114,7 +1114,7 @@ Dialog:JDMHolsterMenu(playerid, response, listitem, inputtext[])
                 }
                 else
                 {
-                    format(dialogstr, sizeof(dialogstr), "%s"GREEN"%d\t"GREEN"Kosong\t"GREEN"0\n", dialogstr, slot + 1);
+                    strcat(dialogstr, sprintf(""GREEN"%d\t"GREEN"Kosong\t"GREEN"0\n", slot + 1), sizeof(dialogstr));
                 }
             }
 

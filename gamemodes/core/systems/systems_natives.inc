@@ -1722,11 +1722,11 @@ ShowCharacterList(playerid)
 	format(sgstr, sizeof(sgstr), "Name\tLevel\tMoney\tBank\n");
 	for (new i; i < MAX_CHARS; i ++) if(!isnull(PlayerChar[playerid][i]))
 	{
-	    format(sgstr, sizeof(sgstr), "%s%s\t%d\t$%s\t$%s\n", sgstr, PlayerChar[playerid][i], PlayerCharLevel[playerid][i], FormatMoney(PlayerCharCash[playerid][i]), FormatMoney(PlayerCharBank[playerid][i]));
+	    strcat(sgstr, sprintf("%s\t%d\t$%s\t$%s\n", PlayerChar[playerid][i], PlayerCharLevel[playerid][i], FormatMoney(PlayerCharCash[playerid][i]), FormatMoney(PlayerCharBank[playerid][i])), sizeof(sgstr));
 		count++;
 	}
 	if(count < MAX_CHARS)
-		format(sgstr, sizeof(sgstr), "%s"GREEN"+ New Character", sgstr);
+		strcat(sgstr, ""GREEN"+ New Character", sizeof(sgstr));
 
 	Dialog_Show(playerid, "CharacterList", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Character List", sgstr, "Pilih", "Quit");
 	CancelSelectTextDraw(playerid);
@@ -3093,27 +3093,13 @@ GetFamilyRankName(playerid)
     return rnnrt;
 }
 
-static const FacName[12][] = 
-{
-	"Warga",
-	"Kepolisian",
-	"Paramedis",
-	"Pring Sewu Beach Club",
-	"Pemerintah",
-	"Bennys Automotive",
-	"Uber",
-	"Pinky Tiger Club",
-	"Pewarta",
-	"DriftKing Workshop",
-	"Jaya Abadi",
-	"Sri Mersing Resto"
-};
-
 GetFactionName(playerid) 
 {
-    new fctnr[128];
+    new fctnr[128], fid = AccountData[playerid][pFaction];
 
-    format(fctnr, sizeof(fctnr), FacName[AccountData[playerid][pFaction]]);
+    if(fid < 0 || fid >= sizeof(FacName)) fid = FACTION_NONE;
+
+    format(fctnr, sizeof(fctnr), FacName[fid]);
     return fctnr;
 }
 
@@ -4505,6 +4491,12 @@ GivePlayerWeaponEx(playerid, weaponid, ammo, wtype) //memberikan senjata valid y
 	GunData[playerid][g_aWeaponSlots[weaponid]][WeaponID] = weaponid;
 	GunData[playerid][g_aWeaponSlots[weaponid]][WeaponAmmo] += ammo;
 	GunData[playerid][g_aWeaponSlots[weaponid]][WeaponType] = wtype;
+
+	if(GunData[playerid][g_aWeaponSlots[weaponid]][WeaponAmmo] > MAX_WEAPON_AMMO)
+	{
+		ammo -= (GunData[playerid][g_aWeaponSlots[weaponid]][WeaponAmmo] - MAX_WEAPON_AMMO);
+		GunData[playerid][g_aWeaponSlots[weaponid]][WeaponAmmo] = MAX_WEAPON_AMMO;
+	}
 
     GivePlayerWeapon(playerid, weaponid, ammo);
 

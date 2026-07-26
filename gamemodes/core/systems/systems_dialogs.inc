@@ -397,7 +397,7 @@ Dialog:NewCharAge(playerid, response, listitem, inputtext[])
 			static originstring[3528+1];
 			for(new x = 0; x < sizeof(_g_originName);x++)
 			{
-				format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
+				strcat(originstring, sprintf("%s\n", _g_originName[x]), sizeof(originstring));
 			}
 			Dialog_Show(playerid, "NewCharOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Origin", originstring, "Pilih", "");
 		}
@@ -420,7 +420,7 @@ Dialog:NewCharOrigin(playerid, response, listitem, inputtext[])
 		static originstring[3528+1];
 		for(new x; x < sizeof(_g_originName); x++)
 		{
-			format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
+			strcat(originstring, sprintf("%s\n", _g_originName[x]), sizeof(originstring));
 		}
 		return Dialog_Show(playerid, "NewCharOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Origin", originstring, "Pilih", "");
 	}
@@ -1996,10 +1996,10 @@ Dialog:VehicleTrunk(playerid, response, listitem, inputtext[])
 			foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 3.2)) 
 			{
 				if (i % 2 == 0) {
-					format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				else {
-					format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				NearestUser[playerid][count++] = i;
 			}
@@ -2032,10 +2032,10 @@ Dialog:VehicleTrunk(playerid, response, listitem, inputtext[])
 			foreach(new i : Player) if(i != playerid) if((pInSpecMode[i] == 2 || pInSpecMode[i] == 3) && SavingVehID[i] == vehid) 
 			{
 				if (i % 2 == 0) {
-					format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				else {
-					format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				NearestUser[playerid][count++] = i;
 			}
@@ -2660,9 +2660,9 @@ Dialog:AnswerAsks(playerid, response, listitem, inputtext[])
 		foreach(new i : Asks)
 		{
 			if(strlen(AskData[i][askText]) > 64)
-				format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%.64s...\n", string, i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]);
+				strcat(string, sprintf("#%d\t%s [%s] (%d)\t%.64s...\n", i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]), sizeof(string));
 			else
-				format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%s\n", string, i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]);
+				strcat(string, sprintf("#%d\t%s [%s] (%d)\t%s\n", i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]), sizeof(string));
 			PlayerListitem[playerid][counting++] = i;
 		}
 
@@ -2693,9 +2693,9 @@ Dialog:AnswerAsks(playerid, response, listitem, inputtext[])
 	foreach(new i : Asks)
 	{
 		if(strlen(AskData[i][askText]) > 64)
-			format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%.64s...\n", string, i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]);
+			strcat(string, sprintf("#%d\t%s [%s] (%d)\t%.64s...\n", i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]), sizeof(string));
 		else
-			format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%s\n", string, i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]);
+			strcat(string, sprintf("#%d\t%s [%s] (%d)\t%s\n", i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]), sizeof(string));
 
 		PlayerListitem[playerid][counting++] = i;
 	}
@@ -2745,9 +2745,9 @@ Dialog:RespondReports(playerid, response, listitem, inputtext[])
 		foreach(new i : Reports)
 		{
 			if(strlen(ReportData[i][rText]) > 64)
-				format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%.64s...\n", string, i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]);
+				strcat(string, sprintf("#%d\t%s [%s] (%d)\t%.64s...\n", i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]), sizeof(string));
 			else
-				format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%s\n", string, i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]);
+				strcat(string, sprintf("#%d\t%s [%s] (%d)\t%s\n", i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]), sizeof(string));
 
 			PlayerListitem[playerid][counting++] = i;
 		}
@@ -2779,9 +2779,9 @@ Dialog:RespondReports(playerid, response, listitem, inputtext[])
 	foreach(new i : Reports)
 	{
 		if(strlen(ReportData[i][rText]) > 64)
-			format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%.64s...\n", string, i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]);
+			strcat(string, sprintf("#%d\t%s [%s] (%d)\t%.64s...\n", i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]), sizeof(string));
 		else
-			format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%s\n", string, i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]);
+			strcat(string, sprintf("#%d\t%s [%s] (%d)\t%s\n", i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]), sizeof(string));
 
 		PlayerListitem[playerid][counting++] = i;
 	}
@@ -3444,7 +3444,7 @@ Dialog:EmoteList(playerid, response, listitem, inputtext[])
 			static string[1524];
 			if (!strlen(string)) {
 				for(new i; i < sizeof(g_AnimDetails); i ++) {
-					format(string, sizeof(string), "%s%s\n", string, g_AnimDetails[i][e_AnimationName]);
+					strcat(string, sprintf("%s\n", g_AnimDetails[i][e_AnimationName]), sizeof(string));
 				}
 			}
 			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Emotes", string, "Tutup", "");
@@ -3454,7 +3454,7 @@ Dialog:EmoteList(playerid, response, listitem, inputtext[])
 			static string[1524];
 			if (!strlen(string)) {
 				for(new i; i < sizeof(g_AnimPropDetails); i ++) {
-					format(string, sizeof(string), "%s%s\n", string, g_AnimPropDetails[i][e_AnimationPropName]);
+					strcat(string, sprintf("%s\n", g_AnimPropDetails[i][e_AnimationPropName]), sizeof(string));
 				}
 			}
 			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Emotes Property", string, "Tutup", "");
@@ -3466,7 +3466,7 @@ Dialog:EmoteList(playerid, response, listitem, inputtext[])
 			{
 				for(new i; i < sizeof(g_AnimSharedName); i ++) 
 				{
-					format(string, sizeof(string), "%s%s\n", string, g_AnimSharedName[i]);
+					strcat(string, sprintf("%s\n", g_AnimSharedName[i]), sizeof(string));
 				}
 			}
 			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Emotes Shared", string, "Tutup", "");
@@ -3598,15 +3598,15 @@ Dialog:CheckWarnsDetail(playerid, response, listitem, inputtext[])
 				{
 					case 1:
 					{
-						format(dahla, sizeof(dahla), "%s"GREEN"[WARN]\t"WHITE"%s\t%s\t%s\n", dahla, PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+						strcat(dahla, sprintf(""GREEN"[WARN]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]), sizeof(dahla));
 					}
 					case 2:
 					{
-						format(dahla, sizeof(dahla), "%s"YELLOW"[JAIL]\t"WHITE"%s\t%s\t%s\n", dahla, PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+						strcat(dahla, sprintf(""YELLOW"[JAIL]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]), sizeof(dahla));
 					}
 					case 3:
 					{
-						format(dahla, sizeof(dahla), "%s"ORANGERED"[BAN]\t"WHITE"%s\t%s\t%s\n", dahla, PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+						strcat(dahla, sprintf(""ORANGERED"[BAN]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]), sizeof(dahla));
 					}
 				}
 				PlayerListitem[playerid][count++] = id;
@@ -3640,15 +3640,15 @@ Dialog:CheckMyWarnsDetail(playerid, response, listitem, inputtext[])
 				{
 					case 1:
 					{
-						format(dahla, sizeof(dahla), "%s"GREEN"[WARN]\t"WHITE"%s\t%s\t%s\n", dahla, PlayerWarning[playerid][id][warnIssuer], PlayerWarning[playerid][id][warnDate], PlayerWarning[playerid][id][warnReason]);
+						strcat(dahla, sprintf(""GREEN"[WARN]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[playerid][id][warnIssuer], PlayerWarning[playerid][id][warnDate], PlayerWarning[playerid][id][warnReason]), sizeof(dahla));
 					}
 					case 2:
 					{
-						format(dahla, sizeof(dahla), "%s"YELLOW"[JAIL]\t"WHITE"%s\t%s\t%s\n", dahla, PlayerWarning[playerid][id][warnIssuer], PlayerWarning[playerid][id][warnDate], PlayerWarning[playerid][id][warnReason]);
+						strcat(dahla, sprintf(""YELLOW"[JAIL]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[playerid][id][warnIssuer], PlayerWarning[playerid][id][warnDate], PlayerWarning[playerid][id][warnReason]), sizeof(dahla));
 					}
 					case 3:
 					{
-						format(dahla, sizeof(dahla), "%s"ORANGERED"[BAN]\t"WHITE"%s\t%s\t%s\n", dahla, PlayerWarning[playerid][id][warnIssuer], PlayerWarning[playerid][id][warnDate], PlayerWarning[playerid][id][warnReason]);
+						strcat(dahla, sprintf(""ORANGERED"[BAN]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[playerid][id][warnIssuer], PlayerWarning[playerid][id][warnDate], PlayerWarning[playerid][id][warnReason]), sizeof(dahla));
 					}
 				}
 				PlayerListitem[playerid][count++] = id;
@@ -4914,10 +4914,10 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 			{
 				if (i % 2 == 0) {
-				format(frmxt, sizeof(frmxt), "%s"WHITE"Kantong - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""WHITE"Kantong - (%d)\n", i), sizeof(frmxt));
 				}
 				else {
-					format(frmxt, sizeof(frmxt), "%s"GRAY"Kantong - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""GRAY"Kantong - (%d)\n", i), sizeof(frmxt));
 				}
 				NearestUser[playerid][count++] = i;
 			}
@@ -4973,10 +4973,10 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 			{
 				if (i % 2 == 0) {
-				format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				else {
-					format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				NearestUser[playerid][count++] = i;
 			}
@@ -5024,10 +5024,10 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 			{
 				if (i % 2 == 0) {
-				format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				else {
-					format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				NearestUser[playerid][count++] = i;
 			}
@@ -5086,10 +5086,10 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 			{
 				if (i % 2 == 0) {
-				format(frmxt, sizeof(frmxt), "%s"WHITE"Kantong - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""WHITE"Kantong - (%d)\n", i), sizeof(frmxt));
 				}
 				else {
-					format(frmxt, sizeof(frmxt), "%s"GRAY"Kantong - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""GRAY"Kantong - (%d)\n", i), sizeof(frmxt));
 				}
 				NearestUser[playerid][count++] = i;
 			}
@@ -5145,10 +5145,10 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 			{
 				if (i % 2 == 0) {
-				format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				else {
-					format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				NearestUser[playerid][count++] = i;
 			}

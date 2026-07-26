@@ -104,10 +104,10 @@ Player_NearRusun(playerid, rsid)
     foreach(new i : Player) if(i != playerid) if(IsPlayerInRangeOfPoint(i, 1.5, RusunData[rsid][rusunPos][0], RusunData[rsid][rusunPos][1], RusunData[rsid][rusunPos][2])) 
     {
         if (i % 2 == 0) {
-            format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+            strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
         }
         else {
-            format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+            strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
         }
         NearestUser[playerid][counting++] = i;
     }
@@ -169,7 +169,7 @@ public Player_OpenSavedClothes(playerid)
         for(new i; i < rows; i++)
         {
             cache_get_value_name(i, "Name", ClothesName);
-            format(sjjr, sizeof(sjjr), "%s%s\n", sjjr, ClothesName);
+            strcat(sjjr, sprintf("%s\n", ClothesName), sizeof(sjjr));
         }
         Dialog_Show(playerid, "RusunClothes", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Pakaian", 
         sjjr, "Pilih", "Kembali");

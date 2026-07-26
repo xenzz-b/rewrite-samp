@@ -50,6 +50,12 @@
 #define LSPD_RANK_HEAVYGUN  13      // pangkat minimal utk MP5 ke atas (IPDA)
 #define PAYCHECK_COOLDOWN   3600    // detik jeda antar pencairan
 
+// --- Properti rumah ---
+#define HOUSE_LAPOR_DURATION 2592000 // 30 hari dalam detik sebelum rumah digusur
+
+// --- Batas amunisi ---
+#define MAX_WEAPON_AMMO     500     // batas maksimal amunisi per senjata
+
 #define MAX_FACTIONS 13
 #define MAX_FACTIONS_ITEMS 500
 #define MAX_COMPANY_ITEMS 500

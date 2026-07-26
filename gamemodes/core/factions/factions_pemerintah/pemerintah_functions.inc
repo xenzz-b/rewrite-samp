@@ -241,10 +241,10 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 		{
 			if (i % 2 == 0) {
-                format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
             }
             else {
-                format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
             }
 			NearestUser[playerid][count++] = i;
 		}
@@ -644,7 +644,7 @@ Dialog:PemerintahPanel(playerid, response, listitem, inputtext[])
             {
                 if(InvoiceData[targetid][id][invoiceExists] && InvoiceData[targetid][id][invoiceOwner] == AccountData[targetid][pID]) 
                 {
-                    format(xjjs, sizeof(xjjs), "%s"WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", xjjs, id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost]));
+                    strcat(xjjs, sprintf(""WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost])), sizeof(xjjs));
                     count++;
                 }
             }
@@ -717,7 +717,7 @@ Dialog:PemerintahPanel(playerid, response, listitem, inputtext[])
                 if(weaponid > 0)
                 {
                     count++;
-                    format(lstr, sizeof(lstr), "%s"RED"%d\t"RED"%s\t"RED"%d\n", lstr, i, ReturnWeaponName(weaponid), ammo);
+                    strcat(lstr, sprintf(""RED"%d\t"RED"%s\t"RED"%d\n", i, ReturnWeaponName(weaponid), ammo), sizeof(lstr));
                 }
             }
             if(count > 0)
@@ -880,11 +880,11 @@ Dialog:PemerintahLocker(playerid, response, listitem, inputtext[])
                     Pegawai Senior\n\
                     "GRAY"Pegawai Junior\n\
                     Tim Magang\n\
-                    "GRAY"Pemerintah 3\n\
-                    Pemerintah 4\n\
-                    "GRAY"Pemerintah 5\n\
-                    Pemerintah 6\n\
-                    "GRAY"Pemerintah 7", "Pilih", "Batal");
+                    "GRAY"Staf Administrasi\n\
+                    Staf Humas\n\
+                    "GRAY"Staf Protokoler\n\
+                    Petugas Kebersihan\n\
+                    "GRAY"Satpam", "Pilih", "Batal");
                 }
             }
         }
@@ -938,10 +938,10 @@ Dialog:PemerintahBosdesk(playerid, response, listitem, inputtext[])
             foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 1.5)) 
             {
                 if (i % 2 == 0) {
-                    format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 else {
-                    format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 NearestUser[playerid][count++] = i;
             }
@@ -1347,7 +1347,7 @@ Dialog:ChangeNameOrigin(playerid, response, listitem, inputtext[])
 		static originstring[3528+1];
 		for(new x; x < sizeof(_g_originName); x++)
 		{
-			format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
+			strcat(originstring, sprintf("%s\n", _g_originName[x]), sizeof(originstring));
 		}
 		return Dialog_Show(playerid, "ChangeNameOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Origin", originstring, "Pilih", "");
 	}

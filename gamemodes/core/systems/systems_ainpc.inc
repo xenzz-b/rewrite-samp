@@ -831,17 +831,17 @@ YCMD:npcinfo(playerid, params[], help) {
     
     new message[512];
     format(message, sizeof(message), "=== NPC AI System Info ===\n");
-    format(message, sizeof(message), "%sTotal NPC aktif: %d\n", message, g_TotalNPCs);
+    strcat(message, sprintf("Total NPC aktif: %d\n", g_TotalNPCs), sizeof(message));
     
     if(g_PlayerNPCData[playerid][player_isTalking]) {
         new npcId = g_PlayerNPCData[playerid][player_currentNPC];
-        format(message, sizeof(message), "%s\n--- Status Percakapan ---\n", message);
-        format(message, sizeof(message), "%sSedang berbicara dengan NPC ID: %d\n", message, npcId);
-        format(message, sizeof(message), "%sFriendly Level: %d/100\n", message, g_PlayerNPCData[playerid][player_friendlyLevel]);
-        format(message, sizeof(message), "%sMood: %d/100\n", message, g_PlayerNPCData[playerid][player_mood]);
-        format(message, sizeof(message), "%sMemory tersimpan: %d/%d pesan", message, g_PlayerNPCData[playerid][player_memoryCount], MAX_MEMORY_MESSAGES);
+        strcat(message, "\n--- Status Percakapan ---\n", sizeof(message));
+        strcat(message, sprintf("Sedang berbicara dengan NPC ID: %d\n", npcId), sizeof(message));
+        strcat(message, sprintf("Friendly Level: %d/100\n", g_PlayerNPCData[playerid][player_friendlyLevel]), sizeof(message));
+        strcat(message, sprintf("Mood: %d/100\n", g_PlayerNPCData[playerid][player_mood]), sizeof(message));
+        strcat(message, sprintf("Memory tersimpan: %d/%d pesan", g_PlayerNPCData[playerid][player_memoryCount], MAX_MEMORY_MESSAGES), sizeof(message));
     } else {
-        format(message, sizeof(message), "%s\nTidak sedang berbicara dengan NPC.\nTekan Y di dekat NPC untuk mulai berbicara.", message);
+        strcat(message, "\nTidak sedang berbicara dengan NPC.\nTekan Y di dekat NPC untuk mulai berbicara.", sizeof(message));
     }
     
     SendClientMessage(playerid, COLOR_INFO, message);

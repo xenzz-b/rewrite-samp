@@ -952,7 +952,7 @@ YCMD:jaillist(playerid, params[], help)
     {
         if (OJailData[i][jailed])
         {
-            format(line3, sizeof(line3), "%s\n"WHITE"%s(ID: %d) [Jail Time: %d seconds]", line3, AccountData[i][pName], i, OJailData[i][jailTime]);
+            strcat(line3, sprintf("\n"WHITE"%s(ID: %d) [Jail Time: %d seconds]", AccountData[i][pName], i, OJailData[i][jailTime]), sizeof(line3));
             count++;
         }
     }
@@ -2155,19 +2155,19 @@ YCMD:fixes(playerid, params[], help)
             {
                 case 1:
                 {
-                    format(string, sizeof(string), "%s"YELLOW"P%d: "WHITE"%s\tVisual Bug (WWID)\n", string, i, AccountData[i][pName]);
+                    strcat(string, sprintf(""YELLOW"P%d: "WHITE"%s\tVisual Bug (WWID)\n", i, AccountData[i][pName]), sizeof(string));
                 }
                 case 2:
                 {
-                    format(string, sizeof(string), "%s"YELLOW"P%d: "WHITE"%s\tCharacter Stuck\n", string, i, AccountData[i][pName]);
+                    strcat(string, sprintf(""YELLOW"P%d: "WHITE"%s\tCharacter Stuck\n", i, AccountData[i][pName]), sizeof(string));
                 }
                 case 3:
                 {
-                    format(string, sizeof(string), "%s"YELLOW"P%d: "WHITE"%s\tCannot Move\n", string, i, AccountData[i][pName]);
+                    strcat(string, sprintf(""YELLOW"P%d: "WHITE"%s\tCannot Move\n", i, AccountData[i][pName]), sizeof(string));
                 }
                 case 4:
                 {
-                    format(string, sizeof(string), "%s"YELLOW"P%d: "WHITE"%s\tBug Balai Kota\n", string, i, AccountData[i][pName]);
+                    strcat(string, sprintf(""YELLOW"P%d: "WHITE"%s\tBug Balai Kota\n", i, AccountData[i][pName]), sizeof(string));
                 }
             }
             PlayerListitem[playerid][count++] = i;

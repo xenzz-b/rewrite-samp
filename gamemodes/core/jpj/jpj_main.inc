@@ -234,7 +234,7 @@ stock ShowJPJApplicantList(playerid)
             new step[32];
             if(JPJTemp[i][jpjStep] == 2)      step = "Ujian Teori";
             else if(JPJTemp[i][jpjStep] == 3) step = "Ujian Mengemudi";
-            format(str, sizeof(str), "%s%s [ID:%d] - %s\n", str, AccountData[i][pName], i, step);
+            strcat(str, sprintf("%s [ID:%d] - %s\n", AccountData[i][pName], i, step), sizeof(str));
             count++;
         }
     }
@@ -307,11 +307,11 @@ stock ShowJPJDriveDetail(playerid, targetid)
         viol);
 
     if(viol > 0)
-        format(str, sizeof(str), "%s{FFFF00}Catatan:\n{FFFFFF}%s\n\n", str, JPJTemp[targetid][jpjDriveNotes]);
+        strcat(str, sprintf("{FFFF00}Catatan:\n{FFFFFF}%s\n\n", JPJTemp[targetid][jpjDriveNotes]), sizeof(str));
     else
-        format(str, sizeof(str), "%s{00FF00}Tidak ada pelanggaran tercatat.\n\n", str);
+        strcat(str, "{00FF00}Tidak ada pelanggaran tercatat.\n\n", sizeof(str));
 
-    format(str, sizeof(str), "%s{FFFFFF}Pilih tindakan:", str);
+    strcat(str, "{FFFFFF}Pilih tindakan:", sizeof(str));
 
     Dialog_Show(playerid, "JPJDriveDetail", DIALOG_STYLE_LIST,"{00BFFF}Vertex Roleplay {FFFFFF}- Detail Ujian Mengemudi",str,"Luluskan\nGagalkan (Input Alasan)", "Batal");
 }
