@@ -80,39 +80,6 @@ enum e_Anticheat
 };
 new Anticheat[MAX_PLAYERS][e_Anticheat];
 
-/*
-	=====================================================================
-	  ANTICHEAT v3 - GRANT BASED DETECTION (by Claps)
-	=====================================================================
-
-	MASALAH v2:
-	  Deteksi lama membandingkan nilai sekarang dengan "nilai terakhir yang
-	  terlihat" (acHealth/acArmour). Cheater tinggal set armor 0 -> 100 lalu
-	  turunkan sedikit, atau bermain di bawah threshold +15, dan lolos.
-	  Baseline juga ikut ternodai karena selalu di-update tiap detik.
-
-	SOLUSI v3 - GRANT/LEDGER:
-	  Server adalah SATU-SATUNYA sumber kebenaran. Setiap kali script resmi
-	  memberi health/armour/veh-health, ia WAJIB memanggil AC_GrantHealth()
-	  / AC_GrantArmour() / AC_GrantVehHealth(). Nilai itu disimpan sebagai
-	  "ledger" (acLedgerHP / acLedgerArmour / vehLedgerHP).
-
-	  Aturannya sederhana dan mutlak:
-		 nilai_client  >  ledger + toleransi   =>  CHEAT (pasti)
-		 nilai_client  <= ledger               =>  SAH   (turun itu wajar,
-													ledger ikut turun)
-
-	  Karena health/armour TIDAK PERNAH bisa naik sendiri di GTA:SA tanpa
-	  aksi server, kenaikan apa pun di luar grant = 100% cheat. Tidak ada
-	  threshold besar, tidak ada tebak-tebakan.
-
-	KEUNGGULAN:
-	  1. Naik 0->100 maupun 0->5 sama-sama kedetect (toleransi cuma 1.5 utk desync).
-	  2. Bandage / kevlar / medic / bengkel otomatis aman selama lewat grant.
-	  3. Cheater turunkan lagi ke semula (100->0) TIDAK di-kick ulang,
-		 karena ledger sudah disinkron & pelanggaran hanya dihitung sekali.
-	  4. Ledger hanya turun mengikuti damage, jadi tidak bisa "dinaikkan pelan-pelan".
-*/
 
 // --- Ambang deteksi (v4: diperketat) ---
 #define AC_SPAWN_GRACE_TIME     (5)     // detik sejak spawn sebelum deteksi aktif
@@ -125,6 +92,8 @@ new Anticheat[MAX_PLAYERS][e_Anticheat];
 #define AC_HP_TOLERANCE         (0.60)  // toleransi desync health  (HP)
 #define AC_ARMOUR_TOLERANCE     (0.60)  // toleransi desync armour  (AP)
 #define AC_VEH_TOLERANCE        (8.0)   // toleransi desync vehicle health
+#define AC_VEH_DROP_LIMIT       (250.0) // penurunan health kendaraan max per tick
+#define AC_VEH_DEATH_HP         (300.0) // di bawah ini kendaraan memang sekarat
 
 #define AC_GRANT_WINDOW         (2)     // detik jendela sah setelah grant
 
@@ -152,20 +121,6 @@ new
 // ---------------------------------------------------------------------
 
 // Staff/immune: jangan pernah auto-kick
-/*  Siapa yang KEBAL anticheat?
-
-    HANYA staff yang sedang ON DUTY (/aduty). Bukan "punya jabatan admin",
-    tapi benar-benar sedang bertugas.
-
-    Alasannya: /aduty memang menyetel HP ke 99999, memberi warna & atribut
-    khusus, sehingga tanpa pengecualian ini admin bertugas pasti kena
-    deteksi. Begitu /aduty dimatikan, HP dikembalikan ke nilai asli lewat
-    SetPlayerHealth() (tercatat wrapper), jadi ledger langsung sinkron.
-
-    Admin/witch/helper/vlounter yang sedang OFF DUTY diperlakukan sama
-    persis seperti player biasa - mereka tetap bisa terdeteksi dan
-    di-kick. Ini disengaja: akun staff yang dibajak atau staff yang
-    curang saat bermain normal tidak boleh lolos.                        */
 AC_IsExempt(playerid)
 {
 	if(!IsPlayerConnected(playerid) || IsPlayerNPC(playerid))
@@ -250,17 +205,6 @@ stock AC_Warn(playerid, const reason[], const detail[] = "-")
 	return 1;
 }
 
-/*  Kick terpandu:
-    - dicek ulang oleh AC_CanPunish (anti false positive)
-    - hanya sekali per sesi (anti double kick / spam timer)
-    - selalu memberi tahu staff + console
-    Return 1 kalau benar-benar dikick, 0 kalau diabaikan oleh guard. */
-/*  Kembalikan health/armour ke nilai ledger (kondisi sah terakhir) dan
-    kunci supaya tidak bisa dinaikkan lagi sebelum kick benar-benar terjadi.
-
-    Ini WAJIB dipanggil saat kick: KickEx() menunda pemutusan ~1 detik,
-    dan pada jeda itu UpdateAccountData() bisa menyimpan nilai hasil hack
-    ke database kalau tidak dikembalikan lebih dulu.                      */
 AC_RevertPlayerState(playerid)
 {
 	new Float:hp = AC_LedgerHP[playerid], Float:ap = AC_LedgerArmour[playerid];
@@ -292,7 +236,7 @@ AC_RevertVehicleState(vehicleid)
 
 	if(vmax <= 0.0) vmax = 1000.0;
 	if(vhp > vmax)  vhp = vmax;
-	if(vhp < 250.0) vhp = 250.0;   // jangan bikin meledak
+	if(vhp < 1.0)   vhp = 1.0;
 
 	AC_RawSetVehHP(vehicleid, vhp);
 	VehicleCore[vehicleid][vCoreHealth]  = vhp;
@@ -395,16 +339,6 @@ stock AC_GrantVehHealth(vehicleid, Float:value)
 	return 1;
 }
 
-/*  Cari driver sebuah kendaraan - O(1).
-
-    OPTIMASI: versi lama memakai foreach(Player) BERSARANG di dalam
-    foreach(Vehicle), jadi O(P*V). Dengan 100 player dan 2000 kendaraan
-    itu 200.000 iterasi setiap 700ms.
-
-    Sekarang cache diisi sekali per tick dari sisi player saja - O(P) -
-    lalu lookup jadi O(1). Pemakaian "stamp" menghindari kebutuhan
-    mengosongkan seluruh array tiap tick: entri dianggap sah hanya bila
-    stamp-nya sama dengan tick saat ini.                                 */
 new AC_DrvPlayer[MAX_VEHICLES],
     AC_DrvStamp[MAX_VEHICLES],
     AC_DrvTick;
@@ -530,17 +464,7 @@ hook OnPlayerDisconnect(playerid, reason)
 
 hook OnPlayerSpawn(playerid)
 {
-	/*  CATATAN URUTAN (penting):
-	    y_hooks menjalankan hook ini SEBELUM public OnPlayerSpawn() di
-	    main.pwn. Di sanalah health/armour tersimpan baru dipasang
-	    (SetPlayerArmour(pArmor) dsb) dan otomatis tercatat ke ledger
-	    lewat wrapper.
-
-	    Karena itu di sini ledger di-NOL-kan saja, jangan membaca nilai
-	    client. Membaca nilai client di titik ini justru berbahaya:
-	    cheater yang set armour sebelum spawn selesai akan terbaca
-	    sebagai baseline "sah".                                          */
-	AC_SpawnTick[playerid]  = gettime();
+		AC_SpawnTick[playerid]  = gettime();
 	AC_LastUpdate[playerid] = GetTickCount();
 
 	AC_ResetHealthLedger(playerid, 0.0, 0.0);
@@ -576,10 +500,21 @@ hook OnVehicleDeath(vehicleid, killerid)
 
 hook OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 {
-	// sinkron ledger saat masuk, hindari false positive dari data basi
+	if(!IsValidVehicle(vehicleid))
+		return 1;
+
 	new Float:vhp;
-	if(IsValidVehicle(vehicleid) && GetVehicleHealth(vehicleid, vhp))
-		AC_ResetVehLedger(vehicleid, vhp);
+	if(!GetVehicleHealth(vehicleid, vhp))
+		return 1;
+
+	new Float:vmax = VehicleCore[vehicleid][vMaxHealth];
+	if(vmax <= 0.0) vmax = 1000.0;
+	if(vhp > vmax) vhp = vmax;
+
+	if(vhp < AC_LedgerVehHP[vehicleid] || AC_LedgerVehHP[vehicleid] <= 0.0)
+		AC_LedgerVehHP[vehicleid] = vhp;
+
+	VehicleHealthSecurityData[vehicleid] = AC_LedgerVehHP[vehicleid];
 	return 1;
 }
 
@@ -694,29 +629,6 @@ ptask CheckingACTeleport[1000](playerid)
     }
     return 1;
 }
-// =====================================================================
-//  AUTO-GRANT WRAPPER  (by Claps)
-// =====================================================================
-//  Di gamemode ini ada puluhan pemanggilan SetPlayerHealth() /
-//  SetPlayerArmour() langsung (bandage, makan, event, faction, medic,
-//  damage, spawn, dsb). Semua itu SAH dan harus tercatat di ledger.
-//
-//  Daripada mengedit ~54 tempat satu per satu (rawan kelewat), semua
-//  panggilan dialihkan otomatis ke wrapper di bawah lewat #define.
-//  Logikanya: apa pun yang di-set OLEH SCRIPT SERVER adalah sah.
-//  Cheat client tidak melewati jalur ini, jadi tetap tertangkap.
-//
-//  PENTING - ledger di-SET (bukan di-MAX) di sini.
-//  Kalau server menurunkan nilai (kena damage, armour habis, spawn
-//  ulang), ledger WAJIB ikut turun. Kalau tidak, cheater bisa naik
-//  bebas sampai batas ledger lama tanpa terdeteksi.
-//
-//  Definisi fungsi ada SEBELUM #define, jadi isinya tetap memanggil
-//  native asli (tidak rekursif).
-// =====================================================================
-
-// Versi mentah untuk dipakai anticheat sendiri saat mengoreksi nilai
-// (koreksi TIDAK boleh dicatat sebagai grant).
 stock AC_RawSetHealth(playerid, Float:value)  return SetPlayerHealth(playerid, value);
 stock AC_RawSetArmour(playerid, Float:value)  return SetPlayerArmour(playerid, value);
 stock AC_RawSetVehHP(vehicleid, Float:value)  return SetVehicleHealth(vehicleid, value);
@@ -749,12 +661,3 @@ AC_HookSetPlayerArmour(playerid, Float:value)
 #define SetPlayerHealth  AC_HookSetPlayerHealth
 #define SetPlayerArmour  AC_HookSetPlayerArmour
 
-/*  CATATAN: SetVehicleHealth TIDAK di-#define.
-    Ada include library yang sudah memakai nama itu sebagai macro, jadi
-    menimpanya memicu warning 201 sekaligus berisiko mematikan fungsi
-    library tersebut.
-
-    Untungnya memang tidak perlu: satu-satunya jalur resmi yang menaikkan
-    health kendaraan adalah SetValidVehicleHealth() di
-    core/vehicles/vehicles_functions.inc, dan di sana AC_GrantVehHealth()
-    sudah dipanggil eksplisit. Jadi cakupan anticheat tetap penuh.        */
