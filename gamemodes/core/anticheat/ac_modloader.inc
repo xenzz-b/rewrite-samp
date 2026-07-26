@@ -1,10 +1,7 @@
 #include <YSI_Coding\y_hooks>
 
-// Cara kerja:
-//   OnPlayerConnect: baca GetPlayerVersion, cari "moonloader"/"monetloader" di string.
-//   Jika ditemukan: set AC_Kicked=true (prevent duplicate dari hook lain),
-//   AC_Notify ke staff, KickEx 200ms. Tidak ada exempt — mod loader = blokir semua,
-//   termasuk admin (belum login saat connect).
+// GetPlayerVersion check for moonloader/monetloader. No exempt — block all.
+// AC_Kicked=true prevents duplicate notifications from other hooks.
 
 hook OnPlayerConnect(playerid)
 {

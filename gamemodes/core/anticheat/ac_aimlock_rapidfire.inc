@@ -1,12 +1,13 @@
 #include <YSI_Coding\y_hooks>
 
-// Cara kerja:
-//   Rapid Fire: cek interval antara 2 shot senjata sama. Jika interval < expected-80ms,
-//   violation +1. 3 violations = kick. Normal shot = reset violations. Weapon switch = reset.
-//   Aimlock: cek fast target switching (<150ms antara 2 target berbeda). Jika distance >150m,
-//   pACWarns+1 (3 warnings = kick). Distance <150m = log saja (close combat bisa wajar).
-//   Fake Kill: cek kill dari >200m tanpa sniper weapon. 2 violations = kick.
-//   Violations reset pada spawn (fresh session per life).
+// Rapid Fire: interval < 60% expected rate = violation. 3 violations = kick.
+//   Reset on normal shot, weapon switch, or spawn.
+//   Proporsional (bukan absolute 80ms) agar SMG threshold = 54ms (catch 1.7x cheat)
+//   bukan 10ms (old formula = catch 9x cheat only, useless).
+// Aimlock: fast target switch <150ms + distance >150m = pACWarns+1, 3 warns = kick.
+//   <150m = log saja. Guard acAimLockLastHitTick>0 prevents first-hit false positive.
+// Fake Kill: kill >200m tanpa sniper = violation, 2 = kick. Uses reason param.
+//   Violations reset on spawn.
 
 #define AC_AIMLOCK_MAX_DISTANCE   150.0
 #define AC_AIMLOCK_HIT_INTERVAL   150
@@ -78,14 +79,14 @@ hook OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY, 
 
     new tick = GetTickCount();
 
-    // Rapid fire: interval < expected-80ms = violation
+    // Rapid fire: interval < 60% expected = violation (proportional, consistent 1.7x detection)
     if(weaponid == AC_AimData[playerid][acRapidFireLastWeapon] && 
        AC_AimData[playerid][acRapidFireLastTick] > 0)
     {
         new interval = tick - AC_AimData[playerid][acRapidFireLastTick];
         new expectedInterval = GetWeaponFireInterval(weaponid);
 
-        if(interval < expectedInterval - 80 && interval > 0)
+        if(interval < (expectedInterval * 6) / 10 && interval > 0)
         {
             AC_AimData[playerid][acRapidFireViolations]++;
             
@@ -111,11 +112,9 @@ hook OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY, 
     AC_AimData[playerid][acRapidFireLastWeapon] = weaponid;
     AC_AimData[playerid][acRapidFireLastTick]    = tick;
 
-    // Aimlock: fast target switch (<150ms) + distance check
+    // Aimlock: fast target switch <150ms + distance check
     if(hittype == BULLET_HIT_TYPE_PLAYER && hitid != INVALID_PLAYER_ID && IsPlayerConnected(hitid))
     {
-        // acAimLockLastHitTick > 0: pastikan ada previous hit record
-        // tanpa guard ini, tick-0 selalu < 150 → first hit = false positive
         if(AC_AimData[playerid][acAimLockLastHitTick] > 0 &&
            hitid != AC_AimData[playerid][acAimLockLastHitID] && 
            tick - AC_AimData[playerid][acAimLockLastHitTick] < AC_AIMLOCK_HIT_INTERVAL)
@@ -161,15 +160,12 @@ hook OnPlayerDeath(playerid, killerid, reason)
     if(killerid == INVALID_PLAYER_ID || !AC_CanPunish(killerid))
         return 1;
 
-    // Fake kill: kill dari jarak impossible tanpa sniper
     new Float:px, Float:py, Float:pz, Float:kx, Float:ky, Float:kz;
     GetPlayerPos(playerid, px, py, pz);
     GetPlayerPos(killerid, kx, ky, kz);
 
     new Float:dist = floatsqroot((px - kx) * (px - kx) + (py - ky) * (py - ky) + (pz - kz) * (pz - kz));
 
-    // reason = weapon ID dari kill notification (lebih akurat dari GetPlayerWeapon)
-    // >46 = special death type (drown/fall), skip
     new wep = reason;
     if(wep > 46)
         return 1;

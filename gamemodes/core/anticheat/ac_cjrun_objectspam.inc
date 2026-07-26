@@ -1,14 +1,11 @@
 #include <YSI_Coding\y_hooks>
 
-// Cara kerja:
-//   CJ Run: cek animasi index 1231/1226 + kecepatan >45km/h. Violation +1 per OPU jika
-//   kedua kondisi terpenuhi. 3 violations = kick. Decay: reset violations ke 0 jika
-//   >2 detik sejak terakhir CJ run terdeteksi (time-based, bukan per-update decrement).
-//   Object Spam: jika GetPlayerObjectCount >2000 DAN spike >200 dalam 1 update = kick.
-//   Hanya aktif di open.mp (#if defined GetPlayerObjectCount).
+// CJ Run: anim 1231/1226 + speed >45km/h = violation. 3 violations = kick.
+//   Decay: reset violations jika >=2 detik sejak terakhir CJ run terdeteksi.
+//   Object Spam: GetPlayerObjectCount >2000 + spike >200 = kick (open.mp only).
 
 #define AC_CJRUN_SPEED_THRESHOLD  45.0
-#define AC_CJRUN_DECAY_TIME       2       // detik tanpa CJ run sebelum violations reset
+#define AC_CJRUN_DECAY_TIME       2
 #define AC_OBJECT_SPAM_MAX        2000
 #define AC_OBJECT_SPAM_SPIKE      200
 
@@ -19,7 +16,7 @@ enum e_ACCJRun
 {
     acLastPlayerObjectCount,
     acCJRunViolations,
-    acCJRunLastDetectTime     // gettime() saat CJ run terakhir terdeteksi
+    acCJRunLastDetectTime
 };
 
 new AC_CJData[MAX_PLAYERS][e_ACCJRun];
@@ -37,7 +34,6 @@ hook OnPlayerUpdate(playerid)
     if(!AC_CanPunish(playerid))
         return 1;
 
-    // CJ Run: animasi 1231/1226 + kecepatan > threshold
     if(GetPlayerState(playerid) == PLAYER_STATE_ONFOOT && 
        GetPlayerSpecialAction(playerid) != SPECIAL_ACTION_USEJETPACK)
     {
@@ -66,17 +62,14 @@ hook OnPlayerUpdate(playerid)
         }
         else
         {
-            // Time-based decay: reset violations jika >2 detik tanpa CJ run detection
-            // (bukan per-update decrement yang terlalu cepat: -1 per OPU = 0.1 sec decay)
             if(AC_CJData[playerid][acCJRunViolations] > 0 && 
-               gettime() - AC_CJData[playerid][acCJRunLastDetectTime] > AC_CJRUN_DECAY_TIME)
+               gettime() - AC_CJData[playerid][acCJRunLastDetectTime] >= AC_CJRUN_DECAY_TIME)
             {
                 AC_CJData[playerid][acCJRunViolations] = 0;
             }
         }
     }
 
-    // Object Spam / Mapping Stealer (open.mp only)
     #if defined GetPlayerObjectCount
     {
         new objectCount = GetPlayerObjectCount(playerid);

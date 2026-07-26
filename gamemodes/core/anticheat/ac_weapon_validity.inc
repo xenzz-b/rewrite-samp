@@ -1,11 +1,8 @@
 #include <YSI_Coding\y_hooks>
 
-// Cara kerja:
-//   ptask 1 detik: scan 13 weapon slots. Invalid weapon ID (di luar 0,1-9,22-46) = kick.
-//   Forbidden weapon: minigun(38), NV goggles(44), thermal goggles(45) = kick.
-//   38 melengkapi existing IsProhibitedWeapon yang hanya cek current weapon (GetPlayerWeapon),
-//   slot scan ini cek semua slot. 44/45 tidak ada di existing check.
-//   GunData tracks weapons independently → SetWeapons restores on reconnect (no ResetPlayerWeapons).
+// ptask 1s: scan 13 slots. Invalid ID (outside 0,1-9,22-46) or forbidden (38,44,45) = kick.
+// 38 melengkapi existing IsProhibitedWeapon (only checks current weapon).
+// GunData independent → SetWeapons restores on reconnect.
 
 static stock bool:AC_IsWeaponIDValid(weaponid)
 {
@@ -16,8 +13,8 @@ static stock bool:AC_IsWeaponForbidden(weaponid)
 {
     switch(weaponid)
     {
-        case 38:     return true;   // minigun
-        case 44, 45: return true;   // NV/thermal goggles
+        case 38:     return true;
+        case 44, 45: return true;
         default:     return false;
     }
 }
@@ -35,7 +32,6 @@ ptask AntiCheatWeaponValidity[1000](playerid)
         if(wep == 0 && ammo == 0)
             continue;
 
-        // AC_IsWeaponIDValid(0)=true, jadi !AC_IsWeaponIDValid(wep) sudah implies wep≠0
         if(!AC_IsWeaponIDValid(wep))
         {
             new acdetail[96];
