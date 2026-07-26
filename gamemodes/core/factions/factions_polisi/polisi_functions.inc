@@ -1917,7 +1917,7 @@ Dialog:PolisiPanel(playerid, response, listitem, inputtext[])
 
             ApplyAnimation(playerid, "BD_FIRE", "wash_up", 4.1, false, false, false, false, 0, true);
 
-            new str[1218], count;
+            new str[1218], count; static invrow[144];
             format(str, sizeof(str), "Nama Item\tJumlah\n");
             for(new index; index < MAX_INVENTORY; index++)
             {
@@ -1927,7 +1927,8 @@ Dialog:PolisiPanel(playerid, response, listitem, inputtext[])
                     {
                         if (i % 2 == 0)
                         {
-                            format(str, sizeof(str), "%s"WHITE"%s\t"WHITE"%d\n", str, InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
+                            format(invrow, sizeof(invrow), ""WHITE"%s\t"WHITE"%d\n", InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
+                        strcat(str, invrow);
                         }
                         else {
                             format(str, sizeof(str), "%s"GRAY"%s\t"GRAY"%d\n", str, InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);

@@ -1096,6 +1096,7 @@ Dialog:HouseItemVault(playerid, response, listitem, inputtext[])
         case 0: //deposit
         {
             new str[1218], count;
+            static invrow[144];
             switch(HouseData[AccountData[playerid][pInHouse]][hType])
             {
                 case 1:
@@ -1122,9 +1123,11 @@ Dialog:HouseItemVault(playerid, response, listitem, inputtext[])
                     for(new i; i < sizeof(g_aInventoryItems); i ++) if (!strcmp(g_aInventoryItems[i][e_InventoryItem], InventoryData[playerid][index][invItem], true))
                     {
                         if (i % 2 == 0) {
-                            format(str, sizeof(str), "%s"WHITE"%s\t"WHITE"%d\t"WHITE"-\n", str, InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                            format(invrow, sizeof(invrow), ""WHITE"%s\t"WHITE"%d\t"WHITE"-\n", InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                            strcat(str, invrow);
                         } else {
-                            format(str, sizeof(str), "%s"GRAY"%s\t"GRAY"%d\t"GRAY"-\n", str, InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                            format(invrow, sizeof(invrow), ""GRAY"%s\t"GRAY"%d\t"GRAY"-\n", InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                            strcat(str, invrow);
                         }
                         PlayerListitem[playerid][count++] = index;
                     }

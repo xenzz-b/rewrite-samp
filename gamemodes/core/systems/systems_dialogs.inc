@@ -3024,6 +3024,7 @@ Dialog:VehicleStorage(playerid, response, listitem, inputtext[])
 		case 0: //deposit
 		{
 			new string[1218], count;
+			static invrow[144];
 			count = 0;
 			format(string, sizeof(string), "Nama Item\tJumlah\tBerat (%.3f/%d kg)\n", GetBagasiTotalWeightFloat(vehid), GetVehicleWeight(PlayerVehicle[vehid][pVehModelID]));
 			for(new index; index < MAX_INVENTORY; index++)
@@ -3033,9 +3034,11 @@ Dialog:VehicleStorage(playerid, response, listitem, inputtext[])
 					for(new i; i < sizeof(g_aInventoryItems); i ++) if (!strcmp(g_aInventoryItems[i][e_InventoryItem], InventoryData[playerid][index][invItem], true))
 					{
 						if (i % 2 == 0) {
-							format(string, sizeof(string), "%s"WHITE"%s\t"WHITE"%d\t"WHITE"-\n", string, InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+							format(invrow, sizeof(invrow), ""WHITE"%s\t"WHITE"%d\t"WHITE"-\n", InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+							strcat(string, invrow);
 						} else {
-							format(string, sizeof(string), "%s"GRAY"%s\t"GRAY"%d\t"GRAY"-\n", string, InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+							format(invrow, sizeof(invrow), ""GRAY"%s\t"GRAY"%d\t"GRAY"-\n", InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+							strcat(string, invrow);
 						}
 						PlayerListitem[playerid][count++] = index;
 					}

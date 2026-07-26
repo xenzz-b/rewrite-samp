@@ -239,10 +239,12 @@ YCMD:itemlist(playerid, params[], help)
 		return PermissionError(playerid);
 
     new string[1024];
+    static invrow[144];
 
     if (!strlen(string)) {
         for (new i = 0; i < sizeof(g_aInventoryItems); i ++) {
-            format(string, sizeof(string), "%s%s\n", string, g_aInventoryItems[i][e_InventoryItem]);
+            format(invrow, sizeof(invrow), "%s\n", g_aInventoryItems[i][e_InventoryItem]);
+            strcat(string, invrow);
         }
     }
 	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Items List", string, "Close", "");
