@@ -268,6 +268,8 @@ enum e_player_data
 	bool:pIsAdminDutyTime,
 
 	pPaycheckIndex,
+	pPaycheckTime,
+	pFactionDutySec,
 	
 	pSlipSalary,
 
@@ -1378,7 +1380,6 @@ public OnPlayerConnect(playerid)
 	// CreatePLoginTD(playerid);
 
 	CreatePAnnounceTD(playerid);
-	CreateLoginVRP(playerid);
 
 	CreateClothesShopIndexTD(playerid);
 	CreateRobberyTD(playerid);
@@ -4325,10 +4326,10 @@ OnPlayerUseItem(playerid, const name[])
 		foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 3.2)) 
 		{
 			if (i % 2 == 0) {
-				format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
 			}
 			else {
-				format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
 			}
 			NearestUser[playerid][count++] = i;
 		}
@@ -6242,10 +6243,10 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 3.2)) 
 		{
 			if (i % 2 == 0) {
-				format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
 			}
 			else {
-				format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
 			}
 			NearestUser[playerid][count++] = i;
 		}
@@ -6907,7 +6908,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		{
 			if(InvoiceData[playerid][id][invoiceExists] && InvoiceData[playerid][id][invoiceOwner] == AccountData[playerid][pID]) 
 			{
-				format(xjjs, sizeof(xjjs), "%s"WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", xjjs, id + 1, InvoiceData[playerid][id][invoiceName], InvoiceData[playerid][id][invoiceIssuerName], FormatMoney(InvoiceData[playerid][id][invoiceCost]));
+				strcat(xjjs, sprintf(""WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", id + 1, InvoiceData[playerid][id][invoiceName], InvoiceData[playerid][id][invoiceIssuerName], FormatMoney(InvoiceData[playerid][id][invoiceCost])), sizeof(xjjs));
 				ListedInvoices[playerid][count++] = id;
 			}
 		}
@@ -7495,10 +7496,10 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
         foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 		{
 			if (i % 2 == 0) {
-            format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+            strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
             }
             else {
-                format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
             }
 			NearestUser[playerid][count++] = i;
 		}
@@ -7552,10 +7553,10 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
         foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 		{
 			if (i % 2 == 0) {
-            format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+            strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
             }
             else {
-                format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
             }
 			NearestUser[playerid][count++] = i;
 		}
@@ -7711,25 +7712,6 @@ public OnDynamicPlayerTextdrawClicked(playerid, PlayerText:playertextid)
             UpdateFishingBar(playerid);
             PlayerPlaySound(playerid, 1083, 0.0, 0.0, 0.0);
         }
-        return 1;
-    }
-	if(playertextid == LoginVRP[playerid][49])
-    {
-        new strba[512];
-        format(strba, sizeof(strba), "Username "Vertex"%s "WHITE"Terdaftar.\nSilakan masukkan kata sandi untuk login:", AccountData[playerid][pUCP]);
-        Dialog_Show(playerid, "Login", DIALOG_STYLE_PASSWORD, "UCP - Login", strba, "Login", "Quit");
-        return 1;
-    }
-    if(playertextid == LoginVRP[playerid][56])
-    {
-        if(!TempPasswordLogin[playerid][0])
-        {
-            ShowTDN(playerid, NOTIFICATION_ERROR, "Masukkan password terlebih dahulu!");
-            return 1;
-        }
-        new string[555];
-        mysql_format(g_SQL, string, sizeof(string), "SELECT `Password` FROM `player_ucp` WHERE `UCP` = '%e' LIMIT 1", AccountData[playerid][pUCP]);
-        mysql_pquery(g_SQL, string, "OnLoginPassCheck", "is", playerid, TempPasswordLogin[playerid]);
         return 1;
     }
 	return 0;
@@ -8243,23 +8225,6 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 			}
 		}
     }
-	else if(newkeys & KEY_YES)
-	{
-		if(IsPlayerInRangeOfPoint(playerid, 3.0, 1674.0328,-2245.7637,13.5639)) 
-		{
-			if(!AccountData[playerid][IsLoggedIn] || !AccountData[playerid][pSpawned]) return 1;
-
-			if(AccountData[playerid][pStarterPack] != 0) 
-				return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda sudah mengambil starterpack sebelumnya!");
-
-			Dialog_Show(playerid, "StarterPackMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Starter Pack", 
-				"Nama Pack\tIsi Pack\n\
-				"WHITE"Pack 1 (Faggio)\t"WHITE"Motor Faggio, 20x Makan Minum, 1x Smartphone, 3x Ticket Gacha\n\
-				"GRAY"Pack 2 (Sanchez)\t"GRAY"Motor Sanchez, 15x Makan Minum, 1x Smartphone, 2x Ticket Gacha\n\
-				Pack 3 (Bobcat)\tMobil Bobcat, 10x Makan Minum, 1x Smartphone, 1x Ticket Gacha", 
-				"Pilih", "Batal");
-		}
-	}
 	else if(newkeys & KEY_NO && !AccountData[playerid][pKnockdown])
 	{
 		if(!AccountData[playerid][IsLoggedIn] || !AccountData[playerid][pSpawned]) return 1;
@@ -8662,7 +8627,7 @@ public OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY
             return 0;
         }
 
-		if(!AccountData[playerid][pInEvent] && (AccountData[playerid][pFaction] != FACTION_LSPD || AccountData[playerid][pFaction] != FACTION_SAGOV))
+		if(!AccountData[playerid][pInEvent] && AccountData[playerid][pFaction] != FACTION_LSPD && AccountData[playerid][pFaction] != FACTION_SAGOV)
 		{
 			static Float:shotX, Float:shotY, Float:shotZ, string[144];
 			GetPlayerPos(playerid, shotX, shotY, shotZ);
@@ -8670,10 +8635,11 @@ public OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, Float:fX, Float:fY
 			format(string, sizeof(string), "RADIO: "WHITE"Terjadi penembakan di daerah %s!", GetLocation(shotX, shotY, shotZ));
 			if(gettime() > DelayShotNotif[playerid])
 			{
+				DelayShotNotif[playerid] = gettime() + 10;
+
 				foreach(new i : LSPDDuty)
 				{
 					SendClientMessage(i, 0xFFD39BFF, string);
-					DelayShotNotif[playerid] = gettime() + 10;
 				}
 			}
 		}

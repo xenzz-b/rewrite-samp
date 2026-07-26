@@ -10,6 +10,7 @@ YCMD:hclaim(playerid, params[], help)
     
     AccountData[playerid][pHouseSharedID] = -1;
     HouseData[hid][hOwnerID] = AccountData[playerid][pID];
+    HouseData[hid][hLapor] = gettime();
     strcopy(HouseData[hid][hOwnerName], AccountData[playerid][pName]);
     TakePlayerMoneyEx(playerid, price);
 
@@ -35,6 +36,7 @@ YCMD:addhouse(playerid, params[], help)
 
     HouseData[hid][hOwnerID] = 0;
     HouseData[hid][hOwnerName][0] = EOS;
+    HouseData[hid][hLapor] = 0;
     HouseData[hid][hPrice] = price;
     GetPlayerPos(playerid, HouseData[hid][hPos][0], HouseData[hid][hPos][1], HouseData[hid][hPos][2]);
     GetPlayerFacingAngle(playerid, HouseData[hid][hPos][3]);
@@ -157,6 +159,7 @@ YCMD:edithouse(playerid, params[], help)
     {
         HouseData[hid][hOwnerName][0] = EOS;
         HouseData[hid][hOwnerID] = 0;
+        HouseData[hid][hLapor] = 0;
 
         House_Save(hid);
         House_Refresh(hid);
@@ -181,6 +184,7 @@ YCMD:removehouse(playerid, params[], help)
 
     HouseData[hid][hOwnerName][0] = EOS;
     HouseData[hid][hOwnerID] = 0;
+    HouseData[hid][hLapor] = 0;
     HouseData[hid][hPrice] = 0;
     HouseData[hid][hPos][0] = HouseData[hid][hPos][1] = HouseData[hid][hPos][2] = HouseData[hid][hPos][3] = 0.0;
     HouseData[hid][hGaragePos][0] = HouseData[hid][hGaragePos][1] = HouseData[hid][hGaragePos][2] = HouseData[hid][hGaragePos][3] = 0.0;
@@ -293,6 +297,7 @@ public BulldozerHouse(adminid)
 
             HouseData[hsID][hOwnerName][0] = EOS;
             HouseData[hsID][hOwnerID] = 0;
+            HouseData[hsID][hLapor] = 0;
             HouseData[hsID][hPos][0] = HouseData[hsID][hPos][1] = HouseData[hsID][hPos][2] = HouseData[hsID][hPos][3] = 0.0;
             HouseData[hsID][hGaragePos][0] = HouseData[hsID][hGaragePos][1] = HouseData[hsID][hGaragePos][2] = HouseData[hsID][hGaragePos][3] = 0.0;
             HouseData[hsID][hIntPos][0] = HouseData[hsID][hIntPos][1] = HouseData[hsID][hIntPos][2] = HouseData[hsID][hIntPos][3] = 0.0;
@@ -340,6 +345,8 @@ YCMD:bulldozerhouse(playerid, params[], help)
     if(AccountData[playerid][pAdmin] < 8) return PermissionError(playerid);
     if(AccountData[playerid][pAdminDuty] == false) return PermissionErrorDuty(playerid);
 
-    mysql_pquery(g_SQL, "SELECT * FROM `houses` WHERE `Lapor` = 0", "BulldozerHouse", "i", playerid);
+    new bhq[164];
+    mysql_format(g_SQL, bhq, sizeof(bhq), "SELECT * FROM `houses` WHERE `OwnerID` != 0 AND `Lapor` > 0 AND `Lapor` < %d", gettime() - HOUSE_LAPOR_DURATION);
+    mysql_pquery(g_SQL, bhq, "BulldozerHouse", "i", playerid);
     return 1;
 }

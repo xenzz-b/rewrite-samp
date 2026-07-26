@@ -680,3 +680,77 @@ public OnAdminListLoaded(playerid)
     
     return 1;
 }
+YCMD:resetsp(playerid, params[], help)
+{
+	if(AccountData[playerid][pAdmin] < 7)
+		return PermissionError(playerid);
+	if(AccountData[playerid][pAdminDuty] == false)
+		return PermissionErrorDuty(playerid);
+
+	new otherid;
+	if(sscanf(params, "u", otherid))
+		return SUM(playerid, "/resetsp [ID/Name]");
+
+	if(!IsPlayerConnected(otherid))
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak terkoneksi ke server!");
+
+	if(!AccountData[otherid][IsLoggedIn])
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut belum login!");
+
+	if(AccountData[otherid][pStarterPack] == 0)
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut belum pernah mengambil starterpack!");
+
+	AccountData[otherid][pStarterPack] = 0;
+
+	static string[522];
+	mysql_format(g_SQL, string, sizeof(string), "UPDATE `player_characters` SET `Char_ClaimSP` = 0 WHERE `pID` = %d", AccountData[otherid][pID]);
+	mysql_pquery(g_SQL, string);
+
+	ShowTDN(otherid, NOTIFICATION_SUCCESS, "Starterpack anda telah direset, silakan ambil kembali!");
+	SendClientMessage(otherid, Y_LIGHTRED, "AdmCmd: Starterpack anda telah direset oleh founder, anda dapat mengambilnya kembali.");
+	SendStaffMessage(Y_LIGHTRED, "AdmCmd: %s has reset starterpack for %s(%d).", AccountData[playerid][pAdminname], AccountData[otherid][pName], otherid);
+
+	mysql_format(g_SQL, string, sizeof(string), "INSERT INTO `admin_logs` SET `Prefix` = 'resetsp', `Admin` = '%e', `AdminUCP` = '%e', `UCPTarget` = '%e'", AccountData[playerid][pAdminname], AccountData[playerid][pUCP], AccountData[otherid][pName]);
+	mysql_pquery(g_SQL, string);
+	return 1;
+}
+
+YCMD:givesalary(playerid, params[], help)
+{
+	if(AccountData[playerid][pAdmin] < 7)
+		return PermissionError(playerid);
+	if(AccountData[playerid][pAdminDuty] == false)
+		return PermissionErrorDuty(playerid);
+
+	new otherid;
+	if(sscanf(params, "u", otherid))
+		return SUM(playerid, "/givesalary [ID/Name] (nominal otomatis: Faction, Job, atau Warga)");
+
+	if(!IsPlayerConnected(otherid))
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak terkoneksi ke server!");
+
+	if(!AccountData[otherid][IsLoggedIn] || !AccountData[otherid][pSpawned])
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut belum siap menerima gaji!");
+
+	// Nominal ditentukan sepenuhnya oleh tipe penghasilan pemain.
+	new amount = GetPlayerDutySalary(otherid);
+
+	static saltype[24];
+	switch(GetPlayerSalaryType(otherid))
+	{
+		case SALARYTYPE_FACTION: format(saltype, sizeof(saltype), "Faction");
+		case SALARYTYPE_JOB:     format(saltype, sizeof(saltype), "Pekerjaan");
+		default:                 format(saltype, sizeof(saltype), "Warga Biasa");
+	}
+
+	AddPlayerSalary(otherid, GetPlayerSalaryIssuer(otherid), amount, GetPlayerSalaryReason(otherid));
+
+	SendClientMessageEx(otherid, Y_LIGHTRED, "AdmCmd: Anda menerima slip gaji sebesar "GREEN"$%s"WHITE" dari %s.", FormatMoney(amount), AccountData[playerid][pAdminname]);
+	SendAdm(playerid, "Anda memberikan slip gaji $%s kepada %s(%d) [Tipe: %s].", FormatMoney(amount), AccountData[otherid][pName], otherid, saltype);
+	SendStaffMessage(Y_LIGHTRED, "AdmCmd: %s has given a salary slip of $%s to %s(%d) [Type: %s].", AccountData[playerid][pAdminname], FormatMoney(amount), AccountData[otherid][pName], otherid, saltype);
+
+	static string[522];
+	mysql_format(g_SQL, string, sizeof(string), "INSERT INTO `admin_logs` SET `Prefix` = 'givesalary', `Admin` = '%e', `AdminUCP` = '%e', `UCPTarget` = '%e'", AccountData[playerid][pAdminname], AccountData[playerid][pUCP], AccountData[otherid][pName]);
+	mysql_pquery(g_SQL, string);
+	return 1;
+}

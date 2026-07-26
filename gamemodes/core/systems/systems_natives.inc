@@ -647,6 +647,7 @@ ResetVariables(playerid)
 	AccountData[playerid][pBuckledOn] = false;
 	
 	pInSpecMode[playerid] = 0;
+	pEmergencyMsgIndex[playerid] = 0;
 	
 	pShortcutResultShown[playerid] = false;
 	pVoiceDistanceStatus[playerid] = 1;
@@ -908,6 +909,7 @@ ResetVariables(playerid)
 	Anticheat[playerid][acHealthWarns] = 0;
 	Anticheat[playerid][acArmorWarns] = 0;
 	Anticheat[playerid][acVehHealthWarns] = 0;
+	AC_ResetHealthLedger(playerid, 0.0, 0.0); // reset ledger anticheat v3
 	
 	AccountData[playerid][pACWarns] = 0;
 	AccountData[playerid][pHasArmor] = false;
@@ -1720,11 +1722,11 @@ ShowCharacterList(playerid)
 	format(sgstr, sizeof(sgstr), "Name\tLevel\tMoney\tBank\n");
 	for (new i; i < MAX_CHARS; i ++) if(!isnull(PlayerChar[playerid][i]))
 	{
-	    format(sgstr, sizeof(sgstr), "%s%s\t%d\t$%s\t$%s\n", sgstr, PlayerChar[playerid][i], PlayerCharLevel[playerid][i], FormatMoney(PlayerCharCash[playerid][i]), FormatMoney(PlayerCharBank[playerid][i]));
+	    strcat(sgstr, sprintf("%s\t%d\t$%s\t$%s\n", PlayerChar[playerid][i], PlayerCharLevel[playerid][i], FormatMoney(PlayerCharCash[playerid][i]), FormatMoney(PlayerCharBank[playerid][i])), sizeof(sgstr));
 		count++;
 	}
 	if(count < MAX_CHARS)
-		format(sgstr, sizeof(sgstr), "%s"GREEN"+ New Character", sgstr);
+		strcat(sgstr, ""GREEN"+ New Character", sizeof(sgstr));
 
 	Dialog_Show(playerid, "CharacterList", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Character List", sgstr, "Pilih", "Quit");
 	CancelSelectTextDraw(playerid);
@@ -1952,17 +1954,15 @@ SetPlayerHealthEx(playerid, Float:heal)
 	if(heal > 0.0)
 	{
 		AccountData[playerid][pHealth] = heal;
+		// Catat ke ledger anticheat SEBELUM set, supaya tidak ada celah race.
+		AC_GrantHealth(playerid, heal);
 		SetPlayerHealth(playerid, heal);
-		// Set AC immunity to prevent false positives for legit heals
-		Anticheat[playerid][acHealth] = heal;
-		Anticheat[playerid][acHealthTime] = gettime() + 3;
 	}
 	else
 	{
 		AccountData[playerid][pHealth] = 10.00;
+		AC_GrantHealth(playerid, 10.00);
 		SetPlayerHealth(playerid, 0.0);
-		Anticheat[playerid][acHealth] = 10.00;
-		Anticheat[playerid][acHealthTime] = gettime() + 3;
 	}
 	mysql_format(g_SQL, sphex, sizeof(sphex), "UPDATE `player_characters` SET `Char_Health` = '%.2f' WHERE `pID` = %d", AccountData[playerid][pHealth], AccountData[playerid][pID]);
 	mysql_pquery(g_SQL, sphex);
@@ -1972,9 +1972,9 @@ SetPlayerHealthEx(playerid, Float:heal)
 SetPlayerArmourEx(playerid, Float:armor)
 {
     new spaex[128];
-	Anticheat[playerid][acArmorTime] = gettime() + 3; // reduced from 11 to 3 for faster detection, optimized by Claps
-	Anticheat[playerid][acArmour] = armor;
-	AccountData[playerid][pHasArmor] = true;
+	// Catat ke ledger anticheat SEBELUM set (kevlar/vest resmi).
+	AC_GrantArmour(playerid, armor);
+	AccountData[playerid][pHasArmor] = (armor > 0.0);
 	SetPlayerArmour(playerid, armor);
 	AccountData[playerid][pArmor] = armor;
 	AccountData[playerid][pArmorEmpty] = false;
@@ -3093,27 +3093,13 @@ GetFamilyRankName(playerid)
     return rnnrt;
 }
 
-static const FacName[12][] = 
-{
-	"Warga",
-	"Kepolisian",
-	"Paramedis",
-	"Pring Sewu Beach Club",
-	"Pemerintah",
-	"Bennys Automotive",
-	"Uber",
-	"Pinky Tiger Club",
-	"Pewarta",
-	"DriftKing Workshop",
-	"Jaya Abadi",
-	"Sri Mersing Resto"
-};
-
 GetFactionName(playerid) 
 {
-    new fctnr[128];
+    new fctnr[128], fid = AccountData[playerid][pFaction];
 
-    format(fctnr, sizeof(fctnr), FacName[AccountData[playerid][pFaction]]);
+    if(fid < 0 || fid >= sizeof(FacName)) fid = FACTION_NONE;
+
+    format(fctnr, sizeof(fctnr), FacName[fid]);
     return fctnr;
 }
 
@@ -4506,6 +4492,12 @@ GivePlayerWeaponEx(playerid, weaponid, ammo, wtype) //memberikan senjata valid y
 	GunData[playerid][g_aWeaponSlots[weaponid]][WeaponAmmo] += ammo;
 	GunData[playerid][g_aWeaponSlots[weaponid]][WeaponType] = wtype;
 
+	if(GunData[playerid][g_aWeaponSlots[weaponid]][WeaponAmmo] > MAX_WEAPON_AMMO)
+	{
+		ammo -= (GunData[playerid][g_aWeaponSlots[weaponid]][WeaponAmmo] - MAX_WEAPON_AMMO);
+		GunData[playerid][g_aWeaponSlots[weaponid]][WeaponAmmo] = MAX_WEAPON_AMMO;
+	}
+
     GivePlayerWeapon(playerid, weaponid, ammo);
 
 	if(AccountData[playerid][pVIP] >= 2)
@@ -4817,7 +4809,7 @@ ShowPlayerSpawnSelection(playerid)
 	return 1;
 }
 
-GetPlayerSpeed(playerid)
+stock GetPlayerSpeed(playerid)
 {
 	new Float:ST[4];
 	if(IsPlayerInAnyVehicle(playerid))

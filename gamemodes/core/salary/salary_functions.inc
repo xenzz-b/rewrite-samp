@@ -1,3 +1,101 @@
+#include <YSI_Coding\y_hooks>
+
+// Titik pencairan paycheck di Bank Pacific.
+static const Float:g_PaycheckPoint[][3] =
+{
+	{1445.8564, -1136.7075, 23.9580},
+	{1457.9396, -1126.6406, 23.9580}
+};
+
+IsPlayerNearPaycheckPoint(playerid)
+{
+	for(new i; i < sizeof(g_PaycheckPoint); i ++)
+	{
+		if(IsPlayerInRangeOfPoint(playerid, 3.0, g_PaycheckPoint[i][0], g_PaycheckPoint[i][1], g_PaycheckPoint[i][2]))
+			return 1;
+	}
+	return 0;
+}
+
+CreatePaycheckLabels()
+{
+	for(new i; i < sizeof(g_PaycheckPoint); i ++)
+	{
+		CreateDynamicPickup(1274, 23, g_PaycheckPoint[i][0], g_PaycheckPoint[i][1], g_PaycheckPoint[i][2], 0, 0, -1, 30.00, -1, 0);
+		CreateDynamic3DTextLabel(""GRAY"[Loket Pencairan Gaji]\n"WHITE"Gunakan "YELLOW"'/paycheck' "WHITE"untuk mencairkan gaji\n"WHITE"Gunakan "YELLOW"'/mysalary' "WHITE"untuk melihat rincian",
+			Y_CYAN, g_PaycheckPoint[i][0], g_PaycheckPoint[i][1], g_PaycheckPoint[i][2] + 0.45, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, 0, 0, -1, 10.00, -1, 0);
+	}
+	return 1;
+}
+
+// Tipe penghasilan pemain, dipakai untuk menentukan besaran dan sumber gaji.
+#define SALARYTYPE_CITIZEN  0
+#define SALARYTYPE_JOB      1
+#define SALARYTYPE_FACTION  2
+
+GetPlayerSalaryType(playerid)
+{
+	// Tipe faction hanya berlaku saat benar-benar bertugas. Anggota yang
+	// sedang off duty diperlakukan sesuai pekerjaannya, atau sebagai warga.
+	if(AccountData[playerid][pFaction] != FACTION_NONE && AccountData[playerid][pOnDuty])
+		return SALARYTYPE_FACTION;
+
+	if(AccountData[playerid][pJob] != JOB_NONE)
+		return SALARYTYPE_JOB;
+
+	return SALARYTYPE_CITIZEN;
+}
+
+// Besaran gaji per periode, menyesuaikan tipe penghasilan pemain.
+GetPlayerDutySalary(playerid)
+{
+	switch(GetPlayerSalaryType(playerid))
+	{
+		case SALARYTYPE_FACTION:
+		{
+			new pay = SALARY_BASE + (AccountData[playerid][pFactionRank] * SALARY_PER_RANK);
+
+			if(pay > SALARY_MAX)
+				pay = SALARY_MAX;
+
+			return pay;
+		}
+		case SALARYTYPE_JOB:
+		{
+			return SALARY_JOB;
+		}
+	}
+	return SALARY_CITIZEN;
+}
+
+// Sumber gaji yang tercatat pada slip.
+GetPlayerSalaryIssuer(playerid)
+{
+	static issuer[46];
+
+	switch(GetPlayerSalaryType(playerid))
+	{
+		case SALARYTYPE_FACTION: format(issuer, sizeof(issuer), "%s", GetFactionName(playerid));
+		case SALARYTYPE_JOB:     format(issuer, sizeof(issuer), "%s", GetJobName(playerid));
+		default:                 format(issuer, sizeof(issuer), "Pemerintah Vertex");
+	}
+	return issuer;
+}
+
+// Keterangan alasan pada slip.
+GetPlayerSalaryReason(playerid)
+{
+	static reason[46];
+
+	switch(GetPlayerSalaryType(playerid))
+	{
+		case SALARYTYPE_FACTION: format(reason, sizeof(reason), "Gaji Bertugas");
+		case SALARYTYPE_JOB:     format(reason, sizeof(reason), "Gaji Pekerjaan");
+		default:                 format(reason, sizeof(reason), "Tunjangan Warga");
+	}
+	return reason;
+}
+
 AddPlayerSalary(playerid, const issuer[], money, const reason[])
 {
 	static string[514];
@@ -90,20 +188,20 @@ public PaycheckShowForPlayer(playerid)
 			totalpaycheck += money;
 		}
 		format(string, sizeof(string), ""WHITE"Previous Balance: "GREEN"$%s\n", FormatMoney(AccountData[playerid][pBankMoney]));
-		format(string, sizeof(string), "%s"WHITE"Paycheck: "GREEN"$%s\n", string, FormatMoney(totalpaycheck));
+		strcat(string, sprintf(""WHITE"Paycheck: "GREEN"$%s\n", FormatMoney(totalpaycheck)), sizeof(string));
 
 		if(totalpaycheck >= 36507)
 		{
 			zakat = floatround(totalpaycheck * 0.025);
-			format(string, sizeof(string), "%s"WHITE"Tax (2,5): "RED"$%s\n", string, FormatMoney(floatround(zakat)));
+			strcat(string, sprintf(""WHITE"Tax (2,5): "RED"$%s\n", FormatMoney(floatround(zakat))), sizeof(string));
 		}
 		else
 		{
-			format(string, sizeof(string), "%s"WHITE"No Tax Payment\n", string);
+			strcat(string, ""WHITE"No Tax Payment\n", sizeof(string));
 		}
 
 		newbalance = AccountData[playerid][pBankMoney] + totalpaycheck - floatround(zakat);
-		format(string, sizeof(string), "%s"WHITE"New Balance: "GREEN"$%s\n", string, FormatMoney(newbalance));
+		strcat(string, sprintf(""WHITE"New Balance: "GREEN"$%s\n", FormatMoney(newbalance)), sizeof(string));
 
 		SendClientMessageEx(playerid, Y_CYAN, "<=================< {FFFFFF}Paycheck #%04d {00FFFF}>=================>", AccountData[playerid][pPaycheckIndex]);
 		SendClientMessageEx(playerid, Y_CYAN, "=> {FFFFFF}Previous Balance: {00FF00}$%s", FormatMoney(AccountData[playerid][pBankMoney]));
@@ -112,7 +210,7 @@ public PaycheckShowForPlayer(playerid)
 		SendClientMessageEx(playerid, Y_CYAN, "=> {FFFFFF}New Balance: {00FF00}$%s", FormatMoney(newbalance));
 		SendClientMessage(playerid, Y_CYAN, "<===================================================>");
 
-		AccountData[playerid][pPaycheckTime] = 3600;
+		AccountData[playerid][pPaycheckTime] = PAYCHECK_COOLDOWN;
 
 		AccountData[playerid][pBankMoney] = newbalance;
 
@@ -123,18 +221,9 @@ public PaycheckShowForPlayer(playerid)
 	}
 	else
 	{
-		new givenpaycheck = 5000, mybalance;
-
-		mybalance = givenpaycheck + AccountData[playerid][pBankMoney];
-		SendClientMessageEx(playerid, Y_CYAN, "<=================< {FFFFFF}Paycheck #%04d {00FFFF}>=================>", AccountData[playerid][pPaycheckIndex]);
-		SendClientMessageEx(playerid, Y_CYAN, "=> {FFFFFF}Previous Balance: {00FF00}$%s", FormatMoney(AccountData[playerid][pBankMoney]));
-		SendClientMessageEx(playerid, Y_CYAN, "=> {FFFFFF}Paycheck: {00FF00}$%s", FormatMoney(givenpaycheck));
-		SendClientMessageEx(playerid, Y_CYAN, "=> {FFFFFF}New Balance: {00FF00}$%s", FormatMoney(mybalance));
-		SendClientMessage(playerid, Y_CYAN, "<===================================================>");
-
-		AccountData[playerid][pPaycheckTime] = 3600;
-
-		AccountData[playerid][pBankMoney] = mybalance;
+		// Tidak ada gaji tertunda. Tidak diberi uang apa pun supaya
+		// pemain yang tidak bertugas tidak mendapat penghasilan pasif.
+		ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki gaji tertunda untuk dicairkan!");
 	}
     return 1;
 }
@@ -167,4 +256,10 @@ Dialog:PlayerSalaryList(playerid, response, listitem, inputtext[])
         }
     }
     return 1;
+}
+
+hook OnGameModeInit()
+{
+	CreatePaycheckLabels();
+	return 1;
 }

@@ -1,2 +1,10 @@
 pawno/
 backend/
+
+# Runtime logs (server-generated, jangan di-track)
+logs/*.log
+logs/plugins/*.log
+logs/compile_log_*.txt
+server_log.txt
+svlog.txt
+crashinfo.txt

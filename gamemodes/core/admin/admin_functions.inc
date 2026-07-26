@@ -852,10 +852,12 @@ public SetName(playerid, const nname[])
 		mysql_format(g_SQL, string, sizeof(string), "UPDATE `player_phones` SET `phoneOwnerName`='%e' WHERE `phoneOwner`=%d", GetPlayerRoleplayName(otherplayer), AccountData[otherplayer][pID]);
 		mysql_pquery(g_SQL, string);
 
-		new originstring[3528+1];
-		for(new x = 0; x < sizeof(_g_originName);x++)
+		static originstring[3528+1], originrow[48];
+		originstring[0] = EOS;
+		for(new x = 0; x < sizeof(_g_originName); x++)
 		{
-			format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
+			format(originrow, sizeof(originrow), "%s\n", _g_originName[x]);
+			strcat(originstring, originrow);
 		}
 		Dialog_Show(playerid, "AdmSetNameOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Negara Kelahiran", originstring, "Pilih", "");
 	}
@@ -928,10 +930,12 @@ public ChangeName(playerid, const nname[])
 		mysql_format(g_SQL, string, sizeof(string), "UPDATE `player_phones` SET `phoneOwnerName`='%e' WHERE `phoneOwner`=%d", GetPlayerRoleplayName(playerid), AccountData[playerid][pID]);
 		mysql_pquery(g_SQL, string);
 
-		static originstring[3528+1];
-		for(new x = 0; x < sizeof(_g_originName);x++)
+		static originstring[3528+1], originrow[48];
+		originstring[0] = EOS;
+		for(new x = 0; x < sizeof(_g_originName); x++)
 		{
-			format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
+			format(originrow, sizeof(originrow), "%s\n", _g_originName[x]);
+			strcat(originstring, originrow);
 		}
 		Dialog_Show(playerid, "ChangeNameOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Negara Kelahiran", originstring, "Pilih", "");
 	}
@@ -1004,22 +1008,6 @@ public LoadStats(playerid, const PlayersName[])
 		cache_get_value_index(0, 40, Char_RegisterDate);
 		
 		static spstr[1655];
-
-		static const FacName[12][] = 
-		{
-			"Warga",
-			"Kepolisian",
-			"Paramedis",
-			"Pring Sewu Beach Club",
-			"Pemerintah",
-			"Bennys Automotive",
-			"Uber",
-			"Pinky Tiger Club",
-			"Pewarta",
-			"DriftKing Workshop",
-			"Jaya Abadi",
-			"Sri Mersing Resto"
-		};
 
 		static const CopRank[21][] = 
 		{
@@ -2484,7 +2472,7 @@ public CheckingCharList(playerid, const PlayersName[])
             new list[525];
             
             format(list, sizeof(list), "Character ID | Name (IP Address)\tLevel (Admin)\tRegistration Date\tLast Login\n");
-            format(list, sizeof(list), "%sThe UCP account does not have any characters!", list);
+            strcat(list, "The UCP account does not have any characters!", sizeof(list));
             Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s(UID: %d)", PlayersName, ucppid), list, "Tutup", "");
         }
     }
@@ -3222,20 +3210,24 @@ Dialog:AdmSetNameOrigin(playerid, response, listitem, inputtext[])
 	if (!response)
 	{
 		PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-		static originstring[3528+1];
+		static originstring[3528+1], originrow[48];
+		originstring[0] = EOS;
 		for(new x; x < sizeof(_g_originName); x++)
 		{
-			format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
+			format(originrow, sizeof(originrow), "%s\n", _g_originName[x]);
+			strcat(originstring, originrow);
 		}
 		return Dialog_Show(playerid, "AdmSetNameOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Negara Kelahiran", originstring, "Pilih", "");
 	}
 
 	if(listitem == -1 || listitem > sizeof(_g_originName) - 1)
 	{
-		static originstring[3528+1];
+		static originstring[3528+1], originrow[48];
+		originstring[0] = EOS;
 		for(new x; x < sizeof(_g_originName); x++)
 		{
-			format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
+			format(originrow, sizeof(originrow), "%s\n", _g_originName[x]);
+			strcat(originstring, originrow);
 		}
 		return Dialog_Show(playerid, "AdmSetNameOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Negara Kelahiran", originstring, "Pilih", "");
 	}

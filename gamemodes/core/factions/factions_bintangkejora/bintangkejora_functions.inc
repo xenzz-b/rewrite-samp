@@ -262,10 +262,10 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 		{
 			if (i % 2 == 0) {
-                format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
             }
             else {
-                format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
             }
 			NearestUser[playerid][count++] = i;
 		}
@@ -293,6 +293,7 @@ Dialog:BintangKejoraVault(playerid, response, listitem, inputtext[])
         case 0: //deposit
         {
             new str[1218], count;
+            static invrow[64];
             format(str, sizeof(str), "Nama Item\tJumlah\n");
             for(new index; index < MAX_INVENTORY; index++)
             {
@@ -300,7 +301,8 @@ Dialog:BintangKejoraVault(playerid, response, listitem, inputtext[])
                 {
                     for(new i; i < sizeof(g_aInventoryItems); i ++) if (!strcmp(g_aInventoryItems[i][e_InventoryItem], InventoryData[playerid][index][invItem], true))
                     {
-                        format(str, sizeof(str), "%s%s\t%d\n", str, InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                        format(invrow, sizeof(invrow), "%s\t%d\n", InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                        strcat(str, invrow);
                         PlayerListitem[playerid][count++] = index;
                     }
                 }
@@ -659,22 +661,22 @@ Dialog:BintangKejoraLocker(playerid, response, listitem, inputtext[])
             if(AccountData[playerid][pGender] == 1)
             {
                 Dialog_Show(playerid, "BintangKejoraUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Uniform", 
-                "Bintang Kejora 1\n\
-                "GRAY"Bintang Kejora 2\n\
-                Bintang Kejora 3\n\
-                "GRAY"Bintang Kejora 4\n\
-                Bintang Kejora 5\n\
-                "GRAY"Bintang Kejora 6\n\
-                Bintang Kejora 7", "Pilih", "Batal");
+                "Seragam Staf Harian\n\
+                "GRAY"Seragam Resepsionis\n\
+                Seragam Supervisor\n\
+                "GRAY"Seragam Petugas Gudang\n\
+                Seragam Pramusaji\n\
+                "GRAY"Seragam Satpam\n\
+                Seragam Manajer", "Pilih", "Batal");
             }
             else if(AccountData[playerid][pGender] == 2)
             {
                 Dialog_Show(playerid, "BintangKejoraUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Bintang Kejora Uniform", 
-                "Bintang Kejora 1\n\
-                "GRAY"Bintang Kejora 2\n\
-                Bintang Kejora 3\n\
-                "GRAY"Bintang Kejora 4\n\
-                Bintang Kejora 5", "Pilih", "Batal");
+                "Seragam Staf Harian\n\
+                "GRAY"Seragam Resepsionis\n\
+                Seragam Supervisor\n\
+                "GRAY"Seragam Petugas Gudang\n\
+                Seragam Pramusaji", "Pilih", "Batal");
             }
         }
         case 2: //baton stick
@@ -724,10 +726,10 @@ Dialog:BintangKejoraBosDesk(playerid, response, listitem, inputtext[])
             foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 1.5)) 
             {
                 if (i % 2 == 0) {
-                    format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 else {
-                    format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 NearestUser[playerid][count++] = i;
             }
@@ -1123,7 +1125,7 @@ Dialog:BintangKejoraPanel(playerid, response, listitem, inputtext[])
             {
                 if(InvoiceData[targetid][id][invoiceExists] && InvoiceData[targetid][id][invoiceOwner] == AccountData[targetid][pID]) 
                 {
-                    format(xjjs, sizeof(xjjs), "%s"WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", xjjs, id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost]));
+                    strcat(xjjs, sprintf(""WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost])), sizeof(xjjs));
                     count++;
                 }
             }
@@ -1203,7 +1205,7 @@ Dialog:BintangKejoraPanel(playerid, response, listitem, inputtext[])
 
             ApplyAnimation(playerid, "BD_FIRE", "wash_up", 4.1, false, false, false, false, 0, true);
 
-            new str[1218], count;
+            new str[1218], count; static invrow[144];
             format(str, sizeof(str), "Nama Item\tJumlah\n");
             for(new index; index < MAX_INVENTORY; index++)
             {
@@ -1213,11 +1215,13 @@ Dialog:BintangKejoraPanel(playerid, response, listitem, inputtext[])
                     {
                         if (i % 2 == 0)
                         {
-                            format(str, sizeof(str), "%s"WHITE"%s\t"WHITE"%d\n", str, InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
+                            format(invrow, sizeof(invrow), ""WHITE"%s\t"WHITE"%d\n", InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
                         }
-                        else {
-                            format(str, sizeof(str), "%s"GRAY"%s\t"GRAY"%d\n", str, InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
+                        else
+                        {
+                            format(invrow, sizeof(invrow), ""GRAY"%s\t"GRAY"%d\n", InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
                         }
+                        strcat(str, invrow);
                         count++;
                     }
                 }

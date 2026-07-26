@@ -701,10 +701,12 @@ Dialog:ModshopCatalogMenu(playerid, response, listitem, inputtext[])
 		{
 			if(vtData[iteratorid][slotid][vtoy_modelid] != 18667) return ShowTDN(playerid, NOTIFICATION_ERROR, "Objek ini bukan merupakan text");
 			
-			static string[512];
+			static string[512], fontrow[48];
+			string[0] = EOS;
 			for(new x; x < sizeof(FontNames); x++)
 			{
-				format(string, sizeof(string), "%s%s\n", string, FontNames[x]);
+				format(fontrow, sizeof(fontrow), "%s\n", FontNames[x]);
+				strcat(string, fontrow);
 			}
 			Dialog_Show(playerid, "ModshopCatalogFont", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Modshop Font", string, "Pilih", "Batal");
 		}

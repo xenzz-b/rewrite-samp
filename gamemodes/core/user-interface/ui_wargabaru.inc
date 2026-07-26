@@ -110,11 +110,16 @@ CreatePWargaBaruTD(playerid)
 
 ShowWargaBaruTD(playerid)
 {
+    // Jangan tampilkan bila masa warga baru sudah habis.
+    if(AccountData[playerid][pWBTime] <= 1)
+        return HideWargaBaruTD(playerid);
+
     for(new x; x < 9; x++)
     {
         TextDrawShowForPlayer(playerid, WARGABARU[x]);
     }
     PlayerTextDrawShow(playerid, PWARGABARU[playerid]);
+    return 1;
 }
 
 HideWargaBaruTD(playerid)
@@ -124,4 +129,5 @@ HideWargaBaruTD(playerid)
         TextDrawHideForPlayer(playerid, WARGABARU[x]);
     }
     PlayerTextDrawHide(playerid, PWARGABARU[playerid]);
+    return 1;
 }

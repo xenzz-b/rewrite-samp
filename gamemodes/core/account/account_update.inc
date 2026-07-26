@@ -23,8 +23,24 @@ UpdateAccountData(playerid)
 			GetPlayerPos(playerid, AccountData[playerid][pPos][0], AccountData[playerid][pPos][1], AccountData[playerid][pPos][2]);
 		}
 		GetPlayerFacingAngle(playerid, AccountData[playerid][pPos][3]);
-		GetPlayerHealth(playerid, AccountData[playerid][pHealth]);
-		GetPlayerArmour(playerid, AccountData[playerid][pArmor]);
+
+		new Float:svHP, Float:svAP;
+		GetPlayerHealth(playerid, svHP);
+		GetPlayerArmour(playerid, svAP);
+
+		// Batasi dengan ledger hanya bila sudah spawn, agar nilai tersimpan
+		// tidak tertimpa 0 saat player masih di kelas / belum spawn.
+		if(AccountData[playerid][pSpawned] && !AccountData[playerid][pAdminDuty])
+		{
+			if(svHP > AC_LedgerHP[playerid])     svHP = AC_LedgerHP[playerid];
+			if(svAP > AC_LedgerArmour[playerid]) svAP = AC_LedgerArmour[playerid];
+
+			if(svHP < 0.0) svHP = 0.0;
+			if(svAP < 0.0) svAP = 0.0;
+
+			AccountData[playerid][pHealth] = svHP;
+			AccountData[playerid][pArmor]  = svAP;
+		}
 	}
 	
 	if(IsPlayerHunting[playerid])

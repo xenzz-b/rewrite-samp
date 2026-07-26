@@ -412,9 +412,9 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 				vid = ReturnVehicleIDInsuranced(playerid, listed);
 				if(listed == countinsued)
 				{
-					format(string,sizeof(string), "%s%d\t%s\t%s\t"GREEN"$1,500", string, listed+1, GetVehicleModelName(PlayerVehicle[vid][pVehModelID]), PlayerVehicle[vid][pVehPlate]);
+					strcat(string, sprintf("%d\t%s\t%s\t"GREEN"$1,500", listed+1, GetVehicleModelName(PlayerVehicle[vid][pVehModelID]), PlayerVehicle[vid][pVehPlate]), sizeof(string));
 				}
-				else format(string,sizeof(string), "%s%d\t%s\t%s\t"GREEN"$1,500\n", string, listed+1, GetVehicleModelName(PlayerVehicle[vid][pVehModelID]), PlayerVehicle[vid][pVehPlate]);
+				else strcat(string, sprintf("%d\t%s\t%s\t"GREEN"$1,500\n", listed+1, GetVehicleModelName(PlayerVehicle[vid][pVehModelID]), PlayerVehicle[vid][pVehPlate]), sizeof(string));
 			}
 			Dialog_Show(playerid, "VehicleInsurance", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Asuransi", string, "Pilih", "Batal");
 		}
@@ -692,12 +692,12 @@ Dialog:VehicleHoslter(playerid, response, listitem, inputtext[])
 			{
 				if (VehicleHolster[AccountData[playerid][pTempVehIterID]][vHolsterTaken][id])
 				{
-					format(string, sizeof(string), "%s%d\t%s\t%d\n", string, id + 1, ReturnWeaponName(VehicleHolster[AccountData[playerid][pTempVehIterID]][vHolsterWeaponID][id]), VehicleHolster[AccountData[playerid][pTempVehIterID]][vHolsterWeaponAmmo][id]);
+					strcat(string, sprintf("%d\t%s\t%d\n", id + 1, ReturnWeaponName(VehicleHolster[AccountData[playerid][pTempVehIterID]][vHolsterWeaponID][id]), VehicleHolster[AccountData[playerid][pTempVehIterID]][vHolsterWeaponAmmo][id]), sizeof(string));
 					count++;
 				}
 				else
 				{
-					format(string, sizeof(string), "%s"GREEN"%d\t"GREEN"Kosong\t"GREEN"0\n", string, id + 1);
+					strcat(string, sprintf(""GREEN"%d\t"GREEN"Kosong\t"GREEN"0\n", id + 1), sizeof(string));
 				}
 			}
 

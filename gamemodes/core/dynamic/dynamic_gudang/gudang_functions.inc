@@ -374,6 +374,7 @@ Dialog:GudangItemVault(playerid, response, listitem, inputtext[])
         case 0: //deposit
         {
             new str[1218], count;
+            static invrow[144];
             format(str, sizeof(str), "Item\tQuantity\tWeight (%.3f/300 kg)\n", GetGudangTotalWeightFloat(playerid));
             for(new index; index < MAX_INVENTORY; index++)
             {
@@ -382,9 +383,11 @@ Dialog:GudangItemVault(playerid, response, listitem, inputtext[])
                     for(new i; i < sizeof(g_aInventoryItems); i ++) if (!strcmp(g_aInventoryItems[i][e_InventoryItem], InventoryData[playerid][index][invItem], true))
                     {
                         if (i % 2 == 0) {
-                            format(str, sizeof(str), "%s"WHITE"%s\t"WHITE"%d\t"WHITE"-\n", str, InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                            format(invrow, sizeof(invrow), ""WHITE"%s\t"WHITE"%d\t"WHITE"-\n", InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                            strcat(str, invrow);
                         } else {
-                            format(str, sizeof(str), "%s"GRAY"%s\t"GRAY"%d\t"GRAY"-\n", str, InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                            format(invrow, sizeof(invrow), ""GRAY"%s\t"GRAY"%d\t"GRAY"-\n", InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                            strcat(str, invrow);
                         }
                         PlayerListitem[playerid][count++] = index;
                     }
@@ -415,7 +418,7 @@ Dialog:GudangItemVault(playerid, response, listitem, inputtext[])
                 {
                     cache_get_value_name(x, "invent_Item", itemname);
                     cache_get_value_name_int(x, "invent_Quantity", amounts);
-                    format(str, sizeof(str), "%s%s\t%d\t-\n", str, itemname, amounts);
+                    strcat(str, sprintf("%s\t%d\t-\n", itemname, amounts), sizeof(str));
                 }
                 Dialog_Show(playerid, "GudangItemVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Gudang", str, "Pilih", "Batal");
             }

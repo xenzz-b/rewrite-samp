@@ -29,6 +29,33 @@
 
 #define MAX_SAWIT 100
 
+// --- Starterpack warga baru ---
+#define SP_REWARD_MONEY     50000
+#define SP_REWARD_FOOD      10
+#define SP_REWARD_DRINK     10
+#define SP_REWARD_VEHICLE   422     // Bobcat
+#define SP_CLAIM_DURATION   20      // detik animasi sembahyang
+
+// --- Gaji faction (dibayar per periode saat on duty) ---
+#define SALARY_DUTY_PERIOD  1800    // detik bertugas sebelum satu slip terbit
+#define SALARY_BASE         2500    // gaji dasar per periode
+#define SALARY_PER_RANK     250     // tambahan per tingkat pangkat
+#define SALARY_MAX          8000    // batas atas per periode
+#define SALARY_JOB          1800    // gaji pekerja (punya job, tanpa faction)
+#define SALARY_CITIZEN      1000    // tunjangan warga biasa
+
+// --- Perlengkapan kepolisian ---
+#define LSPD_ARMOUR_NORMAL  150.0   // armor polisi biasa
+#define LSPD_ARMOUR_SWAT    200.0   // armor taktis (SWAT)
+#define LSPD_RANK_HEAVYGUN  13      // pangkat minimal utk MP5 ke atas (IPDA)
+#define PAYCHECK_COOLDOWN   3600    // detik jeda antar pencairan
+
+// --- Properti rumah ---
+#define HOUSE_LAPOR_DURATION 2592000 // 30 hari dalam detik sebelum rumah digusur
+
+// --- Batas amunisi ---
+#define MAX_WEAPON_AMMO     500     // batas maksimal amunisi per senjata
+
 #define MAX_FACTIONS 13
 #define MAX_FACTIONS_ITEMS 500
 #define MAX_COMPANY_ITEMS 500

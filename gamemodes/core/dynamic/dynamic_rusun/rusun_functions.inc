@@ -104,10 +104,10 @@ Player_NearRusun(playerid, rsid)
     foreach(new i : Player) if(i != playerid) if(IsPlayerInRangeOfPoint(i, 1.5, RusunData[rsid][rusunPos][0], RusunData[rsid][rusunPos][1], RusunData[rsid][rusunPos][2])) 
     {
         if (i % 2 == 0) {
-            format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+            strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
         }
         else {
-            format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+            strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
         }
         NearestUser[playerid][counting++] = i;
     }
@@ -169,7 +169,7 @@ public Player_OpenSavedClothes(playerid)
         for(new i; i < rows; i++)
         {
             cache_get_value_name(i, "Name", ClothesName);
-            format(sjjr, sizeof(sjjr), "%s%s\n", sjjr, ClothesName);
+            strcat(sjjr, sprintf("%s\n", ClothesName), sizeof(sjjr));
         }
         Dialog_Show(playerid, "RusunClothes", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Pakaian", 
         sjjr, "Pilih", "Kembali");
@@ -563,6 +563,7 @@ Dialog:RusunItemVault(playerid, response, listitem, inputtext[])
         case 0: //deposit
         {
             new str[1218], count;
+            static invrow[144];
             format(str, sizeof(str), "Nama Item\tJumlah\tBerat (%.3f/300 kg)\n", GetRusunTotalWeightFloat(playerid));
             for(new index; index < MAX_INVENTORY; index++)
             {
@@ -571,9 +572,11 @@ Dialog:RusunItemVault(playerid, response, listitem, inputtext[])
                     for(new i; i < sizeof(g_aInventoryItems); i ++) if (!strcmp(g_aInventoryItems[i][e_InventoryItem], InventoryData[playerid][index][invItem], true))
                     {
                         if (i % 2 == 0) {
-                            format(str, sizeof(str), "%s"WHITE"%s\t"WHITE"%d\t"WHITE"-\n", str, InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                            format(invrow, sizeof(invrow), ""WHITE"%s\t"WHITE"%d\t"WHITE"-\n", InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                            strcat(str, invrow);
                         } else {
-                            format(str, sizeof(str), "%s"GRAY"%s\t"GRAY"%d\t"GRAY"-\n", str, InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                            format(invrow, sizeof(invrow), ""GRAY"%s\t"GRAY"%d\t"GRAY"-\n", InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                            strcat(str, invrow);
                         }
                         PlayerListitem[playerid][count++] = index;
                     }

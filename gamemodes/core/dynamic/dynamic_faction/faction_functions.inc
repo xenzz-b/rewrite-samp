@@ -704,6 +704,10 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
             if (!AccountData[playerid][pOnDuty])
                 return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus on duty terlebih dahulu!");
 
+            // Titik spawn belum diatur admin, cegah kendaraan muncul di 0,0,0
+            if (FactGarageData[garageid][GarageSpawnPos][0] == 0.0 && FactGarageData[garageid][GarageSpawnPos][1] == 0.0 && FactGarageData[garageid][GarageSpawnPos][2] == 0.0)
+                return ShowTDN(playerid, NOTIFICATION_ERROR, "Titik spawn garasi ini belum diatur, hubungi admin!");
+
             switch (AccountData[playerid][pFaction])
             {
                 case FACTION_LSPD:

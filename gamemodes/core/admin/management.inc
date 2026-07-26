@@ -294,12 +294,13 @@ YCMD:setvip(playerid, params[], help)
 
 YCMD:apoint(playerid, params[], help)
 {
-	new location[2080], lstr[256];
+	static location[2080], lstr[256];
     if (AccountData[playerid][pAdmin] < 5)
         return PermissionError(playerid);
     if (AccountData[playerid][pAdminDuty] == false)
         return PermissionErrorDuty(playerid);
 
+	location[0] = EOS;
 	strcat(location, "ID\tAdmin Name\tRank\tAdmin Point\n", sizeof(location));
 
     foreach (new i : Player) if (AccountData[i][pAdmin] >= 1)

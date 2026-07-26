@@ -64,9 +64,9 @@ YCMD:asks(playerid, params[], help)
     foreach(new i : Asks)
     {
         if(strlen(AskData[i][askText]) > 64)
-            format(lstr,sizeof(lstr), "%s#%d\t%s [%s] (%d)\t%.64s...\n", lstr, i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]);
+            strcat(lstr, sprintf("#%d\t%s [%s] (%d)\t%.64s...\n", i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]), sizeof(lstr));
         else
-            format(lstr,sizeof(lstr), "%s#%d\t%s [%s] (%d)\t%s\n", lstr, i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]);
+            strcat(lstr, sprintf("#%d\t%s [%s] (%d)\t%s\n", i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]), sizeof(lstr));
 
         PlayerListitem[playerid][counting++] = i;
     }

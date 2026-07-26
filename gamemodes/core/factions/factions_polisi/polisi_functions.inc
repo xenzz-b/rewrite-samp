@@ -292,10 +292,10 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 		{
 			if (i % 2 == 0) {
-                format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
             }
             else {
-                format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
             }
 			NearestUser[playerid][count++] = i;
 		}
@@ -452,12 +452,23 @@ Dialog:PolisiLocker(playerid, response, listitem, inputtext[])
             if(AccountData[playerid][pGender] == 1)
             {
                 Dialog_Show(playerid, "PolisiUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- LSPD Uniform", 
-                "LSPD #1\nLSPD #2\nLSPD #3\nLSPD #4\nLSPD #5\nLSPD #6\nLSPD #7\nLSPD #8\nLSPD #9", "Pilih", "Batal");
+                "Seragam Patroli Harian\n\
+                "GRAY"Seragam Patroli Lapangan\n\
+                Seragam Reserse\n\
+                "GRAY"Seragam Reserse Taktis\n\
+                Seragam Satuan Lalu Lintas\n\
+                "GRAY"Seragam Satuan Sabhara\n\
+                Seragam Provos\n\
+                "GRAY"Seragam Brimob\n\
+                Seragam Brimob Taktis", "Pilih", "Batal");
             }
             else
             {
                 Dialog_Show(playerid, "PolisiUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- LSPD Uniform", 
-                "LSPD #1\nLSPD #2\nLSPD #3\nLSPD #4", "Pilih", "Batal");
+                "Seragam Patroli Harian\n\
+                "GRAY"Seragam Patroli Lapangan\n\
+                Seragam Reserse\n\
+                "GRAY"Seragam Reserse Taktis", "Pilih", "Batal");
             }
         }
         case 2: //
@@ -470,7 +481,7 @@ Dialog:PolisiLocker(playerid, response, listitem, inputtext[])
             if(!AccountData[playerid][pOnDuty]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak sedang on duty!");
             SetPlayerArmourEx(playerid, 100.0);
             GivePlayerWeaponEx(playerid, 3, 1, WEAPON_TYPE_FACTION);
-            GivePlayerWeaponEx(playerid, 41, 5000, WEAPON_TYPE_FACTION);
+            GivePlayerWeaponEx(playerid, 41, MAX_WEAPON_AMMO, WEAPON_TYPE_FACTION);
 
             ShowTDN(playerid, NOTIFICATION_SUCCESS, "Anda berhasil mengambil perlengkapan.");
         }
@@ -582,10 +593,10 @@ Dialog:PolisiBosdesk(playerid, response, listitem, inputtext[])
             foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 1.5)) 
             {
                 if (i % 2 == 0) {
-                    format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 else {
-                    format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 NearestUser[playerid][count++] = i;
             }
@@ -818,6 +829,7 @@ Dialog:PolisiVault(playerid, response, listitem, inputtext[])
         case 0: //deposit
         {
             new str[1218], count;
+            static invrow[64];
             format(str, sizeof(str), "Nama Item\tJumlah\n");
             for(new index; index < MAX_INVENTORY; index++)
             {
@@ -825,7 +837,8 @@ Dialog:PolisiVault(playerid, response, listitem, inputtext[])
                 {
                     for(new i; i < sizeof(g_aInventoryItems); i ++) if (!strcmp(g_aInventoryItems[i][e_InventoryItem], InventoryData[playerid][index][invItem], true))
                     {
-                        format(str, sizeof(str), "%s%s\t%d\n", str, InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                        format(invrow, sizeof(invrow), "%s\t%d\n", InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                        strcat(str, invrow);
                         PlayerListitem[playerid][count++] = index;
                     }
                 }
@@ -1160,6 +1173,17 @@ Dialog:PolisiArmoury(playerid, response, listitem, inputtext[])
             if(AccountData[playerid][pLevel] < 5)
                 return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda dapat memegang senjata jika sudah mencapai level 5 karakter!");
 
+            // Senjata berat hanya boleh direstock oleh petinggi, sejalan
+            // dengan pembatasan saat pengambilan.
+            switch(GetPlayerWeaponEx(playerid))
+            {
+                case 27, 29, 31, 34:
+                {
+                    if(AccountData[playerid][pFactionRank] < LSPD_RANK_HEAVYGUN)
+                        return ShowTDN(playerid, NOTIFICATION_ERROR, "Hanya petinggi (IPDA ke atas) yang dapat restock senjata ini!");
+                }
+            }
+
             if(GetPlayerWeaponEx(playerid) == 24)
             {
                 ResetWeapon(playerid, 24);
@@ -1175,13 +1199,13 @@ Dialog:PolisiArmoury(playerid, response, listitem, inputtext[])
             else if(GetPlayerWeaponEx(playerid) == 29)
             {
                 ResetWeapon(playerid, 29);
-                GivePlayerWeaponEx(playerid, 29, 650, WEAPON_TYPE_FACTION);
+                GivePlayerWeaponEx(playerid, 29, MAX_WEAPON_AMMO, WEAPON_TYPE_FACTION);
                 ShowTDN(playerid, NOTIFICATION_INFO, "Peluru senjata sudah diperbarui.");
             }
             else if(GetPlayerWeaponEx(playerid) == 31)
             {
                 ResetWeapon(playerid, 31);
-                GivePlayerWeaponEx(playerid, 31, 650, WEAPON_TYPE_FACTION);
+                GivePlayerWeaponEx(playerid, 31, MAX_WEAPON_AMMO, WEAPON_TYPE_FACTION);
                 ShowTDN(playerid, NOTIFICATION_INFO, "Peluru senjata sudah diperbarui.");
             }
             else if(GetPlayerWeaponEx(playerid) == 27)
@@ -1204,14 +1228,14 @@ Dialog:PolisiArmoury(playerid, response, listitem, inputtext[])
         case 1: //refill health & armour
         {
             SetPlayerHealthEx(playerid, 100.0);
-            SetPlayerArmourEx(playerid, 150.0);
-            ShowTDN(playerid, NOTIFICATION_INFO, "Darah dan armor anda sudah diperbarui.");
+            SetPlayerArmourEx(playerid, LSPD_ARMOUR_NORMAL);
+            ShowTDN(playerid, NOTIFICATION_INFO, sprintf("Darah dan armor anda sudah diperbarui (%.0f AP).", LSPD_ARMOUR_NORMAL));
         }
         case 2: //tactical body armour
         {
             SetPlayerHealthEx(playerid, 100.0);
-            SetPlayerArmourEx(playerid, 150.0);
-            ShowTDN(playerid, NOTIFICATION_INFO, "Darah dan armor taktis anda sudah diperbarui.");
+            SetPlayerArmourEx(playerid, LSPD_ARMOUR_SWAT);
+            ShowTDN(playerid, NOTIFICATION_INFO, sprintf("Darah dan armor taktis anda sudah diperbarui (%.0f AP).", LSPD_ARMOUR_SWAT));
         }
         case 3: //clear weapon & armour
         {
@@ -1247,7 +1271,10 @@ Dialog:PolisiArmoury(playerid, response, listitem, inputtext[])
             if(AccountData[playerid][pLevel] < 5)
                 return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda dapat memegang senjata jika sudah mencapai level 5 karakter!");
 
-            GivePlayerWeaponEx(playerid, 29, 650, WEAPON_TYPE_FACTION);
+            if(AccountData[playerid][pFactionRank] < LSPD_RANK_HEAVYGUN)
+                return ShowTDN(playerid, NOTIFICATION_ERROR, "Hanya petinggi (IPDA ke atas) yang dapat mengambil senjata ini!");
+
+            GivePlayerWeaponEx(playerid, 29, MAX_WEAPON_AMMO, WEAPON_TYPE_FACTION);
             ShowItemBox(playerid, "MP5", "Received 1x", 353, 5);
             ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengambil MP5");
         }
@@ -1256,7 +1283,10 @@ Dialog:PolisiArmoury(playerid, response, listitem, inputtext[])
             if(AccountData[playerid][pLevel] < 5)
                 return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda dapat memegang senjata jika sudah mencapai level 5 karakter!");
 
-            GivePlayerWeaponEx(playerid, 31, 650, WEAPON_TYPE_FACTION);
+            if(AccountData[playerid][pFactionRank] < LSPD_RANK_HEAVYGUN)
+                return ShowTDN(playerid, NOTIFICATION_ERROR, "Hanya petinggi (IPDA ke atas) yang dapat mengambil senjata ini!");
+
+            GivePlayerWeaponEx(playerid, 31, MAX_WEAPON_AMMO, WEAPON_TYPE_FACTION);
             ShowItemBox(playerid, "M4", "Received 1x", 356, 5);
             ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengambil M4");
         }
@@ -1264,6 +1294,9 @@ Dialog:PolisiArmoury(playerid, response, listitem, inputtext[])
         {
             if(AccountData[playerid][pLevel] < 5)
                 return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda dapat memegang senjata jika sudah mencapai level 5 karakter!");
+
+            if(AccountData[playerid][pFactionRank] < LSPD_RANK_HEAVYGUN)
+                return ShowTDN(playerid, NOTIFICATION_ERROR, "Hanya petinggi (IPDA ke atas) yang dapat mengambil senjata ini!");
 
             GivePlayerWeaponEx(playerid, 27, 400, WEAPON_TYPE_FACTION);
             ShowItemBox(playerid, "Combat Shotgun", "Received 1x", 351, 5);
@@ -1274,6 +1307,9 @@ Dialog:PolisiArmoury(playerid, response, listitem, inputtext[])
             if(AccountData[playerid][pLevel] < 5)
                 return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda dapat memegang senjata jika sudah mencapai level 5 karakter!");
                 
+            if(AccountData[playerid][pFactionRank] < LSPD_RANK_HEAVYGUN)
+                return ShowTDN(playerid, NOTIFICATION_ERROR, "Hanya petinggi (IPDA ke atas) yang dapat mengambil senjata ini!");
+
             GivePlayerWeaponEx(playerid, 34, 400, WEAPON_TYPE_FACTION);
             ShowItemBox(playerid, "Sniper Rifle", "Received 1x", 358, 5);
             ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengambil Sniper Rifle");
@@ -1885,7 +1921,7 @@ Dialog:PolisiPanel(playerid, response, listitem, inputtext[])
             {
                 if(InvoiceData[targetid][id][invoiceExists] && InvoiceData[targetid][id][invoiceOwner] == AccountData[targetid][pID]) 
                 {
-                    format(xjjs, sizeof(xjjs), "%s"WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", xjjs, id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost]));
+                    strcat(xjjs, sprintf(""WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost])), sizeof(xjjs));
                     count++;
                 }
             }
@@ -1915,7 +1951,7 @@ Dialog:PolisiPanel(playerid, response, listitem, inputtext[])
 
             ApplyAnimation(playerid, "BD_FIRE", "wash_up", 4.1, false, false, false, false, 0, true);
 
-            new str[1218], count;
+            new str[1218], count; static invrow[144];
             format(str, sizeof(str), "Nama Item\tJumlah\n");
             for(new index; index < MAX_INVENTORY; index++)
             {
@@ -1925,11 +1961,13 @@ Dialog:PolisiPanel(playerid, response, listitem, inputtext[])
                     {
                         if (i % 2 == 0)
                         {
-                            format(str, sizeof(str), "%s"WHITE"%s\t"WHITE"%d\n", str, InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
+                            format(invrow, sizeof(invrow), ""WHITE"%s\t"WHITE"%d\n", InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
                         }
-                        else {
-                            format(str, sizeof(str), "%s"GRAY"%s\t"GRAY"%d\n", str, InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
+                        else
+                        {
+                            format(invrow, sizeof(invrow), ""GRAY"%s\t"GRAY"%d\n", InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
                         }
+                        strcat(str, invrow);
                         PlayerListitem[playerid][count++] = index;
                     }
                 }
@@ -2044,7 +2082,7 @@ Dialog:PolisiPanel(playerid, response, listitem, inputtext[])
                 if(weaponid > 0)
                 {
                     count++;
-                    format(lstr, sizeof(lstr), "%s"RED"%d\t"RED"%s\t"RED"%d\n", lstr, i, ReturnWeaponName(weaponid), ammo);
+                    strcat(lstr, sprintf(""RED"%d\t"RED"%s\t"RED"%d\n", i, ReturnWeaponName(weaponid), ammo), sizeof(lstr));
                 }
             }
             if(count > 0)
@@ -2141,7 +2179,7 @@ Dialog:PolisiPDMMenu(playerid, response, listitem, inputtext[])
             {
                 if(AccountData[i][pArrested] && AccountData[i][pArrestTime] > 0)
                 {
-                    format(hhh, sizeof(hhh), "%s%s\t%s\n", hhh, GetPlayerRoleplayName(i), GetFormatTime(AccountData[i][pArrestTime]));
+                    strcat(hhh, sprintf("%s\t%s\n", GetPlayerRoleplayName(i), GetFormatTime(AccountData[i][pArrestTime])), sizeof(hhh));
                     ListedUser[playerid][count++] = i;
                 }
             }
@@ -2406,7 +2444,7 @@ Dialog:PolisiImpoundSearch(playerid, response, listitem, inputtext[])
             cache_get_value_name_int(x, "PVeh_ImpoundDuration", impduration);
             cache_get_value_name_int(x, "PVeh_ImpoundFee", impfee);
 
-            format(hjstr, sizeof(hjstr), "%s%s\t%s\t$%s\n", hjstr, GetVehicleModelName(modelid), ReturnTimelapse(gettime(), impduration, "Sudah Waktunya"), FormatMoney(impfee));
+            strcat(hjstr, sprintf("%s\t%s\t$%s\n", GetVehicleModelName(modelid), ReturnTimelapse(gettime(), impduration, "Sudah Waktunya"), FormatMoney(impfee)), sizeof(hjstr));
         }
         Dialog_Show(playerid, "PolisiImpoundSelect", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Impounded List", 
         hjstr, "Pilih", "Batal");
@@ -2669,7 +2707,7 @@ Dialog:MDC_Main(playerid, response, listitem, inputtext[])
                 if(Iter_Contains(Vehicle, PlayerFactionVehicle[i][FACTION_LSPD]) && IsValidDynamic3DTextLabel(FactionVehCallsign[PlayerFactionVehicle[i][FACTION_LSPD]]) && AccountData[i][pFaction] == FACTION_LSPD && !isnull(LSPDPlayerCallsign[i]))
                 {
                     count++;
-                    format(string, sizeof(string), "%s%d.\t%s\t%s\n", string, count, LSPDPlayerCallsign[i], GetPlayerRoleplayName(i));
+                    strcat(string, sprintf("%d.\t%s\t%s\n", count, LSPDPlayerCallsign[i], GetPlayerRoleplayName(i)), sizeof(string));
                 }
             }
             if(count > 0)
@@ -2866,22 +2904,6 @@ Dialog:MDC_NameDashboard(playerid, response, listitem, inputtext[])
                 "Pelaut",
                 "Peternak",
                 "Penjahit"
-            };
-
-            static const FacName[12][] = 
-            {
-                "Warga",
-                "Kepolisian",
-                "Paramedis",
-                "Pring Sewu Beach Club",
-                "Pemerintah",
-                "Bennys Automotive",
-                "Uber",
-                "Pinky Tiger Club",
-                "Pewarta",
-                "DriftKing Workshop",
-                "Jaya Abadi",
-                "Sri Mersing Resto"
             };
 
             static const PringSewuRank[11][] = 
@@ -3088,12 +3110,12 @@ Dialog:MDC_NameDashboard(playerid, response, listitem, inputtext[])
             static mdcnstr2[1777];
             format(mdcnstr2, sizeof(mdcnstr2), ""WHITE"=================================================================\n\n");
 
-            format(mdcnstr2, sizeof(mdcnstr2), "%sName Search Results for: %s\n\n", mdcnstr2, MDC_Data[playerid][Name]);
+            strcat(mdcnstr2, sprintf("Name Search Results for: %s\n\n", MDC_Data[playerid][Name]), sizeof(mdcnstr2));
 
-            format(mdcnstr2, sizeof(mdcnstr2), "%sFull Name: [ %s ]\n", mdcnstr2, MDC_Data[playerid][Name]);
-            format(mdcnstr2, sizeof(mdcnstr2), "%sDOB: [ %s ]\n", mdcnstr2, MDC_Data[playerid][Birthday]);
-            format(mdcnstr2, sizeof(mdcnstr2), "%sEmployer: [ %s ]\n", mdcnstr2, JOBName[MDC_Data[playerid][Job]]);
-            format(mdcnstr2, sizeof(mdcnstr2), "%sFaction: [ %s as %s ]\n\n", mdcnstr2, FacName[MDC_Data[playerid][Faction]], sprintf("%s", rnnrt));
+            strcat(mdcnstr2, sprintf("Full Name: [ %s ]\n", MDC_Data[playerid][Name]), sizeof(mdcnstr2));
+            strcat(mdcnstr2, sprintf("DOB: [ %s ]\n", MDC_Data[playerid][Birthday]), sizeof(mdcnstr2));
+            strcat(mdcnstr2, sprintf("Employer: [ %s ]\n", JOBName[MDC_Data[playerid][Job]]), sizeof(mdcnstr2));
+            strcat(mdcnstr2, sprintf("Faction: [ %s as %s ]\n\n", FacName[MDC_Data[playerid][Faction]], rnnrt), sizeof(mdcnstr2));
 
             format(mdcnstr2, sizeof(mdcnstr2), "%sPhone Number(s):\n\
             %s\n\n", mdcnstr2, MDC_Data[playerid][Phone]);
@@ -3119,7 +3141,7 @@ Dialog:MDC_NameDashboard(playerid, response, listitem, inputtext[])
             (MDC_Data[playerid][FirearmLicTime] != 0) ? (sprintf(""DARKGREEN"Valid, %s", ReturnDate(MDC_Data[playerid][FirearmLicTime]))) : (""RED"Invalid"),
             (MDC_Data[playerid][HuntingLicTime] != 0) ? (sprintf(""DARKGREEN"Valid, %s", ReturnDate(MDC_Data[playerid][HuntingLicTime]))) : (""RED"Invalid"));
 
-            format(mdcnstr2, sizeof(mdcnstr2), "%s"WHITE"=================================================================\n", mdcnstr2);
+            strcat(mdcnstr2, ""WHITE"=================================================================\n", sizeof(mdcnstr2));
 
             PlayerPlayNearbySound(playerid, MDC_SELECT);
 
@@ -3605,7 +3627,7 @@ public MDCRegisteredVehicles(playerid)
             cache_get_value_index_int(x, 0, modelid);
             cache_get_value_index(x, 1, Plate);
 
-            format(string, sizeof(string), "%s%d. %s - %s\n", string, x+1, GetVehicleModelName(modelid), Plate);
+            strcat(string, sprintf("%d. %s - %s\n", x+1, GetVehicleModelName(modelid), Plate), sizeof(string));
         }
         Dialog_Show(playerid, "MDC_Found", DIALOG_STYLE_MSGBOX, sprintf("MDT: %s - Registered Vehicles", MDC_Data[playerid][Name]), string, "Kembali", "");
     }

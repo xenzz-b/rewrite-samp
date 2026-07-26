@@ -418,6 +418,8 @@ SetValidVehicleHealth(vehicleid, Float:health)
 {
 	VehicleHealthSecurity[vehicleid] = true;
 	VehicleCore[vehicleid][vCoreHealth] = health;
+	// Catat ke ledger anticheat: repair ini SAH (bengkel/admin/respawn).
+	AC_GrantVehHealth(vehicleid, health);
 	SetVehicleHealth(vehicleid, VehicleCore[vehicleid][vCoreHealth]);
 	return 1;
 }
@@ -428,9 +430,18 @@ Vehicle_GetStatus(carid)
 	{
 		GetVehicleDamageStatus(PlayerVehicle[carid][pVehPhysic], PlayerVehicle[carid][pVehDamage][0], PlayerVehicle[carid][pVehDamage][1], PlayerVehicle[carid][pVehDamage][2], PlayerVehicle[carid][pVehDamage][3]);
 
-		GetVehicleHealth(PlayerVehicle[carid][pVehPhysic], PlayerVehicle[carid][pVehHealth]);
-		PlayerVehicle[carid][pVehMaxHealth] = VehicleCore[PlayerVehicle[carid][pVehPhysic]][vMaxHealth];
-		if(PlayerVehicle[carid][pVehHealth] < 0.0 || PlayerVehicle[carid][pVehHealth] > PlayerVehicle[carid][pVehMaxHealth]) PlayerVehicle[carid][pVehHealth] = PlayerVehicle[carid][pVehMaxHealth];
+		new vphys = PlayerVehicle[carid][pVehPhysic];
+		GetVehicleHealth(vphys, PlayerVehicle[carid][pVehHealth]);
+		PlayerVehicle[carid][pVehMaxHealth] = VehicleCore[vphys][vMaxHealth];
+
+		if(PlayerVehicle[carid][pVehHealth] > AC_LedgerVehHP[vphys])
+			PlayerVehicle[carid][pVehHealth] = AC_LedgerVehHP[vphys];
+
+		if(PlayerVehicle[carid][pVehHealth] > PlayerVehicle[carid][pVehMaxHealth])
+			PlayerVehicle[carid][pVehHealth] = PlayerVehicle[carid][pVehMaxHealth];
+
+		if(PlayerVehicle[carid][pVehHealth] < 1.0)
+			PlayerVehicle[carid][pVehHealth] = 1.0;
 		
 		PlayerVehicle[carid][pVehFuel] = VehicleCore[PlayerVehicle[carid][pVehPhysic]][vCoreFuel];
 		PlayerVehicle[carid][pVehBodyUpgraded] = VehicleCore[PlayerVehicle[carid][pVehPhysic]][vIsBodyUpgraded];

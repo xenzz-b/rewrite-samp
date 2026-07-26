@@ -369,7 +369,33 @@ YCMD:mpo(playerid, params[], help)
     if(!IsLSPDVehicle(GetPlayerVehicleID(playerid)))
 		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di dalam kendaraan kepolisian!");
 
-    SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Harap tepikan kendaraan anda, kami dari Kepolisian Vertex!", GetPlayerRoleplayName(playerid));
+    new level;
+    if(sscanf(params, "d", level))
+        level = 0;
+
+    switch(level)
+    {
+        case 0:
+        {
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] UNTUK KENDARAAN DIDEPAN DIHARAPKAN UNTUK SEGERA MENEPI!!", GetPlayerRoleplayName(playerid));
+        }
+        case 1:
+        {
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] PERINGATAN 1 UNTUK KENDARAAN DI DEPAN UNTUK SEGERA MENEPI!!", GetPlayerRoleplayName(playerid));
+        }
+        case 2:
+        {
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] PERINGATAN 2 UNTUK KENDARAAN DI DEPAN ATAU KAMI AKAN TINDAK TEGAS!!", GetPlayerRoleplayName(playerid));
+        }
+        case 3:
+        {
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] PERINGATAN 3 UNTUK KENDARAAN DI DEPAN KAMI AKAN MELAKUKAN PIT!!", GetPlayerRoleplayName(playerid));
+        }
+        default:
+        {
+            return SUM(playerid, "/mpo (1-3)");
+        }
+    }
     return 1;
 }
 
@@ -382,39 +408,23 @@ YCMD:em(playerid, params[], help)
     if(!IsLSPDVehicle(GetPlayerVehicleID(playerid)))
 		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di dalam kendaraan kepolisian!");
 
-    new randex = RandomEx(0, 7);
-
-    switch(randex)
+    static const g_EmergencyMsg[][] =
     {
-        case 0:
-        {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Disini Kepolisian Vertex dalam situasi darurat, menyingkirlah dari jalan!", GetPlayerRoleplayName(playerid));
-        }
-        case 1:
-        {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Menyingkir dari jalan! Situasi darurat, ini Kepolisian Vertex!", GetPlayerRoleplayName(playerid));
-        }
-        case 2:
-        {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Situasi darurat Kepolisian Vertex, mohon menyingkir dari jalan!", GetPlayerRoleplayName(playerid));
-        }
-        case 3:
-        {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Berikan jalan segera, ini Kepolisian Vertex sedang dalam situasi darurat!", GetPlayerRoleplayName(playerid));
-        }
-        case 4:
-        {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Harap berikan jalan, disini Kepolisian Vertex dalam situasai darurat!", GetPlayerRoleplayName(playerid));
-        }
-        case 5:
-        {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Disini Kepolisian Vertex dalam situasi darurat, menyingkir dan berikan jalan!", GetPlayerRoleplayName(playerid));
-        }
-        case 6:
-        {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Ini Kepolisian Vertex, menyingkir dan berikan jalan untuk kami!", GetPlayerRoleplayName(playerid));
-        }
-    }
+        "DISINI KEPOLISIAN DALAM SITUASI DARURAT, MENYINGKIRLAH DARI JALAN!",
+        "MENYINGKIR DARI JALAN! SITUASI DARURAT, INI KEPOLISIAN!",
+        "SITUASI DARURAT KEPOLISIAN, MOHON MENYINGKIR DARI JALAN!",
+        "BERIKAN JALAN SEGERA, INI KEPOLISIAN SEDANG DALAM SITUASI DARURAT!",
+        "INI KEPOLISIAN, MENYINGKIR DAN BERIKAN JALAN UNTUK KAMI!"
+    };
+
+    if(pEmergencyMsgIndex[playerid] < 0 || pEmergencyMsgIndex[playerid] >= sizeof(g_EmergencyMsg))
+        pEmergencyMsgIndex[playerid] = 0;
+
+    SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] %s", GetPlayerRoleplayName(playerid), g_EmergencyMsg[pEmergencyMsgIndex[playerid]]);
+
+    if(++pEmergencyMsgIndex[playerid] >= sizeof(g_EmergencyMsg))
+        pEmergencyMsgIndex[playerid] = 0;
+
     return 1;
 }
 

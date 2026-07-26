@@ -197,6 +197,7 @@ YCMD:takeoutveh(playerid, params[], help)
     if(!AccountData[otherid][pSpawned]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut belum spawn!");
 
     new bool:found = false, msg2[1618];
+    static vrow[256];
     format(msg2, sizeof(msg2), "Model [Database ID]\tPlate\t/ Status\n");
     foreach (new i : PvtVehicles)
     {
@@ -206,12 +207,14 @@ YCMD:takeoutveh(playerid, params[], help)
             {
                 if (PlayerVehicle[i][pVehRentTime] != 0) // If it's a rental vehicle with a plate
                 {
-                    format(msg2, sizeof(msg2), "%s%s [%d]\t%s\t/ %s\n", msg2, GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], GetMyVehicleStatus(i));
+                    format(vrow, sizeof(vrow), "%s [%d]\t%s\t/ %s\n", GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], GetMyVehicleStatus(i));
+                    strcat(msg2, vrow);
                     found = true;
                 }
                 else // If it's not a rental but has a plate
                 {
-                    format(msg2, sizeof(msg2), "%s%s [%d]\t%s\t/ Dimiliki / %s\n", msg2, GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], GetMyVehicleStatus(i));
+                    format(vrow, sizeof(vrow), "%s [%d]\t%s\t/ Dimiliki / %s\n", GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], GetMyVehicleStatus(i));
+                    strcat(msg2, vrow);
                     found = true;
                 }
             }
@@ -219,12 +222,14 @@ YCMD:takeoutveh(playerid, params[], help)
             {
                 if (PlayerVehicle[i][pVehRentTime] != 0) // If it's a rental vehicle with no plate
                 {
-                    format(msg2, sizeof(msg2), "%s%s [%d]\tNo Plate\t/ %s\n", msg2, GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], GetMyVehicleStatus(i));
+                    format(vrow, sizeof(vrow), "%s [%d]\tNo Plate\t/ %s\n", GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], GetMyVehicleStatus(i));
+                    strcat(msg2, vrow);
                     found = true;
                 }
                 else // If it's not a rental and has no plate
                 {
-                    format(msg2, sizeof(msg2), "%s%s [%d]\tNo Plate\t/ Dimiliki / %s\n", msg2, GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], GetMyVehicleStatus(i));
+                    format(vrow, sizeof(vrow), "%s [%d]\tNo Plate\t/ Dimiliki / %s\n", GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], GetMyVehicleStatus(i));
+                    strcat(msg2, vrow);
                     found = true;
                 }
             }
@@ -556,8 +561,8 @@ YCMD:aduty(playerid, params[], help)
 		{
 			GetPlayerHealth(playerid, AccountData[playerid][pHealth]);
 			SetPlayerColor(playerid, X11_RED);
-			SetPlayerHealth(playerid, 99999);
 			AccountData[playerid][pAdminDuty] = true;
+			SetPlayerHealth(playerid, 99999);
 			SetPlayerName(playerid, AccountData[playerid][pAdminname]);
 			
 			// Reset timer tracking
@@ -593,9 +598,9 @@ YCMD:aduty(playerid, params[], help)
         case true:
         {
             SetPlayerColor(playerid, X11_WHITE);
+            AccountData[playerid][pAdminDuty] = false;
 			SetPlayerHealth(playerid, AccountData[playerid][pHealth]);
             SetPlayerName(playerid, AccountData[playerid][pName]);
-            AccountData[playerid][pAdminDuty] = false;
             RemovePlayerAttachedObject(playerid, 9);
 			if(AccountData[playerid][pAdminDutyHours] > 0 || AccountData[playerid][pAdminDutyMinutes] > 0)
 			{
@@ -947,7 +952,7 @@ YCMD:jaillist(playerid, params[], help)
     {
         if (OJailData[i][jailed])
         {
-            format(line3, sizeof(line3), "%s\n"WHITE"%s(ID: %d) [Jail Time: %d seconds]", line3, AccountData[i][pName], i, OJailData[i][jailTime]);
+            strcat(line3, sprintf("\n"WHITE"%s(ID: %d) [Jail Time: %d seconds]", AccountData[i][pName], i, OJailData[i][jailTime]), sizeof(line3));
             count++;
         }
     }
@@ -1359,7 +1364,7 @@ YCMD:checkwarns(playerid, params[], help)
 	if(!AccountData[otherid][IsLoggedIn])
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut belum login ke server!");
 
-	static string[1024], count;
+	static string[1024], count, wrow[160];
 	count = 0;
 	format(string, sizeof(string), "Type\tIssuer\tDate\tReason\n");
 	for (new id; id < 100; ++id)
@@ -1370,15 +1375,18 @@ YCMD:checkwarns(playerid, params[], help)
 			{
 				case 1:
 				{
-					format(string, sizeof(string), "%s"GREEN"[WARN]\t"WHITE"%s\t%s\t%s\n", string, PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+					format(wrow, sizeof(wrow), ""GREEN"[WARN]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+                    strcat(string, wrow);
 				}
 				case 2:
 				{
-					format(string, sizeof(string), "%s"YELLOW"[JAIL]\t"WHITE"%s\t%s\t%s\n", string, PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+					format(wrow, sizeof(wrow), ""YELLOW"[JAIL]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+                    strcat(string, wrow);
 				}
 				case 3:
 				{
-					format(string, sizeof(string), "%s"ORANGERED"[BAN]\t"WHITE"%s\t%s\t%s\n", string, PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+					format(wrow, sizeof(wrow), ""ORANGERED"[BAN]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+                    strcat(string, wrow);
 				}
 			}
 			PlayerListitem[playerid][count++] = id;
@@ -1768,15 +1776,17 @@ YCMD:akaip(playerid, params[], help)
 
 YCMD:vmodels(playerid, params[], help)
 {
-    static string[2000];
+    static string[4200], row[48];
 
     if (AccountData[playerid][pAdmin] < 1)
         return PermissionError(playerid);
     if (AccountData[playerid][pAdminDuty] == false)
         return PermissionErrorDuty(playerid);
 
+    string[0] = EOS;
     for (new i = 0; i < sizeof(g_arrVehicleNames); i++) {
-        format(string, sizeof(string), "%s%d - %s\n", string, i + 400, g_arrVehicleNames[i]);
+        format(row, sizeof(row), "%d - %s\n", i + 400, g_arrVehicleNames[i]);
+        strcat(string, row);
     }
     Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_LIST, "Vehicle Models", string, "Tutup", "");
 
@@ -1798,11 +1808,15 @@ YCMD:vehname(playerid, params[], help)
     if (isnull(params)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Keyword kurang specific!");
     if (!params[2]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Keyword terlalu singkat!");
 
+    new vrow[48];
     for (new v; v < sizeof(g_arrVehicleNames); v++) {
         if (strfind(g_arrVehicleNames[v], params, true) != -1) {
 
             if (isnull(string)) format(string, sizeof(string), "%s (ID %d)", g_arrVehicleNames[v], v + 400);
-            else format(string, sizeof(string), "%s | %s (ID %d)", string, g_arrVehicleNames[v], v + 400);
+            else {
+                format(vrow, sizeof(vrow), " | %s (ID %d)", g_arrVehicleNames[v], v + 400);
+                strcat(string, vrow);
+            }
         }
     }
 
@@ -2000,6 +2014,7 @@ YCMD:avehlist(playerid, params[], help)
 	if(otherid == INVALID_PLAYER_ID || !IsPlayerConnected(otherid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak terkoneksi di server!");
 
 	new bool:found = false, msg2[1618];
+	static vrow[256];
 	format(msg2, sizeof(msg2), "VID\tModel [Database ID]\tPlate\t/ Rental / Status\n");
 	foreach(new i : PvtVehicles)
 	{
@@ -2009,12 +2024,14 @@ YCMD:avehlist(playerid, params[], help)
 			{
 				if(PlayerVehicle[i][pVehRentTime] != 0) // If it's a rental and has a plate
 				{
-					format(msg2, sizeof(msg2), "%s%s\t%s [%d]\t%s\t/ %s / %s\n", msg2,  (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], ReturnTimelapse(gettime(), PlayerVehicle[i][pVehRentTime], ""YELLOW"Rental Expired"WHITE""), GetMyVehicleStatus(i));
+					format(vrow, sizeof(vrow), "%s\t%s [%d]\t%s\t/ %s / %s\n", (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], ReturnTimelapse(gettime(), PlayerVehicle[i][pVehRentTime], ""YELLOW"Rental Expired"WHITE""), GetMyVehicleStatus(i));
+					strcat(msg2, vrow);
 					found = true;
 				}
 				else // If it's not a rental but has a plate
 				{
-					format(msg2, sizeof(msg2), "%s%s\t%s [%d]\t%s\t/ Dimiliki / %s\n", msg2, (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], GetMyVehicleStatus(i));
+					format(vrow, sizeof(vrow), "%s\t%s [%d]\t%s\t/ Dimiliki / %s\n", (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], PlayerVehicle[i][pVehPlate], GetMyVehicleStatus(i));
+					strcat(msg2, vrow);
 					found = true;
 				}
 			}
@@ -2022,12 +2039,14 @@ YCMD:avehlist(playerid, params[], help)
 			{
 				if(PlayerVehicle[i][pVehRentTime] != 0) // If it's a rental but doesn't have a plate
 				{
-					format(msg2, sizeof(msg2), "%s%s\t%s [%d]\tTidak Ada Plat\t/ %s / %s\n", msg2, (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], ReturnTimelapse(gettime(), PlayerVehicle[i][pVehRentTime], ""YELLOW"Rental Expired"WHITE""), GetMyVehicleStatus(i));
+					format(vrow, sizeof(vrow), "%s\t%s [%d]\tTidak Ada Plat\t/ %s / %s\n", (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], ReturnTimelapse(gettime(), PlayerVehicle[i][pVehRentTime], ""YELLOW"Rental Expired"WHITE""), GetMyVehicleStatus(i));
+					strcat(msg2, vrow);
 					found = true;
 				}
 				else // If it's not a rental and doesn't have a plate
 				{
-					format(msg2, sizeof(msg2), "%s%s\t%s [%d]\tTidak Ada Plat\t/ Dimiliki / %s\n", msg2, (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], GetMyVehicleStatus(i));
+					format(vrow, sizeof(vrow), "%s\t%s [%d]\tTidak Ada Plat\t/ Dimiliki / %s\n", (PlayerVehicle[i][pVehPhysic] == INVALID_VEHICLE_ID) ? ("[Not Spawned]") : (sprintf("[%d]", PlayerVehicle[i][pVehPhysic])), GetVehicleModelName(PlayerVehicle[i][pVehModelID]), PlayerVehicle[i][pVehID], GetMyVehicleStatus(i));
+					strcat(msg2, vrow);
 					found = true;
 				}
 			}
@@ -2136,19 +2155,19 @@ YCMD:fixes(playerid, params[], help)
             {
                 case 1:
                 {
-                    format(string, sizeof(string), "%s"YELLOW"P%d: "WHITE"%s\tVisual Bug (WWID)\n", string, i, AccountData[i][pName]);
+                    strcat(string, sprintf(""YELLOW"P%d: "WHITE"%s\tVisual Bug (WWID)\n", i, AccountData[i][pName]), sizeof(string));
                 }
                 case 2:
                 {
-                    format(string, sizeof(string), "%s"YELLOW"P%d: "WHITE"%s\tCharacter Stuck\n", string, i, AccountData[i][pName]);
+                    strcat(string, sprintf(""YELLOW"P%d: "WHITE"%s\tCharacter Stuck\n", i, AccountData[i][pName]), sizeof(string));
                 }
                 case 3:
                 {
-                    format(string, sizeof(string), "%s"YELLOW"P%d: "WHITE"%s\tCannot Move\n", string, i, AccountData[i][pName]);
+                    strcat(string, sprintf(""YELLOW"P%d: "WHITE"%s\tCannot Move\n", i, AccountData[i][pName]), sizeof(string));
                 }
                 case 4:
                 {
-                    format(string, sizeof(string), "%s"YELLOW"P%d: "WHITE"%s\tBug Balai Kota\n", string, i, AccountData[i][pName]);
+                    strcat(string, sprintf(""YELLOW"P%d: "WHITE"%s\tBug Balai Kota\n", i, AccountData[i][pName]), sizeof(string));
                 }
             }
             PlayerListitem[playerid][count++] = i;

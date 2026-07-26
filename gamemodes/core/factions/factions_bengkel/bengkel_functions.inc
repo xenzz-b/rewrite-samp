@@ -587,10 +587,10 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 		{
 			if (i % 2 == 0) {
-            format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+            strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
             }
             else {
-                format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
             }
 			NearestUser[playerid][count++] = i;
 		}
@@ -617,6 +617,7 @@ Dialog:BennysVault(playerid, response, listitem, inputtext[])
         case 0: //deposit
         {
             new str[1218], count;
+            static invrow[64];
             format(str, sizeof(str), "Nama Item\tJumlah\n");
             for(new index; index < MAX_INVENTORY; index++)
             {
@@ -624,7 +625,8 @@ Dialog:BennysVault(playerid, response, listitem, inputtext[])
                 {
                     for(new i; i < sizeof(g_aInventoryItems); i ++) if (!strcmp(g_aInventoryItems[i][e_InventoryItem], InventoryData[playerid][index][invItem], true))
                     {
-                        format(str, sizeof(str), "%s%s\t%d\n", str, InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                        format(invrow, sizeof(invrow), "%s\t%d\n", InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                        strcat(str, invrow);
                         PlayerListitem[playerid][count++] = index;
                     }
                 }
@@ -963,15 +965,15 @@ Dialog:BennysLocker(playerid, response, listitem, inputtext[])
                 case 1: //male
                 {
                     Dialog_Show(playerid, "BennysUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Baju Bennys", 
-                    "Bennys 1\n\
-                    "GRAY"Bennys 2\n\
-                    Bennys 3", "Pilih", "Batal");
+                    "Seragam Mekanik Harian\n\
+                    "GRAY"Seragam Teknisi Mesin\n\
+                    Wearpack Bengkel", "Pilih", "Batal");
                 }
                 case 2: //female
                 {
                     Dialog_Show(playerid, "BennysUniform", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Baju Bennys", 
-                    "Bennys 1\n\
-                    "GRAY"Bennys 2", "Pilih", "Batal");
+                    "Seragam Mekanik Harian\n\
+                    "GRAY"Seragam Teknisi Mesin", "Pilih", "Batal");
                 }
             }
         }
@@ -1008,10 +1010,10 @@ Dialog:BennysBosdesk(playerid, response, listitem, inputtext[])
             foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 1.5)) 
             {
                 if (i % 2 == 0) {
-                    format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 else {
-                    format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 NearestUser[playerid][count++] = i;
             }
@@ -1385,7 +1387,7 @@ Dialog:BennysPanel(playerid, response, listitem, inputtext[])
             {
                 if(InvoiceData[targetid][id][invoiceExists] && InvoiceData[targetid][id][invoiceOwner] == AccountData[targetid][pID]) 
                 {
-                    format(xjjs, sizeof(xjjs), "%s"WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", xjjs, id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost]));
+                    strcat(xjjs, sprintf(""WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost])), sizeof(xjjs));
                     count++;
                 }
             }

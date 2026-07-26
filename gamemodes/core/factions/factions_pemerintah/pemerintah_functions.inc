@@ -241,10 +241,10 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 		{
 			if (i % 2 == 0) {
-                format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
             }
             else {
-                format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
             }
 			NearestUser[playerid][count++] = i;
 		}
@@ -267,6 +267,7 @@ Dialog:PemerintahVault(playerid, response, listitem, inputtext[])
         case 0: //deposit
         {
             new str[1218], count;
+            static invrow[64];
             format(str, sizeof(str), "Nama Item\tJumlah\n");
             for(new index; index < MAX_INVENTORY; index++)
             {
@@ -274,7 +275,8 @@ Dialog:PemerintahVault(playerid, response, listitem, inputtext[])
                 {
                     for(new i; i < sizeof(g_aInventoryItems); i ++) if (!strcmp(g_aInventoryItems[i][e_InventoryItem], InventoryData[playerid][index][invItem], true))
                     {
-                        format(str, sizeof(str), "%s%s\t%d\n", str, InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                        format(invrow, sizeof(invrow), "%s\t%d\n", InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+                        strcat(str, invrow);
                         PlayerListitem[playerid][count++] = index;
                     }
                 }
@@ -642,7 +644,7 @@ Dialog:PemerintahPanel(playerid, response, listitem, inputtext[])
             {
                 if(InvoiceData[targetid][id][invoiceExists] && InvoiceData[targetid][id][invoiceOwner] == AccountData[targetid][pID]) 
                 {
-                    format(xjjs, sizeof(xjjs), "%s"WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", xjjs, id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost]));
+                    strcat(xjjs, sprintf(""WHITE"%d\t"WHITE"%s\t"YELLOW"%s\t"RED"%s\n", id + 1, InvoiceData[targetid][id][invoiceName], InvoiceData[targetid][id][invoiceIssuerName], FormatMoney(InvoiceData[targetid][id][invoiceCost])), sizeof(xjjs));
                     count++;
                 }
             }
@@ -672,7 +674,7 @@ Dialog:PemerintahPanel(playerid, response, listitem, inputtext[])
 
             ApplyAnimation(playerid, "BD_FIRE", "wash_up", 4.1, false, false, false, false, 0, true);
 
-            new str[1218], count;
+            new str[1218], count; static invrow[144];
             format(str, sizeof(str), "Nama Item\tJumlah\n");
             for(new index; index < MAX_INVENTORY; index++)
             {
@@ -682,11 +684,13 @@ Dialog:PemerintahPanel(playerid, response, listitem, inputtext[])
                     {
                         if (i % 2 == 0)
                         {
-                            format(str, sizeof(str), "%s"WHITE"%s\t"WHITE"%d\n", str, InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
+                            format(invrow, sizeof(invrow), ""WHITE"%s\t"WHITE"%d\n", InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
                         }
-                        else {
-                            format(str, sizeof(str), "%s"GRAY"%s\t"GRAY"%d\n", str, InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
+                        else
+                        {
+                            format(invrow, sizeof(invrow), ""GRAY"%s\t"GRAY"%d\n", InventoryData[targetid][index][invItem], InventoryData[targetid][index][invQuantity]);
                         }
+                        strcat(str, invrow);
                         PlayerListitem[playerid][count++] = index;
                     }
                 }
@@ -713,7 +717,7 @@ Dialog:PemerintahPanel(playerid, response, listitem, inputtext[])
                 if(weaponid > 0)
                 {
                     count++;
-                    format(lstr, sizeof(lstr), "%s"RED"%d\t"RED"%s\t"RED"%d\n", lstr, i, ReturnWeaponName(weaponid), ammo);
+                    strcat(lstr, sprintf(""RED"%d\t"RED"%s\t"RED"%d\n", i, ReturnWeaponName(weaponid), ammo), sizeof(lstr));
                 }
             }
             if(count > 0)
@@ -876,11 +880,11 @@ Dialog:PemerintahLocker(playerid, response, listitem, inputtext[])
                     Pegawai Senior\n\
                     "GRAY"Pegawai Junior\n\
                     Tim Magang\n\
-                    "GRAY"Pemerintah 3\n\
-                    Pemerintah 4\n\
-                    "GRAY"Pemerintah 5\n\
-                    Pemerintah 6\n\
-                    "GRAY"Pemerintah 7", "Pilih", "Batal");
+                    "GRAY"Staf Administrasi\n\
+                    Staf Humas\n\
+                    "GRAY"Staf Protokoler\n\
+                    Petugas Kebersihan\n\
+                    "GRAY"Satpam", "Pilih", "Batal");
                 }
             }
         }
@@ -934,10 +938,10 @@ Dialog:PemerintahBosdesk(playerid, response, listitem, inputtext[])
             foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 1.5)) 
             {
                 if (i % 2 == 0) {
-                    format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 else {
-                    format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+                    strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
                 }
                 NearestUser[playerid][count++] = i;
             }
@@ -1343,7 +1347,7 @@ Dialog:ChangeNameOrigin(playerid, response, listitem, inputtext[])
 		static originstring[3528+1];
 		for(new x; x < sizeof(_g_originName); x++)
 		{
-			format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
+			strcat(originstring, sprintf("%s\n", _g_originName[x]), sizeof(originstring));
 		}
 		return Dialog_Show(playerid, "ChangeNameOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Origin", originstring, "Pilih", "");
 	}

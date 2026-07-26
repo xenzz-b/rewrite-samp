@@ -11,6 +11,7 @@ new HouseMemberName[MAX_PLAYERS][3][MAX_PLAYER_NAME + 1];
 
 //spec object
 new pInSpecMode[MAX_PLAYERS];
+new pEmergencyMsgIndex[MAX_PLAYERS];
 
 new animPage[MAX_PLAYERS];
 new pCurWeap[MAX_PLAYERS];
@@ -286,6 +287,25 @@ enum
     FACTION_BINTANGKEJORA, //12
     FACTION_FEDERAL, //13
     FACTION_JPJ
+};
+
+stock const FacName[15][] =
+{
+    "Warga",
+    "Kepolisian",
+    "Paramedis",
+    "Pring Sewu Beach Club",
+    "Pemerintah",
+    "Bennys Automotive",
+    "Uber",
+    "Loving Donuts",
+    "Pewarta",
+    "DriftKing Workshop",
+    "Jaya Abadi",
+    "Sri Mersing Resto",
+    "Bintang Kejora",
+    "Federal",
+    "JPJ"
 };
 
 enum

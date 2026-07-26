@@ -191,21 +191,19 @@ Dialog:Register(playerid, response, listitem, inputtext[])
 Dialog:Login(playerid, response, listitem, inputtext[])
 {
     if(!response)
-        return Kick(playerid);
+        return KickEx(playerid);
 
     if(isnull(inputtext))
     {
-        Kick(playerid);
+        ShowLoginDialog(playerid, "Kata sandi tidak boleh kosong!");
         return 1;
     }
+
     strmid(TempPasswordLogin[playerid], inputtext, 0, strlen(inputtext), 128);
 
-    new stars[128];
-    for(new i = 0; i < strlen(inputtext) && i < 20; i++)
-        strcat(stars, "x");
-    
-    if(!strlen(stars)) stars = "_";
-    PlayerTextDrawSetString(playerid, LoginVRP[playerid][68], stars);
+    static lgqry[160];
+    mysql_format(g_SQL, lgqry, sizeof(lgqry), "SELECT `Password` FROM `player_ucp` WHERE `UCP` = '%e' LIMIT 1", AccountData[playerid][pUCP]);
+    mysql_pquery(g_SQL, lgqry, "OnLoginPassCheck", "is", playerid, TempPasswordLogin[playerid]);
     return 1;
 }
 Dialog:Verification(playerid, response, listitem, inputtext[])
@@ -399,7 +397,7 @@ Dialog:NewCharAge(playerid, response, listitem, inputtext[])
 			static originstring[3528+1];
 			for(new x = 0; x < sizeof(_g_originName);x++)
 			{
-				format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
+				strcat(originstring, sprintf("%s\n", _g_originName[x]), sizeof(originstring));
 			}
 			Dialog_Show(playerid, "NewCharOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Origin", originstring, "Pilih", "");
 		}
@@ -422,7 +420,7 @@ Dialog:NewCharOrigin(playerid, response, listitem, inputtext[])
 		static originstring[3528+1];
 		for(new x; x < sizeof(_g_originName); x++)
 		{
-			format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
+			strcat(originstring, sprintf("%s\n", _g_originName[x]), sizeof(originstring));
 		}
 		return Dialog_Show(playerid, "NewCharOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Origin", originstring, "Pilih", "");
 	}
@@ -1998,10 +1996,10 @@ Dialog:VehicleTrunk(playerid, response, listitem, inputtext[])
 			foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 3.2)) 
 			{
 				if (i % 2 == 0) {
-					format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				else {
-					format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				NearestUser[playerid][count++] = i;
 			}
@@ -2034,10 +2032,10 @@ Dialog:VehicleTrunk(playerid, response, listitem, inputtext[])
 			foreach(new i : Player) if(i != playerid) if((pInSpecMode[i] == 2 || pInSpecMode[i] == 3) && SavingVehID[i] == vehid) 
 			{
 				if (i % 2 == 0) {
-					format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				else {
-					format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				NearestUser[playerid][count++] = i;
 			}
@@ -2662,9 +2660,9 @@ Dialog:AnswerAsks(playerid, response, listitem, inputtext[])
 		foreach(new i : Asks)
 		{
 			if(strlen(AskData[i][askText]) > 64)
-				format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%.64s...\n", string, i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]);
+				strcat(string, sprintf("#%d\t%s [%s] (%d)\t%.64s...\n", i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]), sizeof(string));
 			else
-				format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%s\n", string, i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]);
+				strcat(string, sprintf("#%d\t%s [%s] (%d)\t%s\n", i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]), sizeof(string));
 			PlayerListitem[playerid][counting++] = i;
 		}
 
@@ -2695,9 +2693,9 @@ Dialog:AnswerAsks(playerid, response, listitem, inputtext[])
 	foreach(new i : Asks)
 	{
 		if(strlen(AskData[i][askText]) > 64)
-			format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%.64s...\n", string, i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]);
+			strcat(string, sprintf("#%d\t%s [%s] (%d)\t%.64s...\n", i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]), sizeof(string));
 		else
-			format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%s\n", string, i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]);
+			strcat(string, sprintf("#%d\t%s [%s] (%d)\t%s\n", i, AccountData[AskData[i][askPlayer]][pName], AccountData[AskData[i][askPlayer]][pUCP], AskData[i][askPlayer], AskData[i][askText]), sizeof(string));
 
 		PlayerListitem[playerid][counting++] = i;
 	}
@@ -2747,9 +2745,9 @@ Dialog:RespondReports(playerid, response, listitem, inputtext[])
 		foreach(new i : Reports)
 		{
 			if(strlen(ReportData[i][rText]) > 64)
-				format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%.64s...\n", string, i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]);
+				strcat(string, sprintf("#%d\t%s [%s] (%d)\t%.64s...\n", i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]), sizeof(string));
 			else
-				format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%s\n", string, i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]);
+				strcat(string, sprintf("#%d\t%s [%s] (%d)\t%s\n", i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]), sizeof(string));
 
 			PlayerListitem[playerid][counting++] = i;
 		}
@@ -2781,9 +2779,9 @@ Dialog:RespondReports(playerid, response, listitem, inputtext[])
 	foreach(new i : Reports)
 	{
 		if(strlen(ReportData[i][rText]) > 64)
-			format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%.64s...\n", string, i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]);
+			strcat(string, sprintf("#%d\t%s [%s] (%d)\t%.64s...\n", i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]), sizeof(string));
 		else
-			format(string,sizeof(string), "%s#%d\t%s [%s] (%d)\t%s\n", string, i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]);
+			strcat(string, sprintf("#%d\t%s [%s] (%d)\t%s\n", i, AccountData[ReportData[i][rPlayer]][pName], AccountData[ReportData[i][rPlayer]][pUCP], ReportData[i][rPlayer], ReportData[i][rText]), sizeof(string));
 
 		PlayerListitem[playerid][counting++] = i;
 	}
@@ -3026,6 +3024,7 @@ Dialog:VehicleStorage(playerid, response, listitem, inputtext[])
 		case 0: //deposit
 		{
 			new string[1218], count;
+			static invrow[144];
 			count = 0;
 			format(string, sizeof(string), "Nama Item\tJumlah\tBerat (%.3f/%d kg)\n", GetBagasiTotalWeightFloat(vehid), GetVehicleWeight(PlayerVehicle[vehid][pVehModelID]));
 			for(new index; index < MAX_INVENTORY; index++)
@@ -3035,9 +3034,11 @@ Dialog:VehicleStorage(playerid, response, listitem, inputtext[])
 					for(new i; i < sizeof(g_aInventoryItems); i ++) if (!strcmp(g_aInventoryItems[i][e_InventoryItem], InventoryData[playerid][index][invItem], true))
 					{
 						if (i % 2 == 0) {
-							format(string, sizeof(string), "%s"WHITE"%s\t"WHITE"%d\t"WHITE"-\n", string, InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+							format(invrow, sizeof(invrow), ""WHITE"%s\t"WHITE"%d\t"WHITE"-\n", InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+							strcat(string, invrow);
 						} else {
-							format(string, sizeof(string), "%s"GRAY"%s\t"GRAY"%d\t"GRAY"-\n", string, InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+							format(invrow, sizeof(invrow), ""GRAY"%s\t"GRAY"%d\t"GRAY"-\n", InventoryData[playerid][index][invItem], InventoryData[playerid][index][invQuantity]);
+							strcat(string, invrow);
 						}
 						PlayerListitem[playerid][count++] = index;
 					}
@@ -3443,7 +3444,7 @@ Dialog:EmoteList(playerid, response, listitem, inputtext[])
 			static string[1524];
 			if (!strlen(string)) {
 				for(new i; i < sizeof(g_AnimDetails); i ++) {
-					format(string, sizeof(string), "%s%s\n", string, g_AnimDetails[i][e_AnimationName]);
+					strcat(string, sprintf("%s\n", g_AnimDetails[i][e_AnimationName]), sizeof(string));
 				}
 			}
 			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Emotes", string, "Tutup", "");
@@ -3453,7 +3454,7 @@ Dialog:EmoteList(playerid, response, listitem, inputtext[])
 			static string[1524];
 			if (!strlen(string)) {
 				for(new i; i < sizeof(g_AnimPropDetails); i ++) {
-					format(string, sizeof(string), "%s%s\n", string, g_AnimPropDetails[i][e_AnimationPropName]);
+					strcat(string, sprintf("%s\n", g_AnimPropDetails[i][e_AnimationPropName]), sizeof(string));
 				}
 			}
 			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Emotes Property", string, "Tutup", "");
@@ -3465,7 +3466,7 @@ Dialog:EmoteList(playerid, response, listitem, inputtext[])
 			{
 				for(new i; i < sizeof(g_AnimSharedName); i ++) 
 				{
-					format(string, sizeof(string), "%s%s\n", string, g_AnimSharedName[i]);
+					strcat(string, sprintf("%s\n", g_AnimSharedName[i]), sizeof(string));
 				}
 			}
 			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Emotes Shared", string, "Tutup", "");
@@ -3597,15 +3598,15 @@ Dialog:CheckWarnsDetail(playerid, response, listitem, inputtext[])
 				{
 					case 1:
 					{
-						format(dahla, sizeof(dahla), "%s"GREEN"[WARN]\t"WHITE"%s\t%s\t%s\n", dahla, PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+						strcat(dahla, sprintf(""GREEN"[WARN]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]), sizeof(dahla));
 					}
 					case 2:
 					{
-						format(dahla, sizeof(dahla), "%s"YELLOW"[JAIL]\t"WHITE"%s\t%s\t%s\n", dahla, PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+						strcat(dahla, sprintf(""YELLOW"[JAIL]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]), sizeof(dahla));
 					}
 					case 3:
 					{
-						format(dahla, sizeof(dahla), "%s"ORANGERED"[BAN]\t"WHITE"%s\t%s\t%s\n", dahla, PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+						strcat(dahla, sprintf(""ORANGERED"[BAN]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]), sizeof(dahla));
 					}
 				}
 				PlayerListitem[playerid][count++] = id;
@@ -3639,15 +3640,15 @@ Dialog:CheckMyWarnsDetail(playerid, response, listitem, inputtext[])
 				{
 					case 1:
 					{
-						format(dahla, sizeof(dahla), "%s"GREEN"[WARN]\t"WHITE"%s\t%s\t%s\n", dahla, PlayerWarning[playerid][id][warnIssuer], PlayerWarning[playerid][id][warnDate], PlayerWarning[playerid][id][warnReason]);
+						strcat(dahla, sprintf(""GREEN"[WARN]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[playerid][id][warnIssuer], PlayerWarning[playerid][id][warnDate], PlayerWarning[playerid][id][warnReason]), sizeof(dahla));
 					}
 					case 2:
 					{
-						format(dahla, sizeof(dahla), "%s"YELLOW"[JAIL]\t"WHITE"%s\t%s\t%s\n", dahla, PlayerWarning[playerid][id][warnIssuer], PlayerWarning[playerid][id][warnDate], PlayerWarning[playerid][id][warnReason]);
+						strcat(dahla, sprintf(""YELLOW"[JAIL]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[playerid][id][warnIssuer], PlayerWarning[playerid][id][warnDate], PlayerWarning[playerid][id][warnReason]), sizeof(dahla));
 					}
 					case 3:
 					{
-						format(dahla, sizeof(dahla), "%s"ORANGERED"[BAN]\t"WHITE"%s\t%s\t%s\n", dahla, PlayerWarning[playerid][id][warnIssuer], PlayerWarning[playerid][id][warnDate], PlayerWarning[playerid][id][warnReason]);
+						strcat(dahla, sprintf(""ORANGERED"[BAN]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[playerid][id][warnIssuer], PlayerWarning[playerid][id][warnDate], PlayerWarning[playerid][id][warnReason]), sizeof(dahla));
 					}
 				}
 				PlayerListitem[playerid][count++] = id;
@@ -4913,10 +4914,10 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 			{
 				if (i % 2 == 0) {
-				format(frmxt, sizeof(frmxt), "%s"WHITE"Kantong - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""WHITE"Kantong - (%d)\n", i), sizeof(frmxt));
 				}
 				else {
-					format(frmxt, sizeof(frmxt), "%s"GRAY"Kantong - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""GRAY"Kantong - (%d)\n", i), sizeof(frmxt));
 				}
 				NearestUser[playerid][count++] = i;
 			}
@@ -4972,10 +4973,10 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 			{
 				if (i % 2 == 0) {
-				format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				else {
-					format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				NearestUser[playerid][count++] = i;
 			}
@@ -5023,10 +5024,10 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 			{
 				if (i % 2 == 0) {
-				format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				else {
-					format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				NearestUser[playerid][count++] = i;
 			}
@@ -5085,10 +5086,10 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 			{
 				if (i % 2 == 0) {
-				format(frmxt, sizeof(frmxt), "%s"WHITE"Kantong - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""WHITE"Kantong - (%d)\n", i), sizeof(frmxt));
 				}
 				else {
-					format(frmxt, sizeof(frmxt), "%s"GRAY"Kantong - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""GRAY"Kantong - (%d)\n", i), sizeof(frmxt));
 				}
 				NearestUser[playerid][count++] = i;
 			}
@@ -5144,10 +5145,10 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			foreach(new i : Player) if(i != playerid) if(IsPlayerNearPlayer(playerid, i, 2.5)) 
 			{
 				if (i % 2 == 0) {
-				format(frmxt, sizeof(frmxt), "%s"WHITE"Player ID - (%d)\n", frmxt, i);
+				strcat(frmxt, sprintf(""WHITE"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				else {
-					format(frmxt, sizeof(frmxt), "%s"GRAY"Player ID - (%d)\n", frmxt, i);
+					strcat(frmxt, sprintf(""GRAY"Player ID - (%d)\n", i), sizeof(frmxt));
 				}
 				NearestUser[playerid][count++] = i;
 			}
@@ -9004,120 +9005,49 @@ Dialog:FightStyle(playerid, response, listitem, inputtext[])
 }
 Dialog:StarterPackMenu(playerid, response, listitem, inputtext[])
 {
-    if(!response) 
+    if(!response)
     {
         ShowTDN(playerid, NOTIFICATION_INFO, "Anda membatalkan pengambilan starterpack!");
         return 1;
     }
-    
-    if(AccountData[playerid][pStarterPack] != 0) 
+
+    if(AccountData[playerid][pStarterPack] != 0)
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda sudah mengambil starterpack sebelumnya!");
-    
-    new vehicle_model, vehicle_name[32];
-    new food_amount, drink_amount, gacha_ticket;
-	new query[128]; // Buffer untuk query
-    
-    switch(listitem)
-    {
-        case 0: // Pack 1 - Faggio
-        {
-            vehicle_model = 462; // Faggio
-            vehicle_name = "Faggio";
-            food_amount = 20;
-            drink_amount = 20;
-            gacha_ticket = 3;
-            
-            // Tambah item ke inventory
-            Inventory_Add(playerid, "Chicken BBQ", 2355, food_amount);
-            Inventory_Add(playerid, "Coconut Water", 19564, drink_amount);
-            Inventory_Add(playerid, "Ticket Gacha", 962, gacha_ticket);
-            
-            // Tambah smartphone
-            mysql_format(g_SQL, query, sizeof(query), "SELECT * FROM `player_phones` WHERE `phoneOwner`=%d", AccountData[playerid][pID]);
-            mysql_pquery(g_SQL, query, "OnPlayerBuySmartphone", "i", playerid);
-            
-            // Create vehicle
-            new pvwid = GetPlayerVirtualWorld(playerid);
-            new pvintid = GetPlayerInterior(playerid);
-			Vehicle_CreateSP(playerid, vehicle_model, 1679.6031, -2253.7173, 13.3805, 89.5632, RandomEx(1, 100), RandomEx(1, 100), pvwid, pvintid);
-            
-            // Notifikasi
-            ShowItemBox(playerid, "Chicken BBQ", sprintf("Received %dx", food_amount), 2355, 5);
-            ShowItemBox(playerid, "Coconut Water", sprintf("Received %dx", drink_amount), 19564, 5);
-            ShowItemBox(playerid, "Ticket Gacha", sprintf("Received %dx", gacha_ticket), 962, 5);
-            ShowItemBox(playerid, "Smartphone", "Received 1x", 19942, 8);
-            
-            ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil memilih Starter Pack 1 (Faggio)! Mendapatkan %dx makan, %dx minum, 1x smartphone, %dx ticket gacha, dan 1 unit %s.", food_amount, drink_amount, gacha_ticket, vehicle_name));
-        }
-        case 1: // Pack 2 - Sanchez
-        {
-            vehicle_model = 468; // Sanchez
-            vehicle_name = "Sanchez";
-            food_amount = 15;
-            drink_amount = 15;
-            gacha_ticket = 2;
-            
-            // Tambah item ke inventory
-            Inventory_Add(playerid, "Chicken BBQ", 2355, food_amount);
-            Inventory_Add(playerid, "Coconut Water", 19564, drink_amount);
-            Inventory_Add(playerid, "Ticket Gacha", 962, gacha_ticket);
-            
-            // Tambah smartphone
-            mysql_format(g_SQL, query, sizeof(query), "SELECT * FROM `player_phones` WHERE `phoneOwner`=%d", AccountData[playerid][pID]);
-            mysql_pquery(g_SQL, query, "OnPlayerBuySmartphone", "i", playerid);
-            
-            // Create vehicle
-            new pvwid = GetPlayerVirtualWorld(playerid);
-            new pvintid = GetPlayerInterior(playerid);
-            Vehicle_CreateSP(playerid, vehicle_model, 1679.6031, -2253.7173, 13.3805, 89.5632, RandomEx(1, 100), RandomEx(1, 100), pvwid, pvintid);
-            // Notifikasi
-            ShowItemBox(playerid, "Chicken BBQ", sprintf("Received %dx", food_amount), 2355, 5);
-            ShowItemBox(playerid, "Coconut Water", sprintf("Received %dx", drink_amount), 19564, 6);
-            ShowItemBox(playerid, "Ticket Gacha", sprintf("Received %dx", gacha_ticket), 962, 7);
-            ShowItemBox(playerid, "Smartphone", "Received 1x", 19942, 8);
-            
-            ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil memilih Starter Pack 2 (Sanchez)! Mendapatkan %dx makan, %dx minum, 1x smartphone, %dx ticket gacha, dan 1 unit %s.", food_amount, drink_amount, gacha_ticket, vehicle_name));
-        }
-        case 2: // Pack 3 - Bobcat
-        {
-            vehicle_model = 422; // Bobcat
-            vehicle_name = "Bobcat";
-            food_amount = 10;
-            drink_amount = 10;
-            gacha_ticket = 1;
-            
-            // Tambah item ke inventory
-            Inventory_Add(playerid, "Chicken BBQ", 2355, food_amount);
-            Inventory_Add(playerid, "Coconut Water", 19564, drink_amount);
-            Inventory_Add(playerid, "Ticket Gacha", 962, gacha_ticket);
-            
-            // Tambah smartphone
-            mysql_format(g_SQL, query, sizeof(query), "SELECT * FROM `player_phones` WHERE `phoneOwner`=%d", AccountData[playerid][pID]);
-            mysql_pquery(g_SQL, query, "OnPlayerBuySmartphone", "i", playerid);
-            
-            // Create vehicle
-            new pvwid = GetPlayerVirtualWorld(playerid);
-            new pvintid = GetPlayerInterior(playerid);
-            Vehicle_CreateSP(playerid, vehicle_model, 1679.6031, -2253.7173, 13.3805, 89.5632, RandomEx(1, 100), RandomEx(1, 100), pvwid, pvintid);
-            // Notifikasi
-            ShowItemBox(playerid, "Chicken BBQ", sprintf("Received %dx", food_amount), 2355, 5);
-            ShowItemBox(playerid, "Coconut Water", sprintf("Received %dx", drink_amount), 19564, 6);
-            ShowItemBox(playerid, "Ticket Gacha", sprintf("Received %dx", gacha_ticket), 962, 7);
-            ShowItemBox(playerid, "Smartphone", "Received 1x", 19942, 8);
-            
-            ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil memilih Starter Pack 3 (Bobcat)! Mendapatkan %dx makan, %dx minum, 1x smartphone, %dx ticket gacha, dan 1 unit %s.", 
-                food_amount, drink_amount, gacha_ticket, vehicle_name));
-        }
-    }
-    AccountData[playerid][pStarterPack] = 1;
+
+    if(pKompensasiTimer[playerid])
+        return ShowTDN(playerid, NOTIFICATION_ERROR, "Mohon tunggu, anda sedang dalam proses klaim starterpack!");
+
+    if(AccountData[playerid][pActivityTime] != 0)
+        return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda sedang melakukan sesuatu, mohon tunggu progress bar selesai!");
+
+    if(GetTotalWeightFloat(playerid) >= GetPlayerInventoryWeight(playerid))
+        return ShowTDN(playerid, NOTIFICATION_ERROR, "Inventory anda sudah penuh!");
+
+    ApplyAnimation(playerid, "SWEET", "Sweet_injuredloop", 4.0, true, false, false, true, 0, true);
+
+    pKompensasiTimer[playerid] = true;
+    AccountData[playerid][pActivityTime] = 1;
+
+    PlayerTextDrawSetString(playerid, ProgressBar[playerid][1], "SEMBAHYANG");
+    ShowProgressBar(playerid);
+
+    ShowTDN(playerid, NOTIFICATION_INFO, "Anda sedang bersembahyang, mohon tunggu...");
     return 1;
 }
 
 YCMD:setsp(playerid, params[], help)
 {
-	if(AccountData[playerid][pAdmin] < 5)
+	if(AccountData[playerid][pAdmin] < 7)
 		return PermissionError(playerid);
-	
+	if(AccountData[playerid][pAdminDuty] == false)
+		return PermissionErrorDuty(playerid);
+
 	AccountData[playerid][pStarterPack] = 0;
+
+	static spq[128];
+	mysql_format(g_SQL, spq, sizeof(spq), "UPDATE `player_characters` SET `Char_ClaimSP` = 0 WHERE `pID` = %d", AccountData[playerid][pID]);
+	mysql_pquery(g_SQL, spq);
+
+	ShowTDN(playerid, NOTIFICATION_SUCCESS, "Starterpack anda telah direset!");
 	return 1;
 }

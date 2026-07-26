@@ -31,9 +31,7 @@ public CheckingWhitelistLogin(playerid)
 			}
 			else
 			{
-				ShowLoginVRP(playerid, true);
-				PlayerTextDrawSetString(playerid, LoginVRP[playerid][67], AccountData[playerid][pUCP]);
-				PlayerTextDrawSetString(playerid, LoginVRP[playerid][68], "_");
+				ShowLoginDialog(playerid);
 			}
 		}
 	}
@@ -259,20 +257,18 @@ public OnPlayerPasswordChecked(playerid, bool:success)
 
         if(LoginAttempts[playerid] >= 3)
         {
-            ShowLoginVRP(playerid, false);
             LoginAttempts[playerid] = 0;
             Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, "UCP - Login","Anda telah salah memasukkan kata sandi 3 kali.\n\n"YELLOW"Anda telah ditendang dari server!", "Quit", "");
             return KickEx(playerid);
         }
 
-        new strnotif[128];
+        static strnotif[128];
         format(strnotif, sizeof(strnotif), "Password salah! Sisa kesempatan: %dx", 3 - LoginAttempts[playerid]);
         ShowTDN(playerid, NOTIFICATION_ERROR, strnotif);
-        PlayerTextDrawSetString(playerid, LoginVRP[playerid][68], "_");
+        ShowLoginDialog(playerid, strnotif);
         return 1;
     }
 
-    ShowLoginVRP(playerid, false);
     LoginAttempts[playerid] = 0;
     TempPasswordLogin[playerid][0] = EOS;
 

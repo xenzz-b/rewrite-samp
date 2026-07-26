@@ -13,7 +13,7 @@ YCMD:dlog(playerid, params[], help)
             cache_get_value_name(x, "Weapon", tempLogWeapon);
             cache_get_value_name_float(x, "Damage", tempLogDamage);
             cache_get_value_name(x, "BodyPart", tempLogPart);
-            format(lists, sizeof(lists), "%s%s\t%s\t%.2f - %s\n", lists, tempLogDate, tempLogWeapon, tempLogDamage, tempLogPart);
+            strcat(lists, sprintf("%s\t%s\t%.2f - %s\n", tempLogDate, tempLogWeapon, tempLogDamage, tempLogPart), sizeof(lists));
         }
         Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Damage Log", 
         lists, "Tutup", "");
@@ -53,7 +53,7 @@ YCMD:adlog(playerid, params[], help)
             cache_get_value_name_float(x, "Damage", tempLogDamage);
             cache_get_value_name(x, "BodyPart", tempLogPart);
             cache_get_value_name(x, "IssuerName", tempLogIssuer);
-            format(lists, sizeof(lists), "%s%s\t%s\t%.2f - %s\t%s\n", lists, tempLogDate, tempLogWeapon, tempLogDamage, tempLogPart, tempLogIssuer);
+            strcat(lists, sprintf("%s\t%s\t%.2f - %s\t%s\n", tempLogDate, tempLogWeapon, tempLogDamage, tempLogPart, tempLogIssuer), sizeof(lists));
         }
         Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Damage Log", 
         lists, "Tutup", "");

@@ -416,103 +416,60 @@ IsABoat(vehicleid)
     return 0;
 }
 
-IsLSPDVehicle(vehicleid)
+/*  Cache kepemilikan kendaraan faction.
+
+    Versi lama: tiap fungsi Is<Faction>Vehicle() meloop SELURUH player.
+    Dipanggil dari task 160ms untuk setiap kendaraan, biayanya O(V*P),
+    sekitar 2,5 juta operasi per detik pada 2000 kendaraan / 100 player.
+
+    Sekarang satu array vehicleid -> faction, di-refresh berkala, dan
+    seluruh pengecekan menjadi O(1).                                     */
+new AC_VehFactionOwner[MAX_VEHICLES];
+
+RefreshFactionVehicleCache()
 {
+	for(new v = 0; v < MAX_VEHICLES; v ++)
+		AC_VehFactionOwner[v] = FACTION_NONE;
+
 	foreach(new i : Player)
 	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_LSPD]) return 1;
+		for(new f = 1; f < MAX_FACTIONS; f ++)
+		{
+			new vid = PlayerFactionVehicle[i][f];
+
+			if(vid > 0 && vid < MAX_VEHICLES)
+				AC_VehFactionOwner[vid] = f;
+		}
 	}
-	return 0;
+	return 1;
 }
 
-IsLSFDVehicle(vehicleid)
+GetVehicleFactionOwner(vehicleid)
 {
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_LSFD]) return 1;
-	}
-	return 0;
+	if(vehicleid < 1 || vehicleid >= MAX_VEHICLES)
+		return FACTION_NONE;
+
+	return AC_VehFactionOwner[vehicleid];
 }
 
-IsSAGOVVehicle(vehicleid)
+stock SetVehicleFactionOwner(vehicleid, factionid)
 {
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_SAGOV]) return 1;
-	}
-	return 0;
+	if(vehicleid > 0 && vehicleid < MAX_VEHICLES)
+		AC_VehFactionOwner[vehicleid] = factionid;
+
+	return 1;
 }
 
-IsPringSewuVehicle(vehicleid)
-{
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_PRINGSEWU]) return 1;
-	}
-	return 0;
-}
-
-IsDinarbucksVehicle(vehicleid)
-{
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_DINARBUCKS]) return 1;
-	}
-	return 0;
-}
-
-IsFOX11LAVehicle(vehicleid)
-{
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_FOX11]) return 1;
-	}
-	return 0;
-}
-
-// IsBintangKejoraVehicle(vehicleid)
-// {
-// 	foreach(new i : Player)
-// 	{
-// 		if(vehicleid == PlayerFactionVehicle[i][FACTION_BINTANGKEJORA]) return 1;
-// 	}
-// 	return 0;
-// }
-
-IsUberVehicle(vehicleid)
-{
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_UBER]) return 1;
-	}
-	return 0;
-}
-
-IsBennysVehicle(vehicleid)
-{
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_BENNYS]) return 1;
-	}
-	return 0;
-}
-
-IsDriftKingVehicle(vehicleid)
-{
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_DRIFTKING]) return 1;
-	}
-	return 0;
-}
-IsJayaAbadiVehicle(vehicleid)
-{
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_JAYAABADI]) return 1;
-	}
-	return 0;
-}
+IsLSPDVehicle(vehicleid)       return (GetVehicleFactionOwner(vehicleid) == FACTION_LSPD);
+IsLSFDVehicle(vehicleid)       return (GetVehicleFactionOwner(vehicleid) == FACTION_LSFD);
+IsSAGOVVehicle(vehicleid)      return (GetVehicleFactionOwner(vehicleid) == FACTION_SAGOV);
+IsPringSewuVehicle(vehicleid)  return (GetVehicleFactionOwner(vehicleid) == FACTION_PRINGSEWU);
+IsDinarbucksVehicle(vehicleid) return (GetVehicleFactionOwner(vehicleid) == FACTION_DINARBUCKS);
+IsFOX11LAVehicle(vehicleid)    return (GetVehicleFactionOwner(vehicleid) == FACTION_FOX11);
+IsUberVehicle(vehicleid)       return (GetVehicleFactionOwner(vehicleid) == FACTION_UBER);
+IsBennysVehicle(vehicleid)     return (GetVehicleFactionOwner(vehicleid) == FACTION_BENNYS);
+IsDriftKingVehicle(vehicleid)  return (GetVehicleFactionOwner(vehicleid) == FACTION_DRIFTKING);
+IsJayaAbadiVehicle(vehicleid)  return (GetVehicleFactionOwner(vehicleid) == FACTION_JAYAABADI);
 
 IsAPlane(vehicleid)
 {

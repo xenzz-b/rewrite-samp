@@ -5,7 +5,7 @@
 #include "core/user-interface/ui"
 #include "core/fivem_notify/notify_functions"
 #include "core/fivem_notify/SHOWITEMBOX"
-//#include "core/salary/salary"
+#include "core/salary/salary"
 #include "core/phone_system/phone"
 #include "core/inventory/inventory"
 #include "core/systems/systems_functions"

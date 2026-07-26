@@ -190,9 +190,9 @@ ShowMargaMembers(playerid, mid)
             cache_get_value_name(i, "Char_LastLogin", lastLogin);
             
             if(i % 2 == 0)
-                format(string, sizeof(string), "%s"WHITE"%s\t"WHITE"%s\t"WHITE"%s\n", string, memberName, MargaRank[rank], lastLogin);
+                strcat(string, sprintf(""WHITE"%s\t"WHITE"%s\t"WHITE"%s\n", memberName, MargaRank[rank], lastLogin), sizeof(string));
             else
-                format(string, sizeof(string), "%s"GRAY"%s\t"GRAY"%s\t"GRAY"%s\n", string, memberName, MargaRank[rank], lastLogin);
+                strcat(string, sprintf(""GRAY"%s\t"GRAY"%s\t"GRAY"%s\n", memberName, MargaRank[rank], lastLogin), sizeof(string));
         }
         
         Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, 
@@ -558,7 +558,7 @@ Dialog:MargaBosDesk(playerid, response, listitem, inputtext[])
             {
                 if(AccountData[i][pMarga] == -1)
                 {
-                    format(str, sizeof(str), "%sPlayer ID - (%d) - %s\n", str, i, ReturnName(i));
+                    strcat(str, sprintf("Player ID - (%d) - %s\n", i, ReturnName(i)), sizeof(str));
                     NearestUser[playerid][count++] = i;
                 }
             }
