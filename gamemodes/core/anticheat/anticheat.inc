@@ -1,6 +1,5 @@
-//#include "core/anticheat/ddos"
-#include "core/anticheat/cbug"
 #include <YSI_Coding\y_hooks>
+#include "core/anticheat/cbug"
 
 // Dideklarasikan di core/systems/systems_natives.inc yang di-include SETELAH
 // file ini. Tanpa forward, compiler kena warning 208 (forcing reparse).
@@ -111,7 +110,7 @@ new
 	Float:AC_LedgerArmour[MAX_PLAYERS],
 	AC_GrantHPTime[MAX_PLAYERS],
 	AC_GrantArmourTime[MAX_PLAYERS],
-	bool:AC_HPFlagged[MAX_PLAYERS],			// sudah dihukum, tunggu normal lagi
+	bool:AC_HPFlagged[MAX_PLAYERS],				// sudah dihukum, tunggu normal lagi
 	bool:AC_ArmourFlagged[MAX_PLAYERS],
 
 	// --- ledger kendaraan ---
@@ -727,4 +726,16 @@ AC_HookSetPlayerArmour(playerid, Float:value)
 
 #define SetPlayerHealth  AC_HookSetPlayerHealth
 #define SetPlayerArmour  AC_HookSetPlayerArmour
+
+// ---------------------------------------------------------------------
+//  SUB-INCLUDES — diletakkan di akhir file agar simbol AC_Notify,
+//  AC_Kick, AC_CanPunish, AC_IsExempt, etc. sudah terdefinisi saat
+//  file-file ini diparse (menghindari warning 208 / forcing reparse).
+// ---------------------------------------------------------------------
+
+//#include "core/anticheat/ddos"
+#include "core/anticheat/ac_aimlock_rapidfire"
+#include "core/anticheat/ac_modloader"
+#include "core/anticheat/ac_cjrun_objectspam"
+#include "core/anticheat/ac_weapon_validity"
 
