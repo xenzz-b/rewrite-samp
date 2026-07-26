@@ -1,0 +1,1 @@
+#include "core/factions/factions_bintangkejora/bintangkejora_functions"

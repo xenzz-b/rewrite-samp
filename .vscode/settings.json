@@ -1,0 +1,12 @@
+{
+    "pawn.compilerPath": "",
+    "pawn.compileOptions": [
+        
+        "-d1",
+        "-O1",
+        "-(",
+        "-;"
+    ],
+    "vscord.status.idle.disconnectOnIdle": true,
+    "vscord.enable": false
+}

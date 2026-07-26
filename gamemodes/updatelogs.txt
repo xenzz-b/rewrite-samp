@@ -1,0 +1,192 @@
+# **NEXSTON ROLEPLAY — UPDATE LOGS**
+
+# __ADD__
+[+] Add Admin Trial Volunteer (akses di /ahelp)
+[+] Add Admin Helper (akses di /ahelp)
+[+] Add pengaturan list rank admin di /ahelp (Founder paling atas hingga rank bawah)
+
+# __FIX__
+[!] Fix bug command `/veh` tidak bisa digunakan
+[!] Fix TextDraw spec yang tidak muncul (sebelumnya polos)
+[!] Fix Handle Badside tidak bisa add family
+
+# __IMPROVE__
+[~] Improve sistem /ahelp (rank bawah tidak bisa melihat semua command)
+
+# __CHANGE__
+[~] Change urutan rank admin di /ahelp:
+
+* Founder
+* CEO Founder
+* Management
+* Admin IV
+* Admin III
+* Admin II
+* Admin I
+* Helper
+* Trial Volunteer
+* Admin Girl
+* Handle Badside
+* Handle Goodside
+
+[~] Change mapping kepolisian + penyesuaian GPS & koordinat
+[~] Change UI TextDraw asuransi keliling
+
+
+
+# **NEXSTON ROLEPLAY — UPDATE LOGS**
+
+# __ADD__
+[+] Add UI TextDraw Handphone Twitter Login
+[+] Add UI TextDraw Tweet Logs (menampilkan 5 tweet terbaru)
+[+] Add sistem refresh otomatis Tweet Logs setelah post tweet
+[+] Add sistem riwayat Transaksi masuk / keluar Bank/Atm
+
+# __CHANGE__
+[~] Change struktur database tabel `tweets` (menambahkan AUTO_INCREMENT & PRIMARY KEY pada kolom ID)
+[~] Change UI TextDraw Handphone Menu
+[~] Change Ui TextDraw Handphone Bagian Aplikasi Mbanking
+[~] Change Mappingan Exterior Benny
+
+# **NEXSTON ROLEPLAY — UPDATE LOGS**
+
+**#__ADD__**
+`[+]` Add Textdraw UI Spotify — tampilan baru
+`[+]` Add Textdraw UI Uber — tampilan baru
+`[+]` Add Textdraw UI Kalkulator — tampilan baru
+`[+]` Add Sistem Kalkulator via UI Textdraw
+`[+]` Add Textdraw UI Kamera — tampilan baru
+`[+]` Add Sistem Kamera via UI Textdraw dengan fitur zoom & angle
+
+**#__FIX__**
+`[!]` Fix Rollback kendaraan starterpack tidak tersimpan di database
+`[!]` Fix Status server stats Bot JS
+
+**#__CHANGE__**
+`[~]` Change label "Warga" menjadi "Rakyat" saat berhasil membuat akun UCP
+
+
+# **NEXSTON ROLEPLAY — UPDATE LOGS**
+
+# __ADD__
+[+] Add Phone Kontak UI new
+[+] Add System Kontak List UI & Searching Name Kontak
+[+] Add command `/adminlist` melihat daftar semua staff didatabase
+[+] Add command `/osetadminlevel` mengeset status admin rank secara offline
+[+] Add command `/osethelper` mengeset status helper secara offline
+[+] Add command `/osetvlounter` mengeset status vlounter secara offline
+
+# __IMPROVE__
+[~] Improve posisi brankas rumah otomatis saat di `/addhouse`
+[~] Improve systems gacha, setiap 50x gacha akan mendapatkan kendaraan epic secara random
+
+# __CHANGE__
+[~] Change text material object pada interior kepolisian 
+
+# __FIXED__
+[!] Fix Helper & vlounter bisa dengan bebas mengunakan jetpack tanpa harus dikick Bot
+
+
+# **NEXSTON ROLEPLAY — UPDATE LOGS**
+
+#__ADD__
+[+] Add fitur ticket untuk bot Discord
+- Gunakan `/setup-ticket` untuk memunculkan embed open ticket
+
+[+] Add sistem race menggunakan Race Tablet
+[+] Add Textdraw UI untuk sistem race
+[+] Add item `Race Tablet` pada toko bisnis kategori elektronik
+[+] Add Textdraw UI Login NSRP dengan tampilan baru
+[+] Add sistem CCTV di dalam interior kepolisian
+- Tersedia 12 ruangan yang dapat dipantau
+- Navigasi antar ruangan menggunakan tombol `<-` dan `->`
+- Fitur tilt kamera atas & bawah tersedia
+- Hanya dapat diakses oleh anggota kepolisian yang sedang OnDuty
+
+[+] Add sistem Drone khusus kepolisian
+- Gunakan command `/drone [spawn/ex/end]` untuk mengoperasikan drone
+
+#__FIX__
+[!] Fix update zone time OOC yang tidak berjalan dengan benar
+[!] Fix bug admin tingkat tinggi tidak dapat melihat list command Helper / Volunteer / Admin Girl
+
+#__IMPROVE__
+[~] Improve skin karakter baru diperbarui menjadi Skin ID 2
+
+
+# **NEXSTON ROLEPLAY — UPDATE LOGS**
+
+# __ADD__
+**[+] Dynamic Job Sawit**
+- Command `/createsawit` — Membuat object pohon sawit & tangga secara dinamis
+- Command `/editsawit [id] [tree/ladder]` — Mengedit posisi object pohon & tangga sawit
+- Command `/removesawit [id]` — Menghapus pohon & tangga sawit
+
+**[+] Sistem Job Tukang Sawit**
+- Penambahan job baru **Tukang Sawit** beserta alur kerja lengkap
+- Lokasi pengambilan, pengelolahan & penjualan hasil sawit telah ditambahkan
+- Job sawit kini tersedia di menu **Disnaker**, **Kerja**, dan **UI Job Center**
+
+# __IMPROVE__
+**[~] Command `/fixme`**
+- Sebelumnya: Perbaikan karakter memerlukan persetujuan dari admin
+- Sekarang: Player dapat langsung memperbaiki sendiri tanpa menunggu admin
+
+**[~] Command `/veh`, `/givemoney`, `/givemoneyall`, `/setmoney`**
+- Akses command dibatasi khusus untuk **Admin Level 5** ke atas
+
+# **NEXSTON ROLEPLAY — UPDATE LOGS**
+
+# __CHANGE__
+[~] Change skin female saat pertama kali regis menjadi skinid 193
+[~] Change sistem makan dan minum tidak perlu mengunakan Otot Y 
+
+# __FIX__
+[!] Fix Otot Y tidak berfungsi saat mengunakan Vape
+
+# __REMOVE__
+[-] Remove Command `/stopeating` berhenti makan
+[-] Remove command `/stopdrinking` berhenti minum
+
+# **NEXSTON ROLEPLAY — UPDATE LOGS**
+
+# __ADD__
+[+] Add Mapping eksterior area Chicago ditambahkan
+[+] Add Kategori "Lokasi Restoran" ditambahkan di menu GPS
+[+] Add Kategori "Lokasi Bengkel" ditambahkan di menu GPS
+[+] Add Command /fmenu kini muncul di daftar /fhelp
+[+] Add Daftar faction urutan 1–12 ditambahkan di command /setfaction
+[+] Add Sistem Job Hauling untuk restock bahan bakar pom bensin
+[+] Add Command /misihauling untuk pekerja hauling mengambil misi restock
+[+] Add Delay hauling 15 menit setelah selesai misi (cek via /delays)
+[+] Add Opsi "Restock Hauling" di bizmenu pom bensin
+[+] Add Notifikasi otomatis ke pekerja hauling saat ada request restock
+
+# __REMOVE__ 
+[-] Remove Faction Bintang Kejora (Restoran Ganton) telah dihapus
+
+# **NEXSTON ROLEPLAY — UPDATE LOGS**
+
+# __ADD__
+[+] Add command `/setskinex` only khusus client Nexstons!
+
+# __REMOVE__
+[-] Remove lagu pada saat onplayerconnect
+[-] Remove Ui Textdraw Login
+
+# __IMPROVE__
+[~] Optimalize in beberapa timer yang memberatkan server
+
+
+// List yang akan di review
+- Textdraw Login
+- Textdraw hbe lapar minum
+- textdraw speedo meter
+- sistem bisnis biz
+- sistem pom bensin owner
+- sistem lockpick
+- sistem job sawit
+- sistem job hauling
+- sistem cctv kepolisian
+- sistem race Tablet
+- sistem fishit
