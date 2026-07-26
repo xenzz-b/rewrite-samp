@@ -129,10 +129,10 @@ new bool:pSpawned[MAX_PLAYERS];
 
 public OnFilterScriptInit()
 {
-    print("-------------------- [Nexston Hotkeys System] --------------------\n\
+    print("-------------------- [Vertex Hotkeys System] --------------------\n\
     ===>> Berhasil dimuat dengan baik!\n\
     ===>> by: Shan (M Iksan)\n\
-    ===>> dipersembahkan untuk Nexston\n\
+    ===>> dipersembahkan untuk Vertex\n\
     -------------------------------------------------------------------");
     return 1;
 }

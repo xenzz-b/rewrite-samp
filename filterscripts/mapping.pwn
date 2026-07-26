@@ -35,7 +35,7 @@
 #include "./mapping/ext/ext_garkot.pwn"
 #include "./mapping/ext/ext_carnaval.pwn"
 #include "./mapping/ext/ext_showroom.pwn"
-#include "./mapping/ext/ext_Nexstonsign.pwn"
+#include "./mapping/ext/ext_Vertexsign.pwn"
 #include "./mapping/ext/ext_balivibes.pwn"
 #include "./mapping/ext/ext_konser.pwn"
 #include "./mapping/ext/ext_environment.pwn"
@@ -95,7 +95,7 @@ public OnPlayerConnect(playerid)
 	RemoveShowroomBuilding(playerid);
 	RemoveBoxingBuilding(playerid);
 
-	RemoveNexstonSignBuilding(playerid);
+	RemoveVertexSignBuilding(playerid);
 	RemoveBaliVibesBuilding(playerid);
 	RemoveCaffeBuilding(playerid);
 	RemoveBuildingHouseExt(playerid);
@@ -255,7 +255,7 @@ public OnFilterScriptInit()
 	CreateShowroomExt();
 	CreateBandaraExt();
 
-	CreateNexstonSignExt();
+	CreateVertexSignExt();
 	CreateBaliVibesExt();
 	CreateKonserExt();
 

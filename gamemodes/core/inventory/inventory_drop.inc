@@ -330,7 +330,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 			}
 			else
 			{ 
-				Dialog_Show(playerid, "ItemPickup", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Ambil Item", string, "Ambil", "Batal");
+				Dialog_Show(playerid, "ItemPickup", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Ambil Item", string, "Ambil", "Batal");
 			}
 		}
 	}

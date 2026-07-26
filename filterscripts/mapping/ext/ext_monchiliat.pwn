@@ -39,7 +39,7 @@ CreateMonchiliatExt()
     mnchi = CreateDynamicObject(19482, -2303.667724, -2197.355224, 34.963359, 0.400003, -0.600032, 0.000000, 0, 0, -1, 300.00, 300.00); 
     SetDynamicObjectMaterialText(mnchi, 0, "{ffffff}M", 130, "Webdings", 70, 1, 0x00000000, 0x00000000, 1);
     mnchi = CreateDynamicObject(19482, -2303.666015, -2201.155029, 34.896884, 0.400003, -0.600032, 0.000000, 0, 0, -1, 300.00, 300.00); 
-    SetDynamicObjectMaterialText(mnchi, 0, "{ffffff}Selamat Datang di Gunung Nexston", 130, "Arial", 35, 1, 0x00000000, 0x00000000, 1);
+    SetDynamicObjectMaterialText(mnchi, 0, "{ffffff}Selamat Datang di Gunung Vertex", 130, "Arial", 35, 1, 0x00000000, 0x00000000, 1);
     mnchi = CreateDynamicObject(19482, -2303.667724, -2205.096191, 34.909332, 0.400003, -0.600032, 0.000000, 0, 0, -1, 300.00, 300.00); 
     SetDynamicObjectMaterialText(mnchi, 0, "{ffffff}M", 130, "Webdings", 70, 1, 0x00000000, 0x00000000, 1);
     mnchi = CreateDynamicObject(11431, -2370.476074, -2188.121582, 33.850185, 0.000000, 0.000000, -155.199798, 0, 0, -1, 300.00, 300.00); 
@@ -56,7 +56,7 @@ CreateMonchiliatExt()
     mnchi = CreateDynamicObject(19482, -2356.240966, -2186.078125, 40.304702, 0.000000, 0.000000, 25.599990, 0, 0, -1, 300.00, 300.00); 
     SetDynamicObjectMaterialText(mnchi, 0, "{ffffff}GUNUNG", 130, "Arial", 83, 1, 0x00000000, 0x00000000, 1);
     mnchi = CreateDynamicObject(19482, -2357.864990, -2182.687255, 40.304702, 0.000000, 0.000000, 25.599990, 0, 0, -1, 300.00, 300.00); 
-    SetDynamicObjectMaterialText(mnchi, 0, "{ffffff}Nexston", 130, "Arial", 83, 1, 0x00000000, 0x00000000, 1);
+    SetDynamicObjectMaterialText(mnchi, 0, "{ffffff}Vertex", 130, "Arial", 83, 1, 0x00000000, 0x00000000, 1);
     mnchi = CreateDynamicObject(19448, -2400.871582, -2213.687500, 32.289066, 0.000000, 90.000000, 180.000000, 0, 0, -1, 300.00, 300.00); 
     SetDynamicObjectMaterial(mnchi, 0, 9514, "711_sfw", "dt_carpark_line_texture", 0x00000000);
     mnchi = CreateDynamicObject(18981, -2390.309326, -2217.540283, 31.849060, 0.000000, 90.000000, 0.000000, 0, 0, -1, 300.00, 300.00); 
@@ -388,7 +388,7 @@ CreateMonchiliatExt()
     SetDynamicObjectMaterial(mnchi, 3, 18646, "matcolours", "grey-90-percent", 0x00000000);
     SetDynamicObjectMaterial(mnchi, 4, 3922, "bistro", "marblekb_256128", 0x00000000);
     mnchi = CreateDynamicObject(19482, -2241.026123, -2184.222412, 38.586685, 3.999999, -4.999999, 0.000000, 0, 0, -1, 300.00, 300.00); 
-    SetDynamicObjectMaterialText(mnchi, 0, "{ffffff}Pendakian\nGunung Nexston", 130, "Arial", 50, 1, 0x00000000, 0x00000000, 1);
+    SetDynamicObjectMaterialText(mnchi, 0, "{ffffff}Pendakian\nGunung Vertex", 130, "Arial", 50, 1, 0x00000000, 0x00000000, 1);
     mnchi = CreateDynamicObject(19482, -2241.045898, -2185.739990, 38.941772, 274.000000, -4.999999, 360.000000, 0, 0, -1, 300.00, 300.00); 
     SetDynamicObjectMaterialText(mnchi, 0, "{ffffff}^", 130, "Wingdings 3", 60, 1, 0x00000000, 0x00000000, 1);
     mnchi = CreateDynamicObject(19482, -2241.062255, -2182.691162, 39.113101, 364.000000, -4.999999, 360.000000, 0, 0, -1, 300.00, 300.00); 
@@ -578,7 +578,7 @@ CreateMonchiliatExt()
     mnchi = CreateDynamicObject(19482, -2817.482666, -1535.090576, 139.414016, 0.000051, 0.000000, 89.999794, 0, 0, -1, 300.00, 300.00); 
     SetDynamicObjectMaterialText(mnchi, 0, "{c7a07a}RESTO", 130, "Arial", 15, 1, 0x00000000, 0x00000000, 1);
     mnchi = CreateDynamicObject(19482, -2817.482666, -1535.090576, 138.433959, 0.000051, 0.000000, 89.999794, 0, 0, -1, 300.00, 300.00); 
-    SetDynamicObjectMaterialText(mnchi, 0, "{c7a07a}Nexston", 130, "Arial", 15, 1, 0x00000000, 0x00000000, 1);
+    SetDynamicObjectMaterialText(mnchi, 0, "{c7a07a}Vertex", 130, "Arial", 15, 1, 0x00000000, 0x00000000, 1);
     mnchi = CreateDynamicObject(19926, -2816.544433, -1535.837402, 138.247024, 0.000007, 0.000000, 89.999977, 0, 0, -1, 300.00, 300.00); 
     SetDynamicObjectMaterial(mnchi, 0, 18646, "matcolours", "grey-90-percent", 0x00000000);
     SetDynamicObjectMaterial(mnchi, 1, 10765, "airportgnd_sfse", "white", 0x00000000);
@@ -698,7 +698,7 @@ CreateMonchiliatExt()
     SetDynamicObjectMaterial(mnchi, 1, 18065, "ab_sfammumain", "plywood_gym", 0x00000000);
     SetDynamicObjectMaterial(mnchi, 2, 18646, "matcolours", "grey-90-percent", 0x00000000);
     mnchi = CreateDynamicObject(19482, -2242.524414, -1748.281250, 481.678527, 0.000000, 0.000000, 416.900054, 0, 0, -1, 300.00, 300.00); 
-    SetDynamicObjectMaterialText(mnchi, 0, "{ffffff}MT Nexston", 130, "Arial", 20, 1, 0x00000000, 0x00000000, 1);
+    SetDynamicObjectMaterialText(mnchi, 0, "{ffffff}MT Vertex", 130, "Arial", 20, 1, 0x00000000, 0x00000000, 1);
     mnchi = CreateDynamicObject(19482, -2242.524414, -1748.281250, 481.378540, 0.000000, 0.000000, 416.900054, 0, 0, -1, 300.00, 300.00); 
     SetDynamicObjectMaterialText(mnchi, 0, "{ffffff}3.145 MDPL", 130, "Arial", 20, 1, 0x00000000, 0x00000000, 1);
     mnchi = CreateDynamicObject(2842, -2298.240478, -1644.126464, 482.711303, 0.000000, 0.000051, 0.000000, 0, 0, -1, 300.00, 300.00); 

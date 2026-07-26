@@ -53,7 +53,7 @@ CreateWargaBaruTD()
     TextDrawFont(WARGABARU[4], 4);
     TextDrawSetProportional(WARGABARU[4], 1);
 
-    WARGABARU[5] = TextDrawCreate(407.000, 416.000, "Warga baru Nexston");
+    WARGABARU[5] = TextDrawCreate(407.000, 416.000, "Warga baru Vertex");
     TextDrawLetterSize(WARGABARU[5], 0.209, 1.098);
     TextDrawAlignment(WARGABARU[5], 1);
     TextDrawColor(WARGABARU[5], -1);

@@ -226,10 +226,10 @@ Player_NearHouse(playerid, hid)
     if(counting == 0)
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-		return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Undang Teman", "Tidak ada player yang dekat dengan pintu rumah anda!", "Tutup", "");
+		return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Undang Teman", "Tidak ada player yang dekat dengan pintu rumah anda!", "Tutup", "");
     }
 
-    Dialog_Show(playerid, "HouseInvite", DIALOG_STYLE_TABLIST, ""Nexston"Nexston Roleplay "WHITE"- Undang Teman", frmxt, "Pilih", "Batal");
+    Dialog_Show(playerid, "HouseInvite", DIALOG_STYLE_TABLIST, ""Vertex"Vertex Roleplay "WHITE"- Undang Teman", frmxt, "Pilih", "Batal");
     return 1;
 }
 
@@ -314,12 +314,12 @@ public Player_HouseSavedClothes(playerid)
             cache_get_value_name(i, "Name", ClothesName);
             format(sjjr, sizeof(sjjr), "%s%s\n", sjjr, ClothesName);
         }
-        Dialog_Show(playerid, "HouseClothes", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Pakaian", 
+        Dialog_Show(playerid, "HouseClothes", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Pakaian", 
         sjjr, "Pilih", "Kembali");
     }
     else
     {
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Pakaian", 
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Pakaian", 
         "Anda tidak memiliki pakaian tersimpan!", "Tutup", "");
     }
     return 1;
@@ -457,7 +457,7 @@ ShowHouseSharedList(playerid)
 	if(count < 3)
 		format(sgstr, sizeof(sgstr), "%s"GREEN"+ Berikan Kunci", sgstr);
 
-	Dialog_Show(playerid, "HouseGiveKey", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Pemegang Kunci", sgstr, "Pilih", "Kembali");
+	Dialog_Show(playerid, "HouseGiveKey", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Pemegang Kunci", sgstr, "Pilih", "Kembali");
 	return 1;
 }
 
@@ -621,7 +621,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                     if(HouseData[AccountData[playerid][pInHouse]][hOwnerID] != AccountData[playerid][pID] && AccountData[playerid][pHouseSharedID] != AccountData[playerid][pInHouse]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki kunci rumah ini!");
 
                     ApplyAnimation(playerid, "BD_FIRE", "wash_up", 4.1, false, false, false, false, 0, true);
-                    Dialog_Show(playerid, "HouseChest", DIALOG_STYLE_LIST, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", HouseData[AccountData[playerid][pInHouse]][hOwnerName]), 
+                    Dialog_Show(playerid, "HouseChest", DIALOG_STYLE_LIST, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", HouseData[AccountData[playerid][pInHouse]][hOwnerName]), 
                     "Undang\n\
                     "GRAY"Pakaian\n\
                     Membuang Pakaian\n\
@@ -642,7 +642,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                 if(HouseData[hid][hOwnerID] != AccountData[playerid][pID] && AccountData[playerid][pHouseSharedID] != hid)
                 {
                     PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-                    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", HouseData[hid][hOwnerName]), 
+                    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", HouseData[hid][hOwnerName]), 
                     "Rumah ini sudah dimiliki warga lain!", "Tutup", "");
                 }
                 else
@@ -735,7 +735,7 @@ Dialog:HouseInvite(playerid, response, listitem, inputtext[])
     AccountData[otherid][pInHouse] = AccountData[playerid][pInHouse];
     format(jhtrs, sizeof(jhtrs), "Pemilik rumah, %s mengundang anda untuk masuk ke dalam.\n\
     Apakah anda ingin menerima undangannya?", HouseData[AccountData[playerid][pInHouse]][hOwnerName]);
-    Dialog_Show(otherid, "HouseInviteConfirm", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- House Invitation", 
+    Dialog_Show(otherid, "HouseInviteConfirm", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- House Invitation", 
     jhtrs, "Ya", "Tidak");
     return 1;
 }
@@ -798,7 +798,7 @@ Dialog:HouseChest(playerid, response, listitem, inputtext[])
         case 3: //Brankas
         {
             AccountData[playerid][pMenuShowed] = true;
-            Dialog_Show(playerid, "HouseItemVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rumah", 
+            Dialog_Show(playerid, "HouseItemVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rumah", 
             "Simpan Barang\n"GRAY"Ambil Barang", "Pilih", "Kembali");
         }
         case 4: //weapon chest
@@ -809,14 +809,14 @@ Dialog:HouseChest(playerid, response, listitem, inputtext[])
             if (AccountData[playerid][pUseBeanbag]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak dapat akses weapon chest ketika menggunakan beanbag!");
 
             AccountData[playerid][pMenuShowed] = true;
-            Dialog_Show(playerid, "HouseHolster", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Weapon Chest", "Simpan Senjata\n"GRAY"Ambil Senjata", "Pilih", "Batal");
+            Dialog_Show(playerid, "HouseHolster", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Weapon Chest", "Simpan Senjata\n"GRAY"Ambil Senjata", "Pilih", "Batal");
         }
         case 5: //musik
         {
             if(HouseData[AccountData[playerid][pInHouse]][hOwnerID] != AccountData[playerid][pID]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Ini bukan rumah milik anda!");
 
-            Dialog_Show(playerid, "HouseMusic", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Musik Rumah", 
-            "Nexston House Music System\n\n\
+            Dialog_Show(playerid, "HouseMusic", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Musik Rumah", 
+            "Vertex House Music System\n\n\
             Kami sarankan anda untuk upload file mp3 ke discord terlebih dahulu.\n\
             "RED"Note: Fitur ini tidak support link YouTube secara langsung!\n\n\
             "YELLOW"(Apabila file mp3 telah di upload ke discord, silahkan copy linknya dan paste di bawah ini):", "Input", "Batal");
@@ -835,7 +835,7 @@ Dialog:HouseChest(playerid, response, listitem, inputtext[])
             if(HouseData[AccountData[playerid][pInHouse]][hOwnerID] != AccountData[playerid][pID]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Ini bukan rumah milik anda!");
             if(HouseData[AccountData[playerid][pInHouse]][hType] < 2) return ShowTDN(playerid, NOTIFICATION_ERROR, "Hanya rumah level Kontemporer yang dapat akses!");
 
-            Dialog_Show(playerid, "HouseCrafting", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Kerajinan", 
+            Dialog_Show(playerid, "HouseCrafting", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Kerajinan", 
             "Nama Item\tBahan\t-\n\
             Gulai Ayam\tKentang: 3x | Cabai: 3x | Bawang: 3x | Tomat: 3x\tAir: 3x | Gula: 3x | Micin: 3x | Ayam Kemas: 3x\n\
 			"GRAY"Es Lilin\t"GRAY"Kentang: 3x | Cabai: 3x | Bawang: 3x | Tomat: 3x\t"GRAY"Air: 3x | Gula: 3x | Micin: 3x | Ayam Kemas: 3x\n\
@@ -979,7 +979,7 @@ Dialog:HouseHolster(playerid, response, listitem, inputtext[])
             }
             else
             {
-                Dialog_Show(playerid, "HouseHolsterWithdraw", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Holster Rumah", xjjs, "Pilih", "Batal");
+                Dialog_Show(playerid, "HouseHolsterWithdraw", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Holster Rumah", xjjs, "Pilih", "Batal");
             }
         }
     }
@@ -1053,7 +1053,7 @@ Dialog:HouseMusic(playerid, response, listitem, inputtext[])
 
 Dialog:HouseClothes(playerid, response, listitem, inputtext[])
 {
-    if(!response) return Dialog_Show(playerid, "HouseChest", DIALOG_STYLE_LIST, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", HouseData[AccountData[playerid][pInHouse]][hOwnerName]), 
+    if(!response) return Dialog_Show(playerid, "HouseChest", DIALOG_STYLE_LIST, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", HouseData[AccountData[playerid][pInHouse]][hOwnerName]), 
     "Undang\n\
     "GRAY"Pakaian\n\
     Membuang Pakaian\n\
@@ -1079,7 +1079,7 @@ Dialog:HouseItemVault(playerid, response, listitem, inputtext[])
     if(!response)
     {
         AccountData[playerid][pMenuShowed] = false;
-        Dialog_Show(playerid, "HouseChest", DIALOG_STYLE_LIST, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", HouseData[AccountData[playerid][pInHouse]][hOwnerName]), 
+        Dialog_Show(playerid, "HouseChest", DIALOG_STYLE_LIST, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", HouseData[AccountData[playerid][pInHouse]][hOwnerName]), 
         "Undang\n\
         "GRAY"Pakaian\n\
         Membuang Pakaian\n\
@@ -1133,12 +1133,12 @@ Dialog:HouseItemVault(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rumah", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rumah", 
                 "Anda tidak memiliki barang yang dapat disimpan!", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "HouseItemVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rumah", str, "Pilih", "Batal");
+                Dialog_Show(playerid, "HouseItemVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rumah", str, "Pilih", "Batal");
             }
         }
         case 1: //withdraw
@@ -1154,7 +1154,7 @@ Dialog:HouseGiveKey(playerid, response, listitem, inputtext[])
 {
     if(!response)
     {
-        Dialog_Show(playerid, "HouseChest", DIALOG_STYLE_LIST, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", HouseData[AccountData[playerid][pInHouse]][hOwnerName]), 
+        Dialog_Show(playerid, "HouseChest", DIALOG_STYLE_LIST, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", HouseData[AccountData[playerid][pInHouse]][hOwnerName]), 
         "Undang\n\
         "GRAY"Pakaian\n\
         Membuang Pakaian\n\
@@ -1174,12 +1174,12 @@ Dialog:HouseGiveKey(playerid, response, listitem, inputtext[])
 
     if(isnull(HouseMemberName[playerid][listitem]))
     {
-        Dialog_Show(playerid, "HouseGiveKeyConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bagikan Kunci", "Mohon masukkan playerid yang ingin diberikan kunci rumah:", "Input", "Kembali");
+        Dialog_Show(playerid, "HouseGiveKeyConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bagikan Kunci", "Mohon masukkan playerid yang ingin diberikan kunci rumah:", "Input", "Kembali");
         return 1;
     }
 
     strcopy(TempString[playerid], HouseMemberName[playerid][listitem]);
-    Dialog_Show(playerid, "HouseTakeKey", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Tarik Kunci", sprintf("Apakah anda yakin ingin menarik kunci dari %s?", HouseMemberName[playerid][listitem]),
+    Dialog_Show(playerid, "HouseTakeKey", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Tarik Kunci", sprintf("Apakah anda yakin ingin menarik kunci dari %s?", HouseMemberName[playerid][listitem]),
     "Ya", "No");
     return 1;
 }
@@ -1217,23 +1217,23 @@ Dialog:HouseGiveKeyConfirm(playerid, response, listitem, inputtext[])
         return 1;
     }
 
-    if(isnull(inputtext)) return Dialog_Show(playerid, "HouseGiveKeyConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bagikan Kunci", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "HouseGiveKeyConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bagikan Kunci", 
     "Error: Tidak dapat dikosongkan!\n\
     Mohon masukkan playerid yang ingin diberikan kunci rumah:", "Pilih", "Batal");
-    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "HouseGiveKeyConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bagikan Kunci", 
+    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "HouseGiveKeyConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bagikan Kunci", 
     "Error: Masukkan hanya angka!\n\
     Mohon masukkan playerid yang ingin diberikan kunci rumah:", "Pilih", "Batal");
 
-    if(!IsPlayerConnected(strval(inputtext))) return Dialog_Show(playerid, "HouseGiveKeyConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bagikan Kunci", 
+    if(!IsPlayerConnected(strval(inputtext))) return Dialog_Show(playerid, "HouseGiveKeyConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bagikan Kunci", 
     "Error: The player is not connected to the server!\n\
     Mohon masukkan playerid yang ingin diberikan kunci rumah:", "Pilih", "Batal");
-    if(strval(inputtext) == playerid) return Dialog_Show(playerid, "HouseGiveKeyConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bagikan Kunci", 
+    if(strval(inputtext) == playerid) return Dialog_Show(playerid, "HouseGiveKeyConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bagikan Kunci", 
     "Error: Anda tidak dapat memberikan kunci rumah pada diri sendiri!\n\
     Mohon masukkan playerid yang ingin diberikan kunci rumah:", "Pilih", "Batal");
-    if(!IsPlayerNearPlayer(playerid, strval(inputtext), 3.5)) return Dialog_Show(playerid, "HouseGiveKeyConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bagikan Kunci", 
+    if(!IsPlayerNearPlayer(playerid, strval(inputtext), 3.5)) return Dialog_Show(playerid, "HouseGiveKeyConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bagikan Kunci", 
     "Error: Pemain tersebut tidak dekat dengan anda!\n\
     Mohon masukkan playerid yang ingin diberikan kunci rumah:", "Pilih", "Batal");
-    if(Player_HouseCount(strval(inputtext)) > 0) return Dialog_Show(playerid, "HouseGiveKeyConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bagikan Kunci", 
+    if(Player_HouseCount(strval(inputtext)) > 0) return Dialog_Show(playerid, "HouseGiveKeyConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bagikan Kunci", 
     "Error: Pemain tersebut sudah memiliki rumah sendiri!\n\
     Mohon masukkan playerid yang ingin diberikan kunci rumah:", "Pilih", "Batal");
 
@@ -1253,7 +1253,7 @@ Dialog:HouseItemVaultDeposit(playerid, response, listitem, inputtext[])
     if(!response) 
     {
         AccountData[playerid][pMenuShowed] = false;
-        Dialog_Show(playerid, "HouseChest", DIALOG_STYLE_LIST, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", HouseData[AccountData[playerid][pInHouse]][hOwnerName]), 
+        Dialog_Show(playerid, "HouseChest", DIALOG_STYLE_LIST, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", HouseData[AccountData[playerid][pInHouse]][hOwnerName]), 
         "Undang\n\
         "GRAY"Pakaian\n\
         Membuang Pakaian\n\
@@ -1288,7 +1288,7 @@ Dialog:HouseItemVaultDeposit(playerid, response, listitem, inputtext[])
     
     new shstr[528];
     format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Mohon masukkan jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][listitem]][invItem], InventoryData[playerid][PlayerListitem[playerid][listitem]][invQuantity]);
-    Dialog_Show(playerid, "HouseItemVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rumah", 
+    Dialog_Show(playerid, "HouseItemVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rumah", 
     shstr, "Input", "Batal");
     return 1;
 }
@@ -1314,7 +1314,7 @@ Dialog:HouseItemVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Error: Tidak dapat dikosongkan!\nPlease enter the quantity you want to store:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "HouseItemVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rumah", 
+        Dialog_Show(playerid, "HouseItemVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rumah", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1323,7 +1323,7 @@ Dialog:HouseItemVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Error: Please enter only numbers!\nPlease enter the quantity you want to store:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "HouseItemVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rumah", 
+        Dialog_Show(playerid, "HouseItemVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rumah", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1332,7 +1332,7 @@ Dialog:HouseItemVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Error: Jumlah tidak valid!\nPlease enter the quantity you want to store:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "HouseItemVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rumah", 
+        Dialog_Show(playerid, "HouseItemVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rumah", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1406,7 +1406,7 @@ Dialog:HouseItemVaultWithdraw(playerid, response, listitem, inputtext[])
     if(!response)
     {
         AccountData[playerid][pMenuShowed] = false;
-        Dialog_Show(playerid, "HouseChest", DIALOG_STYLE_LIST, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", HouseData[AccountData[playerid][pInHouse]][hOwnerName]), 
+        Dialog_Show(playerid, "HouseChest", DIALOG_STYLE_LIST, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", HouseData[AccountData[playerid][pInHouse]][hOwnerName]), 
         "Undang\n\
         "GRAY"Pakaian\n\
         Membuang Pakaian\n\
@@ -1449,7 +1449,7 @@ Dialog:HouseItemVaultWithdraw(playerid, response, listitem, inputtext[])
 
         new shstr[528];
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon masukkan berapa jumlah yang ingin diambil:", HouseBrankas[playerid][PlayerListitem[playerid][listitem]][houseBrankasTemp], HouseBrankas[playerid][PlayerListitem[playerid][listitem]][houseBrankasQuant]);
-        Dialog_Show(playerid, "HouseItemVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rumah", 
+        Dialog_Show(playerid, "HouseItemVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rumah", 
         shstr, "Input", "Batal");
     }
 
@@ -1476,7 +1476,7 @@ Dialog:HouseItemVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Error: Tidak dapat dikosongkan!\nPlease enter the quantity you want to retrieve:", HouseBrankas[playerid][PlayerListitem[playerid][id]][houseBrankasTemp], HouseBrankas[playerid][PlayerListitem[playerid][id]][houseBrankasQuant]);
-        Dialog_Show(playerid, "HouseItemVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rumah", 
+        Dialog_Show(playerid, "HouseItemVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rumah", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1485,7 +1485,7 @@ Dialog:HouseItemVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Error: Please enter only numbers!\nPlease enter the quantity you want to retrieve:", HouseBrankas[playerid][PlayerListitem[playerid][id]][houseBrankasTemp], HouseBrankas[playerid][PlayerListitem[playerid][id]][houseBrankasQuant]);
-        Dialog_Show(playerid, "HouseItemVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rumah", 
+        Dialog_Show(playerid, "HouseItemVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rumah", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1494,7 +1494,7 @@ Dialog:HouseItemVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Error: Jumlah tidak valid!\nPlease enter the quantity you want to retrieve:", HouseBrankas[playerid][PlayerListitem[playerid][id]][houseBrankasTemp], HouseBrankas[playerid][PlayerListitem[playerid][id]][houseBrankasQuant]);
-        Dialog_Show(playerid, "HouseItemVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rumah", 
+        Dialog_Show(playerid, "HouseItemVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rumah", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1658,7 +1658,7 @@ ShowAllAvailableHousesGPS(playerid)
     }
     
     SetPVarInt(playerid, "GPSListType", 5); // 5 = house
-    Dialog_Show(playerid, "GPSHouseList", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- GPS - House Tersedia", house_string, "Pilih", "Kembali");
+    Dialog_Show(playerid, "GPSHouseList", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- GPS - House Tersedia", house_string, "Pilih", "Kembali");
     return 1;
 }
 
@@ -1668,7 +1668,7 @@ Dialog:GPSHouseList(playerid, response, listitem, inputtext[])
     if(!response)
     {
         DeletePVar(playerid, "GPSListType");
-        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- GPS", 
+        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- GPS", 
         "Lokasi Umum\n\
         "GRAY"Lokasi Kerja\n\
         Lokasi Hobi\n\

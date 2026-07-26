@@ -146,7 +146,7 @@ ShowPlayerBlackJackTD(playerid)
 	for(new x = 3; x < 6; x++)
 	{
 		TextDrawShowForPlayer(playerid, BlackJackTD[x]);
-		SelectTextDraw(playerid, Y_Nexston);
+		SelectTextDraw(playerid, Y_Vertex);
 	}
 	return 1;
 }

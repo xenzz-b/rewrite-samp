@@ -4,7 +4,7 @@
 #define MAX_CONTACT_PAGE (MAX_CONTACTS / MAX_CONTACT_PER_PAGE)
 
 new g_ContactSearchFilter[MAX_PLAYERS][24];
-new PlayerText:KontakListNSRP[MAX_PLAYERS][MAX_CONTACT_PER_PAGE][6];
+new PlayerText:KontakListVRP[MAX_PLAYERS][MAX_CONTACT_PER_PAGE][6];
 
 HideKontakListTD(playerid)
 {
@@ -12,7 +12,7 @@ HideKontakListTD(playerid)
     {
         for(new i = 0; i < 6; i++)
         {
-            PlayerTextDrawHide(playerid, KontakListNSRP[playerid][x][i]);
+            PlayerTextDrawHide(playerid, KontakListVRP[playerid][x][i]);
         }
     }
 }
@@ -60,66 +60,66 @@ CreateContactListTD(playerid)
     {
         new Float:y = float(idx) * 26.0;
 
-        KontakListNSRP[playerid][idx][0] = CreatePlayerTextDraw(playerid, 513.000, 187.000 + y, "LD_BEAT:chit");
-        PlayerTextDrawTextSize(playerid, KontakListNSRP[playerid][idx][0], 25.000, 29.000);
-        PlayerTextDrawAlignment(playerid, KontakListNSRP[playerid][idx][0], 1);
-        PlayerTextDrawColor(playerid, KontakListNSRP[playerid][idx][0], -225737985);
-        PlayerTextDrawSetShadow(playerid, KontakListNSRP[playerid][idx][0], 0);
-        PlayerTextDrawSetOutline(playerid, KontakListNSRP[playerid][idx][0], 0);
-        PlayerTextDrawBackgroundColor(playerid, KontakListNSRP[playerid][idx][0], 255);
-        PlayerTextDrawFont(playerid, KontakListNSRP[playerid][idx][0], 4);
-        PlayerTextDrawSetProportional(playerid, KontakListNSRP[playerid][idx][0], 1);
+        KontakListVRP[playerid][idx][0] = CreatePlayerTextDraw(playerid, 513.000, 187.000 + y, "LD_BEAT:chit");
+        PlayerTextDrawTextSize(playerid, KontakListVRP[playerid][idx][0], 25.000, 29.000);
+        PlayerTextDrawAlignment(playerid, KontakListVRP[playerid][idx][0], 1);
+        PlayerTextDrawColor(playerid, KontakListVRP[playerid][idx][0], -225737985);
+        PlayerTextDrawSetShadow(playerid, KontakListVRP[playerid][idx][0], 0);
+        PlayerTextDrawSetOutline(playerid, KontakListVRP[playerid][idx][0], 0);
+        PlayerTextDrawBackgroundColor(playerid, KontakListVRP[playerid][idx][0], 255);
+        PlayerTextDrawFont(playerid, KontakListVRP[playerid][idx][0], 4);
+        PlayerTextDrawSetProportional(playerid, KontakListVRP[playerid][idx][0], 1);
 
-        KontakListNSRP[playerid][idx][1] = CreatePlayerTextDraw(playerid, 525.500, 197.000 + y, "RV");
-        PlayerTextDrawLetterSize(playerid, KontakListNSRP[playerid][idx][1], 0.190, 0.899);
-        PlayerTextDrawAlignment(playerid, KontakListNSRP[playerid][idx][1], 2);
-        PlayerTextDrawColor(playerid, KontakListNSRP[playerid][idx][1], 2065636095);
-        PlayerTextDrawSetShadow(playerid, KontakListNSRP[playerid][idx][1], 0);
-        PlayerTextDrawSetOutline(playerid, KontakListNSRP[playerid][idx][1], 0);
-        PlayerTextDrawBackgroundColor(playerid, KontakListNSRP[playerid][idx][1], 150);
-        PlayerTextDrawFont(playerid, KontakListNSRP[playerid][idx][1], 1);
-        PlayerTextDrawSetProportional(playerid, KontakListNSRP[playerid][idx][1], 1);
+        KontakListVRP[playerid][idx][1] = CreatePlayerTextDraw(playerid, 525.500, 197.000 + y, "RV");
+        PlayerTextDrawLetterSize(playerid, KontakListVRP[playerid][idx][1], 0.190, 0.899);
+        PlayerTextDrawAlignment(playerid, KontakListVRP[playerid][idx][1], 2);
+        PlayerTextDrawColor(playerid, KontakListVRP[playerid][idx][1], 2065636095);
+        PlayerTextDrawSetShadow(playerid, KontakListVRP[playerid][idx][1], 0);
+        PlayerTextDrawSetOutline(playerid, KontakListVRP[playerid][idx][1], 0);
+        PlayerTextDrawBackgroundColor(playerid, KontakListVRP[playerid][idx][1], 150);
+        PlayerTextDrawFont(playerid, KontakListVRP[playerid][idx][1], 1);
+        PlayerTextDrawSetProportional(playerid, KontakListVRP[playerid][idx][1], 1);
 
-        KontakListNSRP[playerid][idx][2] = CreatePlayerTextDraw(playerid, 535.000, 189.000 + y, "LD_SPAC:white");
-        PlayerTextDrawTextSize(playerid, KontakListNSRP[playerid][idx][2], 75.000, 23.000);
-        PlayerTextDrawAlignment(playerid, KontakListNSRP[playerid][idx][2], 1);
-        PlayerTextDrawColor(playerid, KontakListNSRP[playerid][idx][2], -1);
-        PlayerTextDrawSetShadow(playerid, KontakListNSRP[playerid][idx][2], 0);
-        PlayerTextDrawSetOutline(playerid, KontakListNSRP[playerid][idx][2], 0);
-        PlayerTextDrawBackgroundColor(playerid, KontakListNSRP[playerid][idx][2], 255);
-        PlayerTextDrawFont(playerid, KontakListNSRP[playerid][idx][2], 4);
-        PlayerTextDrawSetProportional(playerid, KontakListNSRP[playerid][idx][2], 1);
-        PlayerTextDrawSetSelectable(playerid, KontakListNSRP[playerid][idx][2], 1);
+        KontakListVRP[playerid][idx][2] = CreatePlayerTextDraw(playerid, 535.000, 189.000 + y, "LD_SPAC:white");
+        PlayerTextDrawTextSize(playerid, KontakListVRP[playerid][idx][2], 75.000, 23.000);
+        PlayerTextDrawAlignment(playerid, KontakListVRP[playerid][idx][2], 1);
+        PlayerTextDrawColor(playerid, KontakListVRP[playerid][idx][2], -1);
+        PlayerTextDrawSetShadow(playerid, KontakListVRP[playerid][idx][2], 0);
+        PlayerTextDrawSetOutline(playerid, KontakListVRP[playerid][idx][2], 0);
+        PlayerTextDrawBackgroundColor(playerid, KontakListVRP[playerid][idx][2], 255);
+        PlayerTextDrawFont(playerid, KontakListVRP[playerid][idx][2], 4);
+        PlayerTextDrawSetProportional(playerid, KontakListVRP[playerid][idx][2], 1);
+        PlayerTextDrawSetSelectable(playerid, KontakListVRP[playerid][idx][2], 1);
 
-        KontakListNSRP[playerid][idx][3] = CreatePlayerTextDraw(playerid, 539.500, 193.000 + y, "Ronnie Varquez");
-        PlayerTextDrawLetterSize(playerid, KontakListNSRP[playerid][idx][3], 0.150, 0.899);
-        PlayerTextDrawAlignment(playerid, KontakListNSRP[playerid][idx][3], 1);
-        PlayerTextDrawColor(playerid, KontakListNSRP[playerid][idx][3], 539043071);
-        PlayerTextDrawSetShadow(playerid, KontakListNSRP[playerid][idx][3], 0);
-        PlayerTextDrawSetOutline(playerid, KontakListNSRP[playerid][idx][3], 0);
-        PlayerTextDrawBackgroundColor(playerid, KontakListNSRP[playerid][idx][3], 150);
-        PlayerTextDrawFont(playerid, KontakListNSRP[playerid][idx][3], 1);
-        PlayerTextDrawSetProportional(playerid, KontakListNSRP[playerid][idx][3], 1);
+        KontakListVRP[playerid][idx][3] = CreatePlayerTextDraw(playerid, 539.500, 193.000 + y, "Ronnie Varquez");
+        PlayerTextDrawLetterSize(playerid, KontakListVRP[playerid][idx][3], 0.150, 0.899);
+        PlayerTextDrawAlignment(playerid, KontakListVRP[playerid][idx][3], 1);
+        PlayerTextDrawColor(playerid, KontakListVRP[playerid][idx][3], 539043071);
+        PlayerTextDrawSetShadow(playerid, KontakListVRP[playerid][idx][3], 0);
+        PlayerTextDrawSetOutline(playerid, KontakListVRP[playerid][idx][3], 0);
+        PlayerTextDrawBackgroundColor(playerid, KontakListVRP[playerid][idx][3], 150);
+        PlayerTextDrawFont(playerid, KontakListVRP[playerid][idx][3], 1);
+        PlayerTextDrawSetProportional(playerid, KontakListVRP[playerid][idx][3], 1);
 
-        KontakListNSRP[playerid][idx][4] = CreatePlayerTextDraw(playerid, 539.500, 202.000 + y, "+62 812-3456-7890");
-        PlayerTextDrawLetterSize(playerid, KontakListNSRP[playerid][idx][4], 0.109, 0.699);
-        PlayerTextDrawAlignment(playerid, KontakListNSRP[playerid][idx][4], 1);
-        PlayerTextDrawColor(playerid, KontakListNSRP[playerid][idx][4], 1600350463);
-        PlayerTextDrawSetShadow(playerid, KontakListNSRP[playerid][idx][4], 0);
-        PlayerTextDrawSetOutline(playerid, KontakListNSRP[playerid][idx][4], 0);
-        PlayerTextDrawBackgroundColor(playerid, KontakListNSRP[playerid][idx][4], 150);
-        PlayerTextDrawFont(playerid, KontakListNSRP[playerid][idx][4], 1);
-        PlayerTextDrawSetProportional(playerid, KontakListNSRP[playerid][idx][4], 1);
+        KontakListVRP[playerid][idx][4] = CreatePlayerTextDraw(playerid, 539.500, 202.000 + y, "+62 812-3456-7890");
+        PlayerTextDrawLetterSize(playerid, KontakListVRP[playerid][idx][4], 0.109, 0.699);
+        PlayerTextDrawAlignment(playerid, KontakListVRP[playerid][idx][4], 1);
+        PlayerTextDrawColor(playerid, KontakListVRP[playerid][idx][4], 1600350463);
+        PlayerTextDrawSetShadow(playerid, KontakListVRP[playerid][idx][4], 0);
+        PlayerTextDrawSetOutline(playerid, KontakListVRP[playerid][idx][4], 0);
+        PlayerTextDrawBackgroundColor(playerid, KontakListVRP[playerid][idx][4], 150);
+        PlayerTextDrawFont(playerid, KontakListVRP[playerid][idx][4], 1);
+        PlayerTextDrawSetProportional(playerid, KontakListVRP[playerid][idx][4], 1);
 
-        KontakListNSRP[playerid][idx][5] = CreatePlayerTextDraw(playerid, 540.000, 213.000 + y, "LD_SPAC:white");
-        PlayerTextDrawTextSize(playerid, KontakListNSRP[playerid][idx][5], 70.000, 1.000);
-        PlayerTextDrawAlignment(playerid, KontakListNSRP[playerid][idx][5], 1);
-        PlayerTextDrawColor(playerid, KontakListNSRP[playerid][idx][5], -387256833);
-        PlayerTextDrawSetShadow(playerid, KontakListNSRP[playerid][idx][5], 0);
-        PlayerTextDrawSetOutline(playerid, KontakListNSRP[playerid][idx][5], 0);
-        PlayerTextDrawBackgroundColor(playerid, KontakListNSRP[playerid][idx][5], 255);
-        PlayerTextDrawFont(playerid, KontakListNSRP[playerid][idx][5], 4);
-        PlayerTextDrawSetProportional(playerid, KontakListNSRP[playerid][idx][5], 1);
+        KontakListVRP[playerid][idx][5] = CreatePlayerTextDraw(playerid, 540.000, 213.000 + y, "LD_SPAC:white");
+        PlayerTextDrawTextSize(playerid, KontakListVRP[playerid][idx][5], 70.000, 1.000);
+        PlayerTextDrawAlignment(playerid, KontakListVRP[playerid][idx][5], 1);
+        PlayerTextDrawColor(playerid, KontakListVRP[playerid][idx][5], -387256833);
+        PlayerTextDrawSetShadow(playerid, KontakListVRP[playerid][idx][5], 0);
+        PlayerTextDrawSetOutline(playerid, KontakListVRP[playerid][idx][5], 0);
+        PlayerTextDrawBackgroundColor(playerid, KontakListVRP[playerid][idx][5], 255);
+        PlayerTextDrawFont(playerid, KontakListVRP[playerid][idx][5], 4);
+        PlayerTextDrawSetProportional(playerid, KontakListVRP[playerid][idx][5], 1);
     }
 }
 
@@ -169,7 +169,7 @@ ShowContactList(playerid)
 
     new page_str[16];
     format(page_str, sizeof(page_str), "Hal %d/%d", curr_page + 1, max_pages);
-    PlayerTextDrawSetString(playerid, KontakNSRP[playerid][65], page_str);
+    PlayerTextDrawSetString(playerid, KontakVRP[playerid][65], page_str);
 
     PlayerPhoneData[playerid][CurrentlyReadWA] = false;
     PlayerPhoneData[playerid][phoneContactSelected] = -1;
@@ -184,36 +184,36 @@ ShowContactList(playerid)
             new color_idx = GetAvatarColorIndex(slot_name[s]);
             GetInitials(slot_name[s], initials, sizeof(initials));
 
-            PlayerTextDrawColor(playerid, KontakListNSRP[playerid][s][0], g_AvatarBG[color_idx]);
-            PlayerTextDrawShow(playerid, KontakListNSRP[playerid][s][0]);
+            PlayerTextDrawColor(playerid, KontakListVRP[playerid][s][0], g_AvatarBG[color_idx]);
+            PlayerTextDrawShow(playerid, KontakListVRP[playerid][s][0]);
 
-            PlayerTextDrawSetString(playerid, KontakListNSRP[playerid][s][1], initials);
-            PlayerTextDrawColor(playerid, KontakListNSRP[playerid][s][1], g_AvatarTX[color_idx]);
-            PlayerTextDrawShow(playerid, KontakListNSRP[playerid][s][1]);
+            PlayerTextDrawSetString(playerid, KontakListVRP[playerid][s][1], initials);
+            PlayerTextDrawColor(playerid, KontakListVRP[playerid][s][1], g_AvatarTX[color_idx]);
+            PlayerTextDrawShow(playerid, KontakListVRP[playerid][s][1]);
 
-            PlayerTextDrawShow(playerid, KontakListNSRP[playerid][s][2]);
+            PlayerTextDrawShow(playerid, KontakListVRP[playerid][s][2]);
 
-            PlayerTextDrawSetString(playerid, KontakListNSRP[playerid][s][3], slot_name[s]);
-            PlayerTextDrawShow(playerid, KontakListNSRP[playerid][s][3]);
+            PlayerTextDrawSetString(playerid, KontakListVRP[playerid][s][3], slot_name[s]);
+            PlayerTextDrawShow(playerid, KontakListVRP[playerid][s][3]);
 
-            PlayerTextDrawSetString(playerid, KontakListNSRP[playerid][s][4], slot_number[s]);
-            PlayerTextDrawShow(playerid, KontakListNSRP[playerid][s][4]);
+            PlayerTextDrawSetString(playerid, KontakListVRP[playerid][s][4], slot_number[s]);
+            PlayerTextDrawShow(playerid, KontakListVRP[playerid][s][4]);
 
-            PlayerTextDrawShow(playerid, KontakListNSRP[playerid][s][5]);
+            PlayerTextDrawShow(playerid, KontakListVRP[playerid][s][5]);
             ListedContacts[playerid][s] = slot_id[s];
         }
         else
         {
-            PlayerTextDrawHide(playerid, KontakListNSRP[playerid][s][0]);
-            PlayerTextDrawHide(playerid, KontakListNSRP[playerid][s][1]);
-            PlayerTextDrawHide(playerid, KontakListNSRP[playerid][s][2]);
-            PlayerTextDrawHide(playerid, KontakListNSRP[playerid][s][3]);
-            PlayerTextDrawHide(playerid, KontakListNSRP[playerid][s][4]);
-            PlayerTextDrawHide(playerid, KontakListNSRP[playerid][s][5]);
+            PlayerTextDrawHide(playerid, KontakListVRP[playerid][s][0]);
+            PlayerTextDrawHide(playerid, KontakListVRP[playerid][s][1]);
+            PlayerTextDrawHide(playerid, KontakListVRP[playerid][s][2]);
+            PlayerTextDrawHide(playerid, KontakListVRP[playerid][s][3]);
+            PlayerTextDrawHide(playerid, KontakListVRP[playerid][s][4]);
+            PlayerTextDrawHide(playerid, KontakListVRP[playerid][s][5]);
         }
     }
 
-    PlayerTextDrawShow(playerid, KontakNSRP[playerid][65]);
+    PlayerTextDrawShow(playerid, KontakVRP[playerid][65]);
     SelectTextDraw(playerid, 0xFFFFFF80);
     return 1;
 }
@@ -243,7 +243,7 @@ Dialog:MenuAddContact(playerid, response, listitem, inputtext[])
     {
         case 0:
         {
-            Dialog_Show(playerid, "ContactAddName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Contact", "Please insert the contact name that will be saved below:", "Input", "Kembali");
+            Dialog_Show(playerid, "ContactAddName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Contact", "Please insert the contact name that will be saved below:", "Input", "Kembali");
         }
         case 1:
         {
@@ -263,10 +263,10 @@ Dialog:MenuAddContact(playerid, response, listitem, inputtext[])
             if(count == 0) 
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Airdrop", "Tidak ada pemain terdekat!", "Tutup", "");
+                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Airdrop", "Tidak ada pemain terdekat!", "Tutup", "");
             }
 
-            Dialog_Show(playerid, "PhoneAirdrop", DIALOG_STYLE_TABLIST, ""Nexston"Nexston Roleplay "WHITE"- Airdrop", frmxt, "Pilih", "Batal");
+            Dialog_Show(playerid, "PhoneAirdrop", DIALOG_STYLE_TABLIST, ""Vertex"Vertex Roleplay "WHITE"- Airdrop", frmxt, "Pilih", "Batal");
         }
     }
     return 1;
@@ -274,26 +274,26 @@ Dialog:MenuAddContact(playerid, response, listitem, inputtext[])
 
 HandleContactTDClick(playerid, PlayerText:clickedid)
 {
-    if(clickedid == KontakNSRP[playerid][15]) //close 
+    if(clickedid == KontakVRP[playerid][15]) //close 
     {
         HidePhoneContactTD(playerid);
         ResetContactSearch(playerid);
         HideKontakListTD(playerid);
-        ShowPhoneNSRP(playerid);
+        ShowPhoneVRP(playerid);
     }
-    if(clickedid == KontakNSRP[playerid][33])
+    if(clickedid == KontakVRP[playerid][33])
     {
         Dialog_Show(playerid, "ContactSearch", DIALOG_STYLE_INPUT, "Cari Kontak", "Masukkan nama kontak yang ingin dicari:", "Cari", "Batal");
         return 1;
     }
 
-    if(clickedid == KontakNSRP[playerid][45])
+    if(clickedid == KontakVRP[playerid][45])
     {
         Dialog_Show(playerid, "MenuAddContact", DIALOG_STYLE_LIST, "Menu Ponsel", "Tambah Kontak\nAirdrop", "Pilih", "Tutup");
         return 1;
     }
 
-    if(clickedid == KontakNSRP[playerid][61])
+    if(clickedid == KontakVRP[playerid][61])
     {
         if(index_contact[playerid] > 0)
         {
@@ -303,7 +303,7 @@ HandleContactTDClick(playerid, PlayerText:clickedid)
         return 1;
     }
 
-    if(clickedid == KontakNSRP[playerid][64])
+    if(clickedid == KontakVRP[playerid][64])
     {
         if(index_contact[playerid] < MAX_CONTACT_PAGE - 1)
         {
@@ -315,7 +315,7 @@ HandleContactTDClick(playerid, PlayerText:clickedid)
 
     for(new s = 0; s < MAX_CONTACT_PER_PAGE; s++)
     {
-        if(clickedid == KontakListNSRP[playerid][s][2])
+        if(clickedid == KontakListVRP[playerid][s][2])
         {
             new contactid = ListedContacts[playerid][s];
             if(contactid == -1) return 1;

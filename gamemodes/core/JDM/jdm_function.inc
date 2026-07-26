@@ -599,12 +599,12 @@ Show_JDMRankManage(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "JDMSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank JDM", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "JDMSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank JDM", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank JDM", "Anda tidak memiliki member di JDM ini!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank JDM", "Anda tidak memiliki member di JDM ini!", "Tutup", "");
     }
     return 1;
 }
@@ -665,12 +665,12 @@ Show_JDMKick(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "JDMKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Kick Member JDM", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "JDMKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Kick Member JDM", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Member JDM", "Anda tidak memiliki member di JDM ini!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Member JDM", "Anda tidak memiliki member di JDM ini!", "Tutup", "");
     }
     return 1;
 }
@@ -702,7 +702,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 
         if(count > 0) 
         {
-            Dialog_Show(playerid, "JDMPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- JDM Panel", 
+            Dialog_Show(playerid, "JDMPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- JDM Panel", 
             str, "Pilih", "Batal");
         }
     }
@@ -715,7 +715,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         if(IsPlayerInRangeOfPoint(playerid, 1.0, JDMData[jid][jdmVaultPos][0], JDMData[jid][jdmVaultPos][1], JDMData[jid][jdmVaultPos][2]))
         {
             AccountData[playerid][pMenuShowed] = true;
-            Dialog_Show(playerid, "JDMChest", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas JDM", 
+            Dialog_Show(playerid, "JDMChest", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas JDM", 
             "Brankas\n"GRAY"Weapon Brankas", "Pilih", "Kembali");
         }
 
@@ -749,7 +749,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         {
             if(IsPlayerInRangeOfPoint(playerid, 1.0, JDMData[jid][jdmDeskPos][0], JDMData[jid][jdmDeskPos][1], JDMData[jid][jdmDeskPos][2]))
             {
-                Dialog_Show(playerid, "JDMBosDesk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Bos Desk JDM", 
+                Dialog_Show(playerid, "JDMBosDesk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Bos Desk JDM", 
                 "Invite\n\
                 "GRAY"Kelola Jabatan\n\
                 Kick\n\

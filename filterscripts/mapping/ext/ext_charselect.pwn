@@ -12,7 +12,7 @@ CreateCharSelectExt()
     CharSelectSCt = CreateDynamicObject(18667, 1024.854980, -2180.497314, 42.323677, 0.000000, 0.000000, 225.000000, 777, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(CharSelectSCt, 0, "DATANG", 100, "Arial", 55, 1, 0xFFFFFFFF, 0x00000000, 1);
     CharSelectSCt = CreateDynamicObject(18667, 1025.625610, -2181.494628, 41.883697, 0.000000, 0.000000, 225.000000, 777, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(CharSelectSCt, 0, "DI Nexston", 140, "Arial", 55, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(CharSelectSCt, 0, "DI Vertex", 140, "Arial", 55, 1, 0xFFFFFFFF, 0x00000000, 1);
     CharSelectSCt = CreateDynamicObject(18667, 1024.861572, -2180.730957, 41.883697, 0.000000, 0.000000, 225.000000, 777, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(CharSelectSCt, 0, "REALITY", 140, "Arial", 55, 1, 0xFFFFFFFF, 0x00000000, 1);
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////

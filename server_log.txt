@@ -1,0 +1,31 @@
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[07:27:56] language = ""  (string)
+[07:27:56] 
+[07:27:56] Server Plugins
+[07:27:56] --------------
+[07:27:56]  Loading plugin: crashdetect
+[07:27:56]   CrashDetect plugin 4.19.4
+[07:27:56]   Loaded.
+[07:27:56]  Loading plugin: sampvoice
+[07:27:56] [sv:dbg:network:init] : module initializing...
+[07:27:56] [dbg:raknet:init] : module initializing...
+[07:27:56] [dbg:raknet:init] : module initialized
+[07:27:56] [sv:dbg:network:init] : module initialized
+[07:27:56] [sv:dbg:main:Load] : creating 8 work threads...
+[07:27:56]  -------------------------------------------    
+[07:27:56]    ___                __   __    _              
+[07:27:56]   / __| __ _ _ __  _ _\ \ / /__ (_) __ ___    
+[07:27:56]   \__ \/ _` | '  \| '_ \   / _ \| |/ _/ -_)
+[07:27:56]   |___/\__,_|_|_|_| .__/\_/\___/|_|\__\___|
+[07:27:56]                   |_|                           
+[07:27:56]  -------------------------------------------    
+[07:27:56]            SampVoice by MOR loaded              
+[07:27:56]         Compiled By SAMPINDO Community          

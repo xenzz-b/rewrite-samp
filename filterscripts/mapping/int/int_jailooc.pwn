@@ -28,7 +28,7 @@ CreateJailOOCInt()
     SetDynamicObjectMaterial(ocstx, 0, 10988, "mission2_sfse", "ws_fancywallpink", 0x00000000);
     SetDynamicObjectMaterial(ocstx, 1, 10988, "mission2_sfse", "ws_fancywallpink", 0x00000000);
     ocstx = CreateDynamicObject(18661, -722.087402, -2406.355224, -58.748718, 0.000000, 0.000000, 180.000000, 5, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(ocstx, 0, "Nexston\nREALITY", 100, "Arial", 36, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(ocstx, 0, "Vertex\nREALITY", 100, "Arial", 36, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -722.107421, -2406.825195, -59.498683, 0.000000, 0.000000, 180.000000, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(ocstx, 0, "Mohon untuk tidak mengulangi", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -722.107421, -2406.785156, -59.778675, 0.000000, 0.000000, 180.000000, 5, 0, -1, 200.00, 200.00); 
@@ -42,7 +42,7 @@ CreateJailOOCInt()
     ocstx = CreateDynamicObject(18661, -722.107421, -2406.285156, -60.818622, 0.000000, 0.000000, 180.000000, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(ocstx, 0, "Rules & Guides", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -722.107421, -2406.244140, -61.098609, 0.000000, 0.000000, 180.000000, 5, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(ocstx, 0, "discord.gg/nexston", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(ocstx, 0, "discord.gg/vertexroleplay", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(2734, -722.098083, -2406.883789, -60.852226, 0.000000, 0.000000, 90.000000, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(ocstx, 0, 10765, "airportgnd_sfse", "black64", 0x00000000);
     ocstx = CreateDynamicObject(2734, -722.098083, -2405.654052, -60.852226, 0.000000, 0.000000, 90.000000, 5, 0, -1, 200.00, 200.00); 
@@ -56,7 +56,7 @@ CreateJailOOCInt()
     SetDynamicObjectMaterial(ocstx, 0, 10988, "mission2_sfse", "ws_fancywallpink", 0x00000000);
     SetDynamicObjectMaterial(ocstx, 1, 10988, "mission2_sfse", "ws_fancywallpink", 0x00000000);
     ocstx = CreateDynamicObject(18661, -729.846984, -2406.355224, -58.748718, 0.000000, -0.000022, 179.999862, 5, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(ocstx, 0, "Nexston\nREALITY", 100, "Arial", 36, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(ocstx, 0, "Vertex\nREALITY", 100, "Arial", 36, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -729.867004, -2406.825195, -59.498683, 0.000000, -0.000022, 179.999862, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(ocstx, 0, "Mohon untuk tidak mengulangi", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -729.867004, -2406.785156, -59.778675, 0.000000, -0.000022, 179.999862, 5, 0, -1, 200.00, 200.00); 
@@ -70,7 +70,7 @@ CreateJailOOCInt()
     ocstx = CreateDynamicObject(18661, -729.867004, -2406.285156, -60.818622, 0.000000, -0.000022, 179.999862, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(ocstx, 0, "Rules & Guides", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -729.867004, -2406.244140, -61.098609, 0.000000, -0.000022, 179.999862, 5, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(ocstx, 0, "discord.gg/nexston", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(ocstx, 0, "discord.gg/vertexroleplay", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(2734, -729.857666, -2406.883789, -60.852226, 0.000022, 0.000000, 89.999931, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(ocstx, 0, 10765, "airportgnd_sfse", "black64", 0x00000000);
     ocstx = CreateDynamicObject(2734, -729.857666, -2405.654052, -60.852226, 0.000022, 0.000000, 89.999931, 5, 0, -1, 200.00, 200.00); 
@@ -79,7 +79,7 @@ CreateJailOOCInt()
     SetDynamicObjectMaterial(ocstx, 0, 10988, "mission2_sfse", "ws_fancywallpink", 0x00000000);
     SetDynamicObjectMaterial(ocstx, 1, 10988, "mission2_sfse", "ws_fancywallpink", 0x00000000);
     ocstx = CreateDynamicObject(18661, -737.908569, -2406.355224, -58.748718, 0.000000, -0.000015, 179.999908, 5, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(ocstx, 0, "Nexston\nREALITY", 100, "Arial", 36, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(ocstx, 0, "Vertex\nREALITY", 100, "Arial", 36, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -737.928588, -2406.825195, -59.498683, 0.000000, -0.000015, 179.999908, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(ocstx, 0, "Mohon untuk tidak mengulangi", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -737.928588, -2406.785156, -59.778675, 0.000000, -0.000015, 179.999908, 5, 0, -1, 200.00, 200.00); 
@@ -93,7 +93,7 @@ CreateJailOOCInt()
     ocstx = CreateDynamicObject(18661, -737.928588, -2406.285156, -60.818622, 0.000000, -0.000015, 179.999908, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(ocstx, 0, "Rules & Guides", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -737.928588, -2406.244140, -61.098609, 0.000000, -0.000015, 179.999908, 5, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(ocstx, 0, "discord.gg/nexston", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(ocstx, 0, "discord.gg/vertexroleplay", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(2734, -737.919250, -2406.883789, -60.852226, 0.000015, 0.000000, 89.999954, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(ocstx, 0, 10765, "airportgnd_sfse", "black64", 0x00000000);
     ocstx = CreateDynamicObject(2734, -737.919250, -2405.654052, -60.852226, 0.000015, 0.000000, 89.999954, 5, 0, -1, 200.00, 200.00); 
@@ -103,7 +103,7 @@ CreateJailOOCInt()
     SetDynamicObjectMaterial(ocstx, 0, 10988, "mission2_sfse", "ws_fancywallpink", 0x00000000);
     SetDynamicObjectMaterial(ocstx, 1, 10988, "mission2_sfse", "ws_fancywallpink", 0x00000000);
     ocstx = CreateDynamicObject(18661, -730.137268, -2424.248291, -58.748718, 0.000000, -0.000038, 179.999771, 5, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(ocstx, 0, "Nexston\nREALITY", 100, "Arial", 36, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(ocstx, 0, "Vertex\nREALITY", 100, "Arial", 36, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -730.157287, -2424.718261, -59.498683, 0.000000, -0.000038, 179.999771, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(ocstx, 0, "Mohon untuk tidak mengulangi", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -730.157287, -2424.678222, -59.778675, 0.000000, -0.000038, 179.999771, 5, 0, -1, 200.00, 200.00); 
@@ -117,7 +117,7 @@ CreateJailOOCInt()
     ocstx = CreateDynamicObject(18661, -730.157287, -2424.178222, -60.818622, 0.000000, -0.000038, 179.999771, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(ocstx, 0, "Rules & Guides", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -730.157287, -2424.137207, -61.098609, 0.000000, -0.000038, 179.999771, 5, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(ocstx, 0, "discord.gg/nexston", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(ocstx, 0, "discord.gg/vertexroleplay", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(2734, -730.147949, -2424.776855, -60.852226, 0.000038, 0.000000, 89.999885, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(ocstx, 0, 10765, "airportgnd_sfse", "black64", 0x00000000);
     ocstx = CreateDynamicObject(2734, -730.147949, -2423.547119, -60.852226, 0.000038, 0.000000, 89.999885, 5, 0, -1, 200.00, 200.00); 
@@ -127,7 +127,7 @@ CreateJailOOCInt()
     SetDynamicObjectMaterial(ocstx, 0, 10988, "mission2_sfse", "ws_fancywallpink", 0x00000000);
     SetDynamicObjectMaterial(ocstx, 1, 10988, "mission2_sfse", "ws_fancywallpink", 0x00000000);
     ocstx = CreateDynamicObject(18661, -721.786865, -2424.248291, -58.748718, 0.000000, -0.000045, 179.999725, 5, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(ocstx, 0, "Nexston\nREALITY", 100, "Arial", 36, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(ocstx, 0, "Vertex\nREALITY", 100, "Arial", 36, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -721.806884, -2424.718261, -59.498683, 0.000000, -0.000045, 179.999725, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(ocstx, 0, "Mohon untuk tidak mengulangi", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -721.806884, -2424.678222, -59.778675, 0.000000, -0.000045, 179.999725, 5, 0, -1, 200.00, 200.00); 
@@ -141,7 +141,7 @@ CreateJailOOCInt()
     ocstx = CreateDynamicObject(18661, -721.806884, -2424.178222, -60.818622, 0.000000, -0.000045, 179.999725, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(ocstx, 0, "Rules & Guides", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -721.806884, -2424.137207, -61.098609, 0.000000, -0.000045, 179.999725, 5, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(ocstx, 0, "discord.gg/nexston", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(ocstx, 0, "discord.gg/vertexroleplay", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(2734, -721.797546, -2424.776855, -60.852226, 0.000045, 0.000000, 89.999862, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(ocstx, 0, 10765, "airportgnd_sfse", "black64", 0x00000000);
     ocstx = CreateDynamicObject(2734, -721.797546, -2423.547119, -60.852226, 0.000045, 0.000000, 89.999862, 5, 0, -1, 200.00, 200.00); 
@@ -154,7 +154,7 @@ CreateJailOOCInt()
     SetDynamicObjectMaterial(ocstx, 0, 10988, "mission2_sfse", "ws_fancywallpink", 0x00000000);
     SetDynamicObjectMaterial(ocstx, 1, 10988, "mission2_sfse", "ws_fancywallpink", 0x00000000);
     ocstx = CreateDynamicObject(18661, -738.078125, -2424.248291, -58.748718, 0.000000, -0.000061, 179.999633, 5, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(ocstx, 0, "Nexston\nREALITY", 100, "Arial", 36, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(ocstx, 0, "Vertex\nREALITY", 100, "Arial", 36, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -738.098144, -2424.718261, -59.498683, 0.000000, -0.000061, 179.999633, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(ocstx, 0, "Mohon untuk tidak mengulangi", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -738.098144, -2424.678222, -59.778675, 0.000000, -0.000061, 179.999633, 5, 0, -1, 200.00, 200.00); 
@@ -168,7 +168,7 @@ CreateJailOOCInt()
     ocstx = CreateDynamicObject(18661, -738.098144, -2424.178222, -60.818622, 0.000000, -0.000061, 179.999633, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(ocstx, 0, "Rules & Guides", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(18661, -738.098144, -2424.137207, -61.098609, 0.000000, -0.000061, 179.999633, 5, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(ocstx, 0, "discord.gg/nexston", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(ocstx, 0, "discord.gg/vertexroleplay", 130, "Arial", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     ocstx = CreateDynamicObject(2734, -738.088806, -2424.776855, -60.852226, 0.000061, 0.000000, 89.999816, 5, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(ocstx, 0, 10765, "airportgnd_sfse", "black64", 0x00000000);
     ocstx = CreateDynamicObject(2734, -738.088806, -2423.547119, -60.852226, 0.000061, 0.000000, 89.999816, 5, 0, -1, 200.00, 200.00); 

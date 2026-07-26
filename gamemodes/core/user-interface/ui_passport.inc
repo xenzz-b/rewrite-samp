@@ -32,7 +32,7 @@ CreatePassportTextdraw()
     TextDrawSetProportional(PassportTD[1], 1);
     TextDrawSetSelectable(PassportTD[1], 0);
 
-    PassportTD[2] = TextDrawCreate(266.000000, 169.000000, "PEMERINTAH Kota Nexston");
+    PassportTD[2] = TextDrawCreate(266.000000, 169.000000, "PEMERINTAH Kota Vertex");
     TextDrawFont(PassportTD[2], 1);
     TextDrawLetterSize(PassportTD[2], 0.233333, 1.399999);
     TextDrawTextSize(PassportTD[2], 598.000000, 12.500000);
@@ -399,7 +399,7 @@ CreatePassportCoverTextdraw()
     TextDrawSetProportional(PassportCoverTD[0], 1);
     TextDrawSetSelectable(PassportCoverTD[0], 0);
 
-    PassportCoverTD[1] = TextDrawCreate(349.000000, 174.000000, "Kota Nexston");
+    PassportCoverTD[1] = TextDrawCreate(349.000000, 174.000000, "Kota Vertex");
     TextDrawFont(PassportCoverTD[1], 2);
     TextDrawLetterSize(PassportCoverTD[1], 0.216665, 1.550001);
     TextDrawTextSize(PassportCoverTD[1], 400.000000, 237.000000);
@@ -599,7 +599,7 @@ ShowPassportTD(playerid)
     {
         PlayerTextDrawShow(playerid, PlayerPassportTD[playerid][x]);
     }
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
     SendClientMessage(playerid, Y_SERVER, "(Server) "WHITE"Gunakan "CMDEA"'/cursor' "WHITE"jika mouse hilang dari layar/textdraw tidak bisa ditekan!");
 }
 
@@ -623,7 +623,7 @@ ShowPassportCoverTD(playerid)
 	{
         TextDrawShowForPlayer(playerid, PassportCoverTD[x]);
     }
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
     SendClientMessage(playerid, Y_SERVER, "(Server) "WHITE"Gunakan "CMDEA"'/cursor' "WHITE"jika mouse hilang dari layar/textdraw tidak bisa ditekan!");
     return 1;
 }

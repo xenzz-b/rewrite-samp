@@ -83,7 +83,7 @@ CreateServerNameTD()
     TextDrawFont(NrpUI[7], 4);
     TextDrawSetProportional(NrpUI[7], 1);
 
-    NrpUI[8] = TextDrawCreate(296.000, 27.000, "NEXSTON");
+    NrpUI[8] = TextDrawCreate(296.000, 27.000, "VERTEX");
     TextDrawLetterSize(NrpUI[8], 0.189, 0.898);
     TextDrawAlignment(NrpUI[8], 1);
     TextDrawColor(NrpUI[8], -1);

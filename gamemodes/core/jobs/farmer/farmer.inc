@@ -624,7 +624,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
             if(AccountData[playerid][pIsSmoking]) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda saat ini sedang merokok. Selesaikanlah atau gunakan '/stopsmoke' untuk berhenti!");
 		    if(AccountData[playerid][pEatingStep] > 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda saat ini sedang makan. Selesaikanlah atau gunakan '/stopeating' untuk berhenti!");
 		    if(AccountData[playerid][pDrinkingStep] > 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda saat ini sedang minum. Selesaikanlah atau gunakan '/stopdrinking' untuk berhenti!");
-            Dialog_Show(playerid, "JobFarmerBuySeeds", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Toko Bibit",
+            Dialog_Show(playerid, "JobFarmerBuySeeds", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Toko Bibit",
             "Jenis Bibit\tHarga\n\
             "WHITE"Bibit Cabai\t"GREEN"$40\n\
             "WHITE"Bibit Tebu\t"GREEN"$40\n\
@@ -637,7 +637,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
             if(AccountData[playerid][pIsSmoking]) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda saat ini sedang merokok. Selesaikanlah atau gunakan '/stopsmoke' untuk berhenti!");
 		    if(AccountData[playerid][pEatingStep] > 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda saat ini sedang makan. Selesaikanlah atau gunakan '/stopeating' untuk berhenti!");
 		    if(AccountData[playerid][pDrinkingStep] > 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda saat ini sedang minum. Selesaikanlah atau gunakan '/stopdrinking' untuk berhenti!");
-            Dialog_Show(playerid, "JobFarmerBuyFSeeds", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Toko Bibit",
+            Dialog_Show(playerid, "JobFarmerBuyFSeeds", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Toko Bibit",
             "Jenis Bibit\tHarga\n\
             "WHITE"Bibit Strawberry\t"GREEN"$40\n\
             "WHITE"Bibit Jeruk\t"GREEN"$40\n\
@@ -713,6 +713,6 @@ YCMD:farmtool(playerid, params[], help)
 {
     static string[555];
     format(string, sizeof(string), ""WHITE"Anda memiliki isi ember yang dapat menyiram "YELLOW"%dx tanaman "WHITE"lagi", AccountData[playerid][pWaterInBucket]);
-    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Alat Pertanian", string, "Tutup", "");
+    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Alat Pertanian", string, "Tutup", "");
     return 1;
 }

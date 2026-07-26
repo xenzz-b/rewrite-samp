@@ -16,7 +16,7 @@ CreateNewspaperTD()
 	TextDrawSetProportional(NewspaperTD[0], 1);
 	TextDrawSetSelectable(NewspaperTD[0], 0);
 
-	NewspaperTD[1] = TextDrawCreate(316.000000, 157.000000, "Nexston Times");
+	NewspaperTD[1] = TextDrawCreate(316.000000, 157.000000, "Vertex Times");
 	TextDrawFont(NewspaperTD[1], 0);
 	TextDrawLetterSize(NewspaperTD[1], 0.595833, 2.599998);
 	TextDrawTextSize(NewspaperTD[1], 400.000000, 127.000000);
@@ -58,7 +58,7 @@ CreateNewspaperTD()
 	TextDrawSetProportional(NewspaperTD[3], 1);
 	TextDrawSetSelectable(NewspaperTD[3], 0);
 
-	NewspaperTD[4] = TextDrawCreate(316.000000, 191.000000, "Kota Nexston");
+	NewspaperTD[4] = TextDrawCreate(316.000000, 191.000000, "Kota Vertex");
 	TextDrawFont(NewspaperTD[4], 1);
 	TextDrawLetterSize(NewspaperTD[4], 0.162500, 1.150000);
 	TextDrawTextSize(NewspaperTD[4], 400.000000, 127.000000);
@@ -156,7 +156,7 @@ CreateNewspaperTD()
 	TextDrawSetProportional(NewspaperTD[10], 1);
 	TextDrawSetSelectable(NewspaperTD[10], 0);
 
-	NewspaperTD[11] = TextDrawCreate(316.000000, 208.000000, "Perubahan Siklus Perekonomian Kota Nexston Belakangan ini");
+	NewspaperTD[11] = TextDrawCreate(316.000000, 208.000000, "Perubahan Siklus Perekonomian Kota Vertex Belakangan ini");
 	TextDrawFont(NewspaperTD[11], 1);
 	TextDrawLetterSize(NewspaperTD[11], 0.241666, 2.199999);
 	TextDrawTextSize(NewspaperTD[11], 400.000000, 242.000000);

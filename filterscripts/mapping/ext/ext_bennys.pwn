@@ -481,7 +481,7 @@ CreateBennysExt()
     bennyxadaws = CreateDynamicObject(2007, 1033.153686, -1984.695312, 13.588985, -0.000000, 0.000002, 177.999923, -1, -1, -1, 300.00, 300.00); 
     bennyxadaws = CreateDynamicObject(2007, 1032.154296, -1984.660400, 13.588985, -0.000000, 0.000002, 177.999923, -1, -1, -1, 300.00, 300.00); 
 
-    //Benny Nexston
+    //Benny Vertex
 	tmpobjid = CreateDynamicObject(19449, 2864.941406, -1872.387817, 11.786142, 0.000000, 0.000000, -3.999998, -1, -1, -1, 300.00, 300.00); 
 	SetDynamicObjectMaterial(tmpobjid, 0, 10765, "airportgnd_sfse", "white", 0x00000000);
 	tmpobjid = CreateDynamicObject(19449, 2865.613525, -1862.801879, 11.786142, 0.000000, 0.000000, -3.799998, -1, -1, -1, 300.00, 300.00); 

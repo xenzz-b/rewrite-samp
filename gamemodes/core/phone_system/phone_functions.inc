@@ -120,7 +120,7 @@ ResetUberAppTemp(playerid)
     return 1;
 }
 
-ShowPhoneNSRP(playerid)
+ShowPhoneVRP(playerid)
 {
     new years,
 	months,
@@ -132,19 +132,19 @@ ShowPhoneNSRP(playerid)
 		"Juli",	"Agustus", "September", "Oktober", "November", "Desember"
 	};
     getdate(years, months, days);
-    PlayerTextDrawSetString(playerid, PhoneNSRP[playerid][19], sprintf("%s, %02d %s %d", GetWeekDay(days, months, years), days, MonthName[months-1], years));
+    PlayerTextDrawSetString(playerid, PhoneVRP[playerid][19], sprintf("%s, %02d %s %d", GetWeekDay(days, months, years), days, MonthName[months-1], years));
     for(new x; x < 73; x++)
     {
-        PlayerTextDrawShow(playerid, PhoneNSRP[playerid][x]);
+        PlayerTextDrawShow(playerid, PhoneVRP[playerid][x]);
     }
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
 }
 
 HidePhoneMainMenuTD(playerid)
 {
     for(new x; x < 73; x++)
     {
-        PlayerTextDrawHide(playerid, PhoneNSRP[playerid][x]);
+        PlayerTextDrawHide(playerid, PhoneVRP[playerid][x]);
     }
 }
 
@@ -182,7 +182,7 @@ ShowPhoneContactTD(playerid)
 {
     for(new x; x < 70; x++)
     {
-        PlayerTextDrawShow(playerid, KontakNSRP[playerid][x]);
+        PlayerTextDrawShow(playerid, KontakVRP[playerid][x]);
     }
     ShowContactList(playerid);
     SetPVarInt(playerid, "OpenKontakTD", true);
@@ -192,39 +192,39 @@ HidePhoneContactTD(playerid)
 {
     for(new x; x < 70; x++)
     {
-        PlayerTextDrawHide(playerid, KontakNSRP[playerid][x]);
+        PlayerTextDrawHide(playerid, KontakVRP[playerid][x]);
     }
     SetPVarInt(playerid, "OpenKontakTD", false);
 }
 
 ShowPhoneBankingTD(playerid)
 {
-    PlayerTextDrawSetString(playerid, PhoneBankNSRP[playerid][48], sprintf("%s", GetPlayerRoleplayName(playerid))); //nama
-    PlayerTextDrawSetString(playerid, PhoneBankNSRP[playerid][50], sprintf("$%s", FormatMoney(AccountData[playerid][pBankMoney]))); // saldo
-    PlayerTextDrawSetString(playerid, PhoneBankNSRP[playerid][52], sprintf("%d", AccountData[playerid][pBankNumber])); //no rek
+    PlayerTextDrawSetString(playerid, PhoneBankVRP[playerid][48], sprintf("%s", GetPlayerRoleplayName(playerid))); //nama
+    PlayerTextDrawSetString(playerid, PhoneBankVRP[playerid][50], sprintf("$%s", FormatMoney(AccountData[playerid][pBankMoney]))); // saldo
+    PlayerTextDrawSetString(playerid, PhoneBankVRP[playerid][52], sprintf("%d", AccountData[playerid][pBankNumber])); //no rek
     if (AccountData[playerid][pLastTransferInAmount] > 0)
     {
-        PlayerTextDrawSetString(playerid, PhoneBankNSRP[playerid][60], AccountData[playerid][pLastTransferInDate]);
-        PlayerTextDrawSetString(playerid, PhoneBankNSRP[playerid][61], sprintf("+$%s", FormatMoney(AccountData[playerid][pLastTransferInAmount])));
+        PlayerTextDrawSetString(playerid, PhoneBankVRP[playerid][60], AccountData[playerid][pLastTransferInDate]);
+        PlayerTextDrawSetString(playerid, PhoneBankVRP[playerid][61], sprintf("+$%s", FormatMoney(AccountData[playerid][pLastTransferInAmount])));
     }
     else
     {
-        PlayerTextDrawSetString(playerid, PhoneBankNSRP[playerid][60], "- - -");
-        PlayerTextDrawSetString(playerid, PhoneBankNSRP[playerid][61], "N/A");
+        PlayerTextDrawSetString(playerid, PhoneBankVRP[playerid][60], "- - -");
+        PlayerTextDrawSetString(playerid, PhoneBankVRP[playerid][61], "N/A");
     }
     if (AccountData[playerid][pLastTransferOutAmount] > 0)
     {
-        PlayerTextDrawSetString(playerid, PhoneBankNSRP[playerid][64], AccountData[playerid][pLastTransferOutDate]);
-        PlayerTextDrawSetString(playerid, PhoneBankNSRP[playerid][65], sprintf("-$%s", FormatMoney(AccountData[playerid][pLastTransferOutAmount])));
+        PlayerTextDrawSetString(playerid, PhoneBankVRP[playerid][64], AccountData[playerid][pLastTransferOutDate]);
+        PlayerTextDrawSetString(playerid, PhoneBankVRP[playerid][65], sprintf("-$%s", FormatMoney(AccountData[playerid][pLastTransferOutAmount])));
     }
     else
     {
-        PlayerTextDrawSetString(playerid, PhoneBankNSRP[playerid][64], "- - -");
-        PlayerTextDrawSetString(playerid, PhoneBankNSRP[playerid][65], "N/A");
+        PlayerTextDrawSetString(playerid, PhoneBankVRP[playerid][64], "- - -");
+        PlayerTextDrawSetString(playerid, PhoneBankVRP[playerid][65], "N/A");
     }
     for(new x; x < 68; x++)
     {
-        PlayerTextDrawShow(playerid, PhoneBankNSRP[playerid][x]);
+        PlayerTextDrawShow(playerid, PhoneBankVRP[playerid][x]);
     }
 }
 
@@ -232,7 +232,7 @@ HidePhoneBankingTD(playerid)
 {
     for(new x; x < 68; x++)
     {
-        PlayerTextDrawHide(playerid, PhoneBankNSRP[playerid][x]);
+        PlayerTextDrawHide(playerid, PhoneBankVRP[playerid][x]);
     }
 }
 
@@ -278,7 +278,7 @@ ShowTwitterLoginTD(playerid)
 {
     for(new x; x < 26; x++)
     {
-        PlayerTextDrawShow(playerid, LoginTwittNSRP[playerid][x]);
+        PlayerTextDrawShow(playerid, LoginTwittVRP[playerid][x]);
     }
 }
 
@@ -286,7 +286,7 @@ ShowTwitterMainTD(playerid)
 {
     for(new x; x < 29; x++)
     {
-        PlayerTextDrawShow(playerid, HomeTwittNSRP[playerid][x]);
+        PlayerTextDrawShow(playerid, HomeTwittVRP[playerid][x]);
     }
     PlayerPhoneData[playerid][CurrentlyReadTweet] = true;
     pageTwitter[playerid] = 0;
@@ -297,12 +297,12 @@ HideTwitterTD(playerid)
 {
     for(new x; x < 26; x++)
     {
-        PlayerTextDrawHide(playerid, LoginTwittNSRP[playerid][x]);
+        PlayerTextDrawHide(playerid, LoginTwittVRP[playerid][x]);
     }
 
     for(new x; x < 29; x++)
     {
-        PlayerTextDrawHide(playerid, HomeTwittNSRP[playerid][x]);
+        PlayerTextDrawHide(playerid, HomeTwittVRP[playerid][x]);
     }
     HideTwitterUIList(playerid);
 }
@@ -313,14 +313,14 @@ ShowCameraTD(playerid, bool:status)
     {
         for(new i = 0; i < 60; i++)
         {
-            PlayerTextDrawShow(playerid, CameraNSRP[playerid][i]);
+            PlayerTextDrawShow(playerid, CameraVRP[playerid][i]);
         }
     }
     else 
     {
         for(new x; x < 60; x++)
         {
-            PlayerTextDrawHide(playerid, CameraNSRP[playerid][x]);
+            PlayerTextDrawHide(playerid, CameraVRP[playerid][x]);
         }
     }
     return 1;
@@ -330,18 +330,18 @@ ShowKalkulatorTD(playerid, bool:status)
 {
     if(status)
     {
-        PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][56], "0");
-        PlayerTextDrawSetString(playerid, KalkulatorNSRP[playerid][57], "_");
+        PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][56], "0");
+        PlayerTextDrawSetString(playerid, KalkulatorVRP[playerid][57], "_");
         for(new i = 0; i < 59; i++)
         {
-            PlayerTextDrawShow(playerid, KalkulatorNSRP[playerid][i]);
+            PlayerTextDrawShow(playerid, KalkulatorVRP[playerid][i]);
         }
     }
     else 
     {
         for(new i = 0; i < 59; i++)
         {
-            PlayerTextDrawHide(playerid, KalkulatorNSRP[playerid][i]);
+            PlayerTextDrawHide(playerid, KalkulatorVRP[playerid][i]);
         }
     }
     return 1;
@@ -349,19 +349,19 @@ ShowKalkulatorTD(playerid, bool:status)
 
 ShowUberPhoneTD(playerid)
 {
-    PlayerTextDrawColor(playerid, UberNSRP[playerid][50], -2004317953);
-    PlayerTextDrawColor(playerid, UberNSRP[playerid][52], -2004317953);
-    PlayerTextDrawColor(playerid, UberNSRP[playerid][76], -2004317953);
-    PlayerTextDrawColor(playerid, UberNSRP[playerid][78], -2004317953);
+    PlayerTextDrawColor(playerid, UberVRP[playerid][50], -2004317953);
+    PlayerTextDrawColor(playerid, UberVRP[playerid][52], -2004317953);
+    PlayerTextDrawColor(playerid, UberVRP[playerid][76], -2004317953);
+    PlayerTextDrawColor(playerid, UberVRP[playerid][78], -2004317953);
     for(new x; x < 93; x++)
     {
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][x]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][x]);
     }
     if(SelectUberTD[playerid] == -1)
     {
         for(new i = 79; i < 89; i++)
         {
-            PlayerTextDrawHide(playerid, UberNSRP[playerid][i]);
+            PlayerTextDrawHide(playerid, UberVRP[playerid][i]);
         }
     }
 }
@@ -370,7 +370,7 @@ HideUberPhoneTD(playerid)
 {
     for(new x; x < 93; x++)
     {
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][x]);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][x]);
     }
 }
 
@@ -380,23 +380,23 @@ ShowSpotifyTD(playerid)
     {
         for(new i = 30; i < 36; i++) //boombox color redup
         {
-            PlayerTextDrawColor(playerid, MusicNSRP[playerid][i], 254613759);
+            PlayerTextDrawColor(playerid, MusicVRP[playerid][i], 254613759);
         }
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][64], 254613759);
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][66], 254613759);
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][46], 1521318655);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][64], 254613759);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][66], 254613759);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][46], 1521318655);
 
         for(new i = 68; i < 74; i++) //earphone color redup
         {
-            PlayerTextDrawColor(playerid, MusicNSRP[playerid][i], 254613759);
+            PlayerTextDrawColor(playerid, MusicVRP[playerid][i], 254613759);
         }
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][101], 254613759);
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][103], 254613759);
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][83], 1521318655);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][101], 254613759);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][103], 254613759);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][83], 1521318655);
     }
     for(new i = 0; i < 107; i++)
     {
-        PlayerTextDrawShow(playerid, MusicNSRP[playerid][i]);
+        PlayerTextDrawShow(playerid, MusicVRP[playerid][i]);
     }
 }
 
@@ -404,7 +404,7 @@ HideSpotifyTD(playerid)
 {
     for(new x; x < 107; x++)
     {
-        PlayerTextDrawHide(playerid, MusicNSRP[playerid][x]);
+        PlayerTextDrawHide(playerid, MusicVRP[playerid][x]);
     }
 }
 
@@ -412,7 +412,7 @@ HideSpotifyTD(playerid)
 // {
 //     for(new x; x < 73; x++)
 //     {
-//         PlayerTextDrawHide(playerid, PhoneNSRP[playerid][x]);
+//         PlayerTextDrawHide(playerid, PhoneVRP[playerid][x]);
 //     }
 //     CancelSelectTextDraw(playerid);
 // }
@@ -536,11 +536,11 @@ ShowContactListV1(playerid)
 
 //     if(count != 0)
 //     {
-//         ShowPlayerDialogPages(playerid, "ContactListDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Daftar Kontak", "Pilih", "Batal", 15, ""GREEN">> Lanjut", ""ORANGE"<< Kembali");
+//         ShowPlayerDialogPages(playerid, "ContactListDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Daftar Kontak", "Pilih", "Batal", 15, ""GREEN">> Lanjut", ""ORANGE"<< Kembali");
 //     }
 //     else
 //     {
-//         Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Daftar Kontak", "Anda tidak memiliki kontak yang tersimpan", "Tutup", "");
+//         Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Daftar Kontak", "Anda tidak memiliki kontak yang tersimpan", "Tutup", "");
 //     }
 //     return 1;
 // }
@@ -713,7 +713,7 @@ public OnOutcomingCall(playerid, const targetnumber[])
     PlayerTextDrawShow(playerid, ContactNameTD[playerid]);
     PlayerTextDrawShow(playerid, StatusDialingTD[playerid]);
 
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
 
     ApplyAnimation(playerid, "ped", "phone_talk", 2.00, true, true, true, true, 1, true);
     SetPlayerAttachedObject(playerid, 9, 18871, 6, 0.078999, 0.047999, 0.023999, 0.000000, 0.000000, 179.099899, 1.000000, 1.000000, 1.000000);
@@ -757,7 +757,7 @@ public OnIncomingCall(playerid, const fromnumber[])
     PlayerTextDrawShow(playerid, ContactNameTD[playerid]);
     PlayerTextDrawShow(playerid, StatusDialingTD[playerid]);
 
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
     return 1;
 }
 
@@ -1059,7 +1059,7 @@ Dialog:ContactAddName(playerid, response, listitem, inputtext[])
     if(isnull(inputtext))
     {
         PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "ContactAddName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Contact", 
+        Dialog_Show(playerid, "ContactAddName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Contact", 
         "Error: Tidak dapat dikosongkan!\n\
         Please insert the contact name that will be saved below:", "Input", "Kembali");
         return 1;
@@ -1068,7 +1068,7 @@ Dialog:ContactAddName(playerid, response, listitem, inputtext[])
     if(strlen(inputtext) > 24)
     {
         PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "ContactAddName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Contact", 
+        Dialog_Show(playerid, "ContactAddName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Contact", 
         "Error: Panjang nama kontak melebihi batas!\n\
         Please insert the contact name that will be saved below:", "Input", "Kembali");
         return 1;
@@ -1077,7 +1077,7 @@ Dialog:ContactAddName(playerid, response, listitem, inputtext[])
     if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1) 
     {
         PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "ContactAddName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Contact", 
+        Dialog_Show(playerid, "ContactAddName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Contact", 
         "Error: You cannot input percent symbol!\n\
         Please insert the contact name that will be saved below:", "Input", "Kembali");
         return 1;
@@ -1086,7 +1086,7 @@ Dialog:ContactAddName(playerid, response, listitem, inputtext[])
     strcopy(PlayerPhoneData[playerid][phoneTempName], inputtext);
     new jjstr[155];
     format(jjstr, sizeof(jjstr), "Please insert phone number for %s:", PlayerPhoneData[playerid][phoneTempName]);
-    Dialog_Show(playerid, "ContactAddNumber", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Contact", 
+    Dialog_Show(playerid, "ContactAddNumber", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Contact", 
     jjstr, "Input", "Kembali");
     return 1;
 }
@@ -1097,7 +1097,7 @@ Dialog:ContactAddNumber(playerid, response, listitem, inputtext[])
     if(isnull(inputtext))
     {
         PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "ContactAddNumber", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Contact", 
+        Dialog_Show(playerid, "ContactAddNumber", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Contact", 
         "Error: Tidak dapat dikosongkan!\n\
         Please enter the phone number of the contact to be saved below:", "Input", "Kembali");
         return 1;
@@ -1106,7 +1106,7 @@ Dialog:ContactAddNumber(playerid, response, listitem, inputtext[])
     if(!IsNumericEx(inputtext))
     {
         PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "ContactAddNumber", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Contact", 
+        Dialog_Show(playerid, "ContactAddNumber", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Contact", 
         "Error: The contact number must only contain digits!\n\
         Please enter the phone number of the contact to be saved below:", "Input", "Kembali");
         return 1;
@@ -1115,7 +1115,7 @@ Dialog:ContactAddNumber(playerid, response, listitem, inputtext[])
     if(strlen(inputtext) < 4 || strlen(inputtext) > 12)
     {
         PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "ContactAddNumber", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Contact", 
+        Dialog_Show(playerid, "ContactAddNumber", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Contact", 
         "Error: The phone number must be between 4 and 12 digits!\n\
         Please enter the phone number of the contact to be saved below:", "Input", "Kembali");
         return 1;
@@ -1316,7 +1316,7 @@ Dialog:ContactChangeName(playerid, response, listitem, inputtext[])
     if(isnull(inputtext))
     {
         PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "ContactChangeName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Contact", 
+        Dialog_Show(playerid, "ContactChangeName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Contact", 
         "Error: Tidak dapat dikosongkan!\n\
         Please enter a new name for this contact:", "Input", "Kembali");
         return 1;
@@ -1325,7 +1325,7 @@ Dialog:ContactChangeName(playerid, response, listitem, inputtext[])
     if(strlen(inputtext) > 24)
     {
         PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "ContactChangeName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Contact", 
+        Dialog_Show(playerid, "ContactChangeName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Contact", 
         "Error: Panjang nama kontak melebihi batas!\n\
         Please enter a new name for this contact:", "Input", "Kembali");
         return 1;
@@ -1334,7 +1334,7 @@ Dialog:ContactChangeName(playerid, response, listitem, inputtext[])
     if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1) 
     {
         PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "ContactChangeName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Contact", 
+        Dialog_Show(playerid, "ContactChangeName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Contact", 
         "Error: You cannot input percent symbol!\n\
         Please enter a new name for this contact:", "Input", "Kembali");
         return 1;
@@ -1471,9 +1471,9 @@ Dialog:PhoneAirdrop(playerid, response, listitem, inputtext[])
     
     if(targetid == -1) return ShowTDN(playerid, NOTIFICATION_ERROR, "Tidak ada player lain di sekitar!");
 
-    if(!IsPlayerConnected(targetid)) return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Airdrop", "Mohon maaf layanan Airdrop dibatalkan karena pemain tidak terkoneksi ke dalam server :(", 
+    if(!IsPlayerConnected(targetid)) return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Airdrop", "Mohon maaf layanan Airdrop dibatalkan karena pemain tidak terkoneksi ke dalam server :(", 
     "Tutup", "");
-    if(!IsPlayerNearPlayer(playerid, targetid, 1.5)) return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Airdrop", "Mohon maaf That player is not near you!", 
+    if(!IsPlayerNearPlayer(playerid, targetid, 1.5)) return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Airdrop", "Mohon maaf That player is not near you!", 
     "Tutup", "");
 
     strcopy(PlayerPhoneData[targetid][phoneTempName], PlayerPhoneData[playerid][phoneOwnerName]);
@@ -1482,7 +1482,7 @@ Dialog:PhoneAirdrop(playerid, response, listitem, inputtext[])
     Name: %s\n\
     Phone Number: %s\n\
     Are you sure you want to save this contact?", PlayerPhoneData[targetid][phoneTempName], PlayerPhoneData[targetid][phoneTempNumber]);
-    Dialog_Show(targetid, "PhoneAirdropConfirm", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Airdrop", ddstr, "Yes", "No");
+    Dialog_Show(targetid, "PhoneAirdropConfirm", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Airdrop", ddstr, "Yes", "No");
     return 1;
 }
 Dialog:PhoneAirdropConfirm(playerid, response, listitem, inputtext[])
@@ -1576,7 +1576,7 @@ Dialog:SpotifyBoombox(playerid, response, listitem, inputtext[])
 
         BoomBoxInfo[playerid][BoomBoxObj] = CreateDynamicObject(2103, BoomBoxInfo[playerid][BoomX], BoomBoxInfo[playerid][BoomY], BoomBoxInfo[playerid][BoomZ]-0.9, 0.0, 0.0, BoomBoxInfo[playerid][BoomA], BoomBoxInfo[playerid][BoomVw], BoomBoxInfo[playerid][BoomInt], -1, 200.00, 200.00, -1);
         
-        format(labels, sizeof(labels), ""WHITE"[ "Nexston"Boombox"WHITE" ]\n"YELLOW"'/takebx'",
+        format(labels, sizeof(labels), ""WHITE"[ "Vertex"Boombox"WHITE" ]\n"YELLOW"'/takebx'",
         AccountData[playerid][pName], playerid);
         BoomBoxInfo[playerid][BoomBoxLabel] = CreateDynamic3DTextLabel(labels, 0xffffffff, BoomBoxInfo[playerid][BoomX], BoomBoxInfo[playerid][BoomY], BoomBoxInfo[playerid][BoomZ]+0.5, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, BoomBoxInfo[playerid][BoomVw], BoomBoxInfo[playerid][BoomInt], -1, 5.0, -1, 0);
         BoomBoxInfo[playerid][BoomBoxArea] = CreateDynamicSphere(BoomBoxInfo[playerid][BoomX], BoomBoxInfo[playerid][BoomY], BoomBoxInfo[playerid][BoomZ], 20.0, BoomBoxInfo[playerid][BoomVw], BoomBoxInfo[playerid][BoomInt], -1);
@@ -1613,20 +1613,20 @@ Dialog:SpotifyBoombox(playerid, response, listitem, inputtext[])
 Dialog:UberRideConfirm(playerid, response, listitem, inputtext[])
 {
     if(!response) return ResetUberAppTemp(playerid);
-    if(isnull(inputtext)) return Dialog_Show(playerid, "UberRideConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "UberRideConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
     "Error: Tidak dapat dikosongkan!\n\
     Hi, you are about to order Uber Rides. Where are you going today?", "Input", "Batal");
     
-    if(strlen(inputtext) > 128) return Dialog_Show(playerid, "UberRideConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+    if(strlen(inputtext) > 128) return Dialog_Show(playerid, "UberRideConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
     "Error: Cannot exceed 128 characters!\n\
     Hi, you are about to order Uber Rides. Where are you going today?", "Input", "Batal");
 
-    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "UberRideConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "UberRideConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
     "Error: You cannot enter a percent symbol!\n\
     Hi, you are about to order Uber Rides. Where are you going today?", "Input", "Batal");
 
     strcopy(UberAppTemp[playerid][DestTemp], inputtext);
-    Dialog_Show(playerid, "UberRidePassanger", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Uber App",
+    Dialog_Show(playerid, "UberRidePassanger", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Uber App",
     "How many people are there in your group?\n\
     One\n\
     "GRAY"Two\n\
@@ -1654,7 +1654,7 @@ Dialog:UberRidePassanger(playerid, response, listitem, inputtext[])
     new hjhs[528];
     format(hjhs, sizeof(hjhs), "Okay, you want to go to %s and there are %d people in your group\n\
     Please enter the fare offer you want to provide:", UberAppTemp[playerid][DestTemp], UberAppTemp[playerid][PassangerTemp]);
-    Dialog_Show(playerid, "UberRideSetPrice", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+    Dialog_Show(playerid, "UberRideSetPrice", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
     hjhs, "Input", "Batal");
     return 1;
 }
@@ -1669,7 +1669,7 @@ Dialog:UberRideSetPrice(playerid, response, listitem, inputtext[])
         format(hjhs, sizeof(hjhs), "Error: Cannot be left blank!\n\
             Okay, you want to go to %s and there are %d people in your group\n\
             Please enter the fare offer you want to provide:", UberAppTemp[playerid][DestTemp], UberAppTemp[playerid][PassangerTemp]);
-        return Dialog_Show(playerid, DinarbucksWithdrawCash, DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Dinarbucks Withdraw", hjhs, "Withdraw", "Batal");
+        return Dialog_Show(playerid, DinarbucksWithdrawCash, DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Dinarbucks Withdraw", hjhs, "Withdraw", "Batal");
     }
 
     if (!IsNumericEx(inputtext))
@@ -1677,7 +1677,7 @@ Dialog:UberRideSetPrice(playerid, response, listitem, inputtext[])
         format(hjhs, sizeof(hjhs), "Error: Can only be filled with numbers!\n\
             Okay, you want to go to %s and there are %d people in your group\n\
             Please enter the fare offer you want to provide:", UberAppTemp[playerid][DestTemp], UberAppTemp[playerid][PassangerTemp]);
-        Dialog_Show(playerid, "UberRideSetPrice", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", hjhs, "Input", "Batal");
+        Dialog_Show(playerid, "UberRideSetPrice", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", hjhs, "Input", "Batal");
         return 1;
     }
 
@@ -1686,7 +1686,7 @@ Dialog:UberRideSetPrice(playerid, response, listitem, inputtext[])
         format(hjhs, sizeof(hjhs), "Error: Invalid fare amount!\n\
             Okay, you want to go to %s and there are %d people in your group\n\
             Please enter the fare offer you want to provide:", UberAppTemp[playerid][DestTemp], UberAppTemp[playerid][PassangerTemp]);
-        Dialog_Show(playerid, "UberRideSetPrice", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", hjhs, "Input", "Batal");
+        Dialog_Show(playerid, "UberRideSetPrice", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", hjhs, "Input", "Batal");
         return 1;
     }
 
@@ -1720,12 +1720,12 @@ Dialog:UberEatMenu(playerid, response, listitem, inputtext[])
         UberAppTemp[playerid][TotalQuant] = UberAppTemp[playerid][ShotDeluxeQuant];
         if(UberAppTemp[playerid][TotalQuant] == 0) return Error(playerid, "Tidak dapat melanjutkan, pesanan anda masih kosong!");
 
-        return Dialog_Show(playerid, "UberEatConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+        return Dialog_Show(playerid, "UberEatConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
         "Kemana pesanan akan diantarkan (tulis catatan kepada driver)", "Input", "Batal");
     }
     UberAppTemp[playerid][UberEatTemp] = listitem;
 
-    Dialog_Show(playerid, "UberEatValue", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+    Dialog_Show(playerid, "UberEatValue", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
     "Mohon masukkan jumlah yang ingin dibeli:", "Input", "Batal");
     return 1;
 }
@@ -1733,10 +1733,10 @@ Dialog:UberEatMenu(playerid, response, listitem, inputtext[])
 Dialog:UberEatValue(playerid, response, listitem, inputtext[])
 {
     if(!response) return ResetUberAppTemp(playerid);
-    if(isnull(inputtext)) return Dialog_Show(playerid, "UberEatValue", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "UberEatValue", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
     "Error: Tidak dapat dikosongkan!\n\
     Mohon masukkan jumlah yang ingin dibeli:", "Input", "Batal");
-    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "UberEatValue", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "UberEatValue", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
     "Error: Hanya angka!\n\
     Mohon masukkan jumlah yang ingin dibeli:", "Input", "Batal");
 
@@ -1761,7 +1761,7 @@ Dialog:UberEatValue(playerid, response, listitem, inputtext[])
     format(gofood, sizeof(gofood), "Name Item\tQuantity\n\
     BBQ delicy\t%dx\n\
     "GRAY"Selesaikan pesanan", UberAppTemp[playerid][ShotDeluxeQuant], UberAppTemp[playerid][TotalQuant]);
-    Dialog_Show(playerid, "UberEatMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+    Dialog_Show(playerid, "UberEatMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
     gofood, "Pilih", "Batal");
     return 1;
 }
@@ -1769,15 +1769,15 @@ Dialog:UberEatValue(playerid, response, listitem, inputtext[])
 Dialog:UberEatConfirm(playerid, response, listitem, inputtext[])
 {
     if(!response) return ResetUberAppTemp(playerid);
-    if(isnull(inputtext)) return Dialog_Show(playerid, "UberEatConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "UberEatConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
     "Error: Tidak dapat dikosongkan!\n\
     Kemana pesanan akan diantarkan (tulis catatan kepada driver)", "Input", "Batal");
     
-    if(strlen(inputtext) > 128) return Dialog_Show(playerid, "UberEatConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+    if(strlen(inputtext) > 128) return Dialog_Show(playerid, "UberEatConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
     "Error: Maksimum 128 karakter!\n\
     Kemana pesanan akan diantarkan (tulis catatan kepada driver)", "Input", "Batal");
 
-    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "UberRideConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "UberRideConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
     "Error: Tidak dapat memasukkan simbol persen!\n\
     Kemana pesanan akan diantarkan (tulis catatan kepada driver)", "Input", "Batal");
 
@@ -1831,12 +1831,12 @@ Dialog:Yellowpage(playerid, response, listitem, inputtext[])
             }
             else
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Advert Lists", "Tidak ada iklan dalam antrean", "Tutup", "");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Advert Lists", "Tidak ada iklan dalam antrean", "Tutup", "");
             }
         }
         case 1:
         {
-            Dialog_Show(playerid, "YellowpageAdd", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- YellowPage", 
+            Dialog_Show(playerid, "YellowpageAdd", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- YellowPage", 
             "Mohon buat kalimat untuk iklan anda:", "Buat", "Batal");
         }
     }
@@ -1849,14 +1849,14 @@ Dialog:YellowpageAdd(playerid, response, listitem, inputtext[])
 
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "YellowpageAdd", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- YellowPage", 
+        return Dialog_Show(playerid, "YellowpageAdd", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- YellowPage", 
         "Error: Iklan tidak dapat dikosongkan!\n\
         Mohon buat kalimat untuk iklan anda:", "Buat", "Batal");
     }
 
     if(strlen(inputtext) < 24 || strlen(inputtext) > 144)
     {
-        return Dialog_Show(playerid, "YellowpageAdd", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- YellowPage", 
+        return Dialog_Show(playerid, "YellowpageAdd", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- YellowPage", 
         "Error: Iklan anda terlalu singkat/terlalu panjang!\n\
         Iklan hanya dapat mengandung 24 - 144 karakter!\n\
         Mohon buat kalimat untuk iklan anda:", "Buat", "Batal");
@@ -1864,7 +1864,7 @@ Dialog:YellowpageAdd(playerid, response, listitem, inputtext[])
 
     if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1) 
     {
-        return Dialog_Show(playerid, "YellowpageAdd", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- YellowPage", 
+        return Dialog_Show(playerid, "YellowpageAdd", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- YellowPage", 
         "Error: Iklan tidak dapat mengandung simbol persen!\n\
         Mohon buat kalimat untuk iklan anda:", "Buat", "Batal");
     }
@@ -1912,11 +1912,11 @@ Dialog:CallGOV(playerid, response, listitem, inputtext[])
         return 1;
     }
 
-    if(isnull(inputtext)) return Dialog_Show(playerid, "CallGOV", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- SAGOV Service", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "CallGOV", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- SAGOV Service", 
     "Error: Cannot be left blank!\n\
     Mohon masukkan pesan yang ingin anda sampaikan:", "Input", "Batal");
     
-    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "CallGOV", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- SAGOV Service", 
+    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "CallGOV", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- SAGOV Service", 
     "Error: You cannot enter a percent symbol!\n\
     Mohon masukkan pesan yang ingin anda sampaikan:", "Input", "Batal");
 
@@ -1942,11 +1942,11 @@ Dialog:CallBennys(playerid, response, listitem, inputtext[])
         return 1;
     }
 
-    if(isnull(inputtext)) return Dialog_Show(playerid, "CallBennys", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bennys Automotive", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "CallBennys", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bennys Automotive", 
     "Error: Tidak dapat dikosongkan!\n\
     Mohon masukkan pesan yang ingin anda sampaikan:", "Input", "Batal");
     
-    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "CallBennys", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bennys Automotive", 
+    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "CallBennys", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bennys Automotive", 
     "Error: Anda tidak dapat memasukkan simbol persen!\n\
     Mohon masukkan pesan yang ingin anda sampaikan:", "Input", "Batal");
 
@@ -1972,11 +1972,11 @@ Dialog:CallPringSewu(playerid, response, listitem, inputtext[])
         return 1;
     }
 
-    if(isnull(inputtext)) return Dialog_Show(playerid, "CallPringSewu", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pring Sewu Order", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "CallPringSewu", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pring Sewu Order", 
     "Error: Tidak dapat dikosongkan!\n\
     Mohon masukkan pesan yang ingin anda sampaikan:", "Input", "Batal");
     
-    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "CallPringSewu", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pring Sewu Order", 
+    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "CallPringSewu", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pring Sewu Order", 
     "Error: Anda tidak dapat memasukkan simbol persen!\n\
     Mohon masukkan pesan yang ingin anda sampaikan:", "Input", "Batal");
 
@@ -2002,11 +2002,11 @@ Dialog:CallDinarbucks(playerid, response, listitem, inputtext[])
         return 1;
     }
 
-    if(isnull(inputtext)) return Dialog_Show(playerid, "CallDinarbucks", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Dinarbucks Online", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "CallDinarbucks", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Dinarbucks Online", 
     "Error: Tidak dapat dikosongkan!\n\
     Mohon masukkan pesan yang ingin anda sampaikan:", "Input", "Batal");
     
-    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "CallDinarbucks", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Dinarbucks Online", 
+    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "CallDinarbucks", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Dinarbucks Online", 
     "Error: Anda tidak dapat memasukkan simbol persen!\n\
     Mohon masukkan pesan yang ingin anda sampaikan:", "Input", "Batal");
 
@@ -2032,11 +2032,11 @@ Dialog:CallDriftKing(playerid, response, listitem, inputtext[])
         return 1;
     }
 
-    if(isnull(inputtext)) return Dialog_Show(playerid, "CallDriftKing", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- DriftKing Automotive", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "CallDriftKing", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- DriftKing Automotive", 
     "Error: Tidak dapat dikosongkan!\n\
     Mohon masukkan pesan yang ingin anda sampaikan:", "Input", "Batal");
     
-    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "CallDriftKing", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- DriftKing Automotive", 
+    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "CallDriftKing", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- DriftKing Automotive", 
     "Error: Anda tidak dapat memasukkan simbol persen!\n\
     Mohon masukkan pesan yang ingin anda sampaikan:", "Input", "Batal");
 
@@ -2062,11 +2062,11 @@ Dialog:CallJayaAbadi(playerid, response, listitem, inputtext[])
         return 1;
     }
 
-    if(isnull(inputtext)) return Dialog_Show(playerid, "CallJayaAbadi", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Jaya Abadi", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "CallJayaAbadi", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Jaya Abadi", 
     "Error: Tidak dapat dikosongkan!\n\
     Mohon masukkan pesan yang ingin anda sampaikan:", "Input", "Batal");
     
-    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "CallJayaAbadi", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Jaya Abadi", 
+    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "CallJayaAbadi", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Jaya Abadi", 
     "Error: Anda tidak dapat memasukkan simbol persen!\n\
     Mohon masukkan pesan yang ingin anda sampaikan:", "Input", "Batal");
 
@@ -2094,54 +2094,54 @@ Dialog:PhoneCallList(playerid, response, listitem, inputtext[])
         {
             OnOutcomingCall(playerid, "911");
 
-            Dialog_Show(playerid, "EmergencyChoose", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- 911 Emergency Hotline", 
-            "Dispatcher: 911, What service do you need?\nKepolisian Nexston\nParamedis Nexston", "Pilih", "Batal");
+            Dialog_Show(playerid, "EmergencyChoose", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- 911 Emergency Hotline", 
+            "Dispatcher: 911, What service do you need?\nKepolisian Vertex\nParamedis Vertex", "Pilih", "Batal");
         }
         case 1: //gov
         {
             OnOutcomingCall(playerid, "111");
 
-            Dialog_Show(playerid, "CallGOV", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Layanan Pemerintah", 
+            Dialog_Show(playerid, "CallGOV", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Layanan Pemerintah", 
             "Dispatcher: Halo, ada yang bisa kami bantu?", "Input", "Batal");
         }
         case 2: //benys
         {
             OnOutcomingCall(playerid, "112");
 
-            Dialog_Show(playerid, "CallBennys", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Bennys Automotive", 
+            Dialog_Show(playerid, "CallBennys", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Bennys Automotive", 
             "Dispatcher: Halo, ada yang bisa kami bantu?", "Input", "Batal");
         }
         case 3: //Pring Sewu
         {
             OnOutcomingCall(playerid, "222");
 
-            Dialog_Show(playerid, "CallPringSewu", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Pring Sewu Order", 
+            Dialog_Show(playerid, "CallPringSewu", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Pring Sewu Order", 
             "Dispatcher: Halo, ada yang bisa kami bantu?", "Input", "Batal");
         }
         case 4: //dinarbucks
         {
             OnOutcomingCall(playerid, "444");
 
-            Dialog_Show(playerid, "CallDinarbucks", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Dinarbucks Online", 
+            Dialog_Show(playerid, "CallDinarbucks", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Dinarbucks Online", 
             "Dispatcher: Halo, ada yang bisa kami bantu?", "Input", "Batal");
         }
         case 5: //driftking
         {
             OnOutcomingCall(playerid, "113");
 
-            Dialog_Show(playerid, "CallDriftKing", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- DriftKing Workshop", 
+            Dialog_Show(playerid, "CallDriftKing", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- DriftKing Workshop", 
             "Dispatcher: Halo, ada yang bisa kami bantu?", "Input", "Batal");
         }
         case 6: //jaya abadi
         {
             OnOutcomingCall(playerid, "114");
 
-            Dialog_Show(playerid, "CallJayaAbadi", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Jaya Abadi", 
+            Dialog_Show(playerid, "CallJayaAbadi", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Jaya Abadi", 
             "Dispatcher: Halo, ada yang bisa kami bantu?", "Input", "Batal");
         }
         case 7: //cust number
         {
-            Dialog_Show(playerid, "CallCustomNumber", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Call", 
+            Dialog_Show(playerid, "CallCustomNumber", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Call", 
             "Mohon masukkan nomor HP tujuan:", "Input", "Batal");
         }
     }
@@ -2150,10 +2150,10 @@ Dialog:PhoneCallList(playerid, response, listitem, inputtext[])
 Dialog:CallCustomNumber(playerid, response, listitem, inputtext[])
 {
     if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
-    if(isnull(inputtext)) return Dialog_Show(playerid, "CallCustomNumber", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Call", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "CallCustomNumber", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Call", 
     "Error: Tidak dapat dikosongkan!\n\
     Mohon masukkan nomor HP tujuan:", "Input", "Batal");
-    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "CallCustomNumber", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Call", 
+    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "CallCustomNumber", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Call", 
     "Error: Masukkan hanya angka!\n\
     Mohon masukkan nomor HP tujuan:", "Input", "Batal");
     
@@ -2180,7 +2180,7 @@ Dialog:GPSMenu(playerid, response, listitem, inputtext[])
                     format(minstry, sizeof(minstry), "%s"GRAY"%s\t"GRAY"%s\t"YELLOW"%.0f m\n", minstry, _g_GPS_Public[x][JobName], GetLocation(_g_GPS_Public[x][Pos][0],_g_GPS_Public[x][Pos][1],_g_GPS_Public[x][Pos][2]), GetPlayerDistanceFromPoint(playerid, _g_GPS_Public[x][Pos][0],_g_GPS_Public[x][Pos][1],_g_GPS_Public[x][Pos][2]));
                 }
             }
-            Dialog_Show(playerid, "GPSPublic", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- GPS", minstry, "Pilih", "Kembali");
+            Dialog_Show(playerid, "GPSPublic", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- GPS", minstry, "Pilih", "Kembali");
         }
         case 1: //lokasi pekerjaan
         {
@@ -2215,7 +2215,7 @@ Dialog:GPSMenu(playerid, response, listitem, inputtext[])
                 else
                     format(minstry, sizeof(minstry), "%s"GRAY"%s\t"GRAY"%s\t"GRAY"%s\t"YELLOW"%.0f m\n", minstry, jobName, jobDesc, GetLocation(posX, posY, posZ), GetPlayerDistanceFromPoint(playerid, posX, posY, posZ));
             }
-            Dialog_Show(playerid, "GPSJob", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- GPS", minstry, "Pilih", "Kembali");
+            Dialog_Show(playerid, "GPSJob", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- GPS", minstry, "Pilih", "Kembali");
         }
         case 2: //hobi
         {
@@ -2229,7 +2229,7 @@ Dialog:GPSMenu(playerid, response, listitem, inputtext[])
             GetLocation(-2057.6643,-2464.8784,31.1797), GetPlayerDistanceFromPoint(playerid, -2057.6643,-2464.8784,31.1797),
             GetLocation(-544.7436,-2314.0288,29.1985), GetPlayerDistanceFromPoint(playerid, -544.7436,-2314.0288,29.1985),
             GetLocation(2780.2712,-2535.2139,13.6950), GetPlayerDistanceFromPoint(playerid, 2780.2712,-2535.2139,13.6950));
-            Dialog_Show(playerid, "GPSHobby", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- GPS", minstry, "Pilih", "Kembali");
+            Dialog_Show(playerid, "GPSHobby", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- GPS", minstry, "Pilih", "Kembali");
         }
         case 3: //lokasi restorant
         {
@@ -2243,7 +2243,7 @@ Dialog:GPSMenu(playerid, response, listitem, inputtext[])
                     format(minstry, sizeof(minstry), "%s"GRAY"%s\t"GRAY"%s\t"YELLOW"%.0f m\n", minstry, _g_GPS_Resto[x][JobName], GetLocation(_g_GPS_Resto[x][Pos][0],_g_GPS_Resto[x][Pos][1],_g_GPS_Resto[x][Pos][2]), GetPlayerDistanceFromPoint(playerid, _g_GPS_Resto[x][Pos][0],_g_GPS_Resto[x][Pos][1],_g_GPS_Resto[x][Pos][2]));
                 }
             }
-            Dialog_Show(playerid, "GPSResto", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- GPS", minstry, "Pilih", "Kembali");
+            Dialog_Show(playerid, "GPSResto", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- GPS", minstry, "Pilih", "Kembali");
         }
         case 4:
         {
@@ -2257,7 +2257,7 @@ Dialog:GPSMenu(playerid, response, listitem, inputtext[])
                     format(minstry, sizeof(minstry), "%s"GRAY"%s\t"GRAY"%s\t"YELLOW"%.0f m\n", minstry, _g_GPS_Bengkel[x][JobName], GetLocation(_g_GPS_Bengkel[x][Pos][0],_g_GPS_Bengkel[x][Pos][1],_g_GPS_Bengkel[x][Pos][2]), GetPlayerDistanceFromPoint(playerid, _g_GPS_Bengkel[x][Pos][0],_g_GPS_Bengkel[x][Pos][1],_g_GPS_Bengkel[x][Pos][2]));
                 }
             }
-            Dialog_Show(playerid, "GPSBengkel", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- GPS", minstry, "Pilih", "Kembali");
+            Dialog_Show(playerid, "GPSBengkel", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- GPS", minstry, "Pilih", "Kembali");
         }
         case 5: //Business Kota
         {
@@ -2306,7 +2306,7 @@ Dialog:GPSResto(playerid, response, listitem, inputtext[])
 {
     if(!response)
     {
-        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- GPS", 
+        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- GPS", 
         "Lokasi Umum\n\
         "GRAY"Lokasi Kerja\n\
         Lokasi Hobi\n\
@@ -2343,7 +2343,7 @@ Dialog:GPSBengkel(playerid, response, listitem, inputtext[])
 {
     if(!response)
     {
-        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- GPS", 
+        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- GPS", 
         "Lokasi Umum\n\
         "GRAY"Lokasi Kerja\n\
         Lokasi Hobi\n\
@@ -2380,7 +2380,7 @@ Dialog:GPSPublic(playerid, response, listitem, inputtext[])
 {
     if(!response)
     {
-        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- GPS", 
+        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- GPS", 
         "Lokasi Umum\n\
         "GRAY"Lokasi Kerja\n\
         Lokasi Hobi\n\
@@ -2417,7 +2417,7 @@ Dialog:GPSJob(playerid, response, listitem, inputtext[])
 {
     if(!response)
     {
-        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- GPS", 
+        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- GPS", 
         "Lokasi Umum\n\
         "GRAY"Lokasi Kerja\n\
         Lokasi Hobi\n\
@@ -2466,7 +2466,7 @@ Dialog:GPSHobby(playerid, response, listitem, inputtext[])
 {
     if(!response)
     {
-        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- GPS", 
+        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- GPS", 
         "Lokasi Umum\n\
         "GRAY"Lokasi Kerja\n\
         Lokasi Hobi\n\
@@ -2515,7 +2515,7 @@ Dialog:GPSHobby(playerid, response, listitem, inputtext[])
 
 hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
 {
-    if(playertextid == PhoneNSRP[playerid][15]) //close phone
+    if(playertextid == PhoneVRP[playerid][15]) //close phone
     {
         HideAllPhoneTD(playerid);
         if(!IsPlayerInAnyVehicle(playerid))
@@ -2529,7 +2529,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
 
 		SendRPMeAboveHead(playerid, "Menutup smartphone miliknya.");
     }
-    else if (playertextid == PhoneNSRP[playerid][20]) // twitter
+    else if (playertextid == PhoneVRP[playerid][20]) // twitter
     {
         HidePhoneMainMenuTD(playerid);
 
@@ -2551,13 +2551,13 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
             }
         }
     }
-    else if(playertextid == PhoneNSRP[playerid][21]) //yellow page
+    else if(playertextid == PhoneVRP[playerid][21]) //yellow page
     {
-        Dialog_Show(playerid, "Yellowpage", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Yellow Page", "View advertisement queues\nSubmit a new advertisement", "Pilih", "Batal");
+        Dialog_Show(playerid, "Yellowpage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Yellow Page", "View advertisement queues\nSubmit a new advertisement", "Pilih", "Batal");
     }
-    else if(playertextid == PhoneNSRP[playerid][22]) //GPS
+    else if(playertextid == PhoneVRP[playerid][22]) //GPS
     {
-        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- GPS", 
+        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- GPS", 
         "Lokasi Umum\n\
         "GRAY"Lokasi Kerja\n\
         Lokasi Hobi\n\
@@ -2571,43 +2571,43 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
         "RED"(Hapus Checkpoint GPS)\n\
         "RED"(Hapus Checkpoint Shareloc)", "Pilih", "Batal");
     }
-    else if(playertextid == PhoneNSRP[playerid][23]) //vehiclelist
+    else if(playertextid == PhoneVRP[playerid][23]) //vehiclelist
     {
         HidePhoneMainMenuTD(playerid);
         VehiclePage[playerid] = 0;
         SyncVehiclePage(playerid);
         UpdatePageDisplay(playerid);
     }
-    else if(playertextid == PhoneNSRP[playerid][24]) //spotify
+    else if(playertextid == PhoneVRP[playerid][24]) //spotify
     {
         HidePhoneMainMenuTD(playerid);
         SelectMusicTD[playerid] = -1;
         ShowSpotifyTD(playerid);
     }
-    else if(playertextid == PhoneNSRP[playerid][25]) //trans / ubber
+    else if(playertextid == PhoneVRP[playerid][25]) //trans / ubber
     {
         HidePhoneMainMenuTD(playerid);
         SelectUberTD[playerid] = -1;
         ShowUberPhoneTD(playerid);
     }
-    else if(playertextid == PhoneNSRP[playerid][26]) //kalkulator
+    else if(playertextid == PhoneVRP[playerid][26]) //kalkulator
     {
         HidePhoneMainMenuTD(playerid);
         KalkulatorOpen[playerid] = true;
         ShowKalkulatorTD(playerid, true);
     }
-    else if(playertextid == PhoneNSRP[playerid][27]) //sotot vip
+    else if(playertextid == PhoneVRP[playerid][27]) //sotot vip
     {
         ShowTDN(playerid, NOTIFICATION_INFO, "Waiting to process....");
     }
-    else if(playertextid == PhoneNSRP[playerid][70]) //mbanking
+    else if(playertextid == PhoneVRP[playerid][70]) //mbanking
     {
         HidePhoneMainMenuTD(playerid);
         ShowPhoneBankingTD(playerid);
     }
-    else if(playertextid == PhoneNSRP[playerid][31]) //call
+    else if(playertextid == PhoneVRP[playerid][31]) //call
     {
-        Dialog_Show(playerid, "PhoneCallList", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Call", 
+        Dialog_Show(playerid, "PhoneCallList", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Call", 
         "Emergency Service\n\
         SAGov Public Service\n\
         Bennys Automotive Service\n\
@@ -2617,114 +2617,114 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
         Jaya Abadi Service\n\
         "GRAY"> Call another number", "Pilih", "Batal");
     }
-    else if(playertextid == PhoneNSRP[playerid][32])
+    else if(playertextid == PhoneVRP[playerid][32])
     {
         HidePhoneMainMenuTD(playerid);
         OpenCameraMode(playerid);
     }
-    else if(playertextid == PhoneNSRP[playerid][33]) //contact
+    else if(playertextid == PhoneVRP[playerid][33]) //contact
     {
         HidePhoneMainMenuTD(playerid);
         index_contact[playerid] = 0;
         ShowPhoneContactTD(playerid);
     }
-    else if(playertextid == PhoneNSRP[playerid][34]) //SMS
+    else if(playertextid == PhoneVRP[playerid][34]) //SMS
     {
         index_contact[playerid] = 0;
         ShowContactListV1(playerid);
     }
     //----- Aplikasi Bank -------
-    else if(playertextid == PhoneBankNSRP[playerid][15]) //close apk
+    else if(playertextid == PhoneBankVRP[playerid][15]) //close apk
     {
         HidePhoneBankingTD(playerid);
-        ShowPhoneNSRP(playerid);
+        ShowPhoneVRP(playerid);
     }
-    else if(playertextid == PhoneBankNSRP[playerid][53]) //transfer 
+    else if(playertextid == PhoneBankVRP[playerid][53]) //transfer 
     {
-        Dialog_Show(playerid, "ATMTransfer", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Transfer", 
+        Dialog_Show(playerid, "ATMTransfer", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Transfer", 
         "Mohon masukkan nomor rekening tujuan:", "Set", "Batal");
     }
     //-------- Music --------- //
-    else if(playertextid == MusicNSRP[playerid][42]) //boombox
+    else if(playertextid == MusicVRP[playerid][42]) //boombox
     {
         SelectMusicTD[playerid] = 0; //boombox color terang
         for(new i = 30; i < 36; i++)
         {
-            PlayerTextDrawColor(playerid, MusicNSRP[playerid][i], 498685183);
-            PlayerTextDrawHide(playerid, MusicNSRP[playerid][i]);
-            PlayerTextDrawShow(playerid, MusicNSRP[playerid][i]);
+            PlayerTextDrawColor(playerid, MusicVRP[playerid][i], 498685183);
+            PlayerTextDrawHide(playerid, MusicVRP[playerid][i]);
+            PlayerTextDrawShow(playerid, MusicVRP[playerid][i]);
         }
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][46], -923739905);
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][64], 498685183);
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][66], 498685183);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][46], -923739905);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][64], 498685183);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][66], 498685183);
 
-        PlayerTextDrawHide(playerid, MusicNSRP[playerid][64]);
-        PlayerTextDrawHide(playerid, MusicNSRP[playerid][66]);
-        PlayerTextDrawHide(playerid, MusicNSRP[playerid][46]);
+        PlayerTextDrawHide(playerid, MusicVRP[playerid][64]);
+        PlayerTextDrawHide(playerid, MusicVRP[playerid][66]);
+        PlayerTextDrawHide(playerid, MusicVRP[playerid][46]);
 
-        PlayerTextDrawShow(playerid, MusicNSRP[playerid][46]);
-        PlayerTextDrawShow(playerid, MusicNSRP[playerid][64]);
-        PlayerTextDrawShow(playerid, MusicNSRP[playerid][66]);
+        PlayerTextDrawShow(playerid, MusicVRP[playerid][46]);
+        PlayerTextDrawShow(playerid, MusicVRP[playerid][64]);
+        PlayerTextDrawShow(playerid, MusicVRP[playerid][66]);
 
         for(new i = 68; i < 74; i++) //earphone color redup
         {
-            PlayerTextDrawColor(playerid, MusicNSRP[playerid][i], 254613759);
-            PlayerTextDrawHide(playerid, MusicNSRP[playerid][i]);
-            PlayerTextDrawShow(playerid, MusicNSRP[playerid][i]);
+            PlayerTextDrawColor(playerid, MusicVRP[playerid][i], 254613759);
+            PlayerTextDrawHide(playerid, MusicVRP[playerid][i]);
+            PlayerTextDrawShow(playerid, MusicVRP[playerid][i]);
         }
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][83], 1521318655);
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][101], 254613759);
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][103], 254613759);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][83], 1521318655);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][101], 254613759);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][103], 254613759);
 
-        PlayerTextDrawHide(playerid, MusicNSRP[playerid][83]);
-        PlayerTextDrawHide(playerid, MusicNSRP[playerid][101]);
-        PlayerTextDrawHide(playerid, MusicNSRP[playerid][103]);
+        PlayerTextDrawHide(playerid, MusicVRP[playerid][83]);
+        PlayerTextDrawHide(playerid, MusicVRP[playerid][101]);
+        PlayerTextDrawHide(playerid, MusicVRP[playerid][103]);
 
-        PlayerTextDrawShow(playerid, MusicNSRP[playerid][83]);
-        PlayerTextDrawShow(playerid, MusicNSRP[playerid][101]);
-        PlayerTextDrawShow(playerid, MusicNSRP[playerid][103]);
+        PlayerTextDrawShow(playerid, MusicVRP[playerid][83]);
+        PlayerTextDrawShow(playerid, MusicVRP[playerid][101]);
+        PlayerTextDrawShow(playerid, MusicVRP[playerid][103]);
     }
-    else if(playertextid == MusicNSRP[playerid][80]) //Earphone
+    else if(playertextid == MusicVRP[playerid][80]) //Earphone
     {
         SelectMusicTD[playerid] = 1; //Earphone
 
         for(new i = 30; i < 36; i++) //boombox color redup
         {
-            PlayerTextDrawColor(playerid, MusicNSRP[playerid][i], 254613759);
-            PlayerTextDrawHide(playerid, MusicNSRP[playerid][i]);
-            PlayerTextDrawShow(playerid, MusicNSRP[playerid][i]);
+            PlayerTextDrawColor(playerid, MusicVRP[playerid][i], 254613759);
+            PlayerTextDrawHide(playerid, MusicVRP[playerid][i]);
+            PlayerTextDrawShow(playerid, MusicVRP[playerid][i]);
         }
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][64], 254613759);
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][66], 254613759);
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][46], 1521318655);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][64], 254613759);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][66], 254613759);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][46], 1521318655);
 
-        PlayerTextDrawHide(playerid, MusicNSRP[playerid][64]);
-        PlayerTextDrawHide(playerid, MusicNSRP[playerid][66]);
-        PlayerTextDrawHide(playerid, MusicNSRP[playerid][46]);
+        PlayerTextDrawHide(playerid, MusicVRP[playerid][64]);
+        PlayerTextDrawHide(playerid, MusicVRP[playerid][66]);
+        PlayerTextDrawHide(playerid, MusicVRP[playerid][46]);
 
-        PlayerTextDrawShow(playerid, MusicNSRP[playerid][46]);
-        PlayerTextDrawShow(playerid, MusicNSRP[playerid][64]);
-        PlayerTextDrawShow(playerid, MusicNSRP[playerid][66]);
+        PlayerTextDrawShow(playerid, MusicVRP[playerid][46]);
+        PlayerTextDrawShow(playerid, MusicVRP[playerid][64]);
+        PlayerTextDrawShow(playerid, MusicVRP[playerid][66]);
 
         for(new i = 68; i < 74; i++) //earphone color terang
         {
-            PlayerTextDrawColor(playerid, MusicNSRP[playerid][i], 498685183);
-            PlayerTextDrawHide(playerid, MusicNSRP[playerid][i]);
-            PlayerTextDrawShow(playerid, MusicNSRP[playerid][i]);
+            PlayerTextDrawColor(playerid, MusicVRP[playerid][i], 498685183);
+            PlayerTextDrawHide(playerid, MusicVRP[playerid][i]);
+            PlayerTextDrawShow(playerid, MusicVRP[playerid][i]);
         }
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][101], 498685183);
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][103], 498685183);
-        PlayerTextDrawColor(playerid, MusicNSRP[playerid][83], -923739905);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][101], 498685183);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][103], 498685183);
+        PlayerTextDrawColor(playerid, MusicVRP[playerid][83], -923739905);
 
-        PlayerTextDrawHide(playerid, MusicNSRP[playerid][83]);
-        PlayerTextDrawHide(playerid, MusicNSRP[playerid][101]);
-        PlayerTextDrawHide(playerid, MusicNSRP[playerid][103]);
+        PlayerTextDrawHide(playerid, MusicVRP[playerid][83]);
+        PlayerTextDrawHide(playerid, MusicVRP[playerid][101]);
+        PlayerTextDrawHide(playerid, MusicVRP[playerid][103]);
 
-        PlayerTextDrawShow(playerid, MusicNSRP[playerid][83]);
-        PlayerTextDrawShow(playerid, MusicNSRP[playerid][101]);
-        PlayerTextDrawShow(playerid, MusicNSRP[playerid][103]);
+        PlayerTextDrawShow(playerid, MusicVRP[playerid][83]);
+        PlayerTextDrawShow(playerid, MusicVRP[playerid][101]);
+        PlayerTextDrawShow(playerid, MusicVRP[playerid][103]);
     }
-    else if(playertextid == MusicNSRP[playerid][105]) //pilih
+    else if(playertextid == MusicVRP[playerid][105]) //pilih
     {
         if(SelectMusicTD[playerid] == -1)
             return Error(playerid, "Anda belom memilih apapun");
@@ -2736,7 +2736,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
                 if(!AccountData[playerid][pBoombox]) return Info(playerid, "Anda tidak memiliki Boombox!");
                 if(AccountData[playerid][pVIP] < 1) return Info(playerid, "Anda bukan Donatur VIP!");
                 
-                Dialog_Show(playerid, "SpotifyBoombox", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Spotify", 
+                Dialog_Show(playerid, "SpotifyBoombox", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Spotify", 
                 "Masukkan URL/link MP3 yang ingin diputar\n\
                 Kami sarankan anda untuk upload file mp3 ke discord terlebih dahulu.\n\
                 "RED"Note: Fitur ini tidak support link YouTube secara langsung!\n\n\
@@ -2746,7 +2746,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
             {
                 if(!AccountData[playerid][pEarphone]) return Info(playerid, "Anda tidak memiliki Earphone!");
 
-                Dialog_Show(playerid, "SpotifyEarphone", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Spotify", 
+                Dialog_Show(playerid, "SpotifyEarphone", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Spotify", 
                 "Masukkan URL/link MP3 yang ingin diputar\n\
                 Kami sarankan anda untuk upload file mp3 ke discord terlebih dahulu.\n\
                 "RED"Note: Fitur ini tidak support link YouTube secara langsung!\n\n\
@@ -2754,73 +2754,73 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
             }
         }
     }
-    else if(playertextid == MusicNSRP[playerid][15]) //close
+    else if(playertextid == MusicVRP[playerid][15]) //close
     {
         HideSpotifyTD(playerid);
-        ShowPhoneNSRP(playerid);
+        ShowPhoneVRP(playerid);
     }
     //-------- Uber --------//
-    else if(playertextid == UberNSRP[playerid][39]) //go car
+    else if(playertextid == UberVRP[playerid][39]) //go car
     {
         SelectUberTD[playerid] = 0; // gocar
-        PlayerTextDrawColor(playerid, UberNSRP[playerid][50], 11164671);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][50]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][50]);
+        PlayerTextDrawColor(playerid, UberVRP[playerid][50], 11164671);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][50]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][50]);
 
-        PlayerTextDrawColor(playerid, UberNSRP[playerid][52], 11164671);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][52]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][52]);
+        PlayerTextDrawColor(playerid, UberVRP[playerid][52], 11164671);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][52]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][52]);
 
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][79]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][81]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][82]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][83]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][84]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][79]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][81]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][82]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][83]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][84]);
 
-        PlayerTextDrawColor(playerid, UberNSRP[playerid][76], -2004317953);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][76]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][76]);
-        PlayerTextDrawColor(playerid, UberNSRP[playerid][78], -2004317953);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][78]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][78]);
+        PlayerTextDrawColor(playerid, UberVRP[playerid][76], -2004317953);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][76]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][76]);
+        PlayerTextDrawColor(playerid, UberVRP[playerid][78], -2004317953);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][78]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][78]);
 
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][80]);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][85]);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][86]);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][87]);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][88]);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][80]);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][85]);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][86]);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][87]);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][88]);
 
     }
-    else if(playertextid == UberNSRP[playerid][65]) //go ride
+    else if(playertextid == UberVRP[playerid][65]) //go ride
     {
         SelectUberTD[playerid] = 1; // goride
-        PlayerTextDrawColor(playerid, UberNSRP[playerid][76], 11164671);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][76]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][76]);
-        PlayerTextDrawColor(playerid, UberNSRP[playerid][78], 11164671);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][78]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][78]);
+        PlayerTextDrawColor(playerid, UberVRP[playerid][76], 11164671);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][76]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][76]);
+        PlayerTextDrawColor(playerid, UberVRP[playerid][78], 11164671);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][78]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][78]);
 
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][80]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][85]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][86]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][87]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][88]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][80]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][85]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][86]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][87]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][88]);
 
-        PlayerTextDrawColor(playerid, UberNSRP[playerid][50], -2004317953);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][50]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][50]);
-        PlayerTextDrawColor(playerid, UberNSRP[playerid][52], -2004317953);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][52]);
-        PlayerTextDrawShow(playerid, UberNSRP[playerid][52]);
+        PlayerTextDrawColor(playerid, UberVRP[playerid][50], -2004317953);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][50]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][50]);
+        PlayerTextDrawColor(playerid, UberVRP[playerid][52], -2004317953);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][52]);
+        PlayerTextDrawShow(playerid, UberVRP[playerid][52]);
 
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][79]);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][81]);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][82]);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][83]);
-        PlayerTextDrawHide(playerid, UberNSRP[playerid][84]);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][79]);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][81]);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][82]);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][83]);
+        PlayerTextDrawHide(playerid, UberVRP[playerid][84]);
     }
-    else if(playertextid == UberNSRP[playerid][91]) //pesan
+    else if(playertextid == UberVRP[playerid][91]) //pesan
     {
         if(SelectUberTD[playerid] == -1)
             return Error(playerid, "Anda belom memilih apapun!");
@@ -2832,7 +2832,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
                 if(gettime() < UberAppTemp[playerid][NeedUberTimer]) return Error(playerid, "Anda telah memesan uber, mohon tunggu %d detik!", UberAppTemp[playerid][NeedUberTimer] - gettime());
                 if(UberAppTemp[playerid][ServiceAcceptedBy] != INVALID_PLAYER_ID) return Error(playerid, "Driver sedang menuju ke titik anda, tetaplah berada di sana!");
                 ResetUberAppTemp(playerid);
-                Dialog_Show(playerid, "UberRideConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+                Dialog_Show(playerid, "UberRideConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
                 "Hi, you are going to book an Uber Ride. Where are you headed today?", "Input", "Batal");
             }
             case 1:
@@ -2844,15 +2844,15 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
                 format(gofood, sizeof(gofood), "Nama Item\tKeranjang\n\
                 BBQ delicy\t%dx\n\
                 "GRAY"Selesaikan pesanan", UberAppTemp[playerid][ShotDeluxeQuant], UberAppTemp[playerid][TotalQuant]);
-                Dialog_Show(playerid, "UberEatMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+                Dialog_Show(playerid, "UberEatMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
                 gofood, "Pilih", "Batal");
             }
         }
     }
-    else if(playertextid == UberNSRP[playerid][15]) // close
+    else if(playertextid == UberVRP[playerid][15]) // close
     {
         HideUberPhoneTD(playerid);
-        ShowPhoneNSRP(playerid);
+        ShowPhoneVRP(playerid);
     }
     return 1;
 }
@@ -2866,7 +2866,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
     }
     else if(playertextid == ContactTD[1]) //tambak kontak baru
     {
-        Dialog_Show(playerid, "ContactAddName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Contact", 
+        Dialog_Show(playerid, "ContactAddName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Contact", 
         "Please insert the contact name that will be saved below:", "Input", "Kembali");
     }
     else if(playertextid == ContactTD[3]) //daftar kontak
@@ -2876,7 +2876,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
     }
     else if(playertextid == GPSButtonPhone) //GPS
     {
-        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- GPS", 
+        Dialog_Show(playerid, "GPSMenu", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- GPS", 
         "Lokasi Umum\n\
         "GRAY"Lokasi Kerja\n\
         Lokasi Hobi\n\
@@ -2906,10 +2906,10 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
 		if(count == 0) 
 		{
 			PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Airdrop", "Tidak ada pemain terdekat!", "Tutup", "");
+			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Airdrop", "Tidak ada pemain terdekat!", "Tutup", "");
 		}
 
-		Dialog_Show(playerid, "PhoneAirdrop", DIALOG_STYLE_TABLIST, ""Nexston"Nexston Roleplay "WHITE"- Airdrop", frmxt, "Pilih", "Batal");
+		Dialog_Show(playerid, "PhoneAirdrop", DIALOG_STYLE_TABLIST, ""Vertex"Vertex Roleplay "WHITE"- Airdrop", frmxt, "Pilih", "Batal");
     }
     else if(playertextid == BankingButtonPhone)
     {
@@ -2923,7 +2923,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
     }
     else if(playertextid == SettingsTD[0]) //wallpaper
     {
-        Dialog_Show(playerid, "PhoneWallpaper", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Wallpaper", 
+        Dialog_Show(playerid, "PhoneWallpaper", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Wallpaper", 
         "Warna Kuning\n\
         "GRAY"Warna Merah\n\
         Warna Hijau\n\
@@ -2944,12 +2944,12 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
         Nomor serial:\tAS6R8127V1JKW\n\
         IMEI (slot 1):\t7829127392\n\
         IMEI (slot 2):\t8176239102", GetPlayerRoleplayName(playerid), PlayerPhoneData[playerid][phoneNumber]);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Tentang Ponsel", 
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Tentang Ponsel", 
         bcstr, "Tutup", "");
     }
     else if(playertextid == BankingTD[5]) //transfer mbanking
     {
-        Dialog_Show(playerid, "ATMTransfer", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Transfer", 
+        Dialog_Show(playerid, "ATMTransfer", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Transfer", 
         "Mohon masukkan nomor rekening tujuan:", "Set", "Batal");
     }
     else if(playertextid == RedButtonOutcomingPhone)
@@ -3043,7 +3043,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
         if(!AccountData[playerid][pBoombox]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki Boombox!");
         if(AccountData[playerid][pVIP] < 1) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan Donatur VIP!");
         
-        Dialog_Show(playerid, "SpotifyBoombox", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Spotify", 
+        Dialog_Show(playerid, "SpotifyBoombox", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Spotify", 
         "Masukkan URL/link MP3 yang ingin diputar\n\
         Kami sarankan anda untuk upload file mp3 ke discord terlebih dahulu.\n\
         "RED"Note: Fitur ini tidak support link YouTube secara langsung!\n\n\
@@ -3053,7 +3053,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
     {
         if(!AccountData[playerid][pEarphone]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki Earphone!");
 
-        Dialog_Show(playerid, "SpotifyEarphone", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Spotify", 
+        Dialog_Show(playerid, "SpotifyEarphone", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Spotify", 
         "Masukkan URL/link MP3 yang ingin diputar\n\
         Kami sarankan anda untuk upload file mp3 ke discord terlebih dahulu.\n\
         "RED"Note: Fitur ini tidak support link YouTube secara langsung!\n\n\
@@ -3069,7 +3069,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
         if(gettime() < UberAppTemp[playerid][NeedUberTimer]) return ShowTDN(playerid, NOTIFICATION_ERROR, sprintf("Anda telah memesan uber, mohon tunggu %d detik!", UberAppTemp[playerid][NeedUberTimer] - gettime()));
         if(UberAppTemp[playerid][ServiceAcceptedBy] != INVALID_PLAYER_ID) return ShowTDN(playerid, NOTIFICATION_ERROR, "Driver sedang menuju ke titik anda, tetaplah berada di sana!");
         ResetUberAppTemp(playerid);
-        Dialog_Show(playerid, "UberRideConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+        Dialog_Show(playerid, "UberRideConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
         "Hi, you are going to book an Uber Ride. Where are you headed today?", "Input", "Batal");
     }
     else if(playertextid == UberPhoneTD[6]) //uber eat
@@ -3081,16 +3081,16 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
         format(gofood, sizeof(gofood), "Nama Item\tKeranjang\n\
         BBQ delicy\t%dx\n\
         "GRAY"Selesaikan pesanan", UberAppTemp[playerid][ShotDeluxeQuant], UberAppTemp[playerid][TotalQuant]);
-        Dialog_Show(playerid, "UberEatMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Uber App", 
+        Dialog_Show(playerid, "UberEatMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Uber App", 
         gofood, "Pilih", "Batal");
     }
     else if(playertextid == YellowButtonPhone[1]) //yellow page
     {
-        Dialog_Show(playerid, "Yellowpage", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Yellow Page", "View advertisement queues\nSubmit a new advertisement", "Pilih", "Batal");
+        Dialog_Show(playerid, "Yellowpage", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Yellow Page", "View advertisement queues\nSubmit a new advertisement", "Pilih", "Batal");
     }
     else if(playertextid == CallButtonPhone) //call
     {
-        Dialog_Show(playerid, "PhoneCallList", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Call", 
+        Dialog_Show(playerid, "PhoneCallList", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Call", 
         "Emergency Service\n\
         SAGov Public Service\n\
         Bennys Automotive Service\n\

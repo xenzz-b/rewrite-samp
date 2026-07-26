@@ -160,9 +160,9 @@ CreateExtPabrikAyam()
     payam = CreateDynamicObject(19449, -2104.772705, -2429.722167, 34.068473, 0.000000, 0.000000, 51.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(payam, 0, 9625, "garage_sfw", "garage1b_sfw", 0x00000000);
     payam = CreateDynamicObject(19479, -2098.707275, -2435.065673, 34.392158, 0.000000, 0.000000, -128.599990, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(payam, 0, "PT. Unggas Nexston", 120, "Times New Roman", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(payam, 0, "PT. Unggas Vertex", 120, "Times New Roman", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     payam = CreateDynamicObject(19479, -2057.406738, -2435.689453, 35.072074, -0.000004, 0.000005, 51.399993, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(payam, 0, "PT. Unggas Nexston", 120, "Times New Roman", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(payam, 0, "PT. Unggas Vertex", 120, "Times New Roman", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -300,7 +300,7 @@ CreateExtPabrikAyam()
     btchrstx = CreateDynamicObject(19353, 1541.028198, 8.291072, 24.566040, 0.000007, -0.000002, 107.999969, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(btchrstx, 0, 14570, "traidaqua", "sa_wood06_128", 0x00000000);
     btchrstx = CreateDynamicObject(12922, 1553.674804, 40.612930, 26.481822, 0.000000, 0.000000, -166.399917, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(btchrstx, 2, "KANDANG AYAM Nexston", 110, "Arial", 40, 1, 0xFFFFFFFF, 0xFFFFFFFF, 1);
+    SetDynamicObjectMaterialText(btchrstx, 2, "KANDANG AYAM Vertex", 110, "Arial", 40, 1, 0xFFFFFFFF, 0xFFFFFFFF, 1);
     btchrstx = CreateDynamicObject(19353, 1544.081176, 9.283017, 24.566040, 0.000007, -0.000002, 107.999969, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(btchrstx, 0, 14570, "traidaqua", "sa_wood06_128", 0x00000000);
     btchrstx = CreateDynamicObject(19353, 1547.076660, 10.259128, 24.566040, 0.000014, -0.000004, 107.999946, 0, 0, -1, 200.00, 200.00); 
@@ -726,7 +726,7 @@ CreateExtPabrikAyam()
     SetDynamicObjectMaterialText(btchrstx, 1, "KANTOR AYAM", 130, "Arial", 60, 1, 0xFFFFFFFF, 0x00000000, 1);
     btchrstx = CreateDynamicObject(2790, 1931.285400, 158.630249, 41.177391, 0.000014, 0.000003, 252.099975, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(btchrstx, 0, 19480, "signsurf", "sign", 0x00000000);
-    SetDynamicObjectMaterialText(btchrstx, 1, "Kota Nexston", 130, "Arial", 40, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(btchrstx, 1, "Kota Vertex", 130, "Arial", 40, 1, 0xFFFFFFFF, 0x00000000, 1);
     btchrstx = CreateDynamicObject(18766, 1940.201049, 149.908599, 39.861095, 90.000000, 90.000000, 70.600021, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(btchrstx, 0, 16322, "a51_stores", "des_ghotwood1", 0x00000000);
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -787,7 +787,7 @@ CreateExtPabrikAyam()
     btchrstx = CreateDynamicObject(19353, 1541.028198, 8.291071, 24.566040, 0.000007, -0.000001, 107.999969, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(btchrstx, 0, 14570, "traidaqua", "sa_wood06_128", 0x00000000);
     btchrstx = CreateDynamicObject(12922, 1553.674804, 40.612930, 26.481821, 0.000000, 0.000000, -166.399917, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(btchrstx, 2, "MilkerAN AYAM Nexston", 110, "Arial", 40, 1, 0xFFFFFFFF, 0xFFFFFFFF, 1);
+    SetDynamicObjectMaterialText(btchrstx, 2, "MilkerAN AYAM Vertex", 110, "Arial", 40, 1, 0xFFFFFFFF, 0xFFFFFFFF, 1);
     btchrstx = CreateDynamicObject(19353, 1544.081176, 9.283017, 24.566040, 0.000007, -0.000001, 107.999969, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(btchrstx, 0, 14570, "traidaqua", "sa_wood06_128", 0x00000000);
     btchrstx = CreateDynamicObject(19353, 1547.076660, 10.259127, 24.566040, 0.000014, -0.000003, 107.999946, 0, 0, -1, 200.00, 200.00); 

@@ -51,7 +51,7 @@ ShowLockerTD(playerid)
     {
         TextDrawShowForPlayer(playerid, LockerRoomTD[x]);
     }
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
 }
 
 HideLockerTD(playerid)

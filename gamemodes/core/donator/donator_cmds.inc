@@ -18,8 +18,8 @@ YCMD:dvradio(playerid, params[], help)
 
     if(IsABike(SavingVehID[playerid]) || !IsEngineVehicle(SavingVehID[playerid])) return ShowTDN(playerid, NOTIFICATION_ERROR, "Jenis kendaraan ini tidak valid!");
 
-    Dialog_Show(playerid, "VIPVehicleRadio", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Donator Vehicle Radio", 
-    "Nexston Donator Radio System\n\n\
+    Dialog_Show(playerid, "VIPVehicleRadio", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Donator Vehicle Radio", 
+    "Vertex Donator Radio System\n\n\
     Kami sarankan anda untuk upload file mp3 ke discord terlebih dahulu.\n\
     "RED"Note: Fitur ini tidak support link YouTube secara langsung!\n\n\
     "YELLOW"(Apabila file mp3 telah di upload ke discord, silahkan copy linknya dan paste di bawah ini):", "Input", "Batal");

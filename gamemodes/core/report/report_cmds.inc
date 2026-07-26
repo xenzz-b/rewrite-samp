@@ -78,7 +78,7 @@ YCMD:reports(playerid, params[], help)
     if(counting == 0)
         ShowTDN(playerid, NOTIFICATION_ERROR, "Tidak ada laporan yang sedang aktif!");
     else
-        Dialog_Show(playerid, "QueueReports", DIALOG_STYLE_TABLIST_HEADERS,""Nexston"Nexston Roleplay "WHITE"- Daftar Reports",lstr,"Cek","Tutup");
+        Dialog_Show(playerid, "QueueReports", DIALOG_STYLE_TABLIST_HEADERS,""Vertex"Vertex Roleplay "WHITE"- Daftar Reports",lstr,"Cek","Tutup");
     return 1;
 }
 

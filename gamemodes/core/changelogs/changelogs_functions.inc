@@ -4,12 +4,12 @@ Dialog:ChangeLogs(playerid, response, listitem, inputtext[])
     {
         case 0:
         {
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Change Logs", 
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Change Logs", 
             ""GREEN"Add mapping Bintang Kejora cafe\n\
             "GREEN"Add save database setiap 1 jam sekali\n\
             "GREEN"Add cmd /fmodif untuk semua faction bengek (sementara)\n\n\
             "PINK"Chnage Texas Chiken to Bintang Kejora\n\
-            "PINK"Change location kanpol Nexston\n\
+            "PINK"Change location kanpol Vertex\n\
             "PINK"Change mapping kanpol\n\
             "PINK"Change dialog gps\n\
             "PINK"Change pajak uang bank 0,8 > 0.4\n\
@@ -23,7 +23,7 @@ Dialog:ChangeLogs(playerid, response, listitem, inputtext[])
         }
         case 1:
         {
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Change Logs", 
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Change Logs", 
             ""GREEN"Add td menu sri mersing\n\
             "GREEN"Add mekanik bisa refair kendaraan faction\n\
             "GREEN"Add pamer hasil pancing\n\
@@ -42,7 +42,7 @@ Dialog:ChangeLogs(playerid, response, listitem, inputtext[])
         }
         case 2:
         {
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Change Logs", 
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Change Logs", 
             ""GREEN"Add cmd /okickadmin untuk kick admin offline\n\
             "GREEN"Add pangkay baru kepolisian\n\
             "ORANGE"Change td hbe\n\
@@ -54,7 +54,7 @@ Dialog:ChangeLogs(playerid, response, listitem, inputtext[])
         }
         case 3:
         {
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Change Logs", 
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Change Logs", 
             ""GREEN"Add mappingan monciliat\n\
             "GREEN"Add point area modif jaya abadi\n\
             "GREEN"Fixxed /sm /flist\n\
@@ -64,7 +64,7 @@ Dialog:ChangeLogs(playerid, response, listitem, inputtext[])
         }
         case 4:
         {
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Change Logs", 
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Change Logs", 
             ""GREEN"Add gusur house\n\
             "GREEN"Add mappingan donate\n\
             "GREEN"Add price system\n\
@@ -81,7 +81,7 @@ Dialog:ChangeLogs(playerid, response, listitem, inputtext[])
         }
         case 5:
         {
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Change Logs", 
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Change Logs", 
             ""GREEN"Add price pada house\n\
             "GREEN"Add /fhelp pewarta\n\
             "GREEN"Add system race /race\n\
@@ -92,7 +92,7 @@ Dialog:ChangeLogs(playerid, response, listitem, inputtext[])
         }
         case 6:
         {
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Change Logs", 
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Change Logs", 
             ""GREEN"Add bengkel Jaya abadi\n\
             "GREEN"Add kebutuhan bengkel jaya abadi\n\
             "GREEN"Add gps jaya abadi\n\
@@ -106,7 +106,7 @@ Dialog:ChangeLogs(playerid, response, listitem, inputtext[])
         }
         case 7:
         {
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Change Logs", 
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Change Logs", 
             ""GREEN"Add mapping new bombomcar\n\
             "GREEN"Add warna color pda dialog mekanik\n\
             "PINK"Change warna object hp saat membuka hp\n\
@@ -116,7 +116,7 @@ Dialog:ChangeLogs(playerid, response, listitem, inputtext[])
         }
         case 8:
         {
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Change Logs", 
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Change Logs", 
             ""GREEN"Add mapping depan bandara\n\
             "GREEN"Add mapping idelwood\n\
             "ORANGE"Fixxed /makewedding\n\
@@ -124,7 +124,7 @@ Dialog:ChangeLogs(playerid, response, listitem, inputtext[])
         }
         case 9:
         {
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Change Logs", 
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Change Logs", 
             ""GREEN"Add cmd /changelogs\n\
             "GREEN"Add Mappingan donation\n\
             "GREEN"Add mappingan wedding\n\

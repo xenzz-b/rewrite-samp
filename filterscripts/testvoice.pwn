@@ -125,8 +125,8 @@ public OnPlayerConnect(playerid)
     if (SvGetVersion(playerid) == SV_NULL)
     {
         new lstring[512];
-		format(lstring, sizeof(lstring), ""WHITE"Mohon baca pesan ini sebelum melanjutkan, "RED"%s\n\n"WHITE"Sebelum bermain maka anda harus memenuhi salah satu syarat yaitu memasang plugin voice.\nLink Discord: "YELLOW"discord.gg/nexston", GetName(playerid));
-		Dialog_Show(playerid, "DialogNotUsed", DIALOG_STYLE_MSGBOX, "Nexston "WHITE"- Plugin Tidak Terdeteksi", lstring, "Quit", "");
+		format(lstring, sizeof(lstring), ""WHITE"Mohon baca pesan ini sebelum melanjutkan, "RED"%s\n\n"WHITE"Sebelum bermain maka anda harus memenuhi salah satu syarat yaitu memasang plugin voice.\nLink Discord: "YELLOW"discord.gg/vertexroleplay", GetName(playerid));
+		Dialog_Show(playerid, "DialogNotUsed", DIALOG_STYLE_MSGBOX, "Vertex "WHITE"- Plugin Tidak Terdeteksi", lstring, "Quit", "");
 
         SendClientMessage(playerid, 0xFFFF00FF, "[i] Anda telah ditendang dari server karena "RED"Plugin Voice "YELLOW"tidak terdeteksi!");
         return KickEx(playerid);
@@ -134,8 +134,8 @@ public OnPlayerConnect(playerid)
     else if (SvHasMicro(playerid) == SV_FALSE)
     {
         new lstring[512];
-		format(lstring, sizeof(lstring), ""WHITE"Mohon baca pesan ini sebelum melanjutkan, "RED"%s\n\n"WHITE"Sebelum bermain maka anda harus memenuhi salah satu syarat yaitu menggunakan mic/headset.\nLink Discord: "YELLOW"discord.gg/nexston", GetName(playerid));
-		Dialog_Show(playerid, "DialogNotUsed", DIALOG_STYLE_MSGBOX, "Nexston "WHITE"- Mic Tidak Terdeteksi", lstring, "Quit", "");
+		format(lstring, sizeof(lstring), ""WHITE"Mohon baca pesan ini sebelum melanjutkan, "RED"%s\n\n"WHITE"Sebelum bermain maka anda harus memenuhi salah satu syarat yaitu menggunakan mic/headset.\nLink Discord: "YELLOW"discord.gg/vertexroleplay", GetName(playerid));
+		Dialog_Show(playerid, "DialogNotUsed", DIALOG_STYLE_MSGBOX, "Vertex "WHITE"- Mic Tidak Terdeteksi", lstring, "Quit", "");
 
         SendClientMessage(playerid, 0xFFFF00FF, "[i] Anda telah ditendang dari server karena "RED"Microphone/Headset "YELLOW"tidak terdeteksi!");
         return KickEx(playerid);
@@ -180,10 +180,10 @@ public OnFilterScriptInit()
     
     vdBroadcastStream = SvCreateGStream(0xffffff00, "");
 
-    print("-------------------- [Nexston Voice Chat System] --------------------\n\
+    print("-------------------- [Vertex Voice Chat System] --------------------\n\
     ===>> Berhasil dimuat dengan baik!\n\
     ===>> by: Shan (Muhammad Ikhsan)\n\
-    ===>> dipersembahkan untuk Nexston\n\
+    ===>> dipersembahkan untuk Vertex\n\
     -------------------------------------------------------------------");
     return 1;
 }

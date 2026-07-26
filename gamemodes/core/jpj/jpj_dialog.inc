@@ -4,7 +4,7 @@ stock ShowJPJMainMenu(playerid)
         return ShowTDN(playerid, NOTIFICATION_WARNING, "Tidak ada staff JPJ yang bertugas saat ini!");
 
     Dialog_Show(playerid, "JPJMain", DIALOG_STYLE_LIST,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Layanan SIM",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Layanan SIM",
         "Daftar & Ambil SIM Baru\nCek SIM Saya\nPerpanjang SIM",
         "Pilih", "Keluar");
 }
@@ -32,7 +32,7 @@ stock ShowJPJRegisterForm(playerid)
     JPJTemp[playerid][jpjStep] = 1;
 
     Dialog_Show(playerid, "JPJFormName", DIALOG_STYLE_INPUT,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Formulir Pendaftaran (1/3)",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Formulir Pendaftaran (1/3)",
         "{FFFFFF}Masukkan {FFFF00}Nama Lengkap {FFFFFF}kamu:",
         "Selanjutnya", "Batal");
 }
@@ -42,14 +42,14 @@ Dialog:JPJFormName(playerid, response, listitem, inputtext[])
     if(!response) { ResetJPJTemp(playerid); return 1; }
     if(!strlen(inputtext) || strlen(inputtext) < 3)
         return Dialog_Show(playerid, "JPJFormName", DIALOG_STYLE_INPUT,
-            "{00BFFF}Nexston Roleplay {FFFFFF}- Formulir Pendaftaran (1/3)",
+            "{00BFFF}Vertex Roleplay {FFFFFF}- Formulir Pendaftaran (1/3)",
             "{FF0000}Nama terlalu pendek!\n{FFFFFF}Masukkan {FFFF00}Nama Lengkap {FFFFFF}kamu:",
             "Selanjutnya", "Batal");
 
     strcopy(JPJTemp[playerid][jpjRegName], inputtext);
 
     Dialog_Show(playerid, "JPJFormAddress", DIALOG_STYLE_INPUT,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Formulir Pendaftaran (2/3)",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Formulir Pendaftaran (2/3)",
         "{FFFFFF}Masukkan {FFFF00}Alamat Tempat Tinggal {FFFFFF}kamu:",
         "Selanjutnya", "Batal");
     return 1;
@@ -60,14 +60,14 @@ Dialog:JPJFormAddress(playerid, response, listitem, inputtext[])
     if(!response) { ResetJPJTemp(playerid); return 1; }
     if(!strlen(inputtext) || strlen(inputtext) < 5)
         return Dialog_Show(playerid, "JPJFormAddress", DIALOG_STYLE_INPUT,
-            "{00BFFF}Nexston Roleplay {FFFFFF}- Formulir Pendaftaran (2/3)",
+            "{00BFFF}Vertex Roleplay {FFFFFF}- Formulir Pendaftaran (2/3)",
             "{FF0000}Alamat terlalu pendek!\n{FFFFFF}Masukkan {FFFF00}Alamat Tempat Tinggal {FFFFFF}kamu:",
             "Selanjutnya", "Batal");
 
     strcopy(JPJTemp[playerid][jpjRegAddress], inputtext);
 
     Dialog_Show(playerid, "JPJFormSSN", DIALOG_STYLE_INPUT,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Formulir Pendaftaran (3/3)",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Formulir Pendaftaran (3/3)",
         "{FFFFFF}Masukkan {FFFF00}Nomor KTP {FFFFFF}kamu:",
         "Selanjutnya", "Batal");
     return 1;
@@ -78,7 +78,7 @@ Dialog:JPJFormSSN(playerid, response, listitem, inputtext[])
     if(!response) { ResetJPJTemp(playerid); return 1; }
     if(!strlen(inputtext) || strlen(inputtext) < 6)
         return Dialog_Show(playerid, "JPJFormSSN", DIALOG_STYLE_INPUT,
-            "{00BFFF}Nexston Roleplay {FFFFFF}- Formulir Pendaftaran (3/3)",
+            "{00BFFF}Vertex Roleplay {FFFFFF}- Formulir Pendaftaran (3/3)",
             "{FF0000}Nomor KTP tidak valid!\n{FFFFFF}Masukkan {FFFF00}Nomor KTP {FFFFFF}kamu:",
             "Selanjutnya", "Batal");
 
@@ -99,7 +99,7 @@ stock ShowJPJLicTypeSelect(playerid)
         {FFFFFF}Pilih jenis SIM yang ingin diambil:",JPJTemp[playerid][jpjRegName],JPJTemp[playerid][jpjRegAddress],JPJTemp[playerid][jpjRegSSN]);
 
     Dialog_Show(playerid, "JPJLicType", DIALOG_STYLE_LIST,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Pilih Jenis SIM",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Pilih Jenis SIM",
         "SIM Motor - $125\nSIM Mobil - $200\nSIM Truk - $300\nSIM Helikopter - $750",
         "Pilih", "Batal");
 }
@@ -129,7 +129,7 @@ Dialog:JPJLicType(playerid, response, listitem, inputtext[])
         AccountData[playerid][pMoney]);
 
     Dialog_Show(playerid, "JPJConfirmFee", DIALOG_STYLE_MSGBOX,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Konfirmasi Pembayaran",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Konfirmasi Pembayaran",
         str, "Ya, Bayar", "Batal");
     return 1;
 }
@@ -178,7 +178,7 @@ stock ShowJPJExamQuestion(playerid)
         JPJQuestions[q][qOpt][3]);
 
     Dialog_Show(playerid, "JPJExamQ", DIALOG_STYLE_LIST,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Ujian Teori",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Ujian Teori",
         str, "Jawab", "");
 }
 
@@ -222,7 +222,7 @@ stock ShowJPJDriveTest(playerid)
         GetLicName(JPJTemp[playerid][jpjLicType]));
 
     Dialog_Show(playerid, "JPJDriveTest", DIALOG_STYLE_MSGBOX,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Ujian Mengemudi",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Ujian Mengemudi",
         str, "Mulai Ujian", "Batal");
 }
 
@@ -267,7 +267,7 @@ stock ShowJPJMyLicense(playerid)
     }
 
     Dialog_Show(playerid, "JPJMyLic", DIALOG_STYLE_MSGBOX,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- SIM Saya",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- SIM Saya",
         str, "Tutup", "");
 }
 
@@ -297,7 +297,7 @@ stock ShowJPJRenewMenu(playerid)
     }
 
     Dialog_Show(playerid, "JPJRenew", DIALOG_STYLE_LIST,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Perpanjang SIM",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Perpanjang SIM",
         str, "Pilih", "Batal");
 }
 
@@ -349,7 +349,7 @@ stock ShowJPJStaffMenu(playerid)
         AccountData[playerid][pOnDuty] ? "{00FF00}SEDANG BERTUGAS" : "{FF0000}TIDAK BERTUGAS");
 
     Dialog_Show(playerid, "JPJStaffMenu", DIALOG_STYLE_LIST,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Menu Staff JPJ",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Menu Staff JPJ",
         "Toggle On/Off Tugas\nLihat Daftar Pemohon\nNilai Ujian Teori\nLuluskan Ujian Mengemudi\nGagalkan Ujian Mengemudi",
         "Pilih", "Tutup");
 }
@@ -375,7 +375,7 @@ stock ShowJPJTheoryList(playerid)
         return ShowTDN(playerid, NOTIFICATION_INFO, "Tidak ada pemohon yang menunggu penilaian teori.");
 
     Dialog_Show(playerid, "JPJTheoryList", DIALOG_STYLE_LIST,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Daftar Hasil Teori",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Daftar Hasil Teori",
         str, "Lihat Detail", "Tutup");
 }
 
@@ -434,7 +434,7 @@ stock ShowJPJTheoryDetail(playerid, targetid)
     format(str, sizeof(str), "%s\n{FFFFFF}Pilih tindakan:", str);
 
     Dialog_Show(playerid, "JPJTheoryDetail", DIALOG_STYLE_LIST,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Detail Ujian Teori",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Detail Ujian Teori",
         str,
         "Lanjut ke Ujian Mengemudi\nGagalkan (Input Alasan)", "Batal");
 }
@@ -462,7 +462,7 @@ Dialog:JPJTheoryDetail(playerid, response, listitem, inputtext[])
         case 1: // gagalkan teori, input alasan
         {
             Dialog_Show(playerid, "JPJFailReasonTheory", DIALOG_STYLE_INPUT,
-                "{00BFFF}Nexston Roleplay {FFFFFF}- Alasan Gagal Teori",
+                "{00BFFF}Vertex Roleplay {FFFFFF}- Alasan Gagal Teori",
                 "{FFFFFF}Masukkan alasan kamu menggagalkan ujian teori pemohon ini:",
                 "Konfirmasi", "Batal");
         }
@@ -480,7 +480,7 @@ Dialog:JPJFailReasonTheory(playerid, response, listitem, inputtext[])
 
     if(!strlen(inputtext))
         return Dialog_Show(playerid, "JPJFailReasonTheory", DIALOG_STYLE_INPUT,
-            "{00BFFF}Nexston Roleplay {FFFFFF}- Alasan Gagal Teori",
+            "{00BFFF}Vertex Roleplay {FFFFFF}- Alasan Gagal Teori",
             "{FF0000}Alasan tidak boleh kosong!\n{FFFFFF}Masukkan alasan kamu menggagalkan pemohon ini:",
             "Konfirmasi", "Batal");
 
@@ -496,7 +496,7 @@ Dialog:JPJFailReasonTheory(playerid, response, listitem, inputtext[])
         Biaya tidak dikembalikan. Silakan daftar ulang.", inputtext);
 
     Dialog_Show(targetid, "JPJFailNotif", DIALOG_STYLE_MSGBOX,
-        "{00BFFF}Nexston Roleplay {FFFFFF}- Hasil Ujian Teori",
+        "{00BFFF}Vertex Roleplay {FFFFFF}- Hasil Ujian Teori",
         str, "Tutup", "");
 
     ResetJPJTemp(targetid);

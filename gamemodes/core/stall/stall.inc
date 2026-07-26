@@ -213,7 +213,7 @@ YCMD:eat(playerid, params[], help)
     if(!IsPlayerAtPecelLele(playerid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di pecel lele manapun!");
     if(GetPlayerState(playerid) != PLAYER_STATE_ONFOOT) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus jalan kaki!");
 
-	Dialog_Show(playerid, "FoodTruckMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Warung Lokal Pecel Lele", 
+	Dialog_Show(playerid, "FoodTruckMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Warung Lokal Pecel Lele", 
 	"Hidangan\tHarga\n\
 	Pecel Ayam (+20)\t$254\n\
 	"GRAY"Es Cincau (+20)\t"GRAY"$205", "Beli", "Batal");

@@ -273,7 +273,7 @@ ptask PlayerVehicleUpdate[1000](playerid)
 
                     ResetAllRaceCP(playerid);
 
-                    ShowFivemNotify(playerid, "Nexston Roleplay~n~CAR STEAL", "Kendaraan carsteal telah hancur, misi dinyatakan gagal!", "hud:radar_qmark", 25);
+                    ShowFivemNotify(playerid, "Vertex Roleplay~n~CAR STEAL", "Kendaraan carsteal telah hancur, misi dinyatakan gagal!", "hud:radar_qmark", 25);
                 }
             }
 
@@ -465,8 +465,8 @@ UpdateSpeedometer(playerid)
 
         new str[8];
         format(str, sizeof(str), "%03d", speed);
-        PlayerTextDrawSetString(playerid, SpeedoNSRP[playerid][31], str);
-        PlayerTextDrawShow(playerid, SpeedoNSRP[playerid][31]);
+        PlayerTextDrawSetString(playerid, SpeedoVRP[playerid][31], str);
+        PlayerTextDrawShow(playerid, SpeedoVRP[playerid][31]);
         
         new activeBars;
         if(speed >= 115)
@@ -484,17 +484,17 @@ UpdateSpeedometer(playerid)
             new barIndex = i + 1;
             if(i < activeBars)
             {
-                PlayerTextDrawColor(playerid, SpeedoNSRP[playerid][barIndex], GradientOrange[i]);
+                PlayerTextDrawColor(playerid, SpeedoVRP[playerid][barIndex], GradientOrange[i]);
             }
             else
             {
-                PlayerTextDrawColor(playerid, SpeedoNSRP[playerid][barIndex], SPEED_BAR_INACTIVE);
+                PlayerTextDrawColor(playerid, SpeedoVRP[playerid][barIndex], SPEED_BAR_INACTIVE);
             }
-            PlayerTextDrawShow(playerid, SpeedoNSRP[playerid][barIndex]);
+            PlayerTextDrawShow(playerid, SpeedoVRP[playerid][barIndex]);
         }
         if(speed == 0)
         {
-            PlayerTextDrawSetString(playerid, SpeedoNSRP[playerid][30], "N");
+            PlayerTextDrawSetString(playerid, SpeedoVRP[playerid][30], "N");
         }
         else
         {
@@ -507,9 +507,9 @@ UpdateSpeedometer(playerid)
             
             new gearStr[2];
             format(gearStr, sizeof(gearStr), "%d", level);
-            PlayerTextDrawSetString(playerid, SpeedoNSRP[playerid][30], gearStr);
+            PlayerTextDrawSetString(playerid, SpeedoVRP[playerid][30], gearStr);
         }
-        PlayerTextDrawShow(playerid, SpeedoNSRP[playerid][30]);
+        PlayerTextDrawShow(playerid, SpeedoVRP[playerid][30]);
 
         new Float:fuel = VehicleCore[vehicleid][vCoreFuel];
         new Float:fuelBarSize = fuel * -35.0 / 100.0;
@@ -517,8 +517,8 @@ UpdateSpeedometer(playerid)
         if(fuelBarSize < -35.0) fuelBarSize = -35.0;
         if(fuelBarSize > 0.0) fuelBarSize = 0.0;
         
-        PlayerTextDrawTextSize(playerid, SpeedoNSRP[playerid][28], 1.000, fuelBarSize);
-        PlayerTextDrawShow(playerid, SpeedoNSRP[playerid][28]);
+        PlayerTextDrawTextSize(playerid, SpeedoVRP[playerid][28], 1.000, fuelBarSize);
+        PlayerTextDrawShow(playerid, SpeedoVRP[playerid][28]);
 
         new Float:vehicleHealth;
         GetVehicleHealth(vehicleid, vehicleHealth);
@@ -527,8 +527,8 @@ UpdateSpeedometer(playerid)
         if(healthBarSize < -35.0) healthBarSize = -35.0;
         if(healthBarSize > 0.0) healthBarSize = 0.0;
         
-        PlayerTextDrawTextSize(playerid, SpeedoNSRP[playerid][41], 0.899, healthBarSize);
-        PlayerTextDrawShow(playerid, SpeedoNSRP[playerid][41]);
+        PlayerTextDrawTextSize(playerid, SpeedoVRP[playerid][41], 0.899, healthBarSize);
+        PlayerTextDrawShow(playerid, SpeedoVRP[playerid][41]);
     }
     return 1;
 }
@@ -691,17 +691,17 @@ ptask UpdatePlayerPaycheck[900000](playerid)
             //     case 0, 1:
             //     {
             //         AccountData[playerid][pSlipSalary] += 2015;
-            //         ShowFivemNotify(playerid, "Nexston Roleplay~n~TUNJANGAN", "Anda telah menerima tunjangan dari Pemerintah Nexston senilai ~g~$20.15", "hud:radar_cash", 11);
+            //         ShowFivemNotify(playerid, "Vertex Roleplay~n~TUNJANGAN", "Anda telah menerima tunjangan dari Pemerintah Vertex senilai ~g~$20.15", "hud:radar_cash", 11);
             //     }
             //     case 2:
             //     {
             //         AccountData[playerid][pSlipSalary] += (2015*2);
-            //         ShowFivemNotify(playerid, "Nexston Roleplay~n~TUNJANGAN", "Anda telah menerima tunjangan dari Pemerintah Nexston senilai ~g~$40.30", "hud:radar_cash", 11);
+            //         ShowFivemNotify(playerid, "Vertex Roleplay~n~TUNJANGAN", "Anda telah menerima tunjangan dari Pemerintah Vertex senilai ~g~$40.30", "hud:radar_cash", 11);
             //     }
             //     case 3:
             //     {
             //         AccountData[playerid][pSlipSalary] += (2015*3);
-            //         ShowFivemNotify(playerid, "Nexston Roleplay~n~TUNJANGAN", "Anda telah menerima tunjangan dari Pemerintah Nexston senilai ~g~$60.45", "hud:radar_cash", 11);
+            //         ShowFivemNotify(playerid, "Vertex Roleplay~n~TUNJANGAN", "Anda telah menerima tunjangan dari Pemerintah Vertex senilai ~g~$60.45", "hud:radar_cash", 11);
             //     }
             // }
 
@@ -857,27 +857,27 @@ ptask UpdateSpecStats[1000](playerid)
                 if (GetPlayerState(otherid) == PLAYER_STATE_DRIVER)
                 {
                     format(str, sizeof(str), "%s (%d)", ReturnName(otherid), otherid);
-                    PlayerTextDrawSetString(playerid, SpecNSRP[playerid][1], str);
+                    PlayerTextDrawSetString(playerid, SpecVRP[playerid][1], str);
 
                     format(str, sizeof(str), "%.1f - %.1f", health, armour);
-                    PlayerTextDrawSetString(playerid, SpecNSRP[playerid][2], str);
+                    PlayerTextDrawSetString(playerid, SpecVRP[playerid][2], str);
                 }
                 else
                 {
                     format(str, sizeof(str), "%s (%d)", ReturnName(otherid), otherid);
-                    PlayerTextDrawSetString(playerid, SpecNSRP[playerid][1], str);
+                    PlayerTextDrawSetString(playerid, SpecVRP[playerid][1], str);
 
                     format(str, sizeof(str), "%.1f - %.1f", health, armour);
-                    PlayerTextDrawSetString(playerid, SpecNSRP[playerid][2], str);
+                    PlayerTextDrawSetString(playerid, SpecVRP[playerid][2], str);
                 }
             }
             else
             {
                 format(str, sizeof(str), "%s (%d)", ReturnName(otherid), otherid);
-                PlayerTextDrawSetString(playerid, SpecNSRP[playerid][1], str);
+                PlayerTextDrawSetString(playerid, SpecVRP[playerid][1], str);
 
                 format(str, sizeof(str), "%.1f - %.1f", health, armour);
-                PlayerTextDrawSetString(playerid, SpecNSRP[playerid][2], str);
+                PlayerTextDrawSetString(playerid, SpecVRP[playerid][2], str);
             }
         }
     }
@@ -2347,7 +2347,7 @@ ptask UpdateTimeActivity2[1000](playerid)
                 pDrugSellChosen[playerid] = random(sizeof(g_DrugsSellActorPos));
 			    pDrugSellActor[playerid] = CreateDynamicActor(randskin, g_DrugsSellActorPos[pDrugSellChosen[playerid]][0], g_DrugsSellActorPos[pDrugSellChosen[playerid]][1], g_DrugsSellActorPos[pDrugSellChosen[playerid]][2], g_DrugsSellActorPos[pDrugSellChosen[playerid]][3], 1, 100.0, 0, 0, -1, 300.00, -1, 0);
 			    pDrugSellIcon[playerid] = CreateDynamicMapIcon(g_DrugsSellActorPos[pDrugSellChosen[playerid]][0], g_DrugsSellActorPos[pDrugSellChosen[playerid]][1], g_DrugsSellActorPos[pDrugSellChosen[playerid]][2], 23, -1, 0, 0, playerid, 155.55, MAPICON_LOCAL, -1, 0);
-			    pDrugSellLabel[playerid] = CreateDynamic3DTextLabel("[Y] "WHITE"Jual", Y_Nexston, g_DrugsSellActorPos[pDrugSellChosen[playerid]][0], g_DrugsSellActorPos[pDrugSellChosen[playerid]][1], g_DrugsSellActorPos[pDrugSellChosen[playerid]][2]+0.85, 30.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, 0, 0, playerid, 30.00, -1, 0);
+			    pDrugSellLabel[playerid] = CreateDynamic3DTextLabel("[Y] "WHITE"Jual", Y_Vertex, g_DrugsSellActorPos[pDrugSellChosen[playerid]][0], g_DrugsSellActorPos[pDrugSellChosen[playerid]][1], g_DrugsSellActorPos[pDrugSellChosen[playerid]][2]+0.85, 30.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, 0, 0, playerid, 30.00, -1, 0);
             }
         }
         else
@@ -8865,7 +8865,7 @@ ptask OnPlayerFallFromInterior[1000](playerid)
 		{
             AccountData[playerid][pIsFallFromInterior] = true;
             TogglePlayerControllable(playerid, false);
-            Dialog_Show(playerid, "InteriorFall", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Fall from Interior", 
+            Dialog_Show(playerid, "InteriorFall", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Fall from Interior", 
             ""ORANGE"Sistem kami mendeteksi bahwa karakter anda dalam masalah, yaitu terjatuh dari map.\n\
             Kami akan mencoba untuk mengembalikan ke posisi yang benar. Mohon pilih salah satu dari pilihan berikut\n\
             untuk menyelesaikan masalah yang anda alami, interior artinya karakter akan dikembalikan ke dalam map/bangunan\n\

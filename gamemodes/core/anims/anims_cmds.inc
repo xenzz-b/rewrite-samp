@@ -465,7 +465,7 @@ YCMD:e(playerid, params[], help)
 
         PlayerTextDrawSetString(playerid, EmotesPTD[playerid][10], sprintf("%02d / %02d", animPage[playerid], sizeof(g_AnimDetails)/10 + 1));
         PlayerTextDrawShow(playerid, EmotesPTD[playerid][10]);
-        SelectTextDraw(playerid, Y_Nexston);
+        SelectTextDraw(playerid, Y_Vertex);
         return 1;
     }
 
@@ -706,6 +706,6 @@ YCMD:eshared(playerid, params[], help)
 
 YCMD:elist(playerid, params[], help)
 {
-    Dialog_Show(playerid, "EmoteList", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Daftar Emote", "Emotes\n"GRAY"Emotes Property\nEmotes Shared", "Pilih", "Batal");
+    Dialog_Show(playerid, "EmoteList", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Daftar Emote", "Emotes\n"GRAY"Emotes Property\nEmotes Shared", "Pilih", "Batal");
 	return 1;
 }

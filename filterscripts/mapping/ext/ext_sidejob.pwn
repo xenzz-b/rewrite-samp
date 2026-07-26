@@ -300,7 +300,7 @@ CreateSidejobExt()
     sdjxobt = CreateDynamicObject(4735, 1083.050781, 1245.686645, 9.848262, 0.599993, 90.000000, 0.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(sdjxobt, 0, "NO PARKING / STOP", 120, "Arial", 25, 1, 0xFFFFFF00, 0x00000000, 1);
     sdjxobt = CreateDynamicObject(4735, 1097.340576, 1350.456787, 12.429743, 0.599993, 360.000000, 1.200000, 0, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(sdjxobt, 0, "Nexston", 120, "Monotype Corsiva", 75, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(sdjxobt, 0, "Vertex", 120, "Monotype Corsiva", 75, 1, 0xFFFFFFFF, 0x00000000, 1);
     sdjxobt = CreateDynamicObject(19366, 1074.127807, 1223.874511, 8.090494, 0.000000, 0.000000, 0.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(sdjxobt, 0, 18646, "matcolours", "redlaser", 0x00000000);
     sdjxobt = CreateDynamicObject(19353, 1066.190185, 1223.874145, 13.013628, -0.000006, 0.000007, 89.999992, 0, 0, -1, 200.00, 200.00); 

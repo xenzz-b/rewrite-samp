@@ -81,7 +81,7 @@ ShowAllGarageListGPS(playerid)
     }
     
     SetPVarInt(playerid, "GPSListType", 4);
-    Dialog_Show(playerid, "GPSBizList", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- GPS - Garasi Kota", garage_string, "Pilih", "Kembali");
+    Dialog_Show(playerid, "GPSBizList", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- GPS - Garasi Kota", garage_string, "Pilih", "Kembali");
     return 1;
 }
 

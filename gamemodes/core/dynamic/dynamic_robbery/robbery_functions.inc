@@ -158,7 +158,7 @@ hook OnPlayerShootDynObject(playerid, weaponid, STREAMER_TAG_OBJECT:objectid, Fl
                     {
                         if(AccountData[i][pFaction] == FACTION_LSPD)
                         {
-                            ShowFivemNotify(i, "Nexston Roleplay~n~BREAKING NEWS", sprintf("Telah terjadi perampokan warung di %s.", GetLocation(RobberyData[rbid][rsafePos][0], RobberyData[rbid][rsafePos][1], RobberyData[rbid][rsafePos][2])), "hud:radar_emmetGun");
+                            ShowFivemNotify(i, "Vertex Roleplay~n~BREAKING NEWS", sprintf("Telah terjadi perampokan warung di %s.", GetLocation(RobberyData[rbid][rsafePos][0], RobberyData[rbid][rsafePos][1], RobberyData[rbid][rsafePos][2])), "hud:radar_emmetGun");
 
                             if(DestroyDynamicMapIcon(AccountData[playerid][pSignalRobberyIcon][i]))
 						        AccountData[playerid][pSignalRobberyIcon][i] = STREAMER_TAG_MAP_ICON: INVALID_STREAMER_ID;

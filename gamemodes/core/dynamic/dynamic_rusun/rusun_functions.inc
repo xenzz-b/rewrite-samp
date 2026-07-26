@@ -115,10 +115,10 @@ Player_NearRusun(playerid, rsid)
     if(counting == 0)
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-		return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Undang Teman", "Tidak ada player yang dekat dengan pintu rusun anda!", "Tutup", "");
+		return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Undang Teman", "Tidak ada player yang dekat dengan pintu rusun anda!", "Tutup", "");
     }
 
-    Dialog_Show(playerid, "RusunInvite", DIALOG_STYLE_TABLIST, ""Nexston"Nexston Roleplay "WHITE"- Undang Teman", frmxt, "Pilih", "Batal");
+    Dialog_Show(playerid, "RusunInvite", DIALOG_STYLE_TABLIST, ""Vertex"Vertex Roleplay "WHITE"- Undang Teman", frmxt, "Pilih", "Batal");
     return 1;
 }
 
@@ -171,12 +171,12 @@ public Player_OpenSavedClothes(playerid)
             cache_get_value_name(i, "Name", ClothesName);
             format(sjjr, sizeof(sjjr), "%s%s\n", sjjr, ClothesName);
         }
-        Dialog_Show(playerid, "RusunClothes", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Pakaian", 
+        Dialog_Show(playerid, "RusunClothes", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Pakaian", 
         sjjr, "Pilih", "Kembali");
     }
     else
     {
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Pakaian", 
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Pakaian", 
         "Anda tidak memiliki pakaian tersimpan!", "Tutup", "");
     }
     return 1;
@@ -347,7 +347,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
             if(AccountData[playerid][pInRusun] == -1) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di dalam rusun manapun!");
 
             ApplyAnimation(playerid, "BD_FIRE", "wash_up", 4.1, false, false, false, false, 0, true);
-            Dialog_Show(playerid, "RusunChest", DIALOG_STYLE_LIST, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", RusunData[AccountData[playerid][pInRusun]][rusunName]), 
+            Dialog_Show(playerid, "RusunChest", DIALOG_STYLE_LIST, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", RusunData[AccountData[playerid][pInRusun]][rusunName]), 
             "Undang\n\
             "GRAY"Pakaian\n\
             Membuang Pakaian\n\
@@ -362,13 +362,13 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
                 if(RusunData[rsid][rusunOwnerID] != AccountData[playerid][pID])
                 {
                     PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-                    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", RusunData[rsid][rusunName]), 
+                    Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", RusunData[rsid][rusunName]), 
                     "Sudah dimiliki warga lain!", "Tutup", "");
                 }
                 else
                 {
                     AccountData[playerid][pInRusun] = rsid;
-                    Dialog_Show(playerid, "RusunMenuOwned", DIALOG_STYLE_LIST, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", RusunData[rsid][rusunName]), 
+                    Dialog_Show(playerid, "RusunMenuOwned", DIALOG_STYLE_LIST, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", RusunData[rsid][rusunName]), 
                     "Masuk\n\
                     "GRAY"Cek status sewa", "Pilih", "Batal");
                 }
@@ -377,7 +377,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
             {
                 AccountData[playerid][pInRusun] = rsid;
                 format(srss, sizeof(srss), "Sewa\t"DARKGREEN"$%s / bulan\n"YELLOW"Cek sisa waktu sewa ((reset rusun))", FormatMoney(RusunData[rsid][rusunCost]));
-                Dialog_Show(playerid, "RusunMenu", DIALOG_STYLE_TABLIST, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", RusunData[rsid][rusunName]), 
+                Dialog_Show(playerid, "RusunMenu", DIALOG_STYLE_TABLIST, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", RusunData[rsid][rusunName]), 
                 srss, "Pilih", "Batal");
             }
         }
@@ -416,7 +416,7 @@ Dialog:RusunMenu(playerid, response, listitem, inputtext[])
         case 1:
         {
             AccountData[playerid][pInRusun] = -1;
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", RusunData[rsid][rusunName]), 
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", RusunData[rsid][rusunName]), 
             sprintf("Anda memiliki durasi sewa rusun ini selama\n"WHITE"%s", ReturnTimelapse(gettime(), RusunExpired, ""DARKRED"Sewa Expired")), "Tutup", "");
         }
     }
@@ -447,7 +447,7 @@ Dialog:RusunMenuOwned(playerid, response, listitem, inputtext[])
         case 1:
         {
             AccountData[playerid][pInRusun] = -1;
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", RusunData[rsid][rusunName]), 
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", RusunData[rsid][rusunName]), 
             sprintf("Anda memiliki durasi sewa rusun ini selama\n"WHITE"%s", ReturnTimelapse(gettime(), RusunExpired, ""DARKRED"Sewa Expired")), "Tutup", "");
         }
     }
@@ -462,7 +462,7 @@ Dialog:RusunInvite(playerid, response, listitem, inputtext[])
     AccountData[otherid][pInRusun] = AccountData[playerid][pInRusun];
     format(jhtrs, sizeof(jhtrs), "Pemilik rusun %s mengundang anda untuk masuk ke dalam.\n\
     Apakah anda ingin menerima undangannya?", RusunData[AccountData[playerid][pInRusun]][rusunName]);
-    Dialog_Show(otherid, "RusunInviteConfirm", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Undangan Rusun", 
+    Dialog_Show(otherid, "RusunInviteConfirm", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Undangan Rusun", 
     jhtrs, "Ya", "No");
     return 1;
 }
@@ -517,7 +517,7 @@ Dialog:RusunChest(playerid, response, listitem, inputtext[])
         case 3: //Brankas
         {
             AccountData[playerid][pMenuShowed] = true;
-            Dialog_Show(playerid, "RusunItemVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rusun", 
+            Dialog_Show(playerid, "RusunItemVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rusun", 
             "Simpan Barang\n"GRAY"Ambil Barang", "Pilih", "Kembali");
         }
     }
@@ -526,7 +526,7 @@ Dialog:RusunChest(playerid, response, listitem, inputtext[])
 
 Dialog:RusunClothes(playerid, response, listitem, inputtext[])
 {
-    if(!response) return Dialog_Show(playerid, "RusunChest", DIALOG_STYLE_LIST, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", RusunData[AccountData[playerid][pInRusun]][rusunName]), 
+    if(!response) return Dialog_Show(playerid, "RusunChest", DIALOG_STYLE_LIST, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", RusunData[AccountData[playerid][pInRusun]][rusunName]), 
     "Undang\n\
     "GRAY"Pakaian\n\
     Membuang Pakaian\n\
@@ -550,7 +550,7 @@ Dialog:RusunItemVault(playerid, response, listitem, inputtext[])
     if(!response)
     {
         AccountData[playerid][pMenuShowed] = false;
-        Dialog_Show(playerid, "RusunChest", DIALOG_STYLE_LIST, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", RusunData[AccountData[playerid][pInRusun]][rusunName]), 
+        Dialog_Show(playerid, "RusunChest", DIALOG_STYLE_LIST, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", RusunData[AccountData[playerid][pInRusun]][rusunName]), 
         "Undang\n\
         "GRAY"Pakaian\n\
         Membuang Pakaian\n\
@@ -582,12 +582,12 @@ Dialog:RusunItemVault(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rusun", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rusun", 
                 "Anda tidak memiliki barang yang dapat disimpan!", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "RusunItemVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rusun", str, "Pilih", "Batal");
+                Dialog_Show(playerid, "RusunItemVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rusun", str, "Pilih", "Batal");
             }
         }
         case 1: //withdraw
@@ -604,7 +604,7 @@ Dialog:RusunItemVaultDeposit(playerid, response, listitem, inputtext[])
     if(!response)
     {
         AccountData[playerid][pMenuShowed] = false;
-        Dialog_Show(playerid, "RusunChest", DIALOG_STYLE_LIST, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", RusunData[AccountData[playerid][pInRusun]][rusunName]), 
+        Dialog_Show(playerid, "RusunChest", DIALOG_STYLE_LIST, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", RusunData[AccountData[playerid][pInRusun]][rusunName]), 
         "Undang\n\
         "GRAY"Pakaian\n\
         Membuang Pakaian\n\
@@ -629,7 +629,7 @@ Dialog:RusunItemVaultDeposit(playerid, response, listitem, inputtext[])
     
     new shstr[528];
     format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Mohon masukkan jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][listitem]][invItem], InventoryData[playerid][PlayerListitem[playerid][listitem]][invQuantity]);
-    Dialog_Show(playerid, "RusunItemVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Rusun Brankas", 
+    Dialog_Show(playerid, "RusunItemVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Rusun Brankas", 
     shstr, "Input", "Batal");
     return 1;
 }
@@ -655,7 +655,7 @@ Dialog:RusunItemVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Error: Tidak dapat dikosongkan!\nPlease enter the quantity you want to store:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "RusunItemVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rusun", 
+        Dialog_Show(playerid, "RusunItemVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rusun", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -664,7 +664,7 @@ Dialog:RusunItemVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Error: Please enter only numbers!\nPlease enter the quantity you want to store:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "RusunItemVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rusun", 
+        Dialog_Show(playerid, "RusunItemVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rusun", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -673,7 +673,7 @@ Dialog:RusunItemVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Error: Jumlah tidak valid!\nPlease enter the quantity you want to store:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "RusunItemVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rusun", 
+        Dialog_Show(playerid, "RusunItemVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rusun", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -733,7 +733,7 @@ Dialog:RusunItemVaultWithdraw(playerid, response, listitem, inputtext[])
     if (!response) 
     {
         AccountData[playerid][pMenuShowed] = false;
-        Dialog_Show(playerid, "RusunChest", DIALOG_STYLE_LIST, sprintf(""Nexston"Nexston Roleplay "WHITE"- %s", RusunData[AccountData[playerid][pInRusun]][rusunName]), 
+        Dialog_Show(playerid, "RusunChest", DIALOG_STYLE_LIST, sprintf(""Vertex"Vertex Roleplay "WHITE"- %s", RusunData[AccountData[playerid][pInRusun]][rusunName]), 
         "Undang\n\
         "GRAY"Pakaian\n\
         Membuang Pakaian\n\
@@ -775,7 +775,7 @@ Dialog:RusunItemVaultWithdraw(playerid, response, listitem, inputtext[])
 
         new shstr[528];
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon masukkan berapa jumlah yang ingin diambil:", RusunBrankas[playerid][PlayerListitem[playerid][listitem]][rusunBrankasTemp], RusunBrankas[playerid][PlayerListitem[playerid][listitem]][rusunBrankasQuant]);
-        Dialog_Show(playerid, "RusunItemVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rusun", 
+        Dialog_Show(playerid, "RusunItemVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rusun", 
         shstr, "Input", "Batal");
     }
 
@@ -803,7 +803,7 @@ Dialog:RusunItemVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Error: Tidak dapat dikosongkan!\nPlease enter the quantity you want to retrieve:", RusunBrankas[playerid][PlayerListitem[playerid][id]][rusunBrankasTemp], RusunBrankas[playerid][PlayerListitem[playerid][id]][rusunBrankasQuant]);
-        Dialog_Show(playerid, "RusunItemVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rusun", 
+        Dialog_Show(playerid, "RusunItemVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rusun", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -812,7 +812,7 @@ Dialog:RusunItemVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Error: Please enter only numbers!\nPlease enter the quantity you want to retrieve:", RusunBrankas[playerid][PlayerListitem[playerid][id]][rusunBrankasTemp], RusunBrankas[playerid][PlayerListitem[playerid][id]][rusunBrankasQuant]);
-        Dialog_Show(playerid, "RusunItemVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rusun", 
+        Dialog_Show(playerid, "RusunItemVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rusun", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -821,7 +821,7 @@ Dialog:RusunItemVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Error: Jumlah tidak valid!\nPlease enter the quantity you want to retrieve:", RusunBrankas[playerid][PlayerListitem[playerid][id]][rusunBrankasTemp], RusunBrankas[playerid][PlayerListitem[playerid][id]][rusunBrankasQuant]);
-        Dialog_Show(playerid, "RusunItemVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Brankas Rusun", 
+        Dialog_Show(playerid, "RusunItemVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Brankas Rusun", 
         shstr, "Input", "Batal");
         return 1;
     }

@@ -117,9 +117,9 @@ Dialog:VerifPW(playerid, response, listitem, inputtext[])
 		ShowTDN(playerid, NOTIFICATION_ERROR, "Kode recovery hanya berupa angka!");
 		
 		static string[512];
-		format(string, sizeof(string), "Selamat datang di Nexston\nNama UCP: %s\n\
+		format(string, sizeof(string), "Selamat datang di Vertex\nNama UCP: %s\n\
 		Anda telah meminta layanan lupa password.\nKami telah mengirimkan anda kode recovery melalui DM discord anda.\n"YELLOW"(Mohon masukkan kode tersebut di bawah ini):", AccountData[playerid][pUCP]);
-		Dialog_Show(playerid, "VerifPW", DIALOG_STYLE_PASSWORD, ""Nexston"Nexston Roleplay "WHITE"- Lupa Sandi", string, "Input", "Batal");
+		Dialog_Show(playerid, "VerifPW", DIALOG_STYLE_PASSWORD, ""Vertex"Vertex Roleplay "WHITE"- Lupa Sandi", string, "Input", "Batal");
 		return 1;
 	}
 
@@ -131,7 +131,7 @@ Dialog:VerifPW(playerid, response, listitem, inputtext[])
 	}
 	ShowTDN(playerid, NOTIFICATION_SUCCESS, "Anda berhasil memasukkan kode recovery!");
 
-	Dialog_Show(playerid, "RecPassword", DIALOG_STYLE_PASSWORD, ""Nexston"Nexston Roleplay "WHITE"- Ganti Sandi", "Masukkan password baru untuk menggantinya:", "Set", "Batal");
+	Dialog_Show(playerid, "RecPassword", DIALOG_STYLE_PASSWORD, ""Vertex"Vertex Roleplay "WHITE"- Ganti Sandi", "Masukkan password baru untuk menggantinya:", "Set", "Batal");
 	return 1;
 }
 
@@ -146,16 +146,16 @@ Dialog:RecPassword(playerid, response, listitem, inputtext[])
 	}
 
 	static string[256];
-	format(string, sizeof(string), ""WHITE"Selamat Datang di "Nexston"Nexston Roleplay!\n"WHITE"Nama UCP: "RED"%s\nERROR: "WHITE"Panjang password harus 7 hingga 32 karakter!\n"YELLOW"(Masukkan password baru untuk menggantinya):", GetName(playerid));
+	format(string, sizeof(string), ""WHITE"Selamat Datang di "Vertex"Vertex Roleplay!\n"WHITE"Nama UCP: "RED"%s\nERROR: "WHITE"Panjang password harus 7 hingga 32 karakter!\n"YELLOW"(Masukkan password baru untuk menggantinya):", GetName(playerid));
 
 	if(strlen(inputtext) < 7)
-		return Dialog_Show(playerid, "RecPassword", DIALOG_STYLE_PASSWORD, ""Nexston"Nexston Roleplay "WHITE"- Ganti Sandi", string, "Input", "Quit");
+		return Dialog_Show(playerid, "RecPassword", DIALOG_STYLE_PASSWORD, ""Vertex"Vertex Roleplay "WHITE"- Ganti Sandi", string, "Input", "Quit");
 
 	if(strlen(inputtext) > 32)
-		return Dialog_Show(playerid, "RecPassword", DIALOG_STYLE_PASSWORD, ""Nexston"Nexston Roleplay "WHITE"- Ganti Sandi", string, "Input", "Quit");
+		return Dialog_Show(playerid, "RecPassword", DIALOG_STYLE_PASSWORD, ""Vertex"Vertex Roleplay "WHITE"- Ganti Sandi", string, "Input", "Quit");
 
 	if(!IsValidPassword(inputtext))
-		return Dialog_Show(playerid, "RecPassword", DIALOG_STYLE_PASSWORD, ""Nexston"Nexston Roleplay "WHITE"- Ganti Sandi", sprintf(""WHITE"Selamat Datang di "Nexston"Nexston Roleplay!\n"WHITE"Nama UCP: "RED"%s\nERROR: "WHITE"Sandi hanya dapat mengandung A-Z, a-z, 0-9, _, [ ], ( )\n"YELLOW"(Mohon masukkan password untuk register):", GetName(playerid)), "Input", "Quit");
+		return Dialog_Show(playerid, "RecPassword", DIALOG_STYLE_PASSWORD, ""Vertex"Vertex Roleplay "WHITE"- Ganti Sandi", sprintf(""WHITE"Selamat Datang di "Vertex"Vertex Roleplay!\n"WHITE"Nama UCP: "RED"%s\nERROR: "WHITE"Sandi hanya dapat mengandung A-Z, a-z, 0-9, _, [ ], ( )\n"YELLOW"(Mohon masukkan password untuk register):", GetName(playerid)), "Input", "Quit");
 
 	bcrypt_hash(playerid, "OnPasswordRecChanged", inputtext, BCRYPT_COST);
 	return 1;
@@ -173,7 +173,7 @@ Dialog:Register(playerid, response, listitem, inputtext[])
 	}
 
 	static string[256];
-	format(string, sizeof(string), ""WHITE"Selamat Datang di "Nexston"Nexston Roleplay!\n"WHITE"Nama UCP: "RED"%s\nERROR: "WHITE"Panjang password harus 7 hingga 32 karakter!\n"YELLOW"(Mohon masukkan password untuk register):", GetName(playerid));
+	format(string, sizeof(string), ""WHITE"Selamat Datang di "Vertex"Vertex Roleplay!\n"WHITE"Nama UCP: "RED"%s\nERROR: "WHITE"Panjang password harus 7 hingga 32 karakter!\n"YELLOW"(Mohon masukkan password untuk register):", GetName(playerid));
 
 	if(strlen(inputtext) < 7)
 		return Dialog_Show(playerid, "Register", DIALOG_STYLE_PASSWORD, "UCP - Register", string, "Input", "Quit");
@@ -182,7 +182,7 @@ Dialog:Register(playerid, response, listitem, inputtext[])
 		return Dialog_Show(playerid, "Register", DIALOG_STYLE_PASSWORD, "UCP - Register", string, "Input", "Quit");
 
 	if(!IsValidPassword(inputtext))
-		return Dialog_Show(playerid, "Register", DIALOG_STYLE_PASSWORD, "UCP - Register", sprintf(""WHITE"Selamat Datang di "Nexston"Nexston Roleplay!\n"WHITE"Nama UCP: "RED"%s\nERROR: "WHITE"Sandi hanya dapat mengandung A-Z, a-z, 0-9, _, [ ], ( )\n"YELLOW"(Mohon masukkan password untuk register):", GetName(playerid)), "Input", "Quit");
+		return Dialog_Show(playerid, "Register", DIALOG_STYLE_PASSWORD, "UCP - Register", sprintf(""WHITE"Selamat Datang di "Vertex"Vertex Roleplay!\n"WHITE"Nama UCP: "RED"%s\nERROR: "WHITE"Sandi hanya dapat mengandung A-Z, a-z, 0-9, _, [ ], ( )\n"YELLOW"(Mohon masukkan password untuk register):", GetName(playerid)), "Input", "Quit");
 
 	bcrypt_hash(playerid, "OnPasswordHashed", inputtext, BCRYPT_COST);
 	return 1;
@@ -205,7 +205,7 @@ Dialog:Login(playerid, response, listitem, inputtext[])
         strcat(stars, "x");
     
     if(!strlen(stars)) stars = "_";
-    PlayerTextDrawSetString(playerid, LoginNSRP[playerid][68], stars);
+    PlayerTextDrawSetString(playerid, LoginVRP[playerid][68], stars);
     return 1;
 }
 Dialog:Verification(playerid, response, listitem, inputtext[])
@@ -226,8 +226,8 @@ Dialog:Verification(playerid, response, listitem, inputtext[])
 		PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
 		
 		static string[512];
-		format(string, sizeof(string), ""RED"<!> Masukkan kode verifikasi hanya berupa angka!\n\n"WHITE"Selamat datang di "Nexston"Nexston Roleplay\n"WHITE"UCP ini belum terdaftar dan terverifikasi!\nNama UCP: "RED"%s\n"YELLOW"(Silakan masukkan kode verifikasi):", AccountData[playerid][pUCP]);
-		Dialog_Show(playerid, "Verification", DIALOG_STYLE_PASSWORD, ""Nexston"Nexston Roleplay "WHITE"- Tiket Theater", string, "Verify", "Batal");
+		format(string, sizeof(string), ""RED"<!> Masukkan kode verifikasi hanya berupa angka!\n\n"WHITE"Selamat datang di "Vertex"Vertex Roleplay\n"WHITE"UCP ini belum terdaftar dan terverifikasi!\nNama UCP: "RED"%s\n"YELLOW"(Silakan masukkan kode verifikasi):", AccountData[playerid][pUCP]);
+		Dialog_Show(playerid, "Verification", DIALOG_STYLE_PASSWORD, ""Vertex"Vertex Roleplay "WHITE"- Tiket Theater", string, "Verify", "Batal");
 		return 1;
 	}
 
@@ -246,7 +246,7 @@ Dialog:Verification(playerid, response, listitem, inputtext[])
 
 			ShowTDN(playerid, NOTIFICATION_SUCCESS, "Anda berhasil menyelesaikan verifikasi!");
 
-			format(string, sizeof(string), ""WHITE"Selamat datang di "Nexston"Nexston Roleplay\n"WHITE"UCP ini belum terdaftar!\nNama UCP: "RED"%s\n"YELLOW"(Silakan masukkan kata sandi untuk mendaftar):", AccountData[playerid][pUCP]);
+			format(string, sizeof(string), ""WHITE"Selamat datang di "Vertex"Vertex Roleplay\n"WHITE"UCP ini belum terdaftar!\nNama UCP: "RED"%s\n"YELLOW"(Silakan masukkan kata sandi untuk mendaftar):", AccountData[playerid][pUCP]);
 			Dialog_Show(playerid, "Register", DIALOG_STYLE_PASSWORD, "UCP - Register", string, "Input", "Quit");
 		}
 		else
@@ -280,8 +280,8 @@ Dialog:VerificationLogin(playerid, response, listitem, inputtext[])
 		PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
 		
 		static string[512];
-		format(string, sizeof(string), ""RED"<!> Masukkan kode verifikasi hanya berupa angka!\n\n"WHITE"Selamat datang di "Nexston"Nexston Roleplay\n"WHITE"UCP ini telah terdaftar namun belum melakukan verifikasi!\nNama UCP: "DARK_SEA_GREEN_2"%s\n"YELLOW"(Silakan masukkan kode verifikasi):", AccountData[playerid][pUCP]);
-		Dialog_Show(playerid, "VerificationLogin", DIALOG_STYLE_PASSWORD, ""Nexston"Nexston Roleplay "WHITE"- Tiket Theater", string, "Verify", "Batal");
+		format(string, sizeof(string), ""RED"<!> Masukkan kode verifikasi hanya berupa angka!\n\n"WHITE"Selamat datang di "Vertex"Vertex Roleplay\n"WHITE"UCP ini telah terdaftar namun belum melakukan verifikasi!\nNama UCP: "DARK_SEA_GREEN_2"%s\n"YELLOW"(Silakan masukkan kode verifikasi):", AccountData[playerid][pUCP]);
+		Dialog_Show(playerid, "VerificationLogin", DIALOG_STYLE_PASSWORD, ""Vertex"Vertex Roleplay "WHITE"- Tiket Theater", string, "Verify", "Batal");
 		return 1;
 	}
 
@@ -300,7 +300,7 @@ Dialog:VerificationLogin(playerid, response, listitem, inputtext[])
 
 			ShowTDN(playerid, NOTIFICATION_SUCCESS, "Anda berhasil menyelesaikan verifikasi!");
 
-			format(string, sizeof(string), ""WHITE"Selamat datang di "Nexston"Nexston Roleplay\n"WHITE"UCP ini telah terdaftar!\nNama UCP: "DARK_SEA_GREEN_2"%s\n"YELLOW"(Silakan masukkan kata sandi untuk login):", AccountData[playerid][pUCP]);
+			format(string, sizeof(string), ""WHITE"Selamat datang di "Vertex"Vertex Roleplay\n"WHITE"UCP ini telah terdaftar!\nNama UCP: "DARK_SEA_GREEN_2"%s\n"YELLOW"(Silakan masukkan kata sandi untuk login):", AccountData[playerid][pUCP]);
 			Dialog_Show(playerid, "Login", DIALOG_STYLE_PASSWORD, "UCP - Login", string, "Input", "Quit");
 		}
 		else
@@ -329,7 +329,7 @@ Dialog:CharacterList(playerid, response, listitem, inputtext[])
 
 	if(isnull(PlayerChar[playerid][listitem]))
 	{
-		Dialog_Show(playerid, "MakeNewChar", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pembuatan Karakter", ""WHITE"Selamat datang di "Nexston"Nexston Roleplay.\n\
+		Dialog_Show(playerid, "MakeNewChar", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pembuatan Karakter", ""WHITE"Selamat datang di "Vertex"Vertex Roleplay.\n\
 		"WHITE"Sebelum bermain anda harus membuat karakter terlebih dahulu.\n\
 		Masukkan nama karakter sesuai keinginan anda\n\nCth: Muhammed_Iksan, Kelvin_Susilo", "Input", "Kembali");
 		return 1;
@@ -346,10 +346,10 @@ Dialog:MakeNewChar(playerid, response, listitem, inputtext[])
 	if(!response) return ShowCharacterList(playerid);
 
 	if(strlen(inputtext) < 1 || strlen(inputtext) > 24)
-		return Dialog_Show(playerid, "MakeNewChar", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pembuatan Karakter", ""RED"Error: "WHITE"Nama karakter harus berisi 1 - 24 huruf!\nContoh nama yang baik: Udin_Ahmad, Jefri_Sianturi\n"YELLOW"(Mohon masukkan nama yang benar):", "Input", "Kembali");
+		return Dialog_Show(playerid, "MakeNewChar", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pembuatan Karakter", ""RED"Error: "WHITE"Nama karakter harus berisi 1 - 24 huruf!\nContoh nama yang baik: Udin_Ahmad, Jefri_Sianturi\n"YELLOW"(Mohon masukkan nama yang benar):", "Input", "Kembali");
 
 	if(!IsRoleplayName(inputtext))
-		return Dialog_Show(playerid, "MakeNewChar", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pembuatan Karakter", ""RED"Error: "WHITE"Format nama karakter salah!\nContoh nama yang baik: Udin_Ahmad, Jefri_Sianturi\n"YELLOW"(Mohon masukkan nama yang benar):", "Input", "Kembali");
+		return Dialog_Show(playerid, "MakeNewChar", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pembuatan Karakter", ""RED"Error: "WHITE"Format nama karakter salah!\nContoh nama yang baik: Udin_Ahmad, Jefri_Sianturi\n"YELLOW"(Mohon masukkan nama yang benar):", "Input", "Kembali");
 
 	static string[178];
 	mysql_format(g_SQL, string, sizeof(string), "SELECT * FROM `player_characters` WHERE `Char_Name` = '%e'", inputtext);
@@ -378,19 +378,19 @@ Dialog:NewCharAge(playerid, response, listitem, inputtext[])
 
 		if(sscanf(inputtext, "p</>ddd", iDay, iMonth, iYear)) 
 		{
-			PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0); Dialog_Show(playerid, "NewCharAge", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Birthday", "Error: Format salah!\nPlease insert the birthday with following format hh/bb/tttt cth: (25/08/2001)", "Input", "");
+			PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0); Dialog_Show(playerid, "NewCharAge", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Birthday", "Error: Format salah!\nPlease insert the birthday with following format hh/bb/tttt cth: (25/08/2001)", "Input", "");
 		}
 		else if(iYear < 1900 || iYear > year) 
 		{
-			PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0); Dialog_Show(playerid, "NewCharAge", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Birthday", "Error: Invalid input tahun kelahiran!\nPlease insert the birthday with following format hh/bb/tttt cth: (25/08/2001)", "Input", "");
+			PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0); Dialog_Show(playerid, "NewCharAge", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Birthday", "Error: Invalid input tahun kelahiran!\nPlease insert the birthday with following format hh/bb/tttt cth: (25/08/2001)", "Input", "");
 		}
 		else if(iMonth < 1 || iMonth > 12) 
 		{
-			PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0); Dialog_Show(playerid, "NewCharAge", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Birthday", "Error: Invalid input bulan kelahiran!\nPlease insert the birthday with following format hh/bb/tttt cth: (25/08/2001)", "Input", "");
+			PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0); Dialog_Show(playerid, "NewCharAge", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Birthday", "Error: Invalid input bulan kelahiran!\nPlease insert the birthday with following format hh/bb/tttt cth: (25/08/2001)", "Input", "");
 		}
 		else if(iDay < 1 || iDay > arrMonthDays[iMonth - 1]) 
 		{
-			PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0); Dialog_Show(playerid, "NewCharAge", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Birthday", "Error: Invalid input tanggal kelahiran!\nPlease insert the birthday with following format hh/bb/tttt cth: (25/08/2001)", "Input", "");
+			PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0); Dialog_Show(playerid, "NewCharAge", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Birthday", "Error: Invalid input tanggal kelahiran!\nPlease insert the birthday with following format hh/bb/tttt cth: (25/08/2001)", "Input", "");
 		}
 		else 
 		{
@@ -401,13 +401,13 @@ Dialog:NewCharAge(playerid, response, listitem, inputtext[])
 			{
 				format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
 			}
-			Dialog_Show(playerid, "NewCharOrigin", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Origin", originstring, "Pilih", "");
+			Dialog_Show(playerid, "NewCharOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Origin", originstring, "Pilih", "");
 		}
 	}
 	else
 	{
 		PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-		Dialog_Show(playerid, "NewCharAge", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Birthday", 
+		Dialog_Show(playerid, "NewCharAge", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Birthday", 
 		"Error: Tidak dapat dibatalkan!\n\
 		Mohon masukkan tanggal lahir karakter!\n\
 		Perhatian: Format berupa hh/bb/tttt (cth: 25/08/2001).", "Input", "Batal");
@@ -424,7 +424,7 @@ Dialog:NewCharOrigin(playerid, response, listitem, inputtext[])
 		{
 			format(originstring, sizeof(originstring), "%s%s\n", originstring, _g_originName[x]);
 		}
-		return Dialog_Show(playerid, "NewCharOrigin", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Origin", originstring, "Pilih", "");
+		return Dialog_Show(playerid, "NewCharOrigin", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Origin", originstring, "Pilih", "");
 	}
 
 	if(listitem == -1 || listitem > sizeof(_g_originName) - 1)
@@ -436,7 +436,7 @@ Dialog:NewCharOrigin(playerid, response, listitem, inputtext[])
 		strcopy(AccountData[playerid][pOrigin], _g_originName[listitem]);
 	}
 
-	Dialog_Show(playerid, "NewCharHeight", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Body Height (cm)", "Please insert your body height (cm)!", "Input", "");
+	Dialog_Show(playerid, "NewCharHeight", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Body Height (cm)", "Please insert your body height (cm)!", "Input", "");
 	return 1;
 }
 
@@ -445,7 +445,7 @@ Dialog:NewCharHeight(playerid, response, listitem, inputtext[])
 	if(!response) 
 	{
 		PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-		Dialog_Show(playerid, "NewCharHeight", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Body Height (cm)", 
+		Dialog_Show(playerid, "NewCharHeight", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Body Height (cm)", 
 		"Error: Tidak dapat dibatalkan!\n\
 		Mohon masukkan Body Height (cm) karakter!\n\
 		Perhatian: Format hanya berupa angka satuan cm (cth: 169).", "Input", "");
@@ -455,29 +455,29 @@ Dialog:NewCharHeight(playerid, response, listitem, inputtext[])
 	if(isnull(inputtext))
 	{
 		PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-		Dialog_Show(playerid, "NewCharHeight", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Body Height (cm)", "Error: Tidak dapat dikosongkan!", "Input", "");
+		Dialog_Show(playerid, "NewCharHeight", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Body Height (cm)", "Error: Tidak dapat dikosongkan!", "Input", "");
 		return 1;
 	}
 	if(!IsNumericEx(inputtext))
 	{
 		PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-		Dialog_Show(playerid, "NewCharHeight", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Body Height (cm)", "Error: Masukkan hanya angka!", "Input", "");
+		Dialog_Show(playerid, "NewCharHeight", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Body Height (cm)", "Error: Masukkan hanya angka!", "Input", "");
 		return 1;
 	}
 	if(strval(inputtext) > 200)
 	{
 		PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-		Dialog_Show(playerid, "NewCharHeight", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Body Height (cm)", "Error: Tidak bisa lebih dari 200 cm!", "Input", "");
+		Dialog_Show(playerid, "NewCharHeight", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Body Height (cm)", "Error: Tidak bisa lebih dari 200 cm!", "Input", "");
 		return 1;
 	}
 	if(strval(inputtext) < 140)
 	{
 		PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-		Dialog_Show(playerid, "NewCharHeight", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Body Height (cm)", "Error: Tidak bisa di bawah 140 cm!", "Input", "");
+		Dialog_Show(playerid, "NewCharHeight", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Body Height (cm)", "Error: Tidak bisa di bawah 140 cm!", "Input", "");
 		return 1;
 	}
 	AccountData[playerid][pBodyHeight] = strval(inputtext);
-	Dialog_Show(playerid, "NewCharWeight", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Body Weight (kg)", "Masukkan berat badan karakter (kg)!", "Input", "");
+	Dialog_Show(playerid, "NewCharWeight", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Body Weight (kg)", "Masukkan berat badan karakter (kg)!", "Input", "");
 	return 1;
 }
 
@@ -486,7 +486,7 @@ Dialog:NewCharWeight(playerid, response, listitem, inputtext[])
 	if(!response) 
 	{
 		PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-		Dialog_Show(playerid, "NewCharWeight", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Body Weight (kg)", 
+		Dialog_Show(playerid, "NewCharWeight", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Body Weight (kg)", 
 		"Error: Tidak dapat dibatalkan!\n\
 		Mohon masukkan Body Weight (kg) karakter!\n\
 		Perhatian: Format hanya berupa angka satuan kg (cth: 75).", "Input", "Batal");
@@ -496,29 +496,29 @@ Dialog:NewCharWeight(playerid, response, listitem, inputtext[])
 	if(isnull(inputtext))
 	{
 		PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-		Dialog_Show(playerid, "NewCharWeight", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Body Weight (kg)", "Error: Tidak dapat dikosongkan!", "Input", "");
+		Dialog_Show(playerid, "NewCharWeight", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Body Weight (kg)", "Error: Tidak dapat dikosongkan!", "Input", "");
 		return 1;
 	}
 	if(!IsNumericEx(inputtext))
 	{
 		PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-		Dialog_Show(playerid, "NewCharWeight", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Body Weight (kg)", "Error: Masukkan hanya angka!", "Input", "");
+		Dialog_Show(playerid, "NewCharWeight", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Body Weight (kg)", "Error: Masukkan hanya angka!", "Input", "");
 		return 1;
 	}
 	if(strval(inputtext) > 100)
 	{
 		PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-		Dialog_Show(playerid, "NewCharWeight", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Body Weight (kg)", "Error: Tidak bisa lebih dari 100 kg!", "Input", "");
+		Dialog_Show(playerid, "NewCharWeight", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Body Weight (kg)", "Error: Tidak bisa lebih dari 100 kg!", "Input", "");
 		return 1;
 	}
 	if(strval(inputtext) < 40)
 	{
 		PlayerPlaySound(playerid, 1085, 0.0, 0.0, 0.0);
-		Dialog_Show(playerid, "NewCharWeight", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Body Weight (kg)", "Error: Tidak bisa di bawah 40 kg!", "Input", "");
+		Dialog_Show(playerid, "NewCharWeight", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Body Weight (kg)", "Error: Tidak bisa di bawah 40 kg!", "Input", "");
 		return 1;
 	}
 	AccountData[playerid][pBodyWeight] = strval(inputtext);
-	Dialog_Show(playerid, "NewCharGender", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Jenis Kelamin", "Laki-Laki\n"GRAY"Perempuan", "Pilih", "");
+	Dialog_Show(playerid, "NewCharGender", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Jenis Kelamin", "Laki-Laki\n"GRAY"Perempuan", "Pilih", "");
 	return 1;
 }
 
@@ -697,8 +697,8 @@ Dialog:SpawnSelection(playerid, response, listitem, inputtext[])
 			{
 				case 1: //LSPD
 				{
-					Dialog_Show(playerid, "SpawnSelectPD", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Select Spawn", 
-					"SAMSAT Nexston\n\
+					Dialog_Show(playerid, "SpawnSelectPD", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Select Spawn", 
+					"SAMSAT Vertex\n\
 					Coming Soon", "Pilih", "Kembali");
 				}
 				case 2: //EMS
@@ -890,7 +890,7 @@ Dialog:SpawnSelection(playerid, response, listitem, inputtext[])
 					PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
 					GameTextForPlayer(playerid, "Memuat Objek...", 6500, 3);
 				}
-				case 11: //+Nexston
+				case 11: //+Vertex
 				{
 					AccountData[playerid][pInDoor] = -1;
 					AccountData[playerid][pInHouse] = -1;
@@ -1011,7 +1011,7 @@ Dialog:SelectionRegSpawn(playerid, response, listitem, inputtext[])
 Dialog:NewCharGender(playerid, response, listitem, inputtext[])
 {
 	if(!response)
-		return Dialog_Show(playerid, "NewCharGender", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Jenis Kelamin", "Laki-Laki\n"GRAY"Perempuan", "Pilih", "");
+		return Dialog_Show(playerid, "NewCharGender", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Jenis Kelamin", "Laki-Laki\n"GRAY"Perempuan", "Pilih", "");
 
 	switch(listitem)
 	{
@@ -1030,7 +1030,7 @@ Dialog:NewCharGender(playerid, response, listitem, inputtext[])
 			SetPlayerCameraLookAt(playerid, 523.445556, -1929.099853, 0.045935);
 			InterpolateCameraPos(playerid,642.535644, -2237.217285, 143.806137, 523.445556, -1929.099853, 143.806137,50000,CAMERA_MOVE);
 
-			Dialog_Show(playerid, "SelectionRegSpawn", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Pilih Lokasi Spawn", 
+			Dialog_Show(playerid, "SelectionRegSpawn", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Pilih Lokasi Spawn", 
 			"Titik spawn\tDetail\tLokasi\n\
 			Los Santos International Airport\tAnda spawn di bandara\tLos Santos (LS)", "Pilih", "");
 		}
@@ -1049,7 +1049,7 @@ Dialog:NewCharGender(playerid, response, listitem, inputtext[])
 			SetPlayerCameraLookAt(playerid, 523.445556, -1929.099853, 0.045935);
 			InterpolateCameraPos(playerid,642.535644, -2237.217285, 143.806137, 523.445556, -1929.099853, 143.806137,50000,CAMERA_MOVE);
 			
-			Dialog_Show(playerid, "SelectionRegSpawn", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Pilih Lokasi Spawn", 
+			Dialog_Show(playerid, "SelectionRegSpawn", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Pilih Lokasi Spawn", 
 			"Titik spawn\tDetail\tLokasi\n\
 			Los Santos International Airport\tAnda spawn di bandara\tLos Santos (LS)", "Pilih", "");
 		}
@@ -1276,7 +1276,7 @@ Dialog:ShopCatalog(playerid, response, listitem, inputtext[])
 		{
 			if(AccountData[playerid][pMoney] < 50) return ShowTDN(playerid, NOTIFICATION_ERROR, "Uang anda tidak cukup!");
 
-			Dialog_Show(playerid, "ShopBuyBait", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Warung", 
+			Dialog_Show(playerid, "ShopBuyBait", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Warung", 
 			"Anda akan membeli umpan seharga "DARKGREEN"$50/pcs\n\
 			"YELLOW"(Masukkan berapa banyak yang ingin anda beli):", "Beli", "Batal");
 		}
@@ -1360,7 +1360,7 @@ Dialog:VendingDrink(playerid, response, listitem, inputtext[])
 	if(AccountData[playerid][pMoney] < 200) return ShowTDN(playerid, NOTIFICATION_ERROR, "Uang anda tidak cukup!");
 	
 	AccountData[playerid][pTempValue] = listitem;
-	Dialog_Show(playerid, "VendingDrinkConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Vending Menu", 
+	Dialog_Show(playerid, "VendingDrinkConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Vending Menu", 
 	"Anda akan membeli minuman dari vending machine seharga "DARKGREEN"$200.50/pcs\n\
 	"YELLOW"(Mohon masukkan berapa banyak yang ingin dibeli):", "Beli", "Batal");
 	return 1;
@@ -1428,7 +1428,7 @@ Dialog:VendingSnack(playerid, response, listitem, inputtext[])
 	if(AccountData[playerid][pMoney] < 200) return ShowTDN(playerid, NOTIFICATION_ERROR, "Uang anda tidak cukup!");
 	
 	AccountData[playerid][pTempValue] = listitem;
-	Dialog_Show(playerid, "VendingSnackConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Vending Menu", 
+	Dialog_Show(playerid, "VendingSnackConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Vending Menu", 
 	"Anda akan membeli snack dari vending machine seharga "DARKGREEN"$200.50/pcs\n\
 	"YELLOW"(Mohon masukkan berapa banyak yang ingin dibeli):", "Beli", "Batal");
 	return 1;
@@ -1682,19 +1682,19 @@ Dialog:JobFarmerBuySeeds(playerid, response, listitem, inputtext[])
 	{
 		case 0: //cabe
 		{
-			Dialog_Show(playerid, "JobFarmerBuySeedsConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bibit Cabai", 
+			Dialog_Show(playerid, "JobFarmerBuySeedsConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bibit Cabai", 
 			""WHITE"Anda akan membeli "YELLOW"Bibit Cabai "WHITE"seharga "GREEN"$40/bibit\n\
 			"YELLOW"(Masukkan berapa banyak bibit yang ingin anda beli):", "Input", "Batal");
 		}
 		case 1: //tebu
 		{
-			Dialog_Show(playerid, "JobFarmerBuySeedsConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bibit Tebu", 
+			Dialog_Show(playerid, "JobFarmerBuySeedsConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bibit Tebu", 
 			""WHITE"Anda akan membeli "YELLOW"Bibit Tebu "WHITE"seharga "GREEN"$40/bibit\n\
 			"YELLOW"(Masukkan berapa banyak bibit yang ingin anda beli):", "Input", "Batal");
 		}
 		case 2: //padi
 		{
-			Dialog_Show(playerid, "JobFarmerBuySeedsConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bibit Padi", 
+			Dialog_Show(playerid, "JobFarmerBuySeedsConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bibit Padi", 
 			""WHITE"Anda akan membeli "YELLOW"Bibit Padi "WHITE"seharga "GREEN"$40/bibit\n\
 			"YELLOW"(Masukkan berapa banyak bibit yang ingin anda beli):", "Input", "Batal");
 		}
@@ -1711,19 +1711,19 @@ Dialog:JobFarmerBuyFSeeds(playerid, response, listitem, inputtext[])
 	{
 		case 0: //Strawberry
 		{
-			Dialog_Show(playerid, "JobFarmerBuySeedsFC", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bibit Strawberry", 
+			Dialog_Show(playerid, "JobFarmerBuySeedsFC", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bibit Strawberry", 
 			""WHITE"Anda akan membeli "YELLOW"Bibit Strawberry "WHITE"seharga "GREEN"$40/bibit\n\
 			"YELLOW"(Masukkan berapa banyak bibit yang ingin anda beli):", "Input", "Batal");
 		}
 		case 1: //Jeruk
 		{
-			Dialog_Show(playerid, "JobFarmerBuySeedsFC", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bibit Jeruk", 
+			Dialog_Show(playerid, "JobFarmerBuySeedsFC", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bibit Jeruk", 
 			""WHITE"Anda akan membeli "YELLOW"Bibit Jeruk "WHITE"seharga "GREEN"$40/bibit\n\
 			"YELLOW"(Masukkan berapa banyak bibit yang ingin anda beli):", "Input", "Batal");
 		}
 		case 2: //Anggur
 		{
-			Dialog_Show(playerid, "JobFarmerBuySeedsFC", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Bibit Anggur", 
+			Dialog_Show(playerid, "JobFarmerBuySeedsFC", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Bibit Anggur", 
 			""WHITE"Anda akan membeli "YELLOW"Bibit Anggur "WHITE"seharga "GREEN"$40/bibit\n\
 			"YELLOW"(Masukkan berapa banyak bibit yang ingin anda beli):", "Input", "Batal");
 		}
@@ -2009,10 +2009,10 @@ Dialog:VehicleTrunk(playerid, response, listitem, inputtext[])
 			if(count == 0) 
 			{
 				PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-				return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Masukkan ke Trunk", "Tidak ada pemain terdekat!", "Tutup", "");
+				return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Masukkan ke Trunk", "Tidak ada pemain terdekat!", "Tutup", "");
 			}
 
-			Dialog_Show(playerid, "VehicleForceTrunk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Masukkan ke Trunk", frmxt, "Pilih", "Batal");
+			Dialog_Show(playerid, "VehicleForceTrunk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Masukkan ke Trunk", frmxt, "Pilih", "Batal");
 		}
 		case 3:
 		{
@@ -2045,10 +2045,10 @@ Dialog:VehicleTrunk(playerid, response, listitem, inputtext[])
 			if(count == 0) 
 			{
 				PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-				return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Keluarkan dari Trunk", "Tidak ada player di dalam trunk!", "Tutup", "");
+				return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Keluarkan dari Trunk", "Tidak ada player di dalam trunk!", "Tutup", "");
 			}
 
-			Dialog_Show(playerid, "VehicleForceUntrunk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Keluarkan dari Trunk", frmxt, "Pilih", "Batal");
+			Dialog_Show(playerid, "VehicleForceUntrunk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Keluarkan dari Trunk", frmxt, "Pilih", "Batal");
 		}
 	}
 	return 1;
@@ -2153,7 +2153,7 @@ Dialog:VehicleMenuMyv(playerid, response, listitem, inputtext[])
 	SetPVarInt(playerid, "ClickVehicle", vehicleid);
 
 	new price = GetValletPrice(PlayerVehicle[vehicleid][pVehModelID]);
-	Dialog_Show(playerid, "MyvMenuv2", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Kendaraan Saya", sprintf(""GREY"Cari Kendaraan\n"WHITE"Vallet "GREEN"($%s)\n"GRAY"Detail Kendaraan", FormatMoney(price)), "Pilih", "Batal");
+	Dialog_Show(playerid, "MyvMenuv2", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Kendaraan Saya", sprintf(""GREY"Cari Kendaraan\n"WHITE"Vallet "GREEN"($%s)\n"GRAY"Detail Kendaraan", FormatMoney(price)), "Pilih", "Batal");
 	return 1;
 }
 
@@ -2167,7 +2167,7 @@ Dialog:MyvMenuv2(playerid, response, listitem, inputtext[])
 
 			if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
 
-			Dialog_Show(playerid, "VehicleTrack", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Track Veh", ""WHITE"Pencarian kendaraan\n"YELLOW"(Masukkan VID kendaraan yang ingin dicari):", "Input", "Batal");
+			Dialog_Show(playerid, "VehicleTrack", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Track Veh", ""WHITE"Pencarian kendaraan\n"YELLOW"(Masukkan VID kendaraan yang ingin dicari):", "Input", "Batal");
 		}
 		case 1: { // Vallet
 			new vehid = GetPVarInt(playerid, "ClickVehicle");
@@ -2235,14 +2235,14 @@ Dialog:MyvMenuv2(playerid, response, listitem, inputtext[])
 			if(GetNearestVehicleToPlayer(playerid, 5.0, false) != PlayerVehicle[vehid][pVehPhysic])
 				return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak didekat kendaraan yang ingin anda cek detailnya!");
 			GetVehicleHealth(PlayerVehicle[vehid][pVehPhysic], vHealth);
-			format(strings, sizeof(strings), ""Nexston"Utama\n\
+			format(strings, sizeof(strings), ""Vertex"Utama\n\
 			\n"WHITE"VID (Database):"YELLOW" %d\n\
 			\n"WHITE"Kendaraan:"YELLOW" %s\n\
 			\n"WHITE"Nomor Plat:"YELLOW" %s\n\
-			\n\n"Nexston"Upgrade:\n\
+			\n\n"Vertex"Upgrade:\n\
 			\n"WHITE"- Engine Upgrade: %s\n\
 			\n"WHITE"- Body Upgrade: %s\n\
-			\n\n"Nexston"Selebihnya\n\
+			\n\n"Vertex"Selebihnya\n\
 			\n"WHITE"Fuel Capacity:"YELLOW" %d.0/100.0\n\
 			\n"WHITE"Max Vehicle Health:"YELLOW" %.1f/%s\n\
 			\n"WHITE"Vehicle Body Health:"YELLOW" %.1f/1000.0\n\
@@ -2257,7 +2257,7 @@ Dialog:MyvMenuv2(playerid, response, listitem, inputtext[])
 			PlayerVehicle[vehid][pVehMaxHealth] > 1000.0 ? "2000.0" : "1000.0",
 			PlayerVehicle[vehid][pVehHealth]);
 			Dialog_Show(playerid, "DetailVehinfo", DIALOG_STYLE_INPUT,
-				sprintf(""Nexston"Nexston Roleplay "WHITE"- %s Vehicle Details", AccountData[playerid][pName]),
+				sprintf(""Vertex"Vertex Roleplay "WHITE"- %s Vehicle Details", AccountData[playerid][pName]),
 				strings, "Submit", "Batal");
 		}
 	}
@@ -2277,14 +2277,14 @@ Dialog:DetailVehinfo(playerid, response, listitem, inputtext[])
 		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak didekat kendaraan yang ingin anda cek detailnya!");
 	GetVehicleHealth(PlayerVehicle[vehid][pVehPhysic], vHealth);
 
-	format(strings, sizeof(strings), ""Nexston"Utama\n\
+	format(strings, sizeof(strings), ""Vertex"Utama\n\
 	\n"WHITE"VID (Database):"YELLOW" %d\n\
 	\n"WHITE"Kendaraan:"YELLOW" %s\n\
 	\n"WHITE"Nomor Plat:"YELLOW" %s\n\
-	\n\n"Nexston"Upgrade:\n\
+	\n\n"Vertex"Upgrade:\n\
 	\n"WHITE"- Engine Upgrade: %s\n\
 	\n"WHITE"- Body Upgrade: %s\n\
-	\n\n"Nexston"Selebihnya\n\
+	\n\n"Vertex"Selebihnya\n\
 	\n"WHITE"Fuel Capacity:"YELLOW" %d.0/100.0\n\
 	\n"WHITE"Max Vehicle Health:"YELLOW" %.1f/%s\n\
 	\n"WHITE"Vehicle Body Health:"YELLOW" %.1f/1000.0\n\
@@ -2299,7 +2299,7 @@ Dialog:DetailVehinfo(playerid, response, listitem, inputtext[])
 	PlayerVehicle[vehid][pVehMaxHealth] > 1000.0 ? "2000.0" : "1000.0",
 	PlayerVehicle[vehid][pVehHealth]);
 	Dialog_Show(playerid, "DialogNotUsed", DIALOG_STYLE_INPUT,
-		sprintf(""Nexston"Nexston Roleplay "WHITE"- %s Vehicle Details", AccountData[playerid][pName]),
+		sprintf(""Vertex"Vertex Roleplay "WHITE"- %s Vehicle Details", AccountData[playerid][pName]),
 		strings, "Close", "");
 	return 1;
 }
@@ -2671,7 +2671,7 @@ Dialog:AnswerAsks(playerid, response, listitem, inputtext[])
 		if(counting == 0)
 			ShowTDN(playerid, NOTIFICATION_ERROR, "Tidak ada daftar pertanyaan!");
 		else
-			Dialog_Show(playerid, "QueueAsks", DIALOG_STYLE_TABLIST_HEADERS,""Nexston"Nexston Roleplay "WHITE"- Daftar Asks",string,"Cek","Tutup");
+			Dialog_Show(playerid, "QueueAsks", DIALOG_STYLE_TABLIST_HEADERS,""Vertex"Vertex Roleplay "WHITE"- Daftar Asks",string,"Cek","Tutup");
 		return 1;
 	}
 
@@ -2705,7 +2705,7 @@ Dialog:AnswerAsks(playerid, response, listitem, inputtext[])
 	if(counting == 0)
 		ShowTDN(playerid, NOTIFICATION_ERROR, "Tidak ada daftar pertanyaan!");
 	else
-		Dialog_Show(playerid, "QueueAsks", DIALOG_STYLE_TABLIST_HEADERS,""Nexston"Nexston Roleplay "WHITE"- Daftar Asks",string,"Cek","Tutup");
+		Dialog_Show(playerid, "QueueAsks", DIALOG_STYLE_TABLIST_HEADERS,""Vertex"Vertex Roleplay "WHITE"- Daftar Asks",string,"Cek","Tutup");
 	return 1;
 }
 
@@ -2757,7 +2757,7 @@ Dialog:RespondReports(playerid, response, listitem, inputtext[])
 		if(counting == 0)
 			ShowTDN(playerid, NOTIFICATION_ERROR, "Tidak ada daftar laporan!");
 		else
-			Dialog_Show(playerid, "QueueReports", DIALOG_STYLE_TABLIST_HEADERS,""Nexston"Nexston Roleplay "WHITE"- Daftar Reports",string,"Cek","Tutup");
+			Dialog_Show(playerid, "QueueReports", DIALOG_STYLE_TABLIST_HEADERS,""Vertex"Vertex Roleplay "WHITE"- Daftar Reports",string,"Cek","Tutup");
 		return 1;
 	}
 
@@ -2791,7 +2791,7 @@ Dialog:RespondReports(playerid, response, listitem, inputtext[])
 	if(counting == 0)
 		ShowTDN(playerid, NOTIFICATION_ERROR, "Tidak ada daftar laporan!");
 	else
-		Dialog_Show(playerid, "QueueReports", DIALOG_STYLE_TABLIST_HEADERS,""Nexston"Nexston Roleplay "WHITE"- Daftar Reports",string,"Cek","Tutup");
+		Dialog_Show(playerid, "QueueReports", DIALOG_STYLE_TABLIST_HEADERS,""Vertex"Vertex Roleplay "WHITE"- Daftar Reports",string,"Cek","Tutup");
 	return 1;
 }
 
@@ -3046,12 +3046,12 @@ Dialog:VehicleStorage(playerid, response, listitem, inputtext[])
 
 			if(count == 0)
 			{
-				Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, sprintf("Bagasi Kendaraan "YELLOW"%s "Nexston"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
+				Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, sprintf("Bagasi Kendaraan "YELLOW"%s "Vertex"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
 				"Anda tidak memiliki barang yang dapat disimpan!", "Tutup", "");
 			}
 			else
 			{
-				Dialog_Show(playerid, "VehicleStorageDeposit", DIALOG_STYLE_TABLIST_HEADERS, sprintf("Bagasi Kendaraan "YELLOW"%s "Nexston"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), string, "Pilih", "Batal");
+				Dialog_Show(playerid, "VehicleStorageDeposit", DIALOG_STYLE_TABLIST_HEADERS, sprintf("Bagasi Kendaraan "YELLOW"%s "Vertex"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), string, "Pilih", "Batal");
 			}
 		}
 		case 1: //withdraw
@@ -3122,7 +3122,7 @@ Dialog:VehicleStorageDeposit(playerid, response, listitem, inputtext[])
 
 	static string[528];
 	format(string, sizeof(string), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Mohon masukkan jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][listitem]][invItem], InventoryData[playerid][PlayerListitem[playerid][listitem]][invQuantity]);
-	Dialog_Show(playerid, "VehicleStorageIn", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Nexston"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
+	Dialog_Show(playerid, "VehicleStorageIn", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Vertex"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
 	string, "Input", "Batal");
 	return 1;
 }
@@ -3182,7 +3182,7 @@ Dialog:VehicleStorageIn(playerid, response, listitem, inputtext[])
 	{
 		AccountData[playerid][pMenuShowed] = true;
 		format(string, sizeof(string), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Error: Tidak dapat dikosongkan!\nPlease enter the quantity you want to store:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-		Dialog_Show(playerid, "VehicleStorageIn", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Nexston"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
+		Dialog_Show(playerid, "VehicleStorageIn", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Vertex"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
 		string, "Input", "Batal");
 		return 1;
 	}
@@ -3191,7 +3191,7 @@ Dialog:VehicleStorageIn(playerid, response, listitem, inputtext[])
 	{
 		AccountData[playerid][pMenuShowed] = true;
 		format(string, sizeof(string), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Error: Please enter only numbers!\nPlease enter the quantity you want to store:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-		Dialog_Show(playerid, "VehicleStorageIn", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Nexston"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
+		Dialog_Show(playerid, "VehicleStorageIn", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Vertex"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
 		string, "Input", "Batal");
 		return 1;
 	}
@@ -3200,7 +3200,7 @@ Dialog:VehicleStorageIn(playerid, response, listitem, inputtext[])
 	{
 		AccountData[playerid][pMenuShowed] = true;
 		format(string, sizeof(string), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Error: Jumlah tidak valid!\nPlease enter the quantity you want to store:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-		Dialog_Show(playerid, "VehicleStorageIn", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Nexston"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
+		Dialog_Show(playerid, "VehicleStorageIn", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Vertex"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
 		string, "Input", "Batal");
 		return 1;
 	}
@@ -3314,7 +3314,7 @@ Dialog:VehicleStorageWithdraw(playerid, response, listitem, inputtext[])
 		
         static string[528];
         format(string, sizeof(string), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon masukkan berapa jumlah yang ingin diambil:", VehicleBagasi[vehid][PlayerListitem[playerid][listitem]][vehicleBagasiTemp], VehicleBagasi[vehid][PlayerListitem[playerid][listitem]][vehicleBagasiQuant]);
-        Dialog_Show(playerid, "VehicleStorageOut", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Nexston"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
+        Dialog_Show(playerid, "VehicleStorageOut", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Vertex"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
         string, "Input", "Batal");
     }
 
@@ -3362,7 +3362,7 @@ Dialog:VehicleStorageOut(playerid, response, listitem, inputtext[])
 	{
 		AccountData[playerid][pMenuShowed] = true;
 		format(string, sizeof(string), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Error: Tidak dapat dikosongkan!\nPlease enter the quantity you want to retrieve:", VehicleBagasi[vehid][PlayerListitem[playerid][id]][vehicleBagasiTemp], VehicleBagasi[vehid][PlayerListitem[playerid][id]][vehicleBagasiQuant]);
-		Dialog_Show(playerid, "VehicleStorageOut", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Nexston"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
+		Dialog_Show(playerid, "VehicleStorageOut", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Vertex"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
 		string, "Input", "Batal");
 		return 1;
 	}
@@ -3371,7 +3371,7 @@ Dialog:VehicleStorageOut(playerid, response, listitem, inputtext[])
 	{
 		AccountData[playerid][pMenuShowed] = true;
 		format(string, sizeof(string), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Error: Please enter only numbers!\nPlease enter the quantity you want to retrieve:", VehicleBagasi[vehid][PlayerListitem[playerid][id]][vehicleBagasiTemp], VehicleBagasi[vehid][PlayerListitem[playerid][id]][vehicleBagasiQuant]);
-		Dialog_Show(playerid, "VehicleStorageOut", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Nexston"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
+		Dialog_Show(playerid, "VehicleStorageOut", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Vertex"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
 		string, "Input", "Batal");
 		return 1;
 	}
@@ -3380,7 +3380,7 @@ Dialog:VehicleStorageOut(playerid, response, listitem, inputtext[])
 	{
 		AccountData[playerid][pMenuShowed] = true;
 		format(string, sizeof(string), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Error: Jumlah tidak valid!\nPlease enter the quantity you want to retrieve:", VehicleBagasi[vehid][PlayerListitem[playerid][id]][vehicleBagasiTemp], VehicleBagasi[vehid][PlayerListitem[playerid][id]][vehicleBagasiQuant]);
-		Dialog_Show(playerid, "VehicleStorageOut", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Nexston"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
+		Dialog_Show(playerid, "VehicleStorageOut", DIALOG_STYLE_INPUT, sprintf("Bagasi Kendaraan "YELLOW"%s "Vertex"- %s", GetVehicleModelName(PlayerVehicle[vehid][pVehModelID]), PlayerVehicle[vehid][pVehPlate]), 
 		string, "Input", "Batal");
 		return 1;
 	}
@@ -3446,7 +3446,7 @@ Dialog:EmoteList(playerid, response, listitem, inputtext[])
 					format(string, sizeof(string), "%s%s\n", string, g_AnimDetails[i][e_AnimationName]);
 				}
 			}
-			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Emotes", string, "Tutup", "");
+			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Emotes", string, "Tutup", "");
 		}
 		case 1:
 		{
@@ -3456,7 +3456,7 @@ Dialog:EmoteList(playerid, response, listitem, inputtext[])
 					format(string, sizeof(string), "%s%s\n", string, g_AnimPropDetails[i][e_AnimationPropName]);
 				}
 			}
-			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Emotes Property", string, "Tutup", "");
+			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Emotes Property", string, "Tutup", "");
 		}
 		case 2:
 		{
@@ -3468,7 +3468,7 @@ Dialog:EmoteList(playerid, response, listitem, inputtext[])
 					format(string, sizeof(string), "%s%s\n", string, g_AnimSharedName[i]);
 				}
 			}
-			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Emotes Shared", string, "Tutup", "");
+			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Emotes Shared", string, "Tutup", "");
 		}
 	}
 	return 1;
@@ -3656,11 +3656,11 @@ Dialog:CheckMyWarnsDetail(playerid, response, listitem, inputtext[])
 
 		if(count == 0)
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX,""Nexston"Nexston Roleplay "WHITE"- Riwayat Peringatan", "Anda tidak memiliki riwayat peringatan apapun!", "Tutup", "");
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX,""Vertex"Vertex Roleplay "WHITE"- Riwayat Peringatan", "Anda tidak memiliki riwayat peringatan apapun!", "Tutup", "");
 		}
 		else
 		{
-			Dialog_Show(playerid, "CheckMyWarns", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Riwayat Peringatan", dahla, "Pilih", "Tutup");
+			Dialog_Show(playerid, "CheckMyWarns", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Riwayat Peringatan", dahla, "Pilih", "Tutup");
 		}
 	}
 	return 1;
@@ -3744,7 +3744,7 @@ Dialog:ShowToIDCard(playerid, response, listitem, inputtext[])
 
 	if(!AccountData[playerid][pHasKTP])
 	{
-		Dialog_Show(targetid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kartu Tanda Penduduk", 
+		Dialog_Show(targetid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kartu Tanda Penduduk", 
 		"Orang ini tidak memiliki Kartu Tanda Penduduk/sudah expired.", "Tutup", "");
 		return 1;
 	}
@@ -3802,7 +3802,7 @@ Dialog:FactionPanel(playerid, response, listitem, inputtext[])
 
 	PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
 
-	Dialog_Show(playerid, "FactionSelectPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Select Panel", "Faction Panel\n"GRAY"Badside Panel", "Pilih", "Batal");
+	Dialog_Show(playerid, "FactionSelectPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Select Panel", "Faction Panel\n"GRAY"Badside Panel", "Pilih", "Batal");
 	return 1;
 }
 
@@ -3828,7 +3828,7 @@ Dialog:FactionSelectPanel(playerid, response, listitem, inputtext[])
 			{
 				case FACTION_LSPD:
 				{
-					Dialog_Show(playerid, "PolisiPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+					Dialog_Show(playerid, "PolisiPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
 					"Periksa Lisensi\n\
 					"GRAY"Invoice Belum Terbayar\n\
 					Kartu Identitas\n\
@@ -3846,7 +3846,7 @@ Dialog:FactionSelectPanel(playerid, response, listitem, inputtext[])
 				}
 				case FACTION_LSFD:
 				{
-					Dialog_Show(playerid, "ParamedisPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+					Dialog_Show(playerid, "ParamedisPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
 					"Revive\n\
 					"GRAY"Treatment\n\
 					Seret\n\
@@ -3861,14 +3861,14 @@ Dialog:FactionSelectPanel(playerid, response, listitem, inputtext[])
 				}
 				case FACTION_PRINGSEWU:
 				{
-					Dialog_Show(playerid, "PringSewuPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+					Dialog_Show(playerid, "PringSewuPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
 					"Invoice Belum Terbayar\n\
 					"GRAY"Invoice Manual\n\
 					Seret", "Pilih", "Batal");
 				}
 				case FACTION_SAGOV:
 				{
-					Dialog_Show(playerid, "PemerintahPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+					Dialog_Show(playerid, "PemerintahPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
 					"Periksa Lisensi\n\
 					"GRAY"Borgol\n\
 					Buka Borgol\n\
@@ -3885,56 +3885,56 @@ Dialog:FactionSelectPanel(playerid, response, listitem, inputtext[])
 				}
 				case FACTION_BENNYS:
 				{
-					Dialog_Show(playerid, "BennysPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+					Dialog_Show(playerid, "BennysPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
 					"Invoice Belum Terbayar\n\
 					"GRAY"Invoice Manual\n\
 					Seret", "Pilih", "Batal");
 				}
 				case FACTION_UBER:
 				{
-					Dialog_Show(playerid, "UberPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+					Dialog_Show(playerid, "UberPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
 					"Invoice Belum Terbayar\n\
 					"GRAY"Invoice Manual\n\
 					Seret", "Pilih", "Batal");
 				}
 				case FACTION_DINARBUCKS:
 				{
-					Dialog_Show(playerid, "DinarbucksPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+					Dialog_Show(playerid, "DinarbucksPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
 					"Invoice Belum Terbayar\n\
 					"GRAY"Invoice Manual\n\
 					Seret", "Pilih", "Batal");
 				}
 				case FACTION_FOX11:
 				{
-					Dialog_Show(playerid, "PewartaPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+					Dialog_Show(playerid, "PewartaPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
 					"Invoice Belum Terbayar\n\
 					"GRAY"Invoice Manual\n\
 					Seret", "Pilih", "Batal");
 				}
 				case FACTION_DRIFTKING:
 				{
-					Dialog_Show(playerid, "DriftKingPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+					Dialog_Show(playerid, "DriftKingPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
 					"Invoice Belum Terbayar\n\
 					"GRAY"Invoice Manual\n\
 					Seret", "Pilih", "Batal");
 				}
 				case FACTION_JAYAABADI:
 				{
-					Dialog_Show(playerid, "JayaAbadiPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+					Dialog_Show(playerid, "JayaAbadiPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
 					"Invoice Belum Terbayar\n\
 					"GRAY"Invoice Manual\n\
 					Seret", "Pilih", "Batal");
 				}
 				case FACTION_SRIMERSING:
 				{
-					Dialog_Show(playerid, "SriMersingPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+					Dialog_Show(playerid, "SriMersingPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
 					"Invoice Belum Terbayar\n\
 					"GRAY"Invoice Manual\n\
 					Seret", "Pilih", "Batal");
 				}
 				// case FACTION_BINTANGKEJORA:
 				// {
-				// 	Dialog_Show(playerid, "BintangKejoraPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Faction Panel", 
+				// 	Dialog_Show(playerid, "BintangKejoraPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Faction Panel", 
 				// 	"Invoice Belum Terbayar\n\
 				// 	"GRAY"Invoice Manual\n\
 				// 	Seret\n\
@@ -3952,7 +3952,7 @@ Dialog:FactionSelectPanel(playerid, response, listitem, inputtext[])
 		{
 			if(AccountData[playerid][pFamily] == -1) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan anggota dari badside/family manapun!");
 
-			Dialog_Show(playerid, "BadsidePanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Badside Panel", 
+			Dialog_Show(playerid, "BadsidePanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Badside Panel", 
 			"Geledah\n\
 			"GRAY"Ikat\n\
 			Buka Ikatan\n\
@@ -4066,12 +4066,12 @@ Dialog:EmergencyChoose(playerid, response, listitem, inputtext[])
 	{
 		case 0: //lspd
 		{
-			Dialog_Show(playerid, "EmergencyChoosePolice", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- 110 Emergency Hotline", 
+			Dialog_Show(playerid, "EmergencyChoosePolice", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- 110 Emergency Hotline", 
 			"Dispatcher: Halo, apa yang sedang kamu alami?\n(Tuliskan masalah yang anda hadapi):", "Set", "Batal");
 		}
 		case 1: //lsfd
 		{
-			Dialog_Show(playerid, "EmergencyChooseFire", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- 110 Emergency Hotline", 
+			Dialog_Show(playerid, "EmergencyChooseFire", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- 110 Emergency Hotline", 
 			"Dispatcher: Halo, apa yang sedang kamu alami?\n(Tuliskan masalah yang anda hadapi):", "Set", "Batal");
 		}
 	}
@@ -4157,17 +4157,17 @@ Dialog:EventTDMCreator(playerid, response, listitem, inputtext[])
 	{
 		case 0: //red skin
 		{
-			Dialog_Show(playerid, "EventTDMRedSkin", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Red Team Skin", "Mohon masukkan skin id yang valid (1 - 311):",
+			Dialog_Show(playerid, "EventTDMRedSkin", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Red Team Skin", "Mohon masukkan skin id yang valid (1 - 311):",
 			"Input", "Batal");
 		}
 		case 1: //red health
 		{
-			Dialog_Show(playerid, "EventTDMRedHealth", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Red Team Health", "Mohon masukkan jumlah health yang valid (10 - 100):",
+			Dialog_Show(playerid, "EventTDMRedHealth", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Red Team Health", "Mohon masukkan jumlah health yang valid (10 - 100):",
 			"Input", "Batal");
 		}
 		case 2: //red armour
 		{
-			Dialog_Show(playerid, "EventTDMRedArmor", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Red Team Armour", "Mohon masukkan jumlah armour yang valid (0 - 100):",
+			Dialog_Show(playerid, "EventTDMRedArmor", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Red Team Armour", "Mohon masukkan jumlah armour yang valid (0 - 100):",
 			"Input", "Batal");
 		}
 		case 3: //red spawn point
@@ -4179,32 +4179,32 @@ Dialog:EventTDMCreator(playerid, response, listitem, inputtext[])
 		}
 		case 4: //red w1
 		{
-			Dialog_Show(playerid, "EventTDMRedW1", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Red Team W1", "Mohon masukkan weapon id yang valid (0 - 34):",
+			Dialog_Show(playerid, "EventTDMRedW1", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Red Team W1", "Mohon masukkan weapon id yang valid (0 - 34):",
 			"Input", "Batal");
 		}
 		case 5: //red w2
 		{
-			Dialog_Show(playerid, "EventTDMRedW2", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Red Team W2", "Mohon masukkan weapon id yang valid (0 - 34):",
+			Dialog_Show(playerid, "EventTDMRedW2", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Red Team W2", "Mohon masukkan weapon id yang valid (0 - 34):",
 			"Input", "Batal");
 		}
 		case 6: //red w3
 		{
-			Dialog_Show(playerid, "EventTDMRedW3", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Red Team W3", "Mohon masukkan weapon id yang valid (0 - 34):",
+			Dialog_Show(playerid, "EventTDMRedW3", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Red Team W3", "Mohon masukkan weapon id yang valid (0 - 34):",
 			"Input", "Batal");
 		}
 		case 7: //blue skin
 		{
-			Dialog_Show(playerid, "EventTDMBlueSkin", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Blue Team Skin", "Mohon masukkan skin id yang valid (1 - 311):",
+			Dialog_Show(playerid, "EventTDMBlueSkin", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Blue Team Skin", "Mohon masukkan skin id yang valid (1 - 311):",
 			"Input", "Batal");
 		}
 		case 8: //blue health
 		{
-			Dialog_Show(playerid, "EventTDMBlueHealth", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Blue Team Health", "Mohon masukkan jumlah health yang valid (10 - 100):",
+			Dialog_Show(playerid, "EventTDMBlueHealth", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Blue Team Health", "Mohon masukkan jumlah health yang valid (10 - 100):",
 			"Input", "Batal");
 		}
 		case 9: //blue armour
 		{
-			Dialog_Show(playerid, "EventTDMBlueArmor", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Blue Team Armour", "Mohon masukkan jumlah armour yang valid (0 - 100):",
+			Dialog_Show(playerid, "EventTDMBlueArmor", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Blue Team Armour", "Mohon masukkan jumlah armour yang valid (0 - 100):",
 			"Input", "Batal");
 		}
 		case 10: //blue spawn point
@@ -4216,52 +4216,52 @@ Dialog:EventTDMCreator(playerid, response, listitem, inputtext[])
 		}
 		case 11: //blue w1
 		{
-			Dialog_Show(playerid, "EventTDMBlueW1", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Blue Team W1", "Mohon masukkan weapon id yang valid (0 - 34):",
+			Dialog_Show(playerid, "EventTDMBlueW1", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Blue Team W1", "Mohon masukkan weapon id yang valid (0 - 34):",
 			"Input", "Batal");
 		}
 		case 12: //blue w2
 		{
-			Dialog_Show(playerid, "EventTDMBlueW2", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Blue Team W2", "Mohon masukkan weapon id yang valid (0 - 34):",
+			Dialog_Show(playerid, "EventTDMBlueW2", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Blue Team W2", "Mohon masukkan weapon id yang valid (0 - 34):",
 			"Input", "Batal");
 		}
 		case 13: //blue w3
 		{
-			Dialog_Show(playerid, "EventTDMBlueW3", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Blue Team W3", "Mohon masukkan weapon id yang valid (0 - 34):",
+			Dialog_Show(playerid, "EventTDMBlueW3", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Blue Team W3", "Mohon masukkan weapon id yang valid (0 - 34):",
 			"Input", "Batal");
 		}
 		case 14: //arena vwid
 		{
-			Dialog_Show(playerid, "EventTDMAVWID", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Arena VWID", "Mohon masukkan virtual world ID yang valid untuk event team deathmatch tersebut:",
+			Dialog_Show(playerid, "EventTDMAVWID", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Arena VWID", "Mohon masukkan virtual world ID yang valid untuk event team deathmatch tersebut:",
 			"Input", "Batal");
 		}
 		case 15: //arena interior id
 		{
-			Dialog_Show(playerid, "EventTDMAINTID", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Arena Interior ID", "Mohon masukkan interior ID yang valid untuk event team deathmatch tersebut:",
+			Dialog_Show(playerid, "EventTDMAINTID", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Arena Interior ID", "Mohon masukkan interior ID yang valid untuk event team deathmatch tersebut:",
 			"Input", "Batal");
 		}
 		case 16: //time limit
 		{
-			Dialog_Show(playerid, "EventTDMTime", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Time Limit", "Mohon masukkan rentang waktu event team deathmatch tersebut dalam satuan menit:",
+			Dialog_Show(playerid, "EventTDMTime", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Time Limit", "Mohon masukkan rentang waktu event team deathmatch tersebut dalam satuan menit:",
 			"Input", "Batal");
 		}
 		case 17: //target score
 		{
-			Dialog_Show(playerid, "EventTDMScore", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Target Score", "Mohon masukkan skor yang ingin dicapai dalam event team deathmatch tersebut:",
+			Dialog_Show(playerid, "EventTDMScore", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Target Score", "Mohon masukkan skor yang ingin dicapai dalam event team deathmatch tersebut:",
 			"Input", "Batal");
 		}
 		case 18: //max player
 		{
-			Dialog_Show(playerid, "EventTDMMPLYR", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Max Players", "Mohon masukkan maksimum partisipan dalam event tersebut:",
+			Dialog_Show(playerid, "EventTDMMPLYR", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Max Players", "Mohon masukkan maksimum partisipan dalam event tersebut:",
 			"Input", "Batal");
 		}
 		case 19: //participation price
 		{
-			Dialog_Show(playerid, "EventTDMPartPrize", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Participation Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah partisipasi:",
+			Dialog_Show(playerid, "EventTDMPartPrize", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Participation Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah partisipasi:",
 			"Input", "Batal");
 		}
 		case 20: //Winner prize
 		{
-			Dialog_Show(playerid, "EventTDMWinPrize", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- TDM Winner Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah pemenang event:",
+			Dialog_Show(playerid, "EventTDMWinPrize", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- TDM Winner Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah pemenang event:",
 			"Input", "Batal");
 		}
 	}
@@ -4603,12 +4603,12 @@ Dialog:EventRace(playerid, response, listitem, inputtext[])
 		}
 		case 1: //race vehicle
 		{
-			Dialog_Show(playerid, "EventRaceVID", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Race Vehicel Model ID", "Mohon masukkan vehicle id yang valid:",
+			Dialog_Show(playerid, "EventRaceVID", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Race Vehicel Model ID", "Mohon masukkan vehicle id yang valid:",
 			"Input", "Batal");
 		}
 		case 2: //race vehicle
 		{
-			Dialog_Show(playerid, "EventRaceMusic", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Race Event Music", "Please insert the music URL (mp3):",
+			Dialog_Show(playerid, "EventRaceMusic", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Race Event Music", "Please insert the music URL (mp3):",
 			"Input", "Batal");
 		}
 		case 3: //add race checkpoint
@@ -4635,27 +4635,27 @@ Dialog:EventRace(playerid, response, listitem, inputtext[])
 		}
 		case 5: //arena vwid
 		{
-			Dialog_Show(playerid, "EventTDMAVWID", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Race Arena VWID", "Mohon masukkan virtual world ID yang valid untuk event racing tersebut:",
+			Dialog_Show(playerid, "EventTDMAVWID", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Race Arena VWID", "Mohon masukkan virtual world ID yang valid untuk event racing tersebut:",
 			"Input", "Batal");
 		}
 		case 6: //arena interior id
 		{
-			Dialog_Show(playerid, "EventTDMAINTID", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Race Arena Interior ID", "Mohon masukkan interior ID yang valid untuk event racing tersebut:",
+			Dialog_Show(playerid, "EventTDMAINTID", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Race Arena Interior ID", "Mohon masukkan interior ID yang valid untuk event racing tersebut:",
 			"Input", "Batal");
 		}
 		case 7: //max player
 		{
-			Dialog_Show(playerid, "EventTDMMPLYR", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Race Max Players", "Mohon masukkan maksimum partisipan dalam event tersebut:",
+			Dialog_Show(playerid, "EventTDMMPLYR", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Race Max Players", "Mohon masukkan maksimum partisipan dalam event tersebut:",
 			"Input", "Batal");
 		}
 		case 8: //participation price
 		{
-			Dialog_Show(playerid, "EventTDMPartPrize", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Race Participation Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah partisipasi:",
+			Dialog_Show(playerid, "EventTDMPartPrize", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Race Participation Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah partisipasi:",
 			"Input", "Batal");
 		}
 		case 9: //Winner prize
 		{
-			Dialog_Show(playerid, "EventTDMWinPrize", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Race Winner Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah pemenang event:",
+			Dialog_Show(playerid, "EventTDMWinPrize", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Race Winner Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah pemenang event:",
 			"Input", "Batal");
 		}
 	}
@@ -4733,22 +4733,22 @@ Dialog:EventZombie(playerid, response, listitem, inputtext[])
 		}
 		case 4: //arena vwid
 		{
-			Dialog_Show(playerid, "EventTDMAVWID", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Arena VWID", "Mohon masukkan virtual world ID yang valid untuk event tersebut:",
+			Dialog_Show(playerid, "EventTDMAVWID", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Arena VWID", "Mohon masukkan virtual world ID yang valid untuk event tersebut:",
 			"Input", "Batal");
 		}
 		case 5: //max player
 		{
-			Dialog_Show(playerid, "EventTDMMPLYR", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Max Players", "Mohon masukkan maksimum partisipan dalam event tersebut:",
+			Dialog_Show(playerid, "EventTDMMPLYR", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Max Players", "Mohon masukkan maksimum partisipan dalam event tersebut:",
 			"Input", "Batal");
 		}
 		case 6: //participation price
 		{
-			Dialog_Show(playerid, "EventTDMPartPrize", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Participation Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah partisipasi:",
+			Dialog_Show(playerid, "EventTDMPartPrize", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Participation Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah partisipasi:",
 			"Input", "Batal");
 		}
 		case 7: //Winner prize
 		{
-			Dialog_Show(playerid, "EventTDMWinPrize", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Winner Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah pemenang event:",
+			Dialog_Show(playerid, "EventTDMWinPrize", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Winner Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah pemenang event:",
 			"Input", "Batal");
 		}
 	}
@@ -4764,17 +4764,17 @@ Dialog:EventFallout(playerid, response, listitem, inputtext[])
 	{
 		case 0: //max player
 		{
-			Dialog_Show(playerid, "EventTDMMPLYR", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Max Players", "Mohon masukkan maksimum partisipan dalam event tersebut:",
+			Dialog_Show(playerid, "EventTDMMPLYR", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Max Players", "Mohon masukkan maksimum partisipan dalam event tersebut:",
 			"Input", "Batal");
 		}
 		case 1: //participation price
 		{
-			Dialog_Show(playerid, "EventTDMPartPrize", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Participation Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah partisipasi:",
+			Dialog_Show(playerid, "EventTDMPartPrize", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Participation Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah partisipasi:",
 			"Input", "Batal");
 		}
 		case 2: //Winner prize
 		{
-			Dialog_Show(playerid, "EventTDMWinPrize", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Winner Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah pemenang event:",
+			Dialog_Show(playerid, "EventTDMWinPrize", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Winner Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah pemenang event:",
 			"Input", "Batal");
 		}
 	}
@@ -4790,17 +4790,17 @@ Dialog:EventSquidGame(playerid, response, listitem, inputtext[])
 	{
 		case 0: //max player
 		{
-			Dialog_Show(playerid, "EventTDMMPLYR", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Max Players", "Mohon masukkan maksimum partisipan dalam event tersebut:",
+			Dialog_Show(playerid, "EventTDMMPLYR", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Max Players", "Mohon masukkan maksimum partisipan dalam event tersebut:",
 			"Input", "Batal");
 		}
 		case 1: //participation price
 		{
-			Dialog_Show(playerid, "EventTDMPartPrize", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Participation Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah partisipasi:",
+			Dialog_Show(playerid, "EventTDMPartPrize", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Participation Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah partisipasi:",
 			"Input", "Batal");
 		}
 		case 2: //Winner prize
 		{
-			Dialog_Show(playerid, "EventTDMWinPrize", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Winner Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah pemenang event:",
+			Dialog_Show(playerid, "EventTDMWinPrize", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Winner Prize", "Mohon masukkan nominal uang yang akan diberikan sebagai hadiah pemenang event:",
 			"Input", "Batal");
 		}
 	}
@@ -4822,7 +4822,7 @@ Dialog:CheckAdverts(playerid, response, listitem, inputtext[])
 	format(string, sizeof(string), ""WHITE"Issuer: "YELLOW"%s\n\
 	"CYAN"%s", AdvertisementEnum[idadvert][adIssuer], AdvertisementEnum[idadvert][adDetail]);
 
-	Dialog_Show(playerid, "CheckAdvertsDetails", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Adverts", string, "Call", "Batal");
+	Dialog_Show(playerid, "CheckAdvertsDetails", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Adverts", string, "Call", "Batal");
 	return 1;
 }
 Dialog:CheckAdvertsDetails(playerid, response, listitem, inputtext[])
@@ -4923,7 +4923,7 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 
 			if(count > 0)
 			{
-				Dialog_Show(playerid, "ShowToBPJS", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Tunjukkan BPJS", 
+				Dialog_Show(playerid, "ShowToBPJS", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Tunjukkan BPJS", 
 				frmxt, "Pilih", "Batal");
 			}
 		}
@@ -4932,7 +4932,7 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			if(!DocumentInfo[playerid][SKS]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki SKS!");
 			new frmtxs[1080];
 			format(frmtxs, sizeof(frmtxs), ""WHITE"========== SURAT KETERANGAN SEHAT ==========\n\
-			Pernyataan resmi dari RSU. Mitra Nexston\n\n\
+			Pernyataan resmi dari RSU. Mitra Vertex\n\n\
 			PETUGAS\n\
 			Nama:\n\
 			"YELLOW"%s\n\
@@ -4960,7 +4960,7 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			DocumentInfo[playerid][SKSText],
 			ReturnTimelapse(gettime(), DocumentInfo[playerid][SKSDur], ""DARKRED"Habis"),
 			DocumentInfo[playerid][SKSIssuer]);
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- SKS", 
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- SKS", 
 			frmtxs, "Tutup", "");
 
 		}
@@ -4982,7 +4982,7 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 
 			if(count > 0)
 			{
-				Dialog_Show(playerid, "ShowToSKS", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Tunjukkan SKS", 
+				Dialog_Show(playerid, "ShowToSKS", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Tunjukkan SKS", 
 				frmxt, "Pilih", "Batal");
 			}
 		}
@@ -4991,7 +4991,7 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			if(!DocumentInfo[playerid][SKCK]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki SKCK!");
 			new frmtxs[1080];
 			format(frmtxs, sizeof(frmtxs), ""WHITE"========== SURAT KETERANGAN CATATAN KEPOLISIAN ==========\n\
-			Dengan ini Kepolisian Daerah Nexston telah merilis\n\
+			Dengan ini Kepolisian Daerah Vertex telah merilis\n\
 			keterangan catatan kepolisian bagi yang berdata diri di bawah ini:\n\n\
 			Nama Lengkap: "YELLOW"%s\n\
 			"WHITE"Tanggal Lahir: "YELLOW"%s\n\n\
@@ -5011,7 +5011,7 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			ReturnTimelapse(gettime(), DocumentInfo[playerid][SKCKDur], ""DARKRED"Habis"),
 			DocumentInfo[playerid][SKCKIssuerRank],
 			DocumentInfo[playerid][SKCKIssuer]);
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- SKCK", 
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- SKCK", 
 			frmtxs, "Tutup", "");
 
 		}
@@ -5033,7 +5033,7 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 
 			if(count > 0)
 			{
-				Dialog_Show(playerid, "ShowToSKCK", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- SKCK", 
+				Dialog_Show(playerid, "ShowToSKCK", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- SKCK", 
 				frmxt, "Pilih", "Batal");
 			}
 		}
@@ -5042,7 +5042,7 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			if(!DocumentInfo[playerid][SKWB]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki SKWB/Expired!");
 			new frmtxs[1080];
 			format(frmtxs, sizeof(frmtxs), ""WHITE"========== SURAT KETERANGAN WARGA BARU ==========\n\
-			Pernyataan resmi dari Pemerintah Daerah Nexston\n\n\
+			Pernyataan resmi dari Pemerintah Daerah Vertex\n\n\
 			PETUGAS\n\
 			Nama:\n\
 			"YELLOW"%s\n\
@@ -5074,7 +5074,7 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			DocumentInfo[playerid][SKWBText],
 			ReturnTimelapse(gettime(), DocumentInfo[playerid][SKWBDur], ""DARKRED"Habis"),
 			DocumentInfo[playerid][SKWBIssuer]);
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Surat SKWB", 
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Surat SKWB", 
 			frmtxs, "Tutup", "");
 		}
 		case 9: //Tunjukkan SKWB
@@ -5095,7 +5095,7 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 
 			if(count > 0)
 			{
-				Dialog_Show(playerid, "ShowToSKWB", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Tunjukkan SKWB", 
+				Dialog_Show(playerid, "ShowToSKWB", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Tunjukkan SKWB", 
 				frmxt, "Pilih", "Batal");
 			}
 		}
@@ -5104,7 +5104,7 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			if(!DocumentInfo[playerid][SP]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki Surat Psikologi!");
 			new frmtxs[1080];
 			format(frmtxs, sizeof(frmtxs), ""WHITE"========== SURAT PSIKOLOGI ==========\n\
-			Pernyataan resmi dari Paramedis Nexston\n\n\
+			Pernyataan resmi dari Paramedis Vertex\n\n\
 			PETUGAS\n\
 			Nama:\n\
 			"YELLOW"%s\n\
@@ -5132,7 +5132,7 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 			DocumentInfo[playerid][SPText],
 			ReturnTimelapse(gettime(), DocumentInfo[playerid][SPDur], ""DARKRED"Habis"),
 			DocumentInfo[playerid][SPIssuer]);
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Surat Psikologi", 
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Surat Psikologi", 
 			frmtxs, "Tutup", "");
 
 		}
@@ -5154,7 +5154,7 @@ Dialog:MyDocuments(playerid, response, listitem, inputtext[])
 
 			if(count > 0)
 			{
-				Dialog_Show(playerid, "ShowToSP", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Tunjukkan Surat Psikologi", 
+				Dialog_Show(playerid, "ShowToSP", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Tunjukkan Surat Psikologi", 
 				frmxt, "Pilih", "Batal");
 			}
 		}
@@ -5211,7 +5211,7 @@ Dialog:ShowToSKS(playerid, response, listitem, inputtext[])
 
 	new frmtxs[1080];
 	format(frmtxs, sizeof(frmtxs), ""WHITE"========== SURAT KETERANGAN SEHAT ==========\n\
-	Pernyataan resmi dari RSU. Mitra Nexston\n\n\
+	Pernyataan resmi dari RSU. Mitra Vertex\n\n\
 	PETUGAS\n\
 	Nama:\n\
 	"YELLOW"%s\n\
@@ -5239,7 +5239,7 @@ Dialog:ShowToSKS(playerid, response, listitem, inputtext[])
 	DocumentInfo[playerid][SKSText],
 	ReturnTimelapse(gettime(), DocumentInfo[playerid][SKSDur], ""DARKRED"Habis"),
 	DocumentInfo[playerid][SKSIssuer]);
-	Dialog_Show(targetid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- SKS", 
+	Dialog_Show(targetid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- SKS", 
 	frmtxs, "Tutup", "");
 	return 1;
 }
@@ -5267,7 +5267,7 @@ Dialog:ShowToSP(playerid, response, listitem, inputtext[])
 
 	new frmtxs[1080];
 	format(frmtxs, sizeof(frmtxs), ""WHITE"========== SURAT PSIKOLOGI ==========\n\
-	Pernyataan resmi dari Paramedis Nexston\n\n\
+	Pernyataan resmi dari Paramedis Vertex\n\n\
 	PETUGAS\n\
 	Nama:\n\
 	"YELLOW"%s\n\
@@ -5295,7 +5295,7 @@ Dialog:ShowToSP(playerid, response, listitem, inputtext[])
 	DocumentInfo[playerid][SPText],
 	ReturnTimelapse(gettime(), DocumentInfo[playerid][SPDur], ""DARKRED"Habis"),
 	DocumentInfo[playerid][SPIssuer]);
-	Dialog_Show(targetid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Surat Psikologi", 
+	Dialog_Show(targetid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Surat Psikologi", 
 	frmtxs, "Tutup", "");
 	return 1;
 }
@@ -5323,7 +5323,7 @@ Dialog:ShowToSKCK(playerid, response, listitem, inputtext[])
 
 	new frmtxs[1080];
 	format(frmtxs, sizeof(frmtxs), ""WHITE"========== SURAT KETERANGAN CATATAN KEPOLISIAN ==========\n\
-	Dengan ini Kepolisian Daerah Nexston telah merilis\n\
+	Dengan ini Kepolisian Daerah Vertex telah merilis\n\
 	keterangan catatan kepolisian bagi yang berdata diri di bawah ini:\n\n\
 	Nama Lengkap: "YELLOW"%s\n\
 	"WHITE"Tanggal Lahir: "YELLOW"%s\n\n\
@@ -5343,7 +5343,7 @@ Dialog:ShowToSKCK(playerid, response, listitem, inputtext[])
 	ReturnTimelapse(gettime(), DocumentInfo[playerid][SKCKDur], ""DARKRED"Habis"),
 	DocumentInfo[playerid][SKCKIssuerRank],
 	DocumentInfo[playerid][SKCKIssuer]);
-	Dialog_Show(targetid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- SKCK", 
+	Dialog_Show(targetid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- SKCK", 
 	frmtxs, "Tutup", "");
 	return 1;
 }
@@ -5371,7 +5371,7 @@ Dialog:ShowToSKWB(playerid, response, listitem, inputtext[])
 
 	new frmtxs[1080];
 	format(frmtxs, sizeof(frmtxs), ""WHITE"========== SURAT KETERANGAN WARGA BARU ==========\n\
-	Pernyataan resmi dari Pemerintah Kota Nexston\n\n\
+	Pernyataan resmi dari Pemerintah Kota Vertex\n\n\
 	PETUGAS\n\
 	Nama:\n\
 	"YELLOW"%s\n\
@@ -5403,7 +5403,7 @@ Dialog:ShowToSKWB(playerid, response, listitem, inputtext[])
 	DocumentInfo[playerid][SKWBText],
 	ReturnTimelapse(gettime(), DocumentInfo[playerid][SKWBDur], ""DARKRED"Habis"),
 	DocumentInfo[playerid][SKWBIssuer]);
-	Dialog_Show(targetid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Surat SKWB", 
+	Dialog_Show(targetid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Surat SKWB", 
 	frmtxs, "Tutup", "");
 	return 1;
 }
@@ -5431,7 +5431,7 @@ Dialog:MyAVTreasure(playerid, response, listitem, inputtext[])
 	// {
 	// 	case 4: //intero chest
 	// 	{
-	// 		Dialog_Show(playerid, DIALOG_OPENAVTREASURE, DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- avTreasure", 
+	// 		Dialog_Show(playerid, DIALOG_OPENAVTREASURE, DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- avTreasure", 
 	// 		""WHITE"Anda akan membuka "YELLOW"AV Intero Treasure.\n\
 	// 		"WHITE"Untuk membukanya anda perlu "CYAN"1x AV Intero Key.\n\
 	// 		"WHITE"Apabila anda tidak memilikinya, anda dapat membelinya seharga "GREEN"Rp. 25.000,- (donasi)\n\n\
@@ -5442,7 +5442,7 @@ Dialog:MyAVTreasure(playerid, response, listitem, inputtext[])
 	// 	}
 	// 	case 5: //flagtuf chest
 	// 	{
-	// 		Dialog_Show(playerid, DIALOG_OPENAVTREASURE, DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- avTreasure", 
+	// 		Dialog_Show(playerid, DIALOG_OPENAVTREASURE, DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- avTreasure", 
 	// 		""WHITE"Anda akan membuka "YELLOW"AV Flagtuf Treasure.\n\
 	// 		"WHITE"Untuk membukanya anda perlu "CYAN"1x AV Flagtuf Key.\n\
 	// 		"WHITE"Apabila anda tidak memilikinya, anda dapat membelinya seharga "GREEN"Rp. 50.000,- (donasi)\n\n\
@@ -5450,7 +5450,7 @@ Dialog:MyAVTreasure(playerid, response, listitem, inputtext[])
 	// 	}
 	// 	case 6: //Fancious chest
 	// 	{
-	// 		Dialog_Show(playerid, DIALOG_OPENAVTREASURE, DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- avTreasure", 
+	// 		Dialog_Show(playerid, DIALOG_OPENAVTREASURE, DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- avTreasure", 
 	// 		""WHITE"Anda akan membuka "YELLOW"AV Fancious Treasure.\n\
 	// 		"WHITE"Untuk membukanya anda perlu "CYAN"1x AV Fancious Key.\n\
 	// 		"WHITE"Apabila anda tidak memilikinya, anda dapat membelinya seharga "GREEN"Rp. 100.000,- (donasi)\n\n\
@@ -5458,7 +5458,7 @@ Dialog:MyAVTreasure(playerid, response, listitem, inputtext[])
 	// 	}
 	// 	case 7: //Rareous chest
 	// 	{
-	// 		Dialog_Show(playerid, DIALOG_OPENAVTREASURE, DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- avTreasure", 
+	// 		Dialog_Show(playerid, DIALOG_OPENAVTREASURE, DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- avTreasure", 
 	// 		""WHITE"Anda akan membuka "YELLOW"AV Rareous Treasure.\n\
 	// 		"WHITE"Untuk membukanya anda perlu "CYAN"1x AV Rareous Key.\n\
 	// 		"WHITE"Apabila anda tidak memilikinya, anda dapat membelinya seharga "GREEN"Rp. 200.000,- (donasi)\n\n\
@@ -5626,7 +5626,7 @@ Dialog:MechanicMenu(playerid, response, listitem, inputtext[])
 				format(color_list, sizeof color_list, "%s{%06x}%03d%s", color_list, g_VehicleColors[colorid] >>> 8, colorid, !((colorid + 1) % 16) ? ("\n") : (" "));
 			}
 
-			Dialog_Show(playerid, "MechanicRespray", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- repaint", color_list, "Input", "Batal");
+			Dialog_Show(playerid, "MechanicRespray", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- repaint", color_list, "Input", "Batal");
 		}
 		case 4: //paintjob
 		{
@@ -5636,7 +5636,7 @@ Dialog:MechanicMenu(playerid, response, listitem, inputtext[])
 			if(AccountData[playerid][pFactionRank] < 2) return ShowTDN(playerid, NOTIFICATION_ERROR, "Rank faction minimal adalah Amatir untuk akses ini!");
 			AccountData[playerid][pTempVehID] = PlayerVehicle[carid][pVehPhysic];
 
-			Dialog_Show(playerid, "MechanicPaintjob", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Paintjob", "Mohon masukkan ID Paintjob:\n\
+			Dialog_Show(playerid, "MechanicPaintjob", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Paintjob", "Mohon masukkan ID Paintjob:\n\
 			Contoh: 0 - 2\n\
 			Peringatan: Masukkan 3 apabila ingin menghapus paintjob!", "Set", "Batal");
 		}
@@ -5749,7 +5749,7 @@ Dialog:MechanicMenu(playerid, response, listitem, inputtext[])
 			if(Inventory_Count(playerid, "Komponen") < 50) return ShowTDN(playerid, NOTIFICATION_ERROR, "Komponen anda tidak cukup!");
 			if(AccountData[playerid][pFactionRank] < 3) return ShowTDN(playerid, NOTIFICATION_ERROR, "Rank faction minimal adalah Amatir untuk akses ini!");
 			AccountData[playerid][pTempVehID] = PlayerVehicle[carid][pVehPhysic];
-			Dialog_Show(playerid, "MechanicModifCatalog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Modif", 
+			Dialog_Show(playerid, "MechanicModifCatalog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Modif", 
 			"Name\tRequirements\n\
 			Ganti Ban\t50 Komponen\n\
 			"GRAY"Spoiler\t50 Komponen\n\
@@ -5845,7 +5845,7 @@ Dialog:MechanicRespray(playerid, response, listitem, inputtext[])
 			format(color_list, sizeof color_list, "%s{%06x}%03d%s", color_list, g_VehicleColors[colorid] >>> 8, colorid, !((colorid + 1) % 16) ? ("\n") : (" "));
 		}
 
-		Dialog_Show(playerid, "MechanicRespray", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- repaint", color_list, "Input", "Batal");
+		Dialog_Show(playerid, "MechanicRespray", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- repaint", color_list, "Input", "Batal");
 		return 1;
 	}
 
@@ -5991,12 +5991,12 @@ Dialog:MechanicModifCatalog(playerid, response, listitem, inputtext[])
 	{
 		case 0: //ganti ban
 		{
-			Dialog_Show(playerid, "MechanicModWheel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Ban", 
+			Dialog_Show(playerid, "MechanicModWheel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Ban", 
 			"Offroad\n"GRAY"Mega\nWires\n"GRAY"Twist\nGrove\n"GRAY"Import\nAtomic\n"GRAY"Ahab\nVirtual\n"GRAY"Access\nTrance\n"GRAY"Shadow\nRimshine\n"GRAY"Classic\nCutter\n"GRAY"Switch\nDollar", "Pilih", "Batal");
 		}
 		case 1: //spoiler
 		{
-			Dialog_Show(playerid, "MechanicModSpoiler", DIALOG_STYLE_TABLIST_HEADERS,""Nexston"Nexston Roleplay "WHITE"- Spoiler",
+			Dialog_Show(playerid, "MechanicModSpoiler", DIALOG_STYLE_TABLIST_HEADERS,""Vertex"Vertex Roleplay "WHITE"- Spoiler",
 			"Spoiler\tJenis Modshop\n\
 			Alien\tWheel Arch\n\
 			"GRAY"X-Flow\t"GRAY"Wheel Arch\n\
@@ -6010,19 +6010,19 @@ Dialog:MechanicModifCatalog(playerid, response, listitem, inputtext[])
 		}
 		case 2: //hood
 		{
-			Dialog_Show(playerid, "MechanicModHood", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Hood", "Fury\n"GRAY"Champ\nRace\n"GRAY"Worx", "Pilih", "Batal");
+			Dialog_Show(playerid, "MechanicModHood", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Hood", "Fury\n"GRAY"Champ\nRace\n"GRAY"Worx", "Pilih", "Batal");
 		}
 		case 3: //vent
 		{
-			Dialog_Show(playerid, "MechanicModVent", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Vent", "Oval\n"GRAY"Square", "Pilih", "Batal");
+			Dialog_Show(playerid, "MechanicModVent", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Vent", "Oval\n"GRAY"Square", "Pilih", "Batal");
 		}
 		case 4: //lights
 		{
-			Dialog_Show(playerid, "MechanicModLight", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Light", "Round\n"GRAY"Square", "Pilih", "Batal");
+			Dialog_Show(playerid, "MechanicModLight", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Light", "Round\n"GRAY"Square", "Pilih", "Batal");
 		}
 		case 5: //exhaust
 		{
-			Dialog_Show(playerid, "MechanicModExhaust", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Exhaust", 
+			Dialog_Show(playerid, "MechanicModExhaust", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Exhaust", 
 			"Exhaust\tJenis Modshop\n\
 			Alien\tWheel Arch\n\
 			"GRAY"X-Flow\t"GRAY"Wheel Arch\n\
@@ -6036,7 +6036,7 @@ Dialog:MechanicModifCatalog(playerid, response, listitem, inputtext[])
 		}
 		case 6: //front bumper
 		{
-			Dialog_Show(playerid, "MechanicModFrontBump", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Front Bumpers", 
+			Dialog_Show(playerid, "MechanicModFrontBump", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Front Bumpers", 
 			"Front Bumper\tJenis Modshop\n\
 			Alien\tWheel Arch\n\
 			"GRAY"X-Flow\t"GRAY"Wheel Arch\n\
@@ -6045,7 +6045,7 @@ Dialog:MechanicModifCatalog(playerid, response, listitem, inputtext[])
 		}
 		case 7: //rear bumper
 		{
-			Dialog_Show(playerid, "MechanicModRearBump", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Rear Bumpers", 
+			Dialog_Show(playerid, "MechanicModRearBump", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Rear Bumpers", 
 			"Rear Bumper\tJenis Modshop\n\
 			Alien\tWheel Arch\n\
 			"GRAY"X-Flow\t"GRAY"Wheel Arch\n\
@@ -6054,7 +6054,7 @@ Dialog:MechanicModifCatalog(playerid, response, listitem, inputtext[])
 		}
 		case 8: //roofs
 		{
-			Dialog_Show(playerid, "MechanicModRoofs", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Roofs", 
+			Dialog_Show(playerid, "MechanicModRoofs", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Roofs", 
 			"Roof\tJenis Modshop\n\
 			Alien\tWheel Arch\n\
 			"GRAY"X-Flow\t"GRAY"Wheel Arch\n\
@@ -6064,7 +6064,7 @@ Dialog:MechanicModifCatalog(playerid, response, listitem, inputtext[])
 		}
 		case 9: //sideskirts
 		{
-			Dialog_Show(playerid, "MechanicModSideskirt", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Sideskirts", 
+			Dialog_Show(playerid, "MechanicModSideskirt", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Sideskirts", 
 			"Sideskirts\tJenis Modshop\n\
 			Alien\tWheel Arch\n\
 			"GRAY"X-Flow\t"GRAY"Wheel Arch\n\
@@ -6077,7 +6077,7 @@ Dialog:MechanicModifCatalog(playerid, response, listitem, inputtext[])
 		}
 		case 10: //bullbars
 		{
-			Dialog_Show(playerid, "MechanicModBullbar", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Bullbars", "Chrome Grill\n"GRAY"Chrome Bars\nChrome Lights\n"GRAY"Chrome Bullbar", "Pilih", "Batal");
+			Dialog_Show(playerid, "MechanicModBullbar", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Bullbars", "Chrome Grill\n"GRAY"Chrome Bars\nChrome Lights\n"GRAY"Chrome Bullbar", "Pilih", "Batal");
 		}
 		case 11:  //stereo
 		{
@@ -6212,7 +6212,7 @@ Dialog:MechanicModifCatalog(playerid, response, listitem, inputtext[])
 		}
 		case 16: //neon
 		{
-			Dialog_Show(playerid, MechanicModNeon, DIALOG_STYLE_LIST,""Nexston"Nexston Roleplay "WHITE"- Neon","Merah\n"GRAY"Biru\nHijau\n"GRAY"Kuning\nPink\n"GRAY"Putih\n"RED"(Hapus Neon)","Pilih","Batal");
+			Dialog_Show(playerid, MechanicModNeon, DIALOG_STYLE_LIST,""Vertex"Vertex Roleplay "WHITE"- Neon","Merah\n"GRAY"Biru\nHijau\n"GRAY"Kuning\nPink\n"GRAY"Putih\n"RED"(Hapus Neon)","Pilih","Batal");
 		}
 	}
 	return 1;

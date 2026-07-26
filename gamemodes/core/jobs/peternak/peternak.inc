@@ -129,7 +129,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
             if(AccountData[playerid][pJob] != JOB_MILKER) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan seorang Peternak!");
 
             HideNotifBox(playerid);
-            Dialog_Show(playerid, "StartPeternak", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Peternak", 
+            Dialog_Show(playerid, "StartPeternak", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Peternak", 
             "Mulai perah susu\n\
             "GRAY"Selesaikan pekerjaan", "Pilih", "Batal");
         }

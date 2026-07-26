@@ -242,12 +242,12 @@ Show_FamsRankManage(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "FamSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "FamSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Anda tidak memiliki member di badside ini!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Anda tidak memiliki member di badside ini!", "Tutup", "");
     }
     return 1;
 }
@@ -308,12 +308,12 @@ stock ShowBadsideKick(playerid)
             strcat(string, "\n");
         }
 
-        Dialog_Show(playerid, "FamKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Kick Badside", string, "Pilih", "Batal");
+        Dialog_Show(playerid, "FamKickMember", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Kick Badside", string, "Pilih", "Batal");
     }
     else
     {
         PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Badside", "Anda tidak memiliki member di badside ini!", "Tutup", "");
+        Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Badside", "Anda tidak memiliki member di badside ini!", "Tutup", "");
     }
     return 1;
 }
@@ -661,7 +661,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 
         if(count > 0) 
 		{
-            Dialog_Show(playerid, "FactionPanel", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Badside Panel", 
+            Dialog_Show(playerid, "FactionPanel", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Badside Panel", 
             frmxt, "Pilih", "Batal");
 		}
     }
@@ -671,7 +671,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         if(IsPlayerInRangeOfPoint(playerid, 1.0, FamilyData[fmid][famVaultPos][0], FamilyData[fmid][famVaultPos][1], FamilyData[fmid][famVaultPos][2]))
         {
             AccountData[playerid][pMenuShowed] = true;
-            Dialog_Show(playerid, "BadsideChest", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Badside", 
+            Dialog_Show(playerid, "BadsideChest", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Badside", 
             "Brankas\n"GRAY"Weapon Brankas", "Pilih", "Kembali");
         }
 
@@ -704,7 +704,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         {
             if(IsPlayerInRangeOfPoint(playerid, 1.0, FamilyData[fmid][famDeskPos][0], FamilyData[fmid][famDeskPos][1], FamilyData[fmid][famDeskPos][2]))
             {
-                Dialog_Show(playerid, "BadsideBosdesk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Bos Desk", 
+                Dialog_Show(playerid, "BadsideBosdesk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Bos Desk", 
                 "Invite\n\
                 "GRAY"Kelola Jabatan\n\
                 Kick\n\
@@ -785,12 +785,12 @@ Dialog:BadsidePanel(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Geledah", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Geledah", 
                 "Pemain tersebut tidak memiliki item apapun!", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "BadsideConsficating", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Geledah", str, "Pilih", "Batal");
+                Dialog_Show(playerid, "BadsideConsficating", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Geledah", str, "Pilih", "Batal");
             }
         }
         case 1: //Borgol
@@ -872,11 +872,11 @@ Dialog:BadsidePanel(playerid, response, listitem, inputtext[])
             }
             if(count > 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Senjata", lstr,"Tutup","");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Senjata", lstr,"Tutup","");
             }
             else
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Senjata", "Pemain tersebut tidak memiliki senjata!","Tutup","");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Senjata", "Pemain tersebut tidak memiliki senjata!","Tutup","");
             }
         }
     }
@@ -893,7 +893,7 @@ Dialog:BadsideConsficatingMoney(playerid, response, listitem, inputtext[])
     if (!IsPlayerNearPlayer(playerid, targetid, 3.0)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak dekat dengan anda!");
     if (AccountData[targetid][pActivityTime] != 0) return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut sedang melakukan sesuatu!");
     
-    if(strval(inputtext) < 1 && strval(inputtext) > 5000) return Dialog_Show(playerid, "BadsideConsficatingMoney", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Ambil Uang",
+    if(strval(inputtext) < 1 && strval(inputtext) > 5000) return Dialog_Show(playerid, "BadsideConsficatingMoney", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Ambil Uang",
     "Error: Jumlah tidak valid, anda tidak dapat mengambil kurang dari $1\ndan tidak boleh lebih dari $5,000!\n\
     Mohon masukkan berapa jumlah yang ingin anda ambil:", "Ambil", "Batal");
 
@@ -927,7 +927,7 @@ Dialog:BadsideConsficating(playerid, response, listitem, inputtext[])
         new jhj[258];
         format(jhj, sizeof(jhj), ""WHITE"Pemain ini memiliki "GREEN"$%s "WHITE"yang sedang dibawanya.\n\
         "YELLOW"Berapa banyak jumlah yang ingin anda ambil?", FormatMoney(AccountData[targetid][pMoney]));
-        Dialog_Show(playerid, "BadsideConsficatingMoney", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Money", jhj, "Ambil", "Batal");
+        Dialog_Show(playerid, "BadsideConsficatingMoney", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Money", jhj, "Ambil", "Batal");
     }
     else
     {
@@ -972,13 +972,13 @@ Dialog:BadsideChest(playerid, response, listitem, inputtext[])
         case 0: //Brankas
         {
             AccountData[playerid][pMenuShowed] = true;
-            Dialog_Show(playerid, "BadsideVault", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Brankas Badside", 
+            Dialog_Show(playerid, "BadsideVault", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Brankas Badside", 
             "Simpan Barang\n"GRAY"Ambil Barang", "Pilih", "Kembali");
         }
         case 1: //weapon chest
         {
             AccountData[playerid][pMenuShowed] = true;
-            Dialog_Show(playerid, "BadsideHolster", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Weapon Chest", 
+            Dialog_Show(playerid, "BadsideHolster", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Weapon Chest", 
             "Simpan Senjata\n"GRAY"Ambil Senjata", "Pilih", "Batal");
         }
     }
@@ -1013,12 +1013,12 @@ Dialog:BadsideVault(playerid, response, listitem, inputtext[])
 
             if(count == 0)
             {
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Lemari Badside", 
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Lemari Badside", 
                 "Anda tidak memiliki barang yang dapat disimpan!", "Tutup", "");
             }
             else
             {
-                Dialog_Show(playerid, "BadsideVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Lemari Badside", str, "Pilih", "Batal");
+                Dialog_Show(playerid, "BadsideVaultDeposit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Lemari Badside", str, "Pilih", "Batal");
             }
         }
         case 1: //withdraw
@@ -1063,7 +1063,7 @@ Dialog:BadsideVaultDeposit(playerid, response, listitem, inputtext[])
     
     new shstr[528];
     format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Mohon masukkan jumlah yang ingin disimpan:", InventoryData[playerid][PlayerListitem[playerid][listitem]][invItem], InventoryData[playerid][PlayerListitem[playerid][listitem]][invQuantity]);
-    Dialog_Show(playerid, "BadsideVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Badside", 
+    Dialog_Show(playerid, "BadsideVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Badside", 
     shstr, "Input", "Batal");
     return 1;
 }
@@ -1089,7 +1089,7 @@ Dialog:BadsideVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Error: Tidak dapat dikosongkan!\nPlease enter the quantity you want to store:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "BadsideVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Badside", 
+        Dialog_Show(playerid, "BadsideVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Badside", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1098,7 +1098,7 @@ Dialog:BadsideVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Error: Please enter only numbers!\nPlease enter the quantity you want to store:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "BadsideVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Badside", 
+        Dialog_Show(playerid, "BadsideVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Badside", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1107,7 +1107,7 @@ Dialog:BadsideVaultIn(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan menyimpan item:\nNama: "CYAN"%s\n"WHITE"Jumlah di tas: "YELLOW"%d\n"WHITE"Error: Jumlah tidak valid!\nPlease enter the quantity you want to store:", InventoryData[playerid][PlayerListitem[playerid][id]][invItem], InventoryData[playerid][PlayerListitem[playerid][id]][invQuantity]);
-        Dialog_Show(playerid, "BadsideVaultIn", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Badside", 
+        Dialog_Show(playerid, "BadsideVaultIn", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Badside", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1205,7 +1205,7 @@ Dialog:BadsideVaultWithdraw(playerid, response, listitem, inputtext[])
         AccountData[playerid][pTempValue] = listitem;
         new shstr[528];
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Mohon masukkan berapa jumlah yang ingin diambil:", BadsideBrankas[PlayerListitem[playerid][listitem]][badsideBrankasTemp], BadsideBrankas[PlayerListitem[playerid][listitem]][badsideBrankasQuant]);
-        Dialog_Show(playerid, "BadsideVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Badside", 
+        Dialog_Show(playerid, "BadsideVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Badside", 
         shstr, "Input", "Batal");
     }
     return 1;
@@ -1232,7 +1232,7 @@ Dialog:BadsideVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Error: Tidak dapat dikosongkan!\nPlease enter the quantity you want to retrieve:", BadsideBrankas[PlayerListitem[playerid][id]][badsideBrankasTemp], BadsideBrankas[PlayerListitem[playerid][id]][badsideBrankasQuant]);
-        Dialog_Show(playerid, "BadsideVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Badside", 
+        Dialog_Show(playerid, "BadsideVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Badside", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1241,7 +1241,7 @@ Dialog:BadsideVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Error: Please enter only numbers!\nPlease enter the quantity you want to retrieve:", BadsideBrankas[PlayerListitem[playerid][id]][badsideBrankasTemp], BadsideBrankas[PlayerListitem[playerid][id]][badsideBrankasQuant]);
-        Dialog_Show(playerid, "BadsideVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Badside", 
+        Dialog_Show(playerid, "BadsideVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Badside", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1250,7 +1250,7 @@ Dialog:BadsideVaultOut(playerid, response, listitem, inputtext[])
     {
         AccountData[playerid][pMenuShowed] = true;
         format(shstr, sizeof(shstr), ""WHITE"Anda akan mengambil item:\nNama: "CYAN"%s\n"WHITE"Jumlah tersimpan: "YELLOW"%d\n"WHITE"Error: Jumlah tidak valid!\nPlease enter the quantity you want to retrieve:", BadsideBrankas[PlayerListitem[playerid][id]][badsideBrankasTemp], BadsideBrankas[PlayerListitem[playerid][id]][badsideBrankasQuant]);
-        Dialog_Show(playerid, "BadsideVaultOut", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Lemari Badside", 
+        Dialog_Show(playerid, "BadsideVaultOut", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Lemari Badside", 
         shstr, "Input", "Batal");
         return 1;
     }
@@ -1407,7 +1407,7 @@ Dialog:BadsideHolster(playerid, response, listitem, inputtext[])
             if(count == 0)
                 ShowTDN(playerid, NOTIFICATION_ERROR, "Holster badside ini kosong!");
             else
-                Dialog_Show(playerid, "BadsideHolsterWithdraw", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Holster Family", dialogstr, "Pilih", "Batal");
+                Dialog_Show(playerid, "BadsideHolsterWithdraw", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Holster Family", dialogstr, "Pilih", "Batal");
         }
     }
     return 1;
@@ -1524,10 +1524,10 @@ Dialog:BadsideBosdesk(playerid, response, listitem, inputtext[])
             if(count == 0)
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Invite Badside", "Tidak ada pemain terdekat!", "Tutup", "");
+                return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Invite Badside", "Tidak ada pemain terdekat!", "Tutup", "");
             }
 
-            Dialog_Show(playerid, "BadsideInviteConfirm", DIALOG_STYLE_TABLIST, ""Nexston"Nexston Roleplay "WHITE"- Invite Badside", frmxt, "Pilih", "Batal");
+            Dialog_Show(playerid, "BadsideInviteConfirm", DIALOG_STYLE_TABLIST, ""Vertex"Vertex Roleplay "WHITE"- Invite Badside", frmxt, "Pilih", "Batal");
         }
         case 1: //kelola jabatan
         {
@@ -1600,12 +1600,12 @@ Dialog:BadsideBosdesk(playerid, response, listitem, inputtext[])
                     strcat(string, "\n");
                 }
 
-                Dialog_Show(playerid, "FamSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
+                Dialog_Show(playerid, "FamSetRank", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", string, "Pilih", "Batal");
             }
             else
             {
                 PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", "Anda tidak memiliki member di badside ini!", "Tutup", "");
+                Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", "Anda tidak memiliki member di badside ini!", "Tutup", "");
             }
         }
         case 2: //kick
@@ -1619,26 +1619,26 @@ Dialog:BadsideBosdesk(playerid, response, listitem, inputtext[])
             format(rtx, sizeof(rtx), "Badside/family ini memiliki saldo sebesar:\n\
             "DARKGREEN"$%s\n\
             "RED"$%s", FormatMoney(FamilyData[AccountData[playerid][pFamily]][famMoney]), FormatMoney(FamilyData[AccountData[playerid][pFamily]][famDirtyMoney]));
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Badside Money Vault", rtx, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Badside Money Vault", rtx, "Tutup", "");
         }
         case 4: //deposit saldo
         {
-            Dialog_Show(playerid, "BadsideDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Badside Deposit", 
+            Dialog_Show(playerid, "BadsideDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Badside Deposit", 
             "Mohon masukkan nominal deposit untuk saldo badside:", "Input", "Batal");
         }
         case 5: //tarik saldo
         {
-            Dialog_Show(playerid, "BadsideWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Badside Withdraw", 
+            Dialog_Show(playerid, "BadsideWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Badside Withdraw", 
             "Mohon masukkan nominal penarikan tunai dari saldo badside:", "Input", "Batal");
         }
         case 6: //deposit saldo
         {
-            Dialog_Show(playerid, "BadsideDepositDMoney", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Dirty Money Deposit", 
+            Dialog_Show(playerid, "BadsideDepositDMoney", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Dirty Money Deposit", 
             "Mohon masukkan nominal deposit untuk saldo dirty money badside:", "Input", "Batal");
         }
         case 7: //tarik saldo
         {
-            Dialog_Show(playerid, "BadsideWithdrawDMoney", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Dirty Money Withdraw", 
+            Dialog_Show(playerid, "BadsideWithdrawDMoney", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Dirty Money Withdraw", 
             "Mohon masukkan nominal penarikan saldo dirty money badside:", "Input", "Batal");
         }
     }
@@ -1670,21 +1670,21 @@ Dialog:BadsideSetRankConfirm(playerid, response, listitem, inputtext[])
     if (AccountData[playerid][pFamily] < 0) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan anggota dari family manapun!");
     if (AccountData[playerid][pFamilyRank] < 5) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan petinggi dari family ini!");
 
-    if (isnull(inputtext)) return Dialog_Show(playerid, "BadsideSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Positions",
+    if (isnull(inputtext)) return Dialog_Show(playerid, "BadsideSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Positions",
     "Error: Tidak dapat dikosongkan!\n\
     Please select a position to set (enter a number only):\n\
     1. Member\n\
     2. Vice\n\
     3. Boss", "Set", "Batal");
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BadsideSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Positions",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BadsideSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Positions",
     "Error: Masukkan hanya angka!\n\
     Please select a position to set (enter a number only):\n\
     1. Member\n\
     2. Vice\n\
     3. Boss", "Set", "Batal");
 
-    if (strval(inputtext) < 1 || strval(inputtext) > AccountData[playerid][pFamilyRank]) return Dialog_Show(playerid, "BadsideSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Positions",
+    if (strval(inputtext) < 1 || strval(inputtext) > AccountData[playerid][pFamilyRank]) return Dialog_Show(playerid, "BadsideSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Positions",
     "Error: Cannot be lower than 1 or higher than your current position!\n\
     Please select a position to set (enter a number only):\n\
     1. Member\n\
@@ -1716,16 +1716,16 @@ Dialog:BadsideDepositCash(playerid, response, listitem, inputtext[])
     
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "BadsideDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Badside Deposit",
+        return Dialog_Show(playerid, "BadsideDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Badside Deposit",
         "Error: Tidak dapat dikosongkan!\n\
         Mohon masukkan berapa jumlah deposit:", "Input", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BadsideDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Badside Deposit",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BadsideDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Badside Deposit",
         "Error: Masukkan hanya angka!\n\
         Mohon masukkan berapa jumlah deposit:", "Input", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BadsideDepositCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Badside Deposit",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BadsideDepositCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Badside Deposit",
     "Error: Invalid amount, you can't deposit less than $1!\n\
     Mohon masukkan berapa jumlah deposit:", "Input", "Batal");
 
@@ -1749,16 +1749,16 @@ Dialog:BadsideWithdrawCash(playerid, response, listitem, inputtext[])
     
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "BadsideWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Badside Withdraw",
+        return Dialog_Show(playerid, "BadsideWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Badside Withdraw",
         "Error: Tidak dapat dikosongkan!\n\
        Mohon masukkan jumlah yang ingin ditarik:", "Input", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BadsideWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Badside Withdraw",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BadsideWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Badside Withdraw",
         "Error: Masukkan hanya angka!\n\
        Mohon masukkan jumlah yang ingin ditarik:", "Input", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BadsideWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Badside Withdraw",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BadsideWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Badside Withdraw",
     "Error: Jumlah tidak valid, anda tidak dapat withdraw kurang dari $1!\n\
    Mohon masukkan jumlah yang ingin ditarik:", "Input", "Batal");
 
@@ -1782,16 +1782,16 @@ Dialog:BadsideDepositDMoney(playerid, response, listitem, inputtext[])
     
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "BadsideDepositDMoney", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Dirty Money Deposit",
+        return Dialog_Show(playerid, "BadsideDepositDMoney", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Dirty Money Deposit",
         "Error: Tidak dapat dikosongkan!\n\
         Mohon masukkan berapa jumlah deposit:", "Input", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BadsideDepositDMoney", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Dirty Money Deposit",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BadsideDepositDMoney", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Dirty Money Deposit",
         "Error: Masukkan hanya angka!\n\
         Mohon masukkan berapa jumlah deposit:", "Input", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BadsideDepositDMoney", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Dirty Money Deposit",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BadsideDepositDMoney", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Dirty Money Deposit",
     "Error: Invalid amount, you can't deposit less than $1!\n\
     Mohon masukkan berapa jumlah deposit:", "Input", "Batal");
 
@@ -1815,16 +1815,16 @@ Dialog:BadsideWithdrawDMoney(playerid, response, listitem, inputtext[])
     
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "BadsideWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Dirty Money Withdraw",
+        return Dialog_Show(playerid, "BadsideWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Dirty Money Withdraw",
         "Error: Tidak dapat dikosongkan!\n\
         Mohon masukkan jumlah yang ingin ditarik:", "Input", "Batal");
     }          
 
-    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BadsideWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Dirty Money Withdraw",
+    if (!IsNumericEx(inputtext)) return Dialog_Show(playerid, "BadsideWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Dirty Money Withdraw",
         "Error: Masukkan hanya angka!\n\
         Mohon masukkan jumlah yang ingin ditarik:", "Input", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BadsideWithdrawCash", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Dirty Money Withdraw",
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "BadsideWithdrawCash", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Dirty Money Withdraw",
     "Error: Jumlah tidak valid, anda tidak dapat withdraw kurang dari $1!\n\
    Mohon masukkan jumlah yang ingin ditarik:", "Input", "Batal");
 
@@ -1886,7 +1886,7 @@ Dialog:FamSetRank(playerid, response, listitem, inputtext[])
             cache_get_value_name_int(0, "Char_FamilyRank", AccountData[playerid][pTempSQLFactRank]);
             if(AccountData[playerid][pID] == AccountData[playerid][pTempSQLFactMemberID]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak dapat menetapkan rank anda sendiri!");
             if(AccountData[playerid][pTempSQLFactRank] >= AccountData[playerid][pFamilyRank]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak dapat menetapkan rank rekan yang sejajar/lebih tinggi dari anda!");
-            Dialog_Show(playerid, "BadsideSetRankConfirm", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Manage Rank", 
+            Dialog_Show(playerid, "BadsideSetRankConfirm", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Manage Rank", 
             "Silahkan pilih jabatan untuk ditetapkan (masukkan angka saja):\n\
             1. Prospek\n\
             2. Junior\n\
@@ -1951,7 +1951,7 @@ Dialog:FamKickMember(playerid, response, listitem, inputtext[])
             Name: %s\n\
             Rank: %s\n\
             Last Online: %s", fckname, FamsRank[fckrank], fcklastlogin);
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kick Badside", 
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kick Badside", 
             kckstr, "Tutup", "");
         }
     }

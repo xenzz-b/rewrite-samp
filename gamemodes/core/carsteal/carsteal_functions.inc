@@ -306,7 +306,7 @@ ptask UpdatingCarstealCountdown[1000](playerid)
 					if(DestroyDynamicMapIcon(AccountData[playerid][g_CarstealIcon][x]))
 						AccountData[playerid][g_CarstealIcon][x] = STREAMER_TAG_MAP_ICON: INVALID_STREAMER_ID;
 				}
-                ShowFivemNotify(playerid, "Nexston Roleplay~n~CAR STEAL", "Dasar payah, anda belum menemukan kendaraan carsteal atau waktu habis. Misi dinyatakan gagal!", "hud:radar_qmark", 25);
+                ShowFivemNotify(playerid, "Vertex Roleplay~n~CAR STEAL", "Dasar payah, anda belum menemukan kendaraan carsteal atau waktu habis. Misi dinyatakan gagal!", "hud:radar_qmark", 25);
             }
         }
     }

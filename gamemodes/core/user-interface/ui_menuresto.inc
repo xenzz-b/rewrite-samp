@@ -902,7 +902,7 @@ ShowMenuRestoPringSewuTD(playerid)
     HideHBETD(playerid);
 	HideRadioVoiceInfoTD(playerid);
     HideWargaBaruTD(playerid);
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
 
 }
 
@@ -927,7 +927,7 @@ ShowMenuRestoSriMersingTD(playerid)
     HideHBETD(playerid);
 	HideRadioVoiceInfoTD(playerid);
     HideWargaBaruTD(playerid);
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
 
 }
 

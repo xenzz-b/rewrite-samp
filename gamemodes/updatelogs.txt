@@ -1,4 +1,4 @@
-# **NEXSTON ROLEPLAY — UPDATE LOGS**
+# **VERTEX ROLEPLAY — UPDATE LOGS**
 
 # __ADD__
 [+] Add Admin Trial Volunteer (akses di /ahelp)
@@ -34,7 +34,7 @@
 
 
 
-# **NEXSTON ROLEPLAY — UPDATE LOGS**
+# **VERTEX ROLEPLAY — UPDATE LOGS**
 
 # __ADD__
 [+] Add UI TextDraw Handphone Twitter Login
@@ -48,7 +48,7 @@
 [~] Change Ui TextDraw Handphone Bagian Aplikasi Mbanking
 [~] Change Mappingan Exterior Benny
 
-# **NEXSTON ROLEPLAY — UPDATE LOGS**
+# **VERTEX ROLEPLAY — UPDATE LOGS**
 
 **#__ADD__**
 `[+]` Add Textdraw UI Spotify — tampilan baru
@@ -66,7 +66,7 @@
 `[~]` Change label "Warga" menjadi "Rakyat" saat berhasil membuat akun UCP
 
 
-# **NEXSTON ROLEPLAY — UPDATE LOGS**
+# **VERTEX ROLEPLAY — UPDATE LOGS**
 
 # __ADD__
 [+] Add Phone Kontak UI new
@@ -87,7 +87,7 @@
 [!] Fix Helper & vlounter bisa dengan bebas mengunakan jetpack tanpa harus dikick Bot
 
 
-# **NEXSTON ROLEPLAY — UPDATE LOGS**
+# **VERTEX ROLEPLAY — UPDATE LOGS**
 
 #__ADD__
 [+] Add fitur ticket untuk bot Discord
@@ -96,7 +96,7 @@
 [+] Add sistem race menggunakan Race Tablet
 [+] Add Textdraw UI untuk sistem race
 [+] Add item `Race Tablet` pada toko bisnis kategori elektronik
-[+] Add Textdraw UI Login NSRP dengan tampilan baru
+[+] Add Textdraw UI Login VRP dengan tampilan baru
 [+] Add sistem CCTV di dalam interior kepolisian
 - Tersedia 12 ruangan yang dapat dipantau
 - Navigasi antar ruangan menggunakan tombol `<-` dan `->`
@@ -114,7 +114,7 @@
 [~] Improve skin karakter baru diperbarui menjadi Skin ID 2
 
 
-# **NEXSTON ROLEPLAY — UPDATE LOGS**
+# **VERTEX ROLEPLAY — UPDATE LOGS**
 
 # __ADD__
 **[+] Dynamic Job Sawit**
@@ -135,7 +135,7 @@
 **[~] Command `/veh`, `/givemoney`, `/givemoneyall`, `/setmoney`**
 - Akses command dibatasi khusus untuk **Admin Level 5** ke atas
 
-# **NEXSTON ROLEPLAY — UPDATE LOGS**
+# **VERTEX ROLEPLAY — UPDATE LOGS**
 
 # __CHANGE__
 [~] Change skin female saat pertama kali regis menjadi skinid 193
@@ -148,7 +148,7 @@
 [-] Remove Command `/stopeating` berhenti makan
 [-] Remove command `/stopdrinking` berhenti minum
 
-# **NEXSTON ROLEPLAY — UPDATE LOGS**
+# **VERTEX ROLEPLAY — UPDATE LOGS**
 
 # __ADD__
 [+] Add Mapping eksterior area Chicago ditambahkan
@@ -165,10 +165,10 @@
 # __REMOVE__ 
 [-] Remove Faction Bintang Kejora (Restoran Ganton) telah dihapus
 
-# **NEXSTON ROLEPLAY — UPDATE LOGS**
+# **VERTEX ROLEPLAY — UPDATE LOGS**
 
 # __ADD__
-[+] Add command `/setskinex` only khusus client Nexstons!
+[+] Add command `/setskinex` only khusus client Vertex!
 
 # __REMOVE__
 [-] Remove lagu pada saat onplayerconnect

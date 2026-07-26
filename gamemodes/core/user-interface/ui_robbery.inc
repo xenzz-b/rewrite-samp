@@ -9,7 +9,7 @@ CreateRobberyTD(playerid)
     PlayerTextDrawSetOutline(playerid, perampokanTD[playerid], 0);
     PlayerTextDrawSetShadow(playerid, perampokanTD[playerid], 0);
     PlayerTextDrawAlignment(playerid, perampokanTD[playerid], 3);
-    PlayerTextDrawColor(playerid, perampokanTD[playerid], Y_Nexston);
+    PlayerTextDrawColor(playerid, perampokanTD[playerid], Y_Vertex);
     PlayerTextDrawBackgroundColor(playerid, perampokanTD[playerid], 255);
     PlayerTextDrawBoxColor(playerid, perampokanTD[playerid], 50);
     PlayerTextDrawUseBox(playerid, perampokanTD[playerid], 0);

@@ -201,35 +201,35 @@ hook OnPlayerConnect(playerid)
 
 hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
 {
-    if(playertextid == LoginTwittNSRP[playerid][23]) //login twitt
+    if(playertextid == LoginTwittVRP[playerid][23]) //login twitt
     {
         Dialog_Show(playerid, "TwitterRegister", DIALOG_STYLE_INPUT, 
-        ""Nexston"Nexston Roleplay "WHITE"- Daftar Twitter", 
+        ""Vertex"Vertex Roleplay "WHITE"- Daftar Twitter", 
         "Hai, selamat datang di Twitter!\n\
         Silakan masukkan username Twitter kamu, ini akan ditampilkan pada setiap tweet yang kamu buat:\n\
         Ingat: Username hanya dapat berupa huruf dan angka, tidak menggunakan simbol!\n\
         Panjang username 7 - 24 karakter!", "Set", "Batal");
     }
-    else if(playertextid == LoginTwittNSRP[playerid][22]) //register twitt
+    else if(playertextid == LoginTwittVRP[playerid][22]) //register twitt
     {
         Dialog_Show(playerid, "TwitterLogin", DIALOG_STYLE_INPUT, 
-        ""Nexston"Nexston Roleplay "WHITE"- Login Twitter", 
+        ""Vertex"Vertex Roleplay "WHITE"- Login Twitter", 
         "Hai, selamat datang di Twitter!\n\
         Silakan masukkan username Twitter kamu yang telah terdaftar:", "Input", "Batal");
     }
-    else if(playertextid == LoginTwittNSRP[playerid][15]) //close 
+    else if(playertextid == LoginTwittVRP[playerid][15]) //close 
     {
         HideTwitterTD(playerid);
         HideTwitterUIList(playerid);
-        ShowPhoneNSRP(playerid);
+        ShowPhoneVRP(playerid);
     }
-    else if(playertextid == HomeTwittNSRP[playerid][23]) //post tweet
+    else if(playertextid == HomeTwittVRP[playerid][23]) //post tweet
     {
         Dialog_Show(playerid, "TwitterTweeting", DIALOG_STYLE_INPUT,
-        ""Nexston"Nexston Roleplay "WHITE"- Twitter",
+        ""Vertex"Vertex Roleplay "WHITE"- Twitter",
         "Silahkan masukkan tweet yang ingin kamu buat:", "Tweet", "Batal");
     }
-    else if(playertextid == HomeTwittNSRP[playerid][27]) //logout
+    else if(playertextid == HomeTwittVRP[playerid][27]) //logout
     {
         new sqlfstr[128];
         PlayerPhoneData[playerid][IsTwitterLoggedIn] = 0;
@@ -240,11 +240,11 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:playertextid)
         HideTwitterUIList(playerid);
         ShowTwitterLoginTD(playerid);
     }
-    else if(playertextid == HomeTwittNSRP[playerid][15]) //close 
+    else if(playertextid == HomeTwittVRP[playerid][15]) //close 
     {
         HideTwitterTD(playerid);
         HideTwitterUIList(playerid);
-        ShowPhoneNSRP(playerid);
+        ShowPhoneVRP(playerid);
     }   
     return 1;
 }

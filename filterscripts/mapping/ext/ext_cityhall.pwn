@@ -75,7 +75,7 @@ CreateWalkotExt()
     SetDynamicObjectMaterial(wlktxtsma, 0, 10765, "airportgnd_sfse", "black64", 0x00000000);
     // wlktxtsma = CreateDynamicObject(19482, 1122.429321, -2036.922607, 74.156211, 0.000000, 0.000000, 0.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(wlktxtsma, 0, 10101, "2notherbuildsfe", "flatdoor01_law", 0x00000000);
-    // SetDynamicObjectMaterialText(wlktxtsma, 0, "PEMERINTAH KOTA NEXSTON", 130, "Calibri", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
+    // SetDynamicObjectMaterialText(wlktxtsma, 0, "PEMERINTAH KOTA VERTEX", 130, "Calibri", 30, 1, 0xFFFFFFFF, 0x00000000, 1);
     wlktxtsma = CreateDynamicObject(19426, 1123.319702, -2053.573486, 71.466194, 0.000000, 0.000007, 0.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(wlktxtsma, 0, 6052, "law_doontoon", "sf_window_mod1", 0x00000000);
     wlktxtsma = CreateDynamicObject(19426, 1123.319702, -2057.955078, 71.466194, 0.000000, 0.000007, 0.000000, 0, 0, -1, 200.00, 200.00); 
@@ -421,7 +421,7 @@ CreateWalkotExt()
     SetDynamicObjectMaterial(wlktxtsma, 0, 18646, "matcolours", "grey-90-percent", 0x00000000);
     wlktxtsma = CreateDynamicObject(19482, 1122.409301, -2036.912597, 74.156211, 0.000000, 0.000000, 0.000000, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(wlktxtsma, 0, 10101, "2notherbuildsfe", "flatdoor01_law", 0x00000000);
-    SetDynamicObjectMaterialText(wlktxtsma, 0, "PEMERINTAH KOTA NEXSTON", 130, "Calibri", 30, 1, 0xFFFFFFA6, 0x00000000, 1);
+    SetDynamicObjectMaterialText(wlktxtsma, 0, "PEMERINTAH KOTA VERTEX", 130, "Calibri", 30, 1, 0xFFFFFFA6, 0x00000000, 1);
     wlktxtsma = CreateDynamicObject(2047, 1169.698120, -2025.441528, 78.293174, -0.000001, -0.000010, 89.999923, 0, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterial(wlktxtsma, 0, 18646, "matcolours", "red-4", 0x00000000);
     wlktxtsma = CreateDynamicObject(2047, 1169.698120, -2025.441528, 78.293174, 0.000057, 0.000010, -90.000259, 0, 0, -1, 200.00, 200.00); 

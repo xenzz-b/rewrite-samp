@@ -125,7 +125,7 @@ CreateLoginUITD()
 	TextDrawFont(LoginUITD[11], 4);
 	TextDrawSetProportional(LoginUITD[11], 1);
 
-	LoginUITD[12] = TextDrawCreate(298.000, 116.000, "Nexston");
+	LoginUITD[12] = TextDrawCreate(298.000, 116.000, "Vertex");
 	TextDrawLetterSize(LoginUITD[12], 0.469, 2.299);
 	TextDrawAlignment(LoginUITD[12], 1);
 	TextDrawColor(LoginUITD[12], -1);

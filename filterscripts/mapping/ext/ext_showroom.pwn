@@ -556,7 +556,7 @@ CreateShowroomExt()
     showroomxts = CreateDynamicObject(2662, 398.887664, -1326.044067, 16.157043, -0.000020, 180.000000, -58.999954, -1, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(showroomxts, 0, "V", 90, "Arial", 199, 1, 0xFFFFFFFF, 0x00000000, 1);
     showroomxts = CreateDynamicObject(19482, 400.035614, -1327.573242, 16.057037, -0.000003, -0.000020, -149.000030, -1, 0, -1, 200.00, 200.00); 
-    SetDynamicObjectMaterialText(showroomxts, 0, "Nexston", 130, "Arial", 50, 1, 0xFFFFFFFF, 0x00000000, 1);
+    SetDynamicObjectMaterialText(showroomxts, 0, "Vertex", 130, "Arial", 50, 1, 0xFFFFFFFF, 0x00000000, 1);
     showroomxts = CreateDynamicObject(19482, 401.354400, -1329.767944, 16.057037, -0.000003, -0.000020, -149.000030, -1, 0, -1, 200.00, 200.00); 
     SetDynamicObjectMaterialText(showroomxts, 0, "SHOWROOM", 130, "Arial", 50, 1, 0xFFFF0000, 0x00000000, 1);
     showroomxts = CreateDynamicObject(19482, 398.026550, -1328.616943, 14.447037, -0.000003, -0.000020, -149.000030, -1, 0, -1, 200.00, 200.00); 

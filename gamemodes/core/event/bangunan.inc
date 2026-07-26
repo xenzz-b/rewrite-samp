@@ -125,7 +125,7 @@ public BangunanTimer(playerid)
 
                 bangunanProgress += 0.05;
 
-                UpdateDynamic3DTextLabelText(bangunanLabel, -1, sprintf("[Pembangunan Puskesmas Nexston]\n\nProgress: "GREEN"%.2f/100.00\n\n[Y] "WHITE"Bekerja", bangunanProgress));
+                UpdateDynamic3DTextLabelText(bangunanLabel, -1, sprintf("[Pembangunan Puskesmas Vertex]\n\nProgress: "GREEN"%.2f/100.00\n\n[Y] "WHITE"Bekerja", bangunanProgress));
 
                 PlayerPlaySound(playerid, 183, 0.0, 0.0, 0.0);
                 GameTextForPlayer(playerid, sprintf("mission passed!~n~~w~$%s",FormatMoney(randcash)), 8900, 0);
@@ -182,7 +182,7 @@ public BangunanTimer(playerid)
 
 hook OnGameModeInit()
 {
-    bangunanLabel = CreateDynamic3DTextLabel("[Pembangunan Puskesmas Nexston]\n\nProgress: "GREEN"0.00/100.00\n\n[Y] "WHITE"Bekerja", -1, BangunanCoordinates[0][0],BangunanCoordinates[0][1],BangunanCoordinates[0][2], 15.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, 0, 0, -1, 15.0, -1, 0);
+    bangunanLabel = CreateDynamic3DTextLabel("[Pembangunan Puskesmas Vertex]\n\nProgress: "GREEN"0.00/100.00\n\n[Y] "WHITE"Bekerja", -1, BangunanCoordinates[0][0],BangunanCoordinates[0][1],BangunanCoordinates[0][2], 15.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, 0, 0, -1, 15.0, -1, 0);
     
     //mapping
     static bngunxt;
@@ -332,7 +332,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         if(IsPlayerInRangeOfPoint(playerid, 2.5, BangunanCoordinates[0][0],BangunanCoordinates[0][1],BangunanCoordinates[0][2]))
         {
             if(bangunanProgress >= 100.00) return ShowTDN(playerid, NOTIFICATION_ERROR, "Proyek konstruksi ini telah mencapai progress 100 persen!");
-            Dialog_Show(playerid, "JobBangunan", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Pembangunan Nexston", ""WHITE"Saat ini kami sedang mengerjakan proyek konstruksi Puskesmas Nexston\nApakah anda ingin mulai bekerja disini?", "Ya", "No");
+            Dialog_Show(playerid, "JobBangunan", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Pembangunan Vertex", ""WHITE"Saat ini kami sedang mengerjakan proyek konstruksi Puskesmas Vertex\nApakah anda ingin mulai bekerja disini?", "Ya", "No");
         }
     }
     return 1;

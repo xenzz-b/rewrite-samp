@@ -252,7 +252,7 @@ CreateTollTD()
     TextDrawFont(TollTD[24], 1);
     TextDrawSetProportional(TollTD[24], 1);
 
-    TollTD[25] = TextDrawCreate(448.000, 179.000, "Nexston");
+    TollTD[25] = TextDrawCreate(448.000, 179.000, "Vertex");
     TextDrawLetterSize(TollTD[25], 0.298, 1.799);
     TextDrawAlignment(TollTD[25], 2);
     TextDrawColor(TollTD[25], -7601921);

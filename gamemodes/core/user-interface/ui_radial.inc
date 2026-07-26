@@ -1714,7 +1714,7 @@ ShowRadialTD(playerid)
     {
         TextDrawShowForPlayer(playerid, RadialTD[x]);
     }
-	SelectTextDraw(playerid, Y_Nexston);
+	SelectTextDraw(playerid, Y_Vertex);
 }
 
 HideRadialTD(playerid)
@@ -1731,7 +1731,7 @@ ShowRadialFashionTD(playerid)
     {
         TextDrawShowForPlayer(playerid, RadialFashionTD[x]);
     }
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
 }
 
 HideRadialFashionTD(playerid)
@@ -1748,7 +1748,7 @@ ShowRadialVehTD(playerid)
     {
         TextDrawShowForPlayer(playerid, RadialVehTD[x]);
     }
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
 }
 
 HideRadialVehTD(playerid)
@@ -1765,7 +1765,7 @@ ShowRadialCardTD(playerid)
     {
         TextDrawShowForPlayer(playerid, RadialCardTD[x]);
     }
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
 }
 
 HideRadialCardTD(playerid)

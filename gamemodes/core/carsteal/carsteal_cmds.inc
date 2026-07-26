@@ -94,7 +94,7 @@ YCMD:csinfo(playerid, params[], help)
             Model: "YELLOW"%s\n\
             "WHITE"Lokasi: "YELLOW"%s\n\n\
             "WHITE"Segera temukan dan bawa kepada Gangster sebelum waktu selesai "RED"(%d menit)", GetVehicleModelName(GetVehicleModel(g_CarstealCarPhysic[playerid])), GetLocation(csvehX, csvehY, csvehZ), g_CarstealCountdown/60);
-            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Carsteal Info", csinfotxt, "Tutup", "");
+            Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Carsteal Info", csinfotxt, "Tutup", "");
         }
         else
         {

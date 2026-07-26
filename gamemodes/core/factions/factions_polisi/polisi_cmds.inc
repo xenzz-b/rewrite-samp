@@ -1,7 +1,7 @@
 YCMD:pagate(playerid, params[], help)
 {
     if (AccountData[playerid][pFaction] != FACTION_LSPD)
-        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     if(!IsPlayerInRangeOfPoint(playerid, 15.50, 1142.3409,1363.5345,10.6827))
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di gerbang Akademi Polisi!");
@@ -22,7 +22,7 @@ YCMD:pagate(playerid, params[], help)
 YCMD:tirelock(playerid, params[], help)
 {
     if (AccountData[playerid][pFaction] != FACTION_LSPD)
-        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     new vehid;
     if(sscanf(params, "d", vehid)) return SUM(playerid, "/tirelock [vehid]");
@@ -51,7 +51,7 @@ YCMD:tirelock(playerid, params[], help)
 YCMD:untirelock(playerid, params[], help)
 {
     if (AccountData[playerid][pFaction] != FACTION_LSPD)
-        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     new vehid;
     if(sscanf(params, "d", vehid)) return SUM(playerid, "/tirelock [vehid]");
@@ -79,9 +79,9 @@ YCMD:untirelock(playerid, params[], help)
 YCMD:pdm(playerid, params[], help)
 {
     if (AccountData[playerid][pFaction] != FACTION_LSPD)
-        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
-    Dialog_Show(playerid, "PolisiPDMMenu", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Police Menu",
+    Dialog_Show(playerid, "PolisiPDMMenu", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Police Menu",
         "Vehicle Interactions\n\
         Spawn Objects\n\
         Suspect List", "Pilih", "Batal");
@@ -91,7 +91,7 @@ YCMD:pdm(playerid, params[], help)
 YCMD:trace(playerid, params[], help)
 {
     if (AccountData[playerid][pFaction] != FACTION_LSPD)
-        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     new type, number[16], targetid, Float:targetX, Float:targetY, Float:targetZ;
     if (sscanf(params, "ds[16]", type, number))
@@ -145,7 +145,7 @@ YCMD:trace(playerid, params[], help)
 YCMD:takelic(playerid, params[], help)
 {
     if (AccountData[playerid][pFaction] != FACTION_LSPD)
-        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+        return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     new otherid;
     if (sscanf(params, "d", otherid))
@@ -157,7 +157,7 @@ YCMD:takelic(playerid, params[], help)
 
     AccountData[playerid][pTempValue2] = otherid;
 
-    Dialog_Show(playerid, "TakeLicense", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- "WHITE"Tarik Lisensi", 
+    Dialog_Show(playerid, "TakeLicense", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- "WHITE"Tarik Lisensi", 
     "SIM A\n\
     SIM B\n\
     SIM C\n\
@@ -174,7 +174,7 @@ YCMD:callsign(playerid, params[], help)
 	new clsgnstr[32];
 
 	if(AccountData[playerid][pFaction] != FACTION_LSPD && AccountData[playerid][pFaction] != FACTION_LSFD)
-		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian/Paramedis Nexston!");
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian/Paramedis Vertex!");
 
     if(!AccountData[playerid][pOnDuty]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus on duty!");
 
@@ -222,7 +222,7 @@ YCMD:callsign(playerid, params[], help)
 YCMD:mdt(playerid, params[], help)
 {
     if(AccountData[playerid][pFaction] != FACTION_LSPD)
-		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     if(IsPlayerInAnyVehicle(playerid))
     {
@@ -237,14 +237,14 @@ YCMD:mdt(playerid, params[], help)
     PlayerPlayNearbySound(playerid, MDC_OPEN);
 	SendRPMeAboveHead(playerid, "Login ke Mobile Data Terminal.");
 
-    Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Batal");
+    Dialog_Show(playerid, "MDC_Main", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- MDT Dashboard", "Name Search\nPlate Search\nAll Points Bulletin\nCrime Broadcast\nRoster", "Pilih", "Batal");
     return 1;
 }
 
 YCMD:spawnheli(playerid, params[], help)
 {
     if(AccountData[playerid][pFaction] != FACTION_LSPD)
-		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     if(PlayerFactionVehicle[playerid][FACTION_LSPD] != INVALID_VEHICLE_ID) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda telah mengeluarkan kendaraan, simpan terlebih dahulu!");
 
@@ -292,7 +292,7 @@ YCMD:spawnheli(playerid, params[], help)
 YCMD:despawnheli(playerid, params[], help)
 {
     if(AccountData[playerid][pFaction] != FACTION_LSPD)
-		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     if(IsPlayerInRangeOfPoint(playerid, 3.0, 615.0135,-590.6496,21.3375))
     {
@@ -331,7 +331,7 @@ YCMD:despawnheli(playerid, params[], help)
 YCMD:spawnboat(playerid, params[], help)
 {
     if(AccountData[playerid][pFaction] != FACTION_LSPD)
-		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     if(!AccountData[playerid][pOnDuty]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus on duty!");
 
@@ -341,7 +341,7 @@ YCMD:spawnboat(playerid, params[], help)
     {
         DestroyVehicle(JobVehicle[playerid]);
 
-        ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengembalikan boat Kepolisian Nexston.");
+        ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengembalikan boat Kepolisian Vertex.");
     }
     else
     {
@@ -355,7 +355,7 @@ YCMD:spawnboat(playerid, params[], help)
         SwitchVehicleEngine(JobVehicle[playerid], true);
         SwitchVehicleDoors(JobVehicle[playerid], false);
 
-        ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengeluarkan boat Kepolisian Nexston.");
+        ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengeluarkan boat Kepolisian Vertex.");
     }
     return 1;
 }
@@ -363,20 +363,20 @@ YCMD:spawnboat(playerid, params[], help)
 YCMD:mpo(playerid, params[], help)
 {
     if(AccountData[playerid][pFaction] != FACTION_LSPD)
-		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     if(!IsPlayerInAnyVehicle(playerid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di dalam kendaraan kepolisian!");
     if(!IsLSPDVehicle(GetPlayerVehicleID(playerid)))
 		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di dalam kendaraan kepolisian!");
 
-    SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Harap tepikan kendaraan anda, kami dari Kepolisian Nexston!", GetPlayerRoleplayName(playerid));
+    SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Harap tepikan kendaraan anda, kami dari Kepolisian Vertex!", GetPlayerRoleplayName(playerid));
     return 1;
 }
 
 YCMD:em(playerid, params[], help)
 {
     if(AccountData[playerid][pFaction] != FACTION_LSPD)
-		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     if(!IsPlayerInAnyVehicle(playerid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di dalam kendaraan kepolisian!");
     if(!IsLSPDVehicle(GetPlayerVehicleID(playerid)))
@@ -388,31 +388,31 @@ YCMD:em(playerid, params[], help)
     {
         case 0:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Disini Kepolisian Nexston dalam situasi darurat, menyingkirlah dari jalan!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Disini Kepolisian Vertex dalam situasi darurat, menyingkirlah dari jalan!", GetPlayerRoleplayName(playerid));
         }
         case 1:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Menyingkir dari jalan! Situasi darurat, ini Kepolisian Nexston!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Menyingkir dari jalan! Situasi darurat, ini Kepolisian Vertex!", GetPlayerRoleplayName(playerid));
         }
         case 2:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Situasi darurat Kepolisian Nexston, mohon menyingkir dari jalan!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Situasi darurat Kepolisian Vertex, mohon menyingkir dari jalan!", GetPlayerRoleplayName(playerid));
         }
         case 3:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Berikan jalan segera, ini Kepolisian Nexston sedang dalam situasi darurat!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Berikan jalan segera, ini Kepolisian Vertex sedang dalam situasi darurat!", GetPlayerRoleplayName(playerid));
         }
         case 4:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Harap berikan jalan, disini Kepolisian Nexston dalam situasai darurat!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Harap berikan jalan, disini Kepolisian Vertex dalam situasai darurat!", GetPlayerRoleplayName(playerid));
         }
         case 5:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Disini Kepolisian Nexston dalam situasi darurat, menyingkir dan berikan jalan!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Disini Kepolisian Vertex dalam situasi darurat, menyingkir dan berikan jalan!", GetPlayerRoleplayName(playerid));
         }
         case 6:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Ini Kepolisian Nexston, menyingkir dan berikan jalan untuk kami!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Ini Kepolisian Vertex, menyingkir dan berikan jalan untuk kami!", GetPlayerRoleplayName(playerid));
         }
     }
     return 1;
@@ -420,7 +420,7 @@ YCMD:em(playerid, params[], help)
 
 YCMD:makeskck(playerid, params[], help)
 {
-    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     if(!IsPlayerInRangeOfPoint(playerid, 4.0, 1849.2089,116.1616,1335.5945))
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus berada di tempat yang seharusnya!");
@@ -462,18 +462,18 @@ YCMD:makeskck(playerid, params[], help)
 
 YCMD:makeplate(playerid, params[], help)
 {
-    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+    if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
     if(!IsPlayerInRangeOfPoint(playerid, 4.0, 1849.2089,116.1616,1335.5945))
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus berada di tempat yang seharusnya!");
 
-    Dialog_Show(playerid, "MakeVehPlate", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Pemasangan Plat", "Anda akan memasang plat kendaraan\n"YELLOW"(Mohon masukkan VID kendaraan, dapat dilihat di '/myv'):", "Input", "Batal");
+    Dialog_Show(playerid, "MakeVehPlate", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Pemasangan Plat", "Anda akan memasang plat kendaraan\n"YELLOW"(Mohon masukkan VID kendaraan, dapat dilihat di '/myv'):", "Input", "Batal");
     return 1;
 }
 
 // YCMD:makestnk(playerid, params[], help)
 // {
-//     if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+//     if(AccountData[playerid][pFaction] != FACTION_LSPD) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 
 //     if(!IsPlayerInRangeOfPoint(playerid, 4.0, 944.0831,2447.8220,10.9001))
 //         return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda harus berada di tempat yang seharusnya!");

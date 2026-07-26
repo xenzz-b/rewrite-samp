@@ -20,6 +20,6 @@ YCMD:avtreasure(playerid, params[], help)
     avTreasureData[playerid][Fancious],
     avTreasureData[playerid][Rareous]);
 
-    Dialog_Show(playerid, "MyAVTreasure", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- avTreasure", string, "Pilih", "Batal");
+    Dialog_Show(playerid, "MyAVTreasure", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- avTreasure", string, "Pilih", "Batal");
     return 1;
 }

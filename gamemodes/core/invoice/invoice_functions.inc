@@ -72,19 +72,19 @@ Dialog:InvoiceSetName(playerid, response, listitem, inputtext[])
         RemovePlayerAttachedObject(playerid, 9);
         return ShowTDN(playerid, NOTIFICATION_WARNING, "Pemain tersebut tidak dekat dengan anda!");
     }
-    if(isnull(inputtext)) return Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Invoice", 
+    if(isnull(inputtext)) return Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Invoice", 
     "Error: Tidak dapat dikosongkan!\n\
     Mohon masukkan nama dari invoice ini:", "Input", "Batal");
-    if(strlen(inputtext) < 3 || strlen(inputtext) > 34) return Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Invoice", 
+    if(strlen(inputtext) < 3 || strlen(inputtext) > 34) return Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Invoice", 
     "Error: Nama tagihan harus mengandung 3 - 34 karakter!\n\
     Mohon masukkan nama dari invoice ini:", "Input", "Batal");
 
-    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Invoice", 
+    if(strfind(inputtext, "%", true) != -1 || strfind(inputtext, "#", true) != -1)  return Dialog_Show(playerid, "InvoiceSetName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Invoice", 
     "Error: Tidak dapat memasukkan simbol persen!\n\
     Mohon masukkan nama dari invoice ini:", "Input", "Batal");
     
     strcopy(pTempIvcReason[targetid], inputtext);
-    Dialog_Show(playerid, "InvoiceSetCost", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Invoice", 
+    Dialog_Show(playerid, "InvoiceSetCost", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Invoice", 
     "Mohon masukkan nominal untuk tagihan ini:", "Input", "Batal");
     return 1;
 }
@@ -112,16 +112,16 @@ Dialog:InvoiceSetCost(playerid, response, listitem, inputtext[])
     }
     if(isnull(inputtext))
     {
-        return Dialog_Show(playerid, "InvoiceSetCost", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Invoice", 
+        return Dialog_Show(playerid, "InvoiceSetCost", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Invoice", 
         "Error: Tidak dapat dikosongkan!\n\
         Mohon masukkan nominal biaya untuk tagihan ini:", "Input", "Batal");
     }
 
-    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "InvoiceSetCost", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Invoice", 
+    if(!IsNumericEx(inputtext)) return Dialog_Show(playerid, "InvoiceSetCost", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Invoice", 
     "Error: Masukkan hanya angka!\n\
     Mohon masukkan nominal biaya untuk tagihan ini:", "Input", "Batal");
 
-    if(strval(inputtext) < 1) return Dialog_Show(playerid, "InvoiceSetCost", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Invoice", 
+    if(strval(inputtext) < 1) return Dialog_Show(playerid, "InvoiceSetCost", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Invoice", 
     "Error: Invalid ammount, Tidak dapat kurang dari $1!\n\
     Mohon masukkan nominal biaya untuk tagihan ini:", "Input", "Batal");
 

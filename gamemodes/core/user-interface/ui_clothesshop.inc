@@ -372,7 +372,7 @@ ShowClothesShopMenuTD(playerid)
         }
         TextDrawShowForPlayer(playerid, ClothesShopTD[x]);
     }
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
 
     static Float:buyx, Float:buyy, Float:buyz;
     GetPlayerPos(playerid, buyx, buyy, buyz);
@@ -407,7 +407,7 @@ ShowClothesBizMenuTD(playerid, bizid)
         }
         TextDrawShowForPlayer(playerid, ClothesShopTD[x]);
     }
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
 
     static Float:buyx, Float:buyy, Float:buyz;
     GetPlayerPos(playerid, buyx, buyy, buyz);

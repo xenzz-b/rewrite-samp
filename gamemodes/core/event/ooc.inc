@@ -2511,7 +2511,7 @@ YCMD:event(playerid, params[], help)
             EventInfo[maxPlayer],
             FormatMoney(EventInfo[partPrize]),
             FormatMoney(EventInfo[winnerPrize]));
-            Dialog_Show(playerid, "EventTDMCreator", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- TDM Event Creator", 
+            Dialog_Show(playerid, "EventTDMCreator", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- TDM Event Creator", 
             sdta, "Setup", "Batal");
         }
         else if(etype == 2)
@@ -2538,7 +2538,7 @@ YCMD:event(playerid, params[], help)
             EventInfo[maxPlayer],
             FormatMoney(EventInfo[partPrize]),
             FormatMoney(EventInfo[winnerPrize]));
-            Dialog_Show(playerid, "EventRace", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Race Event Creator", 
+            Dialog_Show(playerid, "EventRace", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Race Event Creator", 
             sdta, "Setup", "Batal");
         }
         else if(etype == 3)
@@ -2561,7 +2561,7 @@ YCMD:event(playerid, params[], help)
             EventInfo[maxPlayer],
             FormatMoney(EventInfo[partPrize]),
             FormatMoney(EventInfo[winnerPrize]));
-            Dialog_Show(playerid, "EventZombie", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Zombie Event Creator", 
+            Dialog_Show(playerid, "EventZombie", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Zombie Event Creator", 
             sdta, "Setup", "Batal");
         }
         else if(etype == 4)
@@ -2574,7 +2574,7 @@ YCMD:event(playerid, params[], help)
             EventInfo[maxPlayer],
             FormatMoney(EventInfo[partPrize]),
             FormatMoney(EventInfo[winnerPrize]));
-            Dialog_Show(playerid, "EventFallout", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Fallout Event Creator", 
+            Dialog_Show(playerid, "EventFallout", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Fallout Event Creator", 
             sdta, "Setup", "Batal");
         }
         else if(etype == 5)
@@ -2587,7 +2587,7 @@ YCMD:event(playerid, params[], help)
             EventInfo[maxPlayer],
             FormatMoney(EventInfo[partPrize]),
             FormatMoney(EventInfo[winnerPrize]));
-            Dialog_Show(playerid, "EventSquidGame", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Squid Game Event Creator", 
+            Dialog_Show(playerid, "EventSquidGame", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Squid Game Event Creator", 
             sdta, "Setup", "Batal");
         }
     }

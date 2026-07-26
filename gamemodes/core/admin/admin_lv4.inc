@@ -476,7 +476,7 @@ YCMD:setname(playerid, params[], help)
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak terkoneksi ke server!");
 
     AccountData[playerid][pTempSQLFactMemberID] = targetid;
-    Dialog_Show(playerid, "AdmSetName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Change Name", ""WHITE"Mohon masukkan nama baru karakter di bawah ini (Kultur Server ini adalah Indonesia)\n\
+    Dialog_Show(playerid, "AdmSetName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Change Name", ""WHITE"Mohon masukkan nama baru karakter di bawah ini (Kultur Server ini adalah Indonesia)\n\
     Nama bisa apa saja asalkan tidak mengandung kata kotor, singkatan, atau nama publik figur/terkenal\n\n\
     Contoh nama yang baik: Asep_Sutanto, Christina_Agnes, Iskak_Syueb, Fadil_Siregar:", "Input", "Kembali");
 

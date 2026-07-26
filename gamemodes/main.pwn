@@ -655,7 +655,8 @@ new gpsZone;
 main()
 {
 	print("|----------------------------------|");
-	print("| Nexston Roleplay | N:RP   |");
+	print("| Vertex Roleplay | V:RP           |");
+	print("| Developed by Claps               |");
 	print("|----------------------------------|");
 }
 
@@ -1377,7 +1378,7 @@ public OnPlayerConnect(playerid)
 	// CreatePLoginTD(playerid);
 
 	CreatePAnnounceTD(playerid);
-	CreateLoginNSRP(playerid);
+	CreateLoginVRP(playerid);
 
 	CreateClothesShopIndexTD(playerid);
 	CreateRobberyTD(playerid);
@@ -1389,7 +1390,7 @@ public OnPlayerConnect(playerid)
 	CreateCameraTD(playerid);
 	CreateUberPhoneTD(playerid);
 
-	CreateHandphoneNSRP(playerid);
+	CreateHandphoneVRP(playerid);
 	CreateVehicleListTD(playerid);
     CreateLoginTwitt(playerid);
     CreateHomeTwitter(playerid);
@@ -2415,7 +2416,7 @@ public OnPlayerEnterDynamicRaceCP(playerid, STREAMER_TAG_RACE_CP:checkpointid)
 				pTutorialStep[playerid]++;
 				SendClientMessage(playerid, X11_YELLOW, "[Tutorial] Karakter kamu dapat merasakan stress, semakin tinggi bar stress (berwarna merah di pojok kiri bawah layar).");
 				SendClientMessage(playerid, X11_YELLOW, "[Tutorial] Kamu harus segera menurunkannya dengan cara melakukan olahraga di "CYAN"GYM.");
-				SendClientMessage(playerid, X11_YELLOW, "[Tutorial] Inilah salah satu "CYAN"GYM "YELLOW"yang ada di server Nexston, dekati alat dan tekan "RED"tombol 'Y'.");
+				SendClientMessage(playerid, X11_YELLOW, "[Tutorial] Inilah salah satu "CYAN"GYM "YELLOW"yang ada di server Vertex, dekati alat dan tekan "RED"tombol 'Y'.");
 				SendClientMessage(playerid, X11_YELLOW, "------ # Akhir Informasi ------");
 
 				ResetAllRaceCP(playerid);
@@ -2524,7 +2525,7 @@ public OnPlayerEnterDynamicRaceCP(playerid, STREAMER_TAG_RACE_CP:checkpointid)
 			{
 				pTutorialStep[playerid]++;
 				SendClientMessage(playerid, X11_YELLOW, "[Tutorial] Ini adalah "CYAN"Carnaval, "YELLOW"kamu dapat mancing disini untuk melakukan hobi.");
-				SendClientMessage(playerid, X11_YELLOW, "[Tutorial] Tidak hanya memancing, kamu juga dapat berburu rusa di Nexston. Beli alat terlebih dahulu di "CYAN"Warung.");
+				SendClientMessage(playerid, X11_YELLOW, "[Tutorial] Tidak hanya memancing, kamu juga dapat berburu rusa di Vertex. Beli alat terlebih dahulu di "CYAN"Warung.");
 				SendClientMessage(playerid, X11_YELLOW, "[Tutorial] Cek lokasi lebih lanjut, seperti penjualan di "RED"HP -> GPS -> Lokasi Hobi.");
 				SendClientMessage(playerid, X11_YELLOW, "------ # Akhir Informasi ------");
 
@@ -2947,7 +2948,7 @@ public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 				new Float:slx, Float:sly, Float:slz;
 				GetPlayerPos(playerid, slx, sly, slz);
 				SetPlayerPos(playerid, slx, sly, slz + 3.5);
-				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 			}
 		}
 
@@ -2958,7 +2959,7 @@ public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 				new Float:slx, Float:sly, Float:slz;
 				GetPlayerPos(playerid, slx, sly, slz);
 				SetPlayerPos(playerid, slx, sly, slz + 3.5);
-				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
 			}
 		}
 
@@ -2969,7 +2970,7 @@ public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 				new Float:slx, Float:sly, Float:slz;
 				GetPlayerPos(playerid, slx, sly, slz);
 				SetPlayerPos(playerid, slx, sly, slz + 3.5);
-				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Nexston!");
+				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Vertex!");
 			}
 		}
 
@@ -3046,7 +3047,7 @@ public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 				new Float:slx, Float:sly, Float:slz;
 				GetPlayerPos(playerid, slx, sly, slz);
 				SetPlayerPos(playerid, slx, sly, slz + 3.5);
-				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pewarta Nexston!");
+				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pewarta Vertex!");
 			}
 		}
 
@@ -3273,7 +3274,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 
             if(AccountData[playerid][pSideJob] != SIDEJOB_MOWING)
             {
-                Dialog_Show(playerid, "SidejobMowing", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Sidejob Mowing", "Apakah anda ingin memulai tugas mowing?\nAnda akan menerima bayaran berdasarkan jumlah rumput yang anda potong.", "Yes", "No");
+                Dialog_Show(playerid, "SidejobMowing", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Sidejob Mowing", "Apakah anda ingin memulai tugas mowing?\nAnda akan menerima bayaran berdasarkan jumlah rumput yang anda potong.", "Yes", "No");
             }
 		}
 
@@ -3290,7 +3291,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 
 			if(AccountData[playerid][pSideJob] != SIDEJOB_SWEEPER)
             {
-                Dialog_Show(playerid, "SidejobSweeper", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Sidejob Sweeper", "Apakah anda ingin memulai tugas sweeper?\nAnda akan menerima bayaran setelah membersihkan jalanan.", "Yes", "No");
+                Dialog_Show(playerid, "SidejobSweeper", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Sidejob Sweeper", "Apakah anda ingin memulai tugas sweeper?\nAnda akan menerima bayaran setelah membersihkan jalanan.", "Yes", "No");
             }
 		}
 
@@ -3307,7 +3308,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 
             if(AccountData[playerid][pSideJob] != SIDEJOB_FORKLIFT)
             {
-                Dialog_Show(playerid, "SidejobForklift", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Sidejob Forklift", "Apakah anda ingin memulai tugas forklift?\nAnda akan menerima bayaran setelah membongkar muat 10 crates.", "Yes", "No");
+                Dialog_Show(playerid, "SidejobForklift", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Sidejob Forklift", "Apakah anda ingin memulai tugas forklift?\nAnda akan menerima bayaran setelah membongkar muat 10 crates.", "Yes", "No");
             }
 		}
 
@@ -3331,7 +3332,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 
             if(AccountData[playerid][pSideJob] != SIDEJOB_TRASHCOLLECTOR)
             {
-                Dialog_Show(playerid, "SidejobTrashCollector", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Sidejob Trash Collector", "Apakah anda ingin memulai tugas trash collector?\nAnda akan menerima bayaran setelah mengangkut 25 trash.", "Yes", "No");
+                Dialog_Show(playerid, "SidejobTrashCollector", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Sidejob Trash Collector", "Apakah anda ingin memulai tugas trash collector?\nAnda akan menerima bayaran setelah mengangkut 25 trash.", "Yes", "No");
             }
 		}
 
@@ -3356,7 +3357,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 				new pltcstl[128];
 				format(pltcstl, sizeof(pltcstl), ""RED"DICURI");
 				SetVehicleNumberPlate(g_CarstealCarPhysic[playerid], pltcstl);
-				ShowFivemNotify(playerid, "Nexston Roleplay~n~CAR STEAL", "Anda telah menemukan kendaraannya, kembalikan kepada gangster", "hud:radar_qmark", 25);
+				ShowFivemNotify(playerid, "Vertex Roleplay~n~CAR STEAL", "Anda telah menemukan kendaraannya, kembalikan kepada gangster", "hud:radar_qmark", 25);
 
 				ResetAllRaceCP(playerid);
 				
@@ -3368,7 +3369,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 					GetVehiclePos(g_CarstealCarPhysic[playerid], crstlX, crstlY, crstlZ);
 					foreach(new i : LSPDDuty)
 					{
-						ShowFivemNotify(i, "Nexston Roleplay~n~CAR STEAL", sprintf("Pencurian kendaraan %s berlangsung di %s", GetVehicleModelName(GetVehicleModel(g_CarstealCarPhysic[playerid])), GetLocation(crstlX, crstlY, crstlZ)), "hud:radar_qmark", 25);
+						ShowFivemNotify(i, "Vertex Roleplay~n~CAR STEAL", sprintf("Pencurian kendaraan %s berlangsung di %s", GetVehicleModelName(GetVehicleModel(g_CarstealCarPhysic[playerid])), GetLocation(crstlX, crstlY, crstlZ)), "hud:radar_qmark", 25);
 			
 						if(DestroyDynamicMapIcon(AccountData[playerid][g_CarstealIcon][i]))
 							AccountData[playerid][g_CarstealIcon][i] = STREAMER_TAG_MAP_ICON: INVALID_STREAMER_ID;
@@ -3399,7 +3400,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 				new Float:slx, Float:sly, Float:slz;
 				GetPlayerPos(playerid, slx, sly, slz);
 				SetPlayerPos(playerid, slx, sly, slz + 3.5);
-				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Nexston!");
+				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Kepolisian Vertex!");
 				return 1;
 			}
 		}
@@ -3411,7 +3412,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 				new Float:slx, Float:sly, Float:slz;
 				GetPlayerPos(playerid, slx, sly, slz);
 				SetPlayerPos(playerid, slx, sly, slz + 3.5);
-				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Nexston!");
+				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Paramedis Vertex!");
 				return 1;
 			}
 		}
@@ -3423,7 +3424,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 				new Float:slx, Float:sly, Float:slz;
 				GetPlayerPos(playerid, slx, sly, slz);
 				SetPlayerPos(playerid, slx, sly, slz + 3.5);
-				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Nexston!");
+				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pemerintah Kota Vertex!");
 				return 1;
 			}
 		}
@@ -3507,7 +3508,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 				new Float:slx, Float:sly, Float:slz;
 				GetPlayerPos(playerid, slx, sly, slz);
 				SetPlayerPos(playerid, slx, sly, slz + 3.5);
-				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pewarta Nexston!");
+				ShowTDN(playerid, NOTIFICATION_ERROR, "Anda bukan bagian dari Pewarta Vertex!");
 				return 1;
 			}
 		}
@@ -4335,10 +4336,10 @@ OnPlayerUseItem(playerid, const name[])
 		if(count == 0) 
 		{
 			PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Karung Goni", "Tidak ada pemain terdekat!", "Tutup", "");
+			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Karung Goni", "Tidak ada pemain terdekat!", "Tutup", "");
 		}
 
-		Dialog_Show(playerid, "Blindfold", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Karung Goni", frmxt, "Pilih", "Batal");
+		Dialog_Show(playerid, "Blindfold", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Karung Goni", frmxt, "Pilih", "Batal");
 	}
 
 	else if(!strcmp(name, "Senter"))
@@ -4390,7 +4391,7 @@ OnPlayerUseItem(playerid, const name[])
 		
 		Inventory_Close(playerid);
 
-		Dialog_Show(playerid, "DisposPhoneCatalog", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Order Gun & Equipment", 
+		Dialog_Show(playerid, "DisposPhoneCatalog", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Order Gun & Equipment", 
         "Item\tPrice\n\
 		Colt-45\t$3,000\n\
         "GRAY"Desert Eagle\t"GRAY"$7,000\n\
@@ -4407,7 +4408,7 @@ OnPlayerUseItem(playerid, const name[])
 
 		if(CountingPlayerTags(playerid) >= GetPlayerTagLimit(playerid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda telah mencapai batas slot tagging maksimal!");
 		
-		Dialog_Show(playerid, "GraffitiAdd", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Add Graffiti", 
+		Dialog_Show(playerid, "GraffitiAdd", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Add Graffiti", 
 		"Mohon masukkan tulisan graffiti yang ingin dibuat:\n\
 		(n) = text akan berada di bawah/baris baru.\n\
 		(r) = warna text merah.\n\
@@ -5508,18 +5509,18 @@ OnPlayerUseItem(playerid, const name[])
 		// Tampilkan UI
 		for(new i = 0; i < 32; i++)
 		{
-			PlayerTextDrawShow(playerid, GachaNSRP[playerid][i]);
+			PlayerTextDrawShow(playerid, GachaVRP[playerid][i]);
 		}
 		
 		// Set preview default
-		PlayerTextDrawSetPreviewModel(playerid, GachaNSRP[playerid][21], 411); // Infernus default
+		PlayerTextDrawSetPreviewModel(playerid, GachaVRP[playerid][21], 411); // Infernus default
 		
 		// Update ticket count display
 		new ticketCount = Inventory_Count(playerid, "Ticket Gacha");
 		new ticketText[64];
 		format(ticketText, sizeof(ticketText), "Ticket Gacha: %dx", ticketCount);
-		PlayerTextDrawSetString(playerid, GachaNSRP[playerid][20], ticketText);
-		PlayerTextDrawShow(playerid, GachaNSRP[playerid][20]);
+		PlayerTextDrawSetString(playerid, GachaVRP[playerid][20], ticketText);
+		PlayerTextDrawShow(playerid, GachaVRP[playerid][20]);
 		
 		// Enable textdraw select
 		SelectTextDraw(playerid, 0xFF0000FF);
@@ -5783,7 +5784,7 @@ OnPlayerUseItem(playerid, const name[])
 		else
 		{
 			HideWargaBaruTD(playerid);
-			ShowPhoneNSRP(playerid);
+			ShowPhoneVRP(playerid);
 			if(!IsPlayerInAnyVehicle(playerid))
 			{
 				ApplyAnimation(playerid, "ped","Jetpack_Idle", 4.1, false, false, false, true, 0, true);
@@ -5822,7 +5823,7 @@ OnPlayerUseItem(playerid, const name[])
 	{
 		Inventory_Close(playerid);
 		
-		Dialog_Show(playerid, "ChangeName", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Change Name", 
+		Dialog_Show(playerid, "ChangeName", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Change Name", 
 		"Mohon masukkan nama karakter anda di bawah ini (Kultur Server ini adalah Indonesia)\n\
 		Nama anda bisa apa saja asalkan tidak mengandung kata kotor, singkatan, atau nama publik figur/terkenal\n\n\
 		Contoh nama yang baik: Asep_Sutanto, Christina_Agnes, Iskak_Syueb, Fadil_Siregar:", "Set", "Batal");
@@ -6252,10 +6253,10 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		if(count == 0) 
 		{
 			PlayerPlaySound(playerid, 5206, 0.0, 0.0, 0.0);
-			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Give Item", "Tidak ada pemain terdekat!", "Tutup", "");
+			return Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Give Item", "Tidak ada pemain terdekat!", "Tutup", "");
 		}
 
-		Dialog_Show(playerid, "InventoryGive", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Give Item", frmxt, "Pilih", "Batal");
+		Dialog_Show(playerid, "InventoryGive", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Give Item", frmxt, "Pilih", "Batal");
 		PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
 	}
 	else if(clickedid == InventTD[7]) //tombol drop item inventory
@@ -6718,67 +6719,67 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 	else if(clickedid == ATMTD[27]) //withdraw ATM
 	{
 		if(!AVC_PConnected[playerid]) return Kick(playerid);
-		Dialog_Show(playerid, "ATMWithdraw", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Withdraw", 
+		Dialog_Show(playerid, "ATMWithdraw", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Withdraw", 
 		"Mohon masukkan berapa jumlah yang ingin ditarik:", "Tarik", "Batal");
 	}
 	else if(clickedid == ATMTD[30]) //deposit ATM
 	{
 		if(!AVC_PConnected[playerid]) return Kick(playerid);
-		Dialog_Show(playerid, "ATMDeposit", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Deposit", 
+		Dialog_Show(playerid, "ATMDeposit", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Deposit", 
 		"Mohon masukkan berapa jumlah yang ingin disimpan:", "Depo", "Batal");
 	}
 	else if(clickedid == ATMTD[33]) //transfer ATM
 	{
 		if(!AVC_PConnected[playerid]) return Kick(playerid);
-		Dialog_Show(playerid, "ATMTransfer", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Transfer", 
+		Dialog_Show(playerid, "ATMTransfer", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Transfer", 
 		"Mohon masukkan nomor rekening tujuan:", "Set", "Batal");
 	}
 	else if(clickedid == ATMTD[53]) //quick withdraw 10
 	{
 		if(!AVC_PConnected[playerid]) return Kick(playerid);
 		AccountData[playerid][pTempValue2] = 1;
-		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Quick Withdraw", ""WHITE"Apakah anda yakin ingin menarik uang senilai "GREEN"$10,000 "WHITE"dari saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
+		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Quick Withdraw", ""WHITE"Apakah anda yakin ingin menarik uang senilai "GREEN"$10,000 "WHITE"dari saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
 	}
 	else if(clickedid == ATMTD[55]) //quick withdraw 50
 	{
 		if(!AVC_PConnected[playerid]) return Kick(playerid);
 		AccountData[playerid][pTempValue2] = 2;
-		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Quick Withdraw", ""WHITE"Apakah anda yakin ingin menarik uang senilai "GREEN"$50,000 "WHITE"dari saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
+		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Quick Withdraw", ""WHITE"Apakah anda yakin ingin menarik uang senilai "GREEN"$50,000 "WHITE"dari saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
 	}
 	else if(clickedid == ATMTD[57]) //quick withdraw 25
 	{
 		if(!AVC_PConnected[playerid]) return Kick(playerid);
 		AccountData[playerid][pTempValue2] = 3;
-		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Quick Withdraw", ""WHITE"Apakah anda yakin ingin menarik uang senilai "GREEN"$250,000 "WHITE"dari saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
+		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Quick Withdraw", ""WHITE"Apakah anda yakin ingin menarik uang senilai "GREEN"$250,000 "WHITE"dari saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
 	}
 	else if(clickedid == ATMTD[59]) //quick withdraw 500
 	{
 		AccountData[playerid][pTempValue2] = 4;
-		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Quick Withdraw", ""WHITE"Apakah anda yakin ingin menarik uang senilai "GREEN"$500,000 "WHITE"dari saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
+		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Quick Withdraw", ""WHITE"Apakah anda yakin ingin menarik uang senilai "GREEN"$500,000 "WHITE"dari saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
 	}
 
 	else if(clickedid == ATMTD[61]) //quick deposit 10
 	{
 		if(!AVC_PConnected[playerid]) return Kick(playerid);
 		AccountData[playerid][pTempValue2] = 5;
-		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Quick Deposit", ""WHITE"Apakah anda yakin ingin deposit uang senilai "GREEN"$10,000 "WHITE"ke saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
+		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Quick Deposit", ""WHITE"Apakah anda yakin ingin deposit uang senilai "GREEN"$10,000 "WHITE"ke saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
 	}
 	else if(clickedid == ATMTD[63]) //quick deposit 50
 	{
 		if(!AVC_PConnected[playerid]) return Kick(playerid);
 		AccountData[playerid][pTempValue2] = 6;
-		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Quick Deposit", ""WHITE"Apakah anda yakin ingin deposit uang senilai "GREEN"$50,000 "WHITE"ke saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
+		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Quick Deposit", ""WHITE"Apakah anda yakin ingin deposit uang senilai "GREEN"$50,000 "WHITE"ke saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
 	}
 	else if(clickedid == ATMTD[65]) //quick deposit 25
 	{
 		if(!AVC_PConnected[playerid]) return Kick(playerid);
 		AccountData[playerid][pTempValue2] = 7;
-		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Quick Deposit", ""WHITE"Apakah anda yakin ingin deposit uang senilai "GREEN"$250,000 "WHITE"ke saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
+		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Quick Deposit", ""WHITE"Apakah anda yakin ingin deposit uang senilai "GREEN"$250,000 "WHITE"ke saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
 	}
 	else if(clickedid == ATMTD[67]) //quick deposit 500
 	{
 		AccountData[playerid][pTempValue2] = 8;
-		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Quick Deposit", ""WHITE"Apakah anda yakin ingin deposit uang senilai "GREEN"$500,000 "WHITE"ke saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
+		Dialog_Show(playerid, "ATMQuickMenu", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Quick Deposit", ""WHITE"Apakah anda yakin ingin deposit uang senilai "GREEN"$500,000 "WHITE"ke saldo rekening?\nPilih "YELLOW"'lanjut' "WHITE"untuk melanjutkan transaksi ini!", "Lanjut", "Batal");
 	}
 	else if(clickedid == RadialTD[7]) //exit radial main menu
 	{
@@ -6829,7 +6830,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		else
 		{
 			HideWargaBaruTD(playerid);
-			ShowPhoneNSRP(playerid);
+			ShowPhoneVRP(playerid);
 			if(!IsPlayerInAnyVehicle(playerid))
 			{
 				ApplyAnimation(playerid, "ped","Jetpack_Idle", 4.1, false, false, false, true, 0, true);
@@ -6876,7 +6877,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		ShowHBETD(playerid);
 		ShowRadioVoiceInfoTD(playerid);
 		
-		Dialog_Show(playerid, "MyDocuments", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Dokumen", 
+		Dialog_Show(playerid, "MyDocuments", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Dokumen", 
 		"Lihat Kartu Tanda Anggota (KTA)\n"GRAY"Perlihatkan Kartu Tanda Anggota (KTA)\n\
 		Lihat Kartu BPJS\n"GRAY"Perlihatkan Kartu BPJS\n\
 		Lihat Surat Keterangan Sehat (SKS)\n"GRAY"Perlihatkan Surat Keterangan Sehat (SKS)\n\
@@ -6913,7 +6914,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 
 		if(count == 0)
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
 			"Anda tidak memiliki tagihan/invoice apapun.", "Tutup", "");
 		}
 		else
@@ -6923,7 +6924,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 				SetPlayerAttachedObject(playerid, 9, 19786, 5, 0.182999, 0.048999, -0.112999, -66.699935, -23.799949, -116.699996, 0.130999, 0.136000, 0.142000, 0, 0);
     			ApplyAnimation(playerid, "INT_SHOP","shop_loop", 4.1, true, false, false, true, 0, true);
 			}
-			Dialog_Show(playerid, "InvoicePay", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Unpaid Invoice", 
+			Dialog_Show(playerid, "InvoicePay", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Unpaid Invoice", 
 			xjjs, "Bayar", "Batal");
 		}
 	}
@@ -6988,7 +6989,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		pToys[playerid][0][toy_rx], pToys[playerid][0][toy_ry], pToys[playerid][0][toy_rz],
 		pToys[playerid][0][toy_sx], pToys[playerid][0][toy_sy], pToys[playerid][0][toy_sz],
 		pToys[playerid][0][matcolor1][4], pToys[playerid][0][matcolor2][4]);
-		Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
+		Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Hat/Helmet)", string, "Pilih", "Kembali");
 	}
 	else if(clickedid == RadialFashionTD[24]) //kacamata
 	{
@@ -7031,7 +7032,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		pToys[playerid][1][toy_rx], pToys[playerid][1][toy_ry], pToys[playerid][1][toy_rz],
 		pToys[playerid][1][toy_sx], pToys[playerid][1][toy_sy], pToys[playerid][1][toy_sz],
 		pToys[playerid][1][matcolor1][4], pToys[playerid][1][matcolor2][4]);
-		Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
+		Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Kacamata)", string, "Pilih", "Kembali");
 	}
 	else if(clickedid == RadialFashionTD[25]) //aksesoris
 	{
@@ -7074,7 +7075,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		pToys[playerid][2][toy_rx], pToys[playerid][2][toy_ry], pToys[playerid][2][toy_rz],
 		pToys[playerid][2][toy_sx], pToys[playerid][2][toy_sy], pToys[playerid][2][toy_sz],
 		pToys[playerid][2][matcolor1][4], pToys[playerid][2][matcolor2][4]);
-		Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
+		Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Aksesoris)", string, "Pilih", "Kembali");
 	}
 	else if(clickedid == RadialFashionTD[26]) //tas/koper
 	{
@@ -7117,7 +7118,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		pToys[playerid][3][toy_rx], pToys[playerid][3][toy_ry], pToys[playerid][3][toy_rz],
 		pToys[playerid][3][toy_sx], pToys[playerid][3][toy_sy], pToys[playerid][3][toy_sz],
 		pToys[playerid][3][matcolor1][4], pToys[playerid][3][matcolor2][4]);
-		Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
+		Dialog_Show(playerid, "ToysEdit", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Edit Fashion (Tas/Koper)", string, "Pilih", "Kembali");
 	}
 	//--------- Kendaraan --------
 	else if(clickedid == RadialVehTD[43]) //exit
@@ -7342,7 +7343,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 				if(PlayerVehicle[carid][pVehTireLocked]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Kendaraan ini sedang dalam kondisi tirelocked!");
 				AccountData[playerid][pTempVehIterID] = carid;
 				AccountData[playerid][pMenuShowed] = true;
-				Dialog_Show(playerid, "VehicleStorage", DIALOG_STYLE_LIST, sprintf("Bagasi Kendaraan "YELLOW"%s "Nexston"- %s", GetVehicleModelName(PlayerVehicle[carid][pVehModelID]), PlayerVehicle[carid][pVehPlate]), "Simpan Barang\nAmbil Barang", "Pilih", "Batal");
+				Dialog_Show(playerid, "VehicleStorage", DIALOG_STYLE_LIST, sprintf("Bagasi Kendaraan "YELLOW"%s "Vertex"- %s", GetVehicleModelName(PlayerVehicle[carid][pVehModelID]), PlayerVehicle[carid][pVehPlate]), "Simpan Barang\nAmbil Barang", "Pilih", "Batal");
 			}
 		}
 	}
@@ -7403,7 +7404,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 		ShowHBETD(playerid);
 		ShowRadioVoiceInfoTD(playerid);
 
-		Dialog_Show(playerid, "VehicleTrunk", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Trunk", 
+		Dialog_Show(playerid, "VehicleTrunk", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Trunk", 
 		"Buka Trunk Kendaraan\n"GRAY"Masuk ke Trunk Kendaraan\nMasukkan Orang ke Trunk Kendaraan\n"GRAY"Keluarkan dari Trunk Kendaraan", "Pilih", "Batal");
 	}
 	else if(clickedid == RadialVehTD[42]) //hood
@@ -7468,7 +7469,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 
 		if(!AccountData[playerid][pHasKTP])
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Kartu Tanda Penduduk", 
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Kartu Tanda Penduduk", 
 			"Anda tidak memiliki Kartu Tanda Penduduk/sudah expired.", "Tutup", "");
 			return 1;
 		}
@@ -7504,7 +7505,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 
         if(count > 0)
 		{
-            Dialog_Show(playerid, "ShowToIDCard", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Tunjukkan KTP", 
+            Dialog_Show(playerid, "ShowToIDCard", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Tunjukkan KTP", 
 			frmxt, "Pilih", "Batal");
 		}
 	}
@@ -7525,7 +7526,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 
 		if(!CheckPlayerLicense(playerid))
 		{
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Licenses", 
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Licenses", 
 			"Anda tidak memiliki lisensi.", "Tutup", "");
 			return 1;
 		}
@@ -7561,7 +7562,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 
         if(count > 0)
 		{
-            Dialog_Show(playerid, "ShowToLicense", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Tunjukkan Lisensi", 
+            Dialog_Show(playerid, "ShowToLicense", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Tunjukkan Lisensi", 
 			frmxt, "Pilih", "Batal");
 		}
 	}
@@ -7651,42 +7652,42 @@ public OnDynamicPlayerTextdrawClicked(playerid, PlayerText:playertextid)
 	{
 		if(AccountData[playerid][pSelectItem] < 0) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda belum memilih item!");
 
-		Dialog_Show(playerid, "InventorySetValue", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Set Value", "Mohon masukkan jumlah item yang akan diberikan:", "Set", "Batal");
+		Dialog_Show(playerid, "InventorySetValue", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Set Value", "Mohon masukkan jumlah item yang akan diberikan:", "Set", "Batal");
 		PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
 	}
 	else if(playertextid == pJobMixTD[playerid][5])
 	{
-		Dialog_Show(playerid, "SetSemenValue", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Batching Plant", "Mohon masukkan jumlah agregat yang akan ditetapkan:", "Set", "Batal");
+		Dialog_Show(playerid, "SetSemenValue", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Batching Plant", "Mohon masukkan jumlah agregat yang akan ditetapkan:", "Set", "Batal");
 		PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
 	}
 	else if(playertextid == pJobMixTD[playerid][6])
 	{
-		Dialog_Show(playerid, "SetPasirValue", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Batching Plant", "Mohon masukkan jumlah agregat yang akan ditetapkan:", "Set", "Batal");
+		Dialog_Show(playerid, "SetPasirValue", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Batching Plant", "Mohon masukkan jumlah agregat yang akan ditetapkan:", "Set", "Batal");
 		PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
 	}
 	else if(playertextid == pJobMixTD[playerid][7])
 	{
-		Dialog_Show(playerid, "SetKrikilAValue", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Batching Plant", "Mohon masukkan jumlah agregat yang akan ditetapkan:", "Set", "Batal");
+		Dialog_Show(playerid, "SetKrikilAValue", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Batching Plant", "Mohon masukkan jumlah agregat yang akan ditetapkan:", "Set", "Batal");
 		PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
 	}
 	else if(playertextid == pJobMixTD[playerid][8])
 	{
-		Dialog_Show(playerid, "SetKrikilBValue", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Batching Plant", "Mohon masukkan jumlah agregat yang akan ditetapkan:", "Set", "Batal");
+		Dialog_Show(playerid, "SetKrikilBValue", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Batching Plant", "Mohon masukkan jumlah agregat yang akan ditetapkan:", "Set", "Batal");
 		PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
 	}
 	else if(playertextid == pJobMixTD[playerid][9])
 	{
-		Dialog_Show(playerid, "SetAirValue", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Batching Plant", "Mohon masukkan jumlah agregat yang akan ditetapkan:", "Set", "Batal");
+		Dialog_Show(playerid, "SetAirValue", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Batching Plant", "Mohon masukkan jumlah agregat yang akan ditetapkan:", "Set", "Batal");
 		PlayerPlaySound(playerid, 1052, 0.0, 0.0, 0.0);
 	}
-	else if(playertextid == SpecNSRP[playerid][5])
+	else if(playertextid == SpecVRP[playerid][5])
 	{
 		new otherid = AccountData[playerid][pSpec];
 		otherid--;
 
 		Spefunction(playerid, otherid);
 	}
-	else if(playertextid == SpecNSRP[playerid][4])
+	else if(playertextid == SpecVRP[playerid][4])
 	{	
 		new otherid = AccountData[playerid][pSpec];
 		otherid++;
@@ -7712,14 +7713,14 @@ public OnDynamicPlayerTextdrawClicked(playerid, PlayerText:playertextid)
         }
         return 1;
     }
-	if(playertextid == LoginNSRP[playerid][49])
+	if(playertextid == LoginVRP[playerid][49])
     {
         new strba[512];
-        format(strba, sizeof(strba), "Username "Nexston"%s "WHITE"Terdaftar.\nSilakan masukkan kata sandi untuk login:", AccountData[playerid][pUCP]);
+        format(strba, sizeof(strba), "Username "Vertex"%s "WHITE"Terdaftar.\nSilakan masukkan kata sandi untuk login:", AccountData[playerid][pUCP]);
         Dialog_Show(playerid, "Login", DIALOG_STYLE_PASSWORD, "UCP - Login", strba, "Login", "Quit");
         return 1;
     }
-    if(playertextid == LoginNSRP[playerid][56])
+    if(playertextid == LoginVRP[playerid][56])
     {
         if(!TempPasswordLogin[playerid][0])
         {
@@ -7988,7 +7989,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
     {
         if(AccountData[playerid][pWBTime] > 1)
         {
-			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Warga Baru", "anda belum bisa memukul/menembak!", "Tutup", "");
+			Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Warga Baru", "anda belum bisa memukul/menembak!", "Tutup", "");
         }
     }
 	if(newkeys & KEY_FIRE && GetPlayerState(playerid) == PLAYER_STATE_ONFOOT)
@@ -8251,7 +8252,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 			if(AccountData[playerid][pStarterPack] != 0) 
 				return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda sudah mengambil starterpack sebelumnya!");
 
-			Dialog_Show(playerid, "StarterPackMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Nexston"Nexston Roleplay "WHITE"- Starter Pack", 
+			Dialog_Show(playerid, "StarterPackMenu", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Starter Pack", 
 				"Nama Pack\tIsi Pack\n\
 				"WHITE"Pack 1 (Faggio)\t"WHITE"Motor Faggio, 20x Makan Minum, 1x Smartphone, 3x Ticket Gacha\n\
 				"GRAY"Pack 2 (Sanchez)\t"GRAY"Motor Sanchez, 15x Makan Minum, 1x Smartphone, 2x Ticket Gacha\n\
@@ -8402,7 +8403,7 @@ public OnVehicleSpawn(vehicleid)
 						AccountData[i][g_CarstealIcon][x] = STREAMER_TAG_MAP_ICON: INVALID_STREAMER_ID;
 				}
 
-				ShowFivemNotify(i, "Nexston Roleplay~n~CAR STEAL", "Kendaraan carsteal telah hancur, misi dinyatakan gagal!", "hud:radar_qmark", 25);
+				ShowFivemNotify(i, "Vertex Roleplay~n~CAR STEAL", "Kendaraan carsteal telah hancur, misi dinyatakan gagal!", "hud:radar_qmark", 25);
 			}
 		}
 	}
@@ -8768,7 +8769,7 @@ public OnPlayerTakeDamage(playerid, issuerid, Float:amount, weaponid, bodypart)
 				AntiGZRetard[issuerid]++;
 				ShowTDN(issuerid, NOTIFICATION_ERROR, "Anda akan ditendang dari server jika membuat kerusuhan di lokasi ini!");
 
-				Dialog_Show(issuerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Nexston"Nexston Roleplay "WHITE"- Anti Retard", ""RED"PERINGATAN KERAS!\n\n"YELLOW"Anda dilarang rusuh di area ini atau akan segera ditendang dari server!", "Tutup", "");
+				Dialog_Show(issuerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Anti Retard", ""RED"PERINGATAN KERAS!\n\n"YELLOW"Anda dilarang rusuh di area ini atau akan segera ditendang dari server!", "Tutup", "");
 				if(AntiGZRetard[issuerid] == 3)
 				{
 					SendClientMessage(issuerid, Y_RED, "[AntiCheat] {DBD7D2}Anda telah ditendang dari server karena rusuh di area ini!");
@@ -9065,7 +9066,7 @@ public FS_OpenSmartphone(playerid)
 	}
 	else
 	{
-		ShowPhoneNSRP(playerid);
+		ShowPhoneVRP(playerid);
 		if(!IsPlayerInAnyVehicle(playerid))
 		{
 			ApplyAnimation(playerid, "ped","Jetpack_Idle", 4.1, false, false, false, true, 0, true);
@@ -9079,7 +9080,7 @@ public FS_OpenSmartphone(playerid)
 
 	pShortcutResultShown[playerid] = true;
 
-	SelectTextDraw(playerid, Y_Nexston);
+	SelectTextDraw(playerid, Y_Vertex);
 	return 1;
 }
 

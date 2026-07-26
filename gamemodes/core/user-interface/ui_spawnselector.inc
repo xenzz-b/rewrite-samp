@@ -66,7 +66,7 @@ CreateSpawnSelectorTD()
     TextDrawFont(SpawnSelectorTD[5], 1);
     TextDrawSetProportional(SpawnSelectorTD[5], 1);
 
-    SpawnSelectorTD[6] = TextDrawCreate(449.000, 162.500, "Bandara Kota Nexston");
+    SpawnSelectorTD[6] = TextDrawCreate(449.000, 162.500, "Bandara Kota Vertex");
     TextDrawLetterSize(SpawnSelectorTD[6], 0.188, 0.898);
     TextDrawAlignment(SpawnSelectorTD[6], 2);
     TextDrawColor(SpawnSelectorTD[6], -1);
@@ -76,7 +76,7 @@ CreateSpawnSelectorTD()
     TextDrawFont(SpawnSelectorTD[6], 1);
     TextDrawSetProportional(SpawnSelectorTD[6], 1);
 
-    SpawnSelectorTD[7] = TextDrawCreate(449.000, 186.000, "Pelabuhan Kota Nexston");
+    SpawnSelectorTD[7] = TextDrawCreate(449.000, 186.000, "Pelabuhan Kota Vertex");
     TextDrawLetterSize(SpawnSelectorTD[7], 0.188, 0.898);
     TextDrawAlignment(SpawnSelectorTD[7], 2);
     TextDrawColor(SpawnSelectorTD[7], -1);
@@ -119,7 +119,7 @@ CreateSpawnSelectorTD()
         TextDrawShowForPlayer(playerid, SpawnSelectorTD[x]);
     }
 
-    SelectTextDraw(playerid, Y_Nexston);
+    SelectTextDraw(playerid, Y_Vertex);
     SendClientMessage(playerid, Y_SERVER, "(Server) "WHITE"Gunakan "CMDEA"'/cursor' "WHITE"jika mouse hilang dari layar/textdraw tidak bisa ditekan!");
 }
 

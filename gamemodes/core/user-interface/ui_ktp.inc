@@ -332,7 +332,7 @@ CreatePlayerKTATD(playerid)
 	PlayerTextDrawSetProportional(playerid, PKTATD[playerid][0], 1);
 	PlayerTextDrawSetSelectable(playerid, PKTATD[playerid][0], 0);
 
-	PKTATD[playerid][1] = CreatePlayerTextDraw(playerid, 455.000000, 243.000000, "Adalah benar data di atas merupakan anggota Kepolisian Nexston");
+	PKTATD[playerid][1] = CreatePlayerTextDraw(playerid, 455.000000, 243.000000, "Adalah benar data di atas merupakan anggota Kepolisian Vertex");
 	PlayerTextDrawFont(playerid, PKTATD[playerid][1], 1);
 	PlayerTextDrawLetterSize(playerid, PKTATD[playerid][1], 0.195833, 1.000000);
 	PlayerTextDrawTextSize(playerid, PKTATD[playerid][1], 618.000000, 17.000000);
@@ -376,7 +376,7 @@ CreateLCTD()
 	TextDrawFont(LCTD[0], 4);
 	TextDrawSetProportional(LCTD[0], 1);
 
-	LCTD[1] = TextDrawCreate(553.000, 135.000, "Nexston");
+	LCTD[1] = TextDrawCreate(553.000, 135.000, "Vertex");
 	TextDrawLetterSize(LCTD[1], 0.399, 1.800);
 	TextDrawAlignment(LCTD[1], 1);
 	TextDrawColor(LCTD[1], 1701078527);
@@ -1169,7 +1169,7 @@ CreateIDCTD()
 	TextDrawFont(IDCTD[6], 1);
 	TextDrawSetProportional(IDCTD[6], 1);
 
-	IDCTD[7] = TextDrawCreate(477.000, 184.000, "Kota Nexston");
+	IDCTD[7] = TextDrawCreate(477.000, 184.000, "Kota Vertex");
 	TextDrawLetterSize(IDCTD[7], 0.180, 0.999);
 	TextDrawAlignment(IDCTD[7], 2);
 	TextDrawColor(IDCTD[7], 255);

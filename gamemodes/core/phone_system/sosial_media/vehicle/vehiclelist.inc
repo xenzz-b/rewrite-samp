@@ -407,7 +407,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:textid)
     {
         HideBackroundVehicleList(playerid);
         HideVehicleListTD(playerid);
-        ShowPhoneNSRP(playerid);
+        ShowPhoneVRP(playerid);
     }
     for(new i = 0; i < 4; i++)
     {
@@ -416,7 +416,7 @@ hook ClickDynPlayerTextdraw(playerid, PlayerText:textid)
             new vehicleid = listCar[playerid][i];
             SetPVarInt(playerid, "ClickVehicle", vehicleid);
             new price = GetValletPrice(PlayerVehicle[vehicleid][pVehModelID]);
-            Dialog_Show(playerid, "MyvMenuList", DIALOG_STYLE_LIST, ""Nexston"Nexston Roleplay "WHITE"- Kendaraan Saya", sprintf(""GREY"Cari Kendaraan\n"WHITE"Vallet "GREEN"(%s)\n"GRAY"Detail Kendaraan", FormatMoney(price)), "Pilih", "Batal");
+            Dialog_Show(playerid, "MyvMenuList", DIALOG_STYLE_LIST, ""Vertex"Vertex Roleplay "WHITE"- Kendaraan Saya", sprintf(""GREY"Cari Kendaraan\n"WHITE"Vallet "GREEN"(%s)\n"GRAY"Detail Kendaraan", FormatMoney(price)), "Pilih", "Batal");
             break;
         }
     }
@@ -433,7 +433,7 @@ Dialog:MyvMenuList(playerid, response, listitem, inputtext[])
 
 			if(!response) return Info(playerid, "Anda telah membatalkan pilihan!");
 
-			Dialog_Show(playerid, "VehicleTrack", DIALOG_STYLE_INPUT, ""Nexston"Nexston Roleplay "WHITE"- Track Veh", ""WHITE"Pencarian kendaraan\n"YELLOW"(Masukkan VID kendaraan yang ingin dicari):", "Input", "Batal");
+			Dialog_Show(playerid, "VehicleTrack", DIALOG_STYLE_INPUT, ""Vertex"Vertex Roleplay "WHITE"- Track Veh", ""WHITE"Pencarian kendaraan\n"YELLOW"(Masukkan VID kendaraan yang ingin dicari):", "Input", "Batal");
 		}
 		case 1: { // Vallet
 			new vehid = GetPVarInt(playerid, "ClickVehicle");
@@ -501,14 +501,14 @@ Dialog:MyvMenuList(playerid, response, listitem, inputtext[])
 			if(GetNearestVehicleToPlayer(playerid, 5.0, false) != PlayerVehicle[vehid][pVehPhysic])
 				return Error(playerid, "Anda tidak didekat kendaraan yang ingin anda cek detailnya!");
 			GetVehicleHealth(PlayerVehicle[vehid][pVehPhysic], vHealth);
-			format(strings, sizeof(strings), ""Nexston"Utama\n\
+			format(strings, sizeof(strings), ""Vertex"Utama\n\
 			\n"WHITE"VID (Database):"YELLOW" %d\n\
 			\n"WHITE"Kendaraan:"YELLOW" %s\n\
 			\n"WHITE"Nomor Plat:"YELLOW" %s\n\
-			\n\n"Nexston"Upgrade:\n\
+			\n\n"Vertex"Upgrade:\n\
 			\n"WHITE"- Engine Upgrade: %s\n\
 			\n"WHITE"- Body Upgrade: %s\n\
-			\n\n"Nexston"Selebihnya\n\
+			\n\n"Vertex"Selebihnya\n\
 			\n"WHITE"Fuel Capacity:"YELLOW" %d.0/100.0\n\
 			\n"WHITE"Max Vehicle Health:"YELLOW" %.1f/%s\n\
 			\n"WHITE"Vehicle Body Health:"YELLOW" %.1f/1000.0\n\
@@ -523,7 +523,7 @@ Dialog:MyvMenuList(playerid, response, listitem, inputtext[])
 			PlayerVehicle[vehid][pVehMaxHealth] > 1000.0 ? "2000.0" : "1000.0",
 			PlayerVehicle[vehid][pVehHealth]);
 			Dialog_Show(playerid, "DetailVehinfo", DIALOG_STYLE_INPUT,
-				sprintf(""Nexston"Nexston Roleplay "WHITE"- %s Vehicle Details", AccountData[playerid][pName]),
+				sprintf(""Vertex"Vertex Roleplay "WHITE"- %s Vehicle Details", AccountData[playerid][pName]),
 				strings, "Submit", "Batal");
 		}
 	}
