@@ -865,3 +865,32 @@ hook OnPlayerLeaveDynamicCP(playerid, STREAMER_TAG_CP:checkpointid)
     }
     return 1;
 }
+hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
+{
+    if((newkeys & KEY_YES) && GetPlayerState(playerid) == PLAYER_STATE_ONFOOT)
+    {
+        if(IsPlayerInRangeOfPoint(playerid, 3.0, 1674.0328, -2245.7637, 13.5639))
+        {
+            if(!AccountData[playerid][pSpawned] || !AccountData[playerid][IsLoggedIn])
+                return 1;
+
+            if(AccountData[playerid][pStarterPack] != 0)
+                return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda sudah mengambil starterpack sebelumnya!");
+
+            static spinfo[512];
+            format(spinfo, sizeof(spinfo), ""WHITE"Selamat datang di "Vertex"Vertex Roleplay"WHITE"!\n\n\
+                Anda akan menerima paket berikut:\n\
+                "YELLOW"$%s "WHITE"uang tunai\n\
+                "YELLOW"%dx "WHITE"Chicken BBQ\n\
+                "YELLOW"%dx "WHITE"Coconut Water\n\
+                "YELLOW"1x "WHITE"Smartphone\n\
+                "YELLOW"1x "WHITE"Bobcat\n\n\
+                "GRAY"Starterpack hanya dapat diambil satu kali.",
+                FormatMoney(SP_REWARD_MONEY), SP_REWARD_FOOD, SP_REWARD_DRINK);
+
+            Dialog_Show(playerid, "StarterPackMenu", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Starterpack", spinfo, "Ambil", "Batal");
+            return 1;
+        }
+    }
+    return 1;
+}

@@ -680,3 +680,37 @@ public OnAdminListLoaded(playerid)
     
     return 1;
 }
+YCMD:resetsp(playerid, params[], help)
+{
+	if(AccountData[playerid][pAdmin] < 7)
+		return PermissionError(playerid);
+	if(AccountData[playerid][pAdminDuty] == false)
+		return PermissionErrorDuty(playerid);
+
+	new otherid;
+	if(sscanf(params, "u", otherid))
+		return SUM(playerid, "/resetsp [ID/Name]");
+
+	if(!IsPlayerConnected(otherid))
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak terkoneksi ke server!");
+
+	if(!AccountData[otherid][IsLoggedIn])
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut belum login!");
+
+	if(AccountData[otherid][pStarterPack] == 0)
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut belum pernah mengambil starterpack!");
+
+	AccountData[otherid][pStarterPack] = 0;
+
+	static string[522];
+	mysql_format(g_SQL, string, sizeof(string), "UPDATE `player_characters` SET `Char_ClaimSP` = 0 WHERE `pID` = %d", AccountData[otherid][pID]);
+	mysql_pquery(g_SQL, string);
+
+	ShowTDN(otherid, NOTIFICATION_SUCCESS, "Starterpack anda telah direset, silakan ambil kembali!");
+	SendClientMessage(otherid, Y_LIGHTRED, "AdmCmd: Starterpack anda telah direset oleh founder, anda dapat mengambilnya kembali.");
+	SendStaffMessage(Y_LIGHTRED, "AdmCmd: %s has reset starterpack for %s(%d).", AccountData[playerid][pAdminname], AccountData[otherid][pName], otherid);
+
+	mysql_format(g_SQL, string, sizeof(string), "INSERT INTO `admin_logs` SET `Prefix` = 'resetsp', `Admin` = '%e', `AdminUCP` = '%e', `UCPTarget` = '%e'", AccountData[playerid][pAdminname], AccountData[playerid][pUCP], AccountData[otherid][pName]);
+	mysql_pquery(g_SQL, string);
+	return 1;
+}

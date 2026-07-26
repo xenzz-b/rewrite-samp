@@ -29,6 +29,12 @@
 
 #define MAX_SAWIT 100
 
+// --- Starterpack warga baru ---
+#define SP_REWARD_MONEY     50000
+#define SP_REWARD_FOOD      10
+#define SP_REWARD_DRINK     10
+#define SP_REWARD_VEHICLE   422     // Bobcat
+
 #define MAX_FACTIONS 13
 #define MAX_FACTIONS_ITEMS 500
 #define MAX_COMPANY_ITEMS 500

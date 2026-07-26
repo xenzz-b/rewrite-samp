@@ -9002,120 +9002,52 @@ Dialog:FightStyle(playerid, response, listitem, inputtext[])
 }
 Dialog:StarterPackMenu(playerid, response, listitem, inputtext[])
 {
-    if(!response) 
+    if(!response)
     {
         ShowTDN(playerid, NOTIFICATION_INFO, "Anda membatalkan pengambilan starterpack!");
         return 1;
     }
-    
-    if(AccountData[playerid][pStarterPack] != 0) 
+
+    if(AccountData[playerid][pStarterPack] != 0)
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda sudah mengambil starterpack sebelumnya!");
-    
-    new vehicle_model, vehicle_name[32];
-    new food_amount, drink_amount, gacha_ticket;
-	new query[128]; // Buffer untuk query
-    
-    switch(listitem)
-    {
-        case 0: // Pack 1 - Faggio
-        {
-            vehicle_model = 462; // Faggio
-            vehicle_name = "Faggio";
-            food_amount = 20;
-            drink_amount = 20;
-            gacha_ticket = 3;
-            
-            // Tambah item ke inventory
-            Inventory_Add(playerid, "Chicken BBQ", 2355, food_amount);
-            Inventory_Add(playerid, "Coconut Water", 19564, drink_amount);
-            Inventory_Add(playerid, "Ticket Gacha", 962, gacha_ticket);
-            
-            // Tambah smartphone
-            mysql_format(g_SQL, query, sizeof(query), "SELECT * FROM `player_phones` WHERE `phoneOwner`=%d", AccountData[playerid][pID]);
-            mysql_pquery(g_SQL, query, "OnPlayerBuySmartphone", "i", playerid);
-            
-            // Create vehicle
-            new pvwid = GetPlayerVirtualWorld(playerid);
-            new pvintid = GetPlayerInterior(playerid);
-			Vehicle_CreateSP(playerid, vehicle_model, 1679.6031, -2253.7173, 13.3805, 89.5632, RandomEx(1, 100), RandomEx(1, 100), pvwid, pvintid);
-            
-            // Notifikasi
-            ShowItemBox(playerid, "Chicken BBQ", sprintf("Received %dx", food_amount), 2355, 5);
-            ShowItemBox(playerid, "Coconut Water", sprintf("Received %dx", drink_amount), 19564, 5);
-            ShowItemBox(playerid, "Ticket Gacha", sprintf("Received %dx", gacha_ticket), 962, 5);
-            ShowItemBox(playerid, "Smartphone", "Received 1x", 19942, 8);
-            
-            ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil memilih Starter Pack 1 (Faggio)! Mendapatkan %dx makan, %dx minum, 1x smartphone, %dx ticket gacha, dan 1 unit %s.", food_amount, drink_amount, gacha_ticket, vehicle_name));
-        }
-        case 1: // Pack 2 - Sanchez
-        {
-            vehicle_model = 468; // Sanchez
-            vehicle_name = "Sanchez";
-            food_amount = 15;
-            drink_amount = 15;
-            gacha_ticket = 2;
-            
-            // Tambah item ke inventory
-            Inventory_Add(playerid, "Chicken BBQ", 2355, food_amount);
-            Inventory_Add(playerid, "Coconut Water", 19564, drink_amount);
-            Inventory_Add(playerid, "Ticket Gacha", 962, gacha_ticket);
-            
-            // Tambah smartphone
-            mysql_format(g_SQL, query, sizeof(query), "SELECT * FROM `player_phones` WHERE `phoneOwner`=%d", AccountData[playerid][pID]);
-            mysql_pquery(g_SQL, query, "OnPlayerBuySmartphone", "i", playerid);
-            
-            // Create vehicle
-            new pvwid = GetPlayerVirtualWorld(playerid);
-            new pvintid = GetPlayerInterior(playerid);
-            Vehicle_CreateSP(playerid, vehicle_model, 1679.6031, -2253.7173, 13.3805, 89.5632, RandomEx(1, 100), RandomEx(1, 100), pvwid, pvintid);
-            // Notifikasi
-            ShowItemBox(playerid, "Chicken BBQ", sprintf("Received %dx", food_amount), 2355, 5);
-            ShowItemBox(playerid, "Coconut Water", sprintf("Received %dx", drink_amount), 19564, 6);
-            ShowItemBox(playerid, "Ticket Gacha", sprintf("Received %dx", gacha_ticket), 962, 7);
-            ShowItemBox(playerid, "Smartphone", "Received 1x", 19942, 8);
-            
-            ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil memilih Starter Pack 2 (Sanchez)! Mendapatkan %dx makan, %dx minum, 1x smartphone, %dx ticket gacha, dan 1 unit %s.", food_amount, drink_amount, gacha_ticket, vehicle_name));
-        }
-        case 2: // Pack 3 - Bobcat
-        {
-            vehicle_model = 422; // Bobcat
-            vehicle_name = "Bobcat";
-            food_amount = 10;
-            drink_amount = 10;
-            gacha_ticket = 1;
-            
-            // Tambah item ke inventory
-            Inventory_Add(playerid, "Chicken BBQ", 2355, food_amount);
-            Inventory_Add(playerid, "Coconut Water", 19564, drink_amount);
-            Inventory_Add(playerid, "Ticket Gacha", 962, gacha_ticket);
-            
-            // Tambah smartphone
-            mysql_format(g_SQL, query, sizeof(query), "SELECT * FROM `player_phones` WHERE `phoneOwner`=%d", AccountData[playerid][pID]);
-            mysql_pquery(g_SQL, query, "OnPlayerBuySmartphone", "i", playerid);
-            
-            // Create vehicle
-            new pvwid = GetPlayerVirtualWorld(playerid);
-            new pvintid = GetPlayerInterior(playerid);
-            Vehicle_CreateSP(playerid, vehicle_model, 1679.6031, -2253.7173, 13.3805, 89.5632, RandomEx(1, 100), RandomEx(1, 100), pvwid, pvintid);
-            // Notifikasi
-            ShowItemBox(playerid, "Chicken BBQ", sprintf("Received %dx", food_amount), 2355, 5);
-            ShowItemBox(playerid, "Coconut Water", sprintf("Received %dx", drink_amount), 19564, 6);
-            ShowItemBox(playerid, "Ticket Gacha", sprintf("Received %dx", gacha_ticket), 962, 7);
-            ShowItemBox(playerid, "Smartphone", "Received 1x", 19942, 8);
-            
-            ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda berhasil memilih Starter Pack 3 (Bobcat)! Mendapatkan %dx makan, %dx minum, 1x smartphone, %dx ticket gacha, dan 1 unit %s.", 
-                food_amount, drink_amount, gacha_ticket, vehicle_name));
-        }
-    }
+
+    if(GetTotalWeightFloat(playerid) >= GetPlayerInventoryWeight(playerid))
+        return ShowTDN(playerid, NOTIFICATION_ERROR, "Inventory anda sudah penuh!");
+
     AccountData[playerid][pStarterPack] = 1;
+
+    GivePlayerMoneyEx(playerid, SP_REWARD_MONEY);
+
+    Inventory_Add(playerid, "Chicken BBQ", 2355, SP_REWARD_FOOD);
+    Inventory_Add(playerid, "Coconut Water", 19564, SP_REWARD_DRINK);
+
+    static spquery[128];
+    mysql_format(g_SQL, spquery, sizeof(spquery), "SELECT * FROM `player_phones` WHERE `phoneOwner`=%d", AccountData[playerid][pID]);
+    mysql_pquery(g_SQL, spquery, "OnPlayerBuySmartphone", "i", playerid);
+
+    Vehicle_CreateSP(playerid, SP_REWARD_VEHICLE, 1679.6031, -2253.7173, 13.3805, 89.5632, RandomEx(1, 100), RandomEx(1, 100), GetPlayerVirtualWorld(playerid), GetPlayerInterior(playerid));
+
+    ShowItemBox(playerid, "Chicken BBQ", sprintf("Received %dx", SP_REWARD_FOOD), 2355, 5);
+    ShowItemBox(playerid, "Coconut Water", sprintf("Received %dx", SP_REWARD_DRINK), 19564, 6);
+    ShowItemBox(playerid, "Smartphone", "Received 1x", 19942, 7);
+
+    ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Starterpack diterima! $%s, %dx Chicken BBQ, %dx Coconut Water, 1x Smartphone, dan 1 unit Bobcat.", FormatMoney(SP_REWARD_MONEY), SP_REWARD_FOOD, SP_REWARD_DRINK));
     return 1;
 }
 
 YCMD:setsp(playerid, params[], help)
 {
-	if(AccountData[playerid][pAdmin] < 5)
+	if(AccountData[playerid][pAdmin] < 7)
 		return PermissionError(playerid);
-	
+	if(AccountData[playerid][pAdminDuty] == false)
+		return PermissionErrorDuty(playerid);
+
 	AccountData[playerid][pStarterPack] = 0;
+
+	static spq[128];
+	mysql_format(g_SQL, spq, sizeof(spq), "UPDATE `player_characters` SET `Char_ClaimSP` = 0 WHERE `pID` = %d", AccountData[playerid][pID]);
+	mysql_pquery(g_SQL, spq);
+
+	ShowTDN(playerid, NOTIFICATION_SUCCESS, "Starterpack anda telah direset!");
 	return 1;
 }
