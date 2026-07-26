@@ -377,19 +377,19 @@ YCMD:mpo(playerid, params[], help)
     {
         case 0:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] UNTUK KENDARAAN DIDEPAN DIHARAPKAN UNTUK SEGERA MENEPI!!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] UNTUK KENDARAAN DIDEPAN DIHARAPKAN UNTUK SEGERA MENEPI!!", GetPlayerRoleplayName(playerid));
         }
         case 1:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] PERINGATAN 1 UNTUK KENDARAAN DI DEPAN UNTUK SEGERA MENEPI!!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] PERINGATAN 1 UNTUK KENDARAAN DI DEPAN UNTUK SEGERA MENEPI!!", GetPlayerRoleplayName(playerid));
         }
         case 2:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] PERINGATAN 2 UNTUK KENDARAAN DI DEPAN ATAU KAMI AKAN TINDAK TEGAS!!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] PERINGATAN 2 UNTUK KENDARAAN DI DEPAN ATAU KAMI AKAN TINDAK TEGAS!!", GetPlayerRoleplayName(playerid));
         }
         case 3:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] PERINGATAN 3 UNTUK KENDARAAN DI DEPAN KAMI AKAN MELAKUKAN PIT!!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] PERINGATAN 3 UNTUK KENDARAAN DI DEPAN KAMI AKAN MELAKUKAN PIT!!", GetPlayerRoleplayName(playerid));
         }
         default:
         {
@@ -408,37 +408,35 @@ YCMD:em(playerid, params[], help)
     if(!IsLSPDVehicle(GetPlayerVehicleID(playerid)))
 		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di dalam kendaraan kepolisian!");
 
-    new randex = RandomEx(0, 7);
+    new level;
+    if(sscanf(params, "d", level))
+        level = 0;
 
-    switch(randex)
+    switch(level)
     {
-        case 0:
+        case 0, 1:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Disini Kepolisian Vertex dalam situasi darurat, menyingkirlah dari jalan!", GetPlayerRoleplayName(playerid));
-        }
-        case 1:
-        {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Menyingkir dari jalan! Situasi darurat, ini Kepolisian Vertex!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] DISINI KEPOLISIAN DALAM SITUASI DARURAT, MENYINGKIRLAH DARI JALAN!", GetPlayerRoleplayName(playerid));
         }
         case 2:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Situasi darurat Kepolisian Vertex, mohon menyingkir dari jalan!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] MENYINGKIR DARI JALAN! SITUASI DARURAT, INI KEPOLISIAN!", GetPlayerRoleplayName(playerid));
         }
         case 3:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Berikan jalan segera, ini Kepolisian Vertex sedang dalam situasi darurat!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] SITUASI DARURAT KEPOLISIAN, MOHON MENYINGKIR DARI JALAN!", GetPlayerRoleplayName(playerid));
         }
         case 4:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Harap berikan jalan, disini Kepolisian Vertex dalam situasai darurat!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] BERIKAN JALAN SEGERA, INI KEPOLISIAN SEDANG DALAM SITUASI DARURAT!", GetPlayerRoleplayName(playerid));
         }
         case 5:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Disini Kepolisian Vertex dalam situasi darurat, menyingkir dan berikan jalan!", GetPlayerRoleplayName(playerid));
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s] INI KEPOLISIAN, MENYINGKIR DAN BERIKAN JALAN UNTUK KAMI!", GetPlayerRoleplayName(playerid));
         }
-        case 6:
+        default:
         {
-            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Ini Kepolisian Vertex, menyingkir dan berikan jalan untuk kami!", GetPlayerRoleplayName(playerid));
+            return SUM(playerid, "/em (1-5)");
         }
     }
     return 1;

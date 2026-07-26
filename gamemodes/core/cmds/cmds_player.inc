@@ -790,7 +790,7 @@ YCMD:fhelp(playerid, params[], help)
 			/spawnheli\tUntuk mespawn Heli di area tertentu\n\
 			"GRAY"/spawnboat\t"GRAY"Untuk spawn perahu di area tertentu\n\
 			/mpo (1-3)\tUntuk memperingati penepian kendaraan\n\
-			"GRAY"/em\t"GRAY"Untuk memberikan peringat membuka jalan\n\
+			"GRAY"/em (1-5)\t"GRAY"Untuk memberikan peringat membuka jalan\n\
 			/makeskck\tUntuk membuat skck\n\
 			"GRAY"/makeplate\t"GRAY"Untuk membuat plate kendaraan di area tertentu\n\
 			/fa\tUntuk mengirim announcemnt kota\n", "Tutup", "");
