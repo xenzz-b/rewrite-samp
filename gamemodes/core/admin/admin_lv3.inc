@@ -480,8 +480,7 @@ YCMD:resetuniform(playerid, params[], help)
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak terkoneksi ke server!");
 
     AccountData[otherid][pIsUsingUniform] = false;
-    AccountData[playerid][pUniform] = 1;
-    AccountData[otherid][pSkin] = AccountData[otherid][pSkin];
+    AccountData[otherid][pUniform] = 1;
 
     new string[215];
     format(string, sizeof(string), "AdmCmd: %s has remove skin uniform.", AccountData[playerid][pAdminname]);

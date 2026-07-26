@@ -71,7 +71,7 @@ YCMD:setdirtymoney(playerid, params[], help)
     if(!IsPlayerConnected(otherid))
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak terkoneksi ke server!");
 	
-	GivePlayerDirtyMoney(playerid, money);
+	GivePlayerDirtyMoney(otherid, money);
 
 	static string[144];
 	format(string, sizeof(string), "AdmCmd: %s has set your character's dirty money to $%s.", AccountData[playerid][pAdminname], FormatMoney(money));
