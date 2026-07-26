@@ -17,6 +17,7 @@ static stock bool:AC_IsWeaponForbidden(weaponid)
         case 44, 45: return true;
         default:     return false;
     }
+    return false;
 }
 
 ptask AntiCheatWeaponValidity[1000](playerid)

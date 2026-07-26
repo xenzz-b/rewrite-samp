@@ -36,6 +36,7 @@ static stock GetWeaponFireInterval(weaponid)
         case 36:           return 800;
         default:           return 300;
     }
+    return 300;
 }
 
 enum e_ACAimlock

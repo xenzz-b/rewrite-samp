@@ -903,9 +903,8 @@ new RusunExpired,
     Fox11MoneyVault,
     DriftKingMoneyVault,
     JayaAbadiMoneyVault,
-    SriMersingMoneyVault,
+    SriMersingMoneyVault;
 
-    
 //--------- Pengecekan Jumlah On Duty Faction ------------//
 new Iterator:LSPDDuty<MAX_PLAYERS>;
 new Iterator:LSFDDuty<MAX_PLAYERS>;
