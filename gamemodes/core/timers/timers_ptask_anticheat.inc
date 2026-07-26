@@ -23,11 +23,12 @@ hook OnPlayerUpdate(playerid)
 
 task AntiCheatVehSlap[1000]() 
 {
+    static Float:vlx[3], impstr[158];
+
     foreach(new v : Vehicle)
     {
         if(IsValidVehicle(v) && v != INVALID_VEHICLE_ID)
         {
-            new Float:vlx[3], impstr[158];
             GetVehicleVelocity(v, vlx[0], vlx[1], vlx[2]);
             if(vlx[0] > 1.7 || vlx[1] > 1.7 || vlx[2] > 1.7)
             {

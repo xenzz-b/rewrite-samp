@@ -51,7 +51,7 @@ task ServerTimeClock[1000]()
 
             SendClientMessageToAll(Y_LIGHTRED, "AdmCmd: Asuransi keliling telah dilaksanakan, selamat beraktivitas kembali.");
 
-            new impstr[158];
+            static impstr[158];
             foreach (new pv : PvtVehicles)
             {
                 if(Iter_Contains(Vehicle, PlayerVehicle[pv][pVehPhysic]))
@@ -358,7 +358,7 @@ task ServerUpdateVoting[1500]()
                     }
                     else
                     {
-                        new impstr[158];
+                        static impstr[158];
                         if(PlayerVehicle[pv][pVehRental] > -1 || PlayerVehicle[pv][pVehRentTime] > 0)
                         {
                             PlayerVehicle[pv][pVehRental] = -1;

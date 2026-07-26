@@ -5,7 +5,7 @@ ptask PlayerJailCheck[1000](playerid)
 		if(OJailData[playerid][jailTime] > 0)
 		{
 			OJailData[playerid][jailTime]--;
-			new mstr[128];
+			static mstr[128];
 			format(mstr, sizeof(mstr), "~w~%d", OJailData[playerid][jailTime]);
 			GameTextForPlayer(playerid, mstr, 2000, 4);
 		}
@@ -36,7 +36,7 @@ ptask PlayerFederalCheck[1000](playerid)
 		if(AccountData[playerid][pArrestTime] > 0)
 		{
 			AccountData[playerid][pArrestTime]--;
-			new mstr[128];
+			static mstr[128];
 			format(mstr, sizeof(mstr), "~w~%d", AccountData[playerid][pArrestTime]);
 			GameTextForPlayer(playerid, mstr, 2000, 4);
 

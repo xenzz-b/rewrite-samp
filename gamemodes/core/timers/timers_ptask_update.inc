@@ -767,7 +767,7 @@ task vehrentchecking[1000]()
             DestroyVehicle(PlayerVehicle[pv][pVehPhysic]);
             PlayerVehicle[pv][pVehHandbraked] = false;
 
-            new rentqry[1024];
+            static rentqry[96];
             mysql_format(g_SQL, rentqry, sizeof(rentqry), "DELETE FROM `vehicle_bagasi` WHERE `Veh_DBID`=%d", PlayerVehicle[pv][pVehID]);
             mysql_pquery(g_SQL, rentqry);
             mysql_format(g_SQL, rentqry, sizeof(rentqry), "DELETE FROM `vehicle_holster` WHERE `Veh_DBID`=%d", PlayerVehicle[pv][pVehID]);
@@ -2064,7 +2064,7 @@ ptask UpdateTimeActivity[1000](playerid)
             if(DestroyDynamicObject(DeerData[AccountData[playerid][pDuringConsficatingMeat]][deerObject]))
                 DeerData[AccountData[playerid][pDuringConsficatingMeat]][deerObject] = STREAMER_TAG_OBJECT: INVALID_STREAMER_ID;
             
-            new prms[525];
+            static prms[525];
             format(prms, sizeof(prms), "Rusa\n"RED"Tidak Tersedia\n"WHITE"%02d:%02d", DeerData[AccountData[playerid][pDuringConsficatingMeat]][deerRespawnTime]/60%60, DeerData[AccountData[playerid][pDuringConsficatingMeat]][deerRespawnTime]%3600%60);
             UpdateDynamic3DTextLabelText(DeerData[AccountData[playerid][pDuringConsficatingMeat]][deerLabel], 0xFFFFFFBF, prms);
 
@@ -4041,7 +4041,7 @@ ptask UpdateTimeOtherFunc[1000](playerid)
 
             ShowTDN(playerid, NOTIFICATION_SUCCESS, "Anda berhasil klaim starterpack, 20x Chicken BBQ & Coconut Water.");
 
-            new jjja[128];
+            static jjja[128];
             mysql_format(g_SQL, jjja, sizeof(jjja), "UPDATE `player_ucp` SET `claimedSP` = '1' WHERE `UCP` = '%e'", AccountData[playerid][pUCP]);
 		    mysql_pquery(g_SQL, jjja);
         }
@@ -4740,7 +4740,7 @@ ptask UpdateTimeOtherFunc[1000](playerid)
 
             DestroyVehicle(PlayerVehicle[vid][pVehPhysic]);
 
-            new impstr[144];
+            static impstr[144];
             mysql_format(g_SQL, impstr, sizeof(impstr), "UPDATE `player_vehicles` SET `PVeh_Insuranced` = 1 WHERE `id`=%d",PlayerVehicle[vid][pVehID]);
             mysql_pquery(g_SQL, impstr);
             ShowTDN(playerid, NOTIFICATION_SUCCESS, "Anda berhasil menyita kendaraan tersebut ke asuransi.");
@@ -4810,7 +4810,7 @@ ptask UpdateTimeOtherFunc[1000](playerid)
 
             DestroyVehicle(PlayerVehicle[vid][pVehPhysic]);
 
-            new impstr[250];
+            static impstr[250];
             mysql_format(g_SQL, impstr, sizeof(impstr), "UPDATE `player_vehicles` SET `PVeh_Impounded` = 1, `PVeh_ImpoundDuration`=%d, `PVeh_ImpoundFee`=%d, `PVeh_ImpoundReason`='%e' WHERE `id`=%d", PlayerVehicle[vid][pVehImpoundDuration], PlayerVehicle[vid][pVehImpoundFee], PlayerVehicle[vid][pVehImpoundReason], PlayerVehicle[vid][pVehID]);
             mysql_pquery(g_SQL, impstr);
             ShowTDN(playerid, NOTIFICATION_SUCCESS, "Anda berhasil menyita kendaraan tersebut ke dalam impound.");
@@ -5763,7 +5763,7 @@ ptask UpdateTimeJob2[1000](playerid)
             DeathCause[playerid][Burns] = false;
             DeathCause[playerid][Drown] = false;
             DeathCause[playerid][Fallen] = false;
-            new frmtsql[215];
+            static frmtsql[215];
             mysql_format(g_SQL, frmtsql, sizeof(frmtsql), "UPDATE `player_characters` SET `Char_Knockdown` = 0, `Char_KnockdownTime` = 0, `Char_Hunger` = 50, `Char_Thirst` = 50, `Char_Stress` = 0 WHERE `pID` = %d", AccountData[playerid][pID]);
             mysql_pquery(g_SQL, frmtsql);
 
@@ -5861,7 +5861,7 @@ ptask UpdateTimeJob2[1000](playerid)
             GameTextForPlayer(targetid, "~r~Weapon locked~n~~w~for 5 minutes", 5000, 3);
             ShowTDN(targetid, NOTIFICATION_INFO, "You have been revived and cannot shoot for 5 minutes!");
 
-            new frmtsql[215];
+            static frmtsql[215];
             mysql_format(g_SQL, frmtsql, sizeof(frmtsql), "UPDATE `player_characters` SET `Char_Knockdown` = 0, `Char_KnockdownTime` = 0, `Char_Hunger` = 50, `Char_Thirst` = 50, `Char_Stress` = 0 WHERE `pID` = %d", AccountData[targetid][pID]);
             mysql_pquery(g_SQL, frmtsql);
 
@@ -6924,7 +6924,7 @@ ptask AdminLabelUpdate[1000](playerid)
 
                 if (IsValidDynamic3DTextLabel(AdminNameTag[playerid][i]))
                 {
-                    new string[300];
+                    static string[300];
                     format(string, sizeof(string), "%s | %s (PID: %d)\n"RED"%.2f"WHITE" | %.2f", AccountData[i][pName], AccountData[i][pUCP], i, health, am);
                     UpdateDynamic3DTextLabelText(AdminNameTag[playerid][i], -1, string);
                 }
@@ -6939,7 +6939,7 @@ ptask SIDUpdate[1000](playerid)
     {
         foreach (new i : Player)
         {
-            new string[300];
+            static string[300];
             if (AccountData[i][IsLoggedIn] && AccountData[i][pSpawned])
             {
                 format(string, sizeof(string), "%s (PID: %d)", AccountData[i][pUCP], i);
