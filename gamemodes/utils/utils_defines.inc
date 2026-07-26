@@ -42,7 +42,7 @@
 #define DATABASE_ADDRESS "localhost"
 #define DATABASE_USERNAME "root"
 #define DATABASE_PASSWORD ""
-#define DATABASE_NAME "vrp"
+#define DATABASE_NAME "db_gta"
 
 #if !defined BCRYPT_HASH_LENGTH
 	#define BCRYPT_HASH_LENGTH 250
