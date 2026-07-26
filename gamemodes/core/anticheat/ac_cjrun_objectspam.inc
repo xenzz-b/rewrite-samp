@@ -1,25 +1,25 @@
 #include <YSI_Coding\y_hooks>
 
-// ---------------------------------------------------------------------------
-//  AC_CJRUN_OBJECTSPAM — Deteksi CJ Run hack + Object spam (mapping stealer)
-//  Adaptasi dari ac-hytam-legam, disesuaikan dengan framework Vertex
-//
-//  v2 optimization: CJ run violations DECREMENT (bukan reset ke 0) saat
-//  animasi normal — cheat toggle on/off cepat masih bisa terdeteksi.
-// ---------------------------------------------------------------------------
+// Cara kerja:
+//   CJ Run: cek animasi index 1231/1226 + kecepatan >45km/h. Violation +1 per OPU jika
+//   kedua kondisi terpenuhi. 3 violations = kick. Decay: reset violations ke 0 jika
+//   >2 detik sejak terakhir CJ run terdeteksi (time-based, bukan per-update decrement).
+//   Object Spam: jika GetPlayerObjectCount >2000 DAN spike >200 dalam 1 update = kick.
+//   Hanya aktif di open.mp (#if defined GetPlayerObjectCount).
 
-#define AC_CJRUN_SPEED_THRESHOLD  45.0    // km/h: CJ run di atas ini = hack
-#define AC_OBJECT_SPAM_MAX        2000    // max player objects yang wajar
-#define AC_OBJECT_SPAM_SPIKE      200     // spike tambahan dalam 1 detik = stealer
+#define AC_CJRUN_SPEED_THRESHOLD  45.0
+#define AC_CJRUN_DECAY_TIME       2       // detik tanpa CJ run sebelum violations reset
+#define AC_OBJECT_SPAM_MAX        2000
+#define AC_OBJECT_SPAM_SPIKE      200
 
-// CJ Run animations (index 1231 = CJ run fast, 1226 = CJ run stamina)
 #define AC_CJRUN_ANIM_1           1231
 #define AC_CJRUN_ANIM_2           1226
 
 enum e_ACCJRun
 {
     acLastPlayerObjectCount,
-    acCJRunViolations
+    acCJRunViolations,
+    acCJRunLastDetectTime     // gettime() saat CJ run terakhir terdeteksi
 };
 
 new AC_CJData[MAX_PLAYERS][e_ACCJRun];
@@ -28,6 +28,7 @@ hook OnPlayerConnect(playerid)
 {
     AC_CJData[playerid][acLastPlayerObjectCount] = 0;
     AC_CJData[playerid][acCJRunViolations]       = 0;
+    AC_CJData[playerid][acCJRunLastDetectTime]   = 0;
     return 1;
 }
 
@@ -36,21 +37,20 @@ hook OnPlayerUpdate(playerid)
     if(!AC_CanPunish(playerid))
         return 1;
 
-    // --- CJ RUN DETECTION ---
-    // Animasi CJ run dengan kecepatan abnormal
+    // CJ Run: animasi 1231/1226 + kecepatan > threshold
     if(GetPlayerState(playerid) == PLAYER_STATE_ONFOOT && 
        GetPlayerSpecialAction(playerid) != SPECIAL_ACTION_USEJETPACK)
     {
         new animidx = GetPlayerAnimationIndex(playerid);
         if(animidx == AC_CJRUN_ANIM_1 || animidx == AC_CJRUN_ANIM_2)
         {
-            // CJ run speed hack: kecepatan > threshold saat anim CJ run
             new Float:speed = AC_GetSpeed(playerid);
-            new Float:speedKmh = speed * 179.28625; // konversi velocity ke km/h
+            new Float:speedKmh = speed * 179.28625;
 
             if(speedKmh > AC_CJRUN_SPEED_THRESHOLD)
             {
                 AC_CJData[playerid][acCJRunViolations]++;
+                AC_CJData[playerid][acCJRunLastDetectTime] = gettime();
                 
                 if(AC_CJData[playerid][acCJRunViolations] >= 3)
                 {
@@ -66,18 +66,17 @@ hook OnPlayerUpdate(playerid)
         }
         else
         {
-            // OPTIMIZATION: Decrement violation (bukan reset ke 0).
-            // Cheat yang toggle CJ run on/off cepat masih bisa accumulate
-            // violations karena decrement hanya -1 per update normal.
-            // Total 3 violations tetap bisa tercapai jika cheat aktif
-            // cukup sering dalam window yang sama.
-            if(AC_CJData[playerid][acCJRunViolations] > 0)
-                AC_CJData[playerid][acCJRunViolations]--;
+            // Time-based decay: reset violations jika >2 detik tanpa CJ run detection
+            // (bukan per-update decrement yang terlalu cepat: -1 per OPU = 0.1 sec decay)
+            if(AC_CJData[playerid][acCJRunViolations] > 0 && 
+               gettime() - AC_CJData[playerid][acCJRunLastDetectTime] > AC_CJRUN_DECAY_TIME)
+            {
+                AC_CJData[playerid][acCJRunViolations] = 0;
+            }
         }
     }
 
-    // --- OBJECT SPAM / MAPPING STEALER ---
-    // open.mp mendukung GetPlayerObjectCount
+    // Object Spam / Mapping Stealer (open.mp only)
     #if defined GetPlayerObjectCount
     {
         new objectCount = GetPlayerObjectCount(playerid);
