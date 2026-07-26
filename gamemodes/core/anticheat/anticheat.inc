@@ -148,15 +148,23 @@ new
 // ---------------------------------------------------------------------
 
 // Staff/immune: jangan pernah auto-kick
+/*  Siapa yang KEBAL anticheat?
+
+    HANYA staff yang sedang ON DUTY (/aduty). Bukan "punya jabatan admin",
+    tapi benar-benar sedang bertugas.
+
+    Alasannya: /aduty memang menyetel HP ke 99999, memberi warna & atribut
+    khusus, sehingga tanpa pengecualian ini admin bertugas pasti kena
+    deteksi. Begitu /aduty dimatikan, HP dikembalikan ke nilai asli lewat
+    SetPlayerHealth() (tercatat wrapper), jadi ledger langsung sinkron.
+
+    Admin/witch/helper/vlounter yang sedang OFF DUTY diperlakukan sama
+    persis seperti player biasa - mereka tetap bisa terdeteksi dan
+    di-kick. Ini disengaja: akun staff yang dibajak atau staff yang
+    curang saat bermain normal tidak boleh lolos.                        */
 AC_IsExempt(playerid)
 {
 	if(!IsPlayerConnected(playerid) || IsPlayerNPC(playerid))
-		return 1;
-
-	if(AccountData[playerid][pAdmin] > 0 || AccountData[playerid][pWitch] || AccountData[playerid][pApprentice])
-		return 1;
-
-	if(AccountData[playerid][pAdminHelper] > 0 || AccountData[playerid][pAdminVlounter] > 0)
 		return 1;
 
 	if(AccountData[playerid][pAdminDuty])

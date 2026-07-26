@@ -714,19 +714,20 @@ ptask AntiCheatMoneyAndAmmo[1000](playerid)
             }
         }
         
-        if(AccountData[playerid][pAdmin] < 1 && !AccountData[playerid][pWitch] && AccountData[playerid][pAdminVlounter] < 1 && AccountData[playerid][pAdminHelper] < 1)
+        /*  Kekebalan staff ditentukan terpusat oleh AC_IsExempt() yang
+            dipanggil AC_Kick(): HANYA admin on duty (/aduty) yang kebal.
+            Pengecekan pAdmin/pWitch/pHelper/pVlounter di sini dihapus
+            supaya staff yang sedang OFF DUTY tetap bisa terdeteksi.     */
+        if(GetPlayerSpecialAction(playerid) == SPECIAL_ACTION_USEJETPACK)
         {
-            if(GetPlayerSpecialAction(playerid) == SPECIAL_ACTION_USEJETPACK)
-            {
-                AC_Kick(playerid, "Jetpack Hack", "special action jetpack");
-            }
-            
-            if(IsProhibitedWeapon(GetPlayerWeapon(playerid)))
-            {
-                new acdetail[64];
-                format(acdetail, sizeof(acdetail), "prohibited weapon %s", ReturnWeaponName(GetPlayerWeapon(playerid)));
-                AC_Kick(playerid, "Senjata Terlarang", acdetail);
-            }
+            AC_Kick(playerid, "Jetpack Hack", "special action jetpack");
+        }
+
+        if(IsProhibitedWeapon(GetPlayerWeapon(playerid)))
+        {
+            new acdetail[64];
+            format(acdetail, sizeof(acdetail), "prohibited weapon %s", ReturnWeaponName(GetPlayerWeapon(playerid)));
+            AC_Kick(playerid, "Senjata Terlarang", acdetail);
         }
         
         // Anti-Lag: butuh ping tinggi konsisten 5 detik berturut-turut agar spike sesaat tidak menendang
