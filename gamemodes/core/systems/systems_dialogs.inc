@@ -191,21 +191,19 @@ Dialog:Register(playerid, response, listitem, inputtext[])
 Dialog:Login(playerid, response, listitem, inputtext[])
 {
     if(!response)
-        return Kick(playerid);
+        return KickEx(playerid);
 
     if(isnull(inputtext))
     {
-        Kick(playerid);
+        ShowLoginDialog(playerid, "Kata sandi tidak boleh kosong!");
         return 1;
     }
+
     strmid(TempPasswordLogin[playerid], inputtext, 0, strlen(inputtext), 128);
 
-    new stars[128];
-    for(new i = 0; i < strlen(inputtext) && i < 20; i++)
-        strcat(stars, "x");
-    
-    if(!strlen(stars)) stars = "_";
-    PlayerTextDrawSetString(playerid, LoginVRP[playerid][68], stars);
+    static lgqry[160];
+    mysql_format(g_SQL, lgqry, sizeof(lgqry), "SELECT `Password` FROM `player_ucp` WHERE `UCP` = '%e' LIMIT 1", AccountData[playerid][pUCP]);
+    mysql_pquery(g_SQL, lgqry, "OnLoginPassCheck", "is", playerid, TempPasswordLogin[playerid]);
     return 1;
 }
 Dialog:Verification(playerid, response, listitem, inputtext[])

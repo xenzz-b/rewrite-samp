@@ -1378,7 +1378,6 @@ public OnPlayerConnect(playerid)
 	// CreatePLoginTD(playerid);
 
 	CreatePAnnounceTD(playerid);
-	CreateLoginVRP(playerid);
 
 	CreateClothesShopIndexTD(playerid);
 	CreateRobberyTD(playerid);
@@ -7711,25 +7710,6 @@ public OnDynamicPlayerTextdrawClicked(playerid, PlayerText:playertextid)
             UpdateFishingBar(playerid);
             PlayerPlaySound(playerid, 1083, 0.0, 0.0, 0.0);
         }
-        return 1;
-    }
-	if(playertextid == LoginVRP[playerid][49])
-    {
-        new strba[512];
-        format(strba, sizeof(strba), "Username "Vertex"%s "WHITE"Terdaftar.\nSilakan masukkan kata sandi untuk login:", AccountData[playerid][pUCP]);
-        Dialog_Show(playerid, "Login", DIALOG_STYLE_PASSWORD, "UCP - Login", strba, "Login", "Quit");
-        return 1;
-    }
-    if(playertextid == LoginVRP[playerid][56])
-    {
-        if(!TempPasswordLogin[playerid][0])
-        {
-            ShowTDN(playerid, NOTIFICATION_ERROR, "Masukkan password terlebih dahulu!");
-            return 1;
-        }
-        new string[555];
-        mysql_format(g_SQL, string, sizeof(string), "SELECT `Password` FROM `player_ucp` WHERE `UCP` = '%e' LIMIT 1", AccountData[playerid][pUCP]);
-        mysql_pquery(g_SQL, string, "OnLoginPassCheck", "is", playerid, TempPasswordLogin[playerid]);
         return 1;
     }
 	return 0;
