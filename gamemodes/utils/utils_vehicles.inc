@@ -735,3 +735,11 @@ GetValletPrice(modelid)
 	return price;
 
 }
+
+#if !defined GetVehicleModelName
+stock GetVehicleModelName(modelid)
+{
+	if(modelid < 400 || modelid > 611) return "Unknown";
+	return g_arrVehicleNames[modelid - 400];
+}
+#endif
