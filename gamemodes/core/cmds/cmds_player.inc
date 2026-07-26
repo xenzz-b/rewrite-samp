@@ -789,7 +789,7 @@ YCMD:fhelp(playerid, params[], help)
 			"GRAY"/mdt\t"GRAY"Untuk membuka menu MDC\n\
 			/spawnheli\tUntuk mespawn Heli di area tertentu\n\
 			"GRAY"/spawnboat\t"GRAY"Untuk spawn perahu di area tertentu\n\
-			/mpo\tUntuk memperingati penepian kendaraan\n\
+			/mpo (1-3)\tUntuk memperingati penepian kendaraan\n\
 			"GRAY"/em\t"GRAY"Untuk memberikan peringat membuka jalan\n\
 			/makeskck\tUntuk membuat skck\n\
 			"GRAY"/makeplate\t"GRAY"Untuk membuat plate kendaraan di area tertentu\n\

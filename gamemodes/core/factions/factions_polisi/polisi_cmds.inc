@@ -369,7 +369,33 @@ YCMD:mpo(playerid, params[], help)
     if(!IsLSPDVehicle(GetPlayerVehicleID(playerid)))
 		return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak berada di dalam kendaraan kepolisian!");
 
-    SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] Harap tepikan kendaraan anda, kami dari Kepolisian Vertex!", GetPlayerRoleplayName(playerid));
+    new level;
+    if(sscanf(params, "d", level))
+        level = 0;
+
+    switch(level)
+    {
+        case 0:
+        {
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] UNTUK KENDARAAN DIDEPAN DIHARAPKAN UNTUK SEGERA MENEPI!!", GetPlayerRoleplayName(playerid));
+        }
+        case 1:
+        {
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] PERINGATAN 1 UNTUK KENDARAAN DI DEPAN UNTUK SEGERA MENEPI!!", GetPlayerRoleplayName(playerid));
+        }
+        case 2:
+        {
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] PERINGATAN 2 UNTUK KENDARAAN DI DEPAN ATAU KAMI AKAN TINDAK TEGAS!!", GetPlayerRoleplayName(playerid));
+        }
+        case 3:
+        {
+            SendNearbyMessage(playerid, 60.0, X11_YELLOW, "[MEGAPHONE %s:o<] PERINGATAN 3 UNTUK KENDARAAN DI DEPAN KAMI AKAN MELAKUKAN PIT!!", GetPlayerRoleplayName(playerid));
+        }
+        default:
+        {
+            return SUM(playerid, "/mpo (1-3)");
+        }
+    }
     return 1;
 }
 
