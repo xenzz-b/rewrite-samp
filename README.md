@@ -6,7 +6,7 @@ Developed by **Claps**
 ## Overview
 Vertex Roleplay adalah gamemode SA-MP Roleplay dengan fokus pada clean architecture, modular systems, dan performa tinggi.
 
-- **Hostname**: Vertex Roleplay
+- **Hostname**: Vertex Roleplaya
 - **Gamemode**: V:RP V0.1.5
 - **Web**: discord.gg/vertexroleplay
 - **Database**: vrp
