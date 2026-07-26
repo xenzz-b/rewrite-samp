@@ -1,3 +1,33 @@
+#include <YSI_Coding\y_hooks>
+
+// Titik pencairan paycheck di Bank Pacific.
+static const Float:g_PaycheckPoint[][3] =
+{
+	{1445.8564, -1136.7075, 23.9580},
+	{1457.9396, -1126.6406, 23.9580}
+};
+
+IsPlayerNearPaycheckPoint(playerid)
+{
+	for(new i; i < sizeof(g_PaycheckPoint); i ++)
+	{
+		if(IsPlayerInRangeOfPoint(playerid, 3.0, g_PaycheckPoint[i][0], g_PaycheckPoint[i][1], g_PaycheckPoint[i][2]))
+			return 1;
+	}
+	return 0;
+}
+
+CreatePaycheckLabels()
+{
+	for(new i; i < sizeof(g_PaycheckPoint); i ++)
+	{
+		CreateDynamicPickup(1274, 23, g_PaycheckPoint[i][0], g_PaycheckPoint[i][1], g_PaycheckPoint[i][2], 0, 0, -1, 30.00, -1, 0);
+		CreateDynamic3DTextLabel(""GRAY"[Loket Pencairan Gaji]\n"WHITE"Gunakan "YELLOW"'/paycheck' "WHITE"untuk mencairkan gaji\n"WHITE"Gunakan "YELLOW"'/mysalary' "WHITE"untuk melihat rincian",
+			Y_CYAN, g_PaycheckPoint[i][0], g_PaycheckPoint[i][1], g_PaycheckPoint[i][2] + 0.45, 10.00, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, 0, 0, -1, 10.00, -1, 0);
+	}
+	return 1;
+}
+
 // Tipe penghasilan pemain, dipakai untuk menentukan besaran dan sumber gaji.
 #define SALARYTYPE_CITIZEN  0
 #define SALARYTYPE_JOB      1
@@ -224,4 +254,10 @@ Dialog:PlayerSalaryList(playerid, response, listitem, inputtext[])
         }
     }
     return 1;
+}
+
+hook OnGameModeInit()
+{
+	CreatePaycheckLabels();
+	return 1;
 }
