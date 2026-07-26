@@ -1,12 +1,67 @@
-// Besaran gaji per periode bertugas, naik mengikuti pangkat faction.
+// Tipe penghasilan pemain, dipakai untuk menentukan besaran dan sumber gaji.
+#define SALARYTYPE_CITIZEN  0
+#define SALARYTYPE_JOB      1
+#define SALARYTYPE_FACTION  2
+
+GetPlayerSalaryType(playerid)
+{
+	if(AccountData[playerid][pFaction] != FACTION_NONE)
+		return SALARYTYPE_FACTION;
+
+	if(AccountData[playerid][pJob] != JOB_NONE)
+		return SALARYTYPE_JOB;
+
+	return SALARYTYPE_CITIZEN;
+}
+
+// Besaran gaji per periode, menyesuaikan tipe penghasilan pemain.
 GetPlayerDutySalary(playerid)
 {
-	new pay = SALARY_BASE + (AccountData[playerid][pFactionRank] * SALARY_PER_RANK);
+	switch(GetPlayerSalaryType(playerid))
+	{
+		case SALARYTYPE_FACTION:
+		{
+			new pay = SALARY_BASE + (AccountData[playerid][pFactionRank] * SALARY_PER_RANK);
 
-	if(pay > SALARY_MAX)
-		pay = SALARY_MAX;
+			if(pay > SALARY_MAX)
+				pay = SALARY_MAX;
 
-	return pay;
+			return pay;
+		}
+		case SALARYTYPE_JOB:
+		{
+			return SALARY_JOB;
+		}
+	}
+	return SALARY_CITIZEN;
+}
+
+// Sumber gaji yang tercatat pada slip.
+GetPlayerSalaryIssuer(playerid)
+{
+	static issuer[46];
+
+	switch(GetPlayerSalaryType(playerid))
+	{
+		case SALARYTYPE_FACTION: format(issuer, sizeof(issuer), "%s", GetFactionName(playerid));
+		case SALARYTYPE_JOB:     format(issuer, sizeof(issuer), "%s", GetJobName(playerid));
+		default:                 format(issuer, sizeof(issuer), "Pemerintah Vertex");
+	}
+	return issuer;
+}
+
+// Keterangan alasan pada slip.
+GetPlayerSalaryReason(playerid)
+{
+	static reason[46];
+
+	switch(GetPlayerSalaryType(playerid))
+	{
+		case SALARYTYPE_FACTION: format(reason, sizeof(reason), "Gaji Bertugas");
+		case SALARYTYPE_JOB:     format(reason, sizeof(reason), "Gaji Pekerjaan");
+		default:                 format(reason, sizeof(reason), "Tunjangan Warga");
+	}
+	return reason;
 }
 
 AddPlayerSalary(playerid, const issuer[], money, const reason[])

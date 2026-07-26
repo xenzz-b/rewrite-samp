@@ -41,6 +41,8 @@
 #define SALARY_BASE         2500    // gaji dasar per periode
 #define SALARY_PER_RANK     250     // tambahan per tingkat pangkat
 #define SALARY_MAX          8000    // batas atas per periode
+#define SALARY_JOB          1800    // gaji pekerja (punya job, tanpa faction)
+#define SALARY_CITIZEN      1000    // tunjangan warga biasa
 #define PAYCHECK_COOLDOWN   3600    // detik jeda antar pencairan
 
 #define MAX_FACTIONS 13

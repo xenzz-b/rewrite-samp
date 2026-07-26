@@ -714,3 +714,47 @@ YCMD:resetsp(playerid, params[], help)
 	mysql_pquery(g_SQL, string);
 	return 1;
 }
+
+YCMD:givesalary(playerid, params[], help)
+{
+	if(AccountData[playerid][pAdmin] < 7)
+		return PermissionError(playerid);
+	if(AccountData[playerid][pAdminDuty] == false)
+		return PermissionErrorDuty(playerid);
+
+	new otherid, amount;
+	if(sscanf(params, "uD(0)", otherid, amount))
+		return SUM(playerid, "/givesalary [ID/Name] [jumlah] (kosongkan jumlah untuk otomatis sesuai tipe)");
+
+	if(!IsPlayerConnected(otherid))
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak terkoneksi ke server!");
+
+	if(!AccountData[otherid][IsLoggedIn] || !AccountData[otherid][pSpawned])
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut belum siap menerima gaji!");
+
+	// Tanpa nominal, besarannya mengikuti tipe penghasilan pemain.
+	if(amount <= 0)
+		amount = GetPlayerDutySalary(otherid);
+
+	if(amount > 1000000)
+		return ShowTDN(playerid, NOTIFICATION_ERROR, "Nominal gaji maksimal $1.000.000!");
+
+	static saltype[24];
+	switch(GetPlayerSalaryType(otherid))
+	{
+		case SALARYTYPE_FACTION: format(saltype, sizeof(saltype), "Faction");
+		case SALARYTYPE_JOB:     format(saltype, sizeof(saltype), "Pekerjaan");
+		default:                 format(saltype, sizeof(saltype), "Warga Biasa");
+	}
+
+	AddPlayerSalary(otherid, GetPlayerSalaryIssuer(otherid), amount, GetPlayerSalaryReason(otherid));
+
+	SendClientMessageEx(otherid, Y_LIGHTRED, "AdmCmd: Anda menerima slip gaji sebesar "GREEN"$%s"WHITE" dari %s.", FormatMoney(amount), AccountData[playerid][pAdminname]);
+	SendAdm(playerid, "Anda memberikan slip gaji $%s kepada %s(%d) [Tipe: %s].", FormatMoney(amount), AccountData[otherid][pName], otherid, saltype);
+	SendStaffMessage(Y_LIGHTRED, "AdmCmd: %s has given a salary slip of $%s to %s(%d) [Type: %s].", AccountData[playerid][pAdminname], FormatMoney(amount), AccountData[otherid][pName], otherid, saltype);
+
+	static string[522];
+	mysql_format(g_SQL, string, sizeof(string), "INSERT INTO `admin_logs` SET `Prefix` = 'givesalary', `Admin` = '%e', `AdminUCP` = '%e', `UCPTarget` = '%e'", AccountData[playerid][pAdminname], AccountData[playerid][pUCP], AccountData[otherid][pName]);
+	mysql_pquery(g_SQL, string);
+	return 1;
+}
