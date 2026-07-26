@@ -3,6 +3,9 @@
 // ---------------------------------------------------------------------------
 //  AC_CJRUN_OBJECTSPAM — Deteksi CJ Run hack + Object spam (mapping stealer)
 //  Adaptasi dari ac-hytam-legam, disesuaikan dengan framework Vertex
+//
+//  v2 optimization: CJ run violations DECREMENT (bukan reset ke 0) saat
+//  animasi normal — cheat toggle on/off cepat masih bisa terdeteksi.
 // ---------------------------------------------------------------------------
 
 #define AC_CJRUN_SPEED_THRESHOLD  45.0    // km/h: CJ run di atas ini = hack
@@ -63,9 +66,13 @@ hook OnPlayerUpdate(playerid)
         }
         else
         {
-            // Reset jika animasi normal
+            // OPTIMIZATION: Decrement violation (bukan reset ke 0).
+            // Cheat yang toggle CJ run on/off cepat masih bisa accumulate
+            // violations karena decrement hanya -1 per update normal.
+            // Total 3 violations tetap bisa tercapai jika cheat aktif
+            // cukup sering dalam window yang sama.
             if(AC_CJData[playerid][acCJRunViolations] > 0)
-                AC_CJData[playerid][acCJRunViolations] = 0;
+                AC_CJData[playerid][acCJRunViolations]--;
         }
     }
 
