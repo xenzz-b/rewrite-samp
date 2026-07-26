@@ -1364,7 +1364,7 @@ YCMD:checkwarns(playerid, params[], help)
 	if(!AccountData[otherid][IsLoggedIn])
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut belum login ke server!");
 
-	static string[1024], count;
+	static string[1024], count, wrow[160];
 	count = 0;
 	format(string, sizeof(string), "Type\tIssuer\tDate\tReason\n");
 	for (new id; id < 100; ++id)
@@ -1375,15 +1375,18 @@ YCMD:checkwarns(playerid, params[], help)
 			{
 				case 1:
 				{
-					format(string, sizeof(string), "%s"GREEN"[WARN]\t"WHITE"%s\t%s\t%s\n", string, PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+					format(wrow, sizeof(wrow), ""GREEN"[WARN]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+                    strcat(string, wrow);
 				}
 				case 2:
 				{
-					format(string, sizeof(string), "%s"YELLOW"[JAIL]\t"WHITE"%s\t%s\t%s\n", string, PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+					format(wrow, sizeof(wrow), ""YELLOW"[JAIL]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+                    strcat(string, wrow);
 				}
 				case 3:
 				{
-					format(string, sizeof(string), "%s"ORANGERED"[BAN]\t"WHITE"%s\t%s\t%s\n", string, PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+					format(wrow, sizeof(wrow), ""ORANGERED"[BAN]\t"WHITE"%s\t%s\t%s\n", PlayerWarning[otherid][id][warnIssuer], PlayerWarning[otherid][id][warnDate], PlayerWarning[otherid][id][warnReason]);
+                    strcat(string, wrow);
 				}
 			}
 			PlayerListitem[playerid][count++] = id;
@@ -1805,11 +1808,15 @@ YCMD:vehname(playerid, params[], help)
     if (isnull(params)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Keyword kurang specific!");
     if (!params[2]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Keyword terlalu singkat!");
 
+    new vrow[48];
     for (new v; v < sizeof(g_arrVehicleNames); v++) {
         if (strfind(g_arrVehicleNames[v], params, true) != -1) {
 
             if (isnull(string)) format(string, sizeof(string), "%s (ID %d)", g_arrVehicleNames[v], v + 400);
-            else format(string, sizeof(string), "%s | %s (ID %d)", string, g_arrVehicleNames[v], v + 400);
+            else {
+                format(vrow, sizeof(vrow), " | %s (ID %d)", g_arrVehicleNames[v], v + 400);
+                strcat(string, vrow);
+            }
         }
     }
 
