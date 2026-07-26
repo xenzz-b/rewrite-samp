@@ -2554,8 +2554,8 @@ TakeWeaponLooting(playerid, targetid)
 	for(new i = 0; i < MAX_WEAPON_SLOT; i++)
 		LootMap[playerid][i] = -1;
 
-    new frmtgun[1024];
-    format(frmtgun, sizeof(frmtgun), "Senjata\tAmunisi\n");
+    new frmtgun[512], gunrow[64];
+    frmtgun = "Senjata\tAmunisi\n";
 
     new weaponid, ammo, bool:found = false;
 	new listIndex = 0;
@@ -2569,11 +2569,8 @@ TakeWeaponLooting(playerid, targetid)
             LootWeapons[playerid][slot] = weaponid;
             LootAmmo[playerid][slot] = GunData[targetid][g_aWeaponSlots[weaponid]][WeaponAmmo]; 
 
-            format(frmtgun, sizeof(frmtgun), "%s%s\t%d Ammo\n",
-                frmtgun,
-                ReturnWeaponName(weaponid),
-                LootAmmo[playerid][slot]
-            );
+            format(gunrow, sizeof(gunrow), "%s\t%d Ammo\n", ReturnWeaponName(weaponid), LootAmmo[playerid][slot]);
+            strcat(frmtgun, gunrow);
 			LootMap[playerid][listIndex] = slot;
 			listIndex++;
 

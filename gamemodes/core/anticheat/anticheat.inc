@@ -467,7 +467,17 @@ hook OnPlayerSpawn(playerid)
 	AC_SpawnTick[playerid]  = gettime();
 	AC_LastUpdate[playerid] = GetTickCount();
 
-	AC_ResetHealthLedger(playerid, 0.0, 0.0);
+	// Seed ledger dari nilai tersimpan, bukan 0. main.pwn memasang
+	// health/armour ini tepat setelah hook berjalan.
+	new Float:shp = AccountData[playerid][pHealth];
+	new Float:sap = AccountData[playerid][pArmor];
+
+	if(shp < 0.0)   shp = 0.0;
+	if(shp > 100.0) shp = 100.0;
+	if(sap < 0.0)   sap = 0.0;
+	if(sap > 100.0) sap = 100.0;
+
+	AC_ResetHealthLedger(playerid, shp, sap);
 
 	if(Anticheat[playerid][acImmunity] < gettime() + AC_SPAWN_GRACE_TIME)
 		Anticheat[playerid][acImmunity] = gettime() + AC_SPAWN_GRACE_TIME;

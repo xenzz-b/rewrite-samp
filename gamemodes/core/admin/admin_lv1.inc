@@ -556,8 +556,8 @@ YCMD:aduty(playerid, params[], help)
 		{
 			GetPlayerHealth(playerid, AccountData[playerid][pHealth]);
 			SetPlayerColor(playerid, X11_RED);
-			SetPlayerHealth(playerid, 99999);
 			AccountData[playerid][pAdminDuty] = true;
+			SetPlayerHealth(playerid, 99999);
 			SetPlayerName(playerid, AccountData[playerid][pAdminname]);
 			
 			// Reset timer tracking
@@ -593,9 +593,9 @@ YCMD:aduty(playerid, params[], help)
         case true:
         {
             SetPlayerColor(playerid, X11_WHITE);
+            AccountData[playerid][pAdminDuty] = false;
 			SetPlayerHealth(playerid, AccountData[playerid][pHealth]);
             SetPlayerName(playerid, AccountData[playerid][pName]);
-            AccountData[playerid][pAdminDuty] = false;
             RemovePlayerAttachedObject(playerid, 9);
 			if(AccountData[playerid][pAdminDutyHours] > 0 || AccountData[playerid][pAdminDutyMinutes] > 0)
 			{
@@ -1768,15 +1768,17 @@ YCMD:akaip(playerid, params[], help)
 
 YCMD:vmodels(playerid, params[], help)
 {
-    static string[2000];
+    static string[4200], row[48];
 
     if (AccountData[playerid][pAdmin] < 1)
         return PermissionError(playerid);
     if (AccountData[playerid][pAdminDuty] == false)
         return PermissionErrorDuty(playerid);
 
+    string[0] = EOS;
     for (new i = 0; i < sizeof(g_arrVehicleNames); i++) {
-        format(string, sizeof(string), "%s%d - %s\n", string, i + 400, g_arrVehicleNames[i]);
+        format(row, sizeof(row), "%d - %s\n", i + 400, g_arrVehicleNames[i]);
+        strcat(string, row);
     }
     Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_LIST, "Vehicle Models", string, "Tutup", "");
 

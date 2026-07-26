@@ -24,30 +24,23 @@ UpdateAccountData(playerid)
 		}
 		GetPlayerFacingAngle(playerid, AccountData[playerid][pPos][3]);
 
-		/*  ANTICHEAT: jangan simpan nilai mentah dari client.
-
-		    Dulu health/armour diambil langsung dari GetPlayerHealth/Armour.
-		    Akibatnya cheater yang di-kick sempat menyimpan nilai hasil hack
-		    (mis. armour 100) ke database, sehingga saat login lagi armournya
-		    "sah" dan koreksi anticheat jadi sia-sia.
-
-		    Sekarang nilai dibatasi ledger anticheat yang hanya naik lewat
-		    pemberian resmi server.                                          */
 		new Float:svHP, Float:svAP;
 		GetPlayerHealth(playerid, svHP);
 		GetPlayerArmour(playerid, svAP);
 
-		if(!AccountData[playerid][pAdminDuty])
+		// Batasi dengan ledger hanya bila sudah spawn, agar nilai tersimpan
+		// tidak tertimpa 0 saat player masih di kelas / belum spawn.
+		if(AccountData[playerid][pSpawned] && !AccountData[playerid][pAdminDuty])
 		{
 			if(svHP > AC_LedgerHP[playerid])     svHP = AC_LedgerHP[playerid];
 			if(svAP > AC_LedgerArmour[playerid]) svAP = AC_LedgerArmour[playerid];
+
+			if(svHP < 0.0) svHP = 0.0;
+			if(svAP < 0.0) svAP = 0.0;
+
+			AccountData[playerid][pHealth] = svHP;
+			AccountData[playerid][pArmor]  = svAP;
 		}
-
-		if(svHP < 0.0) svHP = 0.0;
-		if(svAP < 0.0) svAP = 0.0;
-
-		AccountData[playerid][pHealth] = svHP;
-		AccountData[playerid][pArmor]  = svAP;
 	}
 	
 	if(IsPlayerHunting[playerid])
