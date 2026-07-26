@@ -268,6 +268,8 @@ enum e_player_data
 	bool:pIsAdminDutyTime,
 
 	pPaycheckIndex,
+	pPaycheckTime,
+	pFactionDutySec,
 	
 	pSlipSalary,
 

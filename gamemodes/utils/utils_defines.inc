@@ -36,6 +36,13 @@
 #define SP_REWARD_VEHICLE   422     // Bobcat
 #define SP_CLAIM_DURATION   20      // detik animasi sembahyang
 
+// --- Gaji faction (dibayar per periode saat on duty) ---
+#define SALARY_DUTY_PERIOD  1800    // detik bertugas sebelum satu slip terbit
+#define SALARY_BASE         2500    // gaji dasar per periode
+#define SALARY_PER_RANK     250     // tambahan per tingkat pangkat
+#define SALARY_MAX          8000    // batas atas per periode
+#define PAYCHECK_COOLDOWN   3600    // detik jeda antar pencairan
+
 #define MAX_FACTIONS 13
 #define MAX_FACTIONS_ITEMS 500
 #define MAX_COMPANY_ITEMS 500

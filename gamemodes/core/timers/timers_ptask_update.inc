@@ -8815,6 +8815,25 @@ ptask UpdateLevelTimer[1000](playerid)
 {
     if(AccountData[playerid][pSpawned])
     {
+        // Hitung mundur jeda pencairan paycheck.
+        if(AccountData[playerid][pPaycheckTime] > 0)
+            AccountData[playerid][pPaycheckTime]--;
+
+        /*  Gaji faction. Hanya berjalan saat anggota faction sedang on duty
+            dan tidak AFK, sehingga tidak ada penghasilan pasif bagi yang
+            hanya diam di server. Setiap SALARY_DUTY_PERIOD detik bertugas,
+            satu slip gaji terbit dan dapat dicairkan lewat /paycheck.      */
+        if(AccountData[playerid][pFaction] != FACTION_NONE && AccountData[playerid][pOnDuty] && !AccountData[playerid][pIsAFK])
+        {
+            if(++AccountData[playerid][pFactionDutySec] >= SALARY_DUTY_PERIOD)
+            {
+                AccountData[playerid][pFactionDutySec] = 0;
+
+                new dutypay = GetPlayerDutySalary(playerid);
+                AddPlayerSalary(playerid, GetFactionName(playerid), dutypay, "Gaji Bertugas");
+            }
+        }
+
         if(!AccountData[playerid][pIsAFK])
         {
             AccountData[playerid][pSeconds]++;

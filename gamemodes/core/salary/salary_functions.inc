@@ -1,3 +1,14 @@
+// Besaran gaji per periode bertugas, naik mengikuti pangkat faction.
+GetPlayerDutySalary(playerid)
+{
+	new pay = SALARY_BASE + (AccountData[playerid][pFactionRank] * SALARY_PER_RANK);
+
+	if(pay > SALARY_MAX)
+		pay = SALARY_MAX;
+
+	return pay;
+}
+
 AddPlayerSalary(playerid, const issuer[], money, const reason[])
 {
 	static string[514];
@@ -112,7 +123,7 @@ public PaycheckShowForPlayer(playerid)
 		SendClientMessageEx(playerid, Y_CYAN, "=> {FFFFFF}New Balance: {00FF00}$%s", FormatMoney(newbalance));
 		SendClientMessage(playerid, Y_CYAN, "<===================================================>");
 
-		AccountData[playerid][pPaycheckTime] = 3600;
+		AccountData[playerid][pPaycheckTime] = PAYCHECK_COOLDOWN;
 
 		AccountData[playerid][pBankMoney] = newbalance;
 
@@ -123,18 +134,9 @@ public PaycheckShowForPlayer(playerid)
 	}
 	else
 	{
-		new givenpaycheck = 5000, mybalance;
-
-		mybalance = givenpaycheck + AccountData[playerid][pBankMoney];
-		SendClientMessageEx(playerid, Y_CYAN, "<=================< {FFFFFF}Paycheck #%04d {00FFFF}>=================>", AccountData[playerid][pPaycheckIndex]);
-		SendClientMessageEx(playerid, Y_CYAN, "=> {FFFFFF}Previous Balance: {00FF00}$%s", FormatMoney(AccountData[playerid][pBankMoney]));
-		SendClientMessageEx(playerid, Y_CYAN, "=> {FFFFFF}Paycheck: {00FF00}$%s", FormatMoney(givenpaycheck));
-		SendClientMessageEx(playerid, Y_CYAN, "=> {FFFFFF}New Balance: {00FF00}$%s", FormatMoney(mybalance));
-		SendClientMessage(playerid, Y_CYAN, "<===================================================>");
-
-		AccountData[playerid][pPaycheckTime] = 3600;
-
-		AccountData[playerid][pBankMoney] = mybalance;
+		// Tidak ada gaji tertunda. Tidak diberi uang apa pun supaya
+		// pemain yang tidak bertugas tidak mendapat penghasilan pasif.
+		ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki gaji tertunda untuk dicairkan!");
 	}
     return 1;
 }
