@@ -6473,6 +6473,38 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 					PlayerPlaySound(playerid, 4201, 0.0, 0.0, 0.0);
 					return 1;
 				}
+				else if(!strcmp(string, "Chili Sauce", false))
+				{
+					rumuspendapatan = AccountData[playerid][pItemQuantity] * (ChiliSalary + 10);
+
+					GivePlayerMoneyEx(playerid, rumuspendapatan);
+
+					ShowItemBox(playerid, string, sprintf("Removed %dx", AccountData[playerid][pItemQuantity]), 2663, 4);
+					ShowItemBox(playerid, "Cash", sprintf("Received $%sx", FormatMoney(rumuspendapatan)), 1212, 5);
+
+					ApplyAnimation(playerid, "CARRY", "putdwn", 4.1, false, false, false, false, 0, true);
+					Inventory_Remove(playerid, string, AccountData[playerid][pItemQuantity]);
+					Inventory_Close(playerid);
+
+					PlayerPlaySound(playerid, 4201, 0.0, 0.0, 0.0);
+					return 1;
+				}
+				else if(!strcmp(string, "Rice", false))
+				{
+					rumuspendapatan = AccountData[playerid][pItemQuantity] * (RiceSalary + 10);
+
+					GivePlayerMoneyEx(playerid, rumuspendapatan);
+
+					ShowItemBox(playerid, string, sprintf("Removed %dx", AccountData[playerid][pItemQuantity]), 2663, 4);
+					ShowItemBox(playerid, "Cash", sprintf("Received $%sx", FormatMoney(rumuspendapatan)), 1212, 5);
+
+					ApplyAnimation(playerid, "CARRY", "putdwn", 4.1, false, false, false, false, 0, true);
+					Inventory_Remove(playerid, string, AccountData[playerid][pItemQuantity]);
+					Inventory_Close(playerid);
+
+					PlayerPlaySound(playerid, 4201, 0.0, 0.0, 0.0);
+					return 1;
+				}
 				return ShowTDN(playerid, NOTIFICATION_ERROR, "Item tersebut tidak dapat dijual disini!");
 			}
 			if(IsPlayerInRangeOfPoint(playerid, 3.5, 842.0912,-1177.7681,16.9935))
