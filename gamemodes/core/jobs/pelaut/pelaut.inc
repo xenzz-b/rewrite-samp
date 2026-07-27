@@ -186,6 +186,7 @@ hook OnPlayerEnterDynRaceCP(playerid, STREAMER_TAG_RACE_CP:checkpointid)
                 {
                     case 3, 7, 9:
                     {
+                        if(SailDockTimer[playerid]) return 1;
                         PlayerPlaySound(playerid, SOUND_CHECKPOINT, 0.0, 0.0, 0.0);
                         SailDockTimer[playerid] = true;
                         AccountData[playerid][pActivityTime] = 1;
@@ -194,6 +195,7 @@ hook OnPlayerEnterDynRaceCP(playerid, STREAMER_TAG_RACE_CP:checkpointid)
                     }
                     case 13:
                     {
+                        if(SailDockTimer[playerid]) return 1;
                         PlayerPlaySound(playerid, SOUND_CHECKPOINT, 0.0, 0.0, 0.0);
                         SailDockTimer[playerid] = true;
                         AccountData[playerid][pActivityTime] = 1;
@@ -228,6 +230,7 @@ hook OnPlayerEnterDynRaceCP(playerid, STREAMER_TAG_RACE_CP:checkpointid)
                 {
                     case 4, 6, 10:
                     {
+                        if(SailDockTimer[playerid]) return 1;
                         PlayerPlaySound(playerid, SOUND_CHECKPOINT, 0.0, 0.0, 0.0);
                         SailDockTimer[playerid] = true;
                         AccountData[playerid][pActivityTime] = 1;
@@ -236,6 +239,7 @@ hook OnPlayerEnterDynRaceCP(playerid, STREAMER_TAG_RACE_CP:checkpointid)
                     }
                     case 13:
                     {
+                        if(SailDockTimer[playerid]) return 1;
                         PlayerPlaySound(playerid, SOUND_CHECKPOINT, 0.0, 0.0, 0.0);
                         SailDockTimer[playerid] = true;
                         AccountData[playerid][pActivityTime] = 1;

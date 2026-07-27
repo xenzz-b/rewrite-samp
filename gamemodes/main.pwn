@@ -1506,6 +1506,8 @@ public OnPlayerDisconnect(playerid, reason)
         mysql_tquery(g_SQL, query);
     }
 	AccountData[playerid][pIsAdminDutyTime] = false;
+
+	DestroyJobVehicle(playerid);
 	return 1;
 }
 
