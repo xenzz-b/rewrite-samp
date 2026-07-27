@@ -274,6 +274,14 @@ hook OnPlayerEnterDynRaceCP(playerid, STREAMER_TAG_RACE_CP:checkpointid)
     }
     else if(checkpointid == PlayerCargoVars[playerid][CargoReturnCP] && IsPlayerInDynamicRaceCP(playerid, PlayerCargoVars[playerid][CargoReturnCP]))
     {
+        if(!PlayerCargoVars[playerid][CargoStarted] || PlayerCargoVars[playerid][IsLoadingCargo] || PlayerCargoVars[playerid][CargoRestockAmount] <= 0)
+            return 1;
+
+        if(!IsTrailerAttachedToVehicle(vehicleid) || GetVehicleTrailer(vehicleid) != TrailerVehicle[playerid])
+            return ShowTDN(playerid, NOTIFICATION_ERROR, "Trailer ini bukan milik anda atau belum terpasang!");
+
+        PlayerCargoVars[playerid][CargoStarted] = false;
+
         new bizid = PlayerCargoVars[playerid][CargoTargetBiz];
         new amount = PlayerCargoVars[playerid][CargoRestockAmount];
         new pay = GetHaulingPay(amount);
