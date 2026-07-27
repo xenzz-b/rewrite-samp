@@ -379,6 +379,13 @@ ptask Sawit_AllTick[1000](playerid)
 {
     if(pTakingSawitTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_SAWIT)
+        {
+            pTakingSawitTimer[playerid] = false;
+            Sawit_StopActivity(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid))
         {
             pTakingSawitTimer[playerid] = false;
