@@ -145,7 +145,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 
             if(!IsValidVehicle(JobVehicle[playerid]))
             {
-                new randrute = Random(1, 3);
+                new randrute = Random(1, 2);
                 StartAngkotJob(playerid, randrute);
             }
             else

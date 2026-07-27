@@ -5750,7 +5750,7 @@ ptask UpdateTimeJob2[1000](playerid)
 
             new Float:countingtotalweight;
             countingtotalweight = GetTotalWeightFloat(playerid) + float(2 * GetItemWeight("Kayu"))/1000;
-            if(countingtotalweight > 50) return ShowTDN(playerid, NOTIFICATION_ERROR, "Inventory anda sudah penuh!");
+            if(countingtotalweight > GetPlayerInventoryWeight(playerid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Inventory anda sudah penuh!");
 
             Inventory_Add(playerid, "Kayu", 19793, 2);
             ShowItemBox(playerid, "Kayu", "Received 2x", 19793, 5);
@@ -8368,7 +8368,7 @@ ptask UpdateTimeJob5[1000](playerid)
 {
     if(pTakingWoolTimer[playerid])
     {
-        if(AccountData[playerid][pJob] != JOB_MILKER)
+        if(AccountData[playerid][pJob] != JOB_TAILOR)
         {
             pTakingWoolTimer[playerid] = false;
             AccountData[playerid][pActivityTime] = 0;
@@ -8780,8 +8780,8 @@ ptask UpdateTimeJob5[1000](playerid)
             Inventory_Remove(playerid, "Susu", 5);
             Inventory_Add(playerid, "Susu Fermentasi", 19569, 5);
 
-            ShowItemBox(playerid, "Susu","Removed 10x", 19570, 6);
-            ShowItemBox(playerid, "Susu Fermentasi", "Received 10x", 19569, 7);
+            ShowItemBox(playerid, "Susu","Removed 5x", 19570, 6);
+            ShowItemBox(playerid, "Susu Fermentasi", "Received 5x", 19569, 7);
         }
         else
         {
