@@ -299,7 +299,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
             if(jumlah <= 0)
                 return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki sawit olahan!"), 1;
 
-            new total = jumlah * SAWIT_SELL_PRICE;
+            new total = jumlah * SawitPrice;
             Inventory_Remove(playerid, "Sawit Olahan", jumlah);
             GivePlayerMoneyEx(playerid, total);
 
