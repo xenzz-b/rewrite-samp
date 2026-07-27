@@ -6463,6 +6463,14 @@ ptask UpdateTimeJob2[1000](playerid)
 
     if(pTakingOilTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_OILMAN)
+        {
+            pTakingOilTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pTakingOilTimer[playerid] = false;
@@ -6542,6 +6550,14 @@ ptask UpdateTimeJob2[1000](playerid)
 
     if(pRefiningOilTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_OILMAN)
+        {
+            pRefiningOilTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pRefiningOilTimer[playerid] = false;
@@ -6624,6 +6640,14 @@ ptask UpdateTimeJob2[1000](playerid)
 
     if(pMixingOilTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_OILMAN)
+        {
+            pMixingOilTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pMixingOilTimer[playerid] = false;
