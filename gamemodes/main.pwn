@@ -907,6 +907,7 @@ public OnGameModeInit()
 	OldPakaianPrice = PakaianPrice;
 	OldSusuOlahPrice = SusuOlahPrice;
 	OldAyamKemasPrice = AyamKemasPrice;
+	OldIkanPrice = IkanPrice;
 	OldSawitPrice = SawitPrice;
 	return 1;
 }
@@ -6475,7 +6476,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 				}
 				else if(!strcmp(string, "Chili Sauce", false))
 				{
-					rumuspendapatan = AccountData[playerid][pItemQuantity] * (ChiliSalary * 5 + 20);
+					rumuspendapatan = AccountData[playerid][pItemQuantity] * (ChiliSalary * 7 + 40);
 
 					GivePlayerMoneyEx(playerid, rumuspendapatan);
 
@@ -6491,7 +6492,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 				}
 				else if(!strcmp(string, "Rice", false))
 				{
-					rumuspendapatan = AccountData[playerid][pItemQuantity] * (RiceSalary * 5 + 20);
+					rumuspendapatan = AccountData[playerid][pItemQuantity] * (RiceSalary * 7 + 40);
 
 					GivePlayerMoneyEx(playerid, rumuspendapatan);
 

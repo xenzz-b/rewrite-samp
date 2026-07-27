@@ -2418,7 +2418,7 @@ YCMD:mprice(playerid, params[], help)
 	\n"WHITE"~> Harga Pakaian: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
 	\n"WHITE"~> Harga Susu Fermentasi: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
 	\n"WHITE"~> Harga Ayam Kemas: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
-	\n"WHITE"~> Harga Sawit Olahan: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs",
+	\n"WHITE"~> Harga Sawit Olahan: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\n	\n"WHITE"~> Harga Ikan: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs",
 	FormatMoney(OldTembagaPrice), FormatMoney(TembagaPrice),
 	FormatMoney(OldBesiPrice), FormatMoney(BesiPrice),
 	FormatMoney(OldEmasPrice), FormatMoney(EmasPrice),
@@ -2433,7 +2433,8 @@ YCMD:mprice(playerid, params[], help)
 	FormatMoney(OldPakaianPrice), FormatMoney(PakaianPrice),
 	FormatMoney(OldSusuOlahPrice), FormatMoney(SusuOlahPrice),
 	FormatMoney(OldAyamKemasPrice), FormatMoney(AyamKemasPrice),
-	FormatMoney(OldSawitPrice), FormatMoney(SawitPrice));
+	FormatMoney(OldSawitPrice), FormatMoney(SawitPrice),
+	FormatMoney(OldIkanPrice), FormatMoney(IkanPrice));
 	Dialog_Show(playerid, "UnusedDialog", DIALOG_STYLE_MSGBOX, ""Vertex"Vertex Roleplay "WHITE"- Harga Penjualan", frmtprice, "Tutup", "");
 	return 1;
 }

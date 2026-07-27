@@ -214,7 +214,7 @@ public ChangeMPrice()
 	TembagaPrice = RandomEx(3, 13);
 	BesiPrice = RandomEx(5, 15);
 	EmasPrice = RandomEx(10, 21);
-	BerlianPrice = RandomEx(100, 205);
+	BerlianPrice = RandomEx(200, 605);
 	DagingPrice = RandomEx(13, 25);
 	TandukPrice = RandomEx(13, 25);
 	KulitPrice = RandomEx(13, 25);
