@@ -360,8 +360,6 @@ OnHaulingLoadComplete(playerid)
     DestroyDynamicRaceCP(PlayerCargoVars[playerid][CargoDestCP]);
     PlayerCargoVars[playerid][CargoDestCP] = STREAMER_TAG_RACE_CP:INVALID_STREAMER_ID;
 
-    PlayerCargoVars[playerid][CargoStarted] = false;
-
     PlayerCargoVars[playerid][CargoReturnCP] = CreateDynamicRaceCP(1,BizData[bizid][bizExtPos][0], BizData[bizid][bizExtPos][1], BizData[bizid][bizExtPos][2],BizData[bizid][bizExtPos][0], BizData[bizid][bizExtPos][1], BizData[bizid][bizExtPos][2],5.0, 0, 0, playerid, 6000.00, -1, 0);
     Info(playerid, "BBM berhasil dimuat! Antar ke "YELLOW"%s"WHITE" di %s.",BizData[bizid][bizName],GetLocation(BizData[bizid][bizExtPos][0], BizData[bizid][bizExtPos][1], BizData[bizid][bizExtPos][2]));
 }

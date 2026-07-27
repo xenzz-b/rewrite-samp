@@ -6960,6 +6960,205 @@ ptask UpdateTimeJob3[1000](playerid)
         }
     }
 
+    if(pProcessChiliTimer[playerid])
+    {
+        if(AccountData[playerid][pJob] != JOB_FARMER)
+        {
+            pProcessChiliTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
+        if(!IsPlayerConnected(playerid))
+        {
+            pProcessChiliTimer[playerid] = false;
+            return 0;
+        }
+
+        if(!IsPlayerInRangeOfPoint(playerid, 3.5, -381.9745,-1438.8531,25.7266))
+        {
+            pProcessChiliTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            ClearAnimations(playerid, true);
+            StopLoopingAnim(playerid);
+            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
+            return 0;
+        }
+
+        if(Inventory_Count(playerid, "Cabai") < 5 || Inventory_Count(playerid, "Botol") < 2 || Inventory_Count(playerid, "Plastik") < 2)
+        {
+            pProcessChiliTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            ClearAnimations(playerid, true);
+            StopLoopingAnim(playerid);
+            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
+            ShowTDN(playerid, NOTIFICATION_ERROR, "Bahan tidak cukup untuk memproses!");
+            return 0;
+        }
+
+        if(AccountData[playerid][pActivityTime] >= 6)
+        {
+            pProcessChiliTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            ClearAnimations(playerid, true);
+            StopLoopingAnim(playerid);
+            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
+
+            Inventory_Remove(playerid, "Cabai", 5);
+            Inventory_Remove(playerid, "Botol", 2);
+            Inventory_Remove(playerid, "Plastik", 2);
+            Inventory_Add(playerid, "Chili Sauce", 2663);
+
+            ShowItemBox(playerid, "Cabai", "Removed 5x", 2253, 4);
+            ShowItemBox(playerid, "Botol", "Removed 2x", 19570, 5);
+            ShowItemBox(playerid, "Plastik", "Removed 2x", 1265, 6);
+            ShowItemBox(playerid, "Chili Sauce", "Received 1x", 2663, 7);
+            ShowTDN(playerid, NOTIFICATION_SUCCESS, "Berhasil mengolah Cabai menjadi Chili Sauce!");
+        }
+        else
+        {
+            AccountData[playerid][pActivityTime] ++;
+            static Float:pv;
+            pv = AccountData[playerid][pActivityTime] * 102.0/6;
+            PlayerTextDrawTextSize(playerid, ProgressBar[playerid][0], pv, 20.0);
+            PlayerTextDrawShow(playerid, ProgressBar[playerid][0]);
+        }
+    }
+
+    if(pProcessRiceTimer[playerid])
+    {
+        if(AccountData[playerid][pJob] != JOB_FARMER)
+        {
+            pProcessRiceTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
+        if(!IsPlayerConnected(playerid))
+        {
+            pProcessRiceTimer[playerid] = false;
+            return 0;
+        }
+
+        if(!IsPlayerInRangeOfPoint(playerid, 3.5, -381.9745,-1438.8531,25.7266))
+        {
+            pProcessRiceTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            ClearAnimations(playerid, true);
+            StopLoopingAnim(playerid);
+            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
+            return 0;
+        }
+
+        if(Inventory_Count(playerid, "Padi") < 5)
+        {
+            pProcessRiceTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            ClearAnimations(playerid, true);
+            StopLoopingAnim(playerid);
+            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
+            ShowTDN(playerid, NOTIFICATION_ERROR, "Padi tidak cukup! (Min: 5)");
+            return 0;
+        }
+
+        if(AccountData[playerid][pActivityTime] >= 6)
+        {
+            pProcessRiceTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            ClearAnimations(playerid, true);
+            StopLoopingAnim(playerid);
+            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
+
+            Inventory_Remove(playerid, "Padi", 5);
+            Inventory_Add(playerid, "Rice", 2663);
+
+            ShowItemBox(playerid, "Padi", "Removed 5x", 2247, 4);
+            ShowItemBox(playerid, "Rice", "Received 1x", 2663, 5);
+            ShowTDN(playerid, NOTIFICATION_SUCCESS, "Berhasil mengolah Padi menjadi Rice!");
+        }
+        else
+        {
+            AccountData[playerid][pActivityTime] ++;
+            static Float:pv;
+            pv = AccountData[playerid][pActivityTime] * 102.0/6;
+            PlayerTextDrawTextSize(playerid, ProgressBar[playerid][0], pv, 20.0);
+            PlayerTextDrawShow(playerid, ProgressBar[playerid][0]);
+        }
+    }
+
+    if(pPorcessSugarTimer[playerid])
+    {
+        if(AccountData[playerid][pJob] != JOB_FARMER)
+        {
+            pPorcessSugarTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
+        if(!IsPlayerConnected(playerid))
+        {
+            pPorcessSugarTimer[playerid] = false;
+            return 0;
+        }
+
+        if(!IsPlayerInRangeOfPoint(playerid, 3.5, -381.9745,-1438.8531,25.7266))
+        {
+            pPorcessSugarTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            ClearAnimations(playerid, true);
+            StopLoopingAnim(playerid);
+            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
+            return 0;
+        }
+
+        if(Inventory_Count(playerid, "Tebu") < 5)
+        {
+            pPorcessSugarTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            ClearAnimations(playerid, true);
+            StopLoopingAnim(playerid);
+            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
+            ShowTDN(playerid, NOTIFICATION_ERROR, "Tebu tidak cukup! (Min: 5)");
+            return 0;
+        }
+
+        if(AccountData[playerid][pActivityTime] >= 6)
+        {
+            pPorcessSugarTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            ClearAnimations(playerid, true);
+            StopLoopingAnim(playerid);
+            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
+
+            Inventory_Remove(playerid, "Tebu", 5);
+            Inventory_Add(playerid, "Gula", 1279);
+
+            ShowItemBox(playerid, "Tebu", "Removed 5x", 855, 4);
+            ShowItemBox(playerid, "Gula", "Received 1x", 1279, 5);
+            ShowTDN(playerid, NOTIFICATION_SUCCESS, "Berhasil mengolah Tebu menjadi Gula!");
+        }
+        else
+        {
+            AccountData[playerid][pActivityTime] ++;
+            static Float:pv;
+            pv = AccountData[playerid][pActivityTime] * 102.0/6;
+            PlayerTextDrawTextSize(playerid, ProgressBar[playerid][0], pv, 20.0);
+            PlayerTextDrawShow(playerid, ProgressBar[playerid][0]);
+        }
+    }
+
     if(pTakingPlantTimer[playerid])
     {
         if(AccountData[playerid][pJob] != JOB_FARMER)
