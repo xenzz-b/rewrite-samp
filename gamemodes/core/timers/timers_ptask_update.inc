@@ -5926,6 +5926,14 @@ ptask UpdateTimeJob2[1000](playerid)
 
     if(pTakingStoneTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_MINER)
+        {
+            pTakingStoneTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pTakingStoneTimer[playerid] = false;
@@ -6223,6 +6231,14 @@ ptask UpdateTimeJob2[1000](playerid)
     }
     if(pTakingChickTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_BUTCHER)
+        {
+            pTakingChickTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pTakingChickTimer[playerid] = false;
@@ -6303,6 +6319,14 @@ ptask UpdateTimeJob2[1000](playerid)
     }
     if(pCutingChickTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_BUTCHER)
+        {
+            pCutingChickTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pCutingChickTimer[playerid] = false;
@@ -6383,6 +6407,14 @@ ptask UpdateTimeJob2[1000](playerid)
 
     if(pPackingChickTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_BUTCHER)
+        {
+            pPackingChickTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pPackingChickTimer[playerid] = false;
@@ -6890,6 +6922,14 @@ ptask UpdateTimeJob3[1000](playerid)
 
     if(pTakingPlantTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_FARMER)
+        {
+            pTakingPlantTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         new d = AccountData[playerid][pInPlant];
 
         if(PlayerFarmerVars[playerid][pDuringTakingPlant])
@@ -7269,6 +7309,14 @@ ptask UpdateTimeJob3[1000](playerid)
 
     if(pTakingFishTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_FISHERMAN)
+        {
+            pTakingFishTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pTakingFishTimer[playerid] = false;
@@ -8264,6 +8312,14 @@ ptask UpdateTimeJob5[1000](playerid)
 {
     if(pTakingWoolTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_MILKER)
+        {
+            pTakingWoolTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pTakingWoolTimer[playerid] = false;
@@ -8492,6 +8548,14 @@ ptask UpdateTimeJob5[1000](playerid)
 
     if(pTakingSusuTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_MILKER)
+        {
+            pTakingSusuTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pTakingSusuTimer[playerid] = false;
