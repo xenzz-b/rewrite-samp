@@ -281,8 +281,8 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         }
         if(diPabrik)
         {
-            if(Inventory_Count(playerid, "Sawit Mentah") <= 0)
-                return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki sawit mentah!"), 1;
+            if(Inventory_Count(playerid, "Sawit Mentah") < 2)
+                return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda membutuhkan minimal 2 sawit mentah!"), 1;
 
             pOlahSawitTimer[playerid] = true;
             AccountData[playerid][pActivityTime] = 1;
@@ -434,6 +434,13 @@ ptask Sawit_AllTick[1000](playerid)
     }
     if(pOlahSawitTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_SAWIT)
+        {
+            pOlahSawitTimer[playerid] = false;
+            Sawit_StopActivity(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid))
         {
             pOlahSawitTimer[playerid] = false;
