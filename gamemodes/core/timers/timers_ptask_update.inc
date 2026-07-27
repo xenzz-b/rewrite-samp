@@ -7023,6 +7023,17 @@ ptask UpdateTimeJob3[1000](playerid)
 
     if(pAngkotTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_ANGKOT || !IsValidVehicle(JobVehicle[playerid]) || GetPlayerVehicleID(playerid) != JobVehicle[playerid])
+        {
+            pAngkotTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            TogglePlayerControllable(playerid, true);
+            if(IsValidDynamicRaceCP(JobCP[playerid])) DestroyDynamicRaceCP(JobCP[playerid]);
+            JobCP[playerid] = STREAMER_TAG_RACE_CP: INVALID_STREAMER_ID;
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pAngkotTimer[playerid] = false;
@@ -7127,6 +7138,17 @@ ptask UpdateTimeJob3[1000](playerid)
 
     if(SailDockTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_PELAUT || !IsValidVehicle(JobVehicle[playerid]) || GetPlayerVehicleID(playerid) != JobVehicle[playerid])
+        {
+            SailDockTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            TogglePlayerControllable(playerid, true);
+            if(IsValidDynamicRaceCP(JobCP[playerid])) DestroyDynamicRaceCP(JobCP[playerid]);
+            JobCP[playerid] = STREAMER_TAG_RACE_CP: INVALID_STREAMER_ID;
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             SailDockTimer[playerid] = false;
