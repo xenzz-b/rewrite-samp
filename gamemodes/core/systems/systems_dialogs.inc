@@ -1617,7 +1617,7 @@ Dialog:JobFarmerProcess(playerid, response, listitem, inputtext[])
 		{
 			if(AccountData[playerid][pActivityTime] != 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda sedang melakukan sesuatu, mohon tunggu progress bar selesai!");
 			if(Inventory_Count(playerid, "Padi") < 5) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki 5 Padi!");
-			if(Inventory_Count(playerid, "Fabric") < 2) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki 2 fabric!");
+			if(Inventory_Count(playerid, "Kain") < 2) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki 2 Kain!");
 			if(Inventory_Count(playerid, "Plastik") < 2) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki 2 Plastik!");
 
 			new Float:countingtotalweight;
@@ -1636,7 +1636,7 @@ Dialog:JobFarmerProcess(playerid, response, listitem, inputtext[])
 		{
 			if(AccountData[playerid][pActivityTime] != 0) return ShowTDN(playerid, NOTIFICATION_WARNING, "Anda sedang melakukan sesuatu, mohon tunggu progress bar selesai!");
 			if(Inventory_Count(playerid, "Tebu") < 5) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki 5 Tebu!");
-			if(Inventory_Count(playerid, "Fabric") < 2) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki 2 fabric!");
+			if(Inventory_Count(playerid, "Kain") < 2) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki 2 Kain!");
 			if(Inventory_Count(playerid, "Plastik") < 2) return ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki 2 Plastik!");
 
 			new Float:countingtotalweight;

@@ -97,6 +97,8 @@ new const g_aInventoryItems[][e_InventoryItems] =
 	{"Fresh Solar", 2663, 200},
 	{"Softex Flash", 2663, 200},
 	{"Purple Sweet", 2663, 200},
+	{"Chili Sauce", 2663, 200},
+	{"Rice", 2663, 200},
 
     {"Chicken BBQ", 2355, 15},
     {"Donut", 2221, 15},
