@@ -5679,6 +5679,14 @@ ptask UpdateTimeJob2[1000](playerid)
 
     if(pTakeWoodTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_LUMBERJACK)
+        {
+            pTakeWoodTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pTakeWoodTimer[playerid] = false;
@@ -5762,6 +5770,14 @@ ptask UpdateTimeJob2[1000](playerid)
 
     if(pCutWoodTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_LUMBERJACK)
+        {
+            pCutWoodTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pCutWoodTimer[playerid] = false;
@@ -5843,6 +5859,14 @@ ptask UpdateTimeJob2[1000](playerid)
 
     if(pGetBoardTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_LUMBERJACK)
+        {
+            pGetBoardTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pGetBoardTimer[playerid] = false;
@@ -6037,6 +6061,14 @@ ptask UpdateTimeJob2[1000](playerid)
     }
     if(pWashingStoneTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_MINER)
+        {
+            pWashingStoneTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pWashingStoneTimer[playerid] = false;
@@ -6131,6 +6163,14 @@ ptask UpdateTimeJob2[1000](playerid)
     }
     if(pSmeltingStoneTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_MINER)
+        {
+            pSmeltingStoneTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pSmeltingStoneTimer[playerid] = false;
@@ -7450,6 +7490,14 @@ ptask UpdateTimeJob4[1000](playerid)
 {
     if(pMixBetonTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_MIXER)
+        {
+            pMixBetonTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pMixBetonTimer[playerid] = false;
@@ -7563,6 +7611,14 @@ ptask UpdateTimeJob4[1000](playerid)
 
     if(pSlumpTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_MIXER)
+        {
+            pSlumpTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pSlumpTimer[playerid] = false;
@@ -8384,6 +8440,14 @@ ptask UpdateTimeJob5[1000](playerid)
 
     if(pMakingFabricTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_TAILOR)
+        {
+            pMakingFabricTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pMakingFabricTimer[playerid] = false;
@@ -8466,6 +8530,14 @@ ptask UpdateTimeJob5[1000](playerid)
 
     if(pClothingTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_TAILOR)
+        {
+            pClothingTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pClothingTimer[playerid] = false;
@@ -8642,6 +8714,14 @@ ptask UpdateTimeJob5[1000](playerid)
 
     if(pProcessSusuTimer[playerid])
     {
+        if(AccountData[playerid][pJob] != JOB_MILKER)
+        {
+            pProcessSusuTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
+
         if(!IsPlayerConnected(playerid)) 
         {
             pProcessSusuTimer[playerid] = false;
