@@ -53,7 +53,7 @@ YCMD:givelic(playerid, params[], help)
     new otherid;
     if (sscanf(params, "d", otherid))
         return SUM(playerid, "/givelic [playerid]");
-    if (!IsPlayerConnected(otherid) && !AccountData[otherid][pSpawned])
+    if (!IsPlayerConnected(otherid) || !AccountData[otherid][pSpawned])
         return SEM(playerid, "Pemain tidak terkoneksi/belum spawn!");
     if (!IsPlayerNearPlayer(playerid, otherid, 2.0))
         return SEM(playerid, "Pemain tersebut tidak dekat dengan anda!");

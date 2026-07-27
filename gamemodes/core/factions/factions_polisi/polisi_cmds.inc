@@ -107,7 +107,7 @@ YCMD:trace(playerid, params[], help)
             targetid = GetNumberOwner(number);
             if (targetid == INVALID_PLAYER_ID)
                 return ShowTDN(playerid, NOTIFICATION_ERROR, "Nomor HP tersebut tidak ada di dalam server!");
-            if (!IsPlayerConnected(targetid) && !AccountData[targetid][pSpawned])
+            if (!IsPlayerConnected(targetid) || !AccountData[targetid][pSpawned])
                 return ShowTDN(playerid, NOTIFICATION_ERROR, "Nomor HP tersebut tidak ada di dalam server atau belum spawn!");
             if(!PlayerPhoneData[targetid][phoneOn]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Nomor HP tersebut tidak aktif / HP dalam keadaan mati!");
             GetPlayerPos(targetid, targetX, targetY, targetZ);
@@ -150,7 +150,7 @@ YCMD:takelic(playerid, params[], help)
     new otherid;
     if (sscanf(params, "d", otherid))
         return SUM(playerid, "/takelic [playerid]");
-    if (!IsPlayerConnected(otherid) && !AccountData[otherid][pSpawned])
+    if (!IsPlayerConnected(otherid) || !AccountData[otherid][pSpawned])
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak terkoneksi/belum spawn!");
     if (!IsPlayerNearPlayer(playerid, otherid, 2.0))
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut tidak dekat dengan anda!");

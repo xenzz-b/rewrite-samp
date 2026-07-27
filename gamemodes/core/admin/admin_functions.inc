@@ -3171,7 +3171,7 @@ Dialog:AdmTakeoutVeh(playerid, response, listitem, inputtext[])
 	if(!response) return ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah membatalkan pilihan!");
 	if(AccountData[playerid][pTempValue] == -1) return 1;
 
-	if (!IsPlayerConnected(AccountData[playerid][pTempValue]) && !AccountData[AccountData[playerid][pTempValue]][pSpawned])
+	if (!IsPlayerConnected(AccountData[playerid][pTempValue]) || !AccountData[AccountData[playerid][pTempValue]][pSpawned])
 		return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut belum spawn/tidak terkoneksi!");
 
 	new id = ReturnVehicleIDATakeOut(AccountData[playerid][pTempValue], listitem);

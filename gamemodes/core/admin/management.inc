@@ -26,7 +26,7 @@ YCMD:sann(playerid, params[], help)
 	new otherid, msg[64];
 	if(sscanf(params, "is[64]", otherid, msg)) return SUM(playerid, "/sann [otherid] [message]");
 
-	if(!IsPlayerConnected(otherid) && !AccountData[otherid][pSpawned]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Player belum spawn/tidak terkoneksi ke server!");
+	if(!IsPlayerConnected(otherid) || !AccountData[otherid][pSpawned]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Player belum spawn/tidak terkoneksi ke server!");
 
 	GameTextForPlayer(otherid, msg, 5000, 4);
 	ShowTDN(playerid, NOTIFICATION_INFO, "Anda telah mengirimkan pesan kepada Pemain tersebut.");
@@ -109,7 +109,7 @@ YCMD:resetcd(playerid, params[], help)
 	new otherid;
 	if(sscanf(params, "d", otherid)) return SUM(playerid, "/resetcd [playerid]");
 
-	if(!IsPlayerConnected(otherid) && !AccountData[otherid][pSpawned]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut belum spawn/tidak terkoneksi ke server!");
+	if(!IsPlayerConnected(otherid) || !AccountData[otherid][pSpawned]) return ShowTDN(playerid, NOTIFICATION_ERROR, "Pemain tersebut belum spawn/tidak terkoneksi ke server!");
 
 	AccountData[otherid][pMowingSidejobDelay] = 0;
 	AccountData[otherid][pSweeperSidejobDelay] = 0;
