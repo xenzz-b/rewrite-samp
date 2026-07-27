@@ -208,6 +208,7 @@ public ChangeMPrice()
 	OldPakaianPrice = PakaianPrice;
 	OldSusuOlahPrice = SusuOlahPrice;
 	OldAyamKemasPrice = AyamKemasPrice;
+    OldIkanPrice = IkanPrice;
     OldSawitPrice = SawitPrice;
 
 	TembagaPrice = RandomEx(3, 13);
@@ -224,6 +225,7 @@ public ChangeMPrice()
 	PakaianPrice = RandomEx(11, 33);
 	SusuOlahPrice = RandomEx(13, 23);
 	AyamKemasPrice = RandomEx(13, 23);
+    IkanPrice = RandomEx(13, 28);
     SawitPrice = RandomEx(25, 50);
 	SendClientMessageToAll(-1, "[i] Harga Pasar telah berubah, gunakan '/mprice' untuk melihat harga jual terbaru");
 	return 1; 

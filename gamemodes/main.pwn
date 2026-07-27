@@ -6475,7 +6475,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 				}
 				else if(!strcmp(string, "Chili Sauce", false))
 				{
-					rumuspendapatan = AccountData[playerid][pItemQuantity] * (ChiliSalary + 10);
+					rumuspendapatan = AccountData[playerid][pItemQuantity] * (ChiliSalary * 5 + 20);
 
 					GivePlayerMoneyEx(playerid, rumuspendapatan);
 
@@ -6491,7 +6491,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 				}
 				else if(!strcmp(string, "Rice", false))
 				{
-					rumuspendapatan = AccountData[playerid][pItemQuantity] * (RiceSalary + 10);
+					rumuspendapatan = AccountData[playerid][pItemQuantity] * (RiceSalary * 5 + 20);
 
 					GivePlayerMoneyEx(playerid, rumuspendapatan);
 
@@ -6675,7 +6675,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 			{
 				if(!strcmp(string, "Ikan", false))
 				{
-					rumuspendapatan = AccountData[playerid][pItemQuantity] * 13;
+					rumuspendapatan = AccountData[playerid][pItemQuantity] * IkanPrice;
 
 					GivePlayerMoneyEx(playerid, rumuspendapatan);
 

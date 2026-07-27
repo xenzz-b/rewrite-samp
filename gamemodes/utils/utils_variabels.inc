@@ -32,7 +32,7 @@ new pShortcutResultShown[MAX_PLAYERS];
 new TembagaPrice = 3;
 new BesiPrice = 2;
 new EmasPrice = 4;
-new BerlianPrice = 100;
+new BerlianPrice = 500;
 new DagingPrice = 13;
 new TandukPrice = 13;
 new KulitPrice = 13;
@@ -43,6 +43,7 @@ new MinyakPrice = 5;
 new PakaianPrice = 25;
 new SusuOlahPrice = 13;
 new AyamKemasPrice = 13;
+new IkanPrice = 13;
 new SawitPrice = 25;
 
 new OldTembagaPrice;
@@ -59,6 +60,7 @@ new OldMinyakPrice;
 new OldPakaianPrice;
 new OldSusuOlahPrice;
 new OldAyamKemasPrice;
+new OldIkanPrice;
 new OldSawitPrice;
 
 //new STREAMER_TAG_OBJECT:EMSClothing[MAX_PLAYERS][2];
