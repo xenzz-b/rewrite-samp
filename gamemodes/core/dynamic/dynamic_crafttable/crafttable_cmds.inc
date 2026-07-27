@@ -212,10 +212,10 @@ YCMD:usetable(playerid, params[], help)
     {
         AccountData[playerid][pTempValue] = 3;
         format(string, sizeof(string), "Name\tRequirements #1\tRequirements #2\n\
-        Anggur Merah\tBotol:%d/2 | Water: %d/2\tGula: %d/2 | Micin: %d/2\n\
-        "GRAY"Tuak\t"GRAY"Botol:%d/2 | Water: %d/2\t"GRAY"Gula: %d/2 | Micin: %d/2",
-        Inventory_Count(playerid, "Botol"), Inventory_Count(playerid, "Water"), Inventory_Count(playerid, "Gula"), Inventory_Count(playerid, "Micin"),
-        Inventory_Count(playerid, "Botol"), Inventory_Count(playerid, "Water"), Inventory_Count(playerid, "Gula"), Inventory_Count(playerid, "Micin"));
+        Anggur Merah\tBotol:%d/2 | Air: %d/2\tGula: %d/2 | Micin: %d/2\n\
+        "GRAY"Tuak\t"GRAY"Botol:%d/2 | Air: %d/2\t"GRAY"Gula: %d/2 | Micin: %d/2",
+        Inventory_Count(playerid, "Botol"), Inventory_Count(playerid, "Air"), Inventory_Count(playerid, "Gula"), Inventory_Count(playerid, "Micin"),
+        Inventory_Count(playerid, "Botol"), Inventory_Count(playerid, "Air"), Inventory_Count(playerid, "Gula"), Inventory_Count(playerid, "Micin"));
     }
     Dialog_Show(playerid, "CraftingTable", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Craft Table", 
     string, "Craft", "Batal");

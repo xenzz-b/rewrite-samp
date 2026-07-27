@@ -880,7 +880,7 @@ Dialog:BizBuyProduct(playerid, response, listitem, inputtext[])
                         BizData[bizid][bizProdStock][7]--;
                         BizData[bizid][bizMoney] += price;
                         Biz_Save(bizid);
-                        Inventory_Add(playerid, "Hoe", 2228);
+                        Inventory_Add(playerid, "Cangkul", 2228);
                         ShowTDN(playerid, NOTIFICATION_SUCCESS, "Anda berhasil membeli Cangkul!");
                     }
                     case 8: // Silenced Pistol

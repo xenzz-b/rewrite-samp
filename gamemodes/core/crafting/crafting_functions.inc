@@ -188,12 +188,12 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
         format(string, sizeof(string), "Nama\tBahan #1\tBahan #2\n\
         Sinte\tMarijuana:%d/2 | Kertas: %d/1\n\
         "GRAY"Heroin\t"GRAY"Sabu:%d/2 | Kertas: %d/1\t"GRAY"Jerigen: %d/1\n\
-        Anggur Merah\tBotol:%d/2 | Water: %d/2\tGula: %d/2 | Micin: %d/2\n\
-        "GRAY"Tuak\t"GRAY"Botol:%d/2 | Water: %d/2\t"GRAY"Gula: %d/2 | Micin: %d/2",
+        Anggur Merah\tBotol:%d/2 | Air: %d/2\tGula: %d/2 | Micin: %d/2\n\
+        "GRAY"Tuak\t"GRAY"Botol:%d/2 | Air: %d/2\t"GRAY"Gula: %d/2 | Micin: %d/2",
         Inventory_Count(playerid, "Marijuana"), Inventory_Count(playerid, "Kertas"),
         Inventory_Count(playerid, "Sabu"), Inventory_Count(playerid, "Kertas"), Inventory_Count(playerid, "Jerigen"),
-        Inventory_Count(playerid, "Botol"), Inventory_Count(playerid, "Water"), Inventory_Count(playerid, "Gula"), Inventory_Count(playerid, "Micin"),
-        Inventory_Count(playerid, "Botol"), Inventory_Count(playerid, "Water"), Inventory_Count(playerid, "Gula"), Inventory_Count(playerid, "Micin"));
+        Inventory_Count(playerid, "Botol"), Inventory_Count(playerid, "Air"), Inventory_Count(playerid, "Gula"), Inventory_Count(playerid, "Micin"),
+        Inventory_Count(playerid, "Botol"), Inventory_Count(playerid, "Air"), Inventory_Count(playerid, "Gula"), Inventory_Count(playerid, "Micin"));
         Dialog_Show(playerid, "CraftingDrugs", DIALOG_STYLE_TABLIST_HEADERS, ""Vertex"Vertex Roleplay "WHITE"- Crafting Senjata", string, "Rakit", "Batal");
     }
     return 1;
