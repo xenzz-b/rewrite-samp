@@ -835,8 +835,8 @@ ptask playerstablingdmax[1000](playerid)
             Inventory_Set(playerid, "Cangkul", 2228, 1);
         if(Inventory_Count(playerid, "Ember") > 1)
             Inventory_Set(playerid, "Ember", 19468, 1);
-        if(Inventory_Count(playerid, "Ember Penuh") > 1)
-            Inventory_Set(playerid, "Ember Penuh", 1554, 1);
+        if(Inventory_Count(playerid, "Ember Terisi") > 1)
+            Inventory_Set(playerid, "Ember Terisi", 1554, 1);
     }
     return 1;
 }
