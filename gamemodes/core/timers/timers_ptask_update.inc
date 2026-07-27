@@ -7170,6 +7170,13 @@ ptask UpdateTimeJob3[1000](playerid)
         }
 
         new d = AccountData[playerid][pInPlant];
+        if(d < 0 || d >= MAX_FARMPLANTS || !Iter_Contains(FarmPlants, d))
+        {
+            pTakingPlantTimer[playerid] = false;
+            AccountData[playerid][pActivityTime] = 0;
+            HideProgressBar(playerid);
+            return 0;
+        }
 
         if(PlayerFarmerVars[playerid][pDuringTakingPlant])
         {
