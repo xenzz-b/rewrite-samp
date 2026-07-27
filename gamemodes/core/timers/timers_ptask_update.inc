@@ -7533,7 +7533,7 @@ ptask UpdateTimeJob4[1000](playerid)
             return 0;
         }
 
-        if(GetPlayerState(playerid) != PLAYER_STATE_DRIVER)
+        if(GetPlayerState(playerid) != PLAYER_STATE_DRIVER || !IsValidVehicle(JobVehicle[playerid]) || GetPlayerVehicleID(playerid) != JobVehicle[playerid])
         {
             pMixerDumpTimer[playerid] = false;
             HideProgressBar(playerid);
