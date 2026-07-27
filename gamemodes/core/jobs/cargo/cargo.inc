@@ -151,6 +151,12 @@ Dialog:HaulingMissionList(playerid, response, listitem, inputtext[])
     if(targetBiz == -1)
         return ShowTDN(playerid, NOTIFICATION_ERROR, "Bisnis tidak ditemukan, coba lagi.");
 
+    foreach(new i : Player)
+    {
+        if(i != playerid && PlayerCargoVars[i][CargoStarted] && PlayerCargoVars[i][CargoTargetBiz] == targetBiz)
+            return ShowTDN(playerid, NOTIFICATION_ERROR, "Misi restock ini sedang dikerjakan player lain.");
+    }
+
     ResetAllRaceCP(playerid);
     DestroyHaulingTrailer(playerid);
 
