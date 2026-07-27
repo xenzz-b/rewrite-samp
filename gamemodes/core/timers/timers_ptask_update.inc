@@ -7178,9 +7178,6 @@ ptask UpdateTimeJob3[1000](playerid)
                     SetPlayerPos(playerid, 723.1931,-1495.6730,1.9343);
                     SetPlayerFacingAngle(playerid, 0.0);
 
-                    GivePlayerMoneyEx(playerid, 800);
-                    ShowItemBox(playerid, "Cash", "Received $800x", 1212, 6);
-
                     SailRute[playerid] = -1;
                     SailRouteType[playerid] = 0;
                     SailDockTimer[playerid] = false;
@@ -7199,9 +7196,6 @@ ptask UpdateTimeJob3[1000](playerid)
 
                     SetPlayerPos(playerid, 1628.0438,580.3433,1.7578);
                     SetPlayerFacingAngle(playerid, 360.0);
-
-                    GivePlayerMoneyEx(playerid, 800);
-                    ShowItemBox(playerid, "Cash", "Received $800x", 1212, 6);
 
                     SailRute[playerid] = -1;
                     SailRouteType[playerid] = 0;
