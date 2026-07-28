@@ -539,7 +539,7 @@ ptask AntiCheatHealthArmor[1000](playerid)
     if(health > 100.5 && !legitHealth)
     {
         if(Anticheat[playerid][acHealth] > 10.0) SetPlayerHealth(playerid, Anticheat[playerid][acHealth]);
-                if(Anticheat[playerid][acHealth] > 10.0) AccountData[playerid][pHealth] = Anticheat[playerid][acHealth];
+        if(Anticheat[playerid][acHealth] > 10.0) AccountData[playerid][pHealth] = Anticheat[playerid][acHealth];
         SendStaffMessage(Y_RED, "[AC] %s[%d] Health >100 (%.1f) kicked", GetName(playerid), playerid, health);
         SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Health Hack (over max).");
         KickEx(playerid);
