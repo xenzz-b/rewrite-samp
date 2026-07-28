@@ -14,7 +14,7 @@ hook OnPlayerUpdate(playerid)
 
     if(GetPlayerWeapon(playerid) == 40)
     {
-        Kick(playerid);
+        KickEx(playerid);
         return 0;
     }
     return 1;
@@ -302,7 +302,7 @@ task AntiCheatVehSlap[1000]()
     return 1;
 }
 
-// Fixed & Optimized Vehicle Health Anticheat - by Claps
+// Vehicle Health Anticheat
 // Previously ptask per player O(P*V) - now global task O(V) - 250x faster
 task AntiCheatVehicleHealth[500]()
 {
@@ -314,7 +314,7 @@ task AntiCheatVehicleHealth[500]()
         new Float:health;
         GetVehicleHealth(v, health);
 
-        // 1. Cap health over max (prevents 2000+ health hack)
+        // 1. Cap health over max
         if(health > VehicleCore[v][vMaxHealth] + 0.5)
         {
             new driver = INVALID_PLAYER_ID;
@@ -341,8 +341,7 @@ task AntiCheatVehicleHealth[500]()
             continue;
         }
 
-        // 2. Detect repair hack (increase without legit flag)
-        // Threshold +15 to avoid false positives from desync
+        // 2. Deteksi repair hack (+15 threshold)
         if(VehicleHealthSecurity[v] == false)
         {
             if(health > VehicleHealthSecurityData[v] + 15.0)
@@ -358,7 +357,7 @@ task AntiCheatVehicleHealth[500]()
                 }
                 if(driver != INVALID_PLAYER_ID && gettime() > Anticheat[driver][acImmunity] && AccountData[driver][pAdmin] < 1)
                 {
-                    // Check legit repair timers (bengkel, etc)
+                    // Cek repair timer legit
                     if(!pMechRepairEngineTimer[driver] && !pMechRepairBodyTimer[driver] && !pMechRepairTiresTimer[driver])
                     {
                         SetValidVehicleHealth(v, VehicleHealthSecurityData[v]); // revert
@@ -415,7 +414,7 @@ ptask AntiCheatWeapon[1000](playerid)
             }
         }
         
-        if(GetPlayerWeapon(playerid) == 40)
+        if(GetPlayerWeapon(playerid) == 40 || GetPlayerWeapon(playerid) == 38 || GetPlayerWeapon(playerid) == 44 || GetPlayerWeapon(playerid) == 45)
         {
             static string[522];
 		    mysql_format(g_SQL, string, sizeof(string), "UPDATE `player_ucp` SET `Blocked`=1, `Block_Duration`=0, `Block_Reason`='Crasher', `Block_AdminName`='AV_AntiCheat', `Block_IssuedDate`=CURRENT_TIMESTAMP() WHERE `UCP`='%e'", AccountData[playerid][pUCP]);
@@ -512,146 +511,104 @@ ptask AntiCheatWeapon[1000](playerid)
     return 1;
 }
 
-// Fixed Health & Armour Anticheat - by Claps
-// Detects spawn health/armor via increase tracking, not just >100
+// Health & Armour Anticheat v3 — langsung kick, tanpa revert health/armor
 ptask AntiCheatHealthArmor[1000](playerid)
 {
     if(!AccountData[playerid][IsLoggedIn] || !AccountData[playerid][pSpawned]) return 1;
-    if(AccountData[playerid][pAdminDuty]) return 1; // skip admin on duty for health >100
+    if(AccountData[playerid][pAdminDuty]) return 1;
 
     new Float:health, Float:armour;
     GetPlayerHealth(playerid, health);
     GetPlayerArmour(playerid, armour);
 
-    // --- Health Hack ---
-    // 1. Over max (>100)
-    if(health > 100.5)
-    {
-        SetPlayerHealthEx(playerid, 100.0);
-        SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Health >100: %.1f - capped", GetName(playerid), playerid, health);
-        Anticheat[playerid][acHealthWarns]++;
-        if(Anticheat[playerid][acHealthWarns] >= 5)
-        {
-            SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Health Hack (over max)!");
-            KickEx(playerid);
-        }
-    }
-    else
-    {
-        // 2. Sudden increase detection (spawn health)
-        if(gettime() > Anticheat[playerid][acHealthTime])
-        {
-            // If health increased >15 HP without legit reason
-            if(health > Anticheat[playerid][acHealth] + 15.0)
-            {
-                new bool:legit = false;
-                if(pMedisLokalTimer[playerid] || pUsingPerbanTimer[playerid] || AccountData[playerid][pDuringUseLocalMedic]) legit = true;
-                if(AccountData[playerid][pKnockdown] || AccountData[playerid][pComma]) legit = true;
-                if(pEatingBarTimer[playerid]) legit = true; // eating/drinking
-                if(IsPlayerInDynamicArea(playerid, AreaSantaiZone)) legit = true; // safe zone regen?
+    // Sumber legit health
+    new bool:legitHealth = false;
+    if(pMedisLokalTimer[playerid] || pUsingPerbanTimer[playerid] || AccountData[playerid][pDuringUseLocalMedic]) legitHealth = true;
+    if(AccountData[playerid][pKnockdown] || AccountData[playerid][pComma]) legitHealth = true;
+    if(pEatingBarTimer[playerid]) legitHealth = true;
+    if(pSmokingWeedTimer[playerid] || pUsingMethTimer[playerid] || pUsingHeroinTimer[playerid]) legitHealth = true;
+    if(pDrinkingWhiskyTimer[playerid] || pDrinkingSojuTimer[playerid] || pUseAlkohol[playerid]) legitHealth = true;
+    if(IsPlayerInDynamicArea(playerid, AreaSantaiZone)) legitHealth = true;
 
-                if(!legit)
-                {
-                    // Revert to last valid health
-                    SetPlayerHealth(playerid, Anticheat[playerid][acHealth]);
-                    Anticheat[playerid][acHealthWarns]++;
-                    SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Health Hack +%.0f (%.0f->%.0f)", GetName(playerid), playerid, health - Anticheat[playerid][acHealth], Anticheat[playerid][acHealth], health);
-                    if(Anticheat[playerid][acHealthWarns] >= 3)
-                    {
-                        SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Health Hack!");
-                        KickEx(playerid);
-                    }
-                    else
-                    {
-                        SendClientMessage(playerid, Y_RED, "[AntiCheat] Dilarang Health Cheat! Warning %d/3", Anticheat[playerid][acHealthWarns]);
-                    }
-                }
-                else
-                {
-                    Anticheat[playerid][acHealth] = health;
-                }
-            }
-            else
-            {
-                // Normal update, track decrease or small regen
-                Anticheat[playerid][acHealth] = health;
-            }
-        }
-        else
-        {
-            // In immunity window from legit heal
-            Anticheat[playerid][acHealth] = health;
-        }
-    }
+    // Sumber legit armor
+    new bool:legitArmor = false;
+    if(pUsingKevlarTimer[playerid]) legitArmor = true;
+    if(AccountData[playerid][pInEvent]) legitArmor = true;
 
-    // --- Armour Hack ---
-    // 1. Over max (>100)
-    if(armour > 100.5)
+    // HEALTH >100 (pasti cheat kecuali legit)
+    if(health > 100.5 && !legitHealth)
     {
-        SetPlayerArmour(playerid, 0.0);
-        AccountData[playerid][pArmor] = 0.0;
-        AccountData[playerid][pHasArmor] = false;
-        AccountData[playerid][pArmorEmpty] = true;
-        Anticheat[playerid][acArmour] = 0.0;
-        SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Armour >100: %.1f - removed", GetName(playerid), playerid, armour);
-        Anticheat[playerid][acArmorWarns]++;
-        if(Anticheat[playerid][acArmorWarns] >= 3)
-        {
-            SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Armour Hack (over max)!");
-            KickEx(playerid);
-        }
+        if(Anticheat[playerid][acHealth] > 10.0) SetPlayerHealth(playerid, Anticheat[playerid][acHealth]);
+		if(Anticheat[playerid][acHealth] > 10.0) AccountData[playerid][pHealth] = Anticheat[playerid][acHealth];
+        SendStaffMessage(Y_RED, "[AC] %s[%d] Health >100 (%.1f) kicked", GetName(playerid), playerid, health);
+        SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Health Hack (over max).");
+        KickEx(playerid);
         return 1;
     }
 
+    // ARMOUR >100 (pasti cheat)
+    if(armour > 100.5 && !legitArmor)
+    {
+        if(Anticheat[playerid][acArmour] > 5.0) SetPlayerArmour(playerid, Anticheat[playerid][acArmour]);
+		if(Anticheat[playerid][acArmour] > 5.0) AccountData[playerid][pArmor] = Anticheat[playerid][acArmour];
+        SendStaffMessage(Y_RED, "[AC] %s[%d] Armour >100 (%.1f) kicked", GetName(playerid), playerid, armour);
+        SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Armour Hack (over max).");
+        KickEx(playerid);
+        return 1;
+    }
+
+    // HEALTH SPAWN — kenaikan >1 dalam 1 detik tanpa sumber legit
+    if(gettime() > Anticheat[playerid][acHealthTime])
+    {
+        if(health > Anticheat[playerid][acHealth] + 1.0 && health > Anticheat[playerid][acHealth] + 5.0)
+        {
+            if(!legitHealth)
+            {
+                if(Anticheat[playerid][acHealth] > 10.0) SetPlayerHealth(playerid, Anticheat[playerid][acHealth]);
+		if(Anticheat[playerid][acHealth] > 10.0) AccountData[playerid][pHealth] = Anticheat[playerid][acHealth];
+                if(Anticheat[playerid][acArmour] > 5.0) SetPlayerArmour(playerid, Anticheat[playerid][acArmour]);
+		if(Anticheat[playerid][acArmour] > 5.0) AccountData[playerid][pArmor] = Anticheat[playerid][acArmour];
+                SendStaffMessage(Y_RED, "[AC] %s[%d] Health spawn +%.0f (%.0f>%.0f) kicked", GetName(playerid), playerid,
+                    health - Anticheat[playerid][acHealth], Anticheat[playerid][acHealth], health);
+                SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Health Hack.");
+                KickEx(playerid);
+                return 1;
+            }
+        }
+    }
+    Anticheat[playerid][acHealth] = health;
+
+    // ARMOR SPAWN — tanpa flag
     if(gettime() > Anticheat[playerid][acArmorTime])
     {
-        // 2. Spawn armor when not supposed to have it
-        if(!AccountData[playerid][pHasArmor] && !AccountData[playerid][pInEvent])
+        if(!AccountData[playerid][pHasArmor] && !legitArmor)
         {
             if(armour > 1.0)
             {
-                SetPlayerArmour(playerid, 0.0);
-                AccountData[playerid][pArmor] = 0.0;
-                Anticheat[playerid][acArmour] = 0.0;
-                SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Armour Hack (no armor flag but has %.0f armor)", GetName(playerid), playerid, armour);
-                Anticheat[playerid][acArmorWarns]++;
-                if(Anticheat[playerid][acArmorWarns] >= 2)
-                {
-                    SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Armour Hack!");
-                    KickEx(playerid);
-                }
-                else
-                {
-                    SendClientMessage(playerid, Y_RED, "[AntiCheat] Dilarang Armour Cheat! Warning %d/2", Anticheat[playerid][acArmorWarns]);
-                }
+                if(Anticheat[playerid][acArmour] > 5.0) SetPlayerArmour(playerid, Anticheat[playerid][acArmour]);
+		if(Anticheat[playerid][acArmour] > 5.0) AccountData[playerid][pArmor] = Anticheat[playerid][acArmour];
+                SendStaffMessage(Y_RED, "[AC] %s[%d] Armour spawn no-flag (%.0f) kicked", GetName(playerid), playerid, armour);
+                SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Armour Hack.");
+                KickEx(playerid);
+                return 1;
             }
         }
-        else
+        // ARMOR INCREASE — kenaikan >1 tanpa sumber legit
+        else if(armour > Anticheat[playerid][acArmour] + 1.0 && armour > Anticheat[playerid][acArmour] + 5.0)
         {
-            // Has armor legit, but check for sudden increase
-            if(armour > Anticheat[playerid][acArmour] + 15.0)
+            if(!legitArmor)
             {
-                // Increase without legit source
-                SetPlayerArmour(playerid, Anticheat[playerid][acArmour]);
-                AccountData[playerid][pArmor] = Anticheat[playerid][acArmour];
-                SendStaffMessage(Y_RED, "[AntiCheat] %s(%d) Armour Hack +%.0f (%.0f->%.0f)", GetName(playerid), playerid, armour - Anticheat[playerid][acArmour], Anticheat[playerid][acArmour], armour);
-                Anticheat[playerid][acArmorWarns]++;
-                if(Anticheat[playerid][acArmorWarns] >= 3)
-                {
-                    SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Armour Hack (regen)!");
-                    KickEx(playerid);
-                }
-            }
-            else
-            {
-                Anticheat[playerid][acArmour] = armour;
+                if(Anticheat[playerid][acArmour] > 5.0) SetPlayerArmour(playerid, Anticheat[playerid][acArmour]);
+		if(Anticheat[playerid][acArmour] > 5.0) AccountData[playerid][pArmor] = Anticheat[playerid][acArmour];
+                SendStaffMessage(Y_RED, "[AC] %s[%d] Armour spawn +%.0f (%.0f>%.0f) kicked", GetName(playerid), playerid,
+                    armour - Anticheat[playerid][acArmour], Anticheat[playerid][acArmour], armour);
+                SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Armour Hack.");
+                KickEx(playerid);
+                return 1;
             }
         }
     }
-    else
-    {
-        Anticheat[playerid][acArmour] = armour;
-    }
+    Anticheat[playerid][acArmour] = armour;
 
     return 1;
 }
@@ -666,7 +623,7 @@ ptask AntiCheatMoneyAndAmmo[1000](playerid)
 
     if(AccountData[playerid][IsLoggedIn])
     {
-        // Anti ammo hack - optimized loop
+        // Anti ammo hack
         for(new slot = 0; slot < 13; slot++)
         {
             if(GunData[playerid][slot][WeaponAmmo] > 500)
