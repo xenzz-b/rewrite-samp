@@ -208,21 +208,21 @@ public ChangeMPrice()
 	OldAyamKemasPrice = AyamKemasPrice;
     OldSawitPrice = SawitPrice;
 
-	TembagaPrice = RandomEx(3, 13);
-	BesiPrice = RandomEx(5, 15);
-	EmasPrice = RandomEx(10, 21);
-	BerlianPrice = RandomEx(100, 205);
-	DagingPrice = RandomEx(13, 25);
-	TandukPrice = RandomEx(13, 25);
-	KulitPrice = RandomEx(13, 25);
-	BotolPrice = RandomEx(3, 12);
-	PlasticPrice = RandomEx(3, 12);
-	PapanPrice = RandomEx(10, 23);
-	MinyakPrice = RandomEx(10, 25);
-	PakaianPrice = RandomEx(11, 33);
-	SusuOlahPrice = RandomEx(13, 23);
-	AyamKemasPrice = RandomEx(13, 23);
-    SawitPrice = RandomEx(25, 50);
+	TembagaPrice = RandomEx(30, 130);
+	BesiPrice = RandomEx(50, 150);
+	EmasPrice = RandomEx(100, 210);
+	BerlianPrice = RandomEx(1000, 5000);
+	DagingPrice = RandomEx(130, 250);
+	TandukPrice = RandomEx(130, 250);
+	KulitPrice = RandomEx(130, 250);
+	BotolPrice = RandomEx(30, 120);
+	PlasticPrice = RandomEx(30, 120);
+	PapanPrice = RandomEx(100, 230);
+	MinyakPrice = RandomEx(100, 250);
+	PakaianPrice = RandomEx(110, 330);
+	SusuOlahPrice = RandomEx(130, 230);
+	AyamKemasPrice = RandomEx(130, 230);
+    SawitPrice = RandomEx(250, 500);
 	SendClientMessageToAll(-1, "[i] Harga Pasar telah berubah, gunakan '/mprice' untuk melihat harga jual terbaru");
 	return 1; 
 }
@@ -246,12 +246,12 @@ task UpdateServerStock[60000]()
             OldJerukSalary = JerukSalary;
             OldAnggurSalary = AnggurSalary;
 
-            ChiliSalary = RandomEx(20, 35);
-            RiceSalary = RandomEx(20, 35);
-            SugarSalary = RandomEx(20, 35);
-            StrawberrySalary = RandomEx(20, 35);
-            JerukSalary = RandomEx(20, 35);
-            AnggurSalary = RandomEx(20, 35);
+            ChiliSalary = RandomEx(200, 350);
+            RiceSalary = RandomEx(200, 350);
+            SugarSalary = RandomEx(200, 350);
+            StrawberrySalary = RandomEx(200, 400);
+            JerukSalary = RandomEx(200, 400);
+            AnggurSalary = RandomEx(200, 400);
         }
 
         if(GM[g_ComponentStock] < 100000)

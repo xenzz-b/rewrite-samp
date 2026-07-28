@@ -197,9 +197,9 @@ hook OnPlayerEnterDynRaceCP(playerid, STREAMER_TAG_RACE_CP:checkpointid)
                         AngkotPenumpang[playerid] = false;
                         pAngkotTimer[playerid] = false;
 
-                        GivePlayerMoneyEx(playerid, 50);
-                        ShowTDN(playerid, NOTIFICATION_INFO, "Anda mendapatkan bonus $50 karena menyelesaikan pekerjaan angkot!");
-                        ShowItemBox(playerid, "Cash", "Received $50x", 1212, 5);
+                        GivePlayerMoneyEx(playerid, 500);
+                        ShowTDN(playerid, NOTIFICATION_INFO, "Anda mendapatkan bonus $500 karena menyelesaikan pekerjaan angkot!");
+                        ShowItemBox(playerid, "Cash", "Received $500x", 1212, 5);
                     }
                     else
                     {
@@ -258,9 +258,9 @@ hook OnPlayerEnterDynRaceCP(playerid, STREAMER_TAG_RACE_CP:checkpointid)
                         AngkotPenumpang[playerid] = false;
                         pAngkotTimer[playerid] = false;
 
-                        GivePlayerMoneyEx(playerid, 50);
-                        ShowTDN(playerid, NOTIFICATION_INFO, "Anda mendapatkan bonus $50 karena menyelesaikan pekerjaan angkot!");
-                        ShowItemBox(playerid, "Cash", "Received $50x", 1212, 5);
+                        GivePlayerMoneyEx(playerid, 500);
+                        ShowTDN(playerid, NOTIFICATION_INFO, "Anda mendapatkan bonus $500 karena menyelesaikan pekerjaan angkot!");
+                        ShowItemBox(playerid, "Cash", "Received $500x", 1212, 5);
                     }
                     else
                     {

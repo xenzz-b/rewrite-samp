@@ -316,12 +316,12 @@ hook OnPlayerEnterDynRaceCP(playerid, STREAMER_TAG_RACE_CP:checkpointid)
         
         AccountData[playerid][pPizzaSidejobDelay] = 1800;
 
-        GivePlayerMoneyEx(playerid, 250);
+        GivePlayerMoneyEx(playerid, 2500);
 
-        ShowItemBox(playerid, "Cash", "Received $300x", 1212, 5);
+        ShowItemBox(playerid, "Cash", "Received $2,500x", 1212, 5);
 
         PlayerPlaySound(playerid, 183, 0.0, 0.0, 0.0);
-        GameTextForPlayer(playerid, "mission passed!~n~~w~$300", 8900, 0);
+        GameTextForPlayer(playerid, "mission passed!~n~~w~$2,500", 8900, 0);
         SetTimerEx("StopMissPassed", 8000, false, "i", playerid);
 
         SendClientMessage(playerid, -1, "You have received a bonus for returning the vehicle!");

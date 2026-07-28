@@ -1005,21 +1005,6 @@ public LoadStats(playerid, const PlayersName[])
 		
 		static spstr[1655];
 
-		static const FacName[12][] = 
-		{
-			"Warga",
-			"Kepolisian",
-			"Paramedis",
-			"Pring Sewu Beach Club",
-			"Pemerintah",
-			"Bennys Automotive",
-			"Uber",
-			"Pinky Tiger Club",
-			"Pewarta",
-			"DriftKing Workshop",
-			"Jaya Abadi",
-			"Sri Mersing Resto"
-		};
 
 		static const CopRank[21][] = 
 		{

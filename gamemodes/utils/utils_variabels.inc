@@ -11,6 +11,7 @@ new HouseMemberName[MAX_PLAYERS][3][MAX_PLAYER_NAME + 1];
 
 //spec object
 new pInSpecMode[MAX_PLAYERS];
+new pEmergencyMsgIndex[MAX_PLAYERS];
 
 new animPage[MAX_PLAYERS];
 new pCurWeap[MAX_PLAYERS];
@@ -28,21 +29,22 @@ new pVoiceDistanceStatus[MAX_PLAYERS];
 new pShortcutResultShown[MAX_PLAYERS];
 
 //harga pasar
-new TembagaPrice = 3;
-new BesiPrice = 2;
-new EmasPrice = 4;
-new BerlianPrice = 100;
-new DagingPrice = 13;
-new TandukPrice = 13;
-new KulitPrice = 13;
-new BotolPrice = 3;
-new PlasticPrice = 3;
-new PapanPrice = 10;
-new MinyakPrice = 5;
-new PakaianPrice = 25;
-new SusuOlahPrice = 13;
-new AyamKemasPrice = 13;
-new SawitPrice = 25;
+new TembagaPrice = 30;
+new BesiPrice = 20;
+new EmasPrice = 40;
+new BerlianPrice = 5000;
+new DagingPrice = 130;
+new TandukPrice = 130;
+new KulitPrice = 130;
+new BotolPrice = 30;
+new PlasticPrice = 30;
+new PapanPrice = 100;
+new MinyakPrice = 50;
+new PakaianPrice = 250;
+new SusuOlahPrice = 130;
+new AyamKemasPrice = 130;
+new IkanPrice = 130;
+new SawitPrice = 250;
 
 new OldTembagaPrice;
 new OldBesiPrice;
@@ -58,6 +60,7 @@ new OldMinyakPrice;
 new OldPakaianPrice;
 new OldSusuOlahPrice;
 new OldAyamKemasPrice;
+new OldIkanPrice;
 new OldSawitPrice;
 
 //new STREAMER_TAG_OBJECT:EMSClothing[MAX_PLAYERS][2];
@@ -95,12 +98,12 @@ new OldChiliSalary,
     OldStrawberrySalary,
     OldJerukSalary,
     OldAnggurSalary,
-    ChiliSalary = 30,
-    RiceSalary = 30,
-    SugarSalary = 30,
-    StrawberrySalary = 40,
-    JerukSalary = 40,
-    AnggurSalary = 40;
+    ChiliSalary = 300,
+    RiceSalary = 300,
+    SugarSalary = 300,
+    StrawberrySalary = 400,
+    JerukSalary = 400,
+    AnggurSalary = 400;
 
 //cheat
 new s_playerWarnings[MAX_PLAYERS];
@@ -286,6 +289,25 @@ enum
     FACTION_BINTANGKEJORA, //12
     FACTION_FEDERAL, //13
     FACTION_JPJ
+};
+
+stock const FacName[15][] =
+{
+    "Warga",
+    "Kepolisian",
+    "Paramedis",
+    "Pring Sewu Beach Club",
+    "Pemerintah",
+    "Bennys Automotive",
+    "Uber",
+    "Loving Donuts",
+    "Pewarta",
+    "DriftKing Workshop",
+    "Jaya Abadi",
+    "Sri Mersing Resto",
+    "(Dihapus)",
+    "Federal",
+    "JPJ"
 };
 
 enum
@@ -601,93 +623,53 @@ new Float: AirportLSSpawn[][4] =
 };
 
 new Light_Truck[][2] = {
-    {422, 2050}, //bobcat
-    {543, 1950}, //sadler
-    {478, 2000}, //walton
-    {554, 4750}, //yosemite
-    {600, 2050} //picador
+    {543, 65000}, //sadler
+    {554, 145000}, //yosemite
+    {600, 85000} //picador
 };
 
 new Heavy_Truck[][2] = {
-    {414, 6500}, //mule
-    {455, 5000}, //flatbed
-    {456, 4000}, //yankee
-    {499, 2000} //benson
+    {414, 175000}, //mule
+    {455, 140000}, //flatbed
+    {456, 110000}, //yankee
+    {499, 75000} //benson
 };
 
 new SUVWagon[][2] = {
-    {579, 2400}, //huntley
-    {400, 3400}, //landstalker
-    {404, 2400}, //perenniel
-    {489, 4000},  //Rancher
-    {479, 2700}, //regina
-    {458, 2700}, //solair
-    {418, 2400}, //Moonbeam
-    {459, 3200}  //rc van
+    {459, 115000},  //Berkley's RC Van
+    {404, 90000} //perennial
 };
 
 new Motorbike[][2] = {
-    {462, 1200}, //Faggio = 1,190.00
-    {581, 2000}, //BF-400 = 2,200.00
-    {521, 4500}, //FCR-900 = 3,150.00
-    {461, 3000}, //PCJ-600 - 2,500.00
-    {468, 1500}, //sanchez 1,420.00
-    {463, 3000}, //freeway = 1,560.00
-    {586, 1500} //wayfarer = 1,380.00
+    {468, 35000}, //sanchez
+    {463, 55000}, //freeway
+    {586, 40000}, //wayfarer
+    {461, 85000}, //PCJ-600
+    {521, 125000} //FCR-900
 };
 
 new Lowriders[][2] = {
-    {536, 1700}, //blade
-    {575, 1500},  //broadway
-    {534, 1700}, //remington
-    {567, 5000}, //savanna
-    {412, 5000}, //voodo
-    {576, 4000} //tornado
+    {536, 60000}, //blade
+    {567, 145000}, //savanna
+    {534, 85000}, //remington
+    {412, 155000} //voodoo
 };
 
 new TwoDoor_Compact[][2] = {
-    {549, 2000}, //tampa
-    {491, 3000}, //virgo
-    {442, 2000}, //romero
-    {439, 2500}, //stallion
-    {419, 3000}, //esperanto
-    {545, 6000}, //hustler
-    {602, 4000}, //alpha
-    {496, 4000}, //blista compact
-    {401, 4000}, //bravura
-    {527, 3000}, //cadrona
-    {533, 5000}, //feltzer
-    {526, 3000}, //fortune
-    {410, 4000},  //manana
-    {436, 3000}, //previon
-    {542, 3800}, //clover
-    {475, 2500}, //sabre
-    {555, 3000}, //windsor
-    {518, 2000}, //buccaner
-    {474, 4000}, //hermes
-    {517, 2000} //majestic
+    {549, 85000}, //tampa
+    {542, 105000}, //clover
+    {401, 115000}, //bravura
+    {474, 135000}, //hermes
+    {602, 155000}, //alpha
+    {533, 175000} //feltzer
 };
 
 new FourDoor_Luxury[][2] = {
-    {445, 4000}, //admiral
-    {507, 4000}, //elegant
-    {492, 4000}, //greenwood
-    {585, 4000}, //emperor
-    {546, 4000}, //intruder
-    {551, 4000}, //merit
-    {516, 4000}, //nebula
-    {426, 5000}, //premier
-    {547, 4000}, //primo
-    {405, 4000}, //sentinel
-    {580, 4000}, //stafford
-    {566, 4000}, //tahoma
-    {540, 4000}, //vincent
-    {421, 4000}, //washington
-    {529, 4000}, //willard
-    {561, 6000}, //stratum
-    {560, 5000}, //sultan
-    {467, 4000}, //oceanic
-    {466, 4000} //glendale
+    {421, 125000}, //washington
+    {445, 145000}, //admiral
+    {405, 150000}, //sentinel
+    {426, 165000}, //premier
+    {560, 185000} //sultan
 };
 
 enum e_vehspec
@@ -883,9 +865,8 @@ new RusunExpired,
     Fox11MoneyVault,
     DriftKingMoneyVault,
     JayaAbadiMoneyVault,
-    SriMersingMoneyVault,
-    BintangKejoraMoneyVault;
-    
+    SriMersingMoneyVault;
+
 //--------- Pengecekan Jumlah On Duty Faction ------------//
 new Iterator:LSPDDuty<MAX_PLAYERS>;
 new Iterator:LSFDDuty<MAX_PLAYERS>;
@@ -898,7 +879,7 @@ new Iterator:Fox11Duty<MAX_PLAYERS>;
 new Iterator:DriftKingDuty<MAX_PLAYERS>;
 new Iterator:JayaAbadiDuty<MAX_PLAYERS>;
 new Iterator:SriMersingDuty<MAX_PLAYERS>;
-// new Iterator:BintangKejoraDuty<MAX_PLAYERS>;
+
 
 //TIMERS
 new pLoginTimer[MAX_PLAYERS] = {-1, ...};
@@ -947,7 +928,7 @@ new bool:pOpenPurpleSweetTimer[MAX_PLAYERS];
 new bool:pCookingTimer[MAX_PLAYERS];
 new bool:pDNRCookingTimer[MAX_PLAYERS];
 new bool:pSriMersingCookingTimer[MAX_PLAYERS];
-new bool:pBintangKejoraCookingTimer[MAX_PLAYERS];
+
 new bool:pEatingBarTimer[MAX_PLAYERS];
 new bool:pBreakingVehDoorTimer[MAX_PLAYERS];
 new bool:pImpoundingInsuTimer[MAX_PLAYERS];
@@ -2205,3 +2186,7 @@ new g_FuelRestockAmount[MAX_BIZ];
 
 new TempPasswordLogin[MAX_PLAYERS][128];
 new LoginAttempts[MAX_PLAYERS];
+#pragma unused IkanPrice
+#pragma unused OldIkanPrice
+
+#pragma unused pEmergencyMsgIndex

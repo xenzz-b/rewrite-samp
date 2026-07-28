@@ -84,12 +84,12 @@ hook OnPlayerEnterDynamicCP(playerid, STREAMER_TAG_CP:checkpointid)
             if(DestroyDynamicObject(ForkliftCrateObj[playerid]))
                 ForkliftCrateObj[playerid] = STREAMER_TAG_OBJECT: INVALID_STREAMER_ID;
 
-            GivePlayerMoneyEx(playerid, 743);
+            GivePlayerMoneyEx(playerid, 7430);
 
-            ShowItemBox(playerid, "Cash", "Received $743x", 1212, 5);
+            ShowItemBox(playerid, "Cash", "Received $7,430x", 1212, 5);
 
             PlayerPlaySound(playerid, 183, 0.0, 0.0, 0.0);
-            GameTextForPlayer(playerid, "mission passed!~n~~w~$743", 8900, 0);
+            GameTextForPlayer(playerid, "mission passed!~n~~w~$7,430", 8900, 0);
             SetTimerEx("StopMissPassed", 8000, false, "i", playerid);
         }
     }

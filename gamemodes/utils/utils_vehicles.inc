@@ -416,103 +416,60 @@ IsABoat(vehicleid)
     return 0;
 }
 
-IsLSPDVehicle(vehicleid)
+/*  Cache kepemilikan kendaraan faction.
+
+    Versi lama: tiap fungsi Is<Faction>Vehicle() meloop SELURUH player.
+    Dipanggil dari task 160ms untuk setiap kendaraan, biayanya O(V*P),
+    sekitar 2,5 juta operasi per detik pada 2000 kendaraan / 100 player.
+
+    Sekarang satu array vehicleid -> faction, di-refresh berkala, dan
+    seluruh pengecekan menjadi O(1).                                     */
+new AC_VehFactionOwner[MAX_VEHICLES];
+
+RefreshFactionVehicleCache()
 {
+	for(new v = 0; v < MAX_VEHICLES; v ++)
+		AC_VehFactionOwner[v] = FACTION_NONE;
+
 	foreach(new i : Player)
 	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_LSPD]) return 1;
+		for(new f = 1; f < MAX_FACTIONS; f ++)
+		{
+			new vid = PlayerFactionVehicle[i][f];
+
+			if(vid > 0 && vid < MAX_VEHICLES)
+				AC_VehFactionOwner[vid] = f;
+		}
 	}
-	return 0;
+	return 1;
 }
 
-IsLSFDVehicle(vehicleid)
+GetVehicleFactionOwner(vehicleid)
 {
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_LSFD]) return 1;
-	}
-	return 0;
+	if(vehicleid < 1 || vehicleid >= MAX_VEHICLES)
+		return FACTION_NONE;
+
+	return AC_VehFactionOwner[vehicleid];
 }
 
-IsSAGOVVehicle(vehicleid)
+stock SetVehicleFactionOwner(vehicleid, factionid)
 {
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_SAGOV]) return 1;
-	}
-	return 0;
+	if(vehicleid > 0 && vehicleid < MAX_VEHICLES)
+		AC_VehFactionOwner[vehicleid] = factionid;
+
+	return 1;
 }
 
-IsPringSewuVehicle(vehicleid)
-{
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_PRINGSEWU]) return 1;
-	}
-	return 0;
-}
-
-IsDinarbucksVehicle(vehicleid)
-{
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_DINARBUCKS]) return 1;
-	}
-	return 0;
-}
-
-IsFOX11LAVehicle(vehicleid)
-{
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_FOX11]) return 1;
-	}
-	return 0;
-}
-
-// IsBintangKejoraVehicle(vehicleid)
-// {
-// 	foreach(new i : Player)
-// 	{
-// 		if(vehicleid == PlayerFactionVehicle[i][FACTION_BINTANGKEJORA]) return 1;
-// 	}
-// 	return 0;
-// }
-
-IsUberVehicle(vehicleid)
-{
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_UBER]) return 1;
-	}
-	return 0;
-}
-
-IsBennysVehicle(vehicleid)
-{
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_BENNYS]) return 1;
-	}
-	return 0;
-}
-
-IsDriftKingVehicle(vehicleid)
-{
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_DRIFTKING]) return 1;
-	}
-	return 0;
-}
-IsJayaAbadiVehicle(vehicleid)
-{
-	foreach(new i : Player)
-	{
-		if(vehicleid == PlayerFactionVehicle[i][FACTION_JAYAABADI]) return 1;
-	}
-	return 0;
-}
+IsLSPDVehicle(vehicleid)       return (GetVehicleFactionOwner(vehicleid) == FACTION_LSPD);
+IsLSFDVehicle(vehicleid)       return (GetVehicleFactionOwner(vehicleid) == FACTION_LSFD);
+IsSAGOVVehicle(vehicleid)      return (GetVehicleFactionOwner(vehicleid) == FACTION_SAGOV);
+IsPringSewuVehicle(vehicleid)  return (GetVehicleFactionOwner(vehicleid) == FACTION_PRINGSEWU);
+IsDinarbucksVehicle(vehicleid) return (GetVehicleFactionOwner(vehicleid) == FACTION_DINARBUCKS);
+IsFOX11LAVehicle(vehicleid)    return (GetVehicleFactionOwner(vehicleid) == FACTION_FOX11);
+IsUberVehicle(vehicleid)       return (GetVehicleFactionOwner(vehicleid) == FACTION_UBER);
+IsBennysVehicle(vehicleid)     return (GetVehicleFactionOwner(vehicleid) == FACTION_BENNYS);
+IsDriftKingVehicle(vehicleid)  return (GetVehicleFactionOwner(vehicleid) == FACTION_DRIFTKING);
+IsJayaAbadiVehicle(vehicleid)  return (GetVehicleFactionOwner(vehicleid) == FACTION_JAYAABADI);
 
 IsAPlane(vehicleid)
 {
@@ -615,97 +572,98 @@ GetVehiclePrice(modelid)
 	switch(modelid)
 	{
 		//light truck
-		case 422: price = 2050; //bobcat
-    	case 543: price = 1950; //sadler
-    	case 478: price = 2000; //walton
-    	case 554: price = 4750; //yosemite
-    	case 600: price = 2050; //picador
+		case 543: price = 65000; //sadler
+    	case 554: price = 145000; //yosemite
+    	case 600: price = 85000; //picador
 
 		//heavy truck
-		case 414: price = 6500; //mule
-    	case 455: price = 5000; //flatbed
-    	case 456: price = 4000; //yankee
-    	case 499: price = 2000; //benson
+		case 414: price = 175000; //mule
+    	case 455: price = 140000; //flatbed
+    	case 456: price = 110000; //yankee
+    	case 499: price = 75000; //benson
 
 		//SUV Wagon
-		case 579: price = 2400; //huntley
-    	case 400: price = 3400; //landstalker
-    	case 404: price = 2400; //perenniel
-    	case 489: price = 4000;  //Rancher
-    	case 479: price = 2700; //regina
-    	case 458: price = 2700; //solair
-    	case 418: price = 2400; //Moonbeam
-    	case 482: price = 3000;  //Burrito
-    	case 459: price = 3200;  //rc van
+		case 459: price = 115000;  //Berkley's RC Van  //Berkley's RC Van
+    	case 404: price = 90000; //perennial //perennial
+    	case 400: price = 145000; //landstalker //landstalker
 
 		//motorbike
-		case 462: price = 1200; //Faggio = 1,190.00
-    	case 581: price = 2000; //BF-400 = 2,200.00
-    	case 521: price = 4500; //FCR-900 = 3,150.00
-    	case 461: price = 3000; //PCJ-600 - 2,500.00
-    	case 468: price = 1500; //sanchez 1,420.00
-    	case 463: price = 3000; //freeway = 1,560.00
-    	case 586: price = 1500; //wayfarer = 1,380.00
+		case 468: price = 35000; //sanchez
+    	case 463: price = 55000; //freeway
+    	case 586: price = 40000; //wayfarer
+    	case 461: price = 85000; //PCJ-600
+    	case 521: price = 125000; //FCR-900
 
 		//lowrider
-		case 536: price = 1700; //blade
-    	case 575: price = 1500; //broadway
-    	case 534: price = 1700; //remington
-    	case 567: price = 5000; //savanna
-    	case 412: price = 5000; //voodo
-    	case 576: price = 4000; //tornado
+		case 536: price = 60000; //blade
+    	case 567: price = 145000; //savanna
+    	case 534: price = 85000; //remington
+    	case 412: price = 155000; //voodoo
 
 		//two door
-		case 549: price = 2000; //tampa
-    	case 491: price = 3000; //virgo
-    	case 480: price = 10000;  //comet
-    	case 442: price = 2000; //romero
-    	case 439: price = 2500; //stallion
-    	case 419: price = 3000; //esperanto
-    	case 545: price = 6000; //hustler
-    	case 602: price = 4000;  //alpha
-    	case 496: price = 3000; //blista compact
-    	case 401: price = 4000; //bravura
-    	case 527: price = 3000; //cadrona
-    	case 533: price = 5000; //feltzer
-    	case 526: price = 3000; //fortune
-    	case 410: price = 4000;  //manana
-    	case 436: price = 3000; //previon
-    	case 542: price = 3800; //clover
-    	case 475: price = 2500; //sabre
-    	case 555: price = 3000; //windsor
-    	case 518: price = 2000; //buccaner
-    	case 589: price = 5000;   //club
-    	case 474: price = 4000;  //hermes
-    	case 517: price = 2000; //majestic
-    	case 500: price = 5000;  //mesa
+		case 549: price = 85000; //tampa //tampa
+    	case 545: price = 195000; //hustler //hustler
+    	case 602: price = 155000;  //alpha  //alpha
+    	case 496: price = 120000; //blista compact //blista compact
+    	case 401: price = 115000; //bravura //bravura
+    	case 533: price = 175000; //feltzer //feltzer
+    	case 542: price = 105000; //clover //clover
+    	case 474: price = 135000; //hermes  //hermes
 
 		//four door
-		case 445: price = 3000; //admiral
-    	case 507: price = 2500; //elegant
-    	case 492: price = 3000; //greenwood
-    	case 585: price = 2000; //emperor
-    	case 546: price = 2000; //intruder
-    	case 551: price = 2000; //merit
-    	case 516: price = 3000; //nebula
-    	case 426: price = 3500; //premier
-    	case 547: price = 4000; //primo
-    	case 405: price = 3000; //sentinel
-    	case 580: price = 4500; //stafford
-    	case 550: price = 2300; //sunrise
-    	case 566: price = 3000; //tahoma
-    	case 540: price = 2000; //vincent
-    	case 421: price = 2000; //washington
-    	case 529: price = 2000; //willard
-    	case 561: price = 3000;  //stratum
-    	case 560: price = 3000;  //sultan
-    	case 467: price = 2000; //oceanic
-    	case 466: price = 2000; //glendale
-		default: price = 2000;
+		case 445: price = 145000; //admiral //admiral
+    	case 507: price = 135000; //elegant //elegant
+    	case 492: price = 125000; //greenwood //greenwood
+    	case 426: price = 165000; //premier //premier
+    	case 405: price = 150000; //sentinel //sentinel
+    	case 580: price = 149000; //stafford //stafford
+    	case 560: price = 185000;  //sultan  //sultan
+    	case 561: price = 199000;  //stratum  //stratum
+    	case 421: price = 125000; //washington //washington
+    	case 547: price = 105000; //primo //primo
+    	case 540: price = 99000; //vincent //vincent
+    	case 551: price = 109000; //merit //merit
+
+		//sisa vehicle (jual/tax)
+		case 422: price = 61500; //bobcat
+    	case 478: price = 60000; //walton
+    	case 579: price = 72000; //huntley
+    	case 489: price = 120000;  //Rancher
+    	case 479: price = 81000; //regina
+    	case 458: price = 81000; //solair
+    	case 418: price = 72000; //Moonbeam
+    	case 482: price = 90000;  //Burrito
+    	case 462: price = 36000; //Faggio
+    	case 581: price = 60000; //BF-400
+    	case 575: price = 45000; //broadway
+    	case 576: price = 120000; //tornado
+    	case 491: price = 90000; //virgo
+    	case 442: price = 60000; //romero
+    	case 439: price = 75000; //stallion
+    	case 419: price = 90000; //esperanto
+    	case 527: price = 90000; //cadrona
+    	case 526: price = 90000; //fortune
+    	case 410: price = 120000;  //manana
+    	case 436: price = 90000; //previon
+    	case 475: price = 75000; //sabre
+    	case 555: price = 90000; //windsor
+    	case 518: price = 60000; //buccaner
+    	case 589: price = 150000;   //club
+    	case 517: price = 60000; //majestic
+    	case 500: price = 150000;  //mesa
+    	case 480: price = 300000;  //comet
+    	case 585: price = 120000; //emperor
+    	case 546: price = 120000; //intruder
+    	case 516: price = 120000; //nebula
+    	case 550: price = 69000; //sunrise
+    	case 566: price = 120000; //tahoma
+    	case 529: price = 120000; //willard
+    	case 467: price = 120000; //oceanic
+    	case 466: price = 120000; //glendale
+		default: price = 60000;
 	}
 	return price;
 }
-
 
 stock LockVehicle(vehicleid,status)
 {
@@ -743,3 +701,4 @@ stock GetVehicleModelName(modelid)
 	return g_arrVehicleNames[modelid - 400];
 }
 #endif
+#pragma unused RefreshFactionVehicleCache

@@ -2408,24 +2408,24 @@ YCMD:mprice(playerid, params[], help)
 	static frmtprice[2856];
 	format(frmtprice, sizeof(frmtprice), ""YELLOW"========== [Dinas Pekerjaan Kota Vertex] ==========\
 	\n\n"WHITE"------ [Hasil Pertambangan] ------\
-	\n"WHITE"~> Harga Tembaga: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
-	\n"WHITE"~> Harga Besi: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
-	\n"WHITE"~> Harga Emas: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
-	\n"WHITE"~> Harga Berlian: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
+	\n"WHITE"~> Harga Tembaga: "RED"%s$"GREEN"/pcs"WHITE" =>"GREEN" %s$"GREEN"/pcs\
+	\n"WHITE"~> Harga Besi: "RED"%s$"GREEN"/pcs"WHITE" =>"GREEN" %s$"GREEN"/pcs\
+	\n"WHITE"~> Harga Emas: "RED"%s$"GREEN"/pcs"WHITE" =>"GREEN" %s$"GREEN"/pcs\
+	\n"WHITE"~> Harga Berlian: "RED"%s$"GREEN"/pcs"WHITE" =>"GREEN" %s$"GREEN"/pcs\
 	\n\n"WHITE"------ [Hasil Berburu] ------\
-	\n"WHITE"~> Harga Daging: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
-	\n"WHITE"~> Harga Tanduk: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
-	\n"WHITE"~> Harga Kulit: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
+	\n"WHITE"~> Harga Daging: "RED"%s$"GREEN"/pcs"WHITE" =>"GREEN" %s$"GREEN"/pcs\
+	\n"WHITE"~> Harga Tanduk: "RED"%s$"GREEN"/pcs"WHITE" =>"GREEN" %s$"GREEN"/pcs\
+	\n"WHITE"~> Harga Kulit: "RED"%s$"GREEN"/pcs"WHITE" =>"GREEN" %s$"GREEN"/pcs\
 	\n\n"WHITE"------ [Hasil Recycler] ------\
-	\n"WHITE"~> Harga Botol: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
-	\n"WHITE"~> Harga Plastik: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
+	\n"WHITE"~> Harga Botol: "RED"%s$"GREEN"/pcs"WHITE" =>"GREEN" %s$"GREEN"/pcs\
+	\n"WHITE"~> Harga Plastik: "RED"%s$"GREEN"/pcs"WHITE" =>"GREEN" %s$"GREEN"/pcs\
 	\n\n"WHITE"------ [Lainnya] -----\
-	\n"WHITE"~> Harga Papan: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
-	\n"WHITE"~> Harga Minyak: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
-	\n"WHITE"~> Harga Pakaian: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
-	\n"WHITE"~> Harga Susu Fermentasi: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
-	\n"WHITE"~> Harga Ayam Kemas: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs\
-	\n"WHITE"~> Harga Sawit Olahan: "RED"%s"GREEN"/pcs"WHITE" =>"GREEN" %s"GREEN"/pcs",
+	\n"WHITE"~> Harga Papan: "RED"%s$"GREEN"/pcs"WHITE" =>"GREEN" %s$"GREEN"/pcs\
+	\n"WHITE"~> Harga Minyak: "RED"%s$"GREEN"/pcs"WHITE" =>"GREEN" %s$"GREEN"/pcs\
+	\n"WHITE"~> Harga Pakaian: "RED"%s$"GREEN"/pcs"WHITE" =>"GREEN" %s$"GREEN"/pcs\
+	\n"WHITE"~> Harga Susu Fermentasi: "RED"%s$"GREEN"/pcs"WHITE" =>"GREEN" %s$"GREEN"/pcs\
+	\n"WHITE"~> Harga Ayam Kemas: "RED"%s$"GREEN"/pcs"WHITE" =>"GREEN" %s$"GREEN"/pcs\
+	\n"WHITE"~> Harga Sawit Olahan: "RED"%s$"GREEN"/pcs"WHITE" =>"GREEN" %s$"GREEN"/pcs",
 	FormatMoney(OldTembagaPrice), FormatMoney(TembagaPrice),
 	FormatMoney(OldBesiPrice), FormatMoney(BesiPrice),
 	FormatMoney(OldEmasPrice), FormatMoney(EmasPrice),

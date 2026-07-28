@@ -188,12 +188,12 @@ hook OnPlayerEnterDynamicCP(playerid, STREAMER_TAG_CP:checkpointid)
 
                     SetTimerEx("RespawnPV", 1000, false, "d", SavingVehID[playerid]);
 
-                    GivePlayerMoneyEx(playerid, 525);
+                    GivePlayerMoneyEx(playerid, 5250);
 
-                    ShowItemBox(playerid, "Cash", "Received $525x", 1212, 1);
+                    ShowItemBox(playerid, "Cash", "Received $5,250x", 1212, 1);
 
                     PlayerPlaySound(playerid, 183, 0.0, 0.0, 0.0);
-                    GameTextForPlayer(playerid, "mission passed!~n~~w~$525", 8900, 0);
+                    GameTextForPlayer(playerid, "mission passed!~n~~w~$5,250", 8900, 0);
                     SetTimerEx("StopMissPassed", 8000, false, "i", playerid);
                 }
             }
@@ -322,12 +322,12 @@ hook OnPlayerEnterDynamicCP(playerid, STREAMER_TAG_CP:checkpointid)
 
                     SetTimerEx("RespawnPV", 1000, false, "d", SavingVehID[playerid]);
 
-                    GivePlayerMoneyEx(playerid, 525);
+                    GivePlayerMoneyEx(playerid, 5250);
 
-                    ShowItemBox(playerid, "Cash", "Received $525x", 1212, 1);
+                    ShowItemBox(playerid, "Cash", "Received $5,250x", 1212, 1);
 
                     PlayerPlaySound(playerid, 183, 0.0, 0.0, 0.0);
-                    GameTextForPlayer(playerid, "mission passed!~n~~w~$525", 8900, 0);
+                    GameTextForPlayer(playerid, "mission passed!~n~~w~$5,250", 8900, 0);
                     SetTimerEx("StopMissPassed", 8000, false, "i", playerid);
                 }
             }

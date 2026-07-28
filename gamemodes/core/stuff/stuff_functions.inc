@@ -484,7 +484,7 @@ public LoadServerStuffs()
     cache_get_value_name_int(0, "driftkingmoneyvault", DriftKingMoneyVault);
     cache_get_value_name_int(0, "jayaabadimoneyvault", JayaAbadiMoneyVault);
     cache_get_value_name_int(0, "srimersingmoneyvault", SriMersingMoneyVault);
-    cache_get_value_name_int(0, "bintangkejoramoneyvault", BintangKejoraMoneyVault);
+    
     
     printf("[Stuffs] Server Stuff berhasil dimuat...");
     return 1;

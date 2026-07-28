@@ -94,7 +94,7 @@ hook OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
             if(pPorterDropIDX[playerid] != GetPorterDropIDX(playerid)) return ShowTDN(playerid, NOTIFICATION_ERROR, "Tempat ini tidak sesuai dengan barang ini!");
             
             new ranweight = RandomEx(1, 20);
-            new salary = 22*ranweight;
+            new salary = 220*ranweight;
             
             GivePlayerMoneyEx(playerid, salary);
             ShowTDN(playerid, NOTIFICATION_SUCCESS, sprintf("Anda mendapatkan ~g~$%s ~l~dari barang seberat ~r~%d kg", FormatMoney(salary), ranweight));

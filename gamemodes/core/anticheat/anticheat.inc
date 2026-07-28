@@ -2,6 +2,9 @@
 #include "core/anticheat/cbug"
 
 #define MAX_ANTICHEAT_WARNINGS 3
+#define AC_HISTORY_FRAMES       4
+#define AC_AIRBREAK_POS_SPEED   8.0
+#define AC_AIRBREAK_VEL_MAX     0.08
 
 static const Float:modShopLocations[][] =
 {
@@ -71,9 +74,13 @@ enum e_Anticheat
     Float:acArmour,
     acHealthWarns,
     acArmorWarns,
-    acVehHealthWarns
+    acVehHealthWarns,
+    acHistoryIdx,
+    acAirbreakV2Warns
 };
 new Anticheat[MAX_PLAYERS][e_Anticheat];
+new Float:ac_HistoryPos[MAX_PLAYERS][AC_HISTORY_FRAMES * 3];
+new ac_HistoryTime[MAX_PLAYERS][AC_HISTORY_FRAMES];
 
 OnPlayerTeleport(playerid, Float:distance)
 {
@@ -124,61 +131,119 @@ OnPlayerAirbreak(playerid)
 
 ptask CheckingACTeleport[1000](playerid) 
 {
-    if(GetPlayerState(playerid) != PLAYER_STATE_SPECTATING && GetPlayerState(playerid) != PLAYER_STATE_NONE)
-	{
-        if(AccountData[playerid][IsLoggedIn])
+    if(GetPlayerState(playerid) == PLAYER_STATE_SPECTATING || GetPlayerState(playerid) == PLAYER_STATE_NONE)
+        return 1;
+
+    if(!AccountData[playerid][IsLoggedIn])
+        return 1;
+
+    new Float:x, Float:y, Float:z;
+    GetPlayerPos(playerid, x, y, z);
+    if(x == 0.0 && y == 0.0 && z == 0.0)
+        return 1;
+
+    new pAcState = GetPlayerState(playerid);
+
+    // === Update rolling position history ===
+    new hidx = Anticheat[playerid][acHistoryIdx];
+    ac_HistoryPos[playerid][hidx * 3] = x;
+    ac_HistoryPos[playerid][hidx * 3 + 1] = y;
+    ac_HistoryPos[playerid][hidx * 3 + 2] = z;
+    ac_HistoryTime[playerid][hidx] = gettime();
+    Anticheat[playerid][acHistoryIdx] = (hidx + 1) % AC_HISTORY_FRAMES;
+
+    new immunity = Anticheat[playerid][acImmunity];
+
+    // Teleport >200m
+    if(gettime() > immunity && !IsPlayerInRangeOfPoint(playerid, 200.0, Anticheat[playerid][acPos][0], Anticheat[playerid][acPos][1], Anticheat[playerid][acPos][2])
+        && !IsPlayerInRangeOfPoint(playerid, 5.0, Anticheat[playerid][acSpawn][0], Anticheat[playerid][acSpawn][1], Anticheat[playerid][acSpawn][2]))
+    {
+        if(!AC_RangeCheck(Anticheat[playerid][acPos][0], Anticheat[playerid][acPos][1], Anticheat[playerid][acPos][2],
+            3.0, Anticheat[playerid][acSpawn][0], Anticheat[playerid][acSpawn][1], Anticheat[playerid][acSpawn][2])
+            && pAcState != PLAYER_STATE_PASSENGER && !IsPlayerNearModShop(playerid))
         {
-            if(gettime() > Anticheat[playerid][acImmunity])
-            {
-                if(!IsPlayerInRangeOfPoint(playerid, 200.0, Anticheat[playerid][acPos][0], Anticheat[playerid][acPos][1], Anticheat[playerid][acPos][2]) && !IsPlayerInRangeOfPoint(playerid, 5.0, Anticheat[playerid][acSpawn][0], Anticheat[playerid][acSpawn][1], Anticheat[playerid][acSpawn][2]))
-                {
-                    new
-                        Float:x,
-                        Float:y,
-                        Float:z;
-
-                    GetPlayerPos(playerid, x, y, z);
-
-                    if(!AC_RangeCheck(Anticheat[playerid][acPos][0], Anticheat[playerid][acPos][1], Anticheat[playerid][acPos][2], 3.0, Anticheat[playerid][acSpawn][0], Anticheat[playerid][acSpawn][1], Anticheat[playerid][acSpawn][2]) && x != 0.0 && y != 0.0 && z != 0.0 && GetPlayerState(playerid) != PLAYER_STATE_PASSENGER && !IsPlayerNearModShop(playerid))
-                    {
-                        OnPlayerTeleport(playerid, GetPlayerDistanceFromPoint(playerid, Anticheat[playerid][acPos][0], Anticheat[playerid][acPos][1], Anticheat[playerid][acPos][2]));
-                    }
-                }
-            }
-            else if(gettime() > Anticheat[playerid][acAirbreakTime] && !IsPlayerInRangeOfPoint(playerid, 10.0, Anticheat[playerid][acPos][0], Anticheat[playerid][acPos][1], Anticheat[playerid][acPos][2]))
-            {
-                if((GetPlayerState(playerid) == PLAYER_STATE_ONFOOT || GetPlayerState(playerid) == PLAYER_STATE_DRIVER) && GetPlayerSurfingVehicleID(playerid) == INVALID_VEHICLE_ID && GetPlayerSurfingObjectID(playerid) == INVALID_OBJECT_ID)
-                {
-                    // Player is 10.0 meters away from their position. Let's check their velocity!
-
-                    new
-                        Float:px,
-                        Float:py,
-                        Float:pz;
-
-                    GetPlayerPos(playerid, px, py, pz);
-
-                    px = floatabs(Anticheat[playerid][acPos][0] - px);
-                    py = floatabs(Anticheat[playerid][acPos][1] - py);
-                    pz = floatabs(Anticheat[playerid][acPos][2] - pz);
-
-                    // Player seems to have moved a great distance. Let's do more checking.
-                    if(((0.5 <= px < 13.9) && (0.5 <= py <= 13.9)) || (4.2 <= pz <= 19.2))
-                    {
-                        new
-                            Float:speed = AC_GetSpeed(playerid);
-
-                        if((0.082 <= speed <= 0.215 && GetPlayerState(playerid) == PLAYER_STATE_ONFOOT) || (0.0009 <= speed <= 0.0013 && GetPlayerState(playerid) == PLAYER_STATE_DRIVER))
-                        {
-                            // When airbreaking in the air, a player's velocity levels tend to stay at a regular speed, as they were moving onfoot.
-                            OnPlayerAirbreak(playerid);
-                            Anticheat[playerid][acAirbreakTime] = gettime() + 1;
-                        }
-                    }
-                }
-            }
-            GetPlayerPos(playerid, Anticheat[playerid][acPos][0], Anticheat[playerid][acPos][1], Anticheat[playerid][acPos][2]);
+            OnPlayerTeleport(playerid, GetPlayerDistanceFromPoint(playerid, Anticheat[playerid][acPos][0], Anticheat[playerid][acPos][1], Anticheat[playerid][acPos][2]));
         }
     }
+
+    // Teleport bertahap (>50m/3dtk tanpa velocity)
+    if(gettime() > immunity && pAcState != PLAYER_STATE_PASSENGER && !IsPlayerNearModShop(playerid))
+    {
+        new oldestIdx = (Anticheat[playerid][acHistoryIdx] + 1) % AC_HISTORY_FRAMES;
+        if(ac_HistoryTime[playerid][oldestIdx] > 0)
+        {
+            new Float:age = float(gettime() - ac_HistoryTime[playerid][oldestIdx]);
+            if(age > 2.0 && age < 5.0)
+            {
+                new Float:dx = ac_HistoryPos[playerid][oldestIdx * 3] - x;
+                new Float:dy = ac_HistoryPos[playerid][oldestIdx * 3 + 1] - y;
+                new Float:dz = ac_HistoryPos[playerid][oldestIdx * 3 + 2] - z;
+                new Float:dist = floatsqroot(dx*dx + dy*dy + dz*dz);
+
+                if(dist > 50.0 && !IsPlayerInAnyVehicle(playerid))
+                {
+                    new Float:speed = AC_GetSpeed(playerid);
+                    new Float:expSpeed = dist / age;
+                    if(speed < expSpeed * 0.3)
+                        OnPlayerTeleport(playerid, dist);
+                }
+            }
+        }
+    }
+
+    // Airbreak v2 — posSpeed vs velocity
+    if(gettime() > immunity && gettime() > Anticheat[playerid][acAirbreakTime]
+        && !IsPlayerInRangeOfPoint(playerid, 10.0, Anticheat[playerid][acPos][0], Anticheat[playerid][acPos][1], Anticheat[playerid][acPos][2]))
+    {
+        if((pAcState == PLAYER_STATE_ONFOOT || pAcState == PLAYER_STATE_DRIVER)
+            && GetPlayerSurfingVehicleID(playerid) == INVALID_VEHICLE_ID
+            && GetPlayerSurfingObjectID(playerid) == INVALID_OBJECT_ID)
+        {
+            new Float:dx = Anticheat[playerid][acPos][0] - x;
+            new Float:dy = Anticheat[playerid][acPos][1] - y;
+            new Float:dz = Anticheat[playerid][acPos][2] - z;
+            new Float:posSpeed = floatsqroot(dx*dx + dy*dy + dz*dz);
+
+            if(posSpeed > AC_AIRBREAK_POS_SPEED)
+            {
+                new Float:vel = AC_GetSpeed(playerid);
+                if(vel < AC_AIRBREAK_VEL_MAX)
+                {
+                    Anticheat[playerid][acAirbreakV2Warns]++;
+                    if(Anticheat[playerid][acAirbreakV2Warns] >= 3)
+                    {
+                        SendStaffMessage(Y_RED, "[AntiCheat] "YELLOW"%s(%i) {DBD7D2}ditendang karena Airbreak v2.", GetName(playerid), playerid);
+                        SendClientMessage(playerid, Y_RED, "[AntiCheat] {DBD7D2}Anda ditendang karena Airbreak.");
+                        KickEx(playerid);
+                        return 1;
+                    }
+                    else
+                    {
+                        SendStaffMessage(Y_RED, "[AntiCheat] "YELLOW"%s(%i) {DBD7D2}diduga Airbreak. [v2 warn %d/3] [posSpeed: %.1f vel: %.3f]",
+                            GetName(playerid), playerid, Anticheat[playerid][acAirbreakV2Warns], posSpeed, vel);
+                        Anticheat[playerid][acAirbreakTime] = gettime() + 2;
+                    }
+                }
+            }
+            else
+            {
+                new Float:dpx = floatabs(Anticheat[playerid][acPos][0] - x);
+                new Float:dpy = floatabs(Anticheat[playerid][acPos][1] - y);
+                new Float:dpz = floatabs(Anticheat[playerid][acPos][2] - z);
+
+                if(((0.5 <= dpx < 13.9) && (0.5 <= dpy <= 13.9)) || (4.2 <= dpz <= 19.2))
+                {
+                    new Float:speed = AC_GetSpeed(playerid);
+                    if((0.082 <= speed <= 0.215 && pAcState == PLAYER_STATE_ONFOOT) || (0.0009 <= speed <= 0.0013 && pAcState == PLAYER_STATE_DRIVER))
+                    {
+                        OnPlayerAirbreak(playerid);
+                        Anticheat[playerid][acAirbreakTime] = gettime() + 1;
+                    }
+                }
+            }
+        }
+    }
+
+    GetPlayerPos(playerid, Anticheat[playerid][acPos][0], Anticheat[playerid][acPos][1], Anticheat[playerid][acPos][2]);
     return 1;
 }

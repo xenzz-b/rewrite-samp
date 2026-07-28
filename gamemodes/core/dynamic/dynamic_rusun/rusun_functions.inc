@@ -890,23 +890,23 @@ Dialog:RusunItemVaultOut(playerid, response, listitem, inputtext[])
     return 1;
 }
 
-task RusunRentedCheck[60000]() 
-{
-    if(gettime() > RusunExpired)
-    {
-        RusunExpired = gettime() + DEFAULT_RUSUN_RESET;
-
-        new fsrs[228];
-        mysql_format(g_SQL, fsrs, sizeof(fsrs), "UPDATE `stuffs` SET `rusunreset`=%d WHERE `id`=0", RusunExpired);
-        mysql_pquery(g_SQL, fsrs);
-
-        foreach(new rsid : Rusuns)
-        {
-            Rusun_Reset(rsid);
-        }
-
-        SendClientMessageToAllEx(X11_YELLOW, "[i] Semua rusun telah digusur karena sudah 30 hari.");
-        print("[i] Semua rusun telah digusur karena sudah 30 hari.");
-    }
-    return 1;
-}
+// task RusunRentedCheck[60000]() 
+// {
+//     if(gettime() > RusunExpired)
+//     {
+//         RusunExpired = gettime() + DEFAULT_RUSUN_RESET;
+// 
+//         new fsrs[228];
+//         mysql_format(g_SQL, fsrs, sizeof(fsrs), "UPDATE `stuffs` SET `rusunreset`=%d WHERE `id`=0", RusunExpired);
+//         mysql_pquery(g_SQL, fsrs);
+// 
+//         foreach(new rsid : Rusuns)
+//         {
+//             Rusun_Reset(rsid);
+//         }
+// 
+//         SendClientMessageToAllEx(X11_YELLOW, "[i] Semua rusun telah digusur karena sudah 30 hari.");
+//         print("[i] Semua rusun telah digusur karena sudah 30 hari.");
+//     }
+//     return 1;
+// }

@@ -186,12 +186,12 @@ hook OnPlayerEnterDynamicCP(playerid, STREAMER_TAG_CP:checkpointid)
                 if(DestroyDynamicCP(TrashCollectorBackCP[playerid]))
                     TrashCollectorBackCP[playerid] = STREAMER_TAG_CP: INVALID_STREAMER_ID;
 
-                GivePlayerMoneyEx(playerid, 1000);
+                GivePlayerMoneyEx(playerid, 10000);
 
-                ShowItemBox(playerid, "Cash", "Received $1,000x", 1212, 1);
+                ShowItemBox(playerid, "Cash", "Received $10,000x", 1212, 1);
 
                 PlayerPlaySound(playerid, 183, 0.0, 0.0, 0.0);
-                GameTextForPlayer(playerid, "mission passed!~n~~w~$1,000", 8900, 0);
+                GameTextForPlayer(playerid, "mission passed!~n~~w~$10,000", 8900, 0);
                 SetTimerEx("StopMissPassed", 8000, false, "i", playerid);
             }
         }

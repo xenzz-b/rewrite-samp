@@ -2868,22 +2868,6 @@ Dialog:MDC_NameDashboard(playerid, response, listitem, inputtext[])
                 "Penjahit"
             };
 
-            static const FacName[12][] = 
-            {
-                "Warga",
-                "Kepolisian",
-                "Paramedis",
-                "Pring Sewu Beach Club",
-                "Pemerintah",
-                "Bennys Automotive",
-                "Uber",
-                "Pinky Tiger Club",
-                "Pewarta",
-                "DriftKing Workshop",
-                "Jaya Abadi",
-                "Sri Mersing Resto"
-            };
-
             static const PringSewuRank[11][] = 
             {
                 "N/A",

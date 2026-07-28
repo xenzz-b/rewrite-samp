@@ -191,7 +191,7 @@ StopMowingSidejob(playerid)
     PlayerPlaySound(playerid, 5201, 0.0, 0.0, 0.0);
 
     static Float:pricing, string[144];
-    pricing = MowingCountingGrass[playerid] * 2;
+    pricing = MowingCountingGrass[playerid] * 20;
     GivePlayerMoneyEx(playerid, floatround(pricing));
     format(string, sizeof(string), "[Sidejob] "WHITE"The mowing task is complete, and you have earned a payment of "SEAGREEN"$%s.", FormatMoney(floatround(pricing)));
     SendClientMessage(playerid, X11_CORAL, string);

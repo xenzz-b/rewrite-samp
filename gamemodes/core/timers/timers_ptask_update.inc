@@ -3736,203 +3736,6 @@ ptask UpdateTimeOtherFunc[1000](playerid)
         }
     }
 
-    if(pBintangKejoraCookingTimer[playerid])
-    {
-        if(!IsPlayerConnected(playerid))
-        {
-            pBintangKejoraCookingTimer[playerid] = false;
-            return 0;
-        }
-
-        if(Inventory_Count(playerid, "Kentang Potong") < 5)
-        {
-            ClearAnimations(playerid, true);
-            StopLoopingAnim(playerid);
-            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
-
-            AccountData[playerid][pActivityTime] = 0;
-            pBintangKejoraCookingTimer[playerid] = false;
-            HideProgressBar(playerid);
-
-            ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki cukup Kentang Potong! (Min: 5).");
-            return 0;
-        }
-
-        if(Inventory_Count(playerid, "Kubis Potong") < 5)
-        {
-            ClearAnimations(playerid, true);
-            StopLoopingAnim(playerid);
-            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
-
-            AccountData[playerid][pActivityTime] = 0;
-            pBintangKejoraCookingTimer[playerid] = false;
-            HideProgressBar(playerid);
-
-            ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki cukup Kubis Potong! (Min: 5).");
-            return 0;
-        }
-
-        if(Inventory_Count(playerid, "Bawang Potong") < 5)
-        {
-            ClearAnimations(playerid, true);
-            StopLoopingAnim(playerid);
-            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
-
-            AccountData[playerid][pActivityTime] = 0;
-            pBintangKejoraCookingTimer[playerid] = false;
-            HideProgressBar(playerid);
-
-            ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki cukup Bawang Potong! (Min: 5).");
-            return 0;
-        }
-
-        if(Inventory_Count(playerid, "Tomat Potong") < 5)
-        {
-            ClearAnimations(playerid, true);
-            StopLoopingAnim(playerid);
-            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
-
-            AccountData[playerid][pActivityTime] = 0;
-            pBintangKejoraCookingTimer[playerid] = false;
-            HideProgressBar(playerid);
-
-            ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki cukup Tomat Potong! (Min: 5).");
-            return 0;
-        }
-
-        if(Inventory_Count(playerid, "Air") < 5)
-        {
-            ClearAnimations(playerid, true);
-            StopLoopingAnim(playerid);
-            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
-
-            AccountData[playerid][pActivityTime] = 0;
-            pBintangKejoraCookingTimer[playerid] = false;
-            HideProgressBar(playerid);
-
-            ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki cukup Air! (Min: 5).");
-            return 0;
-        }
-
-        if(Inventory_Count(playerid, "Gula") < 5)
-        {
-            ClearAnimations(playerid, true);
-            StopLoopingAnim(playerid);
-            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
-
-            AccountData[playerid][pActivityTime] = 0;
-            pBintangKejoraCookingTimer[playerid] = false;
-            HideProgressBar(playerid);
-
-            ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki cukup Gula! (Min: 5).");
-            return 0;
-        }
-
-        if(Inventory_Count(playerid, "Micin") < 5)
-        {
-            ClearAnimations(playerid, true);
-            StopLoopingAnim(playerid);
-            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
-
-            AccountData[playerid][pActivityTime] = 0;
-            pBintangKejoraCookingTimer[playerid] = false;
-            HideProgressBar(playerid);
-
-            ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki cukup Micin! (Min: 5).");
-            return 0;
-        }
-
-        if(Inventory_Count(playerid, "Ayam Kemas") < 5)
-        {
-            ClearAnimations(playerid, true);
-            StopLoopingAnim(playerid);
-            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
-
-            AccountData[playerid][pActivityTime] = 0;
-            pBintangKejoraCookingTimer[playerid] = false;
-            HideProgressBar(playerid);
-
-            ShowTDN(playerid, NOTIFICATION_ERROR, "Anda tidak memiliki cukup Ayam Kemas! (Min: 5).");
-            return 0;
-        }
-
-        if(GetTotalWeightFloat(playerid) >= GetPlayerInventoryWeight(playerid))
-        {
-            ClearAnimations(playerid, true);
-            StopLoopingAnim(playerid);
-            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
-
-            pBintangKejoraCookingTimer[playerid] = false;
-            AccountData[playerid][pActivityTime] = 0;
-            HideProgressBar(playerid);
-
-            ClearAnimations(playerid, true);
-            StopLoopingAnim(playerid);
-            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
-            TogglePlayerControllable(playerid, true);
-
-            ShowTDN(playerid, NOTIFICATION_ERROR, "Inventory anda sudah penuh!");
-            return 0;
-        }
-
-        if(AccountData[playerid][pActivityTime] >= 11)
-        {
-            ClearAnimations(playerid, true);
-            StopLoopingAnim(playerid);
-            SetPlayerSpecialAction(playerid, SPECIAL_ACTION_NONE);
-            
-            AccountData[playerid][pActivityTime] = 0;
-            pBintangKejoraCookingTimer[playerid] = false;
-            HideProgressBar(playerid);
-
-            Inventory_Remove(playerid, "Kentang Potong", 5);
-            Inventory_Remove(playerid, "Kubis Potong", 5);
-            Inventory_Remove(playerid, "Bawang Potong", 5);
-            Inventory_Remove(playerid, "Tomat Potong", 5);
-            Inventory_Remove(playerid, "Air", 5);
-            Inventory_Remove(playerid, "Gula", 5);
-            Inventory_Remove(playerid, "Micin", 5);
-            Inventory_Remove(playerid, "Ayam Kemas", 5);
-
-            ShowItemBox(playerid, "Kentang Potong", "Removed 5x", 19574, 4);
-            ShowItemBox(playerid, "Kubis Potong", "Removed 5x", 19576, 5);
-            ShowItemBox(playerid, "Bawang Potong", "Removed 5x", 19575, 6);
-            ShowItemBox(playerid, "Tomat Potong", "Removed 5x", 19577, 7);
-            ShowItemBox(playerid, "Air", "Removed 5x", 19570, 8);
-            ShowItemBox(playerid, "Gula", "Removed 5x", 1279, 9);
-            ShowItemBox(playerid, "Micin", "Removed 5x", 19573, 10);
-            ShowItemBox(playerid, "Ayam Kemas", "Removed 5x", 2768, 11);
-            
-            switch(AccountData[playerid][pTempValue2])
-            {
-                case 0:
-                {
-                    Inventory_Add(playerid, "Fresh Solar", 2663);
-                    ShowItemBox(playerid, "Fresh Solar", "Received 1x", 2663, 11);
-                }
-                case 1:
-                {
-                    Inventory_Add(playerid, "Softex Flash", 2663);
-                    ShowItemBox(playerid, "Softex Flash", "Received 1x", 2663, 11);
-                }
-                case 2:
-                {
-                    Inventory_Add(playerid, "Purple Sweet", 2663);
-                    ShowItemBox(playerid, "Purple Sweet", "Received 1x", 2663, 11);
-                }
-            }
-            AccountData[playerid][pTempValue2] = -1;
-        }
-        else
-        {
-            AccountData[playerid][pActivityTime] ++;
-
-            static Float:progressvalue;
-            progressvalue = AccountData[playerid][pActivityTime] * 102.0/11;
-            PlayerTextDrawTextSize(playerid, ProgressBar[playerid][0], progressvalue, 20.0);
-            PlayerTextDrawShow(playerid, ProgressBar[playerid][0]);
-        }
-    }
 
     // if(pOpenBackpackTimer[playerid])
     // {
@@ -7023,12 +6826,12 @@ ptask UpdateTimeJob3[1000](playerid)
             new Float:distancia, Float:pricing;
             distancia = GetPlayerDistanceFromPoint(playerid, LastDeliveryPos[playerid][0], LastDeliveryPos[playerid][1], LastDeliveryPos[playerid][2]);
             
-            pricing = distancia * 0.421;
+            pricing = distancia * 4.21;
 
-            if(floatround(pricing) < 100)
+            if(floatround(pricing) < 1000)
             {
-                GivePlayerMoneyEx(playerid, 75);
-                ShowItemBox(playerid, "Cash", "Received $75x", 1212, 5);
+                GivePlayerMoneyEx(playerid, 750);
+                ShowItemBox(playerid, "Cash", "Received $750x", 1212, 5);
             }
             else
             {
@@ -7258,8 +7061,8 @@ ptask UpdateTimeJob3[1000](playerid)
 
             TogglePlayerControllable(playerid, true);
 
-            GivePlayerMoneyEx(playerid, 35);
-            ShowItemBox(playerid, "Cash", "Received $35x", 1212, 5);
+            GivePlayerMoneyEx(playerid, 350);
+            ShowItemBox(playerid, "Cash", "Received $350x", 1212, 5);
 
             AngkotRute[playerid]++;
             AngkotPenumpang[playerid] = false;
@@ -7362,8 +7165,8 @@ ptask UpdateTimeJob3[1000](playerid)
 
             TogglePlayerControllable(playerid, true);
 
-            GivePlayerMoneyEx(playerid, 800);
-            ShowItemBox(playerid, "Cash", "Received $800x", 1212, 5);
+            GivePlayerMoneyEx(playerid, 8000);
+            ShowItemBox(playerid, "Cash", "Received $8,000x", 1212, 5);
 
             PlayerPlaySound(playerid, SOUND_CHECKPOINT, 0.0, 0.0, 0.0);
 
@@ -7379,8 +7182,8 @@ ptask UpdateTimeJob3[1000](playerid)
                     SetPlayerPos(playerid, 723.1931,-1495.6730,1.9343);
                     SetPlayerFacingAngle(playerid, 0.0);
 
-                    GivePlayerMoneyEx(playerid, 800);
-                    ShowItemBox(playerid, "Cash", "Received $800x", 1212, 6);
+                    GivePlayerMoneyEx(playerid, 8000);
+                    ShowItemBox(playerid, "Cash", "Received $8,000x", 1212, 6);
 
                     SailRute[playerid] = -1;
                     SailRouteType[playerid] = 0;
@@ -7401,8 +7204,8 @@ ptask UpdateTimeJob3[1000](playerid)
                     SetPlayerPos(playerid, 1628.0438,580.3433,1.7578);
                     SetPlayerFacingAngle(playerid, 360.0);
 
-                    GivePlayerMoneyEx(playerid, 800);
-                    ShowItemBox(playerid, "Cash", "Received $800x", 1212, 6);
+                    GivePlayerMoneyEx(playerid, 8000);
+                    ShowItemBox(playerid, "Cash", "Received $8,000x", 1212, 6);
 
                     SailRute[playerid] = -1;
                     SailRouteType[playerid] = 0;
@@ -7766,14 +7569,14 @@ ptask UpdateTimeJob4[1000](playerid)
                 {
                     if(MixerPercent[playerid] > 0)
                     {
-                        GivePlayerMoneyEx(playerid, 250);
-                        ShowItemBox(playerid, "Cash", "Received $250x", 1212, 5);
+                        GivePlayerMoneyEx(playerid, 2500);
+                        ShowItemBox(playerid, "Cash", "Received $2,500x", 1212, 5);
                         ShowTDN(playerid, NOTIFICATION_WARNING, "Anda mengantarkan beton tepat waktu dengan slump yang terjaga!");
                     }
                     else
                     {
-                        GivePlayerMoneyEx(playerid, 50);
-                        ShowItemBox(playerid, "Cash", "Received $50x", 1212, 5);
+                        GivePlayerMoneyEx(playerid, 500);
+                        ShowItemBox(playerid, "Cash", "Received $500x", 1212, 5);
                         ShowTDN(playerid, NOTIFICATION_WARNING, "Anda tidak menjaga slump beton dengan baik!");
                     }
                 }
@@ -7781,14 +7584,14 @@ ptask UpdateTimeJob4[1000](playerid)
                 {
                     if(MixerPercent[playerid] > 0)
                     {
-                        GivePlayerMoneyEx(playerid, 150);
-                        ShowItemBox(playerid, "Cash", "Received $150x", 1212, 5);
+                        GivePlayerMoneyEx(playerid, 1500);
+                        ShowItemBox(playerid, "Cash", "Received $1,500x", 1212, 5);
                         ShowTDN(playerid, NOTIFICATION_WARNING, "Anda mengantarkan beton tepat waktu dengan slump yang terjaga!");
                     }
                     else
                     {
-                        GivePlayerMoneyEx(playerid, 35);
-                        ShowItemBox(playerid, "Cash", "Received $35x", 1212, 5);
+                        GivePlayerMoneyEx(playerid, 350);
+                        ShowItemBox(playerid, "Cash", "Received $350x", 1212, 5);
                         ShowTDN(playerid, NOTIFICATION_WARNING, "Anda tidak menjaga slump beton dengan baik!");
                     }
                 }
@@ -7796,14 +7599,14 @@ ptask UpdateTimeJob4[1000](playerid)
                 {
                     if(MixerPercent[playerid] > 0)
                     {
-                        GivePlayerMoneyEx(playerid, 175);
-                        ShowItemBox(playerid, "Cash", "Received $175x", 1212, 5);
+                        GivePlayerMoneyEx(playerid, 1750);
+                        ShowItemBox(playerid, "Cash", "Received $1,750x", 1212, 5);
                         ShowTDN(playerid, NOTIFICATION_WARNING, "Anda mengantarkan beton tepat waktu dengan slump yang terjaga!");
                     }
                     else
                     {
-                        GivePlayerMoneyEx(playerid, 40);
-                        ShowItemBox(playerid, "Cash", "Received $40x", 1212, 5);
+                        GivePlayerMoneyEx(playerid, 400);
+                        ShowItemBox(playerid, "Cash", "Received $400x", 1212, 5);
                         ShowTDN(playerid, NOTIFICATION_WARNING, "Anda tidak menjaga slump beton dengan baik!");
                     }
                 }
@@ -7811,14 +7614,14 @@ ptask UpdateTimeJob4[1000](playerid)
                 {
                     if(MixerPercent[playerid] > 0)
                     {
-                        GivePlayerMoneyEx(playerid, 250);
-                        ShowItemBox(playerid, "Cash", "Received $250x", 1212, 5);
+                        GivePlayerMoneyEx(playerid, 2500);
+                        ShowItemBox(playerid, "Cash", "Received $2,500x", 1212, 5);
                         ShowTDN(playerid, NOTIFICATION_WARNING, "Anda mengantarkan beton tepat waktu dengan slump yang terjaga!");
                     }
                     else
                     {
-                        GivePlayerMoneyEx(playerid, 50);
-                        ShowItemBox(playerid, "Cash", "Received $50x", 1212, 5);
+                        GivePlayerMoneyEx(playerid, 500);
+                        ShowItemBox(playerid, "Cash", "Received $500x", 1212, 5);
                         ShowTDN(playerid, NOTIFICATION_WARNING, "Anda tidak menjaga slump beton dengan baik!");
                     }
                 }
@@ -7826,14 +7629,14 @@ ptask UpdateTimeJob4[1000](playerid)
                 {
                     if(MixerPercent[playerid] > 0)
                     {
-                        GivePlayerMoneyEx(playerid, 175);
-                        ShowItemBox(playerid, "Cash", "Received $175x", 1212, 5);
+                        GivePlayerMoneyEx(playerid, 1750);
+                        ShowItemBox(playerid, "Cash", "Received $1,750x", 1212, 5);
                         ShowTDN(playerid, NOTIFICATION_WARNING, "Anda mengantarkan beton tepat waktu dengan slump yang terjaga!");
                     }
                     else
                     {
-                        GivePlayerMoneyEx(playerid, 40);
-                        ShowItemBox(playerid, "Cash", "Received $40x", 1212, 5);
+                        GivePlayerMoneyEx(playerid, 400);
+                        ShowItemBox(playerid, "Cash", "Received $400x", 1212, 5);
                         ShowTDN(playerid, NOTIFICATION_WARNING, "Anda tidak menjaga slump beton dengan baik!");
                     }
                 }

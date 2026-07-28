@@ -900,11 +900,11 @@ ResetVariables(playerid)
 	//pBangunanStep[playerid] = 0;
 	//pBangunanWorked[playerid] = false;
 
-	Anticheat[playerid][acArmorTime] = 0;
-	Anticheat[playerid][acHealthTime] = 0;
-	Anticheat[playerid][acImmunity] = 0;
-	Anticheat[playerid][acHealth] = 100.0;
-	Anticheat[playerid][acArmour] = 0.0;
+	Anticheat[playerid][acArmorTime] = gettime() + 8;
+	Anticheat[playerid][acHealthTime] = gettime() + 8;
+	Anticheat[playerid][acImmunity] = gettime() + 5;
+	GetPlayerHealth(playerid, Anticheat[playerid][acHealth]);
+	GetPlayerArmour(playerid, Anticheat[playerid][acArmour]);
 	Anticheat[playerid][acHealthWarns] = 0;
 	Anticheat[playerid][acArmorWarns] = 0;
 	Anticheat[playerid][acVehHealthWarns] = 0;
@@ -1945,15 +1945,15 @@ ResetPlayerMoneyEx(playerid)
 	return ResetPlayerMoney(playerid);
 }
 
-//Anti Health and Armour Hack - Fixed & Optimized by Claps
+//Anti Health and Armour Hack
 SetPlayerHealthEx(playerid, Float:heal)
 {
 	new sphex[128];
 	if(heal > 0.0)
 	{
+		if(heal > 100.0) heal = 100.0;
 		AccountData[playerid][pHealth] = heal;
 		SetPlayerHealth(playerid, heal);
-		// Set AC immunity to prevent false positives for legit heals
 		Anticheat[playerid][acHealth] = heal;
 		Anticheat[playerid][acHealthTime] = gettime() + 3;
 	}
@@ -1972,7 +1972,8 @@ SetPlayerHealthEx(playerid, Float:heal)
 SetPlayerArmourEx(playerid, Float:armor)
 {
     new spaex[128];
-	Anticheat[playerid][acArmorTime] = gettime() + 3; // reduced from 11 to 3 for faster detection, optimized by Claps
+	if(armor > 100.0) armor = 100.0;
+	Anticheat[playerid][acArmorTime] = gettime() + 5;
 	Anticheat[playerid][acArmour] = armor;
 	AccountData[playerid][pHasArmor] = true;
 	SetPlayerArmour(playerid, armor);
