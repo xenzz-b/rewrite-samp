@@ -2002,13 +2002,22 @@ public UnfreezeSpawn(playerid)
 		AccountData[playerid][pHasArmor] = true;
 		SetPlayerArmour(playerid, AccountData[playerid][pArmor]);
 		AccountData[playerid][pArmorEmpty] = false;
+		Anticheat[playerid][acArmour] = AccountData[playerid][pArmor];
+		Anticheat[playerid][acArmorTime] = gettime() + 5;
 	}
 	else
 	{
 		SetPlayerArmour(playerid, 0.0);
 		AccountData[playerid][pHasArmor] = false;
 		AccountData[playerid][pArmorEmpty] = true;
+		Anticheat[playerid][acArmour] = 0.0;
+		Anticheat[playerid][acArmorTime] = gettime() + 5;
 	}
+
+	// Sync Anticheat health tracking after spawn
+	Anticheat[playerid][acHealth] = AccountData[playerid][pHealth];
+	Anticheat[playerid][acHealthTime] = gettime() + 5;
+	
 	AttachPlayerToys(playerid);
 	SetWeapons(playerid);
 	
