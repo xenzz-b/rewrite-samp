@@ -589,8 +589,8 @@ ptask AntiCheatHealthArmor[1000](playerid)
                 return 1;
             }
         }
+        Anticheat[playerid][acHealth] = health;
     }
-    Anticheat[playerid][acHealth] = health;
 
     // ARMOR SPAWN — tanpa flag
     if(gettime() > Anticheat[playerid][acArmorTime])
@@ -625,8 +625,8 @@ ptask AntiCheatHealthArmor[1000](playerid)
                 return 1;
             }
         }
+        Anticheat[playerid][acArmour] = armour;
     }
-    Anticheat[playerid][acArmour] = armour;
 
     return 1;
 }
