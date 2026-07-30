@@ -1796,6 +1796,10 @@ SetPlayerSpawn(playerid)
 		SetPlayerScore(playerid, AccountData[playerid][pLevel]);
 		TogglePlayerControllable(playerid, false);
 		SetTimerEx("UnfreezeSpawn", 8500, false, "i", playerid);
+
+		// Sync Anticheat tracking segera setelah set health
+		Anticheat[playerid][acHealth] = AccountData[playerid][pHealth];
+		Anticheat[playerid][acHealthTime] = gettime() + 3;
 	}
 	return 1;
 }

@@ -581,9 +581,6 @@ ptask AntiCheatHealthArmor[1000](playerid)
                 new Float:restoreH = (Anticheat[playerid][acHealth] > 10.0) ? Anticheat[playerid][acHealth] : 100.0;
                 SetPlayerHealth(playerid, restoreH);
                 AccountData[playerid][pHealth] = restoreH;
-                new Float:restoreA = (Anticheat[playerid][acArmour] > 5.0) ? Anticheat[playerid][acArmour] : 0.0;
-                SetPlayerArmour(playerid, restoreA);
-                AccountData[playerid][pArmor] = restoreA;
                 SendStaffMessage(Y_RED, "[AC] %s[%d] Health spawn +%.0f (%.0f>%.0f) kicked", GetName(playerid), playerid,
                     health - Anticheat[playerid][acHealth], Anticheat[playerid][acHealth], health);
                 SaveACRestore(playerid);
