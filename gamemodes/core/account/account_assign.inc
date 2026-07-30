@@ -262,6 +262,10 @@ public LoadCharacterData(playerid)
 
 		if(AccountData[playerid][pHealth] < 5.0) AccountData[playerid][pHealth] = 100.00;
 
+		// Backup DB values untuk AC restore
+		Anticheat[playerid][acDBHealth] = AccountData[playerid][pHealth];
+		Anticheat[playerid][acDBArmour] = AccountData[playerid][pArmor];
+
 		mysql_format(g_SQL, string, sizeof(string), "SELECT * FROM `player_clothes` WHERE `Owner`=%d", AccountData[playerid][pID]);
 		mysql_pquery(g_SQL, string, "LoadPlayerClothes", "i", playerid);
 

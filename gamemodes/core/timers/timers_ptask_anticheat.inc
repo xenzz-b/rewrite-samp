@@ -548,9 +548,8 @@ ptask AntiCheatHealthArmor[1000](playerid)
     // HEALTH >100 (pasti cheat kecuali legit)
     if(health > 100.5 && !legitHealth)
     {
-        new Float:restoreH = (Anticheat[playerid][acHealth] > 10.0) ? Anticheat[playerid][acHealth] : 100.0;
-        SetPlayerHealth(playerid, restoreH);
-        AccountData[playerid][pHealth] = restoreH;
+        SetPlayerHealth(playerid, Anticheat[playerid][acDBHealth]);
+        AccountData[playerid][pHealth] = Anticheat[playerid][acDBHealth];
         SendStaffMessage(Y_RED, "[AC] %s[%d] Health >100 (%.1f) kicked", GetName(playerid), playerid, health);
         SaveACRestore(playerid);
         SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Health Hack (over max).");
@@ -561,9 +560,8 @@ ptask AntiCheatHealthArmor[1000](playerid)
     // ARMOUR >100 (pasti cheat)
     if(armour > 100.5 && !legitArmor)
     {
-        new Float:restoreA = (Anticheat[playerid][acArmour] > 5.0) ? Anticheat[playerid][acArmour] : 0.0;
-        SetPlayerArmour(playerid, restoreA);
-        AccountData[playerid][pArmor] = restoreA;
+        SetPlayerArmour(playerid, Anticheat[playerid][acDBArmour]);
+        AccountData[playerid][pArmor] = Anticheat[playerid][acDBArmour];
         SendStaffMessage(Y_RED, "[AC] %s[%d] Armour >100 (%.1f) kicked", GetName(playerid), playerid, armour);
         SaveACRestore(playerid);
         SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Armour Hack (over max).");
@@ -578,9 +576,8 @@ ptask AntiCheatHealthArmor[1000](playerid)
         {
             if(!legitHealth)
             {
-                new Float:restoreH = (Anticheat[playerid][acHealth] > 10.0) ? Anticheat[playerid][acHealth] : 100.0;
-                SetPlayerHealth(playerid, restoreH);
-                AccountData[playerid][pHealth] = restoreH;
+                SetPlayerHealth(playerid, Anticheat[playerid][acDBHealth]);
+                AccountData[playerid][pHealth] = Anticheat[playerid][acDBHealth];
                 SendStaffMessage(Y_RED, "[AC] %s[%d] Health spawn +%.0f (%.0f>%.0f) kicked", GetName(playerid), playerid,
                     health - Anticheat[playerid][acHealth], Anticheat[playerid][acHealth], health);
                 SaveACRestore(playerid);
@@ -599,9 +596,8 @@ ptask AntiCheatHealthArmor[1000](playerid)
         {
             if(armour > 1.0)
             {
-                new Float:restoreA = (Anticheat[playerid][acArmour] > 5.0) ? Anticheat[playerid][acArmour] : 0.0;
-                SetPlayerArmour(playerid, restoreA);
-                AccountData[playerid][pArmor] = restoreA;
+                SetPlayerArmour(playerid, Anticheat[playerid][acDBArmour]);
+                AccountData[playerid][pArmor] = Anticheat[playerid][acDBArmour];
                 SendStaffMessage(Y_RED, "[AC] %s[%d] Armour spawn no-flag (%.0f) kicked", GetName(playerid), playerid, armour);
                 SaveACRestore(playerid);
                 SendClientMessage(playerid, Y_RED, "[AntiCheat] Anda ditendang karena Armour Hack.");
@@ -614,9 +610,8 @@ ptask AntiCheatHealthArmor[1000](playerid)
         {
             if(!legitArmor)
             {
-                new Float:restoreA = (Anticheat[playerid][acArmour] > 5.0) ? Anticheat[playerid][acArmour] : 0.0;
-                SetPlayerArmour(playerid, restoreA);
-                AccountData[playerid][pArmor] = restoreA;
+                SetPlayerArmour(playerid, Anticheat[playerid][acDBArmour]);
+                AccountData[playerid][pArmor] = Anticheat[playerid][acDBArmour];
                 SendStaffMessage(Y_RED, "[AC] %s[%d] Armour spawn +%.0f (%.0f>%.0f) kicked", GetName(playerid), playerid,
                     armour - Anticheat[playerid][acArmour], Anticheat[playerid][acArmour], armour);
                 SaveACRestore(playerid);

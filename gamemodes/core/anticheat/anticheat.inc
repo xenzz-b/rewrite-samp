@@ -72,6 +72,8 @@ enum e_Anticheat
     acHealthTime,
     Float:acHealth,
     Float:acArmour,
+    Float:acDBHealth,
+    Float:acDBArmour,
     acHealthWarns,
     acArmorWarns,
     acVehHealthWarns,
